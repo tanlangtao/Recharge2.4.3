@@ -135,7 +135,7 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.publicAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('PublicAlert').init(data)
+        node.getComponent('payPublicAlert').init(data)
     }
     // update (dt) {}
 }

@@ -64,7 +64,7 @@ export default class NewClass extends cc.Component {
     onClick(){
         //按键音效
         this.app.clickClip.play();
-
+        this.app.showLoading();
         if(this.text == '支付宝'){
             this.addContent('alipay')
 
@@ -88,7 +88,7 @@ export default class NewClass extends cc.Component {
     addContent(data){
         var content = cc.find('Canvas/Recharge/Content');
         var node = cc.instantiate(this.Zfb);
-        node.getComponent('Zfb').init(data);
+        node.getComponent('payZfb').init(data);
         content.removeAllChildren();
         content.addChild(node);
     }

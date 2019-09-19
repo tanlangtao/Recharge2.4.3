@@ -59,10 +59,10 @@ export default class NewClass extends cc.Component {
     public historyBtnClick(){
         //按键音效
         this.app.clickClip.play();
-
+        this.app.showLoading();
         var node = cc.instantiate(this.CashHistory);
-        var canvas = cc.find('Canvas');
-        canvas.addChild(node);
+        var Cash = cc.find('Canvas/Cash');
+        Cash.addChild(node);
     }
 
     public addNavToggle(){
@@ -80,17 +80,17 @@ export default class NewClass extends cc.Component {
         for(let i:number = 0; i< arr.length; i++){
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);
-            node.getComponent('DhToggle').init({
+            node.getComponent('payDhToggle').init({
                 text:arr[i]
             })
         }
         //首次加载，顺序第一的显示
         if(arr[0]=='人工兑换'){
-            node.getComponent('DhToggle').addDh()
+            node.getComponent('payDhToggle').addDh()
         }else if(this.results.data.withDraw_info.bankcard.channel.length > 0){
-            node.getComponent('DhToggle').addContent('BankDh')
+            node.getComponent('payDhToggle').addContent('BankDh')
         }else if(this.results.data.withDraw_info.alipay.channel.length > 0){
-            node.getComponent('DhToggle').addContent('Dh')
+            node.getComponent('payDhToggle').addContent('Dh')
         }
     }
     

@@ -45,6 +45,7 @@ export default class NewClass extends cc.Component {
             //结果返回之前先清空列表
             self.List.removeAllChildren();
             if(response.status == 0){
+                this.app.hideLoading();
                 self.results = response;
                 self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`;
                 var listArr = response.data.list;
@@ -52,7 +53,7 @@ export default class NewClass extends cc.Component {
                     var data = listArr[i];
                     var node = cc.instantiate(self.ListItem);
                     self.List.addChild(node);
-                    node.getComponent('RechargeHistoryListItem').init({
+                    node.getComponent('payRechargeHistoryListItem').init({
                         amount : data.amount,
                         arrival_amount : data.arrival_amount,
                         status : data.status,
@@ -75,7 +76,7 @@ export default class NewClass extends cc.Component {
         for(let i:number = 0; i< arr.length; i++){
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);
-            node.getComponent('RechargeHistoryToggle').init({
+            node.getComponent('payRechargeHistoryToggle').init({
                 text : arr[i],
                 index : i,
                 parentComponet:this
@@ -90,7 +91,7 @@ export default class NewClass extends cc.Component {
         //刷新Dc的数据
         let Dc = cc.find('Canvas/Recharge/Content/Dc');
         if(Dc){
-            Dc.getComponent('Dc').fetchIndex()
+            Dc.getComponent('payDc').fetchIndex()
         }
     }
 

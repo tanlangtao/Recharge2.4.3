@@ -89,6 +89,7 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
+                this.app.hideLoading();
                 self.data = response;
                 self.init();
                 self.initRender();
@@ -121,7 +122,7 @@ export default class NewClass extends cc.Component {
             for( var i = 0 ; i < this.bankData.length ; i++){
                 var node = cc.instantiate(this.sellSelectItem);
                 this.selectBankContent.addChild(node);
-                node.getComponent('SellSelectItem').init({
+                node.getComponent('paySellSelectItem').init({
                     text:JSON.parse(this.bankData[i].info).card_num,
                     Label:this.accountLabel,
                     showSelect:this.showBankSelect,
@@ -174,7 +175,7 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.TestPasswordAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('TestPasswordAlert').init({
+        node.getComponent('payTestPasswordAlert').init({
             parentComponent:this,
             type : type
         })
@@ -189,7 +190,7 @@ export default class NewClass extends cc.Component {
         let rate = cash.results.data.package_rate ?Number (cash.results.data.package_rate)  : 0;
         let rate2 =cash.results.data.channel_rate ?Number (cash.results.data.channel_rate)  : 0;
         let rateMount = (rate+rate2)*Number(this.amountLabel.string);
-        node.getComponent('CashAlert').init({
+        node.getComponent('payCashAlert').init({
             parentComponent:this,
             rateMount: rateMount,
             amount:Number(this.amountLabel.string)
@@ -232,7 +233,7 @@ export default class NewClass extends cc.Component {
             if(Number(this.results[i].is_close) > 0){
                 var node = cc.instantiate(this.SelectItem);
                 this.selectContent.addChild(node);
-                node.getComponent('SelectItem').init({
+                node.getComponent('paySelectItem').init({
                     text:this.results[i].channel_name,
                     parentComponent:this,
                     index:i,
@@ -268,14 +269,14 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.ChangePasswordAlert);
             var canvas = cc.find('Canvas');
             canvas.addChild(node);
-            node.getComponent('ChangePasswordAlert').init({
+            node.getComponent('payChangePasswordAlert').init({
                 parentComponent:this
             })
         }else{
             var node = cc.instantiate(this.SetPasswordAlert);
             var canvas = cc.find('Canvas');
             canvas.addChild(node);
-            node.getComponent('SetPasswordAlert').init({
+            node.getComponent('paySetPasswordAlert').init({
                 parentComponent:this
             })
         }

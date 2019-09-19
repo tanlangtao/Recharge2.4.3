@@ -20,7 +20,7 @@ export default class NewClass extends cc.Component {
         this.label.string = `申请兑换金额为${amount},扣除手续费${rateMount},实际到账金额为${amount -rateMount},确认要提交兑换申请吗？`;
     }
     onLoad(){
-        this.cash = cc.find('Canvas/Cash').getComponent('Cash')
+        this.cash = cc.find('Canvas/Cash').getComponent('payCash')
         this.app = cc.find('Canvas/Main').getComponent('payMain');
     }
     onClick(){

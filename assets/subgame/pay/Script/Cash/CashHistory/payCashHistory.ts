@@ -42,6 +42,7 @@ export default class NewClass extends cc.Component {
         this.app.ajax('GET',url,'',(response)=>{
             self.List.removeAllChildren();
                 if(response.status == 0){
+                    this.app.hideLoading();
                     self.results = response;
                     self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`
                     var listArr = response.data.list;
@@ -49,7 +50,7 @@ export default class NewClass extends cc.Component {
                         var data = listArr[i];
                         var node = cc.instantiate(self.ListItem);
                         self.List.addChild(node);
-                        node.getComponent('CashHistoryListItem').init({
+                        node.getComponent('payCashHistoryListItem').init({
                             type : data.type,
                             amount : data.amount,
                             handling_fee:data.handling_fee,
@@ -76,7 +77,7 @@ export default class NewClass extends cc.Component {
         for(let i:number = 0; i< arr.length; i++){
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);
-            node.getComponent('CashHistoryToggle').init({
+            node.getComponent('payCashHistoryToggle').init({
                 text : arr[i],
                 index : i,
                 parentComponet:this

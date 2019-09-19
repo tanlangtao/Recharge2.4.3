@@ -64,7 +64,7 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.publicAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('PublicAlert').init(data)
+        node.getComponent('payPublicAlert').init(data)
     }
 
     public getPublicInput(input,type) {
@@ -72,7 +72,7 @@ export default class NewClass extends cc.Component {
         var canvas = cc.find('Canvas');
         input.node.on('editing-did-began', (e) => {
             canvas.addChild(PublicInputAlert);
-            PublicInputAlert.getComponent('PublicInputAlert').init({
+            PublicInputAlert.getComponent('payPublicInputAlert').init({
                 text: e.string,
                 input: input
             })
@@ -94,14 +94,14 @@ export default class NewClass extends cc.Component {
                 input.string = e.string.replace(/[^\w\.\/]/ig,'');
             }
 
-            PublicInputAlert.getComponent('PublicInputAlert').init({
+            PublicInputAlert.getComponent('payPublicInputAlert').init({
                 text: e.string,
                 input: input
             })
         })
         input.node.on('editing-return', (e) => {
 
-            PublicInputAlert.getComponent('PublicInputAlert').readyClick()
+            PublicInputAlert.getComponent('payPublicInputAlert').readyClick()
         })
     }
     public labelType(e,type){
@@ -140,7 +140,7 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.PublicOrderAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('PublicOrderAlert').init(type,data)
+        node.getComponent('payPublicOrderAlert').init(type,data)
     }
 
     // 添加支付宝账号弹窗
@@ -148,7 +148,7 @@ export default class NewClass extends cc.Component {
         var canvas = cc.find('Canvas');
         var node = cc.instantiate(this.AlipayAccountAlert);
         canvas.addChild(node);
-        let AlipayAccountAlert = node.getComponent('AlipayAccountAlert');
+        let AlipayAccountAlert = node.getComponent('payAlipayAccountAlert');
         AlipayAccountAlert.init({
             text:data.text,
             action:data.action,
@@ -164,7 +164,7 @@ export default class NewClass extends cc.Component {
         var canvas = cc.find('Canvas');
         var node = cc.instantiate(this.BankAccountAlert);
         canvas.addChild(node);
-        let BankAccountAlert = node.getComponent('BankAccountAlert');
+        let BankAccountAlert = node.getComponent('payBankAccountAlert');
         BankAccountAlert.init({
             text:data.text,
             action:data.action,
@@ -189,7 +189,7 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.keyBoardAlert);
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('KeyBoardAlert').init(label,type)
+        node.getComponent('payKeyBoardAlert').init(label,type)
     }
 
     setInputColor(msg,input){
@@ -203,7 +203,7 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.WriteMoneyAlert);
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('WriteMoneyAlert').init(component,type,data)
+        node.getComponent('payWriteMoneyAlert').init(component,type,data)
     }
     public loadIcon(url,node,w,h){
         cc.loader.loadRes(`/pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{

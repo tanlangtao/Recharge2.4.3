@@ -1,3 +1,4 @@
+//人工代充
 
 const {ccclass, property} = cc._decorator;
 
@@ -13,35 +14,19 @@ export default class NewClass extends cc.Component {
     @property()
     results = null;
     app = null;
-    data = null;
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        this.fetchImIndex();
+        this.fetchIndex()
         
     }
-    
-    fetchImIndex(){
+    fetchIndex(){
         let url = `${this.app.UrlData.imHost}/im/api/recharge/list?skip=0&limit=6&token=c7a9d6g21v87s&package_id=${this.app.UrlData.package_id}`
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             if(response.code== 0){
+                this.app.hideLoading();
                 self.results = response;
-                self.fetchIndex();
-               
-            }else{
-                self.app.showAlert(response.msg)
-            }
-        },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
-        })
-    }
-    public fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}&version=${this.app.version}`;
-        let self = this;
-        this.app.ajax('GET',url,'',(response)=>{
-            if(response.status == 0){
-                self.data = response;
-                self.renderItem();
+                self.renderItem()
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -50,15 +35,11 @@ export default class NewClass extends cc.Component {
         })
     }
     renderItem(){
-        this.content.removeAllChildren();
         this.results.data.forEach((e,index )=> {
             var node = cc.instantiate(this.RgDcItem);
             this.content.addChild(node);
-            node.getComponent('RgDhItem').init(e,index,this.data)
+            node.getComponent('payRgDcItem').init(e,index)
+
         });
-    }
-    showIm(){
-        // 唤起IM
-        // 
     }
 }

@@ -42,9 +42,10 @@ export default class NewClass extends cc.Component {
     public historyBtnClick() {
         //按键音效
         this.app.clickClip.play();
+        this.app.showLoading();
         var node = cc.instantiate(this.RechargeHistory);
-        var canvas = cc.find('Canvas');
-        canvas.addChild(node);
+        var Recharge = cc.find('Canvas/Recharge');
+        Recharge.addChild(node);
     }
 
     public fetchZfb() {
@@ -90,30 +91,30 @@ export default class NewClass extends cc.Component {
         for (let i: number = 0; i < arr.length; i++) {
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);
-            node.getComponent('NavToggle').init({
+            node.getComponent('payNavToggle').init({
                 text: arr[i]
             })
         }
         //首次加载，顺序第一的显示
         if(arr[0]=='人工代充值'){
-            node.getComponent('NavToggle').addDc()
+            node.getComponent('payNavToggle').addDc()
         }else if(this.zfbResults.data.alipay.length > 0  ){
-            node.getComponent('NavToggle').addContent('alipay')
+            node.getComponent('payNavToggle').addContent('alipay')
 
         }else if(this.zfbResults.data.bankcard_transfer.length > 0 ){
-            node.getComponent('NavToggle').addContent('bankcard_transfer')
+            node.getComponent('payNavToggle').addContent('bankcard_transfer')
 
         }else if(this.zfbResults.data.union_pay.length > 0 ){
-            node.getComponent('NavToggle').addContent('union_pay')
+            node.getComponent('payNavToggle').addContent('union_pay')
 
         }else if(this.zfbResults.data.wechat_pay.length > 0 ){
-            node.getComponent('NavToggle').addContent('wechat_pay')
+            node.getComponent('payNavToggle').addContent('wechat_pay')
 
         }else if(this.app.UrlData.client=='desktop' && this.zfbResults.data.quick_pay.length > 0){
-            node.getComponent('NavToggle').addContent('quick_pay')
+            node.getComponent('payNavToggle').addContent('quick_pay')
 
         }else if(this.app.UrlData.client=='desktop' && this.zfbResults.data.bank_pay.length > 0  ){
-            node.getComponent('NavToggle').addContent('bank_pay')
+            node.getComponent('payNavToggle').addContent('bank_pay')
         }
     }
 

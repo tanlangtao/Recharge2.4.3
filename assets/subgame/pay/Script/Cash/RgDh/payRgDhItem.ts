@@ -49,7 +49,7 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.TestPasswordAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('TestPasswordAlert').init({
+        node.getComponent('payTestPasswordAlert').init({
             parentComponent:this,
             type : type
         })
@@ -59,7 +59,7 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.RgDhAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('RgDhAlert').init({
+        node.getComponent('payRgDhAlert').init({
             results:this.results,
             data : this.data
         })

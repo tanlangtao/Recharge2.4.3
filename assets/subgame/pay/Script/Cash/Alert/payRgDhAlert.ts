@@ -108,7 +108,7 @@ export default class NewClass extends cc.Component {
         for( var i = 0 ; i < this.selectArr.length ; i++){
                 var node = cc.instantiate(this.SelectItem);
                 this.selectContent.addChild(node);
-                node.getComponent('SelectItem').init({
+                node.getComponent('paySelectItem').init({
                     text:i ==0 ?'支付宝':'银行卡',
                     parentComponent:this,
                     index:i,
@@ -147,7 +147,7 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 self.app.showAlert('申请成功！');
                 //刷新余额
-                let RgDh = cc.find('Canvas/Cash/Content/RgDh').getComponent('RgDh');
+                let RgDh = cc.find('Canvas/Cash/Content/RgDh').getComponent('payRgDh');
                 RgDh.fetchIndex();
                 self.removeSelf();
             }else{
@@ -164,7 +164,7 @@ export default class NewClass extends cc.Component {
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         let rateMount = Number(this.data.data.withDraw_info.artificial.rate)*Number(this.amountLabel.string);
-        node.getComponent('CashAlert').init({
+        node.getComponent('payCashAlert').init({
             parentComponent:this,
             rateMount: rateMount,
             amount:Number(this.amountLabel.string)

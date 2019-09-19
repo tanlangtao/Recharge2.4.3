@@ -85,7 +85,7 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                let zfbCom = cc.find('Canvas/Cash/Content/Dh').getComponent('Dh');
+                let zfbCom = cc.find('Canvas/Cash/Content/Dh').getComponent('payDh');
                 zfbCom.fetchIndex();
                 self.app.showAlert('操作成功!')
             }else{

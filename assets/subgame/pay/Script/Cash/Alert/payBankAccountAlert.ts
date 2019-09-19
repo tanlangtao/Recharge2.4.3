@@ -93,7 +93,7 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                let bankCom = cc.find('Canvas/Cash/Content/BankDh').getComponent('BankDh');
+                let bankCom = cc.find('Canvas/Cash/Content/BankDh').getComponent('payBankDh');
                 bankCom.fetchIndex();
                 self.app.showAlert('操作成功!')
             }else{
@@ -111,7 +111,7 @@ export default class NewClass extends cc.Component {
             for (var i = 0; i < results.length; i++) {
                 var node = cc.instantiate(this.BankSelectItem);
                 this.selectContent.addChild(node);
-                node.getComponent('BankSelectItem').init({
+                node.getComponent('payBankSelectItem').init({
                     text: results[i],
                     parentComponent: this,
                     index: i
