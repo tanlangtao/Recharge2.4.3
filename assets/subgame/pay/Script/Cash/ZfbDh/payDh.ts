@@ -170,7 +170,7 @@ export default class NewClass extends cc.Component {
         this.accountLabel.string = this.bankData.length != 0  ? this.app.config.testBankNum(this.Info.account_card) :'未设置';
         this.passworldLabel.string = data.is_password == 1 ? '已设置' : '未设置';
         let accPath = this.bankData.length != 0 ?'btn/btn_edit':'btn/bindbt';
-        let passPath = data.is_password == 1?'btn/btn_edit':'btn/set';
+        let passPath = data.is_password == 1?'btn/btn_edit':'btn/btn_set';
         this.app.loadIcon(accPath,this.accountBtn,108,53);
         this.app.loadIcon(passPath,this.passBtn,108,53);
     }

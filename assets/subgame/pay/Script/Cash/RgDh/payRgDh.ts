@@ -51,12 +51,14 @@ export default class NewClass extends cc.Component {
         })
     }
     renderItem(){
-        this.content.removeAllChildren();
-        this.results.data.forEach((e,index )=> {
-            var node = cc.instantiate(this.RgDcItem);
-            this.content.addChild(node);
-            node.getComponent('payRgDhItem').init(e,index,this.data)
-        });
+        if(this.results.data != null){
+            this.content.removeAllChildren();
+            this.results.data.forEach((e,index )=> {
+                var node = cc.instantiate(this.RgDcItem);
+                this.content.addChild(node);
+                node.getComponent('payRgDhItem').init(e,index,this.data)
+            });
+        }
     }
     showIm(){
         // 唤起IM

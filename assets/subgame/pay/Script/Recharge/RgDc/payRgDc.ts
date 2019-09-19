@@ -35,11 +35,12 @@ export default class NewClass extends cc.Component {
         })
     }
     renderItem(){
-        this.results.data.forEach((e,index )=> {
-            var node = cc.instantiate(this.RgDcItem);
-            this.content.addChild(node);
-            node.getComponent('payRgDcItem').init(e,index)
-
-        });
+        if(this.results.data != null){
+            this.results.data.forEach((e,index )=> {
+                var node = cc.instantiate(this.RgDcItem);
+                this.content.addChild(node);
+                node.getComponent('payRgDcItem').init(e,index);
+            });
+        }
     }
 }
