@@ -1,13 +1,5 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-import Config from "../Config"
+
+import Config from "../payConfig"
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -91,20 +83,14 @@ export default class NewClass extends cc.Component {
         this.UrlData = this.config.getUrlData();
         this.token = this.config.token;
 
-        this.app = cc.find('Canvas/Main').getComponent('Main');
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
     }
 
     copyCard_num(){
         //按键音效
         this.app.clickClip.play();
         
-        if(this.app.UrlData.client != 'desktop'){
-            //调用rn方法。
-            this.app.Client.send("__setcopy", { text: this.card_numLabel.string});
-            this.app.showAlert(`复制成功！${this.card_numLabel.string}`)
-        }else{
-            this.config.copyToClipBoard(this.card_numLabel.string);
-        }
+        this.config.copyToClipBoard(this.card_numLabel.string);
        
     }
 
@@ -112,40 +98,21 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.clickClip.play();
 
-        if(this.app.UrlData.client != 'desktop'){
-            //调用rn方法。
-            this.app.Client.send("__setcopy", { text: this.card_nameLabel.string});
-            this.app.showAlert(`复制成功！${this.card_nameLabel.string}`)
-        }else{
-            this.config.copyToClipBoard(this.card_nameLabel.string);
-        }
-         
+        this.app.showAlert(`复制成功！${this.card_nameLabel.string}`)
     }
 
     copyAmount(){
         //按键音效
         this.app.clickClip.play();
 
-        if(this.app.UrlData.client != 'desktop'){
-            //调用rn方法。
-            this.app.Client.send("__setcopy", { text: this.amountLabel.string});
-            this.app.showAlert(`复制成功！${this.amountLabel.string}`)
-        }else{
-            this.config.copyToClipBoard(this.amountLabel.string);
-        }
+        this.config.copyToClipBoard(this.amountLabel.string);
     }
 
     copyRemark(){
         //按键音效
         this.app.clickClip.play();
 
-        if(this.app.UrlData.client != 'desktop'){
-            //调用rn方法。
-            this.app.Client.send("__setcopy", { text: this.remarkLabel.string});
-            this.app.showAlert(`复制成功！${this.remarkLabel.string}`)
-        }else{
-            this.config.copyToClipBoard(this.remarkLabel.string);
-        }
+        this.config.copyToClipBoard(this.remarkLabel.string);
     }
     
     removeSelf(){

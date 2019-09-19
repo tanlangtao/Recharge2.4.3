@@ -1,14 +1,4 @@
-import Config from "../Config";
-
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
+import gHandler = require("../../../../common/script/common/gHandler");
 
 const {ccclass, property} = cc._decorator;
 
@@ -38,20 +28,15 @@ export default class NewClass extends cc.Component {
 
     onLoad() {
 
-        this.app = cc.find('Canvas/Main').getComponent('Main');
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
         //请求支付宝
         this.fetchZfb()
     }
-
-    start() {
-
-        this.app.Client.send('__done',{},()=>{})
-    }
-
+    //返回大厅
     public exitBtnClick() {
         //按键音效
         this.app.clickClip.play();
-        this.app.Client.send('__backtohall',{},()=>{})
+        cc.director.loadScene(gHandler.gameConfig.hallconfig.lanchscene);
     }
 
     public historyBtnClick() {
@@ -69,10 +54,10 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             if (response.status == 0) {
+                self.app.hideLoading()
                 self.zfbResults = response;
                 //动态渲染左侧导航
                 self.addNavToggle()
-
             }else{
                 self.app.showAlert(response.msg)
             }

@@ -33,7 +33,7 @@ export default class NewClass extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.app = cc.find('Canvas/Main').getComponent('Main');
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
     }
 
     onClick(){

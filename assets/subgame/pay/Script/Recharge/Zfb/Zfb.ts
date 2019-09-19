@@ -1,13 +1,4 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-import Config from "../../Config";
+//充值子界面
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -72,12 +63,12 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.huodongLabel.node.active=false;
-        this.app = cc.find('Canvas/Main').getComponent('Main');
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
         //请求支付宝
         this.fetchZfb()
     }
     init(data){
-        this.app = cc.find('Canvas/Main').getComponent('Main');
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.channel = data;
         if(this.channel == 'alipay' ){
             this.app.loadIcon('recharge/flag_alipay',this.icon,100,100)
@@ -193,9 +184,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('ZfbViewAlert').init({
                 url:url
             })
-            // this.app.Client.send("__openLink", {url:url});
         }
-
     }
 
     fetchOrder(){

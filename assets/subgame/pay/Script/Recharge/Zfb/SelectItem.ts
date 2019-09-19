@@ -1,13 +1,4 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
+//充值渠道选择
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -39,7 +30,7 @@ export default class NewClass extends cc.Component {
         this.parentComponent = data.parentComponent;
         this.index = data.index;
         this.channel = data.channel;
-        this.app = cc.find('Canvas/Main').getComponent('Main');
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
         
         if(this.channel == 'alipay' ){
             this.app.loadIcon('recharge/icon_alipay2',this.normalIcon,30,30)
@@ -62,7 +53,7 @@ export default class NewClass extends cc.Component {
         }
     }
     onLoad () {
-        this.app = cc.find('Canvas/Main').getComponent('Main');
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
     }
 
     start () {
