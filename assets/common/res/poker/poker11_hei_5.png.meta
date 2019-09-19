@@ -1,14 +1,13 @@
 {
-  "ver": "2.3.1",
+  "ver": "2.2.0",
   "uuid": "019f22ef-8039-42ed-a519-476dc0a0fd4f",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
-  "platformSettings": {},
   "subMetas": {
     "poker11_hei_5": {
-      "ver": "1.0.4",
+      "ver": "1.0.3",
       "uuid": "fb62e2e0-dbaf-4952-b816-7c53ecf4346e",
       "rawTextureUuid": "019f22ef-8039-42ed-a519-476dc0a0fd4f",
       "trimType": "auto",

@@ -1,14 +1,13 @@
 {
-  "ver": "2.3.1",
+  "ver": "2.2.0",
   "uuid": "b50d88cb-d208-4631-bc20-c64ca063ae33",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
-  "platformSettings": {},
   "subMetas": {
     "sp_trumpet_bg": {
-      "ver": "1.0.4",
+      "ver": "1.0.3",
       "uuid": "fd242668-fca2-4bf7-a419-15ef9ad25a48",
       "rawTextureUuid": "b50d88cb-d208-4631-bc20-c64ca063ae33",
       "trimType": "auto",

@@ -1,14 +1,13 @@
 {
-  "ver": "2.3.1",
+  "ver": "2.2.0",
   "uuid": "57e15546-6c9d-47ea-9904-84b35c2948fc",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
-  "platformSettings": {},
   "subMetas": {
     "bengchibaoma": {
-      "ver": "1.0.4",
+      "ver": "1.0.3",
       "uuid": "faf6e230-faa1-4fd1-8ba9-31f7dac58cd4",
       "rawTextureUuid": "57e15546-6c9d-47ea-9904-84b35c2948fc",
       "trimType": "auto",

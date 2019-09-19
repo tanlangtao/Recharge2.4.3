@@ -213,7 +213,7 @@ export default class NewClass extends cc.Component {
         node.getComponent('WriteMoneyAlert').init(component,type,data)
     }
     public loadIcon(url,node,w,h){
-        cc.loader.loadRes(`/pay${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
+        cc.loader.loadRes(`/pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
             node.width = w;
             node.height = h;
             node.getComponent(cc.Sprite).spriteFrame = spriteFrame;

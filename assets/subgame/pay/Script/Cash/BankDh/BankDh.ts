@@ -164,8 +164,8 @@ export default class NewClass extends cc.Component {
         this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:50} - ${this.current?this.current.max_amount:10000})`;
         this.accountLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
         this.passworldLabel.string = data.is_password == 1 ? '已设置' : '未设置';
-        let accPath = this.bankData.length != 0 ?'/btn/btn_edit':'/btn/bindbt';
-        let passPath = data.is_password == 1?'/btn/btn_edit':'/btn/set';
+        let accPath = this.bankData.length != 0 ?'btn/btn_edit':'btn/bindbt';
+        let passPath = data.is_password == 1?'btn/btn_edit':'btn/set';
         this.app.loadIcon(accPath,this.accountBtn,108,53);
         this.app.loadIcon(passPath,this.passBtn,108,53);
     }

@@ -125,7 +125,7 @@ export default class NewClass extends cc.Component {
                     self.results = response.data.wechat_pay;
                 }else if(self.channel == 'bankcard_transfer'){
                     self.results = response.data.bankcard_transfer;
-                    self.huodongLabel.node.active=true;
+                    // self.huodongLabel.node.active=true;
                 }else if(self.channel == 'quick_pay'){
                     self.results = response.data.quick_pay;
                 }else if(self.channel == 'bank_pay'){
@@ -187,13 +187,13 @@ export default class NewClass extends cc.Component {
         if(this.app.UrlData.client=='desktop'){
             window.open(url,'blank')
         }else{
-            // var node = cc.instantiate(this.ZfbViewAlert);
-            // var canvas = cc.find('Canvas');
-            // canvas.addChild(node);
-            // node.getComponent('ZfbViewAlert').init({
-            //     url:url
-            // })
-            this.app.Client.send("__openLink", {url:url});
+            var node = cc.instantiate(this.ZfbViewAlert);
+            var canvas = cc.find('Canvas');
+            canvas.addChild(node);
+            node.getComponent('ZfbViewAlert').init({
+                url:url
+            })
+            // this.app.Client.send("__openLink", {url:url});
         }
 
     }

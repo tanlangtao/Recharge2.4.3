@@ -1,14 +1,13 @@
 {
-  "ver": "2.3.1",
+  "ver": "2.2.0",
   "uuid": "530433ce-12d3-4f5c-a8dd-b21e7454c06c",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
-  "platformSettings": {},
   "subMetas": {
     "icon_zizhuchongzhi": {
-      "ver": "1.0.4",
+      "ver": "1.0.3",
       "uuid": "6f7d2bea-9153-4101-ae7b-9915a98de08b",
       "rawTextureUuid": "530433ce-12d3-4f5c-a8dd-b21e7454c06c",
       "trimType": "auto",

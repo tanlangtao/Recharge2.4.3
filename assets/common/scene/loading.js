@@ -6,7 +6,7 @@
  * @Description: 通用加载场景
  */
 let gHandler = require("gHandler");
-let appLogin = require("appLogin")
+// let appLogin = require("appLogin")
 cc.Class({
     extends: cc.Component,
 

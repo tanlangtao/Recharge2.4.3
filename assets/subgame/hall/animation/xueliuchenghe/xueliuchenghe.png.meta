@@ -1,14 +1,13 @@
 {
-  "ver": "2.3.1",
+  "ver": "2.2.0",
   "uuid": "3e71d857-6832-4f2c-b1e3-d706fc58dd7c",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
-  "platformSettings": {},
   "subMetas": {
     "xueliuchenghe": {
-      "ver": "1.0.4",
+      "ver": "1.0.3",
       "uuid": "fdc5b760-7b67-4e90-8003-bb8fee465d84",
       "rawTextureUuid": "3e71d857-6832-4f2c-b1e3-d706fc58dd7c",
       "trimType": "auto",
