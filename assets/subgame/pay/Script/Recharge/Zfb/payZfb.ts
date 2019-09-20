@@ -107,8 +107,8 @@ export default class NewClass extends cc.Component {
 
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
+            self.app.hideLoading()
             if(response.status == 0){
-                this.app.hideLoading();
                 if(self.channel == 'alipay' ){
                     self.results = response.data.alipay;
                 }else if(self.channel == 'union_pay'){
@@ -175,17 +175,19 @@ export default class NewClass extends cc.Component {
     showWebView(){
 
         var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`;
+        url ='https://www.jianshu.com/p/23a4672e7942'
         cc.log(url)
-        if(this.app.UrlData.client=='desktop'){
-            cc.sys.openURL(url)
-        }else{
-            var node = cc.instantiate(this.ZfbViewAlert);
-            var canvas = cc.find('Canvas');
-            canvas.addChild(node);
-            node.getComponent('payZfbViewAlert').init({
-                url:url
-            })
-        }
+        cc.sys.openURL(url)
+        // if(this.app.UrlData.client=='desktop'){
+        //     cc.sys.openURL(url)
+        // }else{
+        //     var node = cc.instantiate(this.ZfbViewAlert);
+        //     var canvas = cc.find('Canvas');
+        //     canvas.addChild(node);
+        //     node.getComponent('payZfbViewAlert').init({
+        //         url:url
+        //     })
+        // }
     }
 
     fetchOrder(){

@@ -40,33 +40,33 @@ export default class NewClass extends cc.Component {
         var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&order_status=${this.order_status}&page=${this.page}&page_set=8&version=${this.app.version}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
+            this.app.hideLoading();
             self.List.removeAllChildren();
-                if(response.status == 0){
-                    this.app.hideLoading();
-                    self.results = response;
-                    self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`
-                    var listArr = response.data.list;
-                    for(var i = 0; i < listArr.length; i++){
-                        var data = listArr[i];
-                        var node = cc.instantiate(self.ListItem);
-                        self.List.addChild(node);
-                        node.getComponent('payCashHistoryListItem').init({
-                            type : data.type,
-                            amount : data.amount,
-                            handling_fee:data.handling_fee,
-                            replace_handling_fee:data.replace_handling_fee,
-                            arrival_amount:data.arrival_amount,
-                            status : data.status,
-                            created_at : data.created_at,
-                            arrival_at : data.arrival_at,
-                            user_remark:data.user_remark,
-                            results:data
-                        })
-                    }
-    
-                }else{
-                    self.app.showAlert(response.msg)
+            if(response.status == 0){
+                self.results = response;
+                self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`
+                var listArr = response.data.list;
+                for(var i = 0; i < listArr.length; i++){
+                    var data = listArr[i];
+                    var node = cc.instantiate(self.ListItem);
+                    self.List.addChild(node);
+                    node.getComponent('payCashHistoryListItem').init({
+                        type : data.type,
+                        amount : data.amount,
+                        handling_fee:data.handling_fee,
+                        replace_handling_fee:data.replace_handling_fee,
+                        arrival_amount:data.arrival_amount,
+                        status : data.status,
+                        created_at : data.created_at,
+                        arrival_at : data.arrival_at,
+                        user_remark:data.user_remark,
+                        results:data
+                    })
                 }
+
+            }else{
+                self.app.showAlert(response.msg)
+            }
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)
         })

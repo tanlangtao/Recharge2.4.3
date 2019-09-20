@@ -44,8 +44,8 @@ export default class NewClass extends cc.Component {
         var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}&version=${this.app.version}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
+            self.app.hideLoading()
             if(response.status == 0){
-                self.app.hideLoading()
                 self.results = response;
                 self.addNavToggle()
             }else{

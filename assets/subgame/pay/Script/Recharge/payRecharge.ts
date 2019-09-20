@@ -54,8 +54,8 @@ export default class NewClass extends cc.Component {
 
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
+            self.app.hideLoading()
             if (response.status == 0) {
-                self.app.hideLoading()
                 self.zfbResults = response;
                 //动态渲染左侧导航
                 self.addNavToggle()

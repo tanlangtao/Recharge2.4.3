@@ -42,10 +42,10 @@ export default class NewClass extends cc.Component {
 
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
+            this.app.hideLoading();
             //结果返回之前先清空列表
             self.List.removeAllChildren();
             if(response.status == 0){
-                this.app.hideLoading();
                 self.results = response;
                 self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`;
                 var listArr = response.data.list;

@@ -88,8 +88,8 @@ export default class NewClass extends cc.Component {
 
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
+            this.app.hideLoading();
             if(response.status == 0){
-                this.app.hideLoading();
                 self.data = response;
                 self.init();
                 self.initRender();
