@@ -72,29 +72,29 @@ export default class NewClass extends cc.Component {
         this.channel = data;
         if(this.channel == 'alipay' ){
             this.app.loadIcon('recharge/flag_alipay',this.icon,100,100)
-            this.app.loadIcon('recharge/flagname_alipay',this.iconFont,120,40)
+            this.app.loadIcon('recharge/flagname_alipay',this.iconFont,126,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。2.需要安装支付宝'
             this.app.loadIcon('recharge/subbg_alipay',this.shuiyin,388,290)
         }else if(this.channel == 'union_pay'){
-            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,100,100)
-            this.app.loadIcon('recharge/flagname_scan_code_unionpay',this.iconFont,160,40)
+            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
+            this.app.loadIcon('recharge/flagname_scan_code_unionpay',this.iconFont,168,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
         }else if(this.channel == 'wechat_pay'){
             this.app.loadIcon('recharge/flag_wxpay',this.icon,100,100)
-            this.app.loadIcon('recharge/flagname_wxpay',this.iconFont,80,40)
+            this.app.loadIcon('recharge/flagname_wxpay',this.iconFont,84,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。2.需要安装微信';
             this.app.loadIcon('recharge/subbg_wxpay',this.shuiyin,388,290)
         }else if(this.channel == 'bankcard_transfer'){
-            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,100,100)
-            this.app.loadIcon('recharge/flagname_unionpay3',this.iconFont,200,40)
+            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
+            this.app.loadIcon('recharge/flagname_unionpay3',this.iconFont,252,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
         }else if(this.channel == 'quick_pay'){
-            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,100,100)
-            this.app.loadIcon('recharge/flagname_unionpay2',this.iconFont,160,40)
+            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
+            this.app.loadIcon('recharge/flagname_unionpay2',this.iconFont,168,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
         }else if(this.channel == 'bank_pay'){
-            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,100,100)
-            this.app.loadIcon('recharge/flagname_unionpay',this.iconFont,160,40)
+            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
+            this.app.loadIcon('recharge/flagname_unionpay',this.iconFont,168,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
         }
     }
