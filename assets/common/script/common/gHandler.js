@@ -29,18 +29,18 @@ let gameGlobal = {
     // im_host: "https://im.sempxw.com",
     im_host:'http://161.117.178.174:12352',
     pay: { // 充提数据结构
+        // pay_host: "http://payment.sempxw.com",
+        // user_id: "548291942",
+        // user_name: "游客42651",
+        // proxy_user_id: "548291942",
+        // proxy_name: "博臣娱乐",
         client: "ios",
-        pay_host: "http://payment.sempxw.com",
-        user_id: "548291942",
-        user_name: "游客42651",
-        proxy_user_id: "548291942",
-        proxy_name: "博臣娱乐",
         package_id: "1",
-        // pay_host:'http://161.117.178.174:12353',
-        // user_id:'444948575',
-        // user_name:'贵宾127788',
-        // proxy_user_id:'873797373',
-        // proxy_name:'贵宾127788',
+        pay_host:'http://161.117.178.174:12353',
+        user_id:'969765641',
+        user_name:'A091944',
+        proxy_user_id:'873797373',
+        proxy_name:'贵宾127788',
 
     }
 }

@@ -37,12 +37,10 @@ export default class NewClass extends cc.Component {
        //按键音效
        this.app.clickClip.play();
        console.log(this.data)
-        if(this.data.data.is_password == 0){
-            this.app.showAlert('请先设置资金密码!')
-        }else if(this.data.data.list.length == 0){
+        if(this.data.data.list.length == 0){
             this.app.showAlert('请先设置账户!')
         }else{
-            this.showTestPassword(3);
+            this.showRgDhAlert();
         }
    }
    showTestPassword(type){

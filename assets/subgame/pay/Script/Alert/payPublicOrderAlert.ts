@@ -72,7 +72,7 @@ export default class NewClass extends cc.Component {
         this.bank_nameLabel.string = data.data.bank_name;
         this.card_nameLabel.string = data.data.card_name;
         this.card_numLabel.string = data.data.card_num;
-        this.nickNameLabel.string = decodeURI(this.UrlData.user_name);
+        this.nickNameLabel.string = data.data.user_name;
         this.remarkLabel.string = data.data.remark;
         if(this.remarkLabel.string == ''){
             this.fuzhiBtn4.removeFromParent();
@@ -97,8 +97,7 @@ export default class NewClass extends cc.Component {
     copyCard_name(){
         //按键音效
         this.app.clickClip.play();
-
-        this.app.showAlert(`复制成功！${this.card_nameLabel.string}`)
+        this.config.copyToClipBoard(this.card_nameLabel.string);
     }
 
     copyAmount(){

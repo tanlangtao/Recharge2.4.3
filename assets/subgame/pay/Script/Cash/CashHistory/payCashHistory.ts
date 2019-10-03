@@ -32,8 +32,6 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
 
-        this.addNavToggle()
-
         this.fetchIndex();
     }
     public fetchIndex(){
@@ -71,19 +69,21 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`网络错误${errstatus}`)
         })
     }
-
-    public addNavToggle(){
-        var arr = ['全部','未成功','已成功'];
-        for(let i:number = 0; i< arr.length; i++){
-            var node = cc.instantiate(this.NavToggle);
-            this.ToggleContainer.addChild(node);
-            node.getComponent('payCashHistoryToggle').init({
-                text : arr[i],
-                index : i,
-                parentComponet:this
-            })
-        }
-    }
+    /**
+     * 增加左侧导航，北斗不需要
+     */
+    // public addNavToggle(){
+    //     var arr = ['全部','未成功','已成功'];
+    //     for(let i:number = 0; i< arr.length; i++){
+    //         var node = cc.instantiate(this.NavToggle);
+    //         this.ToggleContainer.addChild(node);
+    //         node.getComponent('payCashHistoryToggle').init({
+    //             text : arr[i],
+    //             index : i,
+    //             parentComponet:this
+    //         })
+    //     }
+    // }
 
     removeSelf(){
         //按键音效

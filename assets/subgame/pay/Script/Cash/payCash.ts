@@ -77,6 +77,7 @@ export default class NewClass extends cc.Component {
         if(this.results.data.withDraw_info.alipay.is_close > 0){
             arr.push('支付宝兑换')
         }
+        arr.push('兑换记录')
         for(let i:number = 0; i< arr.length; i++){
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);
@@ -86,7 +87,7 @@ export default class NewClass extends cc.Component {
         }
         //首次加载，顺序第一的显示
         if(arr[0]=='人工兑换'){
-            node.getComponent('payDhToggle').addDh()
+            node.getComponent('payDhToggle').addContent('RgDh')
         }else if(this.results.data.withDraw_info.bankcard.channel.length > 0){
             node.getComponent('payDhToggle').addContent('BankDh')
         }else if(this.results.data.withDraw_info.alipay.channel.length > 0){

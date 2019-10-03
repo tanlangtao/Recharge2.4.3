@@ -8,17 +8,12 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     titleIcon: cc.Node = null;
 
-    @property(cc.Label)
-    nameLabel: cc.Label = null;
-
     @property(cc.EditBox)
     accountInput: cc.EditBox = null;
 
     @property(cc.EditBox)
-    firstNameInput: cc.EditBox = null;
+    account_nameInput: cc.EditBox = null;
 
-    @property(cc.EditBox)
-    lastNameInput: cc.EditBox = null;
 
     @property()
     showSelect = false;
@@ -36,23 +31,13 @@ export default class NewClass extends cc.Component {
 
     changeContent(data){
         this.accountInput.string = data.account_card;
-        this.nameLabel.string = data.account_name;
-        this.firstNameInput.string = data.account_surname;
-        this.lastNameInput.string = data.account_first_name;
+        this.account_nameInput.string = data.account_name;
     }
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.app.getPublicInput(this.accountInput,1);
-        this.app.getPublicInput(this.firstNameInput,2);
-        this.app.getPublicInput(this.lastNameInput,2);
-        this.firstNameInput.node.on('text-changed',()=>{
-            this.nameLabel.string = `${this.firstNameInput.string}${this.lastNameInput.string}`
-        })
-        this.lastNameInput.node.on('text-changed',()=>{
-            this.nameLabel.string = `${this.firstNameInput.string}${this.lastNameInput.string}`
-        })
-        
+        this.app.getPublicInput(this.account_nameInput,2);
     }
 
     onClick(){
@@ -60,8 +45,7 @@ export default class NewClass extends cc.Component {
         this.app.clickClip.play();
 
         if(this.accountInput.string == ''
-            || this.firstNameInput.string == ''
-            || this.lastNameInput.string == '' )
+            || this.account_nameInput.string == '')
         {
             this.app.showAlert('输入不能为空!')
         }else{
@@ -75,9 +59,9 @@ export default class NewClass extends cc.Component {
         let obj = {};
         obj = {
             account_card:this.accountInput.string,
-            account_surname:this.firstNameInput.string,
-            account_first_name:this.lastNameInput.string,
-            account_name:this.nameLabel.string,
+            account_surname:'',
+            account_first_name:'',
+            account_name:this.account_nameInput.string,
             pay_url:'',
         };
         let info = JSON.stringify(obj);
@@ -96,20 +80,11 @@ export default class NewClass extends cc.Component {
         })
     }
 
-    deleteFirstName(){
+    deleteAccount_name(){
         //按键音效
         this.app.clickClip.play();
 
-        this.firstNameInput.string = '';
-        this.nameLabel.string = `${this.firstNameInput.string}${this.lastNameInput.string}`
-    }
-
-    deleteLastName(){
-        //按键音效
-        this.app.clickClip.play();
-
-        this.lastNameInput.string = '';
-        this.nameLabel.string = `${this.firstNameInput.string}${this.lastNameInput.string}`;
+        this.account_nameInput.string = '';
     }
 
     deleteAccount(){

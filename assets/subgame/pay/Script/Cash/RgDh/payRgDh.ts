@@ -17,7 +17,7 @@ export default class payRgDh extends cc.Component {
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchImIndex();
-        
+       
     }
     
     fetchImIndex(){
@@ -50,6 +50,7 @@ export default class payRgDh extends cc.Component {
             self.app.showAlert(`网络错误${errstatus}`)
         })
     }
+   
     renderItem(){
         if(this.results.data != null){
             this.content.removeAllChildren();

@@ -14,6 +14,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     RgDh : cc.Prefab = null;
+
+    @property(cc.Prefab)
+    DhHistory : cc.Prefab = null;
     
     @property(cc.Node)
     normalIcon : cc.Node = null;
@@ -28,15 +31,18 @@ export default class NewClass extends cc.Component {
     public init(data){
         this.text=data.text;
         if(this.text == '支付宝兑换'){
-            this.app.loadIcon('cash/menu/menu_ali_1',this.normalIcon,207,39)
+            this.app.loadIcon('cash/menu/menu_ali_1',this.normalIcon,242,86)
             this.app.loadIcon('cash/menu/menu_ali_2',this.currentIcon,249,86);
 
         }else if(this.text == '银行卡兑换'){
-            this.app.loadIcon('cash/menu/menu_union_2',this.normalIcon,207,39)
+            this.app.loadIcon('cash/menu/menu_union_2',this.normalIcon,242,86)
             this.app.loadIcon('cash/menu/menu_union_1',this.currentIcon,249,86)
         }else if(this.text == '人工兑换'){
             this.app.loadIcon('cash/menu/menu_rengong_1',this.normalIcon,207,39)
             this.app.loadIcon('cash/menu/menu_rengong_2',this.currentIcon,249,86)
+        }else if(this.text == '兑换记录'){
+            this.app.loadIcon('cash/menu/menu_dhhistory_1',this.normalIcon,242,86)
+            this.app.loadIcon('cash/menu/menu_dhhistory_2',this.currentIcon,249,86)
         }
     }
     // LIFE-CYCLE CALLBACKS:
@@ -54,7 +60,9 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '银行卡兑换'){
             this.addContent('BankDh')
         }else if(this.text == '人工兑换'){
-            this.addDh()
+            this.addContent('RgDh')
+        }else if(this.text == '兑换记录'){
+            this.addContent('DhHistory')
         }
     }
 
@@ -64,13 +72,11 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.Dh);
         }else if(data == 'BankDh'){
             var node = cc.instantiate(this.BankDh);
+        }else if(data == 'RgDh'){
+            var node = cc.instantiate(this.RgDh);
+        }else if(data == 'DhHistory'){
+            var node = cc.instantiate(this.DhHistory);
         }
-        content.removeAllChildren();
-        content.addChild(node);
-    }
-    addDh(){
-        var content = cc.find('Canvas/Cash/Content');
-        var node = cc.instantiate(this.RgDh);
         content.removeAllChildren();
         content.addChild(node);
     }
