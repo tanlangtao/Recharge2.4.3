@@ -82,10 +82,7 @@ export default class NewClass extends cc.Component {
             if(response.code == 0){
                 self.app.showAlert('操作成功,请移至聊天中心交易！');
                 // 唤起IM
-                let timer = setTimeout(()=>{
-                    // 加载im场景
-                    clearTimeout(timer);
-                },1500)
+                cc.director.loadScene('IMappStart');
             }else{
                 self.app.showAlert(response.msg)
             }

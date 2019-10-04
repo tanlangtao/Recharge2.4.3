@@ -63,6 +63,6 @@ export default class payRgDh extends cc.Component {
     }
     showIm(){
         // 唤起IM
-        // 
+        cc.director.loadScene('IMappStart');
     }
 }
