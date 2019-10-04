@@ -74,6 +74,7 @@ export default class NewClass extends cc.Component {
         if(this.results.data.withDraw_info.bankcard.is_close > 0){
             arr.push('银行卡兑换')
         }
+        console.log(this.results.data.withDraw_info)
         if(this.results.data.withDraw_info.alipay.is_close > 0){
             arr.push('支付宝兑换')
         }
