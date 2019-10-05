@@ -53,6 +53,7 @@ export default class NewClass extends cc.Component {
                     )
                 )
             );
+        this.firstTimeLabel.string = data.firstTime == 0 ? '无' : this.app.config.getTime(data.firstTime);
         this.lastTimeLabel.string = data.lastTime == 0 ? '无' : this.app.config.getTime(data.lastTime);
         this.results = data.results;
         if(data.status != 6 && data.type == 2){
