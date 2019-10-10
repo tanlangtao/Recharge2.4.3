@@ -68,15 +68,20 @@ export default class NewClass extends cc.Component {
     public addNavToggle(){
         var arr = [];
         if(!this.results.data.withDraw_info) return;
-        if(this.results.data.withDraw_info.artificial.is_close > 0){
-            arr.push('人工兑换')
+        if(this.results.data.withDraw_info.artificial){
+            if(this.results.data.withDraw_info.artificial.is_close > 0){
+                arr.push('人工兑换')
+            }
         }
-        if(this.results.data.withDraw_info.bankcard.is_close > 0){
-            arr.push('银行卡兑换')
+        if(this.results.data.withDraw_info.bankcard){
+            if(this.results.data.withDraw_info.bankcard.is_close > 0){
+                arr.push('银行卡兑换')
+            }
         }
-        console.log(this.results.data.withDraw_info)
-        if(this.results.data.withDraw_info.alipay.is_close > 0){
-            arr.push('支付宝兑换')
+        if(this.results.data.withDraw_info.alipay){
+            if(this.results.data.withDraw_info.alipay.is_close > 0){
+                arr.push('支付宝兑换')
+            }
         }
         arr.push('兑换记录')
         for(let i:number = 0; i< arr.length; i++){
