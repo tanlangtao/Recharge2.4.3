@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import gHandler = require("../../../../common/script/common/gHandler");
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -82,6 +82,7 @@ export default class NewClass extends cc.Component {
             if(response.code == 0){
                 self.app.showAlert('操作成功,请移至聊天中心交易！');
                 // 唤起IM
+                gHandler.Reflect.setOrientation("portrait", 640, 1136)
                 cc.director.loadScene('IMappStart');
             }else{
                 self.app.showAlert(response.msg)
