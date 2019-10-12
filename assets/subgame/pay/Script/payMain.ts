@@ -40,7 +40,6 @@ export default class NewClass extends cc.Component {
     inputComponent = {};
     _component: any = {};
     isTestPassworld = false;
-    pass_token = '';
     public version = 1 ;
 
     onLoad () {
