@@ -37,7 +37,7 @@ let gameGlobal = {
         client: "ios",
         package_id: "1",
         pay_host:'http://161.117.178.174:12353',
-        user_id:'151846961',
+        user_id:'184313541',
         user_name:'A091944',
         proxy_user_id:'873797373',
         proxy_name:'贵宾127788',

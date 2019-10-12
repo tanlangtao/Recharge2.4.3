@@ -48,7 +48,6 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 //验证成功，保存验证结果
                 self.app.isTestPassworld = true;
-                self.app.pass_token = response.data.token;
                // type=1,弹出绑定帐户
                // type =2  确认兑换
                // type =3  人工兑换

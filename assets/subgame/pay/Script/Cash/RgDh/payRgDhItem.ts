@@ -43,15 +43,6 @@ export default class NewClass extends cc.Component {
             this.showRgDhAlert();
         }
    }
-   showTestPassword(type){
-        var node = cc.instantiate(this.TestPasswordAlert);
-        var canvas = cc.find('Canvas');
-        canvas.addChild(node);
-        node.getComponent('payTestPasswordAlert').init({
-            parentComponent:this,
-            type : type
-        })
-    }
 
    showRgDhAlert(){
         var node = cc.instantiate(this.RgDhAlert);
