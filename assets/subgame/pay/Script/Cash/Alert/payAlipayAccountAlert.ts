@@ -59,10 +59,7 @@ export default class NewClass extends cc.Component {
         let obj = {};
         obj = {
             account_card:this.accountInput.string,
-            account_surname:'',
-            account_first_name:'',
             account_name:this.account_nameInput.string,
-            pay_url:'',
         };
         let info = JSON.stringify(obj);
         let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&withdraw_type=1&type=2&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`

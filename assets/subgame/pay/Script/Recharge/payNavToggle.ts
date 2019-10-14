@@ -31,12 +31,12 @@ export default class NewClass extends cc.Component {
         if(this.text == '支付宝'){
             this.app.loadIcon('recharge/menu/menu_alipay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_alipay_2',this.currentIcon,249,86);
-            this.app.loadIcon('recharge/menu/tishi',this.tishi,97,55);
-            this.tishiLabel.string = '+1%';
 
         }else if(this.text == '转账到银行卡'){
             this.app.loadIcon('recharge/menu/menu_tobank_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_tobank_2',this.currentIcon,249,86)
+            this.app.loadIcon('recharge/menu/tishi',this.tishi,97,55);
+            this.tishiLabel.string = '+1%';
         }else if(this.text == '银联扫码'){
             this.app.loadIcon('recharge/menu/menu_ylsm_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_ylsm_2',this.currentIcon,249,86)
