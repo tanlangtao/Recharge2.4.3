@@ -39,12 +39,12 @@ export default class NewClass extends cc.Component {
     account_id = null;
     account_type =null;
     init(data){
+       
         //results，保存当前代充信息；
         //data，保存兑换index信息；
         this.results = data.results
         this.data = data.data;
-        console.log(data);
-        
+        console.log('this.results',this.results,'this.data',this.data)
         //显示余额
         this.goldLabel.string = this.app.config.toDecimal(this.data.data.game_gold);
         let list = this.data.data.list;
@@ -73,7 +73,7 @@ export default class NewClass extends cc.Component {
         if(index==0 ){
             if(this.selectArr[index]){
                 let info= JSON.parse(this.selectArr[index].info);
-                this.accountLabel.string = this.app.config.testBankNum(info.account_card);
+                this.accountLabel.string = info.account_card;
                 this.account_id = this.selectArr[index].id;
                 this.account_type = 1
             }else{
