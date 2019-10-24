@@ -1,5 +1,4 @@
-
-
+//兑换导航
 const {ccclass, property} = cc._decorator;
 
 @ccclass

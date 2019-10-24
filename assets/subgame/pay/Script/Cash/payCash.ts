@@ -1,3 +1,4 @@
+//兑换首页
 import gHandler = require("../../../../common/script/common/gHandler");
 
 const {ccclass, property} = cc._decorator;
@@ -22,9 +23,6 @@ export default class NewClass extends cc.Component {
     public zfbResults : any = {};
     public app : any = {};
 
-    //请求次数
-    public idx  = 0;
-
     onLoad () {
 
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -35,11 +33,15 @@ export default class NewClass extends cc.Component {
     public exitBtnClick(){
         //按键音效
         this.app.clickClip.play();
-        cc.director.loadScene(gHandler.gameConfig.hallconfig.lanchscene);
+        let scree = gHandler.gameGlobal.pay.from_scene;
+        gHandler.gameGlobal.pay.from_scene = "";
+        if (scree == ""){
+            scree = "hall"
+        }
+        cc.director.loadScene(scree);
     }
 
     public fetchIndex(){
-        this.idx  = this.idx +1 ;
 
         var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}&version=${this.app.version}`;
         let self = this;

@@ -11,7 +11,6 @@ export default class NewClass extends cc.Component {
     init(data){
         this.ZfbView.url = data.url;
     }
-    // onLoad () {}
 
     start () {
 

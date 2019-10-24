@@ -1,3 +1,4 @@
+//充值首页
 import gHandler = require("../../../../common/script/common/gHandler");
 
 const {ccclass, property} = cc._decorator;
@@ -18,13 +19,8 @@ export default class NewClass extends cc.Component {
     Content: cc.Node = null;
 
     @property()
-    public results: any = {};
     public zfbResults: any = {};
     public app  = null;
-    //请求次数
-    public idx  = 0;
-    // LIFE-CYCLE CALLBACKS:
-
 
     onLoad() {
 
@@ -36,9 +32,14 @@ export default class NewClass extends cc.Component {
     public exitBtnClick() {
         //按键音效
         this.app.clickClip.play();
-        cc.director.loadScene(gHandler.gameConfig.hallconfig.lanchscene);
+        let scree = gHandler.gameGlobal.pay.from_scene;
+        gHandler.gameGlobal.pay.from_scene = "";
+        if (scree == ""){
+            scree = "hall"
+        }
+        cc.director.loadScene(scree);
     }
-
+    //充值历史
     public historyBtnClick() {
         //按键音效
         this.app.clickClip.play();
@@ -49,9 +50,7 @@ export default class NewClass extends cc.Component {
     }
 
     public fetchZfb() {
-        this.idx  = this.idx +1 ;
         var url = `${this.app.UrlData.host}/api/payment/aliPayPaymentIndex?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&version=${this.app.version}`;
-
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading()
@@ -87,7 +86,6 @@ export default class NewClass extends cc.Component {
         if (this.app.UrlData.client=='desktop' && this.zfbResults.data.bank_pay.length > 0  ) {
             arr.push('网银支付')
         }
-        // arr.push('交易所')
         for (let i: number = 0; i < arr.length; i++) {
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);

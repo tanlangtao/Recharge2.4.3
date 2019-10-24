@@ -31,16 +31,12 @@ export default class NewClass extends cc.Component {
     Loading : cc.Node = null;
 
     @property()
-    clickClip = null;
+    clickClip :cc.Component = null;
     public UrlData : any = [];
-    public config  = null;
-    public token  = null;
-    // LIFE-CYCLE CALLBACKS:
-    // 输入模块
-    inputComponent = {};
-    _component: any = {};
+    public config :Config = null;
+    public token :string = null;
     isTestPassworld = false;
-    public version = 1 ;
+    public version :number = 1 ;//充值后台接口，现默认为1
 
     onLoad () {
         this.config = new Config();
@@ -59,14 +55,22 @@ export default class NewClass extends cc.Component {
         //音效
         this.clickClip = this.node.getComponent(cc.AudioSource)
     }
-    public showAlert(data){
+    /**
+     * 全局提示框
+     * @param data 
+     */
+    public showAlert(data:string){
         var node = cc.instantiate(this.publicAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         node.getComponent('payPublicAlert').init(data)
     }
-
-    public getPublicInput(input,type) {
+    /**
+     * 显示公共输入界面
+     * @param input 输入框
+     * @param type 
+     */
+    public getPublicInput(input :cc.EditBox,type :number) {
         var PublicInputAlert = cc.instantiate(this.PublicInputAlert);
         var canvas = cc.find('Canvas');
         input.node.on('editing-did-began', (e) => {
@@ -76,7 +80,7 @@ export default class NewClass extends cc.Component {
                 input: input
             })
         })
-        input.node.on('text-changed', (e) => {
+        input.node.on('text-changed', (e:cc.Label) => {
             if(type == 1){
                 //验证input type = 1 不能以0开头的整数
                 input.string = e.string.replace(/[^\d]/g, '').replace(/^0{1,}/g, '');
@@ -103,6 +107,11 @@ export default class NewClass extends cc.Component {
             PublicInputAlert.getComponent('payPublicInputAlert').readyClick()
         })
     }
+    /**
+     * 自制键盘输入的类型
+     * @param e 内容
+     * @param type 类型
+     */
     public labelType(e,type){
         let msg = e;
         if(type == 1){
@@ -135,6 +144,11 @@ export default class NewClass extends cc.Component {
         }
         return msg
     }
+    /**
+     * 显示订单弹窗
+     * @param type 
+     * @param data 
+     */
     public showOrderAlert(type,data){
         var node = cc.instantiate(this.PublicOrderAlert);
         var canvas = cc.find('Canvas');
@@ -142,7 +156,10 @@ export default class NewClass extends cc.Component {
         node.getComponent('payPublicOrderAlert').init(type,data)
     }
 
-    // 添加支付宝账号弹窗
+    /**
+     * 添加支付宝账号弹窗
+     * @param data 
+     */
     public showAlipayAccountAlert(data){
         var canvas = cc.find('Canvas');
         var node = cc.instantiate(this.AlipayAccountAlert);
@@ -158,7 +175,10 @@ export default class NewClass extends cc.Component {
         }
 
     }
-    // 添加银行卡类型弹窗
+    /**
+     * 添加银行卡类型弹窗
+     * @param data 
+     */
     public showBankAccountAlert(data){
         var canvas = cc.find('Canvas');
         var node = cc.instantiate(this.BankAccountAlert);
@@ -173,37 +193,47 @@ export default class NewClass extends cc.Component {
             BankAccountAlert.changeContent(data.changeData);
         }
     }
-      // 输入模块
-      setComponent(component) {
-        if (!this.inputComponent[component]) this.inputComponent[component] = {};
-        this._component = component;
-        return this
-    }
-    // 输入方法
-    setMethod(methodName, method) {
-        this.inputComponent[this._component][methodName] = method;
-    }
-
+    /**
+     * 小键盘 
+     * @param label 
+     * @param type 
+     */
     public showKeyBoard(label,type){
         var node = cc.instantiate(this.keyBoardAlert);
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
         node.getComponent('payKeyBoardAlert').init(label,type)
     }
-
+    /**
+     * 设置输入框字体颜色
+     * @param msg 
+     * @param input 
+     */
     setInputColor(msg,input){
         let color1 = new cc.Color(255, 255, 255);
         let color2 = new cc.Color(187, 187, 187);
         //设置字的颜色
         msg == '' ? input.node.color = color2:input.node.color = color1;
     }
-
+    /**
+     * WriteMoneyAlert弹窗
+     * @param component 
+     * @param type 
+     * @param data 
+     */
     showWriteMoneyAlert(component,type,data){
         var node = cc.instantiate(this.WriteMoneyAlert);
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
         node.getComponent('payWriteMoneyAlert').init(component,type,data)
     }
+    /**
+     * 图片加载
+     * @param url 路径 
+     * @param node 节点
+     * @param w 宽
+     * @param h 高
+     */
     public loadIcon(url,node,w,h){
         cc.loader.loadRes(`/pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
             node.width = w;
@@ -211,6 +241,14 @@ export default class NewClass extends cc.Component {
             node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         })
     }
+    /**
+     * 网络请求
+     * @param method 方式
+     * @param url 网址
+     * @param data 参数
+     * @param successFn 成功回调
+     * @param faildFn 失败回调 
+     */
     ajax(method,url,data,successFn,faildFn){   
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
@@ -230,9 +268,11 @@ export default class NewClass extends cc.Component {
 			, "application/x-www-form-urlencoded");
         xhr.send(data);
     }
+    //显示加载动画
     showLoading(){
         this.Loading.active = true;
     }
+    //隐藏加载动画
     hideLoading(){
         this.Loading.active = false;
     }

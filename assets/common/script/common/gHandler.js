@@ -34,6 +34,7 @@ let gameGlobal = {
         // user_name: "游客42651",
         // proxy_user_id: "548291942",
         // proxy_name: "博臣娱乐",
+        from_scene: "", // 跳转过来的场景名
         client: "ios",
         package_id: "1",
         pay_host:'http://161.117.178.174:12353',
