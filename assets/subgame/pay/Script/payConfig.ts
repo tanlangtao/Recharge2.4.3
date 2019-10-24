@@ -61,7 +61,7 @@ export default class Config extends cc.Component {
         var result = parseFloat(num);
         if (isNaN(result)) {
         alert('传递参数错误，请检查！');
-        return false;
+        return '';
         }
         result = Math.round(num * 100) / 100;
         var s_x = result.toString();

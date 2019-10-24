@@ -24,7 +24,12 @@ export default class payRgDh extends cc.Component {
         let url = `${this.app.UrlData.imHost}/im/api/recharge/list?skip=0&limit=6&token=c7a9d6g21v87s&package_id=${this.app.UrlData.package_id}&user_type=2`
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
-            this.app.hideLoading();
+            //避免快速点击退出大厅报错
+            if(this.app){
+                this.app.hideLoading()
+            }else{
+                return
+            }
             if(response.code== 0){
                 self.results = response;
                 self.fetchIndex();
@@ -34,6 +39,7 @@ export default class payRgDh extends cc.Component {
             }
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)
+            self.app.hideLoading()
         })
     }
     public fetchIndex(){

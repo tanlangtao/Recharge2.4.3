@@ -38,7 +38,7 @@ export default class NewClass extends cc.Component {
         var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&order_status=${this.order_status}&page=${this.page}&page_set=8&version=${this.app.version}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
-            this.app.hideLoading();
+            self.app.hideLoading();
             self.List.removeAllChildren();
             if(response.status == 0){
                 self.results = response;
@@ -67,6 +67,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)
+            self.app.hideLoading();
         })
     }
     /**

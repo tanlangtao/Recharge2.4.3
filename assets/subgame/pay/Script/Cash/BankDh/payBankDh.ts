@@ -74,7 +74,7 @@ export default class NewClass extends cc.Component {
 
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
-            this.app.hideLoading();
+            self.app.hideLoading();
             if(response.status == 0){
                 self.data = response;
                 self.init();
@@ -84,6 +84,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)
+            self.app.hideLoading();
         })
     }
     
