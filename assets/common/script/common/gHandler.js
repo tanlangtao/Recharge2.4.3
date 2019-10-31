@@ -29,16 +29,12 @@ let gameGlobal = {
     // im_host: "https://im.sempxw.com",
     im_host:'http://161.117.178.174:12352',
     pay: { // 充提数据结构
-        // pay_host: "http://payment.sempxw.com",
-        // user_id: "548291942",
-        // user_name: "游客42651",
-        // proxy_user_id: "548291942",
-        // proxy_name: "博臣娱乐",
         from_scene: "", // 跳转过来的场景名
         client: "ios",
         package_id: "1",
         pay_host:'http://161.117.178.174:12353',
-        user_id:'820949122',
+        // pay_host:'http://18.176.74.76:12353',
+        user_id:'143054515',
         user_name:'A091944',
         proxy_user_id:'873797373',
         proxy_name:'贵宾127788',

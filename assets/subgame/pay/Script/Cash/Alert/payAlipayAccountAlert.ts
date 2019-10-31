@@ -36,8 +36,8 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        this.app.getPublicInput(this.accountInput,1);
-        this.app.getPublicInput(this.account_nameInput,2);
+        // this.app.getPublicInput(this.accountInput,1);
+        // this.app.getPublicInput(this.account_nameInput,2);
     }
 
     onClick(){

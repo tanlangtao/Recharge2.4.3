@@ -46,7 +46,7 @@ export default class NewClass extends cc.Component {
                 if(response.data.is_exist == 0){
                     self.fetchVeify();
                 }else{
-                    self.app.showCancleAlert(response.data);
+                    self.app.showAlert(`上一笔交易未完成！，请先至聊天工具里取消订单！`)
                 }
                 self.node.removeFromParent();
             }else{
