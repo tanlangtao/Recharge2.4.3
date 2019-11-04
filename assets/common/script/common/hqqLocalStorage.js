@@ -2,7 +2,7 @@
  * @Author: burt
  * @Date: 2019-07-30 10:44:15
  * @LastEditors: burt
- * @LastEditTime: 2019-09-18 14:01:55
+ * @LastEditTime: 2019-10-29 15:33:22
  * @Description: 本地化保存
  */
 let gHandler = require("gHandler");
@@ -11,9 +11,19 @@ let localStorage = {
     subdata: {},
     globalKey: "globalKey",
     global: {},
+    huanjinKey: 'huanjinKey',
     /** 初始化每个游戏名一个保存键值对 */
     init() {
         // cc.sys.localStorage.clear();
+        // if (cc.sys.localStorage.getItem(this.huanjinKey)) {
+        //     let local = JSON.parse(cc.sys.localStorage.getItem(this.huanjinKey))
+        //     if (local != gHandler.appGlobal.huanjin) {
+        //         cc.sys.localStorage.clear();
+        //         cc.sys.localStorage.setItem(this.huanjinKey, JSON.stringify(gHandler.appGlobal.huanjin))
+        //     }
+        // } else {
+        //     cc.sys.localStorage.setItem(this.huanjinKey, JSON.stringify(gHandler.appGlobal.huanjin))
+        // }
         if (cc.sys.localStorage.getItem(this.subgameKey)) {
             this.subdata = JSON.parse(cc.sys.localStorage.getItem(this.subgameKey));
         } else {
@@ -21,12 +31,25 @@ let localStorage = {
                 this.subdata[gHandler.gameConfig.gamelist[i].enname] = gHandler.commonTools.jsonCopy(gHandler.gameConfig.gamelist[i]);
             }
             cc.sys.localStorage.setItem(this.subgameKey, JSON.stringify(this.subdata));
+
         }
         if (cc.sys.localStorage.getItem(this.globalKey)) {
             this.global = JSON.parse(cc.sys.localStorage.getItem(this.globalKey));
         } else {
             cc.sys.localStorage.setItem(this.globalKey, JSON.stringify(this.global));
+            cc.sys.localStorage.setItem("bgVolumeKey", 1);
+            cc.sys.localStorage.setItem("effectVolumeKey", 1);
+            cc.sys.localStorage.setItem("bgIsOpenKey", true);
+            cc.sys.localStorage.setItem("effectIsOpenKey", true);
         }
+        // cc.log("log", JSON.parse(cc.sys.localStorage.getItem('log')))
+        // cc.log("elog", JSON.parse(cc.sys.localStorage.getItem('elog')))
+        if (typeof JSON.parse(cc.sys.localStorage.getItem('globalKey')).hotServerKey == "object") {
+            let hotserver = this.globalGet("hotServerKey")[0]
+            this.globalSet("hotServerKey", hotserver)
+        }
+        // cc.log("global", JSON.parse(cc.sys.localStorage.getItem('globalKey')))
+        // cc.log("subgame", JSON.parse(cc.sys.localStorage.getItem('subgameKey')))
         return this;
     },
     set(subgame, key, data) {

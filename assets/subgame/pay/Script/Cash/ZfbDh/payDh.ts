@@ -124,6 +124,7 @@ export default class NewClass extends cc.Component {
         this.action = this.bankData.length != 0 ? 'edit' :'add';
         this.goldLabel.string = this.app.config.toDecimal(data.game_gold);
         this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:50} - ${this.current?this.current.max_amount:10000})`;
+        
         this.accountLabel.string = this.bankData.length != 0  ? this.app.config.testBankNum(this.Info.account_card) :'未设置';
         if(this.bankData.length != 0 ){
             this.accountBtn.active = false;

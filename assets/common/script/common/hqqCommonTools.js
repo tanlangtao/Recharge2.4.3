@@ -2,7 +2,7 @@
  * @Author: burt
  * @Date: 2019-07-29 15:52:25
  * @LastEditors: burt
- * @LastEditTime: 2019-09-04 09:15:52
+ * @LastEditTime: 2019-10-21 17:11:59
  * @Description: 通用函数
  */
 
@@ -62,7 +62,8 @@ let commonTools = {
                 }
                 jsb.saveImageData(picData, width, height, fullPath);
                 let texture = new cc.Texture2D();
-                texture.initWithData(picData, 32, width, height);
+                cc.log(width, height)
+                texture.initWithData(picData, texture._format, width, height);
                 let spriteFrame = new cc.SpriteFrame();
                 spriteFrame.setTexture(texture);
                 let sprite = node.addComponent(cc.Sprite);
@@ -250,6 +251,22 @@ let commonTools = {
         const o = padDay(d);
         return parseInt(`${y}${i}${o}`, 10);
     },
+    formatDateToStr(timestamp) {
+        let date = new Date(1e3 * timestamp)  // *1e3 转换时间
+        let strYear = date.getFullYear();
+        let month = date.getMonth();
+        let strMonth = (9 > month ? "0" + (month + 1) : month + 1).toString();
+        let day = date.getDate();
+        let strDay = (10 > day ? "0" + day : day).toString();
+        let hour = date.getHours();
+        let strHour = (hour < 10 ? "0" + hour : hour).toString();
+        let minute = date.getMinutes();
+        let strMinute = (minute < 10 ? "0" + minute : minute).toString();
+        let second = date.getMinutes();
+        let strSecond = (second < 10 ? "0" + second : second).toString();
+        let str = strYear + "-" + strMonth + "-" + strDay + " " + strHour + ":" + strMinute + ":" + strSecond
+        return str
+    },
     /**
 	 * 字符串数组转化为数字数组
 	 * @param strArray 需要转化的字符串数组
@@ -303,7 +320,13 @@ let commonTools = {
     padNumber(num, len) {
         const n = ("" + num).length;
         return Array(len > n ? len - n + 1 || 0 : 0).join("0") + num;
-    }
+    },
+    getSM() {
+        let date = new Date()
+        let miao = date.getSeconds()
+        let mill = date.getMilliseconds()
+        return { miao, mill }
+    },
 }
 
 module.exports = commonTools;

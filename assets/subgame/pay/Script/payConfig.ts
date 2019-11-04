@@ -109,7 +109,7 @@ export default class Config extends cc.Component {
     public testBankNum(num){
         if (isNaN(num)) {
             alert('传递参数错误，请检查！');
-            return false;
+            return '';
         }
         var data = num.replace(/\s/g,'').replace(/(\d{4})\d+(\d{4})$/, "**** **** **** $2") ;
         return data;

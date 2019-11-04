@@ -1,5 +1,6 @@
 
 import Config from "../payConfig"
+import gHandler = require("../../../../common/script/common/gHandler");
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -90,28 +91,52 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.clickClip.play();
         
-        this.config.copyToClipBoard(this.card_numLabel.string);
+        if (gHandler.Reflect) {
+            if (gHandler.Reflect.setClipboard(this.card_numLabel.string)) {
+                this.app.showAlert(`复制成功!:${this.card_numLabel.string}`)
+            } else {
+                this.app.showAlert(`复制失败!请升级系统版本`)
+            }
+        }
        
     }
 
     copyCard_name(){
         //按键音效
         this.app.clickClip.play();
-        this.config.copyToClipBoard(this.card_nameLabel.string);
+        if (gHandler.Reflect) {
+            if (gHandler.Reflect.setClipboard(this.card_nameLabel.string)) {
+                this.app.showAlert(`复制成功!:${this.card_nameLabel.string}`)
+            } else {
+                this.app.showAlert(`复制失败!请升级系统版本`)
+            }
+        }
     }
 
     copyAmount(){
         //按键音效
         this.app.clickClip.play();
 
-        this.config.copyToClipBoard(this.amountLabel.string);
+        if (gHandler.Reflect) {
+            if (gHandler.Reflect.setClipboard(this.amountLabel.string)) {
+                this.app.showAlert(`复制成功!:${this.amountLabel.string}`)
+            } else {
+                this.app.showAlert(`复制失败!请升级系统版本`)
+            }
+        }
     }
 
     copyRemark(){
         //按键音效
         this.app.clickClip.play();
 
-        this.config.copyToClipBoard(this.remarkLabel.string);
+        if (gHandler.Reflect) {
+            if (gHandler.Reflect.setClipboard(this.remarkLabel.string)) {
+                this.app.showAlert(`复制成功!:${this.remarkLabel.string}`)
+            } else {
+                this.app.showAlert(`复制失败!请升级系统版本`)
+            }
+        }
     }
     
     removeSelf(){

@@ -2,10 +2,41 @@
  * @Author: burt
  * @Date: 2019-08-15 14:28:50
  * @LastEditors: burt
- * @LastEditTime: 2019-09-18 14:23:58
+ * @LastEditTime: 2019-10-29 15:59:44
  * @Description: 
  -->
 # all hqq native combined-game project
+
+10.29更新{
+	头像图片资源修改，由原来的20个，改为10个，根据头像图片取10余数，获取对应头像
+	大厅 调用示例 gHandler.eventMgr.dispatch(gHandler.eventMgr.showPerson, null) // 显示个人设置界面
+}
+
+10.24更新{
+	增加事件派发添加大厅页面及跳转充提模块
+	 	gHandler.eventMgr.dispatch(gHandler.eventMgr.showNotice, null) // 显示公告界面
+		gHandler.eventMgr.dispatch(gHandler.eventMgr.showRegister, null) // 显示免费金币界面
+		gHandler.eventMgr.dispatch(gHandler.eventMgr.showPerson, null) // 显示个人设置界面
+		gHandler.eventMgr.dispatch(gHandler.eventMgr.showPayScene, "当前场景的名字（用于充提返回当前场景）") // 跳转充提场景
+}
+
+登陆接口改变：{
+	原有的账号密码登陆方式，只在本地开发上使用
+	发布使用id + token的方式登陆子游戏
+
+	账号密码方式
+	账号：gHandler.gameGlobal.player.account_name // number类型
+	密码：gHandler.gameGlobal.player.account_pass // string类型
+
+	id+token方式
+	id:gHandler.gameGlobal.player.id // number类型
+	token:gHandler.gameGlobal.token // string类型
+}
+
+滚动公告：{
+	common/hall/scene/hall 场景的 Main Camera/toppanel/noticepanel/sp_trumppet_bg节点
+	可直接复制此滚动公告节点到需要的场景上，即可实现滚动公告功能
+}
 
 注意：{
 	一个子游戏有两个文件夹路径，一个是resources下新建的子游戏的动态资源目录，
@@ -79,6 +110,8 @@ subgame子游戏资源目录：{
 	3、解决冲突（modified的在本地编辑器即可修改）
 	4、继续开发
 	5、开发阶段完成，请求合并
+
+	(注意：大厅分支subgame文件夹已删除，合并分支时请一定注意)
 }
 
 常用接口示例：{

@@ -2,7 +2,7 @@
  * @Author: burt
  * @Date: 2019-08-01 11:28:43
  * @LastEditors: burt
- * @LastEditTime: 2019-09-19 13:52:30
+ * @LastEditTime: 2019-10-21 17:13:36
  * @Description: log日志 管理器
  */
 
@@ -10,12 +10,13 @@ let hqqHttp = require("hqqHttp");
 let gHandler = require("gHandler");
 let logManager = {
     isRealTimeLog: true, // 是否在控制台实时打印
-    logMaxLine: 1000, // 最大的打印行数
+    logMaxLine: 50, // 最大的打印行数
     depth: 0,
     parentSizes: [0],
     currentResult: '',
     output: '', // 全部日志
     eoutput: '', // 错误日志
+    poutput: [], // 前面5条错误日志
     serverUrl: null,
     tag: "\r\n",
     logpath: "",
@@ -23,10 +24,7 @@ let logManager = {
      * 初始化
      */
     init: function () {
-        if (cc.sys.isBrowser) {
-            this.output = JSON.parse(cc.sys.localStorage.getItem('log'))
-            this.eoutput = JSON.parse(cc.sys.localStorage.getItem('elog'))
-        } else {
+        if (CC_JSB) {
             this.logpath = jsb.fileUtils.getWritablePath() + "log";
             if (jsb.fileUtils.isDirectoryExist(this.logpath)) {
                 this.output = jsb.fileUtils.getStringFromFile(this.logpath + "/logtemp.txt")
@@ -34,16 +32,30 @@ let logManager = {
             } else {
                 jsb.fileUtils.createDirectory(jsb.fileUtils.getWritablePath() + "log");
             }
+        } else {
+            this.output = JSON.parse(cc.sys.localStorage.getItem('log'))
+            this.eoutput = JSON.parse(cc.sys.localStorage.getItem('elog'))
         }
+
         window.addEventListener('error', (e) => {
-            // console.log("error")
+            // cc.log("error")
             this.logerror(e);
         })
         window.addEventListener('unhandledrejection', (e) => {
-            // console.log("unhandledrejection")
+            // cc.log("unhandledrejection")
             this.logerror(e);
         })
         return this;
+    },
+    // 立即发送日志
+    sendLog() {
+        this.send(this.output, true);
+        this.output = ""
+    },
+    // 立即发送错误日志
+    sendError() {
+        this.send(this.eoutput);
+        this.eoutput = ""
     },
     /** 向服务器发送日志 */
     send: function (logstr, islog) {
@@ -55,31 +67,39 @@ let logManager = {
                 id: gHandler.gameGlobal.player.id,
                 msg: logstr,
                 package_name: gHandler.appGlobal.packgeName,
+                device_id: gHandler.appGlobal.deviceID,
             }
+            cc.log("向服务器发送日志", data)
             this.serverUrl && hqqHttp.sendRequestLogPost(this.serverUrl, data, null, (bool, filepath) => {
                 if (bool) {
-                    if (cc.sys.isBrowser) {
-                        console.log("日志发送成功")
-                    } else {
+                    if (CC_JSB) {
+                        cc.log("原生日志发送成功")
                         if (islog) {
                             jsb.fileUtils.removeFile(this.logpath + "/logtemp.txt")
                         } else {
                             jsb.fileUtils.removeFile(this.logpath + "/elogtemp.txt")
                         }
+                    } else {
+                        cc.log("日志发送成功")
+                        if (islog) {
+                            cc.sys.localStorage.setItem("log", JSON.stringify(this.output))
+                        } else {
+                            cc.sys.localStorage.setItem("elog", JSON.stringify(this.eoutput))
+                        }
                     }
                 } else {
-                    if (cc.sys.isBrowser) {
-                        console.log("日志发送失败")
-                    } else {
+                    if (CC_JSB) {
                         if (islog) {
                             jsb.fileUtils.writeStringToFile(logstr, this.logpath + "/log" + this.getNowTime() + ".txt")
                         } else {
                             jsb.fileUtils.writeStringToFile(logstr, this.logpath + "/elog" + this.getNowTime() + ".txt")
                         }
+                    } else {
+                        cc.log("日志发送失败")
                     }
                 }
             });
-            if (cc.sys.isNative) {
+            if (CC_JSB) {
                 let files = jsb.fileUtils.listFiles(this.logpath);
                 for (let i = 0; i < files.length; i++) {
                     if (files[i].indexOf("logtemp") != -1 || files[i].indexOf("elogtemp") != -1) {
@@ -94,25 +114,21 @@ let logManager = {
                         }
                         this.serverUrl && hqqHttp.sendRequestLogPost(this.serverUrl, data, files[i], (bool, filepath) => {
                             if (bool) {
-                                if (cc.sys.isBrowser) {
-                                    console.log("日志发送成功")
-                                } else {
-                                    jsb.fileUtils.removeFile(filepath)
-                                }
+                                jsb.fileUtils.removeFile(filepath)
                             }
                         });
                     }
                 }
             }
         } else {
-            if (cc.sys.isBrowser) {
-                console.log("未请求到token")
-            } else {
+            if (CC_JSB) {
                 if (islog) {
                     jsb.fileUtils.writeStringToFile(logstr, this.logpath + "/log" + this.getNowTime() + ".txt")
                 } else {
                     jsb.fileUtils.writeStringToFile(logstr, this.logpath + "/elog" + this.getNowTime() + ".txt")
                 }
+            } else {
+                cc.log("未请求到token")
             }
         }
     },
@@ -125,7 +141,7 @@ let logManager = {
         for (let i = 0; i < arguments.length; i++) {
             data += arguments[i] + " "
         }
-        this.isRealTimeLog && console.log("__logMgr__", data);
+        this.isRealTimeLog && cc.log("__logMgr__", data);
         this.output += this.getNowTime() + ":" + data + this.tag;
         this.logCheck();
     },
@@ -135,46 +151,65 @@ let logManager = {
      * @return: 
      */
     logerror: function (data) {
-        this.isRealTimeLog && console.log(data);
-        var type = this.determineType(data);
-        if (type != null) {
-            var addition = this.formatType(type, data);
-            this.eoutput += this.getNowTime() + ":" + addition + this.tag;
+        this.isRealTimeLog && cc.log(data);
+        if (data.error && data.error.stack) {
+            var err = data.error.stack + this.tag;
+            for (let i = 0; i < this.poutput.length; i++) {
+                let out = this.poutput[i]
+                let pre = out.substring(out.indexOf(":") + 1)
+                if (err == pre) {
+                    cc.log("重复的错误日志")
+                    return
+                }
+            }
+            err = this.getNowTime() + ":" + err;
+            this.eoutput += err;
+            if (this.poutput.length == 5) {
+                this.poutput.shift();
+                this.poutput.push(err);
+            } else {
+                this.poutput.push(err);
+            }
             this.elogCheck();
         }
     },
     saveLog: function () {
-        if (cc.sys.isBrowser) {
-            cc.sys.localStorage.setItem("log", JSON.stringify(this.output))
-            cc.sys.localStorage.setItem("elog", JSON.stringify(this.eoutput))
-        } else {
+        if (CC_JSB) {
             cc.fileUtils.writeStringToFile(this.output, this.logpath + "/logtemp.txt")
             cc.fileUtils.writeStringToFile(this.eoutput, this.logpath + "/elogtemp.txt")
+        } else {
+            cc.sys.localStorage.setItem("log", JSON.stringify(this.output))
+            cc.sys.localStorage.setItem("elog", JSON.stringify(this.eoutput))
         }
     },
     getNowTime: function () {
         let date = new Date();
-        let time = "" + date.getMonth() + "-";
-        time += date.getDate() + "-";
-        time += date.getHours() + "-";
-        time += date.getMinutes() + "-";
-        time += date.getSeconds();
-        return time;
+        let strYear = date.getFullYear();
+        let month = date.getMonth();
+        let strMonth = (9 > month ? "0" + (month + 1) : month + 1);
+        let day = date.getDate();
+        let strDay = (10 > day ? "0" + day : day);
+        let hour = date.getHours();
+        let strHour = (hour < 10 ? "0" + hour : hour);
+        let minute = date.getMinutes();
+        let strMinute = (minute < 10 ? "0" + minute : minute);
+        let second = date.getMinutes();
+        let strSecond = (second < 10 ? "0" + second : second);
+        let str = strYear + "-" + strMonth + "-" + strDay + " " + strHour + ":" + strMinute + ":" + strSecond
+        return str;
     },
     logCheck: function () {
         let lines = this.output.split(this.tag);
         if (lines.length > this.logMaxLine) {
-            let tempoutput = this.output + "endTime-" + this.getNowTime();
-            this.send(tempoutput, true);
-            this.output = "startTime-" + this.getNowTime() + this.tag;
+            this.send(this.output, true);
+            this.output = ""
         }
     },
     elogCheck: function () {
         let lines = this.eoutput.split(this.tag);
         if (lines.length > this.logMaxLine) {
-            let tempoutput = this.eoutput + "endTime-" + this.getNowTime();
-            this.send(tempoutput);
-            this.eoutput = "startTime-" + this.getNowTime() + this.tag;
+            this.send(this.eoutput);
+            this.eoutput = ""
         }
     },
 
