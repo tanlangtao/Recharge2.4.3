@@ -111,6 +111,7 @@ export default class Config extends cc.Component {
             alert('传递参数错误，请检查！');
             return '';
         }
+        console.log(num)
         var data = num.replace(/\s/g,'').replace(/(\d{4})\d+(\d{4})$/, "**** **** **** $2") ;
         return data;
 

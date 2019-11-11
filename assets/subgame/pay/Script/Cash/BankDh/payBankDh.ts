@@ -53,7 +53,12 @@ export default class NewClass extends cc.Component {
         max_amount: "40000",
         min_amount: "1"};
     //当前选择的银行卡信息
-    public Info = null;
+    public Info = {
+        bank_name:'',
+        branch_name:'',
+        card_name:'',
+        card_num:'',
+    };
     public bankData = [];
     public showBankSelect = false;
     public bankId = null;
@@ -111,6 +116,7 @@ export default class NewClass extends cc.Component {
                 this.bankData.push(data)
             }
         }
+        
         if(this.bankData.length>0){
             this.Info =JSON.parse(this.bankData[0].info)
             this.bankId = this.bankData[0].id;
@@ -118,9 +124,8 @@ export default class NewClass extends cc.Component {
         this.action = this.bankData.length != 0 ? 'edit' :'add';
         this.goldLabel.string = this.app.config.toDecimal(data.game_gold);
         this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:50} - ${this.current?this.current.max_amount:10000})`;
-        this.Info.card_num = false;
         this.accountLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
-        if(this.bankData.length != 0 ){
+        if(this.bankData.length != 0 ){9
             this.accountBtn.active = false;
         }else{
             this.accountBtn.active = true;

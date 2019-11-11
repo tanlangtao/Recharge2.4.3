@@ -71,6 +71,8 @@ export default class NewClass extends cc.Component {
             this.app.showAlert('请选择银行！')
         }else if(this.accountInput.string.length>19||this.accountInput.string.length<15){
             this.app.showAlert('无效卡号！')
+        }else if(this.accountInput.string.slice(0,1)=='0'){
+            this.app.showAlert('无效卡号！')
         }else if(this.bankNameInput.string == ''){
             this.app.showAlert('开户行不能为空！')
         }else{
