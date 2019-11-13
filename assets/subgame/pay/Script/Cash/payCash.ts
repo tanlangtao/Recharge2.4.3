@@ -22,15 +22,22 @@ export default class NewClass extends cc.Component {
     public results : any = {};
     public zfbResults : any = {};
     public app : any = {};
-
+    timer = null;
+    canExit= null;
     onLoad () {
 
         this.app = cc.find('Canvas/Main').getComponent('payMain');
 
         this.fetchIndex();
 
+        //设置延迟，避免用户频繁操作导致报错
+        this.timer = setTimeout(() => {
+            this.canExit = true;
+            clearTimeout(this.timer)
+        }, 1000);
     }
     public exitBtnClick(){
+        if(!this.canExit) return
         //按键音效
         this.app.clickClip.play();
         let scree = gHandler.gameGlobal.pay.from_scene;
@@ -102,5 +109,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('payDhToggle').addContent('Dh')
         }
     }
-    
+    onDestroy(){
+        clearTimeout(this.timer)
+    }
 }
