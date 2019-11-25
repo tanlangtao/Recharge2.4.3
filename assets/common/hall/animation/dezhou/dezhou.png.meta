@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "0dba4a67-056e-46c6-ab07-82b18c7f75af",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "dezhou": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "239ea842-560a-49ac-9486-46ad381b1b79",
       "rawTextureUuid": "0dba4a67-056e-46c6-ab07-82b18c7f75af",
       "trimType": "auto",

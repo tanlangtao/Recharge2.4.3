@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "fc98dac2-d864-42cd-9591-d811ad8a90fe",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "VIP_czbt1": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "a77e5421-ed80-4bfd-9d06-484d2ba65183",
       "rawTextureUuid": "fc98dac2-d864-42cd-9591-d811ad8a90fe",
       "trimType": "custom",

@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "42db52f1-1763-4e36-a2d8-c2357851f27a",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "bdali_form": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "9941eac9-16cc-4cfe-9d64-4b6ea992f9eb",
       "rawTextureUuid": "42db52f1-1763-4e36-a2d8-c2357851f27a",
       "trimType": "auto",

@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "1112f910-a4b7-4d9b-ae6d-298fd3ba7366",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "IM_main_top_shadow": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "d783aa84-c322-4a6e-adc4-b7ecc240fae4",
       "rawTextureUuid": "1112f910-a4b7-4d9b-ae6d-298fd3ba7366",
       "trimType": "auto",

@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "e1aa9ace-262e-45e2-902f-0fdcb2a5cc0f",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "btn_fuzhi": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "cf865220-ae93-4828-b2c8-10b2dbbff17a",
       "rawTextureUuid": "e1aa9ace-262e-45e2-902f-0fdcb2a5cc0f",
       "trimType": "custom",

@@ -721,6 +721,7 @@ cc.Class({
     /** 精彩活动 */
     onClickHuoDongBtn() {
         cc.log("精彩活动")
+        cc.director.loadScene('payActivity')
         if (gHandler.gameGlobal.isdev) return
     },
     /** 活动页面 */

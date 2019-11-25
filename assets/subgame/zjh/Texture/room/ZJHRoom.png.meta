@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "7cb1e1c1-d54d-4964-8fde-ba20c471eaee",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "ZJHRoom": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "34fabab5-665d-45d9-ad77-315e61dc7896",
       "rawTextureUuid": "7cb1e1c1-d54d-4964-8fde-ba20c471eaee",
       "trimType": "auto",

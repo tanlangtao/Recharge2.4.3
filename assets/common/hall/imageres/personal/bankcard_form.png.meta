@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "0cb79279-467c-4425-b247-d2600b82b844",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "bankcard_form": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "b7bc8bea-591e-4342-a3cd-924c65f6f845",
       "rawTextureUuid": "0cb79279-467c-4425-b247-d2600b82b844",
       "trimType": "auto",

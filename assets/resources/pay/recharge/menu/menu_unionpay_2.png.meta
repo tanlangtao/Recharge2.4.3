@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "22a23b31-f91e-4b36-8bbe-ebe5084776ce",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "menu_unionpay_2": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "b60f5570-e108-440b-8e15-1a750e1d3c48",
       "rawTextureUuid": "22a23b31-f91e-4b36-8bbe-ebe5084776ce",
       "trimType": "custom",

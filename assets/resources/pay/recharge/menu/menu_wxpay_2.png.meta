@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "d9a19303-027d-4b32-a8d1-266cae222d07",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "menu_wxpay_2": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "e055859f-8096-416d-9c74-c0d4055ed453",
       "rawTextureUuid": "d9a19303-027d-4b32-a8d1-266cae222d07",
       "trimType": "custom",

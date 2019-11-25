@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "0cec1f5a-2e36-4e54-9ba8-2f9112c9aae0",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "bank_hd": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "f6b62fea-403e-40c8-93f5-594561d4eee6",
       "rawTextureUuid": "0cec1f5a-2e36-4e54-9ba8-2f9112c9aae0",
       "trimType": "custom",

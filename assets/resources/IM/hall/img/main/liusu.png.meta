@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "b008cbf9-77ea-4e85-b2a2-271ba2e84cf5",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "liusu": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "37eed789-ff39-425b-a33a-dedf55022811",
       "rawTextureUuid": "b008cbf9-77ea-4e85-b2a2-271ba2e84cf5",
       "trimType": "auto",

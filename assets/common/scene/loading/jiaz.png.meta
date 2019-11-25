@@ -1,13 +1,16 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.3",
   "uuid": "247a01e8-8cc7-46af-8aaf-1830d9e248c1",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
   "subMetas": {
     "jiaz": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "c9933277-80d5-4e51-9934-75e5d545987f",
       "rawTextureUuid": "247a01e8-8cc7-46af-8aaf-1830d9e248c1",
       "trimType": "auto",
