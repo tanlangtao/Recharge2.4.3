@@ -49,7 +49,7 @@ export default class NewClass extends cc.Component {
 
     public addHuodong(){
         this.huodongConfig.data.forEach((e)=>{
-            if(e.is_close == 2){
+            if(e.is_close == 2 && e.name =='流水闯关活动'){
                 this.arr.push(e);
             }
         });
@@ -64,6 +64,7 @@ export default class NewClass extends cc.Component {
             this.ToggleContainer.addChild(node);
             node.getComponent('payActivityNav').init(data)
         }
+        console.log(this.arr[0])
         if(this.arr[0].name == '流水闯关活动'){
             node.getComponent('payActivityNav').addContent('ChuangGuan',JSON.parse(this.arr[0].info).type,this.arr[0].id);
         }else if(this.arr[0].name =='存送活动'){

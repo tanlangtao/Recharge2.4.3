@@ -39,13 +39,17 @@ let gameGlobal = {
         temp_host: "", // string类型
         proxy_host: "", // proxy_host
     },
-    im_host:'http://161.117.178.174:12352',
+    // im_host:'http://161.117.178.174:12352',
+    im_host:'https://im.sempxw.com',
+
     pay: { // 充提数据结构
         from_scene: "", // 跳转过来的场景名
         client: "ios",
         package_id: "1",
-        pay_host:'http://161.117.178.174:12353',
-        user_id:'820949122',
+        // pay_host:'http://payment.sempxw.com',//pre
+        // user_id:'548291942',//pre
+        pay_host:'http://161.117.178.174:12353',//dev
+        user_id:'820949122',//dev
         user_name:'A091944',
         proxy_user_id:'873797373',
         proxy_name:'贵宾127788',

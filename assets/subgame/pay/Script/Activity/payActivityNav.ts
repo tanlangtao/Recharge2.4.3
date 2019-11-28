@@ -27,9 +27,10 @@ export default class NewClass extends cc.Component {
         this.data = data;
         //显示导航
         if(data.name == '流水闯关活动'){
-            this.app.loadIcon('cash/menu/menu_ali_1',this.normalIcon,242,86)
-            this.app.loadIcon('cash/menu/menu_ali_2',this.currentIcon,249,86);
-        }else if(data.name == '存送活动'){
+            this.app.loadIcon('activity/btn_huodong2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_huodong1',this.currentIcon,249,86);
+        }
+        else if(data.name == '存送活动'){
             this.app.loadIcon('cash/menu/menu_ali_1',this.normalIcon,242,86)
             this.app.loadIcon('cash/menu/menu_ali_2',this.currentIcon,249,86);
         }
@@ -41,8 +42,9 @@ export default class NewClass extends cc.Component {
     }
 
     onClick(){
-        this.app.showLoading();
+        
         if(this.name == '流水闯关活动'){
+            this.app.showLoading();
             this.addContent('ChuangGuan',JSON.parse(this.data.info).type,this.id)
         }else if(this.name == '存送活动'){
             this.addContent('HuoDong',JSON.parse(this.data.info).type,this.id)
@@ -54,8 +56,9 @@ export default class NewClass extends cc.Component {
         if(data == 'ChuangGuan'){
             var node = cc.instantiate(this.ChuangGuan);
             content.removeAllChildren();
+            node.getComponent('payChuangGuan').setId(id,'流水闯关活动');
             content.addChild(node);
-            node.getComponent('ChuangGuan').setId(id,'流水闯关活动');
+            
         }else if(data == 'HuoDong'){
             var node = cc.instantiate(this.HuoDong);
             content.removeAllChildren();
