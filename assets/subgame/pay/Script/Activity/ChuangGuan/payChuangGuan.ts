@@ -60,7 +60,7 @@ export default class NewClass extends cc.Component {
                 this.app.hideLoading();
                 let info = response.data.receive_info;
                 this.today_statement = response.data.today_statement;//设置今日总流水;
-                this.today_statement = 250000;//设置今日总流水;
+                // this.today_statement = 250000;//设置今日总流水;
                 this.totalStatement.string = `${this.today_statement}`;
                 this.setStatement(info)
             }else{
@@ -72,33 +72,8 @@ export default class NewClass extends cc.Component {
     }
     
     private setStatement(info){
-        // info = {
-        //     level_1:{
-        //         gold:100,
-        //         statement:1000,
-        //         has_receive:0,
-        //     },
-        //     level_2:{
-        //         gold:200,
-        //         statement:2000,
-        //         has_receive:0,
-        //     },
-        //     level_3:{
-        //         gold:300,
-        //         statement:5000,
-        //         has_receive:0,
-        //     },
-        //     level_4:{
-        //         gold:400,
-        //         statement:10000,
-        //         has_receive:0,
-        //     },
-        //     level_5:{
-        //         gold:500,
-        //         statement:50000,
-        //         has_receive:0,
-        //     },
-        // }
+        this.remainingLevel = [];//清空上一轮
+        this.remainingGold = 0;//清空上一轮
         this.hongbaoArr.forEach((item,index)=>{
             let infoItem = info[`level_${index+1}`]
             item.getChildByName('statement').getComponent(cc.Label).string = infoItem.statement;
@@ -163,7 +138,7 @@ export default class NewClass extends cc.Component {
         let level = this.remainingLevel.join();
         cc.log(level)
         let url = `${this.app.UrlData.host}/api/activity/receiveGold`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&level=${level}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&activity_name=${this.activity_name}&token=${this.app.token}&version=${this.app.version}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&level=${level}&gold=${this.remainingGold}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&activity_name=${this.activity_name}&token=${this.app.token}&version=${this.app.version}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
@@ -191,23 +166,35 @@ export default class NewClass extends cc.Component {
         })
     }
     addList(data){
-        var list = [
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-            {date:1231,statement:1200,gold:20,time:978923},
-        ]
+        cc.log(data)
+        var list = []
+        data.forEach((item) => {
+            let date = item.receive_date;
+            let time = Number(item.created_at);
+            let info = JSON.parse(item.receive_info);
+            let gold = 0;
+            let statement = 0;
+            cc.log(info)
+            for(var k in info){
+                if(info[k].time>= time){
+                    gold += info[k].gold;//保存金币
+                    statement = statement < info[k].statement ? info[k].statement :statement;//保存最大的流水
+                }
+            }
+            list.push({
+                date,
+                statement,
+                gold,
+                time,
+            })
+            console.log('日期',date, '流水',statement , 'gold' ,gold , 'time' ,time);
+        });
         list.forEach((item)=>{
             var node = cc.instantiate(this.ListItem);
             var content = this.HistoryScroll.getChildByName('view').getChildByName('content');
-            node.getComponent('payChuangGuanListItem').init(item)
             content.addChild(node);
+            node.getComponent('payChuangGuanListItem').init(item)
+            
         })
     }
    //领取
@@ -217,13 +204,14 @@ export default class NewClass extends cc.Component {
     //打开历史
     btnHistory(){
         this.GetGoldHistory.active = true;
-        this.addList('12');
+        this.fetchList()
     }
      //关闭历史
     closeHistory(){
         this.GetGoldHistory.active = false;
         var content = this.HistoryScroll.getChildByName('view').getChildByName('content');
         content.removeAllChildren();
+        this.page = 1;
     }
     historyScrollToBottom = ()=>{
         this.addList('123')

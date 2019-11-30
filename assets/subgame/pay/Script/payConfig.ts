@@ -94,7 +94,7 @@ export default class Config extends cc.Component {
         }
         return s_x;
     }
-    //时间戳转换
+    //时间戳转换 日期加时间
     public getTime(time){
         var date = new Date(time * 1000);    //根据时间戳生成的时间对象
         var m = date.getMonth() + 1 > 9 ? date.getMonth()+1 : `0${date.getMonth()+1}`;
@@ -105,7 +105,24 @@ export default class Config extends cc.Component {
         var newDate =  m + "-" + d + " " + h + ":" + minute + ":" + s;
         return newDate;
     }
-    
+    //时间戳转换 只要日期
+    public getDate(time){
+        var date = new Date(time * 1000);    //根据时间戳生成的时间对象
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1 > 9 ? date.getMonth()+1 : `0${date.getMonth()+1}`;
+        var d = date.getDate()  > 9 ? date.getDate(): `0${date.getDate()}`;
+        var newDate = y+ '-' + m + "-" + d ;
+        return newDate;
+    }
+    //时间戳转换 只要时间
+    public getTime2(time){
+        var date = new Date(time * 1000);    //根据时间戳生成的时间对象
+        var h = date.getHours()  > 9 ? date.getHours() : `0${date.getHours()}`;
+        var minute = date.getMinutes()  > 9 ? date.getMinutes() : `0${date.getMinutes()}`;
+        var s = date.getSeconds()  > 9 ? date.getSeconds(): `0${date.getSeconds()}`;
+        var newDate = h + ":" + minute + ":" + s;
+        return newDate;
+    }
     public testBankNum(num){
         if (isNaN(num)) {
             alert('传递参数错误，请检查！');

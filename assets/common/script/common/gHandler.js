@@ -49,7 +49,9 @@ let gameGlobal = {
         // pay_host:'http://payment.sempxw.com',//pre
         // user_id:'548291942',//pre
         pay_host:'http://161.117.178.174:12353',//dev
-        user_id:'820949122',//dev
+        // user_id:'820949122',//dev
+        // user_id:'115801988',//dev
+        user_id:'143054515',//dev
         user_name:'A091944',
         proxy_user_id:'873797373',
         proxy_name:'贵宾127788',

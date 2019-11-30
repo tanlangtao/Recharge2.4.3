@@ -50,7 +50,7 @@
     },
     "_is3DNode": true,
     "groupIndex": 0,
-    "autoReleaseAssets": false,
+    "autoReleaseAssets": true,
     "_id": "a7cd6ea4-106e-4b5f-afa1-47b1cfb1febf"
   },
   {
@@ -387,7 +387,7 @@
         "__id__": 10
       }
     ],
-    "_active": false,
+    "_active": true,
     "_level": 1,
     "_components": [
       {
@@ -1272,7 +1272,7 @@
       "__id__": 17
     },
     "component": "",
-    "_componentId": "8dc3b2QYLpHe6xlsXzafg8p",
+    "_componentId": "870acoMF/NEy5x9wX+heehe",
     "handler": "exitBtnClick",
     "customEventData": ""
   },

@@ -18,32 +18,43 @@ export default class NewClass extends cc.Component {
     public zfbResults : any = {};
     public app = null ;
     huodongConfig = null;
-    //请求次数
-    public idx  = 0;
     arr : any= [];
+
+    timer = null;
+    canExit = false;
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
+         //设置延迟，避免用户频繁操作导致报错
+         this.timer = setTimeout(() => {
+            this.canExit = true;
+            clearTimeout(this.timer)
+        }, 1000);
     }
 
     public exitBtnClick(){
         //返回大厅
+        if(!this.canExit) return
+        //按键音效
+        this.app.clickClip.play();
+        cc.director.loadScene("hall");
     }
 
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/activity_config/activityConfig?package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`;
-        fetch(url,{
-            method:'get'
-        }).then((data)=>data.json()).then((data)=>{
-            if(data.status == 0){
+        this.app.ajax('GET',url,'',(response)=>{
+            this.app.hideLoading()
+            if (response.status == 0) {
                 this.app.hideLoading();
-                this.huodongConfig = data;
+                this.huodongConfig = response;
                 //取消活动
                 this.addHuodong();
                 this.addNavToggle();
             }else{
-                this.app.showAlert(data.msg)
+                this.app.showAlert(response.msg)
             }
+        },(errstatus)=>{
+            this.app.showAlert(`${errstatus}`)
         })
     }
 
@@ -64,7 +75,6 @@ export default class NewClass extends cc.Component {
             this.ToggleContainer.addChild(node);
             node.getComponent('payActivityNav').init(data)
         }
-        console.log(this.arr[0])
         if(this.arr[0].name == '流水闯关活动'){
             node.getComponent('payActivityNav').addContent('ChuangGuan',JSON.parse(this.arr[0].info).type,this.arr[0].id);
         }else if(this.arr[0].name =='存送活动'){
