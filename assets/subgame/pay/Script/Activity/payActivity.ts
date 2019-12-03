@@ -75,6 +75,7 @@ export default class NewClass extends cc.Component {
             this.ToggleContainer.addChild(node);
             node.getComponent('payActivityNav').init(data)
         }
+        if(this.arr.length==0) return;
         if(this.arr[0].name == '流水闯关活动'){
             node.getComponent('payActivityNav').addContent('ChuangGuan',JSON.parse(this.arr[0].info).type,this.arr[0].id);
         }else if(this.arr[0].name =='存送活动'){
