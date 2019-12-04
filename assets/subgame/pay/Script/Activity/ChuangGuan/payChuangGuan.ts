@@ -60,7 +60,6 @@ export default class NewClass extends cc.Component {
                 this.app.hideLoading();
                 let info = response.data.receive_info;
                 this.today_statement = response.data.today_statement;//设置今日总流水;
-                // this.today_statement = 250000;//设置今日总流水;
                 this.totalStatement.string = `${this.today_statement}`;
                 this.setStatement(info)
             }else{
@@ -87,7 +86,7 @@ export default class NewClass extends cc.Component {
         
         for(var k in info){
             if((info[k].statement < this.today_statement) && info[k].has_receive==0){
-                this.remainingGold += info[k].gold;
+                this.remainingGold += Number(info[k].gold);
                 this.remainingLevel.push(k.substr(-1,1))//将level最后一位数字截取，放入数组
             }
         }
@@ -108,16 +107,21 @@ export default class NewClass extends cc.Component {
             if(lastKey == ''){
                 //lastKey为空，说明是第一个区间,statement = 0;
                 var step = (this.today_statement / info[k].statement )*0.11;
-                if (step > 0.1) step = 0.11;
+                if (step > 0.11) {
+                    step = 0.11
+                };
                 lastKey = k;
                 progress += step;
+                cc.log('1',progress)
             }else if(info[k].statement<this.today_statement){
                 progress += 0.2;
                 lastKey = k;
+                cc.log('2',progress)
             }else{
                 var step = ((this.today_statement-info[lastKey].statement) / (info[k].statement - info[lastKey].statement))*0.2;
                 progress += step;
                 break;
+                
             }
         }
         if(info["level_5"].statement<this.today_statement){
@@ -174,7 +178,6 @@ export default class NewClass extends cc.Component {
             let info = JSON.parse(item.receive_info);
             let gold = 0;
             let statement = 0;
-            cc.log(info)
             for(var k in info){
                 if(info[k].time>= time){
                     gold += info[k].gold;//保存金币
@@ -187,7 +190,6 @@ export default class NewClass extends cc.Component {
                 gold,
                 time,
             })
-            console.log('日期',date, '流水',statement , 'gold' ,gold , 'time' ,time);
         });
         list.forEach((item)=>{
             var node = cc.instantiate(this.ListItem);
