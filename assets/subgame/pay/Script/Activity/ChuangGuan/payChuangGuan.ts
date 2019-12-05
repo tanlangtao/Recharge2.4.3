@@ -60,7 +60,7 @@ export default class NewClass extends cc.Component {
                 this.app.hideLoading();
                 let info = response.data.receive_info;
                 this.today_statement = response.data.today_statement;//设置今日总流水;
-                this.totalStatement.string = `${this.today_statement}`;
+                this.totalStatement.string =this.today_statement.toFixed(0);
                 this.setStatement(info)
             }else{
                 this.app.showAlert(response.msg)
@@ -180,7 +180,7 @@ export default class NewClass extends cc.Component {
             let statement = 0;
             for(var k in info){
                 if(info[k].time>= time){
-                    gold += info[k].gold;//保存金币
+                    gold += Number(info[k].gold);//保存金币
                     statement = statement < info[k].statement ? info[k].statement :statement;//保存最大的流水
                 }
             }

@@ -47,10 +47,11 @@ let gameGlobal = {
         client: "ios",
         package_id: "1",
         // pay_host:'http://payment.sempxw.com',//pre
-        user_id:'500814802',//pre
-        // pay_host:'http://161.117.178.174:12353',//dev
-        pay_host:'http://18.176.74.76:12353',
-        // user_id:'548291942',//dev
+        // user_id:'500814802',//pre
+        // user_id:'899112880',//pre
+        pay_host:'http://161.117.178.174:12353',//dev
+        // pay_host:'http://18.176.74.76:12353',//pre
+        user_id:'290070532',//dev
         // user_id:'115801988',//dev
         // user_id:'143054515',//dev
         user_name:'A091944',
