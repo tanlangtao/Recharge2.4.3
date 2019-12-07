@@ -159,7 +159,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 316.96529778510455
+      "z": 250.28134169370279
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -473,7 +473,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 94,
-      "height": 134.62
+      "height": 134.63
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -519,7 +519,7 @@
     ],
     "paused": false,
     "defaultSkin": "",
-    "defaultAnimation": "animation",
+    "defaultAnimation": "a2",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,
@@ -530,13 +530,13 @@
     "_frameCache": null,
     "_curFrame": null,
     "_skeletonCache": null,
-    "_animationName": "animation",
+    "_animationName": "a2",
     "_animationQueue": [],
     "_headAniInfo": null,
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "efa63749-3308-4557-a426-022717483709"
+      "__uuid__": "d71d029e-1191-41fa-8993-4a406cc96425"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
