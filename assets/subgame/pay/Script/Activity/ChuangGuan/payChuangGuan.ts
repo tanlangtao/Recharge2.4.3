@@ -60,7 +60,7 @@ export default class NewClass extends cc.Component {
                 this.app.hideLoading();
                 let info = response.data.receive_info;
                 this.today_statement = response.data.today_statement;//设置今日总流水;
-                this.totalStatement.string =this.today_statement.toFixed(0);
+                this.totalStatement.string =this.app.config.toDecimal2(this.today_statement); 
                 this.setStatement(info)
             }else{
                 this.app.showAlert(response.msg)

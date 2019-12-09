@@ -75,6 +75,7 @@ export default class Config extends cc.Component {
         }
         return s_x;
     }
+     
     //保留一位小数
     public toDecimal1(num) {
         var result = parseFloat(num);
@@ -92,6 +93,17 @@ export default class Config extends cc.Component {
         while (s_x.length <= pos_decimal + 1) {
         s_x += '0';
         }
+        return s_x;
+    }
+    //保留小数,不超过2位
+    public toDecimal2(num) {
+        var result = parseFloat(num);
+        if (isNaN(result)) {
+            cc.log('传递参数错误，请检查！');
+            return '';
+        }
+        result = Math.round(num * 100) / 100;
+        var s_x = result.toString();
         return s_x;
     }
     //时间戳转换 日期加时间
