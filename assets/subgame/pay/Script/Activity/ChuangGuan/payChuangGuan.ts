@@ -106,9 +106,9 @@ export default class NewClass extends cc.Component {
         for(var k in info){
             if(lastKey == ''){
                 //lastKey为空，说明是第一个区间,statement = 0;
-                var step = (this.today_statement / info[k].statement )*0.11;
-                if (step > 0.11) {
-                    step = 0.11
+                var step = (this.today_statement / info[k].statement )*0.1;
+                if (step > 0.1) {
+                    step = 0.1
                 };
                 lastKey = k;
                 progress += step;
