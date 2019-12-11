@@ -103,7 +103,7 @@ export default class NewClass extends cc.Component {
     private mathProgress(info){
         var progress = 0;
         var lastKey = '';
-        for(var k in info){
+        for(var k in info){ 
             if(lastKey == ''){
                 //lastKey为空，说明是第一个区间,statement = 0;
                 var step = (this.today_statement / info[k].statement )*0.1;
