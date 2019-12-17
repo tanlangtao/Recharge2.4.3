@@ -33,6 +33,12 @@ export default class NewClass extends cc.Component {
             this.canExit = true;
             clearTimeout(this.timer)
         }, 1000);
+        let scalex = cc.winSize.width / 1334;
+        var nav = cc.find('Canvas/Recharge/nav');
+        nav.scaleX= scalex;
+        nav.scaleY = scalex;
+        this.Content.scaleX = scalex;
+        this.Content.scaleY = scalex;
     }
     //返回大厅
     public exitBtnClick() {

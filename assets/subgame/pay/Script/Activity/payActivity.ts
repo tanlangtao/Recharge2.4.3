@@ -30,6 +30,10 @@ export default class NewClass extends cc.Component {
             this.canExit = true;
             clearTimeout(this.timer)
         }, 1000);
+        let scalex = cc.winSize.width / 1334;
+        var nav = cc.find('Canvas/Activity/nav');
+        nav.scaleX= scalex;
+        nav.scaleY = scalex;
     }
 
     public exitBtnClick(){

@@ -31,6 +31,13 @@ export default class NewClass extends cc.Component {
         this.addNavToggle()
 
         this.fetchIndex();
+        let scalex = cc.winSize.width / 1334;
+        var nav = cc.find('Canvas/Recharge/RechargeHistory/nav');
+        var content = cc.find('Canvas/Recharge/RechargeHistory/Content')
+        nav.scaleX= scalex;
+        nav.scaleY = scalex;
+        content.scaleX = scalex;
+        content.scaleY = scalex;
     }
 
     start () {
