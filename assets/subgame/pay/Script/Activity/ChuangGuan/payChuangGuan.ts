@@ -216,7 +216,7 @@ export default class NewClass extends cc.Component {
         this.page = 1;
     }
     historyScrollToBottom = ()=>{
-        this.addList('123')
+        this.fetchList()
     }
 
     onDestroy(){
