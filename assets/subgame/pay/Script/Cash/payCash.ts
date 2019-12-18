@@ -33,11 +33,8 @@ export default class NewClass extends cc.Component {
             clearTimeout(this.timer)
         }, 1000);
         let scalex = cc.winSize.width / 1334;
-        this.Content.scaleY = scalex;
-        this.Content.scaleX = scalex;
-        var nav = cc.find('Canvas/Cash/nav');
-        nav.scaleX= scalex;
-        nav.scaleY = scalex;
+        this.node.scaleY = scalex;
+        this.node.scaleX = scalex;
     }
     public exitBtnClick(){
         if(!this.canExit) return
@@ -48,7 +45,10 @@ export default class NewClass extends cc.Component {
         if (scree == ""){
             scree = "hall"
         }
-        cc.director.loadScene(scree);
+        
+        cc.director.preloadScene(scree,()=>{
+            cc.director.loadScene(scree);
+        })
     }
 
     public fetchIndex(){

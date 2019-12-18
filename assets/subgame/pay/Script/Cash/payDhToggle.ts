@@ -70,16 +70,16 @@ export default class NewClass extends cc.Component {
         let scalex = cc.winSize.width / 1334;
         if(data == 'Dh'){
             var node = cc.instantiate(this.Dh);
-            content.scaleY = scalex;
+            content.scaleY = 1;
         }else if(data == 'BankDh'){
             var node = cc.instantiate(this.BankDh);
-            content.scaleY = scalex;
+            content.scaleY = 1;
         }else if(data == 'RgDh'){
             var node = cc.instantiate(this.RgDh);
-            content.scaleY = scalex;
+            content.scaleY = 1;
         }else if(data == 'DhHistory'){
             var node = cc.instantiate(this.DhHistory);
-            content.scaleY = 1;
+            content.scaleY = 1/scalex;
         }
         
         content.removeAllChildren();

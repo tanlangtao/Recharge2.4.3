@@ -130,7 +130,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1050,
-      "height": 250
+      "height": 240
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -140,7 +140,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -140.757,
+      "y": -134.757,
       "z": 0
     },
     "_scale": {
@@ -192,8 +192,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 388,
-      "height": 280
+      "width": 368,
+      "height": 270
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -202,7 +202,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 351,
+      "x": 361,
       "y": 0,
       "z": 0
     },
@@ -2176,7 +2176,7 @@
     "_alignFlags": 41,
     "_left": 20,
     "_right": 20,
-    "_top": 15.757000000000005,
+    "_top": 14.757000000000005,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -2247,7 +2247,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -410.766,
+      "y": -394.766,
       "z": 0
     },
     "_scale": {
@@ -2532,7 +2532,7 @@
     "_alignFlags": 1,
     "_left": 0,
     "_right": 0,
-    "_top": 373.266,
+    "_top": 357.266,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -2606,7 +2606,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -322.766,
+      "y": -306.766,
       "z": 0
     },
     "_scale": {
@@ -3218,7 +3218,7 @@
     "_alignFlags": 1,
     "_left": 0,
     "_right": 0,
-    "_top": 285.266,
+    "_top": 269.266,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -3288,7 +3288,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -507.821,
+      "y": -491.821,
       "z": 0
     },
     "_scale": {
@@ -3434,7 +3434,7 @@
     "_alignFlags": 1,
     "_left": 0,
     "_right": 0,
-    "_top": 461.321,
+    "_top": 445.321,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,

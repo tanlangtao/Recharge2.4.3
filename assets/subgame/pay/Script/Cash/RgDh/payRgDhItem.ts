@@ -26,7 +26,7 @@ export default class NewClass extends cc.Component {
         this.results = results;
         this.data = data;
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        this.app.loadIcon(`icon/${index%7+1}`,this.iconSprite,70,70)
+        this.app.loadIcon(`icon/${index%7+1}`,this.iconSprite,60,56)
     }
 
     onLoad () {

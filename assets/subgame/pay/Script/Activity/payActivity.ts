@@ -41,7 +41,9 @@ export default class NewClass extends cc.Component {
         if(!this.canExit) return
         //按键音效
         this.app.clickClip.play();
-        cc.director.loadScene("hall");
+        cc.director.preloadScene('hall',()=>{
+            cc.director.loadScene('hall');
+        })
     }
 
     public fetchIndex(){

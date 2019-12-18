@@ -20,7 +20,7 @@ export default class NewClass extends cc.Component {
         this.nameLabel.string = `${data.nick_name}`,
         this.data = data;
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        this.app.loadIcon(`icon/${index%7+1}`,this.iconSprite,60,60)
+        this.app.loadIcon(`icon/${index%7+1}`,this.iconSprite,60,56)
     }
 
     onLoad () {
