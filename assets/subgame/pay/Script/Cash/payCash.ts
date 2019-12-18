@@ -9,9 +9,6 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     NavToggle: cc.Prefab = null;
 
-    @property(cc.Prefab)
-    CashHistory: cc.Prefab = null;
-
     @property(cc.Node)
     ToggleContainer: cc.Node = null;
 
@@ -69,15 +66,6 @@ export default class NewClass extends cc.Component {
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)
         })
-    }
-
-    public historyBtnClick(){
-        //按键音效
-        this.app.clickClip.play();
-        this.app.showLoading();
-        var node = cc.instantiate(this.CashHistory);
-        var Cash = cc.find('Canvas/Cash');
-        Cash.addChild(node);
     }
 
     public addNavToggle(){
