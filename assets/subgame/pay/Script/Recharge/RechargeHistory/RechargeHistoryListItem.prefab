@@ -65,8 +65,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1060,
-      "height": 55
+      "width": 1070,
+      "height": 70
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -135,7 +135,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -456.2857142857143,
+      "x": -459.2857142857143,
       "y": 0,
       "z": 0
     },
@@ -236,7 +236,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -304.85714285714283,
+      "x": -305.85714285714283,
       "y": 0,
       "z": 0
     },
@@ -337,7 +337,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -153.4285714285714,
+      "x": -152.4285714285714,
       "y": 0,
       "z": 0
     },
@@ -438,7 +438,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -1.9999999999999503,
+      "x": 1.0000000000000497,
       "y": 0,
       "z": 0
     },
@@ -539,7 +539,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 149.42857142857147,
+      "x": 154.42857142857147,
       "y": 0,
       "z": 0
     },
@@ -640,7 +640,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 300.8571428571429,
+      "x": 307.8571428571429,
       "y": 0,
       "z": 0
     },
@@ -745,7 +745,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 452.28571428571433,
+      "x": 461.28571428571433,
       "y": 0,
       "z": 0
     },
@@ -1038,8 +1038,8 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 1060,
-      "height": 55
+      "width": 1070,
+      "height": 70
     },
     "_resize": 0,
     "_N$layoutType": 1,
@@ -1050,11 +1050,11 @@
       "height": 40
     },
     "_N$startAxis": 0,
-    "_N$paddingLeft": 12,
+    "_N$paddingLeft": 14,
     "_N$paddingRight": 0,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
-    "_N$spacingX": 28,
+    "_N$spacingX": 30,
     "_N$spacingY": 0,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,

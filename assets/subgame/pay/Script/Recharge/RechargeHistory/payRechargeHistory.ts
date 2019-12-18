@@ -37,7 +37,7 @@ export default class NewClass extends cc.Component {
         nav.scaleX= scalex;
         nav.scaleY = scalex;
         content.scaleX = scalex;
-        content.scaleY = scalex;
+        // content.scaleY = scalex;
     }
 
     start () {

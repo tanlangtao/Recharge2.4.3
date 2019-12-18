@@ -825,7 +825,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1060,
+      "width": 1070,
       "height": 672
     },
     "_anchorPoint": {
@@ -835,7 +835,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 127,
+      "x": 122,
       "y": 299.714,
       "z": 0
     },
@@ -891,8 +891,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1060,
-      "height": 440
+      "width": 1070,
+      "height": 560
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -902,7 +902,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -280,
+      "y": -339.587,
       "z": 0
     },
     "_scale": {
@@ -959,8 +959,8 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 1060,
-      "height": 440
+      "width": 1070,
+      "height": 560
     },
     "_resize": 0,
     "_N$layoutType": 2,
@@ -995,7 +995,7 @@
     "_alignFlags": 41,
     "_left": 0,
     "_right": 0,
-    "_top": 60,
+    "_top": 59.58699999999999,
     "_bottom": 0,
     "_verticalCenter": 38.915,
     "_horizontalCenter": 0,
@@ -1054,7 +1054,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1060,
+      "width": 1070,
       "height": 54
     },
     "_anchorPoint": {
@@ -1128,7 +1128,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 1060,
+      "width": 1070,
       "height": 54
     },
     "_resize": 0,
@@ -1231,7 +1231,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -70,
-      "y": -531.56,
+      "y": -651.1,
       "z": 0
     },
     "_scale": {
@@ -1417,7 +1417,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 60,
-      "y": -531.56,
+      "y": -651.1,
       "z": 0
     },
     "_scale": {
@@ -1600,7 +1600,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -6,
-      "y": -526.76,
+      "y": -646.3,
       "z": 0
     },
     "_scale": {
@@ -1635,8 +1635,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "1 / 1",
-    "_N$string": "1 / 1",
+    "_string": "1/1",
+    "_N$string": "1/1",
     "_fontSize": 20,
     "_lineHeight": 40,
     "_enableWrapText": true,

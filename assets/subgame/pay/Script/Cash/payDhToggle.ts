@@ -75,6 +75,7 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.RgDh);
         }else if(data == 'DhHistory'){
             var node = cc.instantiate(this.DhHistory);
+            content.scaleY = 1;
         }
         
         content.removeAllChildren();
