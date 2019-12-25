@@ -39,7 +39,7 @@ export default class NewClass extends cc.Component {
     public exitBtnClick(){
         if(!this.canExit) return
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(0)
         let scree = gHandler.gameGlobal.pay.from_scene;
         gHandler.gameGlobal.pay.from_scene = "";
         if (scree == ""){

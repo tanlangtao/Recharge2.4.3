@@ -276,4 +276,18 @@ export default class NewClass extends cc.Component {
     hideLoading(){
         this.Loading.active = false;
     }
+    loadMusic(num :number):void{
+        let path :string='';
+        switch(num){
+            case 0 : path ='Button_Click';break;
+        }
+        cc.loader.loadRes(`/pay/sounds/${path}`, cc.AudioClip, function(err, clip) {
+            if (err) {
+                console.log(err);
+                return
+            }
+            var audioID =  cc.audioEngine.playEffect(clip, false);
+            return audioID;
+        })
+    }
 }
