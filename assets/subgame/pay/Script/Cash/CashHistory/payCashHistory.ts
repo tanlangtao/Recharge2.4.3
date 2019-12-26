@@ -88,7 +88,7 @@ export default class NewClass extends cc.Component {
 
     removeSelf(){
         //按键音效
-        this.app.loadMusic(0)
+        this.app.clickClip.play()
 
         this.node.destroy();
     }
