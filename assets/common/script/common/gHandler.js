@@ -46,12 +46,12 @@ let gameGlobal = {
         from_scene: "", // 跳转过来的场景名
         client: "ios",
         package_id: "1",
-        // pay_host:'http://payment.sempxw.com',//pre
+        pay_host:'https://pay1.whjfxly66.com',//pre
         // user_id:'500814802',//pre
         // user_id:'899112880',//pre
-        pay_host:'http://161.117.178.174:12353',//dev
+        // pay_host:'http://161.117.178.174:12353',//dev
         // pay_host:'http://18.176.74.76:12353',//pre
-        user_id:'290070532',//dev
+        user_id:'523330580',//dev
         // user_id:'115801988',//dev
         // user_id:'143054515',//dev
         user_name:'A091944',
