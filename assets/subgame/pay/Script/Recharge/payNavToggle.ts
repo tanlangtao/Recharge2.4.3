@@ -31,7 +31,6 @@ export default class NewClass extends cc.Component {
         if(this.text == '支付宝'){
             this.app.loadIcon('recharge/menu/menu_alipay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_alipay_2',this.currentIcon,249,86);
-
         }else if(this.text == '转账到银行卡'){
             this.app.loadIcon('recharge/menu/menu_tobank_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_tobank_2',this.currentIcon,249,86)
@@ -53,6 +52,9 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '人工代充值'){
             this.app.loadIcon('recharge/menu/menu_VIPpay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_VIPpay_2',this.currentIcon,249,86)
+        }else if(this.text == 'IM充值'){
+            this.app.loadIcon('recharge/menu/menu_IMpay_1',this.normalIcon,207,39)
+            this.app.loadIcon('recharge/menu/menu_IMpay_2',this.currentIcon,249,86)
         }
     }
     // LIFE-CYCLE CALLBACKS:
@@ -82,6 +84,8 @@ export default class NewClass extends cc.Component {
             this.addContent('bank_pay')
         }else if(this.text == '人工代充值'){
             this.addDc()
+        }else if(this.text == 'IM充值'){
+            this.addContent('im_pay')
         }
     }
 

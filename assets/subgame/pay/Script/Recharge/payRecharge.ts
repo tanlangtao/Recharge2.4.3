@@ -24,7 +24,9 @@ export default class NewClass extends cc.Component {
     timer = null;
     canExit = false;
     onLoad() {
-
+        var Global = cc.find('payGlobal');
+        cc.game.addPersistRootNode(Global); 
+        
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         //请求支付宝
         this.fetchZfb();
@@ -92,12 +94,17 @@ export default class NewClass extends cc.Component {
         if (this.zfbResults.data.wechat_pay.length > 0 ) {
             arr.push('微信')
         }
+        if ( this.zfbResults.data.im_pay.length > 0  ) {
+            arr.push('IM充值')
+        }
+
         if (this.app.UrlData.client=='desktop' && this.zfbResults.data.quick_pay.length > 0 ) {
             arr.push('快捷支付')
         }
         if (this.app.UrlData.client=='desktop' && this.zfbResults.data.bank_pay.length > 0  ) {
             arr.push('网银支付')
         }
+        
         for (let i: number = 0; i < arr.length; i++) {
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);

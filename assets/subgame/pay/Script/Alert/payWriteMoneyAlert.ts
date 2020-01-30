@@ -65,7 +65,9 @@ export default class NewClass extends cc.Component {
             if(response.code == 0){
                 self.fetchBindAccountPay();
             }else{
-                self.app.showAlert(`${response.msg}请到聊天工具取消或确认！`)
+                // self.app.showAlert(`${response.msg}请到聊天工具取消或确认！`)
+                //弹出取消订单确认框
+                self.app.showTipAlert()
             }
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)

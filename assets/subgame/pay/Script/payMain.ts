@@ -27,6 +27,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     WriteMoneyAlert : cc.Prefab = null;
 
+    @property(cc.Prefab)
+    TipAlert :cc.Prefab = null;
+
     @property(cc.Node)
     Loading : cc.Node = null;
 
@@ -289,5 +292,10 @@ export default class NewClass extends cc.Component {
             var audioID =  cc.audioEngine.playEffect(clip, false);
             return audioID;
         })
+    }
+    public showTipAlert(){
+        var node = cc.instantiate(this.TipAlert);
+        let canvas = cc.find('Canvas');
+        canvas.addChild(node);
     }
 }

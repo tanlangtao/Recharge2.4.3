@@ -1,3 +1,4 @@
+import gHandler = require("../../../../../common/script/common/gHandler");
 //充值子界面
 const {ccclass, property} = cc._decorator;
 
@@ -11,9 +12,6 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Node)
     selectContent: cc.Node =null;
-
-    @property(cc.Prefab)
-    ZfbViewAlert : cc.Prefab = null;
 
     @property(cc.Label)
     gold1: cc.Label =null;
@@ -96,6 +94,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
             this.app.loadIcon('recharge/flagname_unionpay',this.iconFont,168,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
+        }else if(this.channel =='im_pay'){
+            this.app.loadIcon('recharge/icon_im',this.icon,100,100)
+            this.app.loadIcon('recharge/title_im',this.iconFont,136,45)
+            this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
         }
     }
     setAmount() {
@@ -122,6 +124,8 @@ export default class NewClass extends cc.Component {
                     self.results = response.data.quick_pay;
                 }else if(self.channel == 'bank_pay'){
                     self.results = response.data.bank_pay;
+                }else if(self.channel =='im_pay'){
+                    self.results = response.data.im_pay;
                 }
                 self.current = self.results[0];
                 self.radioList();
@@ -166,27 +170,23 @@ export default class NewClass extends cc.Component {
         }else{
             if(this.channel == 'bankcard_transfer'){
                 this.fetchOrder();
+            }else if(this.channel == 'im_pay'){
+                this.showPayIM()
             }else{
-                this.showWebView()
+                var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`;
+                cc.sys.openURL(encodeURI(url))
+                cc.log(encodeURI(url))
             }
         }
     }
 
-    showWebView(){
+    showPayIM(){
         var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`;
-        cc.sys.openURL(encodeURI(url))
-        cc.log(encodeURI(url))
-        //window.open("order.html")
-        // if(this.app.UrlData.client=='desktop'){
-        //     cc.sys.openURL(url)
-        // }else{
-        //     var node = cc.instantiate(this.ZfbViewAlert);
-        //     var canvas = cc.find('Canvas');
-        //     canvas.addChild(node);
-        //     node.getComponent('payZfbViewAlert').init({
-        //         url:url
-        //     })
-        // }
+        cc.find('payGlobal').getComponent('payGlobal').imWebViewUrl = url
+        cc.director.preloadScene("payIM",()=>{
+            gHandler.Reflect.setOrientation("portrait", 640, 1136)
+            cc.director.loadScene('payIM')
+        })
     }
 
     fetchOrder(){

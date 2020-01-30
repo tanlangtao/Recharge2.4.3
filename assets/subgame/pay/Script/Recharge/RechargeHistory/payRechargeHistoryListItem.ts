@@ -45,7 +45,9 @@ export default class NewClass extends cc.Component {
                             (data.type == 7?'银联支付' :
                                 (data.type == 8?'网银支付' :
                                     (data.type == 9? '快捷支付' :
-                                        (data.type == 14?'专享快付':'')
+                                        (data.type == 14?'专享快付':
+                                            ((data.type == 18 ||data.type == 19 ||data.type == 20 || data.type ==21)? "IM充值" :"")
+                                        )
                                     )
                                 )
                             )
