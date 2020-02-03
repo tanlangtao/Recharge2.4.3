@@ -182,7 +182,7 @@ export default class NewClass extends cc.Component {
 
     showPayIM(){
         var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`;
-        cc.find('payGlobal').getComponent('payGlobal').imWebViewUrl = url
+        cc.find('payGlobal').getComponent('payGlobal').imWebViewUrl = encodeURI(url)
         cc.director.preloadScene("payIM",()=>{
             gHandler.Reflect.setOrientation("portrait", 640, 1136)
             cc.director.loadScene('payIM')
