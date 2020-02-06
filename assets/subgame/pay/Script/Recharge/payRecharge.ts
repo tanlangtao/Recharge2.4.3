@@ -76,6 +76,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
+            self.app.hideLoading()
             self.app.showAlert(`网络错误${errstatus}`)
         })
     }

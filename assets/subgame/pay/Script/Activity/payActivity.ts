@@ -53,7 +53,7 @@ export default class NewClass extends cc.Component {
             if (response.status == 0) {
                 this.app.hideLoading();
                 this.huodongConfig = response;
-                //取消活动
+
                 this.addHuodong();
                 this.addNavToggle();
             }else{
@@ -66,7 +66,7 @@ export default class NewClass extends cc.Component {
 
     public addHuodong(){
         this.huodongConfig.data.forEach((e)=>{
-            if(e.is_close == 2 && e.name =='流水闯关活动'){
+            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动')){
                 this.arr.push(e);
             }
         });
@@ -83,9 +83,11 @@ export default class NewClass extends cc.Component {
         }
         if(this.arr.length==0) return;
         if(this.arr[0].name == '流水闯关活动'){
-            node.getComponent('payActivityNav').addContent('ChuangGuan',JSON.parse(this.arr[0].info).type,this.arr[0].id);
+            node.getComponent('payActivityNav').addContent('ChuangGuan',JSON.parse(this.arr[0].info),this.arr[0].id);
         }else if(this.arr[0].name =='存送活动'){
-            node.getComponent('payActivityNav').addContent('HuoDong',JSON.parse(this.arr[0].info).type,this.arr[0].id);
+            node.getComponent('payActivityNav').addContent('HuoDong',JSON.parse(this.arr[0].info),this.arr[0].id);
+        }else if(this.arr[0].name =='救济金活动'){
+            node.getComponent('payActivityNav').addContent('FreeGold',JSON.parse(this.arr[0].info),this.arr[0].id);
         }
     }
 }

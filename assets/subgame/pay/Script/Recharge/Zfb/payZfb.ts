@@ -131,6 +131,7 @@ export default class NewClass extends cc.Component {
                 self.radioList();
                 self.initRender();
             }else{
+                self.app.hideLoading()
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{

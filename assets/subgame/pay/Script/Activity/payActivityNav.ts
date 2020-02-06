@@ -16,6 +16,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     HuoDong : cc.Prefab = null;
 
+    @property(cc.Prefab)
+    FreeGold : cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -34,6 +37,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('cash/menu/menu_ali_1',this.normalIcon,242,86)
             this.app.loadIcon('cash/menu/menu_ali_2',this.currentIcon,249,86);
         }
+        else if(data.name == '救济金活动'){
+            this.app.loadIcon('activity/menu_alms_2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/menu_alms_1',this.currentIcon,249,86);
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -45,13 +52,17 @@ export default class NewClass extends cc.Component {
         
         if(this.name == '流水闯关活动'){
             this.app.showLoading();
-            this.addContent('ChuangGuan',JSON.parse(this.data.info).type,this.id)
+            this.addContent('ChuangGuan',JSON.parse(this.data.info),this.id)
         }else if(this.name == '存送活动'){
-            this.addContent('HuoDong',JSON.parse(this.data.info).type,this.id)
+            this.addContent('HuoDong',JSON.parse(this.data.info),this.id)
+        }
+        else if(this.name == '救济金活动'){
+            this.app.showLoading();
+            this.addContent('FreeGold',JSON.parse(this.data.info),this.id)
         }
     }
 
-    addContent(data,type,id){
+    addContent(data,info,id){
         var content = cc.find('Canvas/Activity/Content');
         if(data == 'ChuangGuan'){
             var node = cc.instantiate(this.ChuangGuan);
@@ -62,6 +73,11 @@ export default class NewClass extends cc.Component {
         }else if(data == 'HuoDong'){
             var node = cc.instantiate(this.HuoDong);
             content.removeAllChildren();
+            content.addChild(node);
+        }else if(data == 'FreeGold'){
+            var node = cc.instantiate(this.FreeGold);
+            content.removeAllChildren();
+            node.getComponent('payFreeGold').setIdInfo(id,info);
             content.addChild(node);
         }
     }

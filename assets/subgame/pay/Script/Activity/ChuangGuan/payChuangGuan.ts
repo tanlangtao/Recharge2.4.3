@@ -57,7 +57,6 @@ export default class NewClass extends cc.Component {
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if(response.status == 0){
-                this.app.hideLoading();
                 let info = response.data.receive_info;
                 this.today_statement = response.data.today_statement;//设置今日总流水;
                 this.totalStatement.string =this.app.config.toDecimal2(this.today_statement); 
@@ -66,6 +65,7 @@ export default class NewClass extends cc.Component {
                 this.app.showAlert(response.msg)
             }
         },(errstatus)=>{
+            this.app.hideLoading()
             this.app.showAlert(`网络错误${errstatus}`)
         })
     }
