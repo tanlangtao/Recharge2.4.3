@@ -58,53 +58,44 @@ export default class Config extends cc.Component {
     }
     //保留两位小数
     public toDecimal(num) {
-        var result = parseFloat(num);
+        var result = num.toString()
         if (isNaN(result)) {
-        alert('传递参数错误，请检查！');
-        return '';
+        cc.log('传递参数错误，请检查！')
+        return ''
         }
-        result = Math.round(num * 100) / 100;
-        var s_x = result.toString();
-        var pos_decimal = s_x.indexOf('.');
-        if (pos_decimal < 0) {
-        pos_decimal = s_x.length;
-        s_x += '.';
+        let newNum = result.indexOf(".") >-1 ?result.substring(0,result.indexOf(".")+3) :result;
+        var pos_decimal = newNum.indexOf('.')
+        while (newNum.length > 1 && newNum.length <= pos_decimal + 2) {
+        newNum += '0'
         }
-        while (s_x.length <= pos_decimal + 2) {
-        s_x += '0';
-        }
-        return s_x;
+
+        return newNum
     }
      
     //保留一位小数
     public toDecimal1(num) {
-        var result = parseFloat(num);
+        var result = num.toString()
         if (isNaN(result)) {
-            alert('传递参数错误，请检查！');
-            return false;
+        cc.log('传递参数错误，请检查！')
+        return ''
         }
-        result = Math.round(num * 100) / 100;
-        var s_x = result.toString();
-        var pos_decimal = s_x.indexOf('.');
-        if (pos_decimal < 0) {
-        pos_decimal = s_x.length;
-        s_x += '.';
+        let newNum = result.indexOf(".") >-1 ?result.substring(0,result.indexOf(".")+2) :result;
+        var pos_decimal = newNum.indexOf('.')
+        while (newNum.length > 1 && newNum.length <= pos_decimal + 1) {
+        newNum += '0'
         }
-        while (s_x.length <= pos_decimal + 1) {
-        s_x += '0';
-        }
-        return s_x;
+
+        return newNum
     }
     //保留小数,不超过2位
     public toDecimal2(num) {
-        var result = parseFloat(num);
+        var result = num.toString()
         if (isNaN(result)) {
-            cc.log('传递参数错误，请检查！');
-            return '';
+        cc.log('传递参数错误，请检查！')
+        return ''
         }
-        result = Math.round(num * 100) / 100;
-        var s_x = result.toString();
-        return s_x;
+        let newNum = result.indexOf(".") >-1 ?result.substring(0,result.indexOf(".")+3) :result;
+        return newNum
     }
     //时间戳转换 日期加时间
     public getTime(time){
