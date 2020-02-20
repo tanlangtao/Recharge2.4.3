@@ -116,7 +116,7 @@ export default class NewClass extends cc.Component {
 
     selectClick() {
 
-        var results = ['中国农业银行', '交通银行', '中国建设银行', '兴业银行', '民生银行', '中信银行', '华夏银行', '中国工商银行', '浦发银行', '招商银行', '中国银行']
+        var results = ['中国农业银行', '交通银行', '中国建设银行', '兴业银行', '民生银行', '中信银行', '华夏银行', '中国工商银行', '浦发银行', '招商银行', '中国银行', '光大银行', '广发银行','北京银行','杭州银行','宁波银行', '平安银行', '中国邮政']
         if (!this.showSelect) {
             for (var i = 0; i < results.length; i++) {
                 var node = cc.instantiate(this.BankSelectItem);
