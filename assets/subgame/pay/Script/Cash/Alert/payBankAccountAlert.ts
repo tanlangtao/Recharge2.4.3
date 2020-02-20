@@ -65,17 +65,25 @@ export default class NewClass extends cc.Component {
     onClick() {
         //按键音效
         this.app.clickClip.play();
+        //去掉输入中的空格
+        var str = this.accountInput.string.replace(/\s+/g,"");
+        this.accountInput.string = str;
         if(this.accountInput.string == '' || this.nameInput.string == ''){
             this.app.showAlert('姓名和卡号不能为空!')
-        }else if(this.selectLabel.string == '请选择银行'){
-            this.app.showAlert('请选择银行！')
-        }else if(this.accountInput.string.length>19||this.accountInput.string.length<15){
+        }
+        // 开户行可选
+        else if(this.selectLabel.string == '请选择银行'){
+            this.selectLabel.string = ''
+        }
+        else if(this.accountInput.string.length>19||this.accountInput.string.length<15){
             this.app.showAlert('无效卡号！')
         }else if(this.accountInput.string.slice(0,1)=='0'){
             this.app.showAlert('无效卡号！')
-        }else if(this.bankNameInput.string == ''){
+        }
+        else if(this.bankNameInput.string == ''){
             this.app.showAlert('开户行不能为空！')
-        }else{
+        }
+        else{
             this.fetchBindAccountPay();
             this.node.removeFromParent();
         }
