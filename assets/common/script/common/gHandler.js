@@ -53,7 +53,7 @@ let gameGlobal = {
         pay_host:'http://18.176.74.76:12353',//pre
         // pay_host:'https://pay1.whjfxly66.com',//online
         // user_id:'723468943',//online
-        user_id:'282921463',//pre
+        user_id:'267556651',//pre
         // user_id:'309669725',//dev
         // user_id:'271581304',//dev
         user_name:'A091944',

@@ -71,9 +71,8 @@ export default class NewClass extends cc.Component {
         if(this.accountInput.string == '' || this.nameInput.string == ''){
             this.app.showAlert('姓名和卡号不能为空!')
         }
-        // 开户行可选
-        else if(this.selectLabel.string == '请选择银行'){
-            this.selectLabel.string = ''
+        else if(this.selectLabel.string == '请选择银行'||this.selectLabel.string == ''){
+            this.app.showAlert('开户行不能为空！')
         }
         else if(this.accountInput.string.length>19||this.accountInput.string.length<15){
             this.app.showAlert('无效卡号！')
@@ -81,7 +80,7 @@ export default class NewClass extends cc.Component {
             this.app.showAlert('无效卡号！')
         }
         else if(this.bankNameInput.string == ''){
-            this.app.showAlert('开户行不能为空！')
+            this.app.showAlert('开户支行不能为空！')
         }
         else{
             this.fetchBindAccountPay();
