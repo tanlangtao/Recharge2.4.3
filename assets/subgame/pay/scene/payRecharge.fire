@@ -53,7 +53,7 @@
     },
     "_is3DNode": true,
     "groupIndex": 0,
-    "autoReleaseAssets": true,
+    "autoReleaseAssets": false,
     "_id": "89c04c32-ec3c-48e8-bba8-8787f64dc08b"
   },
   {
@@ -162,7 +162,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 459.85948940953693
+      "z": 236.42493523315176
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -629,8 +629,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "v2.25",
-    "_N$string": "v2.25",
+    "_string": "v2.26",
+    "_N$string": "v2.26",
     "_fontSize": 20,
     "_lineHeight": 20,
     "_enableWrapText": true,
