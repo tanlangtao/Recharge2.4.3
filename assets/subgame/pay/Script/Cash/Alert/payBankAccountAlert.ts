@@ -49,7 +49,9 @@ export default class NewClass extends cc.Component {
         this.nameInput.string = data.card_name;
         this.selectLabel.string = data.bank_name;
         this.bankNameInput.string = data.branch_name;
-
+        if(this.selectLabel.string ==''){
+            this.selectLabel.string = '请选择开户行'
+        }
     }
 
     onLoad() {
@@ -71,7 +73,7 @@ export default class NewClass extends cc.Component {
         if(this.accountInput.string == '' || this.nameInput.string == ''){
             this.app.showAlert('姓名和卡号不能为空!')
         }
-        else if(this.selectLabel.string == '请选择银行'||this.selectLabel.string == ''){
+        else if(this.selectLabel.string == '请选择开户行'||this.selectLabel.string == ''){
             this.app.showAlert('开户行不能为空！')
         }
         else if(this.accountInput.string.length>19||this.accountInput.string.length<15){

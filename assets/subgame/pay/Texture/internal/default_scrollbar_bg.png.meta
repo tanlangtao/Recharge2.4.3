@@ -1,6 +1,6 @@
 {
   "ver": "2.3.3",
-  "uuid": "4bab67cb-18e6-4099-b840-355f0473f890",
+  "uuid": "ba525862-8d6e-40cc-a090-6d2b2536ca6b",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -11,8 +11,8 @@
   "subMetas": {
     "default_scrollbar_bg": {
       "ver": "1.0.4",
-      "uuid": "c9fa51ff-3f01-4601-8f80-325d1b11dab7",
-      "rawTextureUuid": "4bab67cb-18e6-4099-b840-355f0473f890",
+      "uuid": "9aee638e-a402-4599-96d8-2203229c4536",
+      "rawTextureUuid": "ba525862-8d6e-40cc-a090-6d2b2536ca6b",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,

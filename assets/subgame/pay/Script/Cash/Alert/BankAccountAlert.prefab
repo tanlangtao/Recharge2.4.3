@@ -2104,8 +2104,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "请选择银行",
-    "_N$string": "请选择银行",
+    "_string": "请选择开户行",
+    "_N$string": "请选择开户行",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -2840,8 +2840,8 @@
       }
     ],
     "_useOriginalSize": true,
-    "_string": "请输入开户行",
-    "_N$string": "请输入开户行",
+    "_string": "请输入开户支行",
+    "_N$string": "请输入开户支行",
     "_fontSize": 30,
     "_lineHeight": 60,
     "_enableWrapText": false,
