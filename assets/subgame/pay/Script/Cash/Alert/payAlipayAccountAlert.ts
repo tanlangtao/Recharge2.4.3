@@ -36,8 +36,9 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        // this.app.getPublicInput(this.accountInput,1);
-        // this.app.getPublicInput(this.account_nameInput,2);
+        this.accountInput.node.on('text-changed',(e)=>{
+            e.string=e.string.replace(/[^\a-\z\A-\Z0-9\?\.\@\+\$]/g,'')
+        })
     }
 
     onClick(){

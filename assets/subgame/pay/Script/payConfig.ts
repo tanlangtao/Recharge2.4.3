@@ -127,13 +127,19 @@ export default class Config extends cc.Component {
         return newDate;
     }
     public testBankNum(num){
+        console.log(num)
         if (isNaN(num)) {
             alert('传递参数错误，请检查！');
             return '';
         }
-        console.log(num)
-        var data = num.replace(/\s/g,'').replace(/(\d{4})\d+(\d{4})$/, "**** **** **** $2") ;
+        var data = num.replace(/\s/g,'').replace(/(\d{3})\d+(\d{4})$/, "$1************$2") ;
         return data;
 
+    }
+    public testZfbNum(num){
+        var num1 = num.slice(0,2)
+        var num2 = num.substring(num.length-2)
+        var num3 = num1+'************'+num2
+        return num3
     }
 }
