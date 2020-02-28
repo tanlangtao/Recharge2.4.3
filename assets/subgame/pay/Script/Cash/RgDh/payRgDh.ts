@@ -3,6 +3,8 @@ const {ccclass, property} = cc._decorator;
 import gHandler = require("../../../../../common/script/common/gHandler");
 @ccclass
 export default class payRgDh extends cc.Component {
+    @property(cc.Node)
+    ScrollView : cc.Node = null
 
     @property(cc.Node)
     content: cc.Node = null;
@@ -17,7 +19,7 @@ export default class payRgDh extends cc.Component {
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchImIndex();
-       
+        this.resizeCenter()
     }
     
     fetchImIndex(){
@@ -66,6 +68,11 @@ export default class payRgDh extends cc.Component {
                 node.getComponent('payRgDhItem').init(e,index,this.data)
             });
         }
+    }
+    resizeCenter(){
+        let scalex = cc.winSize.width / 1334;
+        let scrollH = this.ScrollView.height 
+        this.ScrollView.height = scrollH/Number(scalex.toFixed(2))
     }
     showIm(){
         // 唤起IM

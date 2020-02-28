@@ -1,9 +1,13 @@
 //人工代充
 
+import gHandler = require("../../../../../common/script/common/gHandler");
+
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
+    @property(cc.Node)
+    ScrollView : cc.Node = null
 
     @property(cc.Node)
     content: cc.Node = null;
@@ -17,7 +21,7 @@ export default class NewClass extends cc.Component {
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex()
-        
+        this.resizeCenter()
     }
     fetchIndex(){
         let url = `${this.app.UrlData.imHost}/im/api/recharge/list?skip=0&limit=6&token=c7a9d6g21v87s&package_id=${this.app.UrlData.package_id}&user_type=1`
@@ -40,6 +44,11 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading()
         })
     }
+    resizeCenter(){
+        let scalex = cc.winSize.width / 1334;
+        let scrollH = this.ScrollView.height 
+        this.ScrollView.height = scrollH/Number(scalex.toFixed(2))
+    }
     renderItem(){
         if(this.results.data != null){
             this.results.data.forEach((e,index )=> {
@@ -48,5 +57,11 @@ export default class NewClass extends cc.Component {
                 node.getComponent('payRgDcItem').init(e,index);
             });
         }
+    }
+    //联系客服
+    onClick(){
+        // 唤起IM
+        gHandler.Reflect.setOrientation("portrait", 640, 1136)
+        cc.director.loadScene('IMappStart');
     }
 }
