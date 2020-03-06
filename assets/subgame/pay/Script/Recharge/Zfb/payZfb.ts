@@ -106,26 +106,44 @@ export default class NewClass extends cc.Component {
 
     public fetchZfb(){
         var url = `${this.app.UrlData.host}/api/payment/aliPayPaymentIndex?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&version=${this.app.version}`;
-
+        let index = `${this.app.UrlData.package_id -1 }`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading()
             if(response.status == 0){
+                let discount_rate = response.data.discount_rate
                 if(self.channel == 'alipay' ){
                     self.results = response.data.alipay;
+                    let interval = discount_rate.alipay[index].interval
+                    this.setInterval(interval)
                 }else if(self.channel == 'union_pay'){
                     self.results = response.data.union_pay;
+
+                    let interval = discount_rate.union_pay[index].interval
+                    this.setInterval(interval)
                 }else if(self.channel == 'wechat_pay'){
                     self.results = response.data.wechat_pay;
+
+                    let interval = discount_rate.wechat_pay[index].interval
+                    this.setInterval(interval)
                 }else if(self.channel == 'bankcard_transfer'){
                     self.results = response.data.bankcard_transfer;
                     // self.huodongLabel.node.active=true;
+
+                    let interval = discount_rate.bankcard_transfer[index].interval
+                    this.setInterval(interval)
                 }else if(self.channel == 'quick_pay'){
                     self.results = response.data.quick_pay;
+                    let interval = discount_rate.quick_pay[index].interval
+                    this.setInterval(interval)
                 }else if(self.channel == 'bank_pay'){
                     self.results = response.data.bank_pay;
+                    let interval = discount_rate.bank_pay[index].interval
+                    this.setInterval(interval)
                 }else if(self.channel =='im_pay'){
                     self.results = response.data.im_pay;
+                    let interval = discount_rate.im_pay[index].interval
+                    this.setInterval(interval)
                 }
                 self.current = self.results[0];
                 self.radioList();
@@ -139,7 +157,14 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading()
         })
     }
-
+    setInterval(interval) {
+        if(interval[0].percent >0){
+            this.wxtsLabel.string = `${this.wxtsLabel.string}充值优惠: 充值${interval[0].min}-${interval[0].max},赠送 ${interval[0].percent*100}%,`
+        }
+        if(interval[1].percent >0){
+            this.wxtsLabel.string = `${this.wxtsLabel.string}充值${interval[1].min}-${interval[1].max}，赠送 ${interval[1].percent*100}%`
+        }
+    }
     public initRender(){
         var span_amount = this.current.span_amount.split(',');
         this.czArea.string = `充值范围:(${this.current.min_amount}-${this.current.max_amount})`

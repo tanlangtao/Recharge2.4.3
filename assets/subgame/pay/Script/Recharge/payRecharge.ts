@@ -111,7 +111,7 @@ export default class NewClass extends cc.Component {
             this.ToggleContainer.addChild(node);
             node.getComponent('payNavToggle').init({
                 text: arr[i]
-            })
+            },this.zfbResults.data.discount_rate)
         }
         //首次加载，顺序第一的显示
         if(arr[0]=='人工代充值'){
