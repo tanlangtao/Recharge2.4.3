@@ -49,6 +49,12 @@ export default class NewClass extends cc.Component {
         if (scree == ""){
             scree = "hall"
         }
+        if (scree == gHandler.gameConfig.gamelist['hbsl'].lanchscene
+            || scree == gHandler.gameConfig.gamelist['zrsx1'].lanchscene
+            || scree == gHandler.gameConfig.gamelist['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
+            gHandler.Reflect && gHandler.Reflect.setOrientation("portrait")
+
+        }
         cc.director.preloadScene(scree,()=>{
             cc.director.loadScene(scree);
         })
