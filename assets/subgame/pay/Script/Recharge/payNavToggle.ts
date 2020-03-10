@@ -46,7 +46,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('recharge/menu/menu_ylsm_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_ylsm_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.union_pay[index].percent.interval[0].percent
+            let percent = discount_rate.union_pay[index].interval[0].percent
             this.setTishiLabel(percent)
         }else if(this.text == '微信'){
             this.app.loadIcon('recharge/menu/menu_wxpay_1',this.normalIcon,207,39)
@@ -64,7 +64,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('recharge/menu/menu_unionpay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_unionpay_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.bank_pay[index].percent.interval[0].percent
+            let percent = discount_rate.bank_pay[index].interval[0].percent
             this.setTishiLabel(percent)
         }else if(this.text == '人工代充值'){
             this.app.loadIcon('recharge/menu/menu_VIPpay_1',this.normalIcon,207,39)
