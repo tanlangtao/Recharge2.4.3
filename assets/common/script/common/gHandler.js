@@ -122,18 +122,18 @@ let gameConfig = {
             resid: 20,
             isDown: false,
         },
-        // "zrsx": {
-        //     zhname: "真人视讯", // 中文游戏名
-        //     enname: "zrsx", // 英文游戏名 （子游戏文件路径，更新子路径）
-        //     lanchscene: "LiveGame", // 跳转场景名
-        //     game_id: "5b1f3a3cb76a591e7f25173",
-        //     serverUrl: "/zhenrensx", // 游戏服务器地址
-        //     hasAccount: false, // 是否已创建子游戏账号
-        //     remoteData: null, // 服务端发送过来的游戏数据
-        //     hallid: 2,
-        //     resid: 23,
-        //     isDown: false,
-        // },
+        "zrsx1": {
+            zhname: "真人视讯", // 中文游戏名
+            enname: "zrsx", // 英文游戏名 （子游戏文件路径，更新子路径）
+            lanchscene: "LiveGame", // 跳转场景名
+            game_id: "5b1f3a3cb76a591e7f25173",
+            serverUrl: "/zhenrensx", // 游戏服务器地址
+            hasAccount: false, // 是否已创建子游戏账号
+            remoteData: null, // 服务端发送过来的游戏数据
+            hallid: 2,
+            resid: 23,
+            isDown: false,
+        },
         "zrsx2": {
             zhname: "真人视讯-龙虎斗", // 中文游戏名
             enname: "zrsx2", // 英文游戏名 （子游戏文件路径，更新子路径）
@@ -363,18 +363,18 @@ let gameConfig = {
         //     resid: 18,
         // isDown:false,
         // },
-        // "xlch": {
-        //     zhname: "血流成河", // 中文游戏名
-        //     enname: "xlch", // 英文游戏名 （子游戏文件路径，更新子路径）
-        //     lanchscene: "xlch", // 跳转场景名
-        //     game_id: "",
-        //     serverUrl: "", // 游戏服务器地址
-        //     hasAccount: false, // 是否已创建子游戏账号
-        //     remoteData: null, // 服务端发送过来的游戏数据
-        //     hallid: 20,
-        //     resid: 19,
-        // isDown:false,
-        // },
+        "pccp": {
+            zhname: "血流成河", // 中文游戏名
+            enname: "xlch", // 英文游戏名 （子游戏文件路径，更新子路径）
+            lanchscene: "xlch", // 跳转场景名
+            game_id: "",
+            serverUrl: "", // 游戏服务器地址
+            hasAccount: false, // 是否已创建子游戏账号
+            remoteData: null, // 服务端发送过来的游戏数据
+            hallid: 20,
+            resid: 19,
+        isDown:false,
+        },
     },
     oldGameList: {
         "bjl": {
