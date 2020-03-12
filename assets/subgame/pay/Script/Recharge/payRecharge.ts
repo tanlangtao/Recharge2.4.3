@@ -89,11 +89,15 @@ export default class NewClass extends cc.Component {
 
     public addNavToggle() {
         var arr = ['人工代充值'];
-        if (this.zfbResults.data.alipay.length > 0 ) {
-            arr.push('支付宝')
-        }
+        
         if (this.zfbResults.data.bankcard_transfer.length > 0 ) {
             arr.push('转账到银行卡')
+        }
+        if ( this.zfbResults.data.im_pay.length > 0  ) {
+            arr.push('IM充值')
+        }
+        if (this.zfbResults.data.alipay.length > 0 ) {
+            arr.push('支付宝')
         }
         if (this.zfbResults.data.union_pay.length > 0 ) {
             arr.push('银联扫码')
@@ -101,9 +105,7 @@ export default class NewClass extends cc.Component {
         if (this.zfbResults.data.wechat_pay.length > 0 ) {
             arr.push('微信')
         }
-        if ( this.zfbResults.data.im_pay.length > 0  ) {
-            arr.push('IM充值')
-        }
+        
 
         if (this.app.UrlData.client=='desktop' && this.zfbResults.data.quick_pay.length > 0 ) {
             arr.push('快捷支付')
