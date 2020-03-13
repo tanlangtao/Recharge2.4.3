@@ -88,14 +88,21 @@ export default class NewClass extends cc.Component {
     }
 
     public addNavToggle() {
-        let payment_mode_sort = this.zfbResults.data.payment_mode_sort;
-        payment_mode_sort = {alipay: 3,
-            bankcard_transfer: 7,
-            quick_pay: 2,
-            bank_pay: 6,
-            wechat_pay: 4,
-            union_pay: 5,
-            im_pay: 1}
+        let  payment_mode_sort = {}
+        if (this.zfbResults.data.payment_mode_sort){
+            payment_mode_sort = this.zfbResults.data.payment_mode_sort;
+        }else{
+            payment_mode_sort = {
+                daichong:1,
+                bankcard_transfer: 2,
+                im_pay: 3,
+                alipay: 4,
+                quick_pay: 5,
+                bank_pay: 6,
+                wechat_pay: 7,
+                union_pay: 8,
+            }
+        }
         var sortArr = []
         for (var k in payment_mode_sort){
             sortArr[payment_mode_sort[k]] = k
