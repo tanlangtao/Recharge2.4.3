@@ -92,10 +92,15 @@ export default class NewClass extends cc.Component {
             node.getComponent('payActivityNav').addContent('FreeGold',JSON.parse(this.arr[0].info),this.arr[0].id);
         }
     }
+    
+
     /**
-     * @Description: 获取公告
-     */
+         * @Description: 获取公告
+         */
     getNotice() {
+        if (gHandler.gameGlobal.noticeList.length > 0) {
+                return
+            }
         let callback = (data, url) => {
             // console.log("公告 callback", data)
             if (data.code == 200) {
