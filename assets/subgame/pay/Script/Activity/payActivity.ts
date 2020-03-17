@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import gHandler = require("../../../../common/script/common/gHandler");
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -34,6 +34,8 @@ export default class NewClass extends cc.Component {
         var nav = cc.find('Canvas/Activity/nav');
         nav.scaleX= scalex;
         nav.scaleY = scalex;
+
+        this.getNotice() 
     }
 
     public exitBtnClick(){
@@ -89,5 +91,66 @@ export default class NewClass extends cc.Component {
         }else if(this.arr[0].name =='救济金活动'){
             node.getComponent('payActivityNav').addContent('FreeGold',JSON.parse(this.arr[0].info),this.arr[0].id);
         }
+    }
+    /**
+     * @Description: 获取公告
+     */
+    getNotice() {
+        let callback = (data, url) => {
+            // console.log("公告 callback", data)
+            if (data.code == 200) {
+                if (!data.msg || data.msg.length == 0) {
+                    // console.log("没有公告需要显示")
+                } else {
+                    let deleteNotice = gHandler.localStorage.getGlobal().noticeDeleteKey
+                    data.msg.sort((a, b) => a.sort - b.sort).forEach((e, i) => {
+                        if (e.type === 2) { // type == 2 是公告 == 1 是活动  is_slider
+                            let isdelete = false
+                            if (deleteNotice) {
+                                for (let j = 0; j < deleteNotice.length; j++) {
+                                    if (deleteNotice[j] == e.create_time) {
+                                        isdelete = true
+                                        break
+                                    }
+                                }
+                            }
+                            if (!isdelete) {
+                                let notice = {
+                                    key: gHandler.gameGlobal.noticeList.length,
+                                    isread: 0,
+                                    type: e.type,
+                                    title: e.title,
+                                    words: e.words,
+                                    create_time: e.create_time,
+                                    end_time: e.end_time,
+                                    start_time: e.start_time,
+                                };
+                                gHandler.gameGlobal.noticeList.push(notice)
+                            }
+                        }
+                        if (e.is_slider === 1) { // 是否跑马灯
+                            gHandler.gameGlobal.slideNoticeList.push({
+                                time: 1,
+                                rollforver: true,
+                                notice: e.words.replace(/\s+/g, "")
+                            })
+                        }
+                    })
+                    if (gHandler.gameGlobal.noticeList.length > 0) {
+                        if (gHandler.hqqisShowNotice) {
+                            gHandler.hqqisShowNotice = false
+                            gHandler.eventMgr.dispatch(gHandler.eventMgr.showNotice, null)
+                        }
+                    }
+                    if (gHandler.gameGlobal.slideNoticeList.length > 0) {
+                        gHandler.eventMgr.dispatch(gHandler.eventMgr.addSliderNotice, gHandler.gameGlobal.slideNoticeList)
+                    }
+                }
+            }
+        }
+        let failcallback = (status) => {
+        }
+        let endurl = gHandler.appGlobal.getIpGetEndurl(4);
+        gHandler.http.sendRequestIpGet(gHandler.appGlobal.server, endurl, callback, failcallback);
     }
 }
