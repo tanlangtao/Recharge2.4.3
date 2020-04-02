@@ -58,7 +58,7 @@ export default class Config extends cc.Component {
     }
     //保留两位小数
     public toDecimal(num) {
-        num = Math.abs(num).toFixed(8)
+        num = Math.abs(num).toFixed(6)
         var result = num.toString()
         if (isNaN(result)) {
         cc.log('传递参数错误，请检查！')
@@ -75,7 +75,7 @@ export default class Config extends cc.Component {
      
     //保留一位小数
     public toDecimal1(num) {
-        num = Math.abs(num).toFixed(8)
+        num = Math.abs(num).toFixed(6)
         var result = num.toString()
         if (isNaN(result)) {
         cc.log('传递参数错误，请检查！')
@@ -91,7 +91,7 @@ export default class Config extends cc.Component {
     }
     //保留小数,不超过2位
     public toDecimal2(num) {
-        num = Math.abs(num).toFixed(8)
+        num = Math.abs(num).toFixed(6)
         var result = num.toString()
         if (isNaN(result)) {
         cc.log('传递参数错误，请检查！')
