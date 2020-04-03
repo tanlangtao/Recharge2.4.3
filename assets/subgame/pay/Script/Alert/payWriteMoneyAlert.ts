@@ -32,6 +32,10 @@ export default class NewClass extends cc.Component {
         
         if(this.amountLabel.string == '点击输入' ){
             this.app.showAlert('金额不能为空!')
+        }else if(Number(this.amountLabel.string ) < 10 ){
+            this.app.showAlert('最低充值金额为10金币')
+        }else if(Number(this.amountLabel.string ) > 10000 ){
+            this.app.showAlert('最高充值金额为10000金币')
         }else{
             this.fetchCheckOrder()
             this.node.removeFromParent();
