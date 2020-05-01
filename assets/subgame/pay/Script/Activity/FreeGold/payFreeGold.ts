@@ -24,6 +24,7 @@ export default class NewClass extends cc.Component {
     }
 
     public setIdInfo(id,info){
+        cc.log(id,info)
         this.amount = info.account_balance;
         this.activity_id = id;
         this.amountLabel.string = info.account_balance

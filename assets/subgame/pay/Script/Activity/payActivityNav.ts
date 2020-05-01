@@ -20,6 +20,9 @@ export default class NewClass extends cc.Component {
     FreeGold : cc.Prefab = null;
 
     @property(cc.Prefab)
+    DailyActivity : cc.Prefab = null;
+
+    @property(cc.Prefab)
     FirstRechargeSendGold: cc.Prefab = null;
 
     @property
@@ -48,6 +51,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_scsj2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_scsj',this.currentIcon,249,86);
         }
+        else if(data.name == '每日任务'){
+            this.app.loadIcon('activity/btn_dailyMission2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_dailyMission1',this.currentIcon,249,86);
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -70,6 +77,9 @@ export default class NewClass extends cc.Component {
         else if(this.name == '首充送金活动'){
             this.addContentFirstRechargeSendGold()
         }
+        else if(this.name == '每日任务'){
+            this.addContent('DailyActivity',JSON.parse(this.data.info),this.id)
+        }
     }
 
     addContent(data,info,id){
@@ -88,6 +98,11 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.FreeGold);
             content.removeAllChildren();
             node.getComponent('payFreeGold').setIdInfo(id,info);
+            content.addChild(node);
+        }else if(data == 'DailyActivity'){
+            var node = cc.instantiate(this.DailyActivity);
+            content.removeAllChildren();
+            node.getComponent('payDailyActivity').setIdInfo(id,info);
             content.addChild(node);
         }
     }

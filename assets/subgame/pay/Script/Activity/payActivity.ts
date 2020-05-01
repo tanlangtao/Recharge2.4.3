@@ -68,7 +68,7 @@ export default class NewClass extends cc.Component {
 
     public addHuodong(){
         this.huodongConfig.data.forEach((e)=>{
-            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || e.name == "首充送金活动")){
+            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || e.name == "首充送金活动"||e.name == "每日任务")){
                 this.arr.push(e);
             }
         });
@@ -92,6 +92,8 @@ export default class NewClass extends cc.Component {
             node.getComponent('payActivityNav').addContent('FreeGold',JSON.parse(this.arr[0].info),this.arr[0].id);
         }else if(this.arr[0].name =='首充送金活动'){
             node.getComponent('payActivityNav').addContentFirstRechargeSendGold();
+        }else if(this.arr[0].name =='每日任务'){
+            node.getComponent('payActivityNav').addContent('DailyActivity',JSON.parse(this.arr[0].info),this.arr[0].id);
         }
     }
     

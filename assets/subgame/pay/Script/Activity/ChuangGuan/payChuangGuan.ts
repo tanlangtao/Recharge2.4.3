@@ -121,7 +121,6 @@ export default class NewClass extends cc.Component {
                 var step = ((this.today_statement-info[lastKey].statement) / (info[k].statement - info[lastKey].statement))*0.2;
                 progress += step;
                 break;
-                
             }
         }
         if(info["level_5"].statement<this.today_statement){
