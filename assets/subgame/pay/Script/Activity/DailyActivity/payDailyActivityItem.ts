@@ -1,4 +1,5 @@
 import payDailyActivity from "./payDailyActivity"
+import gHandler = require("../../../../../common/script/common/gHandler") 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -162,24 +163,16 @@ export default class NewClass extends cc.Component {
             case "game" :
                 var gameName = this.switchGameId(this.data.game_id)
                 if(gameName == "炸金花"){
-                    cc.director.preloadScene("ZJHLoad",()=>{
-                        cc.director.loadScene("ZJHLoad")
-                    })
-                }else {
-                    cc.director.preloadScene("ddzloading_bg",()=>{
-                        cc.director.loadScene("ddzloading_bg")
-                    })
+                    cc.director.loadScene(gHandler.gameConfig.gamelist["zjh"].lanchscene);
+                }else if(gameName == "斗地主"){
+                    cc.director.loadScene(gHandler.gameConfig.gamelist["ddz"].lanchscene);
                 }
                 break
             case "proxy" :
-                cc.director.preloadScene("proxy-proxy",()=>{
-                    cc.director.loadScene("proxy-proxy")
-                })
+                cc.director.loadScene(gHandler.gameConfig.subModel["proxy"].lanchscene);
                 break
             case "recharge" :
-                cc.director.preloadScene("payRecharge",()=>{
-                    cc.director.loadScene("payRecharge")
-                })
+            cc.director.loadScene(gHandler.gameConfig.subModel["pay"].lanchscene);
                 break
         }
     }
