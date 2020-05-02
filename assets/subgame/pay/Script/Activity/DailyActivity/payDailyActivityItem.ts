@@ -42,7 +42,7 @@ export default class NewClass extends cc.Component {
                 }
                 break
             case "proxy" :
-                this.targetLabel.string = `发展下级完成首冲${this.data.children_firstpay_num}人`
+                this.targetLabel.string = `发展下级完成首充${this.data.children_firstpay_num}人`
                 break
             case "recharge" :
                 if(this.data.recharge_num){
@@ -70,7 +70,7 @@ export default class NewClass extends cc.Component {
                 let GameData =  Detail["game"][this.data.game_id]
                 if(!GameData) break
                 if(this.data.rounds){
-                    this.progressLabel.string = `${GameData.totalrounds}/${this.data.rounds}`
+                    this.progressLabel.string = `${GameData.totalrounds > this.data.rounds ?this.data.rounds:GameData.totalrounds}/${this.data.rounds}`
                     if(GameData.totalrounds >= this.data.rounds){
                         if(!isReceive){
                             this.switchBtn("lingquBtn")
@@ -81,7 +81,7 @@ export default class NewClass extends cc.Component {
                         this.switchBtn("goToBtn")
                     }
                 }else if(this.data.winround){
-                    this.progressLabel.string = `${GameData.winround}/${this.data.winround}`
+                    this.progressLabel.string = `${GameData.winround > this.data.winround ?this.data.winround:GameData.winround}/${this.data.winround}`
                     if(GameData.winround >= this.data.winround){
                         if(!isReceive){
                             this.switchBtn("lingquBtn")
@@ -94,7 +94,7 @@ export default class NewClass extends cc.Component {
                 }
                 break
             case "proxy" :
-                this.progressLabel.string = `${Detail.children_firstpay_num}/${this.data.children_firstpay_num}`
+                this.progressLabel.string = `${Detail.children_firstpay_num > this.data.children_firstpay_num ? this.data.children_firstpay_num :Detail.children_firstpay_num}/${this.data.children_firstpay_num}`
                 if(Detail.children_firstpay_num >= this.data.children_firstpay_num){
                     if(!isReceive){
                         this.switchBtn("lingquBtn")
@@ -107,7 +107,7 @@ export default class NewClass extends cc.Component {
                 break
             case "recharge" :
                 if(this.data.recharge_num){
-                    this.progressLabel.string = `${Detail.recharge_num}/${this.data.recharge_num}`
+                    this.progressLabel.string = `${Detail.recharge_num > this.data.recharge_num ? this.data.recharge_num: Detail.recharge_num}/${this.data.recharge_num}`
                     if(Detail.recharge_num >= this.data.recharge_num){
                         if(!isReceive){
                             this.switchBtn("lingquBtn")
@@ -118,7 +118,7 @@ export default class NewClass extends cc.Component {
                         this.switchBtn("goToBtn")
                     }
                 }else if(this.data.recharge_amount){
-                    this.progressLabel.string = `${Detail.recharge_amount}/${this.data.recharge_amount}`
+                    this.progressLabel.string = `${Detail.recharge_amount > this.data.recharge_amount ? this.data.recharge_amount :Detail.recharge_amount}/${this.data.recharge_amount}`
                     if(Detail.recharge_amount >= this.data.recharge_amount){
                         if(!isReceive){
                             this.switchBtn("lingquBtn")

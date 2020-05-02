@@ -26,6 +26,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     totalScoreLabel:cc.Label = null
 
+    @property(cc.Label)
+    tishiLabel :cc.Label = null
+
     activity_id = 0
     app :payMain= null
     info = {}
@@ -65,6 +68,7 @@ export default class NewClass extends cc.Component {
         }
     }
     private setLevelInfo(){
+        this.tishiLabel.string = `积分达到${this.bylevel[0].integral}, 额外再奖${this.bylevel[0].gold}金币, 积分达到${this.bylevel[1].integral}, 额外再奖${this.bylevel[1].gold}金币`
         this.bylevel.forEach((e,i)=>{
             let item  = this.goldGroup[i]
             //奖励金币
@@ -81,13 +85,13 @@ export default class NewClass extends cc.Component {
         this.showItemTip(current_integral)
     }
     showItemTip(current_integral){
-        this.goldGroup.forEach((e,i)=>{
+        this.bylevel.forEach((e,i)=>{
             let isReceive = false
-            if(this.TaskDetail.receive_task_id.indexOf(`${this.bylevel[i].task_id}`) != -1){
+            if(this.TaskDetail.receive_task_id.indexOf(`${e.task_id}`) != -1){
                 //数组里存在，则表示已领取
                 isReceive = true
             }
-            if(current_integral >= this.bylevel[i].integral && !isReceive) {
+            if(current_integral >= e.integral && !isReceive) {
                 this.goldGroup[i].getChildByName("Tip").active = true
             }else{
                 this.goldGroup[i].getChildByName("Tip").active = false
@@ -98,7 +102,7 @@ export default class NewClass extends cc.Component {
     private mathProgress(current_integral){
         var progress = 0;
         var stop = false
-        var step = 0.25
+        var step = 0.5
         this.bylevel.forEach((e,i)=>{
             if (current_integral >= e.integral && !stop){
                 progress += step
@@ -155,6 +159,7 @@ export default class NewClass extends cc.Component {
     setItemDetail(){
         this.Content.children.forEach((e)=>{
             let item = e.getComponent("payDailyActivityItem")
+            
             item.setDetail(this.TaskDetail,this)
         })
     }
@@ -166,13 +171,4 @@ export default class NewClass extends cc.Component {
         let task_id = this.bylevel[1].task_id
         this.fetchGetTask("bylevel",task_id)
     }
-    private Item3Click(){
-        let task_id = this.bylevel[2].task_id
-        this.fetchGetTask("bylevel",task_id)
-    }
-    private Item4Click(){
-        let task_id = this.bylevel[3].task_id
-        this.fetchGetTask("bylevel",task_id)
-    }
-
 }

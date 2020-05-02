@@ -50,15 +50,15 @@ let gameGlobal = {
         // pay_host:'https://pay1.whjfxly66.com',//pre
         // user_id:'500814802',//pre
         // user_id:'899112880',//pre
-        pay_host:'http://chongti.539316.com',//dev
-        // pay_host:'http://18.176.74.76:12353',//pre
+        // pay_host:'http://chongti.539316.com',//dev
+        pay_host:'http://18.176.74.76:12353',//pre
         // pay_host:'https://pay1.whjfxly66.com',//online
         // user_id:'875664519',//online
         // user_id:'267556651',//pre
         // user_id:'486935387',//pre
         // user_id:'792398917',//dev
         // user_id:'271581304',//dev
-        user_id:'463114046',//dev
+        user_id:'251521800',//dev
         user_name:'A091944',
         proxy_user_id:'873797373',
         proxy_name:'贵宾127788',

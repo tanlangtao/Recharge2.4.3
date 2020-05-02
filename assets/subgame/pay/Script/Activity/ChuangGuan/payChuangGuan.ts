@@ -96,7 +96,6 @@ export default class NewClass extends cc.Component {
         }else{
             this.btn_lingqu.interactable = false;
         }
-        cc.log(this.remainingGold,this.remainingLevel)
         this.mathProgress(info);
     }
     //计算进度条
@@ -112,11 +111,9 @@ export default class NewClass extends cc.Component {
                 };
                 lastKey = k;
                 progress += step;
-                cc.log('1',progress)
             }else if(info[k].statement<this.today_statement){
                 progress += 0.2;
                 lastKey = k;
-                cc.log('2',progress)
             }else{
                 var step = ((this.today_statement-info[lastKey].statement) / (info[k].statement - info[lastKey].statement))*0.2;
                 progress += step;
