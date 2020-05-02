@@ -163,9 +163,21 @@ export default class NewClass extends cc.Component {
             case "game" :
                 var gameName = this.switchGameId(this.data.game_id)
                 if(gameName == "炸金花"){
-                    cc.director.loadScene(gHandler.gameConfig.gamelist["zjh"].lanchscene);
+                    cc.loader.downloader.loadSubpackage("zjh",(err)=>{
+                        if(err) {
+                            this.payDailyCompoment.app.showAlert("加载炸金花失败！请返回大厅进入")
+                        }
+                        cc.director.loadScene(gHandler.gameConfig.gamelist["zjh"].lanchscene);
+                    })  
+                    
                 }else if(gameName == "斗地主"){
-                    cc.director.loadScene(gHandler.gameConfig.gamelist["ddz"].lanchscene);
+                    cc.loader.downloader.loadSubpackage("ddz",(err)=>{
+                        if(err) {
+                            this.payDailyCompoment.app.showAlert("加载斗地主失败！请返回大厅进入")
+                        }
+                        cc.director.loadScene(gHandler.gameConfig.gamelist["ddz"].lanchscene);
+                    })  
+                    
                 }
                 break
             case "proxy" :
