@@ -163,30 +163,9 @@ export default class NewClass extends cc.Component {
             case "game" :
                 var gameName = this.switchGameId(this.data.game_id)
                 if(gameName == "炸金花"){
-                    let enname = "zjh"
-                    if(gHandler.gameConfig.gamelist[enname].isDown = true){
-                        cc.loader.downloader.loadSubpackage(enname,(err)=>{
-                            if(err) {
-                                return this.payDailyCompoment.app.showAlert("加载炸金花失败！请返回大厅进入")
-                            }
-                            cc.director.loadScene(gHandler.gameConfig.gamelist[enname].lanchscene);
-                        })  
-                    }else{
-                        this.payDailyCompoment.app.showAlert("加载炸金花失败！请先下载更新游戏！")
-                    }
-                   
+                    this.checkSubGameDownload("zjh")
                 }else if(gameName == "斗地主"){
-                    let enname = "ddz"
-                    if(gHandler.gameConfig.gamelist[enname].isDown = true){
-                        cc.loader.downloader.loadSubpackage(enname,(err)=>{
-                            if(err) {
-                                return  this.payDailyCompoment.app.showAlert("加载斗地主失败！请返回大厅进入")
-                            }
-                            cc.director.loadScene(gHandler.gameConfig.gamelist[enname].lanchscene);
-                        })  
-                    }else{
-                        this.payDailyCompoment.app.showAlert("加载炸金花失败！请先下载更新游戏！")
-                    }
+                    this.checkSubGameDownload("ddz")
                 }
                 break
             case "proxy" :
@@ -195,6 +174,74 @@ export default class NewClass extends cc.Component {
             case "recharge" :
             cc.director.loadScene(gHandler.gameConfig.subModel["pay"].lanchscene);
                 break
+        }
+    }
+    /** 根据id获取服务器子游戏信息 */
+    getRemoteSubgame(game_id) {
+        if (!gHandler.appGlobal || !gHandler.appGlobal.remoteGamelist) {
+            return
+        }
+        let remotedata = gHandler.appGlobal.remoteGamelist[0];
+        for (let i = 0; i < gHandler.appGlobal.remoteGamelist.length; i++) {
+            if (game_id === gHandler.appGlobal.remoteGamelist[i].game_id) {
+                remotedata = gHandler.appGlobal.remoteGamelist[i];
+                break;
+            }
+        }
+        return remotedata;
+    }
+    /** 判断子游戏是否下载更新等 */
+    checkSubGameDownload(enname) {
+        let subdata = this.getRemoteSubgame(gHandler.gameConfig.gamelist[enname].game_id)
+        if (subdata.open == 0) {
+            cc.log(" | subgame : " + enname + " subdata.open 等于0");
+            gHandler.gameConfig.gamelist[enname].isDown = false
+        } else {
+            let subgamev = subdata.version;
+            let localsubv = gHandler.localStorage.get(enname, "versionKey");
+            if (enname == 'zrsx1' || enname == 'zrsx2') {
+                localsubv = gHandler.localStorage.get('zrsx', "versionKey");
+            }
+            let needup = false
+            if (!localsubv) {
+                needup = true;
+            } else {
+                let vA = subgamev.split('.');
+                let vB = localsubv.split('.');
+                for (let i = 0; i < vA.length; ++i) {
+                    let a = parseInt(vA[i]);
+                    let b = parseInt(vB[i] || 0);
+                    if (a != b) {
+                        needup = true;
+                        break;
+                    }
+                }
+                if (vB.length != vA.length) {
+                    needup = true;
+                }
+            }
+            let self = this
+            if (needup && !cc.sys.isBrowser) {
+                cc.log(" | subgame : " + enname + " need update");
+                self.payDailyCompoment.app.showAlert("游戏需要更新!请返回大厅更新");
+                gHandler.gameConfig.gamelist[enname].isDown = false
+            } else {
+                cc.log(" | subgame : " + enname + " not need update")
+                gHandler.gameConfig.gamelist[enname].isDown = true
+                let subgamern = enname
+                if (gHandler.appGlobal.isRelease) {
+                    !gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
+                        if (err) {
+                            cc.log(err)
+                            return self.payDailyCompoment.app.showAlert("加载游戏失败！请返回大厅进入！");
+                        }
+                        cc.director.loadScene(gHandler.gameConfig.gamelist[subgamern].lanchscene);
+                        // console.log('load subpackage script successfully.', subgamern);
+                    });
+                }else{
+                    cc.director.loadScene(gHandler.gameConfig.gamelist[subgamern].lanchscene);
+                }
+            }
         }
     }
 }
