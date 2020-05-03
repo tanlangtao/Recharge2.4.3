@@ -163,21 +163,30 @@ export default class NewClass extends cc.Component {
             case "game" :
                 var gameName = this.switchGameId(this.data.game_id)
                 if(gameName == "炸金花"){
-                    cc.loader.downloader.loadSubpackage("zjh",(err)=>{
-                        if(err) {
-                            this.payDailyCompoment.app.showAlert("加载炸金花失败！请返回大厅进入")
-                        }
-                        cc.director.loadScene(gHandler.gameConfig.gamelist["zjh"].lanchscene);
-                    })  
-                    
+                    let enname = "zjh"
+                    if(gHandler.gameConfig.gamelist[enname].isDown = true){
+                        cc.loader.downloader.loadSubpackage(enname,(err)=>{
+                            if(err) {
+                                return this.payDailyCompoment.app.showAlert("加载炸金花失败！请返回大厅进入")
+                            }
+                            cc.director.loadScene(gHandler.gameConfig.gamelist[enname].lanchscene);
+                        })  
+                    }else{
+                        this.payDailyCompoment.app.showAlert("加载炸金花失败！请先下载更新游戏！")
+                    }
+                   
                 }else if(gameName == "斗地主"){
-                    cc.loader.downloader.loadSubpackage("ddz",(err)=>{
-                        if(err) {
-                            this.payDailyCompoment.app.showAlert("加载斗地主失败！请返回大厅进入")
-                        }
-                        cc.director.loadScene(gHandler.gameConfig.gamelist["ddz"].lanchscene);
-                    })  
-                    
+                    let enname = "ddz"
+                    if(gHandler.gameConfig.gamelist[enname].isDown = true){
+                        cc.loader.downloader.loadSubpackage(enname,(err)=>{
+                            if(err) {
+                                return  this.payDailyCompoment.app.showAlert("加载斗地主失败！请返回大厅进入")
+                            }
+                            cc.director.loadScene(gHandler.gameConfig.gamelist[enname].lanchscene);
+                        })  
+                    }else{
+                        this.payDailyCompoment.app.showAlert("加载炸金花失败！请先下载更新游戏！")
+                    }
                 }
                 break
             case "proxy" :
