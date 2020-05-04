@@ -34,7 +34,7 @@ export default class NewClass extends cc.Component {
     info = {}
     bylevel = []
     TaskDetail = null
-
+    btnCanClick = true;
     onLoad() {
         
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -121,14 +121,13 @@ export default class NewClass extends cc.Component {
         })
         this.Processor.progress = progress;
     }
-    public fetchGetTask(key,task_id){
+    public fetchGetTask(key,task_id,callBack = ()=>{}){
         var url = `${this.app.UrlData.host}/api/activity/getTask`;
         let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&key=${key}&task_id=${task_id}&token=${this.app.token}`
         this.app.ajax('POST',url,dataStr,(response)=>{
-            this.app.hideLoading()
             if(response.status == 0){
                 this.app.showAlert("领取成功!")
-                this.fetchByDayTaskDetail()
+                this.fetchByDayTaskDetail(callBack)
             }else{
                 this.app.showAlert(response.msg)
             }
@@ -137,11 +136,12 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(`网络错误${errstatus}`)
         })
     }
-    public fetchByDayTaskDetail(){
+    public fetchByDayTaskDetail(callBack = ()=>{}){
         var url = `${this.app.UrlData.host}/api/activity/byDayTaskDetail`;
         let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}`
         this.app.ajax('POST',url,dataStr,(response)=>{
             this.app.hideLoading()
+            callBack()
             if (response.status == 0) {
                 this.TaskDetail = response.data
                 //显示当前总积分
@@ -153,6 +153,7 @@ export default class NewClass extends cc.Component {
                 this.app.showAlert(response.msg)
             }
         },(errstatus)=>{
+            this.app.hideLoading()
             this.app.showAlert(`${errstatus}`)
         })
     }
@@ -164,11 +165,26 @@ export default class NewClass extends cc.Component {
         })
     }
     private Item1Click(){
-        let task_id = this.bylevel[0].task_id
-        this.fetchGetTask("bylevel",task_id)
+        if(this.btnCanClick){
+            let task_id = this.bylevel[0].task_id
+            this.btnCanClick = false
+            this.fetchGetTask("bylevel",task_id,()=>{
+                this.btnCanClick = true
+            })
+        }else{
+            this.app.showAlert("你点的太快了！")
+        }
+        
     }
     private Item2Click(){
-        let task_id = this.bylevel[1].task_id
-        this.fetchGetTask("bylevel",task_id)
+        if(this.btnCanClick){
+            let task_id = this.bylevel[1].task_id
+            this.btnCanClick = false
+            this.fetchGetTask("bylevel",task_id,()=>{
+                this.btnCanClick = true
+            })
+        }else{
+            this.app.showAlert("你点的太快了！")
+        }
     }
 }

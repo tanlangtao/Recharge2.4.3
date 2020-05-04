@@ -78,6 +78,7 @@ export default class NewClass extends cc.Component {
             this.addContentFirstRechargeSendGold()
         }
         else if(this.name == '每日任务'){
+            this.app.showLoading();
             this.addContent('DailyActivity',JSON.parse(this.data.info),this.id)
         }
     }

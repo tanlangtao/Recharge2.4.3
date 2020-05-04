@@ -155,7 +155,11 @@ export default class NewClass extends cc.Component {
         }
     }
     linquBtnClick(){
-        this.payDailyCompoment.fetchGetTask(this.key,this.task_id)
+        this.lingquBtn.getComponent(cc.Button).interactable = false
+        let self = this;
+        this.payDailyCompoment.fetchGetTask(this.key,this.task_id,()=>{
+            self.lingquBtn.getComponent(cc.Button).interactable = true
+        })
     }
     //点击前往
     goToBtnClick(){
