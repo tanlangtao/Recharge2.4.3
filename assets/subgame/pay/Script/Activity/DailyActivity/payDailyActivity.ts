@@ -69,14 +69,14 @@ export default class NewClass extends cc.Component {
     }
     private setLevelInfo(){
         this.tishiLabel.string = `积分达到${this.bylevel[0].integral}, 额外再奖${this.bylevel[0].gold}金币, 积分达到${this.bylevel[1].integral}, 额外再奖${this.bylevel[1].gold}金币`
-        this.bylevel.forEach((e,i)=>{
-            let item  = this.goldGroup[i]
+        this.goldGroup.forEach((e,i)=>{
+            let item  = this.bylevel[i]
             //奖励金币
-            item.getChildByName('num').getComponent(cc.Label).string = e.gold
+            e.getChildByName('num').getComponent(cc.Label).string = item.gold
             //所需要的积分
-            item.getChildByName('jifen').getComponent(cc.Label).string = e.integral
-            let TipNode = item.getChildByName('Tip')
-            TipNode.getChildByName("num").getComponent(cc.Label).string = e.gold
+            e.getChildByName('jifen').getComponent(cc.Label).string = item.integral
+            let TipNode = e.getChildByName('Tip')
+            TipNode.getChildByName("num").getComponent(cc.Label).string = item.gold
         })
     }
     private setLevelProgress(){
@@ -85,16 +85,17 @@ export default class NewClass extends cc.Component {
         this.showItemTip(current_integral)
     }
     showItemTip(current_integral){
-        this.bylevel.forEach((e,i)=>{
+        this.goldGroup.forEach((e,i)=>{
+            let item = this.bylevel[i]
             let isReceive = false
-            if(this.TaskDetail.receive_task_id.indexOf(`${e.task_id}`) != -1){
+            if(this.TaskDetail.receive_task_id.indexOf(`${item.task_id}`) != -1){
                 //数组里存在，则表示已领取
                 isReceive = true
             }
-            if(current_integral >= e.integral && !isReceive) {
-                this.goldGroup[i].getChildByName("Tip").active = true
+            if(current_integral >= item.integral && !isReceive) {
+                e.getChildByName("Tip").active = true
             }else{
-                this.goldGroup[i].getChildByName("Tip").active = false
+                e.getChildByName("Tip").active = false
             }
         })
     }
@@ -127,7 +128,14 @@ export default class NewClass extends cc.Component {
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 this.app.showAlert("领取成功!")
-                this.fetchByDayTaskDetail(callBack)
+                cc.log("response",response)
+                //显示当前总积分
+                this.TaskDetail.current_integral = response.data.current_integral
+                this.totalScoreLabel.string = response.data.current_integral
+                this.TaskDetail.receive_task_id.push(`${response.data.task_id}`)
+                this.setLevelProgress()
+                this.setItemDetail()
+                callBack()
             }else{
                 this.app.showAlert(response.msg)
             }
@@ -136,18 +144,16 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(`网络错误${errstatus}`)
         })
     }
-    public fetchByDayTaskDetail(callBack = ()=>{}){
+    public fetchByDayTaskDetail(){
         var url = `${this.app.UrlData.host}/api/activity/byDayTaskDetail`;
         let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}`
         this.app.ajax('POST',url,dataStr,(response)=>{
             this.app.hideLoading()
-            callBack()
             if (response.status == 0) {
                 this.TaskDetail = response.data
                 //显示当前总积分
                 this.totalScoreLabel.string = this.TaskDetail.current_integral
                 this.setItemDetail()
-                cc.log(this.TaskDetail)
                 this.setLevelProgress()
             }else{
                 this.app.showAlert(response.msg)
