@@ -264,9 +264,16 @@ export default class NewClass extends cc.Component {
                         faildFn(xhr.status)
                     }
                 }
+                xhr.abort()
             }
         };
         xhr.open(method, url, true);
+        xhr.ontimeout = () => {
+            xhr.abort()
+        }
+        xhr.onerror = () => {
+            xhr.abort()
+        }
         xhr.setRequestHeader("Content-Type"
 			, "application/x-www-form-urlencoded");
         xhr.send(data);
