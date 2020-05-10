@@ -203,10 +203,13 @@ export default class NewClass extends cc.Component {
             cc.log(" | subgame : " + enname + " subdata.open 等于0");
             gHandler.gameConfig.gamelist[enname].isDown = false
         } else {
-            let subgamev = subdata.version;
+            let subgamev;
             let localsubv = gHandler.localStorage.get(enname, "versionKey");
             if (enname == 'zrsx1' || enname == 'zrsx2') {
                 localsubv = gHandler.localStorage.get('zrsx', "versionKey");
+                subgamev = gHandler.appGlobal.subGameVersion['zrsx'];
+            } else {
+                subgamev = gHandler.appGlobal.subGameVersion[enname];
             }
             let needup = false
             cc.log("活动前往子游戏","subgamev",subgamev,"localsubv",localsubv)
