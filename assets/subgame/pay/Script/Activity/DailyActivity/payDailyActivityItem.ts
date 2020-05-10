@@ -197,6 +197,8 @@ export default class NewClass extends cc.Component {
     /** 判断子游戏是否下载更新等 */
     checkSubGameDownload(enname) {
         let subdata = this.getRemoteSubgame(gHandler.gameConfig.gamelist[enname].game_id)
+        cc.log(enname)
+        cc.log("gHandler.gameConfig.gamelist",gHandler.gameConfig.gamelist)
         if (subdata.open == 0) {
             cc.log(" | subgame : " + enname + " subdata.open 等于0");
             gHandler.gameConfig.gamelist[enname].isDown = false
@@ -207,6 +209,7 @@ export default class NewClass extends cc.Component {
                 localsubv = gHandler.localStorage.get('zrsx', "versionKey");
             }
             let needup = false
+            cc.log("活动前往子游戏","subgamev",subgamev,"localsubv",localsubv)
             if (!localsubv) {
                 needup = true;
             } else {
