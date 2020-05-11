@@ -123,7 +123,7 @@ export default class NewClass extends cc.Component {
         }
         this.action = this.bankData.length != 0 ? 'edit' :'add';
         this.goldLabel.string = this.app.config.toDecimal(data.game_gold);
-        this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:50} - ${this.current?this.current.max_amount:10000})`;
+        this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
         this.accountLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
         if(this.bankData.length != 0 ){
             this.accountBtn.active = false;
@@ -146,7 +146,7 @@ export default class NewClass extends cc.Component {
      allGoldClick(){
           //按键音效
         this.app.clickClip.play();
-        this.amountLabel.string = `${Math.floor(Number(this.goldLabel.string)/50)*50}`;
+        this.amountLabel.string = `${Math.floor(Number(this.goldLabel.string))}`;
         this.slider.progress = 1;
         this.progressBar.progress = 1;
     }
@@ -230,7 +230,7 @@ export default class NewClass extends cc.Component {
         progressbar.progress = slider.progress;
         slider.node.on('slide', function(event){
             progressbar.progress = slider.progress;
-            self.amountLabel.string = `${Math.floor(Number(self.goldLabel.string)*slider.progress/50)*50}`;
+            self.amountLabel.string = `${Math.floor(Number(self.goldLabel.string)*slider.progress)}`;
         }, this);
     }
     onClick(){
@@ -238,7 +238,7 @@ export default class NewClass extends cc.Component {
         this.app.clickClip.play();
         var amount = Number(this.amountLabel.string);
 
-        var minAmount = Number(this.current?this.current.min_amount:50);
+        var minAmount = Number(this.current?this.current.min_amount:100);
         var maxAmount = Number(this.current?this.current.max_amount:10000);
         if(this.results.length==0){
             this.app.showAlert('渠道未开放，请选择其他兑换方式！')
@@ -248,8 +248,6 @@ export default class NewClass extends cc.Component {
             this.app.showAlert('兑换金额不能为空！')
         }else if(amount >Number(this.goldLabel.string)){
             this.app.showAlert('余额不足!')
-        }else if(amount % 50 != 0){
-            this.app.showAlert(`兑换金额必须是50的倍数!`)
         }else if(amount < minAmount || amount >maxAmount){
             this.app.showAlert('超出兑换范围!')
         }else{

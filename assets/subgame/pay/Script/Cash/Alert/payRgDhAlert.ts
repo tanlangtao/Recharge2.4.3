@@ -129,8 +129,6 @@ export default class NewClass extends cc.Component {
             this.app.showAlert('余额不足！')
         }else if(amount < min_amount || amount > max_amount){
             this.app.showAlert(`不符合兑换范围！(${min_amount}-${max_amount})`)
-        }else if(amount%50!=0){
-            this.app.showAlert(`兑换金额必须是50的整数倍`)
         }else if(this.accountLabel.string =='未设置'){
             this.app.showAlert('兑换账户未设置,请选择其他兑换方式！')
         }else{
