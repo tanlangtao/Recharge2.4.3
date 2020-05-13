@@ -32,10 +32,12 @@ export default class NewClass extends cc.Component {
         }, 1000);
         let scalex = cc.winSize.width / 1334;
         var nav = cc.find('Canvas/Activity/nav');
+        this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)+20
         nav.scaleX= scalex;
         nav.scaleY = scalex;
 
         this.getNotice() 
+        
     }
 
     public exitBtnClick(){
@@ -77,6 +79,10 @@ export default class NewClass extends cc.Component {
 
     public addNavToggle(){
         this.arr.sort((a,b)=>a.order_by-b.order_by);
+        this.arr.push({ name :"新人大礼包" })
+        this.arr.push({ name :"月入百万" })
+        this.arr.push({ name :"每周佣金奖励" })
+        this.arr.push({ name :"15天送58元" })
         for(let i:number = 0; i< this.arr.length; i++){
             let data = this.arr[i];
             var node = cc.instantiate(this.NavToggle);
@@ -84,6 +90,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('payActivityNav').init(data)
         }
         if(this.arr.length==0) return;
+        
         if(this.arr[0].name == '流水闯关活动'){
             node.getComponent('payActivityNav').addContent('ChuangGuan',JSON.parse(this.arr[0].info),this.arr[0].id);
         }else if(this.arr[0].name =='存送活动'){

@@ -25,6 +25,15 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     FirstRechargeSendGold: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    NewPlayerGift: cc.Prefab = null;
+    @property(cc.Prefab)
+    HalfMonthGift: cc.Prefab = null;
+    @property(cc.Prefab)
+    OnceWeekGift: cc.Prefab = null;
+    @property(cc.Prefab)
+    OneMonthMillion: cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -55,6 +64,22 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_dailyMission2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_dailyMission1',this.currentIcon,249,86);
         }
+        else if(data.name == '新人大礼包'){
+            this.app.loadIcon('activity/btn_starterPack2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_starterPack1',this.currentIcon,249,86);
+        }
+        else if(data.name == '月入百万'){
+            this.app.loadIcon('activity/btn_millionIncome2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_millionIncome1',this.currentIcon,249,86);
+        }
+        else if(data.name == '每周佣金奖励'){
+            this.app.loadIcon('activity/btn_weeklyCms2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_weeklyCms1',this.currentIcon,249,86);
+        }
+        else if(data.name == '15天送58元'){
+            this.app.loadIcon('activity/btn_58for15days2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_58for15days1',this.currentIcon,249,86);
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -63,7 +88,6 @@ export default class NewClass extends cc.Component {
     }
 
     onClick(){
-        
         if(this.name == '流水闯关活动'){
             this.app.showLoading();
             this.addContent('ChuangGuan',JSON.parse(this.data.info),this.id)
@@ -80,6 +104,18 @@ export default class NewClass extends cc.Component {
         else if(this.name == '每日任务'){
             this.app.showLoading();
             this.addContent('DailyActivity',JSON.parse(this.data.info),this.id)
+        }
+        else if(this.name == "新人大礼包") {
+            this.addNewPlayerGift('新人大礼包')
+        }
+        else if(this.name == "月入百万") {
+            this.addNewPlayerGift('月入百万')
+        }
+        else if(this.name == "每周佣金奖励") {
+            this.addNewPlayerGift('每周佣金奖励')
+        }
+        else if(this.name == "15天送58元") {
+            this.addNewPlayerGift('15天送58元')
         }
     }
 
@@ -110,6 +146,20 @@ export default class NewClass extends cc.Component {
     addContentFirstRechargeSendGold(){
         var content = cc.find('Canvas/Activity/Content');
         var node = cc.instantiate(this.FirstRechargeSendGold)
+        content.removeAllChildren();
+        content.addChild(node);
+    }
+    addNewPlayerGift(name){
+        var content = cc.find('Canvas/Activity/Content');
+        if (name == "新人大礼包"){
+            var node = cc.instantiate(this.NewPlayerGift)
+        }else if(name == "月入百万"){
+            var node = cc.instantiate(this.OneMonthMillion)
+        }else if (name == "每周佣金奖励") {
+            var node = cc.instantiate(this.OnceWeekGift)
+        }else if (name == "15天送58元") {
+            var node = cc.instantiate(this.HalfMonthGift)
+        }
         content.removeAllChildren();
         content.addChild(node);
     }

@@ -556,6 +556,18 @@
     "FirstRechargeSendGold": {
       "__uuid__": "cf39256a-2712-4899-bf4d-a95945c23ab5"
     },
+    "NewPlayerGift": {
+      "__uuid__": "6b44b0f6-bd71-4a68-a191-1bd4e57cb3e9"
+    },
+    "HalfMonthGift": {
+      "__uuid__": "e811ed28-22f2-48fa-b195-06610f7ac0a1"
+    },
+    "OnceWeekGift": {
+      "__uuid__": "4fb710d7-f001-4af0-8458-446e50236d19"
+    },
+    "OneMonthMillion": {
+      "__uuid__": "050f15f9-1aab-4c0e-b5ac-608d0e0c456f"
+    },
     "app": null,
     "_id": ""
   },
