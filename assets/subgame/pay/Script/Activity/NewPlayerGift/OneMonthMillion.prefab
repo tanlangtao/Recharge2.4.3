@@ -21,18 +21,18 @@
         "__id__": 2
       },
       {
-        "__id__": 14
+        "__id__": 27
       }
     ],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 18
+        "__id__": 31
       }
     ],
     "_prefab": {
-      "__id__": 19
+      "__id__": 32
     },
     "_opacity": 255,
     "_color": {
@@ -92,14 +92,14 @@
     "_level": 4,
     "_components": [
       {
-        "__id__": 11
+        "__id__": 24
       },
       {
-        "__id__": 12
+        "__id__": 25
       }
     ],
     "_prefab": {
-      "__id__": 13
+      "__id__": 26
     },
     "_opacity": 255,
     "_color": {
@@ -159,14 +159,14 @@
     "_level": 5,
     "_components": [
       {
-        "__id__": 8
+        "__id__": 21
       },
       {
-        "__id__": 9
+        "__id__": 22
       }
     ],
     "_prefab": {
-      "__id__": 10
+      "__id__": 23
     },
     "_opacity": 255,
     "_color": {
@@ -212,24 +212,228 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "New ScrollView",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
     },
-    "_children": [],
+    "_children": [
+      {
+        "__id__": 5
+      }
+    ],
     "_active": true,
     "_level": 6,
     "_components": [
       {
-        "__id__": 5
+        "__id__": 17
       },
+      {
+        "__id__": 18
+      },
+      {
+        "__id__": 19
+      }
+    ],
+    "_prefab": {
+      "__id__": 20
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 980,
+      "height": 282
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "view",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 4
+    },
+    "_children": [
       {
         "__id__": 6
       }
     ],
+    "_active": true,
+    "_level": 0,
+    "_components": [
+      {
+        "__id__": 14
+      },
+      {
+        "__id__": 15
+      }
+    ],
     "_prefab": {
-      "__id__": 7
+      "__id__": 16
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 980,
+      "height": 282
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "content",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 5
+    },
+    "_children": [
+      {
+        "__id__": 7
+      }
+    ],
+    "_active": true,
+    "_level": 0,
+    "_components": [
+      {
+        "__id__": 11
+      },
+      {
+        "__id__": 12
+      }
+    ],
+    "_prefab": {
+      "__id__": 13
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 980,
+      "height": 490
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 1
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 9,
+      "y": 133.774,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "New Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 6
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 1,
+    "_components": [
+      {
+        "__id__": 8
+      },
+      {
+        "__id__": 9
+      }
+    ],
+    "_prefab": {
+      "__id__": 10
     },
     "_opacity": 255,
     "_color": {
@@ -241,18 +445,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 900,
-      "height": 268.62
+      "width": 960,
+      "height": 490.62
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0.5
+      "y": 1
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -463.775,
-      "y": -1.119,
+      "x": -490,
+      "y": 0,
       "z": 0
     },
     "_scale": {
@@ -278,7 +482,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 4
+      "__id__": 7
     },
     "_enabled": true,
     "_materials": [
@@ -287,8 +491,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "1. 可自己添加一批微信或QQ群, 可以通过百度搜索微信群等方式加入。\n2. 利用各种论坛、贴吧、发帖推广。\n3. 朋友圈、空间坚持晒图、打造好自己的朋友圈, 可以省去很多介绍。\n4. 可以买个淘宝店、卖欢乐豆, 各种游戏币, 各种跟气派有关产品, 只为引流, 卖产品只是营销手段。\n5. 找有粉丝的人合作, 比如网红、主播等。\n6. 投广告, 各种自媒体、网盟、公众号、微博红人、有流量的网站。",
-    "_N$string": "1. 可自己添加一批微信或QQ群, 可以通过百度搜索微信群等方式加入。\n2. 利用各种论坛、贴吧、发帖推广。\n3. 朋友圈、空间坚持晒图、打造好自己的朋友圈, 可以省去很多介绍。\n4. 可以买个淘宝店、卖欢乐豆, 各种游戏币, 各种跟气派有关产品, 只为引流, 卖产品只是营销手段。\n5. 找有粉丝的人合作, 比如网红、主播等。\n6. 投广告, 各种自媒体、网盟、公众号、微博红人、有流量的网站。",
+    "_string": "1. 可自己添加一批微信或QQ群, 可以通过百度搜索微信群等方式加入。\n2. 利用各种论坛、贴吧、发帖推广。\n3. 朋友圈、空间坚持晒图、打造好自己的朋友圈, 可以省去很多介绍。\n4. 可以买个淘宝店、卖欢乐豆, 各种游戏币, 各种跟棋牌有关产品, 只为引流, 卖产品只是营销手段。\n5. 找有粉丝的人合作, 比如网红、主播等。\n6. 投广告, 各种自媒体、网盟、公众号、微博红人、有流量的网站。\n7. 地推, 可以无限量免费提供专属您的卡片, 宣传单, 可在网吧, 酒店, 街道等发送。\n8. 其实这种推广方式和其他商业模式类似, 它的成功在于通过互联网、手机、分享经济等一些优势, 建立广大的客户群。从而获得利益, 同时棋牌中的游戏种类多, 运行畅通, 体验也特别棒, 我们也进入了该棋牌的代理界面查看了一些资料, 佣金日结是一大优势, 活动彩金更是完美结合, 也就是说, 只需要一部手机, 代理就可以完美逆袭, 拥有无数代理, 轻松的自己当老板, 让别人帮你赚钱, 这样的创业方式, 0投资, 0成本, 而且只有成功, 没有失败! 难怪越来多人成为了此类APP的代理, 人生发生了很大的改变, 都在通往美好的道路前进, 这或许就是您一直想要拥有的平台。",
+    "_N$string": "1. 可自己添加一批微信或QQ群, 可以通过百度搜索微信群等方式加入。\n2. 利用各种论坛、贴吧、发帖推广。\n3. 朋友圈、空间坚持晒图、打造好自己的朋友圈, 可以省去很多介绍。\n4. 可以买个淘宝店、卖欢乐豆, 各种游戏币, 各种跟棋牌有关产品, 只为引流, 卖产品只是营销手段。\n5. 找有粉丝的人合作, 比如网红、主播等。\n6. 投广告, 各种自媒体、网盟、公众号、微博红人、有流量的网站。\n7. 地推, 可以无限量免费提供专属您的卡片, 宣传单, 可在网吧, 酒店, 街道等发送。\n8. 其实这种推广方式和其他商业模式类似, 它的成功在于通过互联网、手机、分享经济等一些优势, 建立广大的客户群。从而获得利益, 同时棋牌中的游戏种类多, 运行畅通, 体验也特别棒, 我们也进入了该棋牌的代理界面查看了一些资料, 佣金日结是一大优势, 活动彩金更是完美结合, 也就是说, 只需要一部手机, 代理就可以完美逆袭, 拥有无数代理, 轻松的自己当老板, 让别人帮你赚钱, 这样的创业方式, 0投资, 0成本, 而且只有成功, 没有失败! 难怪越来多人成为了此类APP的代理, 人生发生了很大的改变, 都在通往美好的道路前进, 这或许就是您一直想要拥有的平台。",
     "_fontSize": 22,
     "_lineHeight": 37,
     "_enableWrapText": true,
@@ -308,13 +512,13 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 4
+      "__id__": 7
     },
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 8,
-    "_left": 26.225000000000023,
+    "_left": 0,
     "_right": 0,
     "_top": 0,
     "_bottom": 0,
@@ -338,7 +542,230 @@
     "asset": {
       "__uuid__": "050f15f9-1aab-4c0e-b5ac-608d0e0c456f"
     },
-    "fileId": "ae5iH6TQhMLa4SKtL5EgAG",
+    "fileId": "b3cR9p241NlYBqh217DiTJ",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Layout",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 6
+    },
+    "_enabled": true,
+    "_layoutSize": {
+      "__type__": "cc.Size",
+      "width": 980,
+      "height": 490
+    },
+    "_resize": 0,
+    "_N$layoutType": 1,
+    "_N$padding": 0,
+    "_N$cellSize": {
+      "__type__": "cc.Size",
+      "width": 40,
+      "height": 40
+    },
+    "_N$startAxis": 0,
+    "_N$paddingLeft": 0,
+    "_N$paddingRight": 0,
+    "_N$paddingTop": 0,
+    "_N$paddingBottom": 0,
+    "_N$spacingX": 0,
+    "_N$spacingY": 0,
+    "_N$verticalDirection": 1,
+    "_N$horizontalDirection": 0,
+    "_N$affectedByScale": false,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 6
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 8,
+    "_left": 9,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 0,
+    "_originalHeight": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "050f15f9-1aab-4c0e-b5ac-608d0e0c456f"
+    },
+    "fileId": "72IGPnG6FOPKszT4r2sd4R",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Mask",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_spriteFrame": null,
+    "_type": 0,
+    "_segments": 64,
+    "_N$alphaThreshold": 0,
+    "_N$inverted": false,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 45,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 240,
+    "_originalHeight": 250,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "050f15f9-1aab-4c0e-b5ac-608d0e0c456f"
+    },
+    "fileId": "38KOxsI5dBRblr7OSjiux4",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 4
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": null,
+    "_type": 1,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.ScrollView",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 4
+    },
+    "_enabled": true,
+    "horizontal": false,
+    "vertical": true,
+    "inertia": true,
+    "brake": 0.75,
+    "elastic": true,
+    "bounceDuration": 0.23,
+    "scrollEvents": [],
+    "cancelInnerEvents": true,
+    "_N$content": {
+      "__id__": 6
+    },
+    "content": {
+      "__id__": 6
+    },
+    "_N$horizontalScrollBar": null,
+    "_N$verticalScrollBar": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 4
+    },
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 45,
+    "_left": 0,
+    "_right": 0,
+    "_top": 4,
+    "_bottom": 4,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 240,
+    "_originalHeight": 250,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "050f15f9-1aab-4c0e-b5ac-608d0e0c456f"
+    },
+    "fileId": "0cAsIQ1qpJeY4GKdfkvTwH",
     "sync": false
   },
   {
@@ -493,14 +920,14 @@
     "_level": 2,
     "_components": [
       {
-        "__id__": 15
+        "__id__": 28
       },
       {
-        "__id__": 16
+        "__id__": 29
       }
     ],
     "_prefab": {
-      "__id__": 17
+      "__id__": 30
     },
     "_opacity": 255,
     "_color": {
@@ -549,7 +976,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 14
+      "__id__": 27
     },
     "_enabled": true,
     "_materials": [
@@ -581,7 +1008,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 14
+      "__id__": 27
     },
     "_enabled": true,
     "alignMode": 1,

@@ -70,7 +70,7 @@ export default class NewClass extends cc.Component {
 
     public addHuodong(){
         this.huodongConfig.data.forEach((e)=>{
-            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || e.name == "首充送金活动"||e.name == "每日任务")){
+            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || e.name == "首充送金活动"||e.name == "每日任务"||e.name == "新人大礼包"||e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元")){
                 this.arr.push(e);
             }
         });
@@ -79,10 +79,6 @@ export default class NewClass extends cc.Component {
 
     public addNavToggle(){
         this.arr.sort((a,b)=>a.order_by-b.order_by);
-        this.arr.push({ name :"新人大礼包" })
-        this.arr.push({ name :"月入百万" })
-        this.arr.push({ name :"每周佣金奖励" })
-        this.arr.push({ name :"15天送58元" })
         for(let i:number = 0; i< this.arr.length; i++){
             let data = this.arr[i];
             var node = cc.instantiate(this.NavToggle);
@@ -101,6 +97,14 @@ export default class NewClass extends cc.Component {
             node.getComponent('payActivityNav').addContentFirstRechargeSendGold();
         }else if(this.arr[0].name =='每日任务'){
             node.getComponent('payActivityNav').addContent('DailyActivity',JSON.parse(this.arr[0].info),this.arr[0].id);
+        }else if(this.arr[0].name =='新人大礼包'){
+            node.getComponent('payActivityNav').addNewPlayerGift('新人大礼包');
+        }else if(this.arr[0].name =='月入百万'){
+            node.getComponent('payActivityNav').addNewPlayerGift('月入百万');
+        }else if(this.arr[0].name =='每周佣金奖励'){
+            node.getComponent('payActivityNav').addNewPlayerGift('每周佣金奖励');
+        }else if(this.arr[0].name =='15天送58元'){
+            node.getComponent('payActivityNav').addNewPlayerGift('15天送58元');
         }
     }
     
