@@ -1,6 +1,6 @@
 {
   "ver": "2.3.3",
-  "uuid": "d2a81ece-6097-432c-83c9-337fe45df87a",
+  "uuid": "0897610d-5322-4e61-a516-1d260595aa57",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -9,10 +9,10 @@
   "packable": true,
   "platformSettings": {},
   "subMetas": {
-    "event_millionIncome_content": {
+    "event_millionIncome_content2": {
       "ver": "1.0.4",
-      "uuid": "6ae52914-5ca1-49b0-9101-7a99b2e9ab68",
-      "rawTextureUuid": "d2a81ece-6097-432c-83c9-337fe45df87a",
+      "uuid": "8f97f343-97da-415a-96f1-aec0d5878a30",
+      "rawTextureUuid": "0897610d-5322-4e61-a516-1d260595aa57",
       "trimType": "custom",
       "trimThreshold": 1,
       "rotated": false,
