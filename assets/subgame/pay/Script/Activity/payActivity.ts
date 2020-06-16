@@ -92,8 +92,6 @@ export default class NewClass extends cc.Component {
         
         if(this.arr[0].name == '流水闯关活动'){
             node.getComponent('payActivityNav').addContent('ChuangGuan',JSON.parse(this.arr[0].info),this.arr[0].id);
-        }else if(this.arr[0].name =='存送活动'){
-            node.getComponent('payActivityNav').addContent('HuoDong',JSON.parse(this.arr[0].info),this.arr[0].id);
         }else if(this.arr[0].name =='救济金活动'){
             node.getComponent('payActivityNav').addContent('FreeGold',JSON.parse(this.arr[0].info),this.arr[0].id);
         }else if(this.arr[0].name =='首充送金活动'){

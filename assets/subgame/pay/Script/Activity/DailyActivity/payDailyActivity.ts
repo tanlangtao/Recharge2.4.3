@@ -38,7 +38,7 @@ export default class NewClass extends cc.Component {
     onLoad() {
         
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        this.resizeView()
+        // this.resizeView()
         this.setGameProxyRecharge()
         this.setLevelInfo()
         this.fetchByDayTaskDetail()
