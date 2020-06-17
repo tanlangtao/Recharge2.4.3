@@ -37,7 +37,6 @@ export default class NewClass extends cc.Component {
         nav.scaleY = scalex;
 
         this.getNotice() 
-        
     }
 
     public exitBtnClick(){

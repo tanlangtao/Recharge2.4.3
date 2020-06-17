@@ -108,7 +108,8 @@ export default class NewClass extends cc.Component {
     }
 
     onClick(){
-        
+        //按键音效
+        this.app.clickClip.play();
         if(this.name == '流水闯关活动'){
             this.app.showLoading();
             this.addContent('ChuangGuan',JSON.parse(this.data.info),this.id)
