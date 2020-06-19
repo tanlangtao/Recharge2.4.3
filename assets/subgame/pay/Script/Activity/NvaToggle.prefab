@@ -562,9 +562,6 @@
     "ChuangGuan": {
       "__uuid__": "d6e94dbf-6273-4722-8f62-c1bc95f3122e"
     },
-    "HuoDong": {
-      "__uuid__": "5a2d42bd-b345-4e11-8408-1239f785ce76"
-    },
     "FreeGold": {
       "__uuid__": "9be00158-0823-4104-b53a-34008638b29e"
     },
@@ -591,6 +588,9 @@
     },
     "RecommendFriends": {
       "__uuid__": "fe13d13f-e0ea-45b7-9469-39fb1e5845ee"
+    },
+    "FirstGiveGold": {
+      "__uuid__": "738f75ff-fe32-4406-8c1e-9e64c7ade79d"
     },
     "titleSpriteFrame": [
       {
@@ -622,6 +622,9 @@
       },
       {
         "__uuid__": "5451c172-cabb-4e9d-b9c8-556c1007c737"
+      },
+      {
+        "__uuid__": "1f12c0c8-bce7-4759-811b-4bc8c70d77a6"
       }
     ],
     "app": null,

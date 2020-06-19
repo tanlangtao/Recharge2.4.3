@@ -36,7 +36,10 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     RecommendFriends: cc.Prefab = null;//推荐好友
 
-    //0 流水闯关 ,1 每日任务 ， 2 首冲送金， 3 免费送金币， 4 15天送58元，5 充值返利， 6 月入百万， 7 新人大礼包， 8 每周佣金奖励，9 推荐好友
+    @property(cc.Prefab)
+    FirstGiveGold: cc.Prefab = null;
+    //0 流水闯关 ,1 每日任务 ， 2 首冲送金， 3 免费送金币， 4 15天送58元，5 充值返利， 
+    // 6 月入百万， 7 新人大礼包， 8 每周佣金奖励，9 推荐好友,10 首充赠金
     @property(cc.SpriteFrame)
     titleSpriteFrame :cc.SpriteFrame[] = []
 
@@ -67,7 +70,6 @@ export default class NewClass extends cc.Component {
         else if(data.name == '每日任务'){
             this.app.loadIcon('activity/btn_dailyMission2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_dailyMission1',this.currentIcon,249,86);
-            
         }
         else if(data.name == '新人大礼包'){
             this.app.loadIcon('activity/btn_starterPack2',this.normalIcon,242,86)
@@ -97,6 +99,11 @@ export default class NewClass extends cc.Component {
         else if(data.name == "推荐好友"){
             this.app.loadIcon('activity/btn_referralFee2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_referralFee1',this.currentIcon,249,86);
+            
+        }
+        else if(data.name == "首充赠金"){
+            this.app.loadIcon('activity/btn_firstR2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_firstR1',this.currentIcon,249,86);
             
         }
     }
@@ -142,6 +149,9 @@ export default class NewClass extends cc.Component {
         }
         else if(this.name == "推荐好友") {
             this.addNewPlayerGift('推荐好友')
+        }
+        else if(this.name == "首充赠金") {
+            this.addNewPlayerGift('首充赠金')
         }
     }
 
@@ -197,6 +207,9 @@ export default class NewClass extends cc.Component {
         }else if (name == "推荐好友") {
             var node = cc.instantiate(this.RecommendFriends)
             this.title.spriteFrame = this.titleSpriteFrame[9]
+        }else if (name == "首充赠金") {
+            var node = cc.instantiate(this.FirstGiveGold)
+            this.title.spriteFrame = this.titleSpriteFrame[10]
         }
         content.removeAllChildren();
         content.addChild(node);
