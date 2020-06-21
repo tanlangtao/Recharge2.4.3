@@ -244,6 +244,11 @@ export default class NewClass extends cc.Component {
             node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         })
     }
+    public loadTitle(url,node){
+        cc.loader.loadRes(`/pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
+            node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        })
+    }
     /**
      * 网络请求
      * @param method 方式
