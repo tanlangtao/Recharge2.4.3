@@ -52,7 +52,6 @@ export default class NewClass extends cc.Component {
         if(data.name == '流水闯关活动'){
             this.app.loadIcon('activity/btn_huodong2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_huodong1',this.currentIcon,249,86);
-            
         }
         else if(data.name == '救济金活动'){
             this.app.loadIcon('activity/menu_alms_2',this.normalIcon,242,86)

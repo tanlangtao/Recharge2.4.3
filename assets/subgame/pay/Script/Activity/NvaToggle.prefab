@@ -592,41 +592,6 @@
     "FirstGiveGold": {
       "__uuid__": "738f75ff-fe32-4406-8c1e-9e64c7ade79d"
     },
-    "titleSpriteFrame": [
-      {
-        "__uuid__": "07e14563-3c3f-4c5f-b5f9-312e646e26a3"
-      },
-      {
-        "__uuid__": "4482f4e9-ee52-4cee-977a-d1c269de9aaa"
-      },
-      {
-        "__uuid__": "cc6dd691-4445-4f99-8e69-7e3089be6e2c"
-      },
-      {
-        "__uuid__": "a3ecdff4-a8a9-4a5d-968d-49e841e7599b"
-      },
-      {
-        "__uuid__": "62edf30a-09ec-48c5-8e65-63b5ec4a69a4"
-      },
-      {
-        "__uuid__": "9078338d-78e8-4030-9656-c3f45671234f"
-      },
-      {
-        "__uuid__": "5f35cc66-86fc-4f6f-b052-0e63826d0994"
-      },
-      {
-        "__uuid__": "b67f0c1a-b434-4525-821f-ea0699a504f7"
-      },
-      {
-        "__uuid__": "da19c89e-0e3b-4ae2-9904-5c83212c1be7"
-      },
-      {
-        "__uuid__": "5451c172-cabb-4e9d-b9c8-556c1007c737"
-      },
-      {
-        "__uuid__": "1f12c0c8-bce7-4759-811b-4bc8c70d77a6"
-      }
-    ],
     "app": null,
     "_id": ""
   },
