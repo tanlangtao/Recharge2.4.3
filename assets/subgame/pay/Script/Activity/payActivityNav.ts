@@ -38,6 +38,14 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     FirstGiveGold: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    ChongZhiManESong: cc.Prefab = null;
+    @property(cc.Prefab)
+    KaiYeZhuCeSong: cc.Prefab = null;
+    @property(cc.Prefab)
+    TestRechargeRebate: cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -95,9 +103,24 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_referralFee1',this.currentIcon,249,86);
             
         }
-        else if(data.name == "首充赠金"){
+        else if(data.name == "首充赠金1"){
             this.app.loadIcon('activity/btn_firstR2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_firstR1',this.currentIcon,249,86);
+            
+        }
+        else if(data.name == "开业注册送1"){
+            this.app.loadIcon('activity/btn_sugb2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_sugb1',this.currentIcon,249,86);
+            
+        }
+        else if(data.name == "充值满额送1"){
+            this.app.loadIcon('activity/btn_fgwp2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_fgwp1',this.currentIcon,249,86);
+            
+        }
+        else if(data.name == "充值返利1"){
+            this.app.loadIcon('activity/btn_cashback2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_cashback1',this.currentIcon,249,86);
             
         }
     }
@@ -144,8 +167,17 @@ export default class NewClass extends cc.Component {
         else if(this.name == "推荐好友") {
             this.addNewPlayerGift('推荐好友')
         }
-        else if(this.name == "首充赠金") {
-            this.addNewPlayerGift('首充赠金')
+        else if(this.name == "首充赠金1") {
+            this.addNewPlayerGift('首充赠金1')
+        }
+        else if(this.name == "开业注册送1") {
+            this.addNewPlayerGift('开业注册送1')
+        }
+        else if(this.name == "充值满额送1") {
+            this.addNewPlayerGift('充值满额送1')
+        }
+        else if(this.name == "充值返利1") {
+            this.addNewPlayerGift('充值返利1')
         }
     }
 
@@ -201,9 +233,18 @@ export default class NewClass extends cc.Component {
         }else if (name == "推荐好友") {
             var node = cc.instantiate(this.RecommendFriends)
             this.app.loadTitle('title/dm_title_referralFee',this.title);
-        }else if (name == "首充赠金") {
+        }else if (name == "首充赠金1") {
             var node = cc.instantiate(this.FirstGiveGold)
             this.app.loadTitle('title/dm_title_firstR',this.title);
+        }else if (name == "开业注册送1") {
+            var node = cc.instantiate(this.KaiYeZhuCeSong)
+            this.app.loadTitle('title/dm_title_sugb',this.title);
+        }else if (name == "充值满额送1") {
+            var node = cc.instantiate(this.ChongZhiManESong)
+            this.app.loadTitle('title/dm_title_fgwp',this.title);
+        }else if (name == "充值返利1") {
+            var node = cc.instantiate(this.TestRechargeRebate)
+            this.app.loadTitle('title/dm_title_cashback',this.title);
         }
         content.removeAllChildren();
         content.addChild(node);

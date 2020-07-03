@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "NavToggle",
+    "_name": "KaiYeZhuCeSong",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -31,16 +31,10 @@
     "_components": [
       {
         "__id__": 12
-      },
-      {
-        "__id__": 14
-      },
-      {
-        "__id__": 15
       }
     ],
     "_prefab": {
-      "__id__": 16
+      "__id__": 13
     },
     "_opacity": 255,
     "_color": {
@@ -52,8 +46,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 249,
-      "height": 86
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -64,8 +58,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        128,
-        200,
+        667,
+        375,
         0,
         0,
         0,
@@ -91,7 +85,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btnline",
+    "_name": "bg",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -119,8 +113,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 220,
-      "height": 3
+      "width": 1020,
+      "height": 650
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -131,8 +125,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        41.5,
+        135,
+        -40,
         0,
         0,
         0,
@@ -172,10 +166,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "2e825cfc-64e1-4d45-a385-225d1d28ae27"
+      "__uuid__": "01423b61-49ef-4025-98d9-690fbfb77a2c"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -198,10 +192,10 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 1,
-    "_left": 0,
-    "_right": 0,
-    "_top": 0,
+    "_alignFlags": 41,
+    "_left": 292,
+    "_right": 22,
+    "_top": 90,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -211,7 +205,7 @@
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
-    "_originalWidth": 0,
+    "_originalWidth": 1020,
     "_originalHeight": 0,
     "_id": ""
   },
@@ -221,14 +215,14 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "44db153e-a356-468d-a40d-b7fadb85b622"
+      "__uuid__": "2058800c-997d-4406-a03f-08747930d91b"
     },
-    "fileId": "d3C8SbJXpF+K3LscQSEfZN",
+    "fileId": "2byu6E6mlGgaSYhn9LBdGY",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "Background",
+    "_name": "label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -246,15 +240,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
+      "r": 254,
       "g": 255,
-      "b": 255,
+      "b": 201,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 207,
-      "height": 39
+      "width": 960,
+      "height": 157.79999999999998
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -265,8 +259,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        6,
-        0,
+        141.253,
+        -200.525,
         0,
         0,
         0,
@@ -291,29 +285,33 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 6
     },
     "_enabled": true,
-    "_materials": [],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": null,
-    "_type": 0,
-    "_sizeMode": 2,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": false,
-    "_atlas": null,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_useOriginalSize": false,
+    "_string": "1. 领取方式：联系客服领取。\n2. 同一IP、同设备、同一账号限领取一次, 且出现同IP位置异常(同IP等), 进行封号处理。\n3. 以下游戏不得参与注册送的活动: 斗地主、炸金花、龙虎斗、红黑大战、百家乐、二人麻将、十三水、彩票、视讯龙虎斗、视讯百家乐。\n4. 提现需满足赠送彩金的五倍流水。",
+    "_N$string": "1. 领取方式：联系客服领取。\n2. 同一IP、同设备、同一账号限领取一次, 且出现同IP位置异常(同IP等), 进行封号处理。\n3. 以下游戏不得参与注册送的活动: 斗地主、炸金花、龙虎斗、红黑大战、百家乐、二人麻将、十三水、彩票、视讯龙虎斗、视讯百家乐。\n4. 提现需满足赠送彩金的五倍流水。",
+    "_fontSize": 20,
+    "_lineHeight": 30,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 3,
+    "_N$cacheMode": 0,
     "_id": ""
   },
   {
@@ -322,14 +320,14 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "44db153e-a356-468d-a40d-b7fadb85b622"
+      "__uuid__": "2058800c-997d-4406-a03f-08747930d91b"
     },
-    "fileId": "fbPQg/QTNBP59uuk5Ztjbr",
+    "fileId": "71iZ2IwhtCepu92/Lr1Ce+",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "checkmark",
+    "_name": "txt_warning",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -354,8 +352,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 249,
-      "height": 86
+      "width": 590,
+      "height": 27
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -366,8 +364,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        286.143,
+        -307.252,
         0,
         0,
         0,
@@ -399,12 +397,18 @@
       "__id__": 9
     },
     "_enabled": true,
-    "_materials": [],
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": null,
+    "_spriteFrame": {
+      "__uuid__": "3578b5f1-0289-48ea-a136-747df66426d5"
+    },
     "_type": 0,
-    "_sizeMode": 2,
+    "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -413,7 +417,7 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": false,
+    "_isTrimmedMode": true,
     "_atlas": null,
     "_id": ""
   },
@@ -423,100 +427,10 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "44db153e-a356-468d-a40d-b7fadb85b622"
+      "__uuid__": "2058800c-997d-4406-a03f-08747930d91b"
     },
-    "fileId": "97RXBu05dMt7u3/qYPVh1k",
+    "fileId": "bcIUXpav5CfK8fW6MazI34",
     "sync": false
-  },
-  {
-    "__type__": "cc.Toggle",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_normalMaterial": null,
-    "_grayMaterial": null,
-    "duration": 0.1,
-    "zoomScale": 1.2,
-    "clickEvents": [],
-    "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 0,
-    "transition": 0,
-    "_N$normalColor": {
-      "__type__": "cc.Color",
-      "r": 214,
-      "g": 214,
-      "b": 214,
-      "a": 255
-    },
-    "_N$pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
-    },
-    "pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
-    },
-    "_N$hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_N$disabledColor": {
-      "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
-      "a": 255
-    },
-    "_N$normalSprite": null,
-    "_N$pressedSprite": null,
-    "pressedSprite": null,
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
-    "_N$disabledSprite": null,
-    "_N$target": {
-      "__id__": 1
-    },
-    "_N$isChecked": true,
-    "toggleGroup": null,
-    "checkMark": {
-      "__id__": 10
-    },
-    "checkEvents": [
-      {
-        "__id__": 13
-      }
-    ],
-    "_id": ""
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 1
-    },
-    "component": "",
-    "_componentId": "5021bdueb9D1IEiJfTRRXJj",
-    "handler": "onClick",
-    "customEventData": ""
   },
   {
     "__type__": "cc.Widget",
@@ -528,11 +442,11 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 0,
+    "_alignFlags": 45,
     "_left": 0,
-    "_right": 880,
-    "_top": 390,
-    "_bottom": 150,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
@@ -541,67 +455,8 @@
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
-    "_originalWidth": 256,
-    "_originalHeight": 100,
-    "_id": ""
-  },
-  {
-    "__type__": "5021bdueb9D1IEiJfTRRXJj",
-    "_name": null,
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "normalIcon": {
-      "__id__": 6
-    },
-    "currentIcon": {
-      "__id__": 9
-    },
-    "ChuangGuan": {
-      "__uuid__": "d6e94dbf-6273-4722-8f62-c1bc95f3122e"
-    },
-    "FreeGold": {
-      "__uuid__": "9be00158-0823-4104-b53a-34008638b29e"
-    },
-    "DailyActivity": {
-      "__uuid__": "d21e7850-d692-4873-bf8e-d824599ed9b3"
-    },
-    "FirstRechargeSendGold": {
-      "__uuid__": "cf39256a-2712-4899-bf4d-a95945c23ab5"
-    },
-    "NewPlayerGift": {
-      "__uuid__": "6b44b0f6-bd71-4a68-a191-1bd4e57cb3e9"
-    },
-    "HalfMonthGift": {
-      "__uuid__": "e811ed28-22f2-48fa-b195-06610f7ac0a1"
-    },
-    "OnceWeekGift": {
-      "__uuid__": "4fb710d7-f001-4af0-8458-446e50236d19"
-    },
-    "OneMonthMillion": {
-      "__uuid__": "050f15f9-1aab-4c0e-b5ac-608d0e0c456f"
-    },
-    "RechargeRebate": {
-      "__uuid__": "ebcabade-ac3b-4f6d-ad7c-9a79c8306606"
-    },
-    "RecommendFriends": {
-      "__uuid__": "fe13d13f-e0ea-45b7-9469-39fb1e5845ee"
-    },
-    "FirstGiveGold": {
-      "__uuid__": "738f75ff-fe32-4406-8c1e-9e64c7ade79d"
-    },
-    "ChongZhiManESong": {
-      "__uuid__": "bcc180fe-cbee-4882-8ee9-1820d7656403"
-    },
-    "KaiYeZhuCeSong": {
-      "__uuid__": "2058800c-997d-4406-a03f-08747930d91b"
-    },
-    "TestRechargeRebate": {
-      "__uuid__": "1d00f513-846f-459c-be7c-46e4d593f4d6"
-    },
-    "app": null,
+    "_originalWidth": 1334,
+    "_originalHeight": 750,
     "_id": ""
   },
   {
@@ -610,9 +465,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "44db153e-a356-468d-a40d-b7fadb85b622"
+      "__uuid__": "2058800c-997d-4406-a03f-08747930d91b"
     },
-    "fileId": "63McDNljJHSIfgn5SCI3LA",
+    "fileId": "50XXzHWeBJJ7+CbobVk8I7",
     "sync": false
   }
 ]
