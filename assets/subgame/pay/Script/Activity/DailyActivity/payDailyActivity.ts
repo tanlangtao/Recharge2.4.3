@@ -58,21 +58,21 @@ export default class NewClass extends cc.Component {
         
         for (var k in this.info){
             if (Array.isArray(this.info[k])) {
-                //不是数组则return
-                return
+                this.info[k].forEach(e => {
+                    if (k == "game"|| k =='proxy' || k== 'recharge'){
+                        var node = cc.instantiate(this.Item)
+                        node.getComponent("payDailyActivityItem").init(k,e)
+                        this.Content.addChild(node)
+                    }else if(k == "bylevel") {
+                        this.bylevel = this.info[k]
+                    }
+                });
             }
-            this.info[k].forEach(e => {
-                if (k == "game"|| k =='proxy' || k== 'recharge'){
-                    var node = cc.instantiate(this.Item)
-                    node.getComponent("payDailyActivityItem").init(k,e)
-                    this.Content.addChild(node)
-                }else if(k == "bylevel") {
-                    this.bylevel = this.info[k]
-                }
-            });
         }
+        
     }
     private setLevelInfo(){
+        console.log(this.bylevel)
         this.tishiLabel.string = `积分达到${this.bylevel[0].integral}, 额外再奖${this.bylevel[0].gold}金币, 积分达到${this.bylevel[1].integral}, 额外再奖${this.bylevel[1].gold}金币`
         this.goldGroup.forEach((e,i)=>{
             let item  = this.bylevel[i]
