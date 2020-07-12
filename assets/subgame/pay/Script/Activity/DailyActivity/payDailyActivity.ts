@@ -54,8 +54,13 @@ export default class NewClass extends cc.Component {
         this.ScrollView.height = Number(this.ScrollView.height)/scalex
     }
     private setGameProxyRecharge(){
-        cc.log("info",this.info)
+        console.log("info",this.info)
+        
         for (var k in this.info){
+            if (Array.isArray(this.info[k])) {
+                //不是数组则return
+                return
+            }
             this.info[k].forEach(e => {
                 if (k == "game"|| k =='proxy' || k== 'recharge'){
                     var node = cc.instantiate(this.Item)
