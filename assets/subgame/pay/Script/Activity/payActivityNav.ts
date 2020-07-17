@@ -113,7 +113,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_sugb1',this.currentIcon,249,86);
             
         }
-        else if(data.name == "充值满额送1"){
+        else if(data.name == "次日存送1"){
             this.app.loadIcon('activity/btn_fgwp2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_fgwp1',this.currentIcon,249,86);
             
@@ -173,8 +173,8 @@ export default class NewClass extends cc.Component {
         else if(this.name == "开业注册送1") {
             this.addNewPlayerGift('开业注册送1')
         }
-        else if(this.name == "充值满额送1") {
-            this.addNewPlayerGift('充值满额送1')
+        else if(this.name == "次日存送1") {
+            this.addNewPlayerGift('次日存送1')
         }
         else if(this.name == "充值返利1") {
             this.addNewPlayerGift('充值返利1')
@@ -239,7 +239,7 @@ export default class NewClass extends cc.Component {
         }else if (name == "开业注册送1") {
             var node = cc.instantiate(this.KaiYeZhuCeSong)
             this.app.loadTitle('title/dm_title_sugb',this.title);
-        }else if (name == "充值满额送1") {
+        }else if (name == "次日存送1") {
             var node = cc.instantiate(this.ChongZhiManESong)
             this.app.loadTitle('title/dm_title_fgwp',this.title);
         }else if (name == "充值返利1") {

@@ -73,7 +73,7 @@ export default class NewClass extends cc.Component {
             e.name == "首充送金活动"||e.name == "每日任务"||e.name == "新人大礼包"||
             e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
             e.name == "充值返利" || e.name == "推荐好友"|| e.name == "首充赠金1" ||
-            e.name == "开业注册送1" || e.name == "充值满额送1"|| e.name == "充值返利1")){
+            e.name == "开业注册送1" || e.name == "次日存送1"|| e.name == "充值返利1")){
                 this.arr.push(e);
             }
         });
@@ -113,8 +113,8 @@ export default class NewClass extends cc.Component {
             node.getComponent('payActivityNav').addNewPlayerGift('首充赠金1');
         }if(this.arr[0].name =='开业注册送1'){
             node.getComponent('payActivityNav').addNewPlayerGift('开业注册送1');
-        }if(this.arr[0].name =='充值满额送1'){
-            node.getComponent('payActivityNav').addNewPlayerGift('充值满额送1');
+        }if(this.arr[0].name =='次日存送1'){
+            node.getComponent('payActivityNav').addNewPlayerGift('次日存送1');
         }if(this.arr[0].name =='充值返利1'){
             node.getComponent('payActivityNav').addNewPlayerGift('充值返利1');
         }
