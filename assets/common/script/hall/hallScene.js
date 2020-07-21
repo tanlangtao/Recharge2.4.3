@@ -7,7 +7,7 @@
  */
 let gHandler = require("gHandler");
 let hqqAudioMgr = require("hqqAudioMgr");
-let hallWebSocket = require("hallWebSocket");
+let hallWeb = require("hallWebSocket");
 
 cc.Class({
     extends: cc.Component,
