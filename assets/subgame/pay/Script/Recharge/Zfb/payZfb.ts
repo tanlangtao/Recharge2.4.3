@@ -1,4 +1,4 @@
-import gHandler = require("../../../../../common/script/common/gHandler");
+import gHandler = require("../../../../../main/common/gHandler");
 //充值子界面
 const {ccclass, property} = cc._decorator;
 

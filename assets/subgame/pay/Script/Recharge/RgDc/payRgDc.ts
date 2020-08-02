@@ -1,6 +1,6 @@
 //人工代充
 
-import gHandler = require("../../../../../common/script/common/gHandler");
+import gHandler = require("../../../../../main/common/gHandler");
 
 const {ccclass, property} = cc._decorator;
 

@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-import gHandler = require("../../../../common/script/common/gHandler");
+import gHandler = require("../../../../main/common/gHandler");
 @ccclass
 export default class NewClass extends cc.Component {
 

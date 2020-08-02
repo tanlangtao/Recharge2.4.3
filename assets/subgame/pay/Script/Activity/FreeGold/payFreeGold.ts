@@ -1,5 +1,5 @@
 import payMain from '../../payMain'
-import gHandler = require("../../../../../common/script/common/gHandler");
+import gHandler = require("../../../../../main/common/gHandler");
 const {ccclass, property} = cc._decorator;
 
 @ccclass

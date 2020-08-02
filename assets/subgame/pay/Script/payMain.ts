@@ -1,4 +1,4 @@
-import gHandler = require("../../../common/script/common/gHandler");
+import gHandler = require("../../../main/common/gHandler");
 import Config from "./payConfig";
 
 const {ccclass, property} = cc._decorator;
