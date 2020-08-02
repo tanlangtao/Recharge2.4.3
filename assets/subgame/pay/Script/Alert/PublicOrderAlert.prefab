@@ -1488,7 +1488,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 77,
+      "width": 165,
       "height": 31
     },
     "_anchorPoint": {
@@ -1500,7 +1500,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        80,
+        107.417,
         -135,
         0,
         0,
@@ -1541,7 +1541,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "0a12ac7f-e1fb-44a4-90a6-3ccab8954c9f"
+      "__uuid__": "f2380a86-2f12-4f2b-934c-a2f69d514cc8"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2259,7 +2259,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -90,
+        -68.474,
         -135,
         0,
         0,
@@ -3653,8 +3653,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "1. 只支持银行卡转银行卡支付;\n2. 支付时输入金额与订单金额一致, 并填写备注信息;\n3. 正常付款1-5分钟内到账,未到账请联系客服.",
-    "_N$string": "1. 只支持银行卡转银行卡支付;\n2. 支付时输入金额与订单金额一致, 并填写备注信息;\n3. 正常付款1-5分钟内到账,未到账请联系客服.",
+    "_string": "1. 只支持银行卡转银行卡支付;\n2. 支付时输入金额与订单金额一致, 并填写附言 (备注) 信息;\n3. 正常付款1-5分钟内到账,未到账请联系客服.",
+    "_N$string": "1. 只支持银行卡转银行卡支付;\n2. 支付时输入金额与订单金额一致, 并填写附言 (备注) 信息;\n3. 正常付款1-5分钟内到账,未到账请联系客服.",
     "_fontSize": 25,
     "_lineHeight": 28,
     "_enableWrapText": true,
