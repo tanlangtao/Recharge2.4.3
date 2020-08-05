@@ -48,7 +48,7 @@ let gameGlobal = {
         client: "ios",
         package_id: "1",
         // user_id:'500814802',//pre
-        user_id:'899112880',//pre
+        // user_id:'899112880',//pre
         // pay_host:'http://161.117.178.174:12353',//dev
         // pay_host:'http://18.176.74.76:12353',//pre
         pay_host:'https://pay1.whjfxly66.com',//online
