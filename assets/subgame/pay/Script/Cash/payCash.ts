@@ -1,5 +1,4 @@
 //兑换首页
-import gHandler = require("../../../../main/common/gHandler");
 
 const {ccclass, property} = cc._decorator;
 
@@ -40,8 +39,8 @@ export default class NewClass extends cc.Component {
         if(!this.canExit) return
         //按键音效
         this.app.clickClip.play()
-        let scree = gHandler.gameGlobal.pay.from_scene;
-        gHandler.gameGlobal.pay.from_scene = "";
+        let scree = this.app.gHandler.gameGlobal.pay.from_scene;
+        this.app.gHandler.gameGlobal.pay.from_scene = "";
         if (scree == ""){
             scree = "hall"
         }

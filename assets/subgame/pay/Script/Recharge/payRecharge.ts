@@ -1,5 +1,4 @@
 //充值首页
-import gHandler = require("../../../../main/common/gHandler");
 
 const {ccclass, property} = cc._decorator;
 
@@ -45,15 +44,15 @@ export default class NewClass extends cc.Component {
         if(!this.canExit) return
         //按键音效
         this.app.clickClip.play()
-        let scree = gHandler.gameGlobal.pay.from_scene;
-        gHandler.gameGlobal.pay.from_scene = "";
+        let scree = this.app.gHandler.gameGlobal.pay.from_scene;
+        this.app.gHandler.gameGlobal.pay.from_scene = "";
         if (scree == ""){
             scree = "hall"
         }
-        if (scree == gHandler.gameConfig.gamelist['hbsl'].lanchscene
-            || scree == gHandler.gameConfig.gamelist['zrsx1'].lanchscene
-            || scree == gHandler.gameConfig.gamelist['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
-            gHandler.Reflect && gHandler.Reflect.setOrientation("portrait")
+        if (scree == this.app.gHandler.gameConfig.gamelist['hbsl'].lanchscene
+            || scree == this.app.gHandler.gameConfig.gamelist['zrsx1'].lanchscene
+            || scree == this.app.gHandler.gameConfig.gamelist['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
+            this.app.gHandler.Reflect && this.app.gHandler.Reflect.setOrientation("portrait")
 
         }
         cc.director.preloadScene(scree,()=>{

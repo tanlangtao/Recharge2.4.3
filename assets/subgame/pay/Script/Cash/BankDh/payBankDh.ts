@@ -58,6 +58,8 @@ export default class NewClass extends cc.Component {
         branch_name:'',
         card_name:'',
         card_num:'',
+        bank_province:'',
+        bank_city:''
     };
     public bankData = [];
     public showBankSelect = false;
@@ -118,17 +120,20 @@ export default class NewClass extends cc.Component {
         }
         
         if(this.bankData.length>0){
-            this.Info =JSON.parse(this.bankData[0].info)
+            let Info =JSON.parse(this.bankData[0].info)
+            for (var k in Info) {
+                this.Info[k] = Info[k]
+            }
             this.bankId = this.bankData[0].id;
         }
         this.action = this.bankData.length != 0 ? 'edit' :'add';
         this.goldLabel.string = this.app.config.toDecimal(data.game_gold);
         this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
         this.accountLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
-        if(this.bankData.length != 0 ){
-            this.accountBtn.active = false;
-        }else{
+        if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
             this.accountBtn.active = true;
+        }else{
+            this.accountBtn.active = false;
         }
     }
 
@@ -168,6 +173,7 @@ export default class NewClass extends cc.Component {
     }
     //显示弹窗
     showAccountAlert(){
+        console.log(this.Info)
         this.app.showBankAccountAlert({
             text:this.bankData.length != 0  ?'修改银行卡' : '设置银行卡',
             action:this.action,
@@ -249,8 +255,9 @@ export default class NewClass extends cc.Component {
         var maxAmount = Number(this.current?this.current.max_amount:10000);
         if(this.results.length==0){
             this.app.showAlert('渠道未开放，请选择其他兑换方式！')
-        }else if(this.bankData.length == 0){
-            this.app.showAlert('请先设置账户!')
+        }else if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
+            this.app.showBankTipAlert(this)
+
         }else if(this.amountLabel.string == '点击输入'){
             this.app.showAlert('兑换金额不能为空！')
         }else if(amount >Number(this.goldLabel.string)){

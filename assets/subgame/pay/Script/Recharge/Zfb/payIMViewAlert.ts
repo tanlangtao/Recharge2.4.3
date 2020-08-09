@@ -1,5 +1,4 @@
 //支付宝webview
-import gHandler = require("../../../../../main/common/gHandler");
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -8,11 +7,13 @@ export default class NewClass extends cc.Component {
     @property(cc.WebView)
     ZfbView:cc.WebView = null;
 
+    app =null
     init(data){
         this.ZfbView.url = data.url;
         
     }
     onLoad(){
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
         var global = cc.find("payGlobal").getComponent("payGlobal")
         this.ZfbView.url = global.imWebViewUrl;
         this.initView()
@@ -23,7 +24,7 @@ export default class NewClass extends cc.Component {
     }
     onClick(){
         cc.director.preloadScene('payRecharge',()=>{
-            gHandler.Reflect.setOrientation("landscape", 1334, 750)
+            this.app.gHandler.Reflect.setOrientation("landscape", 1334, 750)
             cc.director.loadScene('payRecharge')
         })
     }

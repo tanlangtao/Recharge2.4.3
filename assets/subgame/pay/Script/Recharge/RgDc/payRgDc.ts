@@ -1,6 +1,5 @@
 //人工代充
 
-import gHandler = require("../../../../../main/common/gHandler");
 
 const {ccclass, property} = cc._decorator;
 
@@ -61,7 +60,7 @@ export default class NewClass extends cc.Component {
     //联系客服
     onClick(){
         // 唤起IM
-        gHandler.Reflect.setOrientation("portrait", 640, 1136)
+        this.app.gHandler.Reflect.setOrientation("portrait", 640, 1136)
         cc.director.loadScene('IMappStart');
     }
 }

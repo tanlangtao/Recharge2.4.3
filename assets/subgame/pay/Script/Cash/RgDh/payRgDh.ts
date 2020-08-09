@@ -1,6 +1,5 @@
 
 const {ccclass, property} = cc._decorator;
-import gHandler = require("../../../../../main/common/gHandler");
 @ccclass
 export default class payRgDh extends cc.Component {
     @property(cc.Node)
@@ -76,7 +75,7 @@ export default class payRgDh extends cc.Component {
     }
     showIm(){
         // 唤起IM
-        gHandler.Reflect.setOrientation("portrait", 640, 1136)
+        this.app.gHandler.Reflect.setOrientation("portrait", 640, 1136)
         cc.director.loadScene('IMappStart');
     }
 }

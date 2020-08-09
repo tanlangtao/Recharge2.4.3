@@ -1,5 +1,4 @@
 import payMain from '../../payMain'
-import gHandler = require("../../../../../main/common/gHandler");
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -66,7 +65,7 @@ export default class NewClass extends cc.Component {
         })
     }
     onClick(){
-        if(gHandler.gameGlobal.player.phonenum == '') {
+        if(this.app.gHandler.gameGlobal.player.phonenum == '') {
             this.app.showAlert("参加活动失败:请先绑定手机号！")
             return
         }
@@ -74,7 +73,7 @@ export default class NewClass extends cc.Component {
             this.app.showAlert("免费金币次数已领完，请明天再来吧！")
             return
         }
-        if(gHandler.gameGlobal.player.gold >= this.amount) {
+        if(this.app.gHandler.gameGlobal.player.gold >= this.amount) {
             this.app.showAlert("金币余额不符合领取规则！")
             return
         }

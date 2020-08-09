@@ -8,14 +8,14 @@ export default class NewClass extends cc.Component {
     label: cc.Label = null;
 
     @property
-    parentComponent = null;
-    index = 0;
+    parentContent = null;
+    parentLabel
     app = null;
     // LIFE-CYCLE CALLBACKS:
     public init(data){
         this.label.string = data.text;
-        this.parentComponent = data.parentComponent;
-        this.index = data.index;
+        this.parentContent = data.Content;
+        this.parentLabel = data.Label;
     }
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -26,9 +26,8 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.clickClip.play();
 
-        this.parentComponent.showSelect = false;
-        this.parentComponent.selectLabel.string = this.label.string;
-        this.parentComponent.selectContent.removeAllChildren();
+        this.parentContent.active = false;
+        this.parentLabel.string = this.label.string;
     }
     // update (dt) {}
 }

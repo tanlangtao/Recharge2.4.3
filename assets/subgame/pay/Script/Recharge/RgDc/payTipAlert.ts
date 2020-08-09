@@ -1,5 +1,4 @@
 
-import gHandler = require("../../../../../main/common/gHandler");
 
 const {ccclass, property} = cc._decorator;
 
@@ -32,7 +31,7 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`网络错误${errstatus}`)
         })
         // 唤起IM
-        gHandler.Reflect.setOrientation("portrait", 640, 1136)
+        this.app.gHandler.Reflect.setOrientation("portrait", 640, 1136)
         cc.director.loadScene('IMappStart');
     }
 

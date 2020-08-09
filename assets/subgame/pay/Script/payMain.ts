@@ -22,6 +22,9 @@ export default class NewClass extends cc.Component {
     BankAccountAlert: cc.Prefab = null;
 
     @property(cc.Prefab)
+    BankTipAlert:cc.Prefab = null;
+
+    @property(cc.Prefab)
     keyBoardAlert : cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -33,6 +36,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     Loading : cc.Node = null;
 
+
+
     @property()
     clickClip :cc.Component = null;
     public UrlData : any = [];
@@ -40,7 +45,7 @@ export default class NewClass extends cc.Component {
     public token :string = null;
     isTestPassworld = false;
     public version :number = 1 ;//充值后台接口，现默认为1
-
+    gHandler = null;
     onLoad () {
         this.config = new Config();
         this.UrlData =  {
@@ -53,7 +58,7 @@ export default class NewClass extends cc.Component {
             package_id:gHandler.gameGlobal.pay.package_id,
             imHost:gHandler.gameGlobal.im_host
         };
-
+        this.gHandler = gHandler
         this.token = this.config.token;
         //音效
         this.clickClip = this.node.getComponent(cc.AudioSource)
@@ -195,6 +200,16 @@ export default class NewClass extends cc.Component {
         if(data.changeData){
             BankAccountAlert.changeContent(data.changeData);
         }
+    }
+    /**
+     * 添加银行卡类型弹窗
+     * @param data 
+     */
+    public showBankTipAlert(component){
+        var canvas = cc.find('Canvas');
+        var node = cc.instantiate(this.BankTipAlert);
+        node.getComponent('payBankTipAlert').init(component)
+        canvas.addChild(node);
     }
     /**
      * 小键盘 
