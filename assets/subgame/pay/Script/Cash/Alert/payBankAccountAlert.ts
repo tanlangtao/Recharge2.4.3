@@ -22,9 +22,9 @@ let cities = {
     '黑龙江': [
         '哈尔滨','齐齐哈尔','鸡西','鹤岗','双鸭山','大庆','伊春','佳木斯','七台河','牡丹江','黑河','绥化','大兴安岭'
     ],
-    '上海': {
-        '上海': ['黄浦区', '卢湾区', '徐汇区', '长宁区', '静安区', '普陀区', '闸北区', '虹口区', '杨浦区', '闵行区', '宝山区', '嘉定区', '浦东新区', '金山区', '松江区', '奉贤区', '青浦区', '奉贤区', '崇明县', '其他']
-    },
+    '上海': [
+        '上海'
+    ],
     '江苏': [
         '南京','无锡','徐州','常州','苏州','南通','连云港','淮安','盐城','扬州','镇江','泰州','宿迁'
     ],
@@ -141,6 +141,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     accountMask :cc.Node = null;
 
+    @property(cc.Node)
+    bankMask: cc.Node = null;
+
     @property()
 
     action = 'add';
@@ -173,8 +176,10 @@ export default class NewClass extends cc.Component {
         }
         if( this.accountInput.string != ''){
             this.accountMask.active = true// 禁止修改卡号
+            this.bankMask.active = true// 禁止修改卡号
         }else{
             this.accountMask.active = false
+            this.bankMask.active = false
         }
     }
 

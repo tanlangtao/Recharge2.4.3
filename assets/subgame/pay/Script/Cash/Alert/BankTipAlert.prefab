@@ -673,7 +673,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 640,
+      "width": 400,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -686,7 +686,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        35.4,
         0,
         0,
         0,
@@ -724,8 +724,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "银行卡信息不齐全，请先补全信息！",
-    "_N$string": "银行卡信息不齐全，请先补全信息！",
+    "_string": "请完善银行卡绑定信息",
+    "_N$string": "请完善银行卡绑定信息",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1179,7 +1179,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "cash": null,
+    "app": null,
     "_id": ""
   },
   {
