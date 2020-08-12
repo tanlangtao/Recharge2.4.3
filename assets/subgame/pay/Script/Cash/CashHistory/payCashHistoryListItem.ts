@@ -62,7 +62,7 @@ export default class NewClass extends cc.Component {
         this.statusLabel.string = data.status == 4 ?'已成功':(data.status == 5? '已失败':'审核中');
         this.created_atLabel.string = this.app.config.getTime(data.created_at);
         this.arrival_atLabel.string = data.arrival_at == 0 ? '无' : this.app.config.getTime(data.arrival_at);
-        this.admin_remarkLabel.string = data.user_remark ? data.user_remark.substring(0,14) :"" ;
+        this.admin_remarkLabel.string = data.user_remark ? data.user_remark.substring(0,28) :"" ;
         this.results = data.results;
     }
     // update (dt) {}
