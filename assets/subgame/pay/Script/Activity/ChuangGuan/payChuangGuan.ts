@@ -187,7 +187,9 @@ export default class NewClass extends cc.Component {
                 time,
             })
         });
+        console.log(list)
         list.forEach((item)=>{
+            console.log(item)
             var node = cc.instantiate(this.ListItem);
             var content = this.HistoryScroll.getChildByName('view').getChildByName('content');
             content.addChild(node);

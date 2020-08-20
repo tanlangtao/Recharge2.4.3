@@ -108,6 +108,11 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_firstR1',this.currentIcon,249,86);
             
         }
+        else if(data.name == "首充赠金-test"){
+            this.app.loadIcon('activity/btn_firstR2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_firstR1',this.currentIcon,249,86);
+            
+        }
         else if(data.name == "开业注册送1"){
             this.app.loadIcon('activity/btn_sugb2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_sugb1',this.currentIcon,249,86);
@@ -167,8 +172,9 @@ export default class NewClass extends cc.Component {
         else if(this.name == "推荐好友") {
             this.addNewPlayerGift('推荐好友')
         }
-        else if(this.name == "首充赠金1") {
-            this.addNewPlayerGift('首充赠金1')
+        else if(this.name == "首充赠金1" || this.name == "首充赠金-test") {
+            
+            this.addContent(this.name,JSON.parse(this.data.info),this.id)
         }
         else if(this.name == "开业注册送1") {
             this.addNewPlayerGift('开业注册送1')
@@ -181,32 +187,39 @@ export default class NewClass extends cc.Component {
         }
     }
 
-    addContent(data,info,id){
+    addContent(name,info,id){
         var content = cc.find('Canvas/Activity/Content');
-        if(data == 'ChuangGuan'){
+        if(name == 'ChuangGuan'){
             var node = cc.instantiate(this.ChuangGuan);
             content.removeAllChildren();
             node.getComponent('payChuangGuan').setId(id,'流水闯关活动');
             content.addChild(node);
             this.app.loadTitle('title/txt_title02',this.title);
-        }else if(data == 'FreeGold'){
+        }else if(name == 'FreeGold'){
             var node = cc.instantiate(this.FreeGold);
             content.removeAllChildren();
             node.getComponent('payFreeGold').setIdInfo(id,info);
             content.addChild(node);
             this.app.loadTitle('title/alms_zi2',this.title);
-        }else if(data == 'DailyActivity'){
+        }else if(name == 'DailyActivity'){
             var node = cc.instantiate(this.DailyActivity);
             content.removeAllChildren();
             node.getComponent('payDailyActivity').setIdInfo(id,info);
             content.addChild(node);
             this.app.loadTitle('title/dm_title',this.title);
-        }else if(data == '每周佣金奖励'){
+        }else if(name == '每周佣金奖励'){
             var node = cc.instantiate(this.OnceWeekGift);
             content.removeAllChildren();
             node.getComponent('payOnceWeekGift').setIdInfo(id,info);
             content.addChild(node);
             this.app.loadTitle('title/dm_title_weeklyCms',this.title);
+        }
+        else if (name == "首充赠金1" || name == "首充赠金-test") {
+            content.removeAllChildren();
+            var node = cc.instantiate(this.FirstGiveGold)
+            node.getComponent('payFirstGiveGole').setIdInfo(name,id,info);
+            content.addChild(node);
+            this.app.loadTitle('title/dm_title_firstR',this.title);
         }
     }
     addContentFirstRechargeSendGold(){
@@ -233,10 +246,8 @@ export default class NewClass extends cc.Component {
         }else if (name == "推荐好友") {
             var node = cc.instantiate(this.RecommendFriends)
             this.app.loadTitle('title/dm_title_referralFee',this.title);
-        }else if (name == "首充赠金1") {
-            var node = cc.instantiate(this.FirstGiveGold)
-            this.app.loadTitle('title/dm_title_firstR',this.title);
-        }else if (name == "开业注册送1") {
+        }
+        else if (name == "开业注册送1") {
             var node = cc.instantiate(this.KaiYeZhuCeSong)
             this.app.loadTitle('title/dm_title_sugb',this.title);
         }else if (name == "次日存送1") {

@@ -35,7 +35,7 @@ export default class NewClass extends cc.Component {
         nav.scaleX= scalex;
         nav.scaleY = scalex;
 
-        this.getNotice() 
+        // this.getNotice() 
     }
 
     public exitBtnClick(){
@@ -72,7 +72,9 @@ export default class NewClass extends cc.Component {
             e.name == "首充送金活动"||e.name == "每日任务"||e.name == "新人大礼包"||
             e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
             e.name == "充值返利" || e.name == "推荐好友"|| e.name == "首充赠金1" ||
-            e.name == "开业注册送1" || e.name == "次日存送1"|| e.name == "充值返利1")){
+            e.name == "开业注册送1" || e.name == "次日存送1"|| e.name == "充值返利1"||
+            e.name == "首充赠金-test" 
+            )){
                 this.arr.push(e);
             }
         });
