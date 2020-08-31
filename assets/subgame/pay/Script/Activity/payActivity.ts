@@ -113,7 +113,7 @@ export default class NewClass extends cc.Component {
         }else if(this.arr[0].name =='首充赠金1'){
             node.getComponent('payActivityNav').addNewPlayerGift('首充赠金1');
         }if(this.arr[0].name =='开业注册送1'){
-            node.getComponent('payActivityNav').addNewPlayerGift('开业注册送1');
+            node.getComponent('payActivityNav').addContent('开业注册送1',JSON.parse(this.arr[0].info),this.arr[0].id)
         }if(this.arr[0].name =='次日存送1'){
             node.getComponent('payActivityNav').addNewPlayerGift('次日存送1');
         }if(this.arr[0].name =='充值返利1'){

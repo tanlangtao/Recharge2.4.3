@@ -62,7 +62,7 @@ let gameGlobal = {
         user_id:'792398917',//dev
         // user_id:'463114046',//dev
         // user_id:'715856222',//pre
-        // user_id:'561884452',//pre
+        // user_id:'638389666',//pre
         user_name:'A091944',
         proxy_user_id:'873797373',
         proxy_name:'贵宾127788',
@@ -71,9 +71,10 @@ let gameGlobal = {
     slideNoticeList: [], // 滚动公告
     imReceive: 0, // im收到的消息
     payReceive: 0, // 收益消息
+    ipList:['127.0.0.1'], // Terrell - test
+
 }
 gHandler.gameGlobal = gameGlobal
-
 let gameConfig = {
     hallconfig: {
         zhname: "大厅", // 中文游戏名
@@ -428,10 +429,10 @@ let gameConfig = {
     }
 }
 gHandler.gameConfig = gameConfig
-
 gHandler.setGameInfo = function (game_user, proxy_user, prev_proxy) {
     // cc.log("设置玩家数据")
     gHandler.appGlobal.gameuser = game_user;
+    
     gHandler.gameGlobal.player.account_name = game_user.id
     // gHandler.gameGlobal.player.account_pass = msg.token;
     gHandler.gameGlobal.player.uuid = game_user.uuid;

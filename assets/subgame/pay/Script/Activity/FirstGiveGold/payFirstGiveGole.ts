@@ -40,6 +40,9 @@ export default class NewClass extends cc.Component {
         }else{
             this.testLayout.active = false
         }
+        if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
+            info = []
+        }
         info.forEach((item,index) => {
             this.recharge_amountLabel[index].string = `首充${item.recharge_amount}赠`
             this.bonusLabel[index].string = item.bonus 
@@ -97,6 +100,10 @@ export default class NewClass extends cc.Component {
         })
     }
     onClick(){
+        if(this.app.gHandler.gameGlobal.player.phonenum == '') {
+            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            return
+        }
         this.receiveFristPaymentGold()
     }
 }
