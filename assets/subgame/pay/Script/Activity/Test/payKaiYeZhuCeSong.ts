@@ -46,7 +46,6 @@ export default class NewClass extends cc.Component {
             console.log("获取ip失败!")
             this.app.showAlert("获取ip失败!")
         }
-
     }
     public fetchRegisterGetGold(){
         var url = `${this.app.UrlData.host}/api/activity/registerGetGold`;
@@ -72,6 +71,10 @@ export default class NewClass extends cc.Component {
         })
     }
     onClick(){
+        if(this.app.gHandler.gameGlobal.player.phonenum == '') {
+            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            return
+        }
         if(this.ip==''){
             return this.app.showAlert('获取IP地址失败！')
         }else if(this.codeInput.string == '' || this.codeInput.string == "请输入4位序列号"){

@@ -72,6 +72,10 @@ export default class NewClass extends cc.Component {
         })
     }
     onClick(){
+        if(this.app.gHandler.gameGlobal.player.phonenum == '') {
+            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            return
+        }
         this.fetchPayBonus()
     }
 }

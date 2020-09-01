@@ -176,6 +176,10 @@ export default class NewClass extends cc.Component {
         })
     }
     private Item1Click(){
+        if(this.app.gHandler.gameGlobal.player.phonenum == '') {
+            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            return
+        }
         if(this.btnCanClick){
             let task_id = this.bylevel[0].task_id
             this.btnCanClick = false
@@ -188,6 +192,10 @@ export default class NewClass extends cc.Component {
         
     }
     private Item2Click(){
+        if(this.app.gHandler.gameGlobal.player.phonenum == '') {
+            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            return
+        }
         if(this.btnCanClick){
             let task_id = this.bylevel[1].task_id
             this.btnCanClick = false
