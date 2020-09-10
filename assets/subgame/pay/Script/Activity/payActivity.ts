@@ -68,7 +68,7 @@ export default class NewClass extends cc.Component {
 
     public addHuodong(){
         this.huodongConfig.data.forEach((e)=>{
-            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || 
+            if(e.is_close == 2 && (e.name =='流水闯关活动' ||e.name =='流水闯关活动1' || e.name == '救济金活动' || 
             e.name == "首充送金活动"||e.name == "每日任务"||e.name == "新人大礼包"||
             e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
             e.name == "充值返利" || e.name == "推荐好友"|| e.name == "首充赠金1" ||
@@ -78,9 +78,11 @@ export default class NewClass extends cc.Component {
                 this.arr.push(e);
             }
         });
+        
     }
 
     public addNavToggle(){
+        
         this.arr.sort((a,b)=>a.order_by-b.order_by);
         for(let i:number = 0; i< this.arr.length; i++){
             let data = this.arr[i];
@@ -90,8 +92,8 @@ export default class NewClass extends cc.Component {
         }
         if(this.arr.length==0) return;
         
-        if(this.arr[0].name == '流水闯关活动'){
-            node.getComponent('payActivityNav').addContent('ChuangGuan',JSON.parse(this.arr[0].info),this.arr[0].id);
+        if(this.arr[0].name == '流水闯关活动'||this.arr[0].name == '流水闯关活动1' ){
+            node.getComponent('payActivityNav').addContent(this.arr[0].name,JSON.parse(this.arr[0].info),this.arr[0].id);
         }else if(this.arr[0].name =='救济金活动'){
             node.getComponent('payActivityNav').addContent('FreeGold',JSON.parse(this.arr[0].info),this.arr[0].id);
         }else if(this.arr[0].name =='首充送金活动'){

@@ -57,7 +57,7 @@ export default class NewClass extends cc.Component {
         this.id = data.id;
         this.data = data;
         //显示导航
-        if(data.name == '流水闯关活动'){
+        if(data.name == '流水闯关活动' ||data.name == '流水闯关活动1'){
             this.app.loadIcon('activity/btn_huodong2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_huodong1',this.currentIcon,249,86);
         }
@@ -139,9 +139,9 @@ export default class NewClass extends cc.Component {
     onClick(){
         //按键音效
         this.app.clickClip.play();
-        if(this.name == '流水闯关活动'){
+        if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'){
             this.app.showLoading();
-            this.addContent('ChuangGuan',JSON.parse(this.data.info),this.id)
+            this.addContent(this.name,JSON.parse(this.data.info),this.id)
         }else if(this.name == '救济金活动'){
             this.app.showLoading();
             this.addContent('FreeGold',JSON.parse(this.data.info),this.id)
@@ -189,10 +189,10 @@ export default class NewClass extends cc.Component {
 
     addContent(name,info,id){
         var content = cc.find('Canvas/Activity/Content');
-        if(name == 'ChuangGuan'){
+        if(name == '流水闯关活动'|| name == '流水闯关活动1'){
             var node = cc.instantiate(this.ChuangGuan);
             content.removeAllChildren();
-            node.getComponent('payChuangGuan').setId(id,'流水闯关活动');
+            node.getComponent('payChuangGuan').setId(id,name);
             content.addChild(node);
             this.app.loadTitle('title/txt_title02',this.title);
         }else if(name == 'FreeGold'){

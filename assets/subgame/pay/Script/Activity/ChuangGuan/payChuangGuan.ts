@@ -42,6 +42,12 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     ListItem : cc.Prefab = null;//记录item
 
+    @property(cc.Node)
+    TipLabel : cc.Node = null;//流水闯关活动说明
+
+    @property(cc.Node)
+    TipLabel1 : cc.Node = null;//流水闯关活动1说明
+
     protected onLoad(): void {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
@@ -133,6 +139,14 @@ export default class NewClass extends cc.Component {
     public setId(id,activity_name){
         this.activity_id = id;
         this.activity_name = activity_name;
+        if(activity_name == '流水闯关活动'){
+            this.TipLabel.active = true
+            this.TipLabel1.active = false
+        }else if(activity_name == '流水闯关活动1'){
+            this.TipLabel.active = false
+            this.TipLabel1.active = true
+        }
+
     }
     public fetchGold(){
         let level = this.remainingLevel.join();
