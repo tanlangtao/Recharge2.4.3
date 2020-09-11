@@ -14,6 +14,9 @@ export default class NewClass extends cc.Component {
     ChuangGuan : cc.Prefab = null;
 
     @property(cc.Prefab)
+    ChuangGuan1 : cc.Prefab = null;
+
+    @property(cc.Prefab)
     FreeGold : cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -49,8 +52,10 @@ export default class NewClass extends cc.Component {
     @property
     app = null;
     name = null;
-    id = null ;
-    data = null;
+    id = 0 ;
+    data = {
+        info:'{}'
+    };
     title = null;
     public init(data){
         this.name =data.name;
@@ -139,110 +144,56 @@ export default class NewClass extends cc.Component {
     onClick(){
         //按键音效
         this.app.clickClip.play();
-        if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'){
+        if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'||this.name == '救济金活动'|| 
+        this.name == '每日任务'||this.name == "每周佣金奖励"){
             this.app.showLoading();
-            this.addContent(this.name,JSON.parse(this.data.info),this.id)
-        }else if(this.name == '救济金活动'){
-            this.app.showLoading();
-            this.addContent('FreeGold',JSON.parse(this.data.info),this.id)
         }
-        else if(this.name == '首充送金活动'){
-            this.addContentFirstRechargeSendGold()
-        }
-        else if(this.name == '每日任务'){
-            this.app.showLoading();
-            this.addContent('DailyActivity',JSON.parse(this.data.info),this.id)
-        }
-        else if(this.name == "新人大礼包") {
-            this.addNewPlayerGift('新人大礼包')
-        }
-        else if(this.name == "月入百万") {
-            this.addNewPlayerGift('月入百万')
-        }
-        else if(this.name == "每周佣金奖励") {
-            this.app.showLoading();
-            this.addContent('每周佣金奖励',JSON.parse(this.data.info),this.id);
-        }
-        else if(this.name == "15天送58元") {
-            this.addNewPlayerGift('15天送58元')
-        }
-        else if(this.name == "充值返利") {
-            this.addNewPlayerGift('充值返利')
-        }
-        else if(this.name == "推荐好友") {
-            this.addNewPlayerGift('推荐好友')
-        }
-        else if(this.name == "首充赠金1" || this.name == "首充赠金-test") {
-            this.data.info = "{}"
-            this.addContent(this.name,JSON.parse(this.data.info),this.id)
-        }
-        else if(this.name == "开业注册送1") {
-            this.addContent(this.name,JSON.parse(this.data.info),this.id)
-        }
-        else if(this.name == "次日存送1") {
-            this.addNewPlayerGift('次日存送1')
-        }
-        else if(this.name == "充值返利1") {
-            this.addNewPlayerGift('充值返利1')
-        }
+        this.addContent(this.name,JSON.parse(this.data.info),this.id)
     }
 
     addContent(name,info,id){
         var content = cc.find('Canvas/Activity/Content');
-        if(name == '流水闯关活动'|| name == '流水闯关活动1'){
+        content.removeAllChildren();
+        if(name == '流水闯关活动'){
             var node = cc.instantiate(this.ChuangGuan);
-            content.removeAllChildren();
             node.getComponent('payChuangGuan').setId(id,name);
-            content.addChild(node);
             this.app.loadTitle('title/txt_title02',this.title);
-        }else if(name == 'FreeGold'){
+        }else if (name == '流水闯关活动1'){
+            var node = cc.instantiate(this.ChuangGuan1);
+            node.getComponent('payChuangGuan1').setId(id,name);
+            this.app.loadTitle('title/txt_title02',this.title);
+        }else if(name == '救济金活动'){
             var node = cc.instantiate(this.FreeGold);
-            content.removeAllChildren();
             node.getComponent('payFreeGold').setIdInfo(id,info);
-            content.addChild(node);
             this.app.loadTitle('title/alms_zi2',this.title);
-        }else if(name == 'DailyActivity'){
+        }else if(name == '每日任务'){
             var node = cc.instantiate(this.DailyActivity);
-            content.removeAllChildren();
             node.getComponent('payDailyActivity').setIdInfo(id,info);
-            content.addChild(node);
             this.app.loadTitle('title/dm_title',this.title);
         }else if(name == '每周佣金奖励'){
             var node = cc.instantiate(this.OnceWeekGift);
-            content.removeAllChildren();
             node.getComponent('payOnceWeekGift').setIdInfo(id,info);
-            content.addChild(node);
             this.app.loadTitle('title/dm_title_weeklyCms',this.title);
         }
         else if (name == "首充赠金1" || name == "首充赠金-test") {
-            content.removeAllChildren();
             var node = cc.instantiate(this.FirstGiveGold)
             node.getComponent('payFirstGiveGole').setIdInfo(name,id,info);
-            content.addChild(node);
             this.app.loadTitle('title/dm_title_firstR',this.title);
         }
-
         else if (name == "开业注册送1") {
             var node = cc.instantiate(this.KaiYeZhuCeSong)
-            content.removeAllChildren();
             node.getComponent('payKaiYeZhuCeSong').setIdInfo(id,info);
             this.app.loadTitle('title/dm_title_sugb',this.title);
-            content.addChild(node);
         }
-    }
-    addContentFirstRechargeSendGold(){
-        var content = cc.find('Canvas/Activity/Content');
-        var node = cc.instantiate(this.FirstRechargeSendGold)
-        content.removeAllChildren();
-        content.addChild(node);
-        this.app.loadTitle('title/scsj',this.title);
-    }
-    addNewPlayerGift(name){
-        var content = cc.find('Canvas/Activity/Content');
-        if (name == "新人大礼包"){
+        else if (name == "首充送金活动"){
+            var node = cc.instantiate(this.FirstRechargeSendGold)
+            this.app.loadTitle('title/scsj',this.title);
+        }
+        else if( name == "新人大礼包"){
             var node = cc.instantiate(this.NewPlayerGift)
             this.app.loadTitle('title/dm_title_starterPack',this.title);
-        }else if(name == "月入百万"){
+        }
+        else if(name == "月入百万"){
             var node = cc.instantiate(this.OneMonthMillion)
             this.app.loadTitle('title/dm_title_millionIncome',this.title);
         }else if (name == "15天送58元") {
@@ -261,8 +212,7 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.TestRechargeRebate)
             this.app.loadTitle('title/dm_title_cashback',this.title);
         }
-        content.removeAllChildren();
         content.addChild(node);
+
     }
-    // update (dt) {}
 }

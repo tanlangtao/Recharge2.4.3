@@ -78,11 +78,9 @@ export default class NewClass extends cc.Component {
                 this.arr.push(e);
             }
         });
-        
     }
 
     public addNavToggle(){
-        
         this.arr.sort((a,b)=>a.order_by-b.order_by);
         for(let i:number = 0; i< this.arr.length; i++){
             let data = this.arr[i];
@@ -92,34 +90,10 @@ export default class NewClass extends cc.Component {
         }
         if(this.arr.length==0) return;
         
-        if(this.arr[0].name == '流水闯关活动'||this.arr[0].name == '流水闯关活动1' ){
+        if(this.arr[0].info != "" && this.arr[0].info != "{}"){
             node.getComponent('payActivityNav').addContent(this.arr[0].name,JSON.parse(this.arr[0].info),this.arr[0].id);
-        }else if(this.arr[0].name =='救济金活动'){
-            node.getComponent('payActivityNav').addContent('FreeGold',JSON.parse(this.arr[0].info),this.arr[0].id);
-        }else if(this.arr[0].name =='首充送金活动'){
-            node.getComponent('payActivityNav').addContentFirstRechargeSendGold();
-        }else if(this.arr[0].name =='每日任务'){
-            node.getComponent('payActivityNav').addContent('DailyActivity',JSON.parse(this.arr[0].info),this.arr[0].id);
-        }else if(this.arr[0].name =='新人大礼包'){
-            node.getComponent('payActivityNav').addNewPlayerGift('新人大礼包');
-        }else if(this.arr[0].name =='月入百万'){
-            node.getComponent('payActivityNav').addNewPlayerGift('月入百万');
-        }else if(this.arr[0].name =='每周佣金奖励'){
-            node.getComponent('payActivityNav').addContent('每周佣金奖励',JSON.parse(this.arr[0].info),this.arr[0].id);
-        }else if(this.arr[0].name =='15天送58元'){
-            node.getComponent('payActivityNav').addNewPlayerGift('15天送58元');
-        }else if(this.arr[0].name =='充值返利'){
-            node.getComponent('payActivityNav').addNewPlayerGift('充值返利');
-        }else if(this.arr[0].name =='推荐好友'){
-            node.getComponent('payActivityNav').addNewPlayerGift('推荐好友');
-        }else if(this.arr[0].name =='首充赠金1'){
-            node.getComponent('payActivityNav').addNewPlayerGift('首充赠金1');
-        }if(this.arr[0].name =='开业注册送1'){
-            node.getComponent('payActivityNav').addContent('开业注册送1',JSON.parse(this.arr[0].info),this.arr[0].id)
-        }if(this.arr[0].name =='次日存送1'){
-            node.getComponent('payActivityNav').addNewPlayerGift('次日存送1');
-        }if(this.arr[0].name =='充值返利1'){
-            node.getComponent('payActivityNav').addNewPlayerGift('充值返利1');
+        }else{
+            node.getComponent('payActivityNav').addContent(this.arr[0].name,{},this.arr[0].id);
         }
     }
     
