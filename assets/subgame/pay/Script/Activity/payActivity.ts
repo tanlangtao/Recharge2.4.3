@@ -68,7 +68,7 @@ export default class NewClass extends cc.Component {
 
     public addHuodong(){
         this.huodongConfig.data.forEach((e)=>{
-            if(e.is_close == 2 && (e.name =='流水闯关活动' ||e.name =='流水闯关活动1' || e.name == '救济金活动' || 
+            if(e.is_close == 2 && (e.name =='流水闯关活动' ||e.name =='流水闯关活动1' ||e.name =='流水闯关1'|| e.name == '救济金活动' || 
             e.name == "首充送金活动"||e.name == "每日任务"||e.name == "新人大礼包"||
             e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
             e.name == "充值返利" || e.name == "推荐好友"|| e.name == "首充赠金1" ||
@@ -78,6 +78,12 @@ export default class NewClass extends cc.Component {
                 this.arr.push(e);
             }
         });
+        //test
+        // this.arr.push({
+        //     name:'流水闯关1',
+        //     info:JSON.stringify({"game_id": ["5b1f3a3cb76a591e7f2517a6", "5c6a62be7ff587m117d446aa", "5b1f3a3cb76a591e7f251722", "5b1f3a3cb76a591e7f251718", "5b1f3a3cb76a591e7f251713", "5b1f3a3cb76a591e7f251716", "5b1f3a3cb76a591e7f251712", "5b1f3a3cb76a591e7f251724"], "level_1": {"gold": 38, "statement": 888}, "level_2": {"gold": 158, "statement": 3888}, "level_3": {"gold": 258, "statement": 8888}, "level_4": {"gold": 1088, "statement": 28888}, "level_5": {"gold": 1888, "statement": 58888}, "flow_rate": 1}),
+        //     id:8
+        // })
     }
 
     public addNavToggle(){
@@ -96,7 +102,6 @@ export default class NewClass extends cc.Component {
             node.getComponent('payActivityNav').addContent(this.arr[0].name,{},this.arr[0].id);
         }
     }
-    
 
     /**
          * @Description: 获取公告
