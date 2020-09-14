@@ -147,7 +147,7 @@ export default class NewClass extends cc.Component {
     onClick(){
         //按键音效
         this.app.clickClip.play();
-        if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'||this.name == '流水闯关1'||this.name == '救济金活动'|| 
+        if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'||this.name == '救济金活动'|| 
         this.name == '每日任务'||this.name == "每周佣金奖励"){
             this.app.showLoading();
         }
@@ -168,7 +168,6 @@ export default class NewClass extends cc.Component {
         }
         else if (name == '流水闯关1'){
             var node = cc.instantiate(this.ChuangGuan1_test);
-            node.getComponent('payChuangGuan1').setId(id,name);
             this.app.loadTitle('title/txt_title02',this.title);
         }else if(name == '救济金活动'){
             var node = cc.instantiate(this.FreeGold);

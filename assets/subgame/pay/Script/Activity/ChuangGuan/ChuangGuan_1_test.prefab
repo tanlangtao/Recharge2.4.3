@@ -37,13 +37,10 @@
     "_components": [
       {
         "__id__": 221
-      },
-      {
-        "__id__": 222
       }
     ],
     "_prefab": {
-      "__id__": 223
+      "__id__": 222
     },
     "_opacity": 255,
     "_color": {
@@ -856,7 +853,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 13.64,
       "height": 22.73
     },
     "_anchorPoint": {
@@ -907,8 +904,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "0",
+    "_N$string": "0",
     "_fontSize": 20,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -1504,7 +1501,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 51.72,
       "height": 36.21
     },
     "_anchorPoint": {
@@ -1555,8 +1552,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "38",
+    "_N$string": "38",
     "_fontSize": 30,
     "_lineHeight": 35,
     "_enableWrapText": true,
@@ -1611,7 +1608,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 40.04,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -1662,8 +1659,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "888",
+    "_N$string": "888",
     "_fontSize": 24,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -2266,7 +2263,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 77.59,
       "height": 36.21
     },
     "_anchorPoint": {
@@ -2317,8 +2314,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "158",
+    "_N$string": "158",
     "_fontSize": 30,
     "_lineHeight": 35,
     "_enableWrapText": true,
@@ -2373,7 +2370,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 53.39,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -2424,8 +2421,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "3888",
+    "_N$string": "3888",
     "_fontSize": 24,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -3028,7 +3025,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 77.59,
       "height": 36.21
     },
     "_anchorPoint": {
@@ -3079,8 +3076,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "258",
+    "_N$string": "258",
     "_fontSize": 30,
     "_lineHeight": 35,
     "_enableWrapText": true,
@@ -3135,7 +3132,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 53.39,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -3186,8 +3183,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "8888",
+    "_N$string": "8888",
     "_fontSize": 24,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -3790,7 +3787,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 103.45,
       "height": 36.21
     },
     "_anchorPoint": {
@@ -3841,8 +3838,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "1088",
+    "_N$string": "1088",
     "_fontSize": 30,
     "_lineHeight": 35,
     "_enableWrapText": true,
@@ -3897,7 +3894,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 66.74,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -3948,8 +3945,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "28888",
+    "_N$string": "28888",
     "_fontSize": 24,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -4552,7 +4549,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 103.45,
       "height": 36.21
     },
     "_anchorPoint": {
@@ -4603,8 +4600,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "1888",
+    "_N$string": "1888",
     "_fontSize": 30,
     "_lineHeight": 35,
     "_enableWrapText": true,
@@ -4659,7 +4656,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 66.74,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -4710,8 +4707,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "58888",
+    "_N$string": "58888",
     "_fontSize": 24,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -5667,7 +5664,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 25,
       "height": 25
     },
     "_anchorPoint": {
@@ -5718,8 +5715,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
+    "_string": "0",
+    "_N$string": "0",
     "_fontSize": 30,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -8020,55 +8017,6 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 1334,
     "_originalHeight": 750,
-    "_id": ""
-  },
-  {
-    "__type__": "0fc8bayjjhIM5CsMxhrrFH5",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "app": null,
-    "Middle": {
-      "__id__": 29
-    },
-    "hongbaoArr": [
-      {
-        "__id__": 31
-      },
-      {
-        "__id__": 52
-      },
-      {
-        "__id__": 73
-      },
-      {
-        "__id__": 94
-      },
-      {
-        "__id__": 115
-      }
-    ],
-    "goldLabel": {
-      "__id__": 156
-    },
-    "ProgressBar": {
-      "__id__": 143
-    },
-    "totalStatement": {
-      "__id__": 23
-    },
-    "GetGoldHistory": {
-      "__id__": 166
-    },
-    "HistoryScroll": {
-      "__id__": 198
-    },
-    "ListItem": {
-      "__uuid__": "c8054202-1cea-4079-ae08-30abc29da4b9"
-    },
     "_id": ""
   },
   {
