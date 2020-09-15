@@ -1,12 +1,3 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 const {ccclass, property} = cc._decorator;
 
@@ -77,8 +68,8 @@ export default class NewClass extends cc.Component {
         }
         if(this.login_ip==''){
             return this.app.showAlert('获取IP地址失败！')
-        }else if(this.codeInput.string == '' || this.codeInput.string == "请输入4位序列号"){
-            return this.app.showAlert('序列号不能为空！')
+        }else if(this.codeInput.string == '' || this.codeInput.string == "请输入5位邀请码"){
+            return this.app.showAlert('邀请码不能为空！')
         }else if (!this.btn.interactable ){
             return this.app.showAlert("等待领取结果，请勿频繁点击领取！")
         }
