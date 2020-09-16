@@ -122,12 +122,12 @@ export default class NewClass extends cc.Component {
                     }
                     break
                 case "quick_pay" :
-                    if (this.app.UrlData.client=='desktop' && this.zfbResults.data.quick_pay.length > 0 ) {
+                    if (this.zfbResults.data.quick_pay.length > 0 ) {
                         arr.push('快捷支付')
                     }
                     break
                 case "bank_pay" :
-                    if (this.app.UrlData.client=='desktop' && this.zfbResults.data.bank_pay.length > 0  ) {
+                    if (this.zfbResults.data.bank_pay.length > 0  ) {
                         arr.push('网银支付')
                     }
                     break
