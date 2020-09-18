@@ -46,12 +46,7 @@ export default class NewClass extends cc.Component {
                 this.app.showAlert("领取成功!")
                 cc.log("response",response)
             }else{
-                if(response.msg == "邀请码错误"){
-                    this.app.showAlert("邀请码错误或已被领取,请重新输入!")
-                }else{
-                    this.app.showAlert(response.msg)
-                }
-                
+                this.app.showAlert(response.msg)
             }
             let self = this;
             setTimeout(() => {
