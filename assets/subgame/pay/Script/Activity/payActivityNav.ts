@@ -52,6 +52,12 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     TestRechargeRebate: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    OldPlayerCunSong: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    NewPlayerCunSong: cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -136,6 +142,16 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_cashback1',this.currentIcon,249,86);
             
         }
+        else if(data.name == "新用户首次存送1"){
+            this.app.loadIcon('activity/btn_new2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_new1',this.currentIcon,249,86);
+            
+        }
+        else if(data.name == "老用户每日存送1"){
+            this.app.loadIcon('activity/btn_old2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_old1',this.currentIcon,249,86);
+            
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -218,6 +234,12 @@ export default class NewClass extends cc.Component {
         }else if (name == "充值返利1") {
             var node = cc.instantiate(this.TestRechargeRebate)
             this.app.loadTitle('title/dm_title_cashback',this.title);
+        }else if (name == "新用户首次存送1") {
+            var node = cc.instantiate(this.NewPlayerCunSong)
+            this.app.loadTitle('title/dm_title_new',this.title);
+        }else if (name == "老用户每日存送1") {
+            var node = cc.instantiate(this.OldPlayerCunSong)
+            this.app.loadTitle('title/dm_title_old',this.title);
         }
         content.addChild(node);
 

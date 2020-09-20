@@ -607,6 +607,12 @@
     "TestRechargeRebate": {
       "__uuid__": "1d00f513-846f-459c-be7c-46e4d593f4d6"
     },
+    "OldPlayerCunSong": {
+      "__uuid__": "d3b29dae-b4f9-4742-8788-01612813a8d1"
+    },
+    "NewPlayerCunSong": {
+      "__uuid__": "7435d9fe-1279-4456-bbc1-52c92a473714"
+    },
     "app": null,
     "_id": ""
   },
