@@ -73,7 +73,8 @@ export default class NewClass extends cc.Component {
             e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
             e.name == "充值返利" || e.name == "推荐好友"|| e.name == "首充赠金1" ||
             e.name == "开业注册送1" || e.name == "次日存送1"|| e.name == "充值返利1"||
-            e.name == "首充赠金-test" || e.name == "新用户首次存送1" ||e.name == "老用户每日存送1" 
+            e.name == "首充赠金-test" || e.name == "新用户首次存送1" ||e.name == "老用户每日存送1" ||
+            e.name == "首存彩金6"  ||  e.name == "每日救援金6" 
             )){
                 this.arr.push(e);
             }

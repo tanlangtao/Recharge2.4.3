@@ -27,9 +27,9 @@ export default class NewClass extends cc.Component {
     app = null;
 
     public init(data,discount_rate){
-        
+        console.log(discount_rate)
         this.text=data.text;
-        let index = `${this.app.UrlData.package_id -1 }`;
+        let index = `0`;
         this.app.loadIcon('recharge/menu/tishi',this.tishi,97,55);
         if(this.text == '支付宝'){
             this.app.loadIcon('recharge/menu/menu_alipay_1',this.normalIcon,207,39)

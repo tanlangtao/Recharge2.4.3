@@ -613,6 +613,12 @@
     "NewPlayerCunSong": {
       "__uuid__": "7435d9fe-1279-4456-bbc1-52c92a473714"
     },
+    "FirstDepostGold": {
+      "__uuid__": "587454e2-e1e3-4053-b5f8-78a79ae09cae"
+    },
+    "DailyRescueGold": {
+      "__uuid__": "d4f44a13-edd2-4de2-905c-e2e20fa3a64d"
+    },
     "app": null,
     "_id": ""
   },

@@ -128,6 +128,15 @@ export default class NewClass extends cc.Component {
         }
         this.action = this.bankData.length != 0 ? 'edit' :'add';
         this.goldLabel.string = this.app.config.toDecimal(data.game_gold);
+
+        //最小金额也需要根据package_id判断
+        let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
+        withdraw_min_amount.forEach(item => {
+            if(item.package_id == this.app.UrlData.package_id){
+                this.current.min_amount = item.min_amount
+            }
+        });
+
         this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
         this.accountLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
         if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
@@ -253,6 +262,16 @@ export default class NewClass extends cc.Component {
 
         var minAmount = Number(this.current?this.current.min_amount:100);
         var maxAmount = Number(this.current?this.current.max_amount:10000);
+        //增加渠道对于兑换金额和倍数的判断
+        var multiple_amount = 1;
+        let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
+        withdraw_min_amount.forEach(item => {
+            if(item.package_id == this.app.UrlData.package_id){
+                minAmount = item.min_amount
+                multiple_amount = item.multiple_amount
+            }
+        });
+
         if(this.results.length==0){
             this.app.showAlert('渠道未开放，请选择其他兑换方式！')
         }else if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
@@ -260,7 +279,10 @@ export default class NewClass extends cc.Component {
 
         }else if(this.amountLabel.string == '点击输入'){
             this.app.showAlert('兑换金额不能为空！')
-        }else if(amount >Number(this.goldLabel.string)){
+        }else if(Number(this.amountLabel.string)%multiple_amount != 0 ){
+            this.app.showAlert(`兑换金额必须为${multiple_amount}的倍数！`)
+        }
+        else if(amount >Number(this.goldLabel.string)){
             this.app.showAlert('余额不足!')
         }else if(amount < minAmount || amount >maxAmount){
             this.app.showAlert('超出兑换范围!')

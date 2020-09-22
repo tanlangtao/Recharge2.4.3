@@ -31,11 +31,11 @@ export default class NewClass extends cc.Component {
     }
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        if(this.app.gHandler.gameGlobal.ipList.length > 0) {
+        if(this.app.gHandler.gameGlobal.ipList) {
             this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
         }else{
-            console.log("获取ip失败!")
-            this.app.showAlert("获取ip失败!")
+            console.log("获取登陆ip失败!")
+            this.app.showAlert("获取登陆ip失败!")
         }
     }
     public fetchRegisterGetGold(){
