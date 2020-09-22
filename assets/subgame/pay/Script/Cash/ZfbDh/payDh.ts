@@ -249,7 +249,7 @@ export default class NewClass extends cc.Component {
             this.app.showAlert('渠道未开放，请选择其他兑换方式！')
         }else if(this.accountLabel.string == '未设置'){
             this.app.showAlert('请先设置账户!')
-        }else if(Number(this.amountLabel.string)%multiple_amount != 0 ){
+        }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){
             this.app.showAlert(`兑换金额必须为${multiple_amount}的倍数！`)
         }
         else if(this.amountLabel.string == '点击输入'){

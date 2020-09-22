@@ -279,7 +279,7 @@ export default class NewClass extends cc.Component {
 
         }else if(this.amountLabel.string == '点击输入'){
             this.app.showAlert('兑换金额不能为空！')
-        }else if(Number(this.amountLabel.string)%multiple_amount != 0 ){
+        }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){
             this.app.showAlert(`兑换金额必须为${multiple_amount}的倍数！`)
         }
         else if(amount >Number(this.goldLabel.string)){
