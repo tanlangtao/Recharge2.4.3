@@ -63,7 +63,7 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading()
             if(response.status == 0){
                 console.log(response)
-                if(response.data.is_received == 0&& response.data.frist_pay_amount > this.info[0].recharge_amount ){
+                if(response.data.is_received == 0 && response.data.frist_pay_amount >= this.info[0].recharge_amount ){
                     let btnIndex = 0;
                     this.info.forEach((item,index)=>{
                        if(response.data.frist_pay_amount >= item.recharge_amount) {
