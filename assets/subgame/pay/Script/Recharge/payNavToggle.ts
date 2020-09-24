@@ -27,7 +27,6 @@ export default class NewClass extends cc.Component {
     app = null;
 
     public init(data,discount_rate){
-        console.log(discount_rate)
         this.text=data.text;
         let index = `0`;
         this.app.loadIcon('recharge/menu/tishi',this.tishi,97,55);
