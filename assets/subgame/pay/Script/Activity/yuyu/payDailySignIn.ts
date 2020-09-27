@@ -79,8 +79,8 @@ export default class NewClass extends cc.Component {
     }
     userSignIn(){
         var url = `${this.app.UrlData.host}/api/activity/userSignIn?`;
-        // let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&login_ip=${this.login_ip}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.appGlobal.deviceID}`
-        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&login_ip=127.0.0.1&regin_ip=127.0.0.1&device_id=123456789`
+        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&login_ip=${this.login_ip}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.appGlobal.deviceID}`
+        // let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&login_ip=127.0.0.1&regin_ip=127.0.0.1&device_id=123456789`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
@@ -193,13 +193,13 @@ export default class NewClass extends cc.Component {
         this.fetchList()
     }
     SignInClick(){
-        // if(this.app.gHandler.gameGlobal.player.phonenum == '') {
-        //     this.app.showAlert("参加活动失败:请先绑定手机号！")
-        //     return
-        // }
-        // if(this.SignInfo.today_statement < this.info.statement_byday &&  this.SignInfo.recharge_amount < this.info.recharge_amount_byday ){
-        //     return this.app.showAlert("签到失败，签到条件不满足！")
-        // }
+        if(this.app.gHandler.gameGlobal.player.phonenum == '') {
+            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            return
+        }
+        if(this.SignInfo.today_statement < this.info.statement_byday &&  this.SignInfo.recharge_amount < this.info.recharge_amount_byday ){
+            return this.app.showAlert("签到失败，签到条件不满足！")
+        }
         this.userSignIn()
     }
      //打开历史
