@@ -25,7 +25,7 @@ export default class NewClass extends cc.Component {
         // this.date.string = data.date;
         this.date.string = this.app.config.getDate(data.time);
         this.statement.string = this.app.config.toDecimal(data.statement);
-        this.gold.string = data.gold;
+        this.gold.string = this.app.config.toDecimal(data.gold);
         this.time.string = this.app.config.getTime2(data.time);
     }
 }

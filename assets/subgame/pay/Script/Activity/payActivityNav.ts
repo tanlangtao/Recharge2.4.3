@@ -64,6 +64,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     DailyRescueGold: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    DailySignIn: cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -153,6 +156,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/yuyu_btn_mrjyj2',this.normalIcon,242,86)
             this.app.loadIcon('activity/yuyu_btn_mrjyj1',this.currentIcon,249,86);
         }
+        else if(data.name == "签到奖励6"){
+            this.app.loadIcon('activity/yuyu_btn_sign2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/yuyu_btn_sign1',this.currentIcon,249,86);
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -165,7 +172,7 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.clickClip.play();
         if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'||this.name == '救济金活动'|| 
-        this.name == '每日任务'||this.name == "每周佣金奖励" || this.name=="首存彩金6"|| this.name=="每日救援金6"){
+        this.name == '每日任务'||this.name == "每周佣金奖励" || this.name=="首存彩金6"|| this.name=="每日救援金6" || this.name =='签到奖励6'){
             this.app.showLoading();
         }
         this.addContent(this.name,JSON.parse(this.data.info),this.id)
@@ -249,6 +256,10 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.DailyRescueGold)
             node.getComponent('payDailyRescueGold').setIdInfo(id,info);
             this.app.loadTitle('title/yuyu_title_mrjyj',this.title);
+        }else if (name == "签到奖励6"){
+            var node = cc.instantiate(this.DailySignIn)
+            node.getComponent('payDailySignIn').setIdInfo(id,info);
+            this.app.loadTitle('title/yuyu_title_cdjl',this.title);
         }
         content.addChild(node);
 

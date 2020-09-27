@@ -174,7 +174,7 @@
       "array": [
         0,
         0,
-        292.7165864791403,
+        209.57814771583418,
         0,
         0,
         0,
@@ -386,6 +386,7 @@
     "BankAccountAlert": {
       "__uuid__": "6c7b42fa-1e5a-4f92-9d02-7338e2589514"
     },
+    "BankTipAlert": null,
     "keyBoardAlert": {
       "__uuid__": "57122303-497b-41f8-935b-3ffc361db177"
     },
@@ -394,6 +395,9 @@
     },
     "TipAlert": {
       "__uuid__": "2744ca61-5cfa-4c74-ae46-3ac4793979e0"
+    },
+    "TiHuoAlert": {
+      "__uuid__": "b97cdb2a-99d4-4252-add4-500656adfa7a"
     },
     "Loading": {
       "__id__": 9

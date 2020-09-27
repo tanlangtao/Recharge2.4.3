@@ -33,6 +33,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     TipAlert :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    TiHuoAlert :cc.Prefab = null;
+
     @property(cc.Node)
     Loading : cc.Node = null;
 
@@ -324,5 +327,16 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.TipAlert);
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
+    }
+    /**
+     * 
+     * @param id //activity_id
+     * @param level  //水果等级
+     */
+    showTiHuoAlert(id,level,ParentCompoment){
+        var node = cc.instantiate(this.TiHuoAlert);
+        let canvas = cc.find('Canvas');
+        canvas.addChild(node);
+        node.getComponent('payTihuoAlert').init(id,level,ParentCompoment)
     }
 }
