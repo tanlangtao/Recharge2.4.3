@@ -67,6 +67,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     DailySignIn: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    SendFruit: cc.Prefab = null;
+    
     @property
     app = null;
     name = null;
@@ -159,6 +162,10 @@ export default class NewClass extends cc.Component {
         else if(data.name == "签到奖励6"){
             this.app.loadIcon('activity/yuyu_btn_sign2',this.normalIcon,242,86)
             this.app.loadIcon('activity/yuyu_btn_sign1',this.currentIcon,249,86);
+        }
+        else if(data.name == '免费领水果6'){
+            this.app.loadIcon('activity/yuyu_btn_fruit2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/yuyu_btn_fruit',this.currentIcon,249,86);
         }
     }
     // LIFE-CYCLE CALLBACKS:
@@ -259,6 +266,10 @@ export default class NewClass extends cc.Component {
         }else if (name == "签到奖励6"){
             var node = cc.instantiate(this.DailySignIn)
             node.getComponent('payDailySignIn').setIdInfo(id,info);
+            this.app.loadTitle('title/yuyu_title_cdjl',this.title);
+        }else if( name == "免费领水果6"){
+            var node = cc.instantiate(this.SendFruit)
+            node.getComponent('paySendFruit').setId(id);
             this.app.loadTitle('title/yuyu_title_cdjl',this.title);
         }
         content.addChild(node);

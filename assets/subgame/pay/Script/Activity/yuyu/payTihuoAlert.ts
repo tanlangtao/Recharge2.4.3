@@ -47,9 +47,9 @@ export default class NewClass extends cc.Component {
     submitAddress(){
         let shipping_user = this.nameInput.string
         let mobile = this.phoneNumInput.string
-        let remark = `${this.selectProvinceLabel.string},${this.addressInput.string}` 
+        let address = `${this.selectProvinceLabel.string},${this.addressInput.string}` 
         var url = `${this.app.UrlData.host}/api/activity/submitAddress?`;
-        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&shipping_user=${shipping_user}&mobile=${mobile}&remark=${remark}&fruit_level=${this.fruit_level}`
+        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&shipping_user=${shipping_user}&mobile=${mobile}&address=${address}&fruit_level=${this.fruit_level}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){

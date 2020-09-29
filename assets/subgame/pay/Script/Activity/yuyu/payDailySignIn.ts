@@ -217,14 +217,14 @@ export default class NewClass extends cc.Component {
      //普通水果提货
     commonFruitClick(){
         if(this.commonFruitBtn.getChildByName('grey').active){
-            return this.app.showAlert("水果奖励满5斤才可领取！")
+            return this.app.showAlert("未达到领取标准")
         }
         this.app.showTiHuoAlert(this.activity_id,1,this)
     }
     //高级水果提货
     HighgradeFruitClick(){
         if(this.commonFruitBtn.getChildByName('grey').active){
-            return this.app.showAlert("高档水果奖励满5斤才可领取！")
+            return this.app.showAlert("未达到领取标准")
         }
         this.app.showTiHuoAlert(this.activity_id,2,this)
     }

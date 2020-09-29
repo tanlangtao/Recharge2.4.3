@@ -29,7 +29,7 @@ let gameGlobal = {
         uuid: 0,
         id: 0,
         code: 0, // 上级id  邀请码
-        phonenum: "", // 手机号码
+        phonenum: "123456789", // 手机号码
         alipay: "", //  支付宝账号
         yinhangka: "", //  银行卡
     },

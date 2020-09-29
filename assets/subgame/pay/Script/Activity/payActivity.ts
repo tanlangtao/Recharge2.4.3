@@ -74,7 +74,7 @@ export default class NewClass extends cc.Component {
             e.name == "充值返利" || e.name == "推荐好友"|| e.name == "首充赠金1" ||
             e.name == "开业注册送1" || e.name == "次日存送1"|| e.name == "充值返利1"||
             e.name == "首充赠金-test" || e.name == "新用户首次存送1" ||e.name == "老用户每日存送1" ||
-            e.name == "首存彩金6"  ||  e.name == "每日救援金6" || e.name =='签到奖励6'
+            e.name == "首存彩金6"  ||  e.name == "每日救援金6" || e.name =='签到奖励6' || e.name == '免费领水果6'
             )){
                 this.arr.push(e);
             }
