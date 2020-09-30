@@ -270,7 +270,7 @@ export default class NewClass extends cc.Component {
         }else if( name == "免费领水果6"){
             var node = cc.instantiate(this.SendFruit)
             node.getComponent('paySendFruit').setId(id);
-            this.app.loadTitle('title/yuyu_title_cdjl',this.title);
+            this.app.loadTitle('title/yuyu_title_mflsj',this.title);
         }
         content.addChild(node);
 
