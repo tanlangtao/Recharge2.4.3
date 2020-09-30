@@ -37,6 +37,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     ListItem : cc.Prefab = null;//记录item
 
+    @property(cc.Node)
+    DaoGroup :cc.Node[] = [] 
+
     @property(cc.Button)
     qiandaoBtn : cc.Button = null;
 
@@ -135,6 +138,33 @@ export default class NewClass extends cc.Component {
             node.getComponent('payChuangGuanListItem').init(item)
         })
     }
+    seitchDay(day){
+        if(day <= 0){
+            this.DaoGroup.forEach((e,i)=>{
+                e.active = false
+            })
+        }else if(day <= 1){
+            this.DaoGroup.forEach((e,i)=>{
+                if(i == 0){ e.active = true}else{ e.active = false}
+            })
+        }else if(day <= 3){
+            this.DaoGroup.forEach((e,i)=>{
+                if(i <= 1){ e.active = true}else{ e.active = false}
+            })
+        }else if(day <= 7){
+            this.DaoGroup.forEach((e,i)=>{
+                if(i <= 2){ e.active = true}else{ e.active = false}
+            })
+        }else if(day <= 15){
+            this.DaoGroup.forEach((e,i)=>{
+                if(i <= 3){ e.active = true}else{ e.active = false}
+            })
+        }else if(day >= 30){
+            this.DaoGroup.forEach((e,i)=>{
+                e.active = true
+            })
+        }
+    }
     renderProgress(){
         let totalStatement = this.info.statement_byday
         let todayStatement = this.SignInfo.today_statement
@@ -143,6 +173,7 @@ export default class NewClass extends cc.Component {
         this.StatementProgress.getComponent(cc.ProgressBar).progress = todayStatement/totalStatement;
         this.RechargeProgress.getComponent(cc.ProgressBar).progress = todayRecharge_amount/recharge_amount_byday;
         this.SignInDayLabel.string = `${this.SignInfo.lx_sign_day}`
+        this.seitchDay(this.SignInfo.lx_sign_day)
         this.StatementProgress.getChildByName('label').getComponent(cc.Label).string = `今日流水: ${this.app.config.toDecimal(todayStatement)}`
         this.RechargeProgress.getChildByName('label').getComponent(cc.Label).string = `今日充值: ${this.app.config.toDecimal(todayRecharge_amount)}`
         //根据签到天数，计算当前可领取的水果

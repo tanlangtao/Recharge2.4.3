@@ -88,6 +88,9 @@ export default class NewClass extends cc.Component {
             return
         }
         this.bg2.active = true
+        let scalex = cc.winSize.width / 1334;
+        this.node.width = 1334 * scalex;
+        console.log(this.node.width,scalex)
         if(this.checkFreeFruitResult.data.invitee){
             //invitee不为空，是为被邀请者
             this.source_type = 2
@@ -123,7 +126,8 @@ export default class NewClass extends cc.Component {
             this.content.children[0].getComponent(cc.Label).string = `恭喜您已获得${this.fruit_jin}斤水果`
         }
         
-        var action =cc.moveBy(10,cc.v2(0,400))
+        var action =cc.moveBy(15,cc.v2(0,600))
+        this.content.stopAllActions()
         let callback = cc.callFunc(()=>{
             this.content.y = -100
             this.content.runAction(cc.sequence(action,callback))

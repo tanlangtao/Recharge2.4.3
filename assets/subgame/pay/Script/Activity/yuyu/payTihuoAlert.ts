@@ -53,7 +53,7 @@ export default class NewClass extends cc.Component {
         let mobile = this.phoneNumInput.string
         let address = `${this.selectProvinceLabel.string},${this.addressInput.string}` 
         var url = `${this.app.UrlData.host}/api/activity/submitAddress?`;
-        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&shipping_user=${shipping_user}&mobile=${mobile}&address=${address}&fruit_level=${this.fruit_level}&source_type=${this.source_type}&fruit_jin=${this.fruit_jin}`
+        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&shipping_user=${shipping_user}&mobile=${mobile}&address=${address}&fruit_level=${this.fruit_level}&source_type=${this.source_type}&fruit_jin=${this.fruit_jin}&package_id=${this.app.UrlData.package_id}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
