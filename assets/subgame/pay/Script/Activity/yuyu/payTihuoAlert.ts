@@ -35,25 +35,29 @@ export default class NewClass extends cc.Component {
     activity_id = 0;
     fruit_level = this.fruit_level;
     ParentComponent = null;
+    source_type = null;
+    fruit_jin = 5
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.addProvinceItem()
     }
-    init(id,level,ParentComponent){
+    init(id,level,ParentComponent,source_type,fruit_jin = 5){
         this.activity_id = id
         this.fruit_level = level
         this.ParentComponent = ParentComponent
+        this.source_type = source_type
+        this.fruit_jin = fruit_jin
     }
     submitAddress(){
         let shipping_user = this.nameInput.string
         let mobile = this.phoneNumInput.string
         let address = `${this.selectProvinceLabel.string},${this.addressInput.string}` 
         var url = `${this.app.UrlData.host}/api/activity/submitAddress?`;
-        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&shipping_user=${shipping_user}&mobile=${mobile}&address=${address}&fruit_level=${this.fruit_level}`
+        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&shipping_user=${shipping_user}&mobile=${mobile}&address=${address}&fruit_level=${this.fruit_level}&source_type=${this.source_type}&fruit_jin=${this.fruit_jin}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                self.app.showAlert('提交成功！')
+                self.app.showTiHuoDoneAlert()
                 //调用回调更新签到页面
                 self.ParentComponent.getSignInfo()
                 self.node.destroy();

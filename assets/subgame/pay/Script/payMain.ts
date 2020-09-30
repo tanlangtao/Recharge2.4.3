@@ -39,7 +39,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     Loading : cc.Node = null;
 
-
+    @property(cc.Prefab)
+    TiHuoDoneAlert :cc.Prefab = null;
 
     @property()
     clickClip :cc.Component = null;
@@ -333,10 +334,16 @@ export default class NewClass extends cc.Component {
      * @param id //activity_id
      * @param level  //水果等级
      */
-    showTiHuoAlert(id,level,ParentCompoment){
+    showTiHuoAlert(id,level,ParentCompoment,source_type,fruit_jin){
         var node = cc.instantiate(this.TiHuoAlert);
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('payTihuoAlert').init(id,level,ParentCompoment)
+        node.getComponent('payTihuoAlert').init(id,level,ParentCompoment,source_type,fruit_jin)
+    }
+    //提货完成
+    showTiHuoDoneAlert(){
+        var node = cc.instantiate(this.TiHuoDoneAlert);
+        let canvas = cc.find('Canvas');
+        canvas.addChild(node);
     }
 }

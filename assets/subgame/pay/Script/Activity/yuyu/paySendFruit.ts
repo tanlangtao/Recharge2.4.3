@@ -11,6 +11,9 @@ export default class NewClass extends cc.Component {
     bg2 :cc.Node = null ; //第二个页面
 
     @property(cc.Node)
+    progress :cc.Node = null; // 进度条
+
+    @property(cc.Node)
     Alert1:cc.Node = null; // 获得3斤水果
 
     @property(cc.Node)
@@ -19,13 +22,20 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     Alert3 :cc.Node = null; // 获得5斤水果
 
+    @property(cc.Node)
+    content :cc.Node = null; // 滚动框
+    
+
     app = null
     bindBankNum = false
     activity_id = 0
-    
+    checkFreeFruitResult :any= {}
+    source_type = 2 //提货信息来源
+    fruit_jin = 0
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex()
+        this.getSignInfo()
         this.bg2.active = false
     }
     setId(id){
@@ -56,22 +66,80 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading();
         })
     }
-
+    public getSignInfo(){
+        var url = `${this.app.UrlData.host}/api/activity/checkFreeFruit?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}`;
+        this.app.ajax('GET',url,'',(response)=>{
+            this.app.hideLoading()
+            if(response.status == 0){
+                console.log(response)
+                this.checkFreeFruitResult = response
+            }else{
+                this.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            this.app.hideLoading()
+            this.app.showAlert(`网络错误${errstatus}`)
+        })
+    }
     //点立即参与
     LiJiCanYuClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '' || !this.bindBankNum) {
             this.app.showAlert('请绑定手机跟银行卡实名认证后参与活动')
             return
-        }else{
-            this.bg2.active = true
         }
+        this.bg2.active = true
+        if(this.checkFreeFruitResult.data.invitee){
+            //invitee不为空，是为被邀请者
+            this.source_type = 2
+            this.fruit_jin = this.checkFreeFruitResult.data.invitee.fruit_jin
+            this.fruitLabel.string = `${this.fruit_jin}`
+
+            let f2 = this.fruit_jin % 5 == 0 ?5 :this.fruit_jin % 5
+            this.progress.getComponent(cc.ProgressBar).progress = f2/5 
+            this.progress.getChildByName('label').getComponent(cc.Label).string = `${f2} / 5`
+
+            if(this.fruit_jin == 3){
+                //显示获得3斤水果弹窗
+                this.Alert1.active = true
+            }else if(this.fruit_jin == 5){
+                //显示获得2斤水果弹窗
+                this.Alert2.active = true
+            }
+            this.content.children[0].getComponent(cc.Label).string = `恭喜您已获得${this.fruit_jin}斤水果`
+        }else if(this.checkFreeFruitResult.data.inviter){
+            //inviter不为空，是为邀请者
+            this.source_type =3
+            this.fruit_jin = this.checkFreeFruitResult.data.inviter.fruit_jin
+            this.fruitLabel.string = `${this.fruit_jin}`
+            let bind_num = this.checkFreeFruitResult.data.inviter.bind_num
+            let b2 = bind_num % 3 == 0 ? 3 :bind_num %3
+            this.progress.getComponent(cc.ProgressBar).progress = b2/5 
+            this.progress.getChildByName('label').getComponent(cc.Label).string = `${b2} / 3`
+
+            if(this.fruit_jin >= 5){
+                //显示获得5斤水果弹窗
+                this.Alert3.active = true
+            }
+            this.content.children[0].getComponent(cc.Label).string = `恭喜您已获得${this.fruit_jin}斤水果`
+        }
+        
+        var action =cc.moveBy(10,cc.v2(0,400))
+        let callback = cc.callFunc(()=>{
+            this.content.y = -100
+            this.content.runAction(cc.sequence(action,callback))
+        })
+        this.content.runAction(cc.sequence(action,callback))
+       
     }
     closeBg2cClick(){
         this.bg2.active = false
     }
     //点立即提货
     LiJiTiHuoClick(){
-        this.app.showTiHuoAlert(this.activity_id,1,this)
+        if(this.fruit_jin % 5 != 0){
+            return this.app.showAlert('未达到领取标准')
+        }
+        this.app.showTiHuoAlert(this.activity_id,1,this,this.source_type,this.fruit_jin)
     }
     //点立即邀请
     LiJiYaoQingClick(){

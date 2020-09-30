@@ -37,6 +37,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     ListItem : cc.Prefab = null;//记录item
 
+    @property(cc.Button)
+    qiandaoBtn : cc.Button = null;
+
     app = null;
     info :any = {};
     activity_id = 30;
@@ -166,6 +169,12 @@ export default class NewClass extends cc.Component {
                 }   
             });
         }
+        if(this.SignInfo.sign_today == 1){
+            //已签到
+            this.qiandaoBtn.interactable = false
+        }else{
+            this.qiandaoBtn.interactable = true
+        }
         if(commonFruit >=5 ){
             //大于5斤水果，显示领取按钮
             this.commonFruitBtn.getChildByName('grey').active = false
@@ -219,13 +228,13 @@ export default class NewClass extends cc.Component {
         if(this.commonFruitBtn.getChildByName('grey').active){
             return this.app.showAlert("未达到领取标准")
         }
-        this.app.showTiHuoAlert(this.activity_id,1,this)
+        this.app.showTiHuoAlert(this.activity_id,1,this,1)
     }
     //高级水果提货
     HighgradeFruitClick(){
         if(this.commonFruitBtn.getChildByName('grey').active){
             return this.app.showAlert("未达到领取标准")
         }
-        this.app.showTiHuoAlert(this.activity_id,2,this)
+        this.app.showTiHuoAlert(this.activity_id,2,this,1)
     }
 }
