@@ -145,4 +145,15 @@ export default class Config extends cc.Component {
         var num3 = num1+'************'+num2
         return num3
     }
+    public randId(minNum,maxNum){
+        var num = parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+        var num1 = `${num}`.slice(0,3)
+        var num2 = `${num}`.substring(`${num}`.length-3)
+        var num3 = num1+'***'+num2
+        return num3
+    }
+    public randNum(minNum,maxNum){
+        var num = parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+        return num
+    }
 }

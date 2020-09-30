@@ -125,8 +125,15 @@ export default class NewClass extends cc.Component {
             }
             this.content.children[0].getComponent(cc.Label).string = `恭喜您已获得${this.fruit_jin}斤水果`
         }
-        
-        var action =cc.moveBy(15,cc.v2(0,600))
+        this.content.children.forEach((e,i)=>{
+            if(i !=0){
+                let id = this.app.config.randId(123000000,999999999)
+                let jin = this.app.config.randNum(2,5)
+                e.getComponent(cc.Label).string = `恭喜${id}已获得${jin == 4?5 :jin}斤水果`
+            }
+            
+        })
+        var action =cc.moveBy(30,cc.v2(0,1300))
         this.content.stopAllActions()
         let callback = cc.callFunc(()=>{
             this.content.y = -100
