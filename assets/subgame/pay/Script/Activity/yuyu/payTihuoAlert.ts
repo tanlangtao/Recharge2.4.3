@@ -37,9 +37,16 @@ export default class NewClass extends cc.Component {
     ParentComponent = null;
     source_type = null;
     fruit_jin = 5
+    login_ip = ''
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.addProvinceItem()
+        if(this.app.gHandler.gameGlobal.ipList) {
+            this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
+        }else{
+            console.log("获取登陆ip失败!")
+            this.app.showAlert("获取登陆ip失败!")
+        }
     }
     init(id,level,ParentComponent,source_type,fruit_jin = 5){
         this.activity_id = id
@@ -53,7 +60,7 @@ export default class NewClass extends cc.Component {
         let mobile = this.phoneNumInput.string
         let address = `${this.selectProvinceLabel.string},${this.addressInput.string}` 
         var url = `${this.app.UrlData.host}/api/activity/submitAddress?`;
-        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&shipping_user=${shipping_user}&mobile=${mobile}&address=${address}&fruit_level=${this.fruit_level}&source_type=${this.source_type}&fruit_jin=${this.fruit_jin}&package_id=${this.app.UrlData.package_id}`
+        let dataStr  = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&shipping_user=${shipping_user}&mobile=${mobile}&address=${address}&fruit_level=${this.fruit_level}&source_type=${this.source_type}&fruit_jin=${this.fruit_jin}&package_id=${this.app.UrlData.package_id}&login_ip=${this.login_ip}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.appGlobal.deviceID}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
