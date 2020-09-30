@@ -42,6 +42,7 @@ export default class NewClass extends cc.Component {
     app : any= {};
 
     public init(type,data){
+        console.log(type,data)
         if(type ===1 ){
             this.popWindowBG.active=false;
             this.fetchOrder(data)
@@ -73,10 +74,6 @@ export default class NewClass extends cc.Component {
         this.card_nameLabel.string = data.data.card_name;
         this.card_numLabel.string = data.data.card_num;
         this.nickNameLabel.string = data.data.user_name;
-        // this.remarkLabel.string = data.data.remark; // 取消附言显示
-        if(this.remarkLabel.string == ''){
-            this.fuzhiBtn4.removeFromParent();
-        }
     }
     onLoad () {
         this.config = new Config();
@@ -125,13 +122,12 @@ export default class NewClass extends cc.Component {
         }
     }
 
-    copyRemark(){
+    copyBankName(){
         //按键音效
         this.app.clickClip.play();
-
         if (this.app.gHandler.Reflect) {
-            if (this.app.gHandler.Reflect.setClipboard(this.remarkLabel.string)) {
-                this.app.showAlert(`复制成功!:${this.remarkLabel.string}`)
+            if (this.app.gHandler.Reflect.setClipboard(this.bank_nameLabel.string)) {
+                this.app.showAlert(`复制成功!:${this.bank_nameLabel.string}`)
             } else {
                 this.app.showAlert(`复制失败!请升级系统版本`)
             }

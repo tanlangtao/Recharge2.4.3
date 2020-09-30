@@ -10,17 +10,26 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     bg2 :cc.Node = null ; //第二个页面
 
+    @property(cc.Node)
+    Alert1:cc.Node = null; // 获得3斤水果
+
+    @property(cc.Node)
+    Alert2:cc.Node = null; // 获得2斤水果
+
+    @property(cc.Node)
+    Alert3 :cc.Node = null; // 获得5斤水果
+
     app = null
     bindBankNum = false
-    activityId = 0
-
+    activity_id = 0
+    
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex()
         this.bg2.active = false
     }
     setId(id){
-        this.activityId = id
+        this.activity_id = id
     }
 
     public fetchIndex(){
@@ -56,18 +65,50 @@ export default class NewClass extends cc.Component {
         }else{
             this.bg2.active = true
         }
-        
     }
     closeBg2cClick(){
         this.bg2.active = false
     }
     //点立即提货
     LiJiTiHuoClick(){
-
+        this.app.showTiHuoAlert(this.activity_id,1,this)
     }
     //点立即邀请
     LiJiYaoQingClick(){
+        // this.app.gHandler.eventMgr.dispatch(this.app.gHandler.eventMgr.showPayScene, 'ebg') //跳转充值
+        if (this.app.gHandler.gameConfig.subModel.proxy.lanchscene != "") {
+            cc.director.loadScene(this.app.gHandler.gameConfig.subModel.proxy.lanchscene)
+        } else {
+            cc.log("请配置全民代理场景")
+        }
+    }
+    //点进入游戏
+    EnterGameClick(){
+        //按键音效
+        this.app.clickClip.play()
+        let scree = this.app.gHandler.gameGlobal.pay.from_scene;
+        this.app.gHandler.gameGlobal.pay.from_scene = "";
+        if (scree == ""){
+            scree = "hall"
+        }
+        if (scree == this.app.gHandler.gameConfig.gamelist['hbsl'].lanchscene
+            || scree == this.app.gHandler.gameConfig.gamelist['zrsx1'].lanchscene
+            || scree == this.app.gHandler.gameConfig.gamelist['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
+            this.app.gHandler.Reflect && this.app.gHandler.Reflect.setOrientation("portrait")
 
+        }
+        cc.director.preloadScene(scree,()=>{
+            cc.director.loadScene(scree);
+        })
+    }
+    closeAlert1(){
+        this.Alert1.active = false
+    }
+    closeAlert2(){
+        this.Alert2.active = false
+    }
+    closeAlert3(){
+        this.Alert3.active = false
     }
     onDestroy(){
         this.bg2.active = false
