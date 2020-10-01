@@ -216,10 +216,10 @@ export default class NewClass extends cc.Component {
         }
         if(HighgradeFruit >=5){
             this.HighgradeFruitBtn.getChildByName('grey').active = false
-            this.commonFruitBtn.getChildByName('light').active = true
+            this.HighgradeFruitBtn.getChildByName('light').active = true
         }else{
             this.HighgradeFruitBtn.getChildByName('grey').active = true
-            this.commonFruitBtn.getChildByName('light').active = false
+            this.HighgradeFruitBtn.getChildByName('light').active = false
         }
         //满足条件显示打勾
         if(todayStatement/totalStatement >= 1){

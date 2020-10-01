@@ -100,7 +100,6 @@ export default class NewClass extends cc.Component {
             let f2 = this.fruit_jin % 5 == 0 && this.fruit_jin!=0 ? 5 :this.fruit_jin % 5
             this.progress.getComponent(cc.ProgressBar).progress = f2/5 
             this.progress.getChildByName('label').getComponent(cc.Label).string = `${f2} / 5`
-            this.fruit_jin = 5
             if(this.fruit_jin == 3){
                 //显示获得3斤水果弹窗
                 this.Alert1.active = true
