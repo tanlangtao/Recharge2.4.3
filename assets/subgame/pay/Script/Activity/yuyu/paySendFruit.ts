@@ -157,7 +157,7 @@ export default class NewClass extends cc.Component {
     }
     //点立即提货
     LiJiTiHuoClick(){
-        if(this.fruit_jin % 5 != 0){
+        if(this.fruit_jin % 5 != 0 || this.fruit_jin < 5){
             return this.app.showAlert('水果斤数未达5斤，无法领取')
         }
         this.app.showTiHuoAlert(this.activity_id,1,this,this.source_type,this.fruit_jin)
