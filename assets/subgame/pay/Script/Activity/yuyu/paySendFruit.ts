@@ -97,16 +97,24 @@ export default class NewClass extends cc.Component {
             this.fruit_jin = this.checkFreeFruitResult.data.invitee.fruit_jin
             this.fruitLabel.string = `${this.fruit_jin}`
 
-            let f2 = this.fruit_jin % 5 == 0 ?5 :this.fruit_jin % 5
+            let f2 = this.fruit_jin % 5 == 0 && this.fruit_jin!=0 ? 5 :this.fruit_jin % 5
             this.progress.getComponent(cc.ProgressBar).progress = f2/5 
             this.progress.getChildByName('label').getComponent(cc.Label).string = `${f2} / 5`
-
+            this.fruit_jin = 5
             if(this.fruit_jin == 3){
                 //显示获得3斤水果弹窗
                 this.Alert1.active = true
             }else if(this.fruit_jin == 5){
                 //显示获得2斤水果弹窗
-                this.Alert2.active = true
+                if(this.getLocal()){
+                    this.Alert2.getChildByName('content').getChildByName('label1').getComponent(cc.Label).string = `已经获得2斤水果`
+                    this.Alert2.active = true
+                    //缓存，只第一次显示
+                    this.setLocal()
+                }else{
+                    this.Alert2.getChildByName('content').getChildByName('label1').getComponent(cc.Label).string = `已经获得5斤水果`
+                    this.Alert2.active = true
+                }
             }
             this.content.children[0].getComponent(cc.Label).string = `恭喜您已获得${this.fruit_jin}斤水果`
         }else if(this.checkFreeFruitResult.data.inviter){
@@ -114,9 +122,12 @@ export default class NewClass extends cc.Component {
             this.source_type =3
             this.fruit_jin = this.checkFreeFruitResult.data.inviter.fruit_jin
             this.fruitLabel.string = `${this.fruit_jin}`
-            let bind_num = this.checkFreeFruitResult.data.inviter.bind_num
-            let b2 = bind_num % 3 == 0 ? 3 :bind_num %3
-            this.progress.getComponent(cc.ProgressBar).progress = b2/5 
+            let bind_num = 0
+            if(this.checkFreeFruitResult.data.inviter.bind_num){
+                bind_num =  this.checkFreeFruitResult.data.inviter.bind_num
+            }
+            let b2 = bind_num % 3 == 0 && bind_num != 0 ? 3 :bind_num %3
+            this.progress.getComponent(cc.ProgressBar).progress = b2/3 
             this.progress.getChildByName('label').getComponent(cc.Label).string = `${b2} / 3`
 
             if(this.fruit_jin >= 5){
@@ -148,7 +159,7 @@ export default class NewClass extends cc.Component {
     //点立即提货
     LiJiTiHuoClick(){
         if(this.fruit_jin % 5 != 0){
-            return this.app.showAlert('未达到领取标准')
+            return this.app.showAlert('水果斤数未达5斤，无法领取')
         }
         this.app.showTiHuoAlert(this.activity_id,1,this,this.source_type,this.fruit_jin)
     }
@@ -188,6 +199,17 @@ export default class NewClass extends cc.Component {
     }
     closeAlert3(){
         this.Alert3.active = false
+    }
+    getLocal(){
+        let PaySendFruit_2jin = cc.sys.localStorage.getItem("PaySendFruit_2jin")
+        if(PaySendFruit_2jin){
+            return false
+        }else{
+            return true
+        }
+    }
+    setLocal(){
+        cc.sys.localStorage.setItem("PaySendFruit_2jin",JSON.stringify(true))
     }
     onDestroy(){
         this.bg2.active = false

@@ -209,13 +209,17 @@ export default class NewClass extends cc.Component {
         if(commonFruit >=5 ){
             //大于5斤水果，显示领取按钮
             this.commonFruitBtn.getChildByName('grey').active = false
+            this.commonFruitBtn.getChildByName('light').active = true
         }else{
             this.commonFruitBtn.getChildByName('grey').active = true
+            this.commonFruitBtn.getChildByName('light').active = false
         }
         if(HighgradeFruit >=5){
             this.HighgradeFruitBtn.getChildByName('grey').active = false
+            this.commonFruitBtn.getChildByName('light').active = true
         }else{
             this.HighgradeFruitBtn.getChildByName('grey').active = true
+            this.commonFruitBtn.getChildByName('light').active = false
         }
         //满足条件显示打勾
         if(todayStatement/totalStatement >= 1){

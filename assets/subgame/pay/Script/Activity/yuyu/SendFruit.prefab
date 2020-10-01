@@ -10137,7 +10137,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "label",
+    "_name": "label1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 264
@@ -10242,7 +10242,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "label",
+    "_name": "label2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 264
@@ -10267,7 +10267,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 312,
+      "width": 664.45,
       "height": 32.76
     },
     "_anchorPoint": {
@@ -10318,8 +10318,8 @@
       }
     ],
     "_useOriginalSize": true,
-    "_string": "点选下方按钮可以立即提货",
-    "_N$string": "点选下方按钮可以立即提货",
+    "_string": "点选下方按钮可以立即提货, 完成提货即可参加邀请者活动",
+    "_N$string": "点选下方按钮可以立即提货, 完成提货即可参加邀请者活动",
     "_fontSize": 26,
     "_lineHeight": 26,
     "_enableWrapText": true,
