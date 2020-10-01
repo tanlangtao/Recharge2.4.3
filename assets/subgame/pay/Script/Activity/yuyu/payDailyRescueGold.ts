@@ -138,11 +138,11 @@ export default class NewClass extends cc.Component {
         this.payReceived_info.Day = new Date().getDate()
         this.payReceived_info.today_received_info = today_received_info
         this.payReceived_info.today_lose_statement = today_received_info.today_lose_statement
-        cc.sys.localStorage.setItem("PayReceived_info",JSON.stringify(this.payReceived_info))
+        cc.sys.localStorage.setItem(`PayReceived_info_${this.app.UrlData.user_id}`,JSON.stringify(this.payReceived_info))
     }
     getLocal(){
         let today = new Date().getDate()
-        let Local_payReceived_info = cc.sys.localStorage.getItem("PayReceived_info")
+        let Local_payReceived_info = cc.sys.localStorage.getItem(`PayReceived_info_${this.app.UrlData.user_id}`)
         if(Local_payReceived_info){
             let newinfo =  JSON.parse(Local_payReceived_info) 
             //如果天数相同，则数据有效
