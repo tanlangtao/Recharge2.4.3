@@ -27,17 +27,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 106
+        "__id__": 109
       },
       {
-        "__id__": 107
+        "__id__": 110
       },
       {
-        "__id__": 108
+        "__id__": 111
       }
     ],
     "_prefab": {
-      "__id__": 109
+      "__id__": 112
     },
     "_opacity": 255,
     "_color": {
@@ -354,23 +354,23 @@
         "__id__": 94
       },
       {
-        "__id__": 97
+        "__id__": 100
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 102
+        "__id__": 105
       },
       {
-        "__id__": 103
+        "__id__": 106
       },
       {
-        "__id__": 104
+        "__id__": 107
       }
     ],
     "_prefab": {
-      "__id__": 105
+      "__id__": 108
     },
     "_opacity": 255,
     "_color": {
@@ -3582,15 +3582,19 @@
     "_parent": {
       "__id__": 8
     },
-    "_children": [],
-    "_active": true,
-    "_components": [
+    "_children": [
       {
         "__id__": 95
       }
     ],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 98
+      }
+    ],
     "_prefab": {
-      "__id__": 96
+      "__id__": 99
     },
     "_opacity": 255,
     "_color": {
@@ -3638,6 +3642,111 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "_id": ""
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "New Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 94
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 96
+      }
+    ],
+    "_prefab": {
+      "__id__": 97
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 243,
+      "g": 198,
+      "b": 18,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 288.9,
+      "height": 35.28
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        139.948,
+        -45.571,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 95
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_useOriginalSize": false,
+    "_string": "（包含小数点后2位数字）",
+    "_N$string": "（包含小数点后2位数字）",
+    "_fontSize": 25,
+    "_lineHeight": 28,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "c12910e5-446e-4906-82a1-1f7611170eab"
+    },
+    "fileId": "70J9c+SixCdKAnjoxAwpGe",
+    "sync": false
   },
   {
     "__type__": "cc.Label",
@@ -3691,14 +3800,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 98
+        "__id__": 101
       },
       {
-        "__id__": 99
+        "__id__": 102
       }
     ],
     "_prefab": {
-      "__id__": 101
+      "__id__": 104
     },
     "_opacity": 255,
     "_color": {
@@ -3752,7 +3861,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 97
+      "__id__": 100
     },
     "_enabled": true,
     "_materials": [
@@ -3784,7 +3893,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 97
+      "__id__": 100
     },
     "_enabled": true,
     "_normalMaterial": null,
@@ -3793,7 +3902,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 100
+        "__id__": 103
       }
     ],
     "_N$interactable": true,
