@@ -143,19 +143,19 @@ export default class NewClass extends cc.Component {
             this.DaoGroup.forEach((e,i)=>{
                 e.active = false
             })
-        }else if(day <= 1){
+        }else if(day >= 1 && day <3){
             this.DaoGroup.forEach((e,i)=>{
                 if(i == 0){ e.active = true}else{ e.active = false}
             })
-        }else if(day <= 3){
+        }else if(day >= 3 && day < 7){
             this.DaoGroup.forEach((e,i)=>{
                 if(i <= 1){ e.active = true}else{ e.active = false}
             })
-        }else if(day <= 7){
+        }else if(day >= 7 && day < 15){
             this.DaoGroup.forEach((e,i)=>{
                 if(i <= 2){ e.active = true}else{ e.active = false}
             })
-        }else if(day <= 15){
+        }else if(day >= 15 && day < 30){
             this.DaoGroup.forEach((e,i)=>{
                 if(i <= 3){ e.active = true}else{ e.active = false}
             })
@@ -164,6 +164,7 @@ export default class NewClass extends cc.Component {
                 e.active = true
             })
         }
+
     }
     renderProgress(){
         let totalStatement = this.info.statement_byday
@@ -191,12 +192,12 @@ export default class NewClass extends cc.Component {
         if(this.SignInfo.get_fruit){
             this.SignInfo.get_fruit.forEach(item => {
                 let info = JSON.parse(item.info)
-                if(info.sign_day >= 7 && info.sign_day < 30){
+                if(info.fruit_level == 1){
                     //普通水果 -5斤
-                    commonFruit -= 5
-                }else if(info.sign_day >= 30){
+                    commonFruit -= info.fruit
+                }else if(info.fruit_level == 2){
                     //高级水果 -5斤
-                    HighgradeFruit -=5
+                    HighgradeFruit -= info.fruit
                 }   
             });
         }
@@ -206,6 +207,7 @@ export default class NewClass extends cc.Component {
         }else{
             this.qiandaoBtn.interactable = true
         }
+        console.log("普通水果",commonFruit,'高档水果',HighgradeFruit)
         if(commonFruit >=5 ){
             //大于5斤水果，显示领取按钮
             this.commonFruitBtn.getChildByName('grey').active = false
@@ -267,7 +269,7 @@ export default class NewClass extends cc.Component {
     }
     //高级水果提货
     HighgradeFruitClick(){
-        if(this.commonFruitBtn.getChildByName('grey').active){
+        if(this.HighgradeFruitBtn.getChildByName('grey').active){
             return this.app.showAlert("未达到领取标准")
         }
         this.app.showTiHuoAlert(this.activity_id,2,this,1)

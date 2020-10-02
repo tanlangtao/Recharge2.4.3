@@ -625,6 +625,18 @@
     "SendFruit": {
       "__uuid__": "31c33971-bac4-4670-ac94-a37f42051e4f"
     },
+    "FaPengYouQuan": {
+      "__uuid__": "48d412bd-9ca7-43de-8eb5-659ea86e4ff2"
+    },
+    "NewUserMeiRiBaoPei": {
+      "__uuid__": "238aca4e-4717-4a56-8aed-144d4f71378f"
+    },
+    "OldUserMeiRiBaoPei": {
+      "__uuid__": "48266734-144d-43c7-a5a4-60ed5746658b"
+    },
+    "ZhiShuYongHuFuChi": {
+      "__uuid__": "1a0af070-7976-4f15-b874-0d4831bc418d"
+    },
     "app": null,
     "_id": ""
   },

@@ -69,6 +69,18 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     SendFruit: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    FaPengYouQuan: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    NewUserMeiRiBaoPei: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    OldUserMeiRiBaoPei: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    ZhiShuYongHuFuChi: cc.Prefab = null;
     
     @property
     app = null;
@@ -166,6 +178,22 @@ export default class NewClass extends cc.Component {
         else if(data.name == '免费领水果6'){
             this.app.loadIcon('activity/yuyu_btn_fruit2',this.normalIcon,242,86)
             this.app.loadIcon('activity/yuyu_btn_fruit',this.currentIcon,249,86);
+        }
+        else if(data.name == '发朋友圈活动1'){
+            this.app.loadIcon('activity/btn_fpyq2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_fpyq1',this.currentIcon,249,86);
+        }
+        else if(data.name == '直属用户扶持1'){
+            this.app.loadIcon('activity/btn_zsyh2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_zsyh1',this.currentIcon,249,86);
+        }
+        else if(data.name == '老用户包赔活动1'){
+            this.app.loadIcon('activity/btn_lyh2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_lyh1',this.currentIcon,249,86);
+        }
+        else if(data.name == '新用户包赔活动1'){
+            this.app.loadIcon('activity/btn_xyh2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_xyh1',this.currentIcon,249,86);
         }
     }
     // LIFE-CYCLE CALLBACKS:
@@ -271,7 +299,20 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.SendFruit)
             node.getComponent('paySendFruit').setId(id);
             this.app.loadTitle('title/yuyu_title_mflsj',this.title);
+        }else if( name == "发朋友圈活动1"){
+            var node = cc.instantiate(this.FaPengYouQuan)
+            this.app.loadTitle('title/title_fpyq',this.title);
+        }else if( name == "直属用户扶持1"){
+            var node = cc.instantiate(this.ZhiShuYongHuFuChi)
+            this.app.loadTitle('title/title_zsyh',this.title);
+        }else if( name == "老用户包赔活动1"){
+            var node = cc.instantiate(this.OldUserMeiRiBaoPei)
+            this.app.loadTitle('title/title_lyh',this.title);
+        }else if( name == "新用户包赔活动1"){
+            var node = cc.instantiate(this.NewUserMeiRiBaoPei)
+            this.app.loadTitle('title/title_xyh',this.title);
         }
+        
         content.addChild(node);
 
     }
