@@ -70,7 +70,7 @@ export default class NewClass extends cc.Component {
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading()
             if(response.status == 0){
-                this.LoseAmountTotal.string = `${response.data.today_lose_total > 0 ?response.data.today_lose_total:0}`
+                this.LoseAmountTotal.string = `${this.app.config.toDecimal(response.data.today_lose_total > 0 ?response.data.today_lose_total:0)}`
                 if(response.data.today_received_info == '' && response.data.today_lose_total >this.info[0].min_lose_gold ){
                     let btnIndex = 0;
                     this.info.forEach((item,index)=>{
