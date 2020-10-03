@@ -117,7 +117,7 @@ export default class NewClass extends cc.Component {
         this.btnArr[level].active = true
         this.btnArr[level].getChildByName("bg2").active = true // 显示已领取
         this.received = true;
-        this.LoseAmountTotal.string = `${this.payReceived_info.today_lose_statement}`
+        this.LoseAmountTotal.string = `${this.app.config.toDecimal(this.payReceived_info.today_lose_statement)}`
     }
     onClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '') {
