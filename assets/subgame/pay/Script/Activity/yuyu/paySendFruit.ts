@@ -67,7 +67,7 @@ export default class NewClass extends cc.Component {
         })
     }
     public getSignInfo(){
-        var url = `${this.app.UrlData.host}/api/activity/checkFreeFruit?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}`;
+        var url = `${this.app.UrlData.host}/api/activity/checkFreeFruit?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&token=${this.app.token}`;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if(response.status == 0){
@@ -78,6 +78,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             this.app.hideLoading()
+            console.log(url,errstatus)
             this.app.showAlert(`网络错误${errstatus}`)
         })
     }
