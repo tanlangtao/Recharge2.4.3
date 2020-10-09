@@ -32,6 +32,7 @@ export default class NewClass extends cc.Component {
     checkFreeFruitResult :any= {}
     source_type = 2 //提货信息来源
     fruit_jin = 0
+    canClick = false
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex()
@@ -72,7 +73,10 @@ export default class NewClass extends cc.Component {
             this.app.hideLoading()
             if(response.status == 0){
                 console.log(response)
+                this.canClick = true
                 this.checkFreeFruitResult = response
+                this.renderBg2()
+
             }else{
                 this.app.showAlert(response.msg)
             }
@@ -88,10 +92,19 @@ export default class NewClass extends cc.Component {
             this.app.showAlert('请绑定手机跟银行卡实名认证后参与活动')
             return
         }
+        if(!this.canClick){
+            this.app.showAlert('你点的太快了，请等待活动数据返回!')
+            return
+        }
         this.bg2.active = true
         let scalex = cc.winSize.width / 1334;
         this.node.width = 1334 * scalex;
         console.log(this.node.width,scalex)
+        this.renderBg2()
+       
+    }
+    renderBg2(){
+        console.log("renderBg2")
         if(this.checkFreeFruitResult.data.invitee){
             //invitee不为空，是为被邀请者
             this.source_type = 2
@@ -132,6 +145,7 @@ export default class NewClass extends cc.Component {
 
             if(this.fruit_jin >= 5){
                 //显示获得5斤水果弹窗
+                this.Alert3.getChildByName('content').getChildByName('label').getComponent(cc.Label).string = `恭喜获得${this.fruit_jin}斤水果`
                 this.Alert3.active = true
             }
             this.content.children[0].getComponent(cc.Label).string = `恭喜您已获得${this.fruit_jin}斤水果`
@@ -151,7 +165,6 @@ export default class NewClass extends cc.Component {
             this.content.runAction(cc.sequence(action,callback))
         })
         this.content.runAction(cc.sequence(action,callback))
-       
     }
     closeBg2cClick(){
         this.bg2.active = false
@@ -161,11 +174,11 @@ export default class NewClass extends cc.Component {
         if(this.fruit_jin % 5 != 0 || this.fruit_jin < 5){
             return this.app.showAlert('水果斤数未达5斤，无法领取')
         }
+        this.closeAllAlert()
         this.app.showTiHuoAlert(this.activity_id,1,this,this.source_type,this.fruit_jin)
     }
     //点立即邀请
     LiJiYaoQingClick(){
-        // this.app.gHandler.eventMgr.dispatch(this.app.gHandler.eventMgr.showPayScene, 'ebg') //跳转充值
         if (this.app.gHandler.gameConfig.subModel.proxy.lanchscene != "") {
             cc.director.loadScene(this.app.gHandler.gameConfig.subModel.proxy.lanchscene)
         } else {
@@ -198,6 +211,11 @@ export default class NewClass extends cc.Component {
         this.Alert2.active = false
     }
     closeAlert3(){
+        this.Alert3.active = false
+    }
+    closeAllAlert(){
+        this.Alert1.active = false
+        this.Alert2.active = false
         this.Alert3.active = false
     }
     getLocal(){
