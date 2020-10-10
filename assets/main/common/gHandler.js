@@ -29,7 +29,7 @@ let gameGlobal = {
         uuid: 0,
         id: 0,
         code: 0, // 上级id  邀请码
-        phonenum: "", // 手机号码
+        phonenum: "123456789", // 手机号码
         alipay: "", //  支付宝账号
         yinhangka: "", //  银行卡
     },
@@ -66,7 +66,7 @@ let gameGlobal = {
         // user_id:'784117891',//pre
         // user_id:'937563678',//pre
         // user_id:'467115008', //pre
-        user_id:631155949,
+        user_id:831226457,//online
         user_name:'A091944',
         proxy_user_id:'873797373',
         proxy_name:'贵宾127788',

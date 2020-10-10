@@ -139,7 +139,13 @@ export default class NewClass extends cc.Component {
             if(this.checkFreeFruitResult.data.inviter.bind_num){
                 bind_num =  this.checkFreeFruitResult.data.inviter.bind_num
             }
-            let b2 = bind_num % 3 == 0 && bind_num != 0 ? 3 :bind_num %3
+            let b2 = 0;
+            bind_num = 3
+            if(this.fruit_jin %5 == 0 ){
+                b2 =  bind_num % 3 
+            }else{
+                b2 = 0
+            }
             this.progress.getComponent(cc.ProgressBar).progress = b2/3 
             this.progress.getChildByName('label').getComponent(cc.Label).string = `${b2} / 3`
 
