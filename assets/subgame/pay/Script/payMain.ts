@@ -42,6 +42,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     TiHuoDoneAlert :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    FruitHistroyAlert :cc.Prefab = null;
+
     @property()
     clickClip :cc.Component = null;
     public UrlData : any = [];
@@ -344,6 +347,13 @@ export default class NewClass extends cc.Component {
     showTiHuoDoneAlert(){
         var node = cc.instantiate(this.TiHuoDoneAlert);
         let canvas = cc.find('Canvas');
+        canvas.addChild(node);
+    }
+
+    showFruitHistoryeAlert(group){
+        var node = cc.instantiate(this.FruitHistroyAlert);
+        let canvas = cc.find('Canvas');
+        node.getComponent('payFruitHistory').init(group)
         canvas.addChild(node);
     }
 }

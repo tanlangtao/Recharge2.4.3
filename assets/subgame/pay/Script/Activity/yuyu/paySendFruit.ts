@@ -25,6 +25,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     content :cc.Node = null; // 滚动框
     
+    @property(cc.Node)
+    jdlistBtn :cc.Node = null; // 进度列表按钮
 
     app = null
     bindBankNum = false
@@ -112,6 +114,10 @@ export default class NewClass extends cc.Component {
             this.fruitLabel.string = `${this.fruit_jin}`
 
             let f2 = this.fruit_jin % 5 == 0 && this.fruit_jin!=0 ? 5 :this.fruit_jin % 5
+            //显示进度条，隐藏进度列表按钮
+            this.progress.active = true
+            this.jdlistBtn.active = false
+
             this.progress.getComponent(cc.ProgressBar).progress = f2/5 
             this.progress.getChildByName('label').getComponent(cc.Label).string = `${f2} / 5`
             if(this.fruit_jin == 3){
@@ -135,19 +141,9 @@ export default class NewClass extends cc.Component {
             this.source_type =3
             this.fruit_jin = this.checkFreeFruitResult.data.inviter.fruit_jin
             this.fruitLabel.string = `${this.fruit_jin}`
-            let bind_num = 0
-            if(this.checkFreeFruitResult.data.inviter.bind_num){
-                bind_num =  this.checkFreeFruitResult.data.inviter.bind_num
-            }
-            let b2 = 0;
-            bind_num = 3
-            if(this.fruit_jin %5 == 0 ){
-                b2 =  bind_num % 3 
-            }else{
-                b2 = 0
-            }
-            this.progress.getComponent(cc.ProgressBar).progress = b2/3 
-            this.progress.getChildByName('label').getComponent(cc.Label).string = `${b2} / 3`
+            //隐藏进度条，显示进度列表按钮
+            this.progress.active = false
+            this.jdlistBtn.active = true
 
             if(this.fruit_jin >= 5){
                 //显示获得5斤水果弹窗
@@ -209,6 +205,14 @@ export default class NewClass extends cc.Component {
         cc.director.preloadScene(scree,()=>{
             cc.director.loadScene(scree);
         })
+    }
+    //进度列表
+    jdlistClick(){
+        if(this.checkFreeFruitResult.data.inviter.group){
+            this.app.showFruitHistoryeAlert(this.checkFreeFruitResult.data.inviter.group)
+        }else{
+            this.app.showAlert('当前没有未完成进度')
+        }
     }
     closeAlert1(){
         this.Alert1.active = false
