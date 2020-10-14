@@ -46,7 +46,7 @@ let gameGlobal = {
     pay: { // 充提数据结构
         from_scene: "", // 跳转过来的场景名
         client: "ios",
-        package_id: "1",
+        package_id: "6",
         // user_id:'500814802',//pre
         // user_id:'899112880',//pre
         // pay_host:'http://161.117.178.174:12353',//dev

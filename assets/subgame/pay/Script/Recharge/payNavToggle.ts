@@ -28,54 +28,93 @@ export default class NewClass extends cc.Component {
 
     public init(data,discount_rate){
         this.text=data.text;
-        let index = `0`;
         this.app.loadIcon('recharge/menu/tishi',this.tishi,97,55);
         if(this.text == '支付宝'){
             this.app.loadIcon('recharge/menu/menu_alipay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_alipay_2',this.currentIcon,249,86);
-            let percent = discount_rate.alipay[index].interval[0].percent
+            let percent = 0
+            discount_rate.alipay.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         }else if(this.text == '转账到银行卡'){
             this.app.loadIcon('recharge/menu/menu_tobank_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_tobank_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.bankcard_transfer[index].interval[0].percent
+            let percent = 0
+            discount_rate.bankcard_transfer.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         }else if(this.text == '银联扫码'){
             this.app.loadIcon('recharge/menu/menu_ylsm_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_ylsm_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.union_pay[index].interval[0].percent
+            let percent = 0
+            discount_rate.union_pay.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         }else if(this.text == '微信'){
             this.app.loadIcon('recharge/menu/menu_wxpay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_wxpay_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.wechat_pay[index].interval[0].percent
+            let percent = 0
+            discount_rate.wechat_pay.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         }else if(this.text == '快捷支付'){
             this.app.loadIcon('recharge/menu/menu_kuaijie_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_kuaijie_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.quick_pay[index].interval[0].percent
+            let percent = 0
+            discount_rate.quick_pay.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         }else if(this.text == '网银支付'){
             this.app.loadIcon('recharge/menu/menu_unionpay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_unionpay_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.bank_pay[index].interval[0].percent
+            let percent = 0
+            discount_rate.bank_pay.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         }else if(this.text == '人工代充值'){
             this.app.loadIcon('recharge/menu/menu_VIPpay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_VIPpay_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.daichong[index].interval[0].percent
+            let percent = 0
+            discount_rate.daichong.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         }else if(this.text == 'IM充值'){
             this.app.loadIcon('recharge/menu/menu_IMpay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_IMpay_2',this.currentIcon,249,86)
 
-            let percent = discount_rate.im_pay[index].interval[0].percent
+            let percent = 0
+            discount_rate.im_pay.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         }
     }
