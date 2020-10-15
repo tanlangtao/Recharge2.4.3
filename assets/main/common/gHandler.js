@@ -46,12 +46,12 @@ let gameGlobal = {
     pay: { // 充提数据结构
         from_scene: "", // 跳转过来的场景名
         client: "ios",
-        package_id: "6",
+        package_id: "2",
         // user_id:'500814802',//pre
         // user_id:'899112880',//pre
         // pay_host:'http://161.117.178.174:12353',//dev
-        // pay_host:'http://18.176.74.76:12353',//pre
-        pay_host:'https://pay1.whjfxly66.com',//online
+        pay_host:'http://18.176.74.76:12353',//pre
+        // pay_host:'https://pay1.whjfxly66.com',//online
         // user_id:'356642711',//online
         // user_id:'583865289',//online 德比
         // user_id:'828666434',//online 辛巴
@@ -65,8 +65,8 @@ let gameGlobal = {
         // user_id:'638389666',//pre
         // user_id:'784117891',//pre
         // user_id:'937563678',//pre
-        // user_id:'467115008', //pre
-        user_id:209762719,//online
+        user_id:'467115008', //pre
+        // user_id:209762719,//online
         user_name:'A091944',
         proxy_user_id:'873797373',
         proxy_name:'贵宾127788',
