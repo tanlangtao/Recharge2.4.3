@@ -562,20 +562,11 @@
     "ChuangGuan": {
       "__uuid__": "d6e94dbf-6273-4722-8f62-c1bc95f3122e"
     },
-    "ChuangGuan1": {
-      "__uuid__": "2e333ffb-7c8c-470b-8eec-698d022d0e49"
-    },
-    "ChuangGuan1_test": {
-      "__uuid__": "c100b54b-f007-4472-9e0e-0d3bb7dd4698"
-    },
     "FreeGold": {
       "__uuid__": "9be00158-0823-4104-b53a-34008638b29e"
     },
     "DailyActivity": {
       "__uuid__": "d21e7850-d692-4873-bf8e-d824599ed9b3"
-    },
-    "FirstRechargeSendGold": {
-      "__uuid__": "cf39256a-2712-4899-bf4d-a95945c23ab5"
     },
     "NewPlayerGift": {
       "__uuid__": "6b44b0f6-bd71-4a68-a191-1bd4e57cb3e9"
@@ -594,12 +585,6 @@
     },
     "RecommendFriends": {
       "__uuid__": "fe13d13f-e0ea-45b7-9469-39fb1e5845ee"
-    },
-    "FirstGiveGold": {
-      "__uuid__": "738f75ff-fe32-4406-8c1e-9e64c7ade79d"
-    },
-    "ChongZhiManESong": {
-      "__uuid__": "bcc180fe-cbee-4882-8ee9-1820d7656403"
     },
     "KaiYeZhuCeSong": {
       "__uuid__": "2058800c-997d-4406-a03f-08747930d91b"

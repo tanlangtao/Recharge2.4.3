@@ -68,14 +68,12 @@ export default class NewClass extends cc.Component {
 
     public addHuodong(){
         this.huodongConfig.data.forEach((e)=>{
-            if(e.is_close == 2 && (e.name =='流水闯关活动' ||e.name =='流水闯关活动1' ||e.name =='流水闯关1'|| e.name == '救济金活动' || 
-            e.name == "首充送金活动"||e.name == "每日任务"||e.name == "新人大礼包"||
-            e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
-            e.name == "充值返利" || e.name == "推荐好友"|| e.name == "首充赠金1" ||
-            e.name == "开业注册送1" || e.name == "次日存送1"|| e.name == "充值返利1"||
-            e.name == "首充赠金-test" || e.name == "新用户首次存送1" ||e.name == "老用户每日存送1" ||
-            e.name == "首存彩金6"  ||  e.name == "每日救援金6" || e.name =='签到奖励6' || e.name == '免费领水果6' ||
-            e.name == "发朋友圈活动1" || e.name == "直属用户扶持1" ||e.name == "老用户包赔活动1" ||e.name == "新用户包赔活动1" 
+            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || e.name == "每日任务"||
+            e.name == "新人大礼包"||e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
+            e.name == "充值返利" || e.name == "推荐好友"||e.name == "开业注册送1" || e.name == "新用户首次存送1" ||
+            e.name == "老用户每日存送1" ||e.name == "首存彩金6"  ||  e.name == "每日救援金6" || e.name =='签到奖励6' ||
+            e.name == '免费领水果6' ||e.name == "发朋友圈活动1" || e.name == "直属用户扶持1" ||e.name == "老用户包赔活动1" ||
+            e.name == "新用户包赔活动1" 
             )){
                 this.arr.push(e);
             }

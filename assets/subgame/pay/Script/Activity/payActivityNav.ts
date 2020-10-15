@@ -14,19 +14,10 @@ export default class NewClass extends cc.Component {
     ChuangGuan : cc.Prefab = null;
 
     @property(cc.Prefab)
-    ChuangGuan1 : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    ChuangGuan1_test : cc.Prefab = null;
-
-    @property(cc.Prefab)
     FreeGold : cc.Prefab = null;
 
     @property(cc.Prefab)
     DailyActivity : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    FirstRechargeSendGold: cc.Prefab = null;
 
     @property(cc.Prefab)
     NewPlayerGift: cc.Prefab = null;
@@ -43,14 +34,7 @@ export default class NewClass extends cc.Component {
     RecommendFriends: cc.Prefab = null;//推荐好友
 
     @property(cc.Prefab)
-    FirstGiveGold: cc.Prefab = null;
-
-    @property(cc.Prefab)
-    ChongZhiManESong: cc.Prefab = null;
-    @property(cc.Prefab)
     KaiYeZhuCeSong: cc.Prefab = null;
-    @property(cc.Prefab)
-    TestRechargeRebate: cc.Prefab = null;
 
     @property(cc.Prefab)
     OldPlayerCunSong: cc.Prefab = null;
@@ -95,17 +79,13 @@ export default class NewClass extends cc.Component {
         this.id = data.id;
         this.data = data;
         //显示导航
-        if(data.name == '流水闯关活动' ||data.name == '流水闯关活动1' || data.name=='流水闯关1'){
+        if(data.name == '流水闯关活动' ){
             this.app.loadIcon('activity/btn_huodong2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_huodong1',this.currentIcon,249,86);
         }
         else if(data.name == '救济金活动'){
             this.app.loadIcon('activity/menu_alms_2',this.normalIcon,242,86)
             this.app.loadIcon('activity/menu_alms_1',this.currentIcon,249,86);
-        }
-        else if(data.name == '首充送金活动'){
-            this.app.loadIcon('activity/btn_scsj2',this.normalIcon,242,86)
-            this.app.loadIcon('activity/btn_scsj',this.currentIcon,249,86);
         }
         else if(data.name == '每日任务'){
             this.app.loadIcon('activity/btn_dailyMission2',this.normalIcon,242,86)
@@ -135,25 +115,9 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_referralFee2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_referralFee1',this.currentIcon,249,86);
         }
-        else if(data.name == "首充赠金1"){
-            this.app.loadIcon('activity/btn_firstR2',this.normalIcon,242,86)
-            this.app.loadIcon('activity/btn_firstR1',this.currentIcon,249,86);
-        }
-        else if(data.name == "首充赠金-test"){
-            this.app.loadIcon('activity/btn_firstR2',this.normalIcon,242,86)
-            this.app.loadIcon('activity/btn_firstR1',this.currentIcon,249,86);
-        }
         else if(data.name == "开业注册送1"){
             this.app.loadIcon('activity/btn_sugb2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_sugb1',this.currentIcon,249,86);
-        }
-        else if(data.name == "次日存送1"){
-            this.app.loadIcon('activity/btn_fgwp2',this.normalIcon,242,86)
-            this.app.loadIcon('activity/btn_fgwp1',this.currentIcon,249,86);
-        }
-        else if(data.name == "充值返利1"){
-            this.app.loadIcon('activity/btn_cashback2',this.normalIcon,242,86)
-            this.app.loadIcon('activity/btn_cashback1',this.currentIcon,249,86);
         }
         else if(data.name == "新用户首次存送1"){
             this.app.loadIcon('activity/btn_new2',this.normalIcon,242,86)
@@ -216,17 +180,10 @@ export default class NewClass extends cc.Component {
     addContent(name,info,id){
         var content = cc.find('Canvas/Activity/Content');
         content.removeAllChildren();
+        console.log(name)
         if(name == '流水闯关活动'){
             var node = cc.instantiate(this.ChuangGuan);
             node.getComponent('payChuangGuan').setId(id,name);
-            this.app.loadTitle('title/txt_title02',this.title);
-        }else if (name == '流水闯关活动1'){
-            var node = cc.instantiate(this.ChuangGuan1);
-            node.getComponent('payChuangGuan1').setId(id,name);
-            this.app.loadTitle('title/txt_title02',this.title);
-        }
-        else if (name == '流水闯关1'){
-            var node = cc.instantiate(this.ChuangGuan1_test);
             this.app.loadTitle('title/txt_title02',this.title);
         }else if(name == '救济金活动'){
             var node = cc.instantiate(this.FreeGold);
@@ -241,19 +198,10 @@ export default class NewClass extends cc.Component {
             node.getComponent('payOnceWeekGift').setIdInfo(id,info);
             this.app.loadTitle('title/dm_title_weeklyCms',this.title);
         }
-        else if (name == "首充赠金1" || name == "首充赠金-test") {
-            var node = cc.instantiate(this.FirstGiveGold)
-            node.getComponent('payFirstGiveGole').setIdInfo(name,id,info);
-            this.app.loadTitle('title/dm_title_firstR',this.title);
-        }
         else if (name == "开业注册送1") {
             var node = cc.instantiate(this.KaiYeZhuCeSong)
             node.getComponent('payKaiYeZhuCeSong').setIdInfo(id,info);
             this.app.loadTitle('title/dm_title_sugb',this.title);
-        }
-        else if (name == "首充送金活动"){
-            var node = cc.instantiate(this.FirstRechargeSendGold)
-            this.app.loadTitle('title/scsj',this.title);
         }
         else if( name == "新人大礼包"){
             var node = cc.instantiate(this.NewPlayerGift)
@@ -271,12 +219,6 @@ export default class NewClass extends cc.Component {
         }else if (name == "推荐好友") {
             var node = cc.instantiate(this.RecommendFriends)
             this.app.loadTitle('title/dm_title_referralFee',this.title);
-        }else if (name == "次日存送1") {
-            var node = cc.instantiate(this.ChongZhiManESong)
-            this.app.loadTitle('title/dm_title_fgwp',this.title);
-        }else if (name == "充值返利1") {
-            var node = cc.instantiate(this.TestRechargeRebate)
-            this.app.loadTitle('title/dm_title_cashback',this.title);
         }else if (name == "新用户首次存送1") {
             var node = cc.instantiate(this.NewPlayerCunSong)
             this.app.loadTitle('title/dm_title_new',this.title);
