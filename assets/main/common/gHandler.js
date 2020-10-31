@@ -56,7 +56,7 @@ let gameGlobal = {
         // user_id:'583865289',//online 德比
         // user_id:'828666434',//online 辛巴
         // user_id:'228783142',//online 辛巴
-        // user_id:'950425709',//pre
+        user_id:'950425709',//pre
         // user_id:'267556651',//pre
         // user_id:'486935387',//pre
         // user_id:'792398917',//dev
@@ -65,7 +65,7 @@ let gameGlobal = {
         // user_id:'638389666',//pre
         // user_id:'784117891',//pre
         // user_id:'937563678',//pre
-        user_id:'467115008', //pre
+        // user_id:'467115008', //pre
         // user_id:209762719,//online
         user_name:'A091944',
         proxy_user_id:'873797373',

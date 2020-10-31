@@ -217,12 +217,24 @@ export default class NewClass extends cc.Component {
         else if(this.bankNameInput.string == ''){
             this.app.showAlert('开户支行不能为空！')
         }
+        else if(!this.isChinese(this.nameInput.string )){
+            this.app.showAlert('姓名不能含有特殊字符！')
+        }
+        else if(!this.isChinese(this.bankNameInput.string )){
+            this.app.showAlert('开户支行不能含有特殊字符！')
+        }
         else{
             this.fetchBindAccountPay();
             this.node.removeFromParent();
         }
     }
-
+    isChinese(s){
+        var ret = true;
+        for(var i = 0;i<s.length;i++){//遍历每一个文本字符bai
+            ret = ret && (s.charCodeAt(i) >= 10000);//判断文本字符的unicode值
+        }
+        return ret
+    }
     fetchBindAccountPay() {
         var url = `${this.app.UrlData.host}/api/payment_account/saveAccount`;
         let obj = {};
