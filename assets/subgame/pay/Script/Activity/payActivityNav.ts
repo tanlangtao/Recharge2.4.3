@@ -65,6 +65,10 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     ZhiShuYongHuFuChi: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    DailyRescueGold2: cc.Prefab = null; 
+    
     
     @property
     app = null;
@@ -158,6 +162,10 @@ export default class NewClass extends cc.Component {
         else if(data.name == '新用户包赔活动1'){
             this.app.loadIcon('activity/btn_xyh2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_xyh1',this.currentIcon,249,86);
+        }
+        else if(data.name == '每日救援金1'){
+            this.app.loadIcon('activity/yuyu_btn_mrjyj2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/yuyu_btn_mrjyj1',this.currentIcon,249,86);
         }
     }
     // LIFE-CYCLE CALLBACKS:
@@ -253,8 +261,10 @@ export default class NewClass extends cc.Component {
         }else if( name == "新用户包赔活动1"){
             var node = cc.instantiate(this.NewUserMeiRiBaoPei)
             this.app.loadTitle('title/title_xyh',this.title);
+        }else if( name == "每日救援金1"){
+            var node = cc.instantiate(this.DailyRescueGold2)
+            this.app.loadTitle('title/yuyu_title_mrjyj',this.title);
         }
-        
         content.addChild(node);
 
     }

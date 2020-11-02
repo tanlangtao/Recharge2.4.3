@@ -589,9 +589,6 @@
     "KaiYeZhuCeSong": {
       "__uuid__": "2058800c-997d-4406-a03f-08747930d91b"
     },
-    "TestRechargeRebate": {
-      "__uuid__": "1d00f513-846f-459c-be7c-46e4d593f4d6"
-    },
     "OldPlayerCunSong": {
       "__uuid__": "d3b29dae-b4f9-4742-8788-01612813a8d1"
     },
@@ -621,6 +618,9 @@
     },
     "ZhiShuYongHuFuChi": {
       "__uuid__": "1a0af070-7976-4f15-b874-0d4831bc418d"
+    },
+    "DailyRescueGold2": {
+      "__uuid__": "ed06c896-d0a1-4ef7-91ea-ae66b34e246c"
     },
     "app": null,
     "_id": ""
