@@ -69,6 +69,11 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     DailyRescueGold2: cc.Prefab = null; 
     
+    @property(cc.Prefab)
+    ChuangGuan1 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    ErRenMaJiang :cc.Prefab = null;
     
     @property
     app = null;
@@ -167,6 +172,14 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/yuyu_btn_mrjyj2',this.normalIcon,242,86)
             this.app.loadIcon('activity/yuyu_btn_mrjyj1',this.currentIcon,249,86);
         }
+        else if(data.name == '流水闯关1'){
+            this.app.loadIcon('activity/btn_huodong2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_huodong1',this.currentIcon,249,86);
+        }
+        else if(data.name == '二人麻将活动1'){
+            this.app.loadIcon('activity/btn_2rmjhd2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_2rmjhd1',this.currentIcon,249,86);
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -179,7 +192,9 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.clickClip.play();
         if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'||this.name == '救济金活动'|| 
-        this.name == '每日任务'||this.name == "每周佣金奖励" || this.name=="首存彩金6"|| this.name=="每日救援金6" || this.name =='签到奖励6'){
+        this.name == '每日任务'||this.name == "每周佣金奖励" || this.name=="首存彩金6"|| 
+        this.name=="每日救援金6" || this.name =='签到奖励6'|| this.name =='流水闯关1'
+        ){
             this.app.showLoading();
         }
         this.addContent(this.name,JSON.parse(this.data.info),this.id)
@@ -264,6 +279,13 @@ export default class NewClass extends cc.Component {
         }else if( name == "每日救援金1"){
             var node = cc.instantiate(this.DailyRescueGold2)
             this.app.loadTitle('title/yuyu_title_mrjyj',this.title);
+        }else  if(name == '流水闯关1'){
+            var node = cc.instantiate(this.ChuangGuan1);
+            node.getComponent('payChuangGuan1').setId(id,name,info);
+            this.app.loadTitle('title/txt_title02',this.title);
+        }else  if(name == '二人麻将活动1'){
+            var node = cc.instantiate(this.ErRenMaJiang);
+            this.app.loadTitle('title/title_2rmjhd',this.title);
         }
         content.addChild(node);
 

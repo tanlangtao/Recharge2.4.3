@@ -560,7 +560,7 @@
       "__id__": 9
     },
     "ChuangGuan": {
-      "__uuid__": "d6e94dbf-6273-4722-8f62-c1bc95f3122e"
+      "__uuid__": "e981f7b1-1b02-439f-a638-b2ebde0a5710"
     },
     "FreeGold": {
       "__uuid__": "9be00158-0823-4104-b53a-34008638b29e"
@@ -621,6 +621,12 @@
     },
     "DailyRescueGold2": {
       "__uuid__": "ed06c896-d0a1-4ef7-91ea-ae66b34e246c"
+    },
+    "ChuangGuan1": {
+      "__uuid__": "d6e94dbf-6273-4722-8f62-c1bc95f3122e"
+    },
+    "ErRenMaJiang": {
+      "__uuid__": "dc57cb9f-cf4f-4afa-b7f6-f272efa87f46"
     },
     "app": null,
     "_id": ""
