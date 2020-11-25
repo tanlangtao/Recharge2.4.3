@@ -8,6 +8,7 @@ export default class NewClass extends cc.Component {
     activity_id = 0;//活动id
     activity_name = ''//活动名称
     today_statement = 0;//今日总流水
+    yesterday_statement = 0;//昨日总流水
     remainingGold = 0;//今日剩余可领金币
     remainingLevel= [];//今日剩余可领的那几个档次
     page = 1;
@@ -57,6 +58,7 @@ export default class NewClass extends cc.Component {
                 let info = response.data.receive_info;
                 this.today_statement = response.data.today_statement;//设置今日总流水;
                 this.totalStatement.string =this.app.config.toDecimal2(this.today_statement); 
+                this.yesterday_statement = response.data.yesterday_statement;
                 this.setStatement(info)
             }else{
                 this.app.showAlert(response.msg)
@@ -85,7 +87,7 @@ export default class NewClass extends cc.Component {
         })
         
         for(var k in info){
-            if((info[k].statement <= this.today_statement) && info[k].has_receive==0){
+            if((info[k].statement <= this.yesterday_statement)){
                 this.remainingGold += Number(info[k].gold);
                 this.remainingLevel.push(k.substr(-1,1))//将level最后一位数字截取，放入数组
             }
@@ -102,7 +104,7 @@ export default class NewClass extends cc.Component {
     private mathProgress(info){
         var progress = 0;
         var lastKey = '';
-        let oneStep = 0.0834 // 总数为1，分为12份,每份约等于0.0834
+        let oneStep = 0.0835 // 总数为1，分为12份,每份约等于0.0834
         for(var k in info){ 
             if(lastKey == ''){
                 //lastKey为空，说明是第一个区间,statement = 0;
@@ -121,21 +123,16 @@ export default class NewClass extends cc.Component {
                 break;
             }
         }
-        if (!info["level_6"]){
-        }else{
-            if(info["level_6"].statement<this.today_statement){
-                var step = (this.today_statement - info["level_6"].statement) /info["level_6"].statement* oneStep *2;
-                if(step>oneStep) {
-                    step = oneStep
-                }
-                progress += step;
-    
+        if (info["level_6"].statement<this.today_statement){
+            var step = (this.today_statement - info["level_6"].statement) /info["level_6"].statement* oneStep;
+            if(step>oneStep) {
+                step = oneStep
             }
+            progress += step;
         }
         if(this.today_statement == 0){
             progress = 0
         }
-        console.log("today_statement",this.today_statement)
         this.ProgressBar.progress = progress;
     }
     public setId(id,activity_name,info){

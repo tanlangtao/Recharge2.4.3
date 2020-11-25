@@ -56,8 +56,8 @@ let gameGlobal = {
         // user_id:'583865289',//online 德比
         // user_id:'828666434',//online 辛巴
         // user_id:'228783142',//online 辛巴
-        user_id:'950425709',//pre
-        // user_id:'267556651',//pre
+        // user_id:'950425709',//pre
+        user_id:'267556651',//pre
         // user_id:'486935387',//pre
         // user_id:'792398917',//dev
         // user_id:'463114046',//dev
