@@ -87,7 +87,7 @@ export default class NewClass extends cc.Component {
         })
         
         for(var k in info){
-            if((info[k].statement <= this.yesterday_statement)){
+            if((info[k].statement <= this.yesterday_statement) && info[k].has_receive==0){
                 this.remainingGold += Number(info[k].gold);
                 this.remainingLevel.push(k.substr(-1,1))//将level最后一位数字截取，放入数组
             }
