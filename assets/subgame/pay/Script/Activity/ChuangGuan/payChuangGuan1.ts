@@ -40,6 +40,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     ListItem : cc.Prefab = null;//记录item
 
+    @property(cc.Label)
+    yesterdayStatement : cc.Label = null;
+
     protected onLoad(): void {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
@@ -59,6 +62,7 @@ export default class NewClass extends cc.Component {
                 this.today_statement = response.data.today_statement;//设置今日总流水;
                 this.totalStatement.string =this.app.config.toDecimal2(this.today_statement); 
                 this.yesterday_statement = response.data.yesterday_statement;
+                this.yesterdayStatement.string = `${parseInt(`${this.yesterday_statement}`)}`
                 this.setStatement(info)
             }else{
                 this.app.showAlert(response.msg)
