@@ -61,7 +61,7 @@ let gameGlobal = {
         // user_id:'486935387',//pre
         // user_id:'792398917',//dev
         // user_id:'463114046',//dev
-        user_id:'775783554',//pre 
+        user_id:'183797353',//pre 
         // user_id:209762719,//online
         user_name:'A091944',
         proxy_user_id:'873797373',

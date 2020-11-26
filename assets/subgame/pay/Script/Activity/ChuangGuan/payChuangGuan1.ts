@@ -128,11 +128,8 @@ export default class NewClass extends cc.Component {
             }
         }
         if (info["level_6"].statement<this.today_statement){
-            var step = (this.today_statement - info["level_6"].statement) /info["level_6"].statement* oneStep;
-            if(step>oneStep) {
-                step = oneStep
-            }
-            progress += step;
+           //进度条充满
+            progress = 1;
         }
         if(this.today_statement == 0){
             progress = 0
