@@ -127,7 +127,7 @@ export default class NewClass extends cc.Component {
                 break;
             }
         }
-        if (info["level_6"].statement<this.today_statement){
+        if (info["level_6"] && info["level_6"].statement<this.today_statement){
            //进度条充满
             progress = 1;
         }
