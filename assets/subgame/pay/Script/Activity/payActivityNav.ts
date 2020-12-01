@@ -74,6 +74,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     ErRenMaJiang :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    WheelOfFortune : cc.Prefab = null;
     
     @property
     app = null;
@@ -180,6 +183,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_2rmjhd2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_2rmjhd1',this.currentIcon,249,86);
         }
+        else if(data.name == '幸运轮盘2'){
+            this.app.loadIcon('activity/btn_xyzp2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_xyzp1',this.currentIcon,249,86);
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -285,6 +292,9 @@ export default class NewClass extends cc.Component {
             this.app.loadTitle('title/txt_title02',this.title);
         }else  if(name == '二人麻将活动1'){
             var node = cc.instantiate(this.ErRenMaJiang);
+            this.app.loadTitle('title/title_2rmjhd',this.title);
+        }else  if(name == '幸运轮盘2'){
+            var node = cc.instantiate(this.WheelOfFortune);
             this.app.loadTitle('title/title_2rmjhd',this.title);
         }
         content.addChild(node);

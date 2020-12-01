@@ -109,6 +109,7 @@ export default class NewClass extends cc.Component {
         var progress = 0;
         var lastKey = '';
         let oneStep = 0.0835 // 总数为1，分为12份,每份约等于0.0834
+        
         for(var k in info){ 
             if(lastKey == ''){
                 //lastKey为空，说明是第一个区间,statement = 0;

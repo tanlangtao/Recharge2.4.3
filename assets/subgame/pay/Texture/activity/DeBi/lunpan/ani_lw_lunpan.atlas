@@ -1,0 +1,146 @@
+
+ani_lw_lunpan.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+546546
+  rotate: false
+  xy: 2, 253
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+deng_a
+  rotate: false
+  xy: 35, 4
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+deng_l
+  rotate: false
+  xy: 358, 5
+  size: 22, 22
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+lw_lunpanzhizhen
+  rotate: false
+  xy: 185, 29
+  size: 180, 222
+  orig: 180, 222
+  offset: 0, 0
+  index: -1
+lw_pan_guang
+  rotate: false
+  xy: 2, 20
+  size: 181, 231
+  orig: 181, 231
+  offset: 0, 0
+  index: -1
+lw_pan_top
+  rotate: true
+  xy: 382, 201
+  size: 308, 81
+  orig: 309, 84
+  offset: 0, 2
+  index: -1
+you
+  rotate: false
+  xy: 260, 296
+  size: 57, 213
+  orig: 57, 213
+  offset: 0, 0
+  index: -1
+you_l
+  rotate: false
+  xy: 465, 367
+  size: 30, 142
+  orig: 30, 142
+  offset: 0, 0
+  index: -1
+you_l/you_l_00000
+  rotate: true
+  xy: 19, 3
+  size: 15, 14
+  orig: 30, 142
+  offset: 3, 1
+  index: -1
+you_l/you_l_00001
+  rotate: true
+  xy: 320, 3
+  size: 24, 36
+  orig: 30, 142
+  offset: 0, 0
+  index: -1
+you_l/you_l_00002
+  rotate: true
+  xy: 367, 141
+  size: 27, 56
+  orig: 30, 142
+  offset: 0, 0
+  index: -1
+you_l/you_l_00003
+  rotate: false
+  xy: 465, 196
+  size: 29, 76
+  orig: 30, 142
+  offset: 0, 1
+  index: -1
+you_l/you_l_00004
+  rotate: true
+  xy: 260, 265
+  size: 29, 91
+  orig: 30, 142
+  offset: 1, 6
+  index: -1
+you_l/you_l_00005
+  rotate: true
+  xy: 185, 2
+  size: 25, 94
+  orig: 30, 142
+  offset: 5, 24
+  index: -1
+you_l/you_l_00006
+  rotate: false
+  xy: 465, 274
+  size: 29, 91
+  orig: 30, 142
+  offset: 1, 44
+  index: -1
+you_l/you_l_00007
+  rotate: true
+  xy: 382, 170
+  size: 29, 76
+  orig: 30, 142
+  offset: 0, 65
+  index: -1
+you_l/you_l_00008
+  rotate: false
+  xy: 460, 137
+  size: 27, 57
+  orig: 30, 142
+  offset: 0, 85
+  index: -1
+you_l/you_l_00009
+  rotate: true
+  xy: 281, 3
+  size: 24, 37
+  orig: 30, 142
+  offset: 0, 105
+  index: -1
+you_l/you_l_00010
+  rotate: true
+  xy: 2, 2
+  size: 16, 15
+  orig: 30, 142
+  offset: 3, 126
+  index: -1
+zuo
+  rotate: false
+  xy: 319, 296
+  size: 57, 213
+  orig: 57, 213
+  offset: 0, 0
+  index: -1
