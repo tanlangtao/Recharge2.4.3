@@ -4960,7 +4960,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 538.67,
-      "height": 535.28
+      "height": 533.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5011,7 +5011,7 @@
     ],
     "paused": false,
     "defaultSkin": "",
-    "defaultAnimation": "stand",
+    "defaultAnimation": "",
     "_preCacheMode": 0,
     "_cacheMode": 0,
     "loop": true,

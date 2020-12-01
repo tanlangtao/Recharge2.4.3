@@ -86,8 +86,10 @@ export default class NewClass extends cc.Component {
             var action3 = cc.rotateBy(endAngle/90,endAngle)
         }
         let callBack = cc.callFunc(()=>{
-            this.playSpine(this.lwPanSpine,'stand',true,1,()=>{})
-            this.wins(callBackOut)
+            this.playSpine(this.lwPanSpine,'spin_guang',false,1,()=>{
+                this.wins(callBackOut)
+                this.playSpine(this.lwPanSpine,'stand',true,1,()=>{ })
+            })
         })
         this.lw_pan.runAction(cc.sequence(action1,action2,action3,callBack))
     }
