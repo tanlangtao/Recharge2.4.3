@@ -77,6 +77,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     WheelOfFortune : cc.Prefab = null;
+
+    @property(cc.Prefab)
+    RedRain : cc.Prefab = null;
     
     @property
     app = null;
@@ -187,6 +190,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_xyzp2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_xyzp1',this.currentIcon,249,86);
         }
+        else if(data.name == '四季发财红包雨2'){
+            this.app.loadIcon('activity/btn_redRain2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_redRain1',this.currentIcon,249,86);
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -295,7 +302,11 @@ export default class NewClass extends cc.Component {
             this.app.loadTitle('title/title_2rmjhd',this.title);
         }else  if(name == '幸运轮盘2'){
             var node = cc.instantiate(this.WheelOfFortune);
-            this.app.loadTitle('title/title_2rmjhd',this.title);
+            node.getComponent('payWheelOfFortune').setIdInfo(id,info)
+            this.app.loadTitle('title/xingyunlunpan',this.title);
+        }else  if(name == '四季发财红包雨2'){
+            var node = cc.instantiate(this.RedRain);
+            this.app.loadTitle('title/db_redrain',this.title);
         }
         content.addChild(node);
 

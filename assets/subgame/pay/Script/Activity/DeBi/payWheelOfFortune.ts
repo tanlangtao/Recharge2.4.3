@@ -28,6 +28,13 @@ export default class NewClass extends cc.Component {
     activity_id = 15
     app = null
     currentGold = ''
+    info = {
+        flow_rate:1,
+        one_lottery:'',
+        prizeList:[],
+        ten_lottery:''
+    }
+    data :any= {}
     setIdInfo(id,info){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
             info = []
@@ -35,40 +42,48 @@ export default class NewClass extends cc.Component {
         }else{
 
         }
+        this.info = info
         this.activity_id = id
+
     }
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+
+        this.info.prizeList.forEach((e,index)=>{
+            this.levelLabel[index].getComponent(cc.Label).string = e.prize
+        })
     }
-    public fetchRegisterGetGold(){
-        var url = `${this.app.UrlData.host}/api/activity/registerGetGold`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&activity_id=${this.activity_id}&device_id=${this.app.gHandler.appGlobal.deviceID}&token=${this.app.token}`
+    public fetchLuckyTurntable(num,outCallBack){
+        let MaskLayer = this.node.getChildByName('MaskLayer')
+        MaskLayer.active = true //开启遮罩 
+        var url = `${this.app.UrlData.host}/api/activity/luckyTurntable`;
+        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&num=${num}&token=${this.app.token}`
         this.app.ajax('POST',url,dataStr,(response)=>{
+            console.log(response)
             if(response.status == 0){
-                this.app.showAlert("领取成功!")
-                cc.log("response",response)
+                this.data = response.data
+                outCallBack()
             }else{
                 this.app.showAlert(response.msg)
+                MaskLayer.active=false
             }
-            let self = this;
         },(errstatus)=>{
-            this.app.hideLoading()
             this.app.showAlert(`网络错误${errstatus}`)
-            let self = this;
+            MaskLayer.active=false
         })
     }
     rotateBegin(endRotation,callBackOut=()=>{}){
         // rotateBy
-        var action1  = cc.rotateBy(0.3,45)
-        var action2 = cc.rotateBy(0.4,90)
-        var action3 = cc.rotateBy(1,360)
+        var action1  = cc.rotateBy(0.2,45)
+        var action2 = cc.rotateBy(0.3,90)
+        var action3 = cc.rotateBy(0.5,360)
         let callback = cc.callFunc(()=>{
             this.lw_pan.runAction(cc.sequence(action3,cc.callFunc(()=>{
                 this.ratateStop(endRotation,callBackOut)
             })))
         })
         this.lw_pan.runAction(cc.sequence(action1,action2,action3,callback))
-        this.playSpine(this.lwPanSpine,'spin',true,1,()=>{})
+        this.playSpine(this.lwPanSpine,'spin',false,0.5,()=>{})
     }
     ratateStop(endRotation,callBackOut){
         this.lw_pan.stopAllActions()
@@ -79,19 +94,28 @@ export default class NewClass extends cc.Component {
             endAngle = 45
             var action1 = cc.rotateBy((cha + 45)/225,cha + 45)
             var action2 = cc.rotateBy(0.3,45)
-            var action3 = cc.rotateBy(0.5,endAngle)
+            var action3 = cc.rotateBy(0.3,endAngle)
         }else{
-            var action1 = cc.rotateBy(0.2,45)
-            var action2 = cc.rotateBy(0.3,45)
-            var action3 = cc.rotateBy(endAngle/90,endAngle)
+            var action1 = cc.rotateBy(0.15,45)
+            var action2 = cc.rotateBy(0.2,45)
+            var action3 = cc.rotateBy(endAngle/120,endAngle)
         }
         let callBack = cc.callFunc(()=>{
-            this.playSpine(this.lwPanSpine,'spin_guang',false,1,()=>{
+            this.playSpine(this.lwPanSpine,'stop',false,1,()=>{
+                this.playSpine(this.lwPanSpine,'stand',true,1,()=>{})
                 this.wins(callBackOut)
-                this.playSpine(this.lwPanSpine,'stand',true,1,()=>{ })
             })
         })
         this.lw_pan.runAction(cc.sequence(action1,action2,action3,callBack))
+    }
+    getLevel(prize){
+       let level = 0
+        this.info.prizeList.forEach((e,index)=>{
+            if(prize == e.prize){
+                level = index+1
+            }
+        })
+       return level
     }
     getEndRotation(level){
         var rotation = 0
@@ -134,33 +158,44 @@ export default class NewClass extends cc.Component {
     //单抽
     singleClick(){
         let MaskLayer = this.node.getChildByName('MaskLayer')
-        MaskLayer.active = true //开启遮罩 
-        var endRotation = this.getEndRotation(Math.ceil(Math.random()*8))
-        let callBack = ()=>{
-            MaskLayer.active=false
+        var endRotation = 0
+        let level = 0
+        let outCallBack = ()=>{
+            let callBack = ()=>{
+                MaskLayer.active=false
+            }
+            level = this.getLevel(this.data.prize[0])
+            endRotation = this.getEndRotation(level)
+            this.rotateBegin(endRotation,callBack)
         }
-        this.rotateBegin(endRotation,callBack)
+        this.fetchLuckyTurntable(1,outCallBack)
     }
     //十连抽
     tenEvenClick(){
         let MaskLayer = this.node.getChildByName('MaskLayer')
-        MaskLayer.active = true //开启遮罩 
-        let endRotation = this.getEndRotation(Math.ceil(Math.random()*8))
-        let i = 1
-        let callBack = ()=>{
-            i++
-            if(i>10){
-                MaskLayer.active=false
-                return
+        let outCallBack = ()=>{
+            var endRotation = 0
+            let level = 0
+            //如果大于1，则说明是10连抽
+            let i = 0
+            let callBack = ()=>{
+                i++
+                if(i>=10){
+                    MaskLayer.active=false
+                    return
+                }
+                console.log(`十连第 ${i} 次`)
+                this.confirmClick()
+                level = this.getLevel(this.data.prize[i])
+                endRotation = this.getEndRotation(level)
+                this.rotateBegin(endRotation,callBack)
             }
-            console.log(`十连第 ${i} 次`)
-            this.confirmClick()
-            endRotation = this.getEndRotation(Math.ceil(Math.random()*8))
+            level = this.getLevel(this.data.prize[i])
+            endRotation = this.getEndRotation(level)
             this.rotateBegin(endRotation,callBack)
-            
-        }
-        console.log(`十连第 ${i} 次`)
-        this.rotateBegin(endRotation,callBack)
+             
+         }
+        this.fetchLuckyTurntable(10,outCallBack)
     }
     helpClick(){
 
