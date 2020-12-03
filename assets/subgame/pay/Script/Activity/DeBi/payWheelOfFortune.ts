@@ -28,6 +28,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     ListItem : cc.Prefab = null;
 
+    @property(cc.Node)
+    lw_frame_tip: cc.Node = null;
+
     activity_id = 15
     app = null
     currentGold = ''
@@ -40,7 +43,8 @@ export default class NewClass extends cc.Component {
     data :any= {}
     page = 1;
     listStatus = 'all' //all 表示全服务, single 表示个人
-
+    totalCpunt = 1//总条数
+    limit = 10
     setIdInfo(id,info){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
             info = []
@@ -58,9 +62,10 @@ export default class NewClass extends cc.Component {
         this.info.prizeList.forEach((e,index)=>{
             this.levelLabel[index].getComponent(cc.Label).string = e.prize
         })
-        this.fetchList(this.listStatus)
+        this.fetchList()
 
-        this.sccrollView.on('scroll-to-bottom',this.ScrollToBottom);
+        this.rotateLoop()
+        this.scrollLoop()
     }
     public fetchLuckyTurntable(num,outCallBack){
         let MaskLayer = this.node.getChildByName('MaskLayer')
@@ -82,6 +87,7 @@ export default class NewClass extends cc.Component {
         })
     }
     rotateBegin(endRotation,callBackOut=()=>{}){
+        this.lw_pan.stopAllActions()
         // rotateBy
         var action1  = cc.rotateBy(0.2,45)
         var action2 = cc.rotateBy(0.3,90)
@@ -116,6 +122,14 @@ export default class NewClass extends cc.Component {
             })
         })
         this.lw_pan.runAction(cc.sequence(action1,action2,action3,callBack))
+    }
+    rotateLoop(){
+        // rotateBy
+        var action1  = cc.rotateBy(1000,36000)
+        let callback = cc.callFunc(()=>{
+            this.lw_pan.runAction(cc.sequence(action1,callback))
+        })
+        this.lw_pan.runAction(cc.sequence(action1,callback))
     }
     getLevel(prize){
        let level = 0
@@ -174,16 +188,17 @@ export default class NewClass extends cc.Component {
             })
         })
     }
-    fetchList(item){
-        if(item ='all'){
+    fetchList(){
+        if(this.listStatus =='all'){
             //不传id，返回全服务记录
-            var url = `${this.app.UrlData.host}/api/activity/activityList?package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=10`;
-        }else{
-            var url = `${this.app.UrlData.host}/api/activity/activityList?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=10`;
+            var url = `${this.app.UrlData.host}/api/activity/activityList?package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
+        }else if(this.listStatus == 'single'){
+            var url = `${this.app.UrlData.host}/api/activity/activityList?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
         }
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if(response.status == 0){
+                this.totalCpunt = response.count
                 this.addList(response.data);
             }else{
                 this.app.showAlert(response.msg)
@@ -202,10 +217,6 @@ export default class NewClass extends cc.Component {
             node.getComponent('payWheelItem').init(item.user_name,this.getLevelName(info.prize[0]),info.prize[0])
         });
     }
-    ScrollToBottom = ()=>{
-        this.page +=1
-        this.fetchList(this.listStatus)
-    }
     //全服
     quanFuClick(){
         var content = this.sccrollView.getChildByName('view').getChildByName('content');
@@ -213,16 +224,17 @@ export default class NewClass extends cc.Component {
 
         this.listStatus = 'all'
         this.page = 1
-        this.fetchList(this.listStatus)
+        this.fetchList()
+        this.scrollLoop()
     }
     //个人
     geRenClick(){
         var content = this.sccrollView.getChildByName('view').getChildByName('content');
         content.removeAllChildren();
-
         this.listStatus = 'single'
         this.page = 1
-        this.fetchList(this.listStatus)
+        this.fetchList()
+        this.scrollLoop()
     }
     //单抽
     singleClick(){
@@ -232,6 +244,7 @@ export default class NewClass extends cc.Component {
         let outCallBack = ()=>{
             let callBack = ()=>{
                 MaskLayer.active=false
+                this.rotateLoop()
             }
             level = this.getLevel(this.data.prize[0])
             endRotation = this.getEndRotation(level)
@@ -251,6 +264,7 @@ export default class NewClass extends cc.Component {
                 i++
                 if(i>=10){
                     MaskLayer.active=false
+                    this.rotateLoop()
                     return
                 }
                 console.log(`十连第 ${i} 次`)
@@ -267,7 +281,7 @@ export default class NewClass extends cc.Component {
         this.fetchLuckyTurntable(10,outCallBack)
     }
     helpClick(){
-
+        this.lw_frame_tip.active = !this.lw_frame_tip.active
     }
     confirmClick(){
         let sp2 = this.zhongjiangBg.getChildByName('sp2')
@@ -296,7 +310,37 @@ export default class NewClass extends cc.Component {
             });
         }
     }
+    scrollLoop(){
+        var content = this.sccrollView.getChildByName('view').getChildByName('content');
+        content.stopAllActions()
+        content.position=cc.v2(0,-120)
+        let idx = 0;
+        var action1 = cc.moveBy(10,cc.v2(0,245))
+        let middleCallBack = cc.callFunc(()=>{
+            this.page +=1
+            let totalPage = Math.ceil(this.totalCpunt / this.limit)
+            if(this.page > totalPage){
+                this.page = totalPage
+                return 
+            }
+            this.fetchList()
+        })
+        let callBack = cc.callFunc(()=>{
+            let totalPage = Math.ceil(this.totalCpunt / this.limit)
+            idx +=1
+            if(idx >totalPage){
+                content.stopAllActions()
+                idx = 0
+                var action3 = cc.moveBy(0,cc.v2(0,245))
+                var action4 = cc.moveTo(0,cc.v2(0,-120))
+                content.runAction(cc.sequence(action3,action4,action1,callBack))
+                return 
+            }else{
+                content.runAction(cc.sequence(middleCallBack,action1,callBack))
+            }
+        })
+        content.runAction(cc.sequence(middleCallBack,action1,callBack))
+    }
     onDestroy(){
-        this.sccrollView.off('scroll-to-bottom');
     }
 }
