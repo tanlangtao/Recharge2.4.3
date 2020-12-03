@@ -25,6 +25,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     levelLabel :cc.Label[] = [];
 
+    @property(cc.Prefab)
+    ListItem : cc.Prefab = null;
+
     activity_id = 15
     app = null
     currentGold = ''
@@ -35,6 +38,9 @@ export default class NewClass extends cc.Component {
         ten_lottery:''
     }
     data :any= {}
+    page = 1;
+    listStatus = 'all' //all 表示全服务, single 表示个人
+
     setIdInfo(id,info){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
             info = []
@@ -52,6 +58,9 @@ export default class NewClass extends cc.Component {
         this.info.prizeList.forEach((e,index)=>{
             this.levelLabel[index].getComponent(cc.Label).string = e.prize
         })
+        this.fetchList(this.listStatus)
+
+        this.sccrollView.on('scroll-to-bottom',this.ScrollToBottom);
     }
     public fetchLuckyTurntable(num,outCallBack){
         let MaskLayer = this.node.getChildByName('MaskLayer')
@@ -83,7 +92,7 @@ export default class NewClass extends cc.Component {
             })))
         })
         this.lw_pan.runAction(cc.sequence(action1,action2,action3,callback))
-        this.playSpine(this.lwPanSpine,'spin',false,0.5,()=>{})
+        this.playSpine(this.lwPanSpine,'spin',false,0.7,()=>{})
     }
     ratateStop(endRotation,callBackOut){
         this.lw_pan.stopAllActions()
@@ -94,7 +103,7 @@ export default class NewClass extends cc.Component {
             endAngle = 45
             var action1 = cc.rotateBy((cha + 45)/225,cha + 45)
             var action2 = cc.rotateBy(0.3,45)
-            var action3 = cc.rotateBy(0.3,endAngle)
+            var action3 = cc.rotateBy(0.4,endAngle)
         }else{
             var action1 = cc.rotateBy(0.15,45)
             var action2 = cc.rotateBy(0.2,45)
@@ -117,6 +126,24 @@ export default class NewClass extends cc.Component {
         })
        return level
     }
+    getLevelName(prize){
+        let level = 0
+        let levelName = ''
+         this.info.prizeList.forEach((e,index)=>{
+             if(prize == e.prize){
+                 level = index+1
+             }
+         })
+
+        switch (level){
+            case 1: levelName = '时来运转';break;
+            case 6: levelName = '一路发财';break;
+            case 7: levelName = '六六大顺';break;
+            case 8: levelName = '天降豪礼';break;
+            default: levelName = ''; break;
+        }
+        return levelName
+     }
     getEndRotation(level){
         var rotation = 0
         console.log(level,rotation)
@@ -147,13 +174,55 @@ export default class NewClass extends cc.Component {
             })
         })
     }
+    fetchList(item){
+        if(item ='all'){
+            //不传id，返回全服务记录
+            var url = `${this.app.UrlData.host}/api/activity/activityList?package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=10`;
+        }else{
+            var url = `${this.app.UrlData.host}/api/activity/activityList?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=10`;
+        }
+        this.app.ajax('GET',url,'',(response)=>{
+            this.app.hideLoading()
+            if(response.status == 0){
+                this.addList(response.data);
+            }else{
+                this.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            this.app.showAlert(`网络错误${errstatus}`)
+        })
+    }
+    addList(data){
+        cc.log(data)
+        data.forEach((item) => {
+            let info = JSON.parse(item.receive_info);
+            var node = cc.instantiate(this.ListItem);
+            var content = this.sccrollView.getChildByName('view').getChildByName('content');
+            content.addChild(node);
+            node.getComponent('payWheelItem').init(item.user_name,this.getLevelName(info.prize[0]),info.prize[0])
+        });
+    }
+    ScrollToBottom = ()=>{
+        this.page +=1
+        this.fetchList(this.listStatus)
+    }
     //全服
     quanFuClick(){
+        var content = this.sccrollView.getChildByName('view').getChildByName('content');
+        content.removeAllChildren();
 
+        this.listStatus = 'all'
+        this.page = 1
+        this.fetchList(this.listStatus)
     }
     //个人
     geRenClick(){
+        var content = this.sccrollView.getChildByName('view').getChildByName('content');
+        content.removeAllChildren();
 
+        this.listStatus = 'single'
+        this.page = 1
+        this.fetchList(this.listStatus)
     }
     //单抽
     singleClick(){
@@ -226,5 +295,8 @@ export default class NewClass extends cc.Component {
                 }
             });
         }
+    }
+    onDestroy(){
+        this.sccrollView.off('scroll-to-bottom');
     }
 }
