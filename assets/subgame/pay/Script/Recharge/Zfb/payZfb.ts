@@ -95,8 +95,12 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('recharge/flagname_unionpay',this.iconFont,168,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
         }else if(this.channel =='im_pay'){
+            if(this.app.UrlData.package_id == 2){
+                this.app.loadIcon('recharge/flagname_rgpay',this.iconFont,136,42)
+            }else{
+                this.app.loadIcon('recharge/title_im',this.iconFont,136,45)
+            }
             this.app.loadIcon('recharge/icon_im',this.icon,100,100)
-            this.app.loadIcon('recharge/title_im',this.iconFont,136,45)
             this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
         }
     }

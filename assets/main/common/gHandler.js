@@ -8,6 +8,7 @@
 
 let gHandler = {
     congratulationIndex: 2000, // 恭喜获得金币层级
+    isJFCJ:true
 }
 let gameGlobal = {
     isdev: true, // 是否开发状态

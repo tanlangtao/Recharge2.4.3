@@ -97,7 +97,6 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '人工代充值'){
             this.app.loadIcon('recharge/menu/menu_VIPpay_1',this.normalIcon,207,39)
             this.app.loadIcon('recharge/menu/menu_VIPpay_2',this.currentIcon,249,86)
-
             let percent = 0
             discount_rate.daichong.forEach( (e,i) => {
                 if(e.package_id == this.app.UrlData.package_id) {
@@ -106,9 +105,13 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == 'IM充值'){
-            this.app.loadIcon('recharge/menu/menu_IMpay_1',this.normalIcon,207,39)
-            this.app.loadIcon('recharge/menu/menu_IMpay_2',this.currentIcon,249,86)
-
+            if(this.app.UrlData.package_id == 2){
+                this.app.loadIcon('recharge/menu/menu_rgpay_1',this.normalIcon,207,39)
+                this.app.loadIcon('recharge/menu/menu_rgpay_2',this.currentIcon,249,86)
+            }else{
+                this.app.loadIcon('recharge/menu/menu_IMpay_1',this.normalIcon,207,39)
+                this.app.loadIcon('recharge/menu/menu_IMpay_2',this.currentIcon,249,86)
+            }
             let percent = 0
             discount_rate.im_pay.forEach( (e,i) => {
                 if(e.package_id == this.app.UrlData.package_id) {

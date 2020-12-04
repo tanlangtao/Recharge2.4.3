@@ -1,4 +1,4 @@
-
+import gHandler = require("../../../../main/common/gHandler");
 const {ccclass, property} = cc._decorator;
 @ccclass
 export default class NewClass extends cc.Component {
@@ -88,6 +88,19 @@ export default class NewClass extends cc.Component {
 
     public addNavToggle(){
         this.arr.sort((a,b)=>a.order_by-b.order_by);
+        
+        if(gHandler.isJFCJ){
+            //如果是从积分抽奖过来，则优先显示积分抽奖
+            let arr_0 = this.arr[0]
+            this.arr.forEach((e,i) => {
+                if(e.name == '幸运轮盘2'){
+                    this.arr[0] = e
+                    this.arr[i] = arr_0
+                }
+            })
+            gHandler.isJFCJ = false
+        }
+        
         for(let i:number = 0; i< this.arr.length; i++){
             let data = this.arr[i];
             var node = cc.instantiate(this.NavToggle);
@@ -95,6 +108,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('payActivityNav').init(data)
         }
         if(this.arr.length==0) return;
+        
         
         if(this.arr[0].info != "" && this.arr[0].info != "{}"){
             node.getComponent('payActivityNav').addContent(this.arr[0].name,JSON.parse(this.arr[0].info),this.arr[0].id);
