@@ -80,6 +80,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     RedRain : cc.Prefab = null;
+
+    @property(cc.Prefab)
+    DailySignTwo :cc.Prefab = null;
     
     @property
     app = null;
@@ -194,6 +197,17 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_redRain2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_redRain1',this.currentIcon,249,86);
         }
+        else if(data.name == '每日签到2'){
+            this.app.loadIcon('activity/btn_qd2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_qd1',this.currentIcon,249,86);
+        }
+        //响应每日签到2，显示红点
+        if(data.name == '每日签到2'){
+            this.node.getChildByName('tip').active = true
+            cc.systemEvent.on('showDailySignTip',this.showDailySignTip.bind(this))
+            cc.systemEvent.on('hideDailySignTip',this.hideDailySignTip.bind(this))
+            
+        }
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -201,7 +215,14 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.title = cc.find("Canvas/Activity/header/txt_title").getComponent(cc.Sprite)
     }
-
+    showDailySignTip(){
+        console.log('showDailySignTip')
+        this.node.getChildByName('tip').active = true
+    }
+    hideDailySignTip(){
+        console.log('hideDailySignTip')
+        this.node.getChildByName('tip').active = false
+    }
     onClick(){
         //按键音效
         this.app.clickClip.play();
@@ -212,6 +233,12 @@ export default class NewClass extends cc.Component {
             this.app.showLoading();
         }
         this.addContent(this.name,JSON.parse(this.data.info),this.id)
+
+        if(this.name == '每日签到2'){
+            cc.systemEvent.emit("hideDailySignTip")
+        }else{
+            cc.systemEvent.emit("showDailySignTip")
+        }
     }
 
     addContent(name,info,id){
@@ -308,7 +335,16 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.RedRain);
             this.app.loadTitle('title/db_redrain',this.title);
         }
+        else  if(name == '每日签到2'){
+            var node = cc.instantiate(this.DailySignTwo);
+            node.getComponent('payDailySign').setIdInfo(id,info)
+            this.app.loadTitle('title/mrqd',this.title);
+        }
         content.addChild(node);
 
+    }
+    onDestroy(){
+        cc.systemEvent.off('showDailySignTip')
+        cc.systemEvent.off('hideDailySignTip')
     }
 }
