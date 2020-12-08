@@ -66,6 +66,8 @@ export default class NewClass extends cc.Component {
 
         this.rotateLoop()
         this.scrollLoop()
+
+        this.fetchgetUserIntegral()
     }
     public fetchLuckyTurntable(num,outCallBack){
         let MaskLayer = this.node.getChildByName('MaskLayer')
@@ -188,6 +190,20 @@ export default class NewClass extends cc.Component {
             })
         })
     }
+    fetchgetUserIntegral(){
+        var url = `${this.app.UrlData.host}/api/activity/getUserIntegral?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
+        this.app.ajax('GET',url,'',(response)=>{
+            this.app.hideLoading()
+            if(response.status == 0){
+                //设置当前积分
+                this.integralLabel.string = `${response.data.value}`
+            }else{
+                this.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            this.app.showAlert(`网络错误${errstatus}`)
+        })
+    }
     fetchList(){
         if(this.listStatus =='all'){
             //不传id，返回全服务记录
@@ -238,12 +254,17 @@ export default class NewClass extends cc.Component {
     }
     //单抽
     singleClick(){
+        if(Number(this.integralLabel.string)<1000){
+            this.app.showAlert('您的积分余额不足！')
+            return
+        }
         let MaskLayer = this.node.getChildByName('MaskLayer')
         var endRotation = 0
         let level = 0
         let outCallBack = ()=>{
             let callBack = ()=>{
                 MaskLayer.active=false
+                this.fetchgetUserIntegral()
                 this.rotateLoop()
             }
             level = this.getLevel(this.data.prize[0])
@@ -254,6 +275,10 @@ export default class NewClass extends cc.Component {
     }
     //十连抽
     tenEvenClick(){
+        if(Number(this.integralLabel.string)<9000){
+            this.app.showAlert('您的积分余额不足！')
+            return
+        }
         let MaskLayer = this.node.getChildByName('MaskLayer')
         let outCallBack = ()=>{
             var endRotation = 0
@@ -264,6 +289,7 @@ export default class NewClass extends cc.Component {
                 i++
                 if(i>=10){
                     MaskLayer.active=false
+                    this.fetchgetUserIntegral()
                     this.rotateLoop()
                     return
                 }

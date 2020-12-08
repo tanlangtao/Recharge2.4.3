@@ -105,7 +105,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/menu_alms_2',this.normalIcon,242,86)
             this.app.loadIcon('activity/menu_alms_1',this.currentIcon,249,86);
         }
-        else if(data.name == '每日任务'){
+        else if(data.name == '每日任务2'){
             this.app.loadIcon('activity/btn_dailyMission2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_dailyMission1',this.currentIcon,249,86);
         }
@@ -202,11 +202,8 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_qd1',this.currentIcon,249,86);
         }
         //响应每日签到2，显示红点
-        if(data.name == '每日签到2'){
-            this.node.getChildByName('tip').active = true
-            cc.systemEvent.on('showDailySignTip',this.showDailySignTip.bind(this))
-            cc.systemEvent.on('hideDailySignTip',this.hideDailySignTip.bind(this))
-            
+        if(this.name == '每日签到2'){
+            this.fetchgetSignWeekInfo(this.id)
         }
     }
     // LIFE-CYCLE CALLBACKS:
@@ -227,7 +224,7 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.clickClip.play();
         if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'||this.name == '救济金活动'|| 
-        this.name == '每日任务'||this.name == "每周佣金奖励" || this.name=="首存彩金6"|| 
+        this.name == '每日任务2'||this.name == "每周佣金奖励" || this.name=="首存彩金6"|| 
         this.name=="每日救援金6" || this.name =='签到奖励6'|| this.name =='流水闯关1'
         ){
             this.app.showLoading();
@@ -235,10 +232,25 @@ export default class NewClass extends cc.Component {
         this.addContent(this.name,JSON.parse(this.data.info),this.id)
 
         if(this.name == '每日签到2'){
-            cc.systemEvent.emit("hideDailySignTip")
-        }else{
-            cc.systemEvent.emit("showDailySignTip")
+            this.fetchgetSignWeekInfo(this.id)
         }
+    }
+    public fetchgetSignWeekInfo(activity_id){
+        var url = `${this.app.UrlData.host}/api/activity/getSignWeekInfo?user_id=${this.app.UrlData.user_id}&activity_id=${activity_id}&token=${this.app.token}`;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                if(response.data.sign_today==1){
+                    cc.systemEvent.emit("hideDailySignTip")
+                }else{
+                    cc.systemEvent.emit("showDailySignTip")
+                }
+            }else{
+                this.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            this.app.hideLoading()
+            this.app.showAlert(`网络错误${errstatus}`)
+        })
     }
 
     addContent(name,info,id){
@@ -253,7 +265,7 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.FreeGold);
             node.getComponent('payFreeGold').setIdInfo(id,info);
             this.app.loadTitle('title/alms_zi2',this.title);
-        }else if(name == '每日任务'){
+        }else if(name == '每日任务2'){
             var node = cc.instantiate(this.DailyActivity);
             node.getComponent('payDailyActivity').setIdInfo(id,info);
             this.app.loadTitle('title/dm_title',this.title);
@@ -343,6 +355,7 @@ export default class NewClass extends cc.Component {
         content.addChild(node);
 
     }
+    
     onDestroy(){
         cc.systemEvent.off('showDailySignTip')
         cc.systemEvent.off('hideDailySignTip')

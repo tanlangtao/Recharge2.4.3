@@ -68,7 +68,7 @@ export default class NewClass extends cc.Component {
 
     public addHuodong(){
         this.huodongConfig.data.forEach((e)=>{
-            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || e.name == "每日任务"||
+            if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || e.name == "每日任务2"||
             e.name == "新人大礼包"||e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
             e.name == "充值返利" || e.name == "推荐好友"||e.name == "开业注册送1" || e.name == "新用户首次存送1" ||
             e.name == "老用户每日存送1" ||e.name == "首存彩金6"  ||  e.name == "每日救援金6" || e.name =='签到奖励6' ||
@@ -79,11 +79,11 @@ export default class NewClass extends cc.Component {
                 this.arr.push(e);
             }
         });
-        this.arr.push({
-            name:'每日签到2',
-            info:JSON.stringify({"game_id": ["5b1f3a3cb76a591e7f2517a6", "5c6a62be7ff587m117d446aa", "5b1f3a3cb76a591e7f251722", "5b1f3a3cb76a591e7f251718", "5b1f3a3cb76a591e7f251713", "5b1f3a3cb76a591e7f251716", "5b1f3a3cb76a591e7f251712", "5b1f3a3cb76a591e7f251724"], "level_1": {"gold": 38, "statement": 888}, "level_2": {"gold": 158, "statement": 3888}, "level_3": {"gold": 258, "statement": 8888}, "level_4": {"gold": 1088, "statement": 28888}, "level_5": {"gold": 1888, "statement": 58888}, "flow_rate": 1}),
-            id:8
-        })
+        // this.arr.push({
+        //     name:'每日任务',
+        //     info:JSON.stringify({"game": [{"gold": 10, "rounds": 2, "game_id": "5b1f3a3cb76a591e7f251711", "task_id": 100, "integral": 5}, {"gold": 10000, "game_id": "5b1f3a3cb76a591e7f251711", "task_id": 101, "integral": 10000, "winround": 1}, {"gold": 10000, "rounds": 3, "game_id": "5b1f3a3cb76a591e7f251715", "task_id": 102, "integral": 10000}, {"gold": 10000, "game_id": "5b1f3a3cb76a591e7f251715", "task_id": 103, "integral": 10000, "winround": 2}], "proxy": [{"gold": 200, "task_id": 300, "integral": 10000, "children_firstpay_num": 1}, {"gold": 10000, "task_id": 301, "integral": 10000, "children_firstpay_num": 2}], "bylevel": [{"gold": 100, "task_id": 400, "integral": 30}, {"gold": 100, "task_id": 401, "integral": 60}, {"gold": 100, "task_id": 402, "integral": 90}, {"gold": 100, "task_id": 403, "integral": 150}], "recharge": [{"gold": 10000, "task_id": 200, "integral": 10000, "recharge_num": 1}, {"gold": 10000, "task_id": 201, "integral": 10000, "recharge_amount": 200}], "flow_rate": 10}),
+        //     id:14
+        // })
     }
 
     public addNavToggle(){
