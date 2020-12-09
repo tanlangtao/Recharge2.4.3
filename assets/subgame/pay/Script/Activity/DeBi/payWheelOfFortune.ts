@@ -50,23 +50,19 @@ export default class NewClass extends cc.Component {
             info = []
             console.log("活动内容未配置！")
         }else{
-
         }
         this.info = info
         this.activity_id = id
-
     }
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-
         this.info.prizeList.forEach((e,index)=>{
             this.levelLabel[index].getComponent(cc.Label).string = e.prize
         })
+        this.addRangeList()
         this.fetchList()
-
         this.rotateLoop()
         this.scrollLoop()
-
         this.fetchgetUserIntegral()
     }
     public fetchLuckyTurntable(num,outCallBack){
@@ -159,7 +155,16 @@ export default class NewClass extends cc.Component {
             default: levelName = ''; break;
         }
         return levelName
-     }
+    }
+    getPrizeByLevel(level){
+        let prize = 0
+         this.info.prizeList.forEach((e,index)=>{
+             if(level == index+1){
+                prize = e.prize
+             }
+         })
+        return prize
+    }
     getEndRotation(level){
         var rotation = 0
         console.log(level,rotation)
@@ -230,13 +235,28 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.ListItem);
             var content = this.sccrollView.getChildByName('view').getChildByName('content');
             content.addChild(node);
-            node.getComponent('payWheelItem').init(item.user_name,this.getLevelName(info.prize[0]),info.prize[0])
+            var user_name1 = `${item.user_name}`.slice(0,3)
+            var user_name2 = `${item.user_name}`.substring(`${item.user_name}`.length-3)
+            var user_name = user_name1+'***'+user_name2
+            node.getComponent('payWheelItem').init(user_name,this.getLevelName(info.prize[0]),info.prize[0])
         });
+    }
+    addRangeList(){
+        for(var i =0;i<15;i++){
+            var node = cc.instantiate(this.ListItem);
+            let id = this.app.config.randId(123000000,999999999)
+            let level = this.app.config.randNum(1,8)
+            let prize = this.getPrizeByLevel(level)
+            var content = this.sccrollView.getChildByName('view').getChildByName('content');
+            content.addChild(node);
+            node.getComponent('payWheelItem').init(id,this.getLevelName(prize),prize)
+        }
     }
     //全服
     quanFuClick(){
         var content = this.sccrollView.getChildByName('view').getChildByName('content');
         content.removeAllChildren();
+        this.addRangeList()
 
         this.listStatus = 'all'
         this.page = 1
@@ -362,10 +382,10 @@ export default class NewClass extends cc.Component {
                 content.runAction(cc.sequence(action3,action4,action1,callBack))
                 return 
             }else{
-                content.runAction(cc.sequence(middleCallBack,action1,callBack))
+                content.runAction(cc.sequence(action1,middleCallBack,action1,callBack))
             }
         })
-        content.runAction(cc.sequence(middleCallBack,action1,callBack))
+        content.runAction(cc.sequence(action1,middleCallBack,action1,callBack))
     }
     onDestroy(){
     }

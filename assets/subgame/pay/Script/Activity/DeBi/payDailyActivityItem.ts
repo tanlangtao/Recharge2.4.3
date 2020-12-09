@@ -136,13 +136,13 @@ export default class NewClass extends cc.Component {
     switchRoomLevel(key){
         switch (key) {
             case '1':
-                return "初级场"
+                return "体验场"
             case '2' :
-                return "中级场"
+                return "初级场"
             case '3':
-                return "高级场"
+                return "中级场"
             case '4':
-                return "专家场"
+                return "高级场"
             default :
                 console.log('房间等级错误',key)
                 return ""
@@ -224,61 +224,166 @@ export default class NewClass extends cc.Component {
         return remotedata;
     }
     /** 判断子游戏是否下载更新等 */
+    // checkSubGameDownload(enname) {
+    //     let subdata = this.getRemoteSubgame(this.app.gHandler.gameConfig.gamelist[enname].game_id)
+    //     cc.log(enname)
+    //     cc.log("this.app.gHandler.gameConfig.gamelist",this.app.gHandler.gameConfig.gamelist)
+    //     if (subdata.open == 0) {
+    //         cc.log(" | subgame : " + enname + " subdata.open 等于0");
+    //         this.app.gHandler.gameConfig.gamelist[enname].isDown = false
+    //     } else {
+    //         let subgamev;
+    //         let localsubv = this.app.gHandler.localStorage.get(enname, "versionKey");
+    //         if (enname == 'zrsx1' || enname == 'zrsx2') {
+    //             localsubv = this.app.gHandler.localStorage.get('zrsx', "versionKey");
+    //             subgamev = this.app.gHandler.appGlobal.subGameVersion['zrsx'];
+    //         } else {
+    //             subgamev = this.app.gHandler.appGlobal.subGameVersion[enname];
+    //         }
+    //         let needup = false
+    //         cc.log("活动前往子游戏","subgamev",subgamev,"localsubv",localsubv)
+    //         if (!localsubv) {
+    //             needup = true;
+    //         } else {
+    //             let vA = subgamev.split('.');
+    //             let vB = localsubv.split('.');
+    //             for (let i = 0; i < vA.length; ++i) {
+    //                 let a = parseInt(vA[i]);
+    //                 let b = parseInt(vB[i] || 0);
+    //                 if (a != b) {
+    //                     needup = true;
+    //                     break;
+    //                 }
+    //             }
+    //             if (vB.length != vA.length) {
+    //                 needup = true;
+    //             }
+    //         }
+    //         let self = this
+    //         if (needup && !cc.sys.isBrowser) {
+    //             cc.log(" | subgame : " + enname + " need update");
+    //             self.payDailyCompoment.app.showAlert("游戏需要更新!请返回大厅更新");
+    //             this.app.gHandler.gameConfig.gamelist[enname].isDown = false
+    //         } else {
+    //             cc.log(" | subgame : " + enname + " not need update")
+    //             this.app.gHandler.gameConfig.gamelist[enname].isDown = true
+    //             let subgamern = enname
+    //             if (this.app.gHandler.appGlobal.isRelease) {
+    //                 !this.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
+    //                     if (err) {
+    //                         cc.log(err)
+    //                         return self.payDailyCompoment.app.showAlert("加载游戏失败！请返回大厅进入！");
+    //                     }
+    //                     cc.director.loadScene(this.app.gHandler.gameConfig.gamelist[subgamern].lanchscene);
+    //                     // console.log('load subpackage script successfully.', subgamern);
+    //                 });
+    //             }else{
+    //                 cc.director.loadScene(this.app.gHandler.gameConfig.gamelist[subgamern].lanchscene);
+    //             }
+    //         }
+    //     }
+    // }
+        /** 判断子游戏是否下载更新等 */
     checkSubGameDownload(enname) {
-        let subdata = this.getRemoteSubgame(this.app.gHandler.gameConfig.gamelist[enname].game_id)
-        cc.log(enname)
-        cc.log("this.app.gHandler.gameConfig.gamelist",this.app.gHandler.gameConfig.gamelist)
+        let self = this
+        let subdata = self.getRemoteSubgame(self.app.gHandler.gameConfig.gamelist[enname].game_id)
         if (subdata.open == 0) {
-            cc.log(" | subgame : " + enname + " subdata.open 等于0");
-            this.app.gHandler.gameConfig.gamelist[enname].isDown = false
+            self.payDailyCompoment.app.showAlert("游戏没开放！");
         } else {
+            if (self.app.gHandler.gameGlobal.isdev) { // 模拟器 或者 开发状态 || cc.sys.os == "Windows"
+                cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                return
+            }
             let subgamev;
-            let localsubv = this.app.gHandler.localStorage.get(enname, "versionKey");
+            let localsubv = self.app.gHandler.localStorage.get(enname, "versionKey");
             if (enname == 'zrsx1' || enname == 'zrsx2') {
-                localsubv = this.app.gHandler.localStorage.get('zrsx', "versionKey");
-                subgamev = this.app.gHandler.appGlobal.subGameVersion['zrsx'];
+                localsubv = self.app.gHandler.localStorage.get('zrsx', "versionKey");
+                subgamev = self.app.gHandler.appGlobal.subGameVersion['zrsx'];
+            } else if (enname == 'sbty1' || enname == 'sbty2') {
+                localsubv = self.app.gHandler.localStorage.get('sbty', "versionKey");
+                subgamev = self.app.gHandler.appGlobal.subGameVersion['sbty'];
             } else {
-                subgamev = this.app.gHandler.appGlobal.subGameVersion[enname];
+                subgamev = self.app.gHandler.appGlobal.subGameVersion[enname];
             }
-            let needup = false
-            cc.log("活动前往子游戏","subgamev",subgamev,"localsubv",localsubv)
-            if (!localsubv) {
-                needup = true;
-            } else {
-                let vA = subgamev.split('.');
-                let vB = localsubv.split('.');
-                for (let i = 0; i < vA.length; ++i) {
-                    let a = parseInt(vA[i]);
-                    let b = parseInt(vB[i] || 0);
-                    if (a != b) {
-                        needup = true;
-                        break;
-                    }
-                }
-                if (vB.length != vA.length) {
-                    needup = true;
-                }
-            }
-            let self = this
+            // let txt = "local version: " + localsubv + " | remote version:" + subgamev;
+            let needup = self.app.gHandler.commonTools.versionCompare(localsubv, subgamev)
             if (needup && !cc.sys.isBrowser) {
-                cc.log(" | subgame : " + enname + " need update");
-                self.payDailyCompoment.app.showAlert("游戏需要更新!请返回大厅更新");
-                this.app.gHandler.gameConfig.gamelist[enname].isDown = false
+                // console.log(txt + " | subgame : " + enname + " need update");
+                self.payDailyCompoment.app.showAlert("游戏需要下载更新!请返回大厅下载更新");
             } else {
-                cc.log(" | subgame : " + enname + " not need update")
-                this.app.gHandler.gameConfig.gamelist[enname].isDown = true
-                let subgamern = enname
-                if (this.app.gHandler.appGlobal.isRelease) {
-                    !this.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
-                        if (err) {
-                            cc.log(err)
-                            return self.payDailyCompoment.app.showAlert("加载游戏失败！请返回大厅进入！");
+                // console.log(txt + " | subgame : " + enname + " not need update")
+                if (self.app.gHandler.appGlobal.isRelease) {
+                    let subgamern = enname
+                    if (enname == "zrsx1" || enname == "zrsx2") {
+                        subgamern = "zrsx"
+                        if (enname == "zrsx1") {
+                            if (cc.sys.isBrowser) {
+                                setTimeout(() => {
+                                    !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
+                                        if (err) {
+                                            return console.error(err);
+                                        }
+                                        cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                        console.log('load subpackage script successfully.', subgamern);
+                                    });
+                                }, 3000)
+                            } else {
+                                !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
+                                    if (err) {
+                                        return console.error(err);
+                                    }
+                                    cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                    console.log('load subpackage script successfully.', subgamern);
+                                });
+                            }
                         }
-                        cc.director.loadScene(this.app.gHandler.gameConfig.gamelist[subgamern].lanchscene);
-                        // console.log('load subpackage script successfully.', subgamern);
-                    });
+                    } else if (enname == "sbty1" || enname == "sbty2") {
+                        subgamern = "sbty"
+                        if (enname == "sbty1") {
+                            if (cc.sys.isBrowser) {
+                                setTimeout(() => {
+                                    !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
+                                        if (err) {
+                                            return console.error(err);
+                                        }
+                                        cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                        console.log('load subpackage script successfully.', subgamern);
+                                    });
+                                }, 3000)
+                            } else {
+                                !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
+                                    if (err) {
+                                        return console.error(err);
+                                    }
+                                    cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                        console.log('load subpackage script successfully.', subgamern);
+                                });
+                            }
+                        }
+                    } else {
+                        if (cc.sys.isBrowser) {
+                            setTimeout(() => {
+                                !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
+                                    if (err) {
+                                        return console.error(err);
+                                    }
+                                    cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                    console.log('load subpackage script successfully.', subgamern);
+                                });
+                            }, 3000)
+                        } else {
+                            !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
+                                if (err) {
+                                    return console.error(err);
+                                }
+                                cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                console.log('load subpackage script successfully.', subgamern);
+                            });
+                        }
+                    }
                 }else{
-                    cc.director.loadScene(this.app.gHandler.gameConfig.gamelist[subgamern].lanchscene);
+                    console.log('gHandler.appGlobal.isRelease',self.app.gHandler.appGlobal.isRelease)
+                    cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
                 }
             }
         }
