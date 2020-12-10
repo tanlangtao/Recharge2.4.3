@@ -231,14 +231,33 @@ export default class NewClass extends cc.Component {
     addList(data){
         cc.log(data)
         data.forEach((item) => {
+            if(item.activity_name!='幸运轮盘2'){
+                return 
+            }
             let info = JSON.parse(item.receive_info);
-            var node = cc.instantiate(this.ListItem);
-            var content = this.sccrollView.getChildByName('view').getChildByName('content');
-            content.addChild(node);
-            var user_name1 = `${item.user_name}`.slice(0,3)
-            var user_name2 = `${item.user_name}`.substring(`${item.user_name}`.length-3)
-            var user_name = user_name1+'***'+user_name2
-            node.getComponent('payWheelItem').init(user_name,this.getLevelName(info.prize[0]),info.prize[0])
+            var user_name = ''
+            if(this.listStatus =='all'){
+                var user_name1 = `${item.user_name}`.slice(0,3)
+                var user_name2 = `${item.user_name}`.substring(`${item.user_name}`.length-3)
+                user_name = user_name1+'***'+user_name2
+            }else{
+                user_name = item.user_name
+            }
+           
+            if(info.prize.length >1){
+                info.prize.forEach(prizeItem=>{
+                    var node = cc.instantiate(this.ListItem);
+                    var content = this.sccrollView.getChildByName('view').getChildByName('content');
+                    content.addChild(node);
+                    node.getComponent('payWheelItem').init(user_name,this.getLevelName(prizeItem),prizeItem)
+                })
+            }else{
+                var node = cc.instantiate(this.ListItem);
+                var content = this.sccrollView.getChildByName('view').getChildByName('content');
+                content.addChild(node);
+                node.getComponent('payWheelItem').init(user_name,this.getLevelName(info.prize[0]),info.prize[0])
+            }
+           
         });
     }
     addRangeList(){
@@ -375,17 +394,24 @@ export default class NewClass extends cc.Component {
             let totalPage = Math.ceil(this.totalCpunt / this.limit)
             idx +=1
             if(idx >totalPage){
-                content.stopAllActions()
-                idx = 0
-                var action3 = cc.moveBy(0,cc.v2(0,245))
-                var action4 = cc.moveTo(0,cc.v2(0,-120))
-                content.runAction(cc.sequence(action3,action4,action1,callBack))
+                console.log("idx",idx,"content.position.y",content.position.y,"content.height",content.height)
+                if(content.position.y < content.height + 120){
+                    //说明还没有播到底部
+                    var action3 = cc.moveBy(10,cc.v2(0,245))
+                    content.runAction(cc.sequence(action3,callBack))
+                }else{
+                    //到底部了
+                    content.stopAllActions()
+                    idx = 0
+                    var action4 = cc.moveTo(0,cc.v2(0,-120))
+                    content.runAction(cc.sequence(action4,action1,callBack))
+                }
                 return 
             }else{
-                content.runAction(cc.sequence(action1,middleCallBack,action1,callBack))
+                content.runAction(cc.sequence(action1,middleCallBack,callBack))
             }
         })
-        content.runAction(cc.sequence(action1,middleCallBack,action1,callBack))
+        content.runAction(cc.sequence(action1,middleCallBack,callBack))
     }
     onDestroy(){
     }
