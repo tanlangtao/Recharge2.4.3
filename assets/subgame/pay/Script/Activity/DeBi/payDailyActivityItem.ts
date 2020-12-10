@@ -107,13 +107,18 @@ export default class NewClass extends cc.Component {
             "game_flow": 0
         }
         for(var key in Detail["game"]){
-            if(key == this.task_id){
-                 GameData_task =  Detail["game"][this.game_id][this.task_id]
+            if(key == this.game_id){
+                for(var task_id  in Detail['game'][key]){
+                    if(task_id == this.task_id){
+                        GameData_task =  Detail["game"][this.game_id][this.task_id]
+                   }
+                }
             }
         }
         if(this.type == '1' || this.type == "2"){
             //总输加总赢
             progressCurrent = GameData_task.win_num+GameData_task.lose_num
+            
         }else if(this.type == '3' || this.type =='4'){
             //总赢
             progressCurrent = GameData_task.win_num

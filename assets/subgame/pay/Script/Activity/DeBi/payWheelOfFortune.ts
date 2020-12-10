@@ -44,7 +44,7 @@ export default class NewClass extends cc.Component {
     page = 1;
     listStatus = 'all' //all 表示全服务, single 表示个人
     totalCpunt = 1//总条数
-    limit = 10
+    limit = 2
     setIdInfo(id,info){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
             info = []
