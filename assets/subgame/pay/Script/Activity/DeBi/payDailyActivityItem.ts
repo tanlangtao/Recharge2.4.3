@@ -165,7 +165,7 @@ export default class NewClass extends cc.Component {
                 return "二人麻将"
             case "5b1f3a3cb76a591e7f251714" :
                 return "抢庄牛牛"
-            case "5b1f3a3cb76a591e7f2517" :
+            case "5b1f3a3cb76a591e7f25171" :
                 return "十三水"
             case "5b1f3a3cb76a591e7f25176" :
                 return "德州扑克"
