@@ -83,7 +83,19 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     DailySignTwo :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Lsjlhd :cc.Prefab = null;
     
+    @property(cc.Prefab)
+    Rkshd :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Smcjhd :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Stjzhd :cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -200,6 +212,22 @@ export default class NewClass extends cc.Component {
         else if(data.name == '每日签到2'){
             this.app.loadIcon('activity/btn_qd2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_qd1',this.currentIcon,249,86);
+        }
+        else if(data.name == '流水奖励活动2'){
+            this.app.loadIcon('activity/lsjlhd_2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/lsjlhd_1',this.currentIcon,249,86);
+        }
+        else if(data.name == '日亏损活动2'){
+            this.app.loadIcon('activity/btn_rks2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_rks1',this.currentIcon,249,86);
+        }
+        else if(data.name == '神秘彩金活动2'){
+            this.app.loadIcon('activity/btn_smcj2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_smcj1',this.currentIcon,249,86);
+        }
+        else if(data.name == '首提加赠活动2'){
+            this.app.loadIcon('activity/btn_stjzhd2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_stjzhd1',this.currentIcon,249,86);
         }
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'){
@@ -351,6 +379,18 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.DailySignTwo);
             node.getComponent('payDailySign').setIdInfo(id,info)
             this.app.loadTitle('title/mrqd',this.title);
+        }else  if(name == '流水奖励活动2'){
+            var node = cc.instantiate(this.Lsjlhd);
+            this.app.loadTitle('title/title_lsjlhd',this.title);
+        }else  if(name == '日亏损活动2'){
+            var node = cc.instantiate(this.Rkshd);
+            this.app.loadTitle('title/rkshd',this.title);
+        }else  if(name == '神秘彩金活动2'){
+            var node = cc.instantiate(this.Smcjhd);
+            this.app.loadTitle('title/title_smcj',this.title);
+        }else  if(name == '首提加赠活动2'){
+            var node = cc.instantiate(this.Stjzhd);
+            this.app.loadTitle('title/dm_title_stjzhd',this.title);
         }
         content.addChild(node);
 
