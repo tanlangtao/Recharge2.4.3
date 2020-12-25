@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "bf33f0f6-5a23-4f96-ace6-d68558e013fd",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 503,
+  "height": 92,
   "platformSettings": {},
   "subMetas": {
     "smcjhd": {

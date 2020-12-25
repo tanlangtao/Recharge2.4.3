@@ -181,8 +181,8 @@ export default class NewClass extends cc.Component {
     }
     //点立即邀请
     LiJiYaoQingClick(){
-        if (this.app.gHandler.gameConfig.subModel.proxy.lanchscene != "") {
-            cc.director.loadScene(this.app.gHandler.gameConfig.subModel.proxy.lanchscene)
+        if (this.app.gHandler.subModel.proxy.lanchscene != "") {
+            cc.director.loadScene(this.app.gHandler.subModel.proxy.lanchscene)
         } else {
             cc.log("请配置全民代理场景")
         }
@@ -196,9 +196,9 @@ export default class NewClass extends cc.Component {
         if (scree == ""){
             scree = "hall"
         }
-        if (scree == this.app.gHandler.gameConfig.gamelist['hbsl'].lanchscene
-            || scree == this.app.gHandler.gameConfig.gamelist['zrsx1'].lanchscene
-            || scree == this.app.gHandler.gameConfig.gamelist['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
+        if (scree == this.app.gHandler.subGameList['hbsl'].lanchscene
+            || scree == this.app.gHandler.subGameList['zrsx1'].lanchscene
+            || scree == this.app.gHandler.subGameList['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
             this.app.gHandler.Reflect && this.app.gHandler.Reflect.setOrientation("portrait")
 
         }

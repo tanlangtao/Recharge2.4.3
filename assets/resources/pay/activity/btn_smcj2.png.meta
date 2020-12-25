@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "ccedc0d0-bced-4b26-a853-32b2bd7b1849",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 241,
+  "height": 86,
   "platformSettings": {},
   "subMetas": {
     "btn_smcj2": {

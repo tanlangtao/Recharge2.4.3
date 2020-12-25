@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -52,6 +52,7 @@ export default class NewClass extends cc.Component {
                 self.inputlabel.string = self.inputlabel.string+e.key
             }
         }
+        this.setLanguageResource()
     }
     add1(e){
         //按键音效
@@ -109,5 +110,10 @@ export default class NewClass extends cc.Component {
         this.app.clickClip.play();
         
         this.node.removeFromParent();
+    }
+    setLanguageResource(){
+        let wancheng_label= this.node.getChildByName('Content').getChildByName('input').getChildByName('wancheng').getChildByName('label').getComponent(cc.Label)
+
+        wancheng_label.string = Language_pay.Lg.ChangeByText('完成')
     }
 }

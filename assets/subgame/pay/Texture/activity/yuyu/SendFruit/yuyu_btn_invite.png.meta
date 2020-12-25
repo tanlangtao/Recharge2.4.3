@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "ca687878-ca79-4ee4-95b2-191030cb4065",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 216,
+  "height": 64,
   "platformSettings": {},
   "subMetas": {
     "yuyu_btn_invite": {

@@ -760,7 +760,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "qudao",
     "_objFlags": 0,
     "_parent": {
       "__id__": 18
@@ -1019,7 +1019,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "tipLabel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 18
@@ -1202,7 +1202,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "txt_czje",
     "_objFlags": 0,
     "_parent": {
       "__id__": 31
@@ -4562,7 +4562,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn2",
+    "_name": "czgoldbt1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -4830,8 +4830,8 @@
       }
     ],
     "_useOriginalSize": true,
-    "_string": "开展中的活动：\n通过 \"转账到银行卡\" 充值方式，单笔充值10000以上，即可获得额外多赠送1%！",
-    "_N$string": "开展中的活动：\n通过 \"转账到银行卡\" 充值方式，单笔充值10000以上，即可获得额外多赠送1%！",
+    "_string": "开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！",
+    "_N$string": "开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！",
     "_fontSize": 15,
     "_lineHeight": 25,
     "_enableWrapText": false,

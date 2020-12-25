@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "97d40711-3779-4e37-ba1f-371c80c65a86",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 221,
+  "height": 64,
   "platformSettings": {},
   "subMetas": {
     "lw_btn_draw_selectLight": {

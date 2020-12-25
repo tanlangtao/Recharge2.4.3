@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "a57cf6bc-032c-4037-b7f6-1f1b577d4680",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 176,
+  "height": 56,
   "platformSettings": {},
   "subMetas": {
     "lw_btn_serverRecord": {

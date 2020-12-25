@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "80651877-2e68-44d4-8f95-0c94e5e42db1",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 23,
+  "height": 27,
   "platformSettings": {},
   "subMetas": {
     "icon_im2": {

@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "059d2bfb-56f0-4b6d-8a19-b7135f62b9c2",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 989,
+  "height": 23,
   "platformSettings": {},
   "subMetas": {
     "jindutiao2": {

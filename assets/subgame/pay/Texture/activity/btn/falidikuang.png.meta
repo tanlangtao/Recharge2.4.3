@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "ad1f6182-8b0b-4701-b403-daa314016c8c",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 194,
+  "height": 193,
   "platformSettings": {},
   "subMetas": {
     "falidikuang": {

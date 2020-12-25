@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "5806e4b3-f865-4064-9608-4b1c909f14bb",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 999,
+  "height": 109,
   "platformSettings": {},
   "subMetas": {
     "xiankuang": {

@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "2568ed64-f203-4797-8002-702265dd4681",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 33,
+  "height": 24,
   "platformSettings": {},
   "subMetas": {
     "icon_unionpay2": {

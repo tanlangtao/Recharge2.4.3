@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "7947d71b-a0e1-47c8-b93f-63d5a0d65016",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 143,
+  "height": 41,
   "platformSettings": {},
   "subMetas": {
     "huodong": {

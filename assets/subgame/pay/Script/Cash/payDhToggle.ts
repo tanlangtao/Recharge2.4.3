@@ -1,6 +1,6 @@
 //兑换导航
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -28,6 +28,7 @@ export default class NewClass extends cc.Component {
     text = null;
 
     public init(data){
+        let src = Language_pay.Lg.getLgSrc()
         this.text=data.text;
         if(this.text == '支付宝兑换'){
             this.app.loadIcon('cash/menu/menu_ali_1',this.normalIcon,242,86)

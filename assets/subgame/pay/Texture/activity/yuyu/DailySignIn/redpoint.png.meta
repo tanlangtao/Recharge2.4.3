@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "0d8f48c6-f518-421d-9271-3971819c3327",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 25,
+  "height": 25,
   "platformSettings": {},
   "subMetas": {
     "redpoint": {

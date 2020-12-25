@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "0385a2b6-1b22-482d-b4fa-288f215e1044",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 1014,
+  "height": 199,
   "platformSettings": {},
   "subMetas": {
     "event_kuang1": {

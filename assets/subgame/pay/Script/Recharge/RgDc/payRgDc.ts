@@ -1,6 +1,5 @@
 //人工代充
-
-
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -21,6 +20,7 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex()
         this.resizeCenter()
+        this.setLanguageResource()
     }
     fetchIndex(){
         let url = `${this.app.UrlData.imHost}/im/api/recharge/list?skip=0&limit=6&token=c7a9d6g21v87s&package_id=${this.app.UrlData.package_id}&user_type=1`
@@ -62,5 +62,17 @@ export default class NewClass extends cc.Component {
         // 唤起IM
         this.app.gHandler.Reflect.setOrientation("portrait", 640, 1136)
         cc.director.loadScene('IMappStart');
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let VIPpay_banner_1= this.node.getChildByName('VIPpay_banner_1')
+        let tips000= this.node.getChildByName('frame').getChildByName('layout').getChildByName('tips000')
+        let btn_contactCS= this.node.getChildByName('frame').getChildByName('layout').getChildByName('btn_contactCS')
+
+        this.app.loadIconLg(`${src}/form/VIPpay_banner_1`,VIPpay_banner_1)
+        this.app.loadIconLg(`${src}/font/tips000`,tips000)
+        this.app.loadIconLg(`${src}/btn/btn_contactCS`,btn_contactCS)
     }
 }

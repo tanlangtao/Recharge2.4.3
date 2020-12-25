@@ -1,7 +1,7 @@
 
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -25,6 +25,7 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+        this.setLanguageResource()
     }
 
    onClick(){
@@ -33,5 +34,18 @@ export default class NewClass extends cc.Component {
         this.app.showWriteMoneyAlert(this,1,this.data);
         
    }
+   setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let guanfrz= this.node.getChildByName('layout').getChildByName('guanfrz')
+        let zhuanxkf= this.node.getChildByName('layout').getChildByName('zhuanxkf')
+        let bg_fan= this.node.getChildByName('layout').getChildByName('bg_fan')
+        let pingjiLabel= this.node.getChildByName('layout').getChildByName('pingjiLabel').getComponent(cc.Label)
+
+        this.app.loadIconLg(`${src}/btn/guanfrz`,guanfrz)
+        this.app.loadIconLg(`${src}/btn/zhuanxkf`,zhuanxkf)
+        this.app.loadIconLg(`${src}/btn/btn_chongzhi`,bg_fan)
+        pingjiLabel.string=`${Language_pay.Lg.ChangeByText('月评级5星+')}`
+    }
 }
 

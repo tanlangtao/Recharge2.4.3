@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "0a48babd-8c57-46a8-bc93-db18a3873565",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 214,
+  "height": 43,
   "platformSettings": {},
   "subMetas": {
     "lsjlhd_2": {

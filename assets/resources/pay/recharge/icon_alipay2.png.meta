@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "6ba52dd3-15f4-43cb-9854-e74327c7a45d",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 29,
+  "height": 28,
   "platformSettings": {},
   "subMetas": {
     "icon_alipay2": {

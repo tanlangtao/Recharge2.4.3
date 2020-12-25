@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "799b9dc2-7d7c-412c-aca7-fa7dff3848e4",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 1053,
+  "height": 521,
   "platformSettings": {},
   "subMetas": {
     "bg_kuang": {

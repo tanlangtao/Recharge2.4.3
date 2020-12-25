@@ -1,5 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
+import { Language_pay } from "./../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -20,6 +21,7 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+        this.setLanguageResource()
     }
 
     setMoney() {
@@ -83,7 +85,6 @@ export default class NewClass extends cc.Component {
         let amount = Number(this.amountLabel.string);
         let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&replace_id=${this.data.user_id}&replace_name=${decodeURI(this.data.nick_name)}&gold=${this.amountLabel.string}&amount=${amount}&exchange_price=1&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}`
         let self = this;
-        console.log("人工代充 url",url,",dataStr",dataStr)
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.code == 0){
                 self.app.showAlert('操作成功,请移至聊天中心交易！');
@@ -95,14 +96,14 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText("网络错误")}${errstatus}`)
         })
     }
     deletePassword(){
         //按键音效
         this.app.clickClip.play();
 
-        this.amountLabel.string = '点击输入';
+        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
         this.app.setInputColor('',this.amountLabel);
     }
     
@@ -111,6 +112,21 @@ export default class NewClass extends cc.Component {
         this.app.clickClip.play();
 
         this.node.destroy();
+    }
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let toutpd= this.node.getChildByName('body').getChildByName('toutpd')
+        let txt_czje2= this.node.getChildByName('body').getChildByName('content').getChildByName('txt_czje2')
+        let btn_75= this.node.getChildByName('body').getChildByName('content').getChildByName('group2').getChildByName("75")
+        let surebtn1 = this.node.getChildByName('body').getChildByName('surebtn1')
+
+        this.app.loadIconLg(`${src}/font/toutpd`,toutpd)
+        this.app.loadIconLg(`${src}/font/txt_czje2`,txt_czje2)
+        this.app.loadIconLg(`${src}/btn/75`,btn_75)
+        this.app.loadIconLg(`${src}/btn/surebtn1`,surebtn1)
+
+        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入')
     }
     // update (dt) {}
 }

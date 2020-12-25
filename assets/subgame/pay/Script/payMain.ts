@@ -1,5 +1,6 @@
-import gHandler = require("../../../main/common/gHandler");
+import gHandler = require("../../../base/common/gHandler");
 import Config from "./payConfig"
+import { Language_pay } from "./language/payLanguage";
 
 const {ccclass, property} = cc._decorator;
 
@@ -72,13 +73,14 @@ export default class NewClass extends cc.Component {
     }
     /**
      * 全局提示框
-     * @param data 
+     * @param text 
      */
-    public showAlert(data:string){
+    public showAlert(text:string){
+        let lg_text = Language_pay.Lg.ChangeByText(text)
         var node = cc.instantiate(this.publicAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('payPublicAlert').init(data)
+        node.getComponent('payPublicAlert').init(lg_text)
     }
     /**
      * 显示公共输入界面
@@ -260,14 +262,19 @@ export default class NewClass extends cc.Component {
      * @param h 高
      */
     public loadIcon(url,node,w,h){
-        cc.loader.loadRes(`pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
+        cc.resources.load(`pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
             node.width = w;
             node.height = h;
             node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         })
     }
     public loadTitle(url,node){
-        cc.loader.loadRes(`pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
+        cc.resources.load(`pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
+            node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+        })
+    }
+    public loadIconLg(url,node){
+        cc.resources.load(`pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
             node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
         })
     }
@@ -318,7 +325,7 @@ export default class NewClass extends cc.Component {
         switch(num){
             case 0 : path ='Button_Click';break;
         }
-        cc.loader.loadRes(`pay/sounds/${path}`, cc.AudioClip, function(err, clip) {
+        cc.resources.load(`pay/sounds/${path}`, cc.AudioClip, function(err, clip:any) {
             if (err) {
                 console.log(err);
                 return

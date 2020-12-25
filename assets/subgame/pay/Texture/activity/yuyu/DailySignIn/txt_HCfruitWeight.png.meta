@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "e8152269-5bc9-462d-8151-4ea79a9c0e68",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 135,
+  "height": 24,
   "platformSettings": {},
   "subMetas": {
     "txt_HCfruitWeight": {

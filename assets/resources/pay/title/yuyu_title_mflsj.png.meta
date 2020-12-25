@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "fbae1b3c-c0ae-45a8-9e1d-e9e4eff703e1",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 190,
+  "height": 38,
   "platformSettings": {},
   "subMetas": {
     "yuyu_title_mflsj": {

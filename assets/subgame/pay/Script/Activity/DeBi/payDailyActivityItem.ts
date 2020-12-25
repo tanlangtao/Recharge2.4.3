@@ -230,12 +230,12 @@ export default class NewClass extends cc.Component {
     }
     /** 判断子游戏是否下载更新等 */
     // checkSubGameDownload(enname) {
-    //     let subdata = this.getRemoteSubgame(this.app.gHandler.gameConfig.gamelist[enname].game_id)
+    //     let subdata = this.getRemoteSubgame(this.app.gHandler.subGameList[enname].game_id)
     //     cc.log(enname)
-    //     cc.log("this.app.gHandler.gameConfig.gamelist",this.app.gHandler.gameConfig.gamelist)
+    //     cc.log("this.app.gHandler.subGameList",this.app.gHandler.subGameList)
     //     if (subdata.open == 0) {
     //         cc.log(" | subgame : " + enname + " subdata.open 等于0");
-    //         this.app.gHandler.gameConfig.gamelist[enname].isDown = false
+    //         this.app.gHandler.subGameList[enname].isDown = false
     //     } else {
     //         let subgamev;
     //         let localsubv = this.app.gHandler.localStorage.get(enname, "versionKey");
@@ -268,10 +268,10 @@ export default class NewClass extends cc.Component {
     //         if (needup && !cc.sys.isBrowser) {
     //             cc.log(" | subgame : " + enname + " need update");
     //             self.payDailyCompoment.app.showAlert("游戏需要更新!请返回大厅更新");
-    //             this.app.gHandler.gameConfig.gamelist[enname].isDown = false
+    //             this.app.gHandler.subGameList[enname].isDown = false
     //         } else {
     //             cc.log(" | subgame : " + enname + " not need update")
-    //             this.app.gHandler.gameConfig.gamelist[enname].isDown = true
+    //             this.app.gHandler.subGameList[enname].isDown = true
     //             let subgamern = enname
     //             if (this.app.gHandler.appGlobal.isRelease) {
     //                 !this.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
@@ -279,11 +279,11 @@ export default class NewClass extends cc.Component {
     //                         cc.log(err)
     //                         return self.payDailyCompoment.app.showAlert("加载游戏失败！请返回大厅进入！");
     //                     }
-    //                     cc.director.loadScene(this.app.gHandler.gameConfig.gamelist[subgamern].lanchscene);
+    //                     cc.director.loadScene(this.app.gHandler.subGameList[subgamern].lanchscene);
     //                     // console.log('load subpackage script successfully.', subgamern);
     //                 });
     //             }else{
-    //                 cc.director.loadScene(this.app.gHandler.gameConfig.gamelist[subgamern].lanchscene);
+    //                 cc.director.loadScene(this.app.gHandler.subGameList[subgamern].lanchscene);
     //             }
     //         }
     //     }
@@ -291,12 +291,12 @@ export default class NewClass extends cc.Component {
         /** 判断子游戏是否下载更新等 */
     checkSubGameDownload(enname) {
         let self = this
-        let subdata = self.getRemoteSubgame(self.app.gHandler.gameConfig.gamelist[enname].game_id)
+        let subdata = self.getRemoteSubgame(self.app.gHandler.subGameList[enname].game_id)
         if (subdata.open == 0) {
             self.payDailyCompoment.app.showAlert("游戏没开放！");
         } else {
             if (self.app.gHandler.gameGlobal.isdev) { // 模拟器 或者 开发状态 || cc.sys.os == "Windows"
-                cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                 return
             }
             let subgamev;
@@ -328,7 +328,7 @@ export default class NewClass extends cc.Component {
                                         if (err) {
                                             return console.error(err);
                                         }
-                                        cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                        cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                                         console.log('load subpackage script successfully.', subgamern);
                                     });
                                 }, 3000)
@@ -337,7 +337,7 @@ export default class NewClass extends cc.Component {
                                     if (err) {
                                         return console.error(err);
                                     }
-                                    cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                                     console.log('load subpackage script successfully.', subgamern);
                                 });
                             }
@@ -351,7 +351,7 @@ export default class NewClass extends cc.Component {
                                         if (err) {
                                             return console.error(err);
                                         }
-                                        cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                        cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                                         console.log('load subpackage script successfully.', subgamern);
                                     });
                                 }, 3000)
@@ -360,7 +360,7 @@ export default class NewClass extends cc.Component {
                                     if (err) {
                                         return console.error(err);
                                     }
-                                    cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                                         console.log('load subpackage script successfully.', subgamern);
                                 });
                             }
@@ -372,7 +372,7 @@ export default class NewClass extends cc.Component {
                                     if (err) {
                                         return console.error(err);
                                     }
-                                    cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                                     console.log('load subpackage script successfully.', subgamern);
                                 });
                             }, 3000)
@@ -381,14 +381,14 @@ export default class NewClass extends cc.Component {
                                 if (err) {
                                     return console.error(err);
                                 }
-                                cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                                cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                                 console.log('load subpackage script successfully.', subgamern);
                             });
                         }
                     }
                 }else{
                     console.log('gHandler.appGlobal.isRelease',self.app.gHandler.appGlobal.isRelease)
-                    cc.director.loadScene(self.app.gHandler.gameConfig.gamelist[enname].lanchscene);
+                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                 }
             }
         }

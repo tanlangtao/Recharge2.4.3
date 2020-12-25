@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "f30f5bab-2dd1-4bb0-b83a-47c21a1681d9",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 207,
+  "height": 39,
   "platformSettings": {},
   "subMetas": {
     "menu_rengong_1": {

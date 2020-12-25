@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "f5cfffd2-58e3-40fd-a780-7352df502dd6",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 133,
+  "height": 39,
   "platformSettings": {},
   "subMetas": {
     "yuyu_zi_jsg": {

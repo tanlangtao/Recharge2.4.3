@@ -1,7 +1,7 @@
 //充值导航
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -27,11 +27,12 @@ export default class NewClass extends cc.Component {
     app = null;
 
     public init(data,discount_rate){
+        let src = Language_pay.Lg.getLgSrc()
         this.text=data.text;
-        this.app.loadIcon('recharge/menu/tishi',this.tishi,97,55);
+        this.app.loadIcon(`${src}/menu/tishi`,this.tishi,97,55);
         if(this.text == '支付宝'){
-            this.app.loadIcon('recharge/menu/menu_alipay_1',this.normalIcon,207,39)
-            this.app.loadIcon('recharge/menu/menu_alipay_2',this.currentIcon,249,86);
+            this.app.loadIcon(`${src}/menu/menu_alipay_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_alipay_2`,this.currentIcon,249,86);
             let percent = 0
             discount_rate.alipay.forEach( (e,i) => {
                 if(e.package_id == this.app.UrlData.package_id) {
@@ -40,8 +41,8 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '转账到银行卡'){
-            this.app.loadIcon('recharge/menu/menu_tobank_1',this.normalIcon,207,39)
-            this.app.loadIcon('recharge/menu/menu_tobank_2',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_tobank_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_tobank_2`,this.currentIcon,249,86)
 
             let percent = 0
             discount_rate.bankcard_transfer.forEach( (e,i) => {
@@ -51,8 +52,8 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '银联扫码'){
-            this.app.loadIcon('recharge/menu/menu_ylsm_1',this.normalIcon,207,39)
-            this.app.loadIcon('recharge/menu/menu_ylsm_2',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_ylsm_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_ylsm_2`,this.currentIcon,249,86)
 
             let percent = 0
             discount_rate.union_pay.forEach( (e,i) => {
@@ -62,8 +63,8 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '微信'){
-            this.app.loadIcon('recharge/menu/menu_wxpay_1',this.normalIcon,207,39)
-            this.app.loadIcon('recharge/menu/menu_wxpay_2',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_wxpay_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_wxpay_2`,this.currentIcon,249,86)
 
             let percent = 0
             discount_rate.wechat_pay.forEach( (e,i) => {
@@ -73,8 +74,8 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '快捷支付'){
-            this.app.loadIcon('recharge/menu/menu_kuaijie_1',this.normalIcon,207,39)
-            this.app.loadIcon('recharge/menu/menu_kuaijie_2',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_kuaijie_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_kuaijie_2`,this.currentIcon,249,86)
 
             let percent = 0
             discount_rate.quick_pay.forEach( (e,i) => {
@@ -84,8 +85,8 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '网银支付'){
-            this.app.loadIcon('recharge/menu/menu_unionpay_1',this.normalIcon,207,39)
-            this.app.loadIcon('recharge/menu/menu_unionpay_2',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_unionpay_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_unionpay_2`,this.currentIcon,249,86)
 
             let percent = 0
             discount_rate.bank_pay.forEach( (e,i) => {
@@ -95,8 +96,8 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '人工代充值'){
-            this.app.loadIcon('recharge/menu/menu_VIPpay_1',this.normalIcon,207,39)
-            this.app.loadIcon('recharge/menu/menu_VIPpay_2',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_VIPpay_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_VIPpay_2`,this.currentIcon,249,86)
             let percent = 0
             discount_rate.daichong.forEach( (e,i) => {
                 if(e.package_id == this.app.UrlData.package_id) {
@@ -106,11 +107,11 @@ export default class NewClass extends cc.Component {
             this.setTishiLabel(percent)
         }else if(this.text == 'IM充值'){
             if(this.app.UrlData.package_id == 2){
-                this.app.loadIcon('recharge/menu/menu_rgpay_1',this.normalIcon,207,39)
-                this.app.loadIcon('recharge/menu/menu_rgpay_2',this.currentIcon,249,86)
+                this.app.loadIcon(`${src}/menu/menu_rgpay_1`,this.normalIcon,207,39)
+                this.app.loadIcon(`${src}/menu/menu_rgpay_2`,this.currentIcon,249,86)
             }else{
-                this.app.loadIcon('recharge/menu/menu_IMpay_1',this.normalIcon,207,39)
-                this.app.loadIcon('recharge/menu/menu_IMpay_2',this.currentIcon,249,86)
+                this.app.loadIcon(`${src}/menu/menu_IMpay_1`,this.normalIcon,207,39)
+                this.app.loadIcon(`${src}/menu/menu_IMpay_2`,this.currentIcon,249,86)
             }
             let percent = 0
             discount_rate.im_pay.forEach( (e,i) => {
@@ -133,6 +134,7 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+
     }
 
     onClick(){

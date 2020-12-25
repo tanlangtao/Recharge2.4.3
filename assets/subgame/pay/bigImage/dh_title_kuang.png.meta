@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "b4f4938e-5967-4d11-9f13-5256be6e229b",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 1059,
+  "height": 60,
   "platformSettings": {},
   "subMetas": {
     "dh_title_kuang": {

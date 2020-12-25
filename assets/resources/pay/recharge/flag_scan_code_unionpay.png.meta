@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "c2172b32-34ad-4cb5-9a0d-5cf5bac89502",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 127,
+  "height": 86,
   "platformSettings": {},
   "subMetas": {
     "flag_scan_code_unionpay": {

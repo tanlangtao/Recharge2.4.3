@@ -96,6 +96,21 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Stjzhd :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    Fxpyq :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Byyljj :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Schd :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Xyhbp :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Ryjhd :cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -229,6 +244,27 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_stjzhd2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_stjzhd1',this.currentIcon,249,86);
         }
+        else if(data.name == '分享朋友圈活动2'){
+            this.app.loadIcon('activity/btn_fxpyq2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_fxpyq1',this.currentIcon,249,86);
+        }
+        else if(data.name == '捕鱼盈利嘉奖2'){
+            this.app.loadIcon('activity/btn_byjj2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_byjj1',this.currentIcon,249,86);
+        }
+        else if(data.name == '首充活动2'){
+            this.app.loadIcon('activity/btn_schd2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_schd1',this.currentIcon,249,86);
+        }
+        else if(data.name == '新用户包赔活动2'){
+            this.app.loadIcon('activity/btn_xyh2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_xyh1',this.currentIcon,249,86);
+        }
+        else if(data.name == '日业绩活动2'){
+            this.app.loadIcon('activity/btn_ryjhd2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_ryjhd1',this.currentIcon,249,86);
+        }
+
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'){
             this.fetchgetSignWeekInfo(this.id)
@@ -391,7 +427,23 @@ export default class NewClass extends cc.Component {
         }else  if(name == '首提加赠活动2'){
             var node = cc.instantiate(this.Stjzhd);
             this.app.loadTitle('title/dm_title_stjzhd',this.title);
+        }else  if(name == '分享朋友圈活动2'){
+            var node = cc.instantiate(this.Fxpyq);
+            this.app.loadTitle('title/dm_title_fxpyq',this.title);
+        }else  if(name == '捕鱼盈利嘉奖2'){
+            var node = cc.instantiate(this.Byyljj);
+            this.app.loadTitle('title/dm_title_byjj',this.title);
+        }else  if(name == '首充活动2'){
+            var node = cc.instantiate(this.Schd);
+            this.app.loadTitle('title/dm_title_schd',this.title);
+        }else  if(name == '新用户包赔活动2'){
+            var node = cc.instantiate(this.Xyhbp);
+            this.app.loadTitle('title/title_xyh',this.title);
+        }else  if(name == '日业绩活动2'){
+            var node = cc.instantiate(this.Ryjhd);
+            this.app.loadTitle('title/dm_title_ryjhd',this.title);
         }
+        
         content.addChild(node);
 
     }

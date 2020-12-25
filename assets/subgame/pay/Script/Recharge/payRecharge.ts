@@ -1,5 +1,5 @@
 //充值首页
-
+import { Language_pay } from "./../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -38,6 +38,7 @@ export default class NewClass extends cc.Component {
         this.node.scaleY = scalex;
         this.node.scaleX = scalex;
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
+        this.setLanguageResource()
     }
     //返回大厅
     public exitBtnClick() {
@@ -49,9 +50,9 @@ export default class NewClass extends cc.Component {
         if (scree == ""){
             scree = "hall"
         }
-        if (scree == this.app.gHandler.gameConfig.gamelist['hbsl'].lanchscene
-            || scree == this.app.gHandler.gameConfig.gamelist['zrsx1'].lanchscene
-            || scree == this.app.gHandler.gameConfig.gamelist['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
+        if (scree == this.app.gHandler.subGameList['hbsl'].lanchscene
+            || scree == this.app.gHandler.subGameList['zrsx1'].lanchscene
+            || scree == this.app.gHandler.subGameList['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
             this.app.gHandler.Reflect && this.app.gHandler.Reflect.setOrientation("portrait")
 
         }
@@ -181,6 +182,25 @@ export default class NewClass extends cc.Component {
         }else if(arr[0]=='IM充值' && this.zfbResults.data.im_pay.length > 0  ){
             node.getComponent('payNavToggle').addContent('im_pay')
         }
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+
+        let title= cc.find('Canvas/Recharge/header/title')
+        let chongzhilishi= cc.find('Canvas/Recharge/chongzhilishi')
+        
+        this.app.loadIconLg(`${src}/font/9`,title)
+        this.app.loadIconLg(`${src}/btn/chongzhilishi`,chongzhilishi)
+        
+        let loadSP = cc.find('Loading/loadSP')
+        loadSP.children.forEach((e)=>{
+            if (e.name == Language_pay.Lg.Language){
+                e.active = true
+            }else{
+                e.active = false
+            }
+        })
     }
     onDestroy(){
         clearTimeout(this.timer)

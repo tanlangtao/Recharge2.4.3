@@ -1,6 +1,7 @@
 
 //充值子界面
 const {ccclass, property} = cc._decorator;
+import { Language_pay } from "./../../language/payLanguage";
 
 @ccclass
 export default class NewClass extends cc.Component {
@@ -64,44 +65,46 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         //请求支付宝
         this.fetchZfb()
+        this.setLanguageResource()
     }
     init(data){
+        let src = Language_pay.Lg.getLgSrc()
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.channel = data;
         if(this.channel == 'alipay' ){
-            this.app.loadIcon('recharge/flag_alipay',this.icon,100,100)
-            this.app.loadIcon('recharge/flagname_alipay',this.iconFont,126,45)
-            this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。2.需要安装支付宝。'
-            this.app.loadIcon('recharge/subbg_alipay',this.shuiyin,368,270)
+            this.app.loadIcon(`recharge/flag_alipay`,this.icon,100,100)
+            this.app.loadIcon(`${src}/font/flagname_alipay`,this.iconFont,126,45)
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装支付宝')}。`
+            this.app.loadIcon(`recharge/subbg_alipay`,this.shuiyin,368,270)
         }else if(this.channel == 'union_pay'){
-            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
-            this.app.loadIcon('recharge/flagname_scan_code_unionpay',this.iconFont,168,45)
-            this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
+            this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
+            this.app.loadIcon(`${src}/font/flagname_scan_code_unionpay`,this.iconFont,168,45)
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
         }else if(this.channel == 'wechat_pay'){
-            this.app.loadIcon('recharge/flag_wxpay',this.icon,100,100)
-            this.app.loadIcon('recharge/flagname_wxpay',this.iconFont,84,45)
-            this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。2.需要安装微信。';
-            this.app.loadIcon('recharge/subbg_wxpay',this.shuiyin,368,270)
+            this.app.loadIcon(`recharge/flag_wxpay`,this.icon,100,100)
+            this.app.loadIcon(`${src}/font/flagname_wxpay`,this.iconFont,84,45)
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装微信')}。`;
+            this.app.loadIcon(`recharge/subbg_wxpay`,this.shuiyin,368,270)
         }else if(this.channel == 'bankcard_transfer'){
-            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
-            this.app.loadIcon('recharge/flagname_unionpay3',this.iconFont,252,45)
-            this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
+            this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
+            this.app.loadIcon(`${src}/font/flagname_unionpay3`,this.iconFont,252,45) 
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
         }else if(this.channel == 'quick_pay'){
-            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
-            this.app.loadIcon('recharge/flagname_unionpay2',this.iconFont,168,45)
-            this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
+            this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
+            this.app.loadIcon(`${src}/font/flagname_unionpay2`,this.iconFont,168,45)
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
         }else if(this.channel == 'bank_pay'){
-            this.app.loadIcon('recharge/flag_scan_code_unionpay',this.icon,127,86)
-            this.app.loadIcon('recharge/flagname_unionpay',this.iconFont,168,45)
-            this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
+            this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
+            this.app.loadIcon(`${src}/font/flagname_unionpay`,this.iconFont,168,45)
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
         }else if(this.channel =='im_pay'){
             if(this.app.UrlData.package_id == 2){
-                this.app.loadIcon('recharge/flagname_rgpay',this.iconFont,136,42)
+                this.app.loadIcon(`${src}/font/flagname_rgpay`,this.iconFont,136,42)
             }else{
-                this.app.loadIcon('recharge/title_im',this.iconFont,136,45)
+                this.app.loadIcon(`${src}/font/title_im`,this.iconFont,136,45)
             }
-            this.app.loadIcon('recharge/icon_im',this.icon,100,100)
-            this.wxtsLabel.string = '温馨提示: 1.充值比例1元=1金币。'
+            this.app.loadIcon(`recharge/icon_im`,this.icon,100,100)
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
         }
     }
     setAmount() {
@@ -150,7 +153,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
             self.app.hideLoading()
         })
     }
@@ -166,12 +169,12 @@ export default class NewClass extends cc.Component {
             }
         });
         if(percent >0){
-            this.wxtsLabel.string = `${this.wxtsLabel.string}充值优惠: 充值${minAmount}-${maxAmount},赠送 ${percent*100}%,`
+            this.wxtsLabel.string = `${this.wxtsLabel.string}${Language_pay.Lg.ChangeByText("充值优惠")}: ${Language_pay.Lg.ChangeByText('充值')}${minAmount}-${maxAmount},${Language_pay.Lg.ChangeByText('赠送')} ${percent*100}%,`
         }
     }
     public initRender(){
         var span_amount = this.current.span_amount.split(',');
-        this.czArea.string = `充值范围:(${this.current.min_amount}-${this.current.max_amount})`
+        this.czArea.string = `${Language_pay.Lg.ChangeByText('充值范围')}:(${this.current.min_amount}-${this.current.max_amount})`
         this.gold1.string = span_amount[0]?span_amount[0]:'10';
         this.gold2.string = span_amount[1]?span_amount[1]:'50';
         this.gold3.string = span_amount[2]?span_amount[2]:'100';
@@ -182,7 +185,7 @@ export default class NewClass extends cc.Component {
 
     public deleteAmount(){
         
-        this.amountLabel.string = '点击输入';
+        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
         this.app.setInputColor('',this.amountLabel);
     }
 
@@ -193,10 +196,10 @@ export default class NewClass extends cc.Component {
         var amount = Number(this.amountLabel.string);
         var min_amount = Number(this.current.min_amount);
         var max_amount = Number(this.current.max_amount);
-        if(this.amountLabel.string =='点击输入'){
+        if(this.amountLabel.string ==Language_pay.Lg.ChangeByText('点击输入')){
             this.app.showAlert('充值金额不能为空!')
         }else if(amount < min_amount || amount > max_amount){
-            this.app.showAlert('不符合充值范围！')
+            this.app.showAlert('不符合充值范围!')
         }else{
             if(this.channel == 'bankcard_transfer'){
                 this.fetchOrder();
@@ -237,7 +240,7 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.SelectItem);
             this.selectContent.addChild(node);
             node.getComponent('paySelectItem').init({
-                text:this.results[i].name,
+                text:Language_pay.Lg.ChangeByText(`${this.results[i].name}`),
                 parentComponent:this,
                 index:i,
                 channel:this.channel
@@ -250,10 +253,26 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.clickClip.play();
         var string = e.currentTarget.children[1].getComponent(cc.Label).string;
-        let amount = this.amountLabel.string =='点击输入' ? '0': this.amountLabel.string;
+        let amount = this.amountLabel.string == Language_pay.Lg.ChangeByText('点击输入') ? '0': this.amountLabel.string;
         var sum = Number(amount)+Number(string);
         this.amountLabel.string = `${sum}`;
         this.app.setInputColor(sum,this.amountLabel);
     }
-    // update (dt) {}
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let qudao= this.node.getChildByName('titlebg').getChildByName('group2').getChildByName('qudao')
+        let txt_czje= this.node.getChildByName('titlebg').getChildByName('group3').getChildByName('txt_czje')
+        let btn_75= this.node.getChildByName('titlebg').getChildByName('group3').getChildByName('group2').getChildByName('75')
+        let czgoldbt1= this.node.getChildByName('czgoldbt1')
+        let label= this.node.getChildByName('label').getComponent(cc.Label)
+
+        this.app.loadIconLg(`${src}/font/txt_qudao`,qudao)
+        this.app.loadIconLg(`${src}/font/txt_czje`,txt_czje)
+        this.app.loadIconLg(`${src}/btn/75`,btn_75)
+        this.app.loadIconLg(`${src}/btn/czgoldbt1`,czgoldbt1)
+        
+        label.string = `${Language_pay.Lg.ChangeByText("开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！")}`
+    }
 }

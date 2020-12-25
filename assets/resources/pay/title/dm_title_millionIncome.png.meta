@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "cf473265-f0c6-429e-8a14-f78191c94d6a",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 162,
+  "height": 38,
   "platformSettings": {},
   "subMetas": {
     "dm_title_millionIncome": {

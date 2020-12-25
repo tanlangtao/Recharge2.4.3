@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -34,10 +34,8 @@ export default class NewClass extends cc.Component {
         let scalex = cc.winSize.width / 1334;
         var content = cc.find('Canvas/Recharge/RechargeHistory/Content')
         content.scaleY = 1/scalex;
-    }
 
-    start () {
-
+        this.setLanguageResource()
     }
 
     public fetchIndex(){
@@ -116,6 +114,15 @@ export default class NewClass extends cc.Component {
             this.page = this.page + 1;
             this.fetchIndex();
         }
+    }
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+
+        let chongzhiklis= this.node.getChildByName('header').getChildByName('title').getChildByName('chongzhiklis')
+        let titlebg= this.node.getChildByName('Content').getChildByName('titlebg')
+
+        this.app.loadIconLg(`${src}/font/chongzhiklis`,chongzhiklis)
+        this.app.loadIconLg(`${src}/form/cz_title_kuang`,titlebg)
     }
     // update (dt) {}
 }

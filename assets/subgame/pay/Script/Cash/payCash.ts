@@ -1,5 +1,5 @@
 //兑换首页
-
+import { Language_pay } from "./../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -34,6 +34,7 @@ export default class NewClass extends cc.Component {
         let scalex = cc.winSize.width / 1334;
         this.node.scaleY = scalex;
         this.node.scaleX = scalex;
+        this.setLanguageResource()
     }
     public exitBtnClick(){
         if(!this.canExit) return
@@ -104,5 +105,22 @@ export default class NewClass extends cc.Component {
     }
     onDestroy(){
         clearTimeout(this.timer)
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+
+        let title_shouyi= cc.find('Canvas/Cash/header/title/title_shouyi')
+        
+        this.app.loadIconLg(`${src}/font/title_shouyi`,title_shouyi)
+        
+        let loadSP = cc.find('Loading/loadSP')
+        loadSP.children.forEach((e)=>{
+            if (e.name == Language_pay.Lg.Language){
+                e.active = true
+            }else{
+                e.active = false
+            }
+        })
     }
 }

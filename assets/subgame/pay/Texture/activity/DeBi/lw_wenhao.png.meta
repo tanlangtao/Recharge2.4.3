@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.5",
   "uuid": "ce689be4-c6a8-4329-9c94-1428a4b5b144",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 197,
+  "height": 37,
   "platformSettings": {},
   "subMetas": {
     "lw_wenhao": {
