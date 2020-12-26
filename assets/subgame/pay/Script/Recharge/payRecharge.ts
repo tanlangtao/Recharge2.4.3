@@ -102,6 +102,7 @@ export default class NewClass extends cc.Component {
                 bank_pay: 6,
                 wechat_pay: 7,
                 union_pay: 8,
+                digiccy :9,
             }
         }
         var sortArr = []
@@ -149,6 +150,9 @@ export default class NewClass extends cc.Component {
                     break
                 case "daichong" :
                     arr.push('人工代充值')
+                    break 
+                case "digiccy" :
+                    arr.push('USDT')
                     break
             }
         });
@@ -181,6 +185,8 @@ export default class NewClass extends cc.Component {
             node.getComponent('payNavToggle').addContent('bank_pay')
         }else if(arr[0]=='IM充值' && this.zfbResults.data.im_pay.length > 0  ){
             node.getComponent('payNavToggle').addContent('im_pay')
+        }else if(arr[0]=='USDT' && this.zfbResults.data.im_pay.length > 0  ){
+            node.getComponent('payNavToggle').addContent('digiccy')
         }
     }
     //设置语言相关的资源和字

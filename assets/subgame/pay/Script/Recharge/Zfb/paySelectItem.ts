@@ -53,6 +53,9 @@ export default class NewClass extends cc.Component {
         }else if(this.channel =='im_pay'){
             this.app.loadIcon('recharge/icon_im2',this.normalIcon,30,30)
             this.app.loadIcon('recharge/icon_im1',this.currentIcon,30,30)
+        }else if(this.channel =='digiccy'){
+            this.app.loadIcon('recharge/icon_usdt2',this.normalIcon,30,30)
+            this.app.loadIcon('recharge/icon_usdt1',this.currentIcon,30,30)
         }
     }
     onLoad () {

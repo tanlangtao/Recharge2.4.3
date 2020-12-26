@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        247.68326548234947,
+        209.57814771583418,
         0,
         0,
         0,
@@ -564,7 +564,7 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "",
+    "defaultSkin": "default",
     "defaultAnimation": "a1",
     "_preCacheMode": 0,
     "_cacheMode": 0,

@@ -105,6 +105,11 @@ export default class NewClass extends cc.Component {
             }
             this.app.loadIcon(`recharge/icon_im`,this.icon,100,100)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
+        }else if(this.channel =='digiccy'){
+            this.app.loadIcon(`recharge/flag_usdt`,this.icon,100,100)
+            this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont,168,45)
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.默认链类型为ERC20')}。2.${Language_pay.Lg.ChangeByText('参考汇率：1USDT ≈ 6.9金币')}。`;
+            this.app.loadIcon(`recharge/subbg_usdt`,this.shuiyin,368,270)
         }
     }
     setAmount() {
@@ -144,6 +149,9 @@ export default class NewClass extends cc.Component {
                 }else if(self.channel =='im_pay'){
                     self.results = response.data.im_pay;
                     this.setInterval(discount_rate.im_pay)
+                }else if(self.channel =='digiccy'){
+                    self.results = response.data.digiccy;
+                    this.setInterval(discount_rate.digiccy)
                 }
                 self.current = self.results[0];
                 self.radioList();

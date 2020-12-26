@@ -86,21 +86,21 @@ let gHandler = {
         //     gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
         //     loginHistory: [], // 子游戏最近一周登陆历史
         // },
-        // "ebg": {
-        //     zhname: "新二八杠", // 中文游戏名
-        //     enname: "ebg", // 英文游戏名 （子游戏文件路径，更新子路径）
-        //     lanchscene: "ebg", // 跳转场景名
-        //     game_id: "5b1f3a3cb76a591e7f251720",
-        //     serverUrl: "/erbg", // 游戏服务器地址
-        //     endUrl: "/erbg", // 游戏服务器地址
-        //     hasAccount: false, // 是否已创建子游戏账号
-        //     remoteData: null, // 服务端发送过来的游戏数据
-        //     hallid: 8,
-        //     resPath: "/hall/btnanimation/28gang",
-        //     isDown: false,
-        //     gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
-        //     loginHistory: [], // 子游戏最近一周登陆历史
-        // },
+        "ebg": {
+            zhname: "新二八杠", // 中文游戏名
+            enname: "ebg", // 英文游戏名 （子游戏文件路径，更新子路径）
+            lanchscene: "ebg", // 跳转场景名
+            game_id: "5b1f3a3cb76a591e7f251720",
+            serverUrl: "/erbg", // 游戏服务器地址
+            endUrl: "/erbg", // 游戏服务器地址
+            hasAccount: false, // 是否已创建子游戏账号
+            remoteData: null, // 服务端发送过来的游戏数据
+            hallid: 8,
+            resPath: "/hall/btnanimation/28gang",
+            isDown: false,
+            gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
+            loginHistory: [], // 子游戏最近一周登陆历史
+        },
         // "bcbm": {
         //     zhname: "奔驰宝马", // 中文游戏名
         //     enname: "bcbm", // 英文游戏名 （子游戏文件路径，更新子路径）

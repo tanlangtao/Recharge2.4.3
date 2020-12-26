@@ -38,6 +38,7 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setLabel()
+        this.switchBtn("goToBtn")
     }
     init(game_id,task_id,data){
         this.game_id = `${game_id}`
@@ -137,6 +138,7 @@ export default class NewClass extends cc.Component {
         }else{
             this.switchBtn("goToBtn")
         }
+        
     }
     switchRoomLevel(key){
         switch (key) {
@@ -216,130 +218,56 @@ export default class NewClass extends cc.Component {
     }
     /** 根据id获取服务器子游戏信息 */
     getRemoteSubgame(game_id) {
-        if (!this.app.gHandler.appGlobal || !this.app.gHandler.appGlobal.remoteGamelist) {
+        if (!this.app.gHandler.app || !this.app.gHandler.app.remoteGamelist) {
             return
         }
-        let remotedata = this.app.gHandler.appGlobal.remoteGamelist[0];
-        for (let i = 0; i < this.app.gHandler.appGlobal.remoteGamelist.length; i++) {
-            if (game_id === this.app.gHandler.appGlobal.remoteGamelist[i].game_id) {
-                remotedata = this.app.gHandler.appGlobal.remoteGamelist[i];
+        let remotedata = this.app.gHandler.app.remoteGamelist[0];
+        for (let i = 0; i < this.app.gHandler.app.remoteGamelist.length; i++) {
+            if (game_id === this.app.gHandler.app.remoteGamelist[i].game_id) {
+                remotedata = this.app.gHandler.app.remoteGamelist[i];
                 break;
             }
         }
         return remotedata;
     }
     /** 判断子游戏是否下载更新等 */
-    // checkSubGameDownload(enname) {
-    //     let subdata = this.getRemoteSubgame(this.app.gHandler.subGameList[enname].game_id)
-    //     cc.log(enname)
-    //     cc.log("this.app.gHandler.subGameList",this.app.gHandler.subGameList)
-    //     if (subdata.open == 0) {
-    //         cc.log(" | subgame : " + enname + " subdata.open 等于0");
-    //         this.app.gHandler.subGameList[enname].isDown = false
-    //     } else {
-    //         let subgamev;
-    //         let localsubv = this.app.gHandler.localStorage.get(enname, "versionKey");
-    //         if (enname == 'zrsx1' || enname == 'zrsx2') {
-    //             localsubv = this.app.gHandler.localStorage.get('zrsx', "versionKey");
-    //             subgamev = this.app.gHandler.appGlobal.subGameVersion['zrsx'];
-    //         } else {
-    //             subgamev = this.app.gHandler.appGlobal.subGameVersion[enname];
-    //         }
-    //         let needup = false
-    //         cc.log("活动前往子游戏","subgamev",subgamev,"localsubv",localsubv)
-    //         if (!localsubv) {
-    //             needup = true;
-    //         } else {
-    //             let vA = subgamev.split('.');
-    //             let vB = localsubv.split('.');
-    //             for (let i = 0; i < vA.length; ++i) {
-    //                 let a = parseInt(vA[i]);
-    //                 let b = parseInt(vB[i] || 0);
-    //                 if (a != b) {
-    //                     needup = true;
-    //                     break;
-    //                 }
-    //             }
-    //             if (vB.length != vA.length) {
-    //                 needup = true;
-    //             }
-    //         }
-    //         let self = this
-    //         if (needup && !cc.sys.isBrowser) {
-    //             cc.log(" | subgame : " + enname + " need update");
-    //             self.payDailyCompoment.app.showAlert("游戏需要更新!请返回大厅更新");
-    //             this.app.gHandler.subGameList[enname].isDown = false
-    //         } else {
-    //             cc.log(" | subgame : " + enname + " not need update")
-    //             this.app.gHandler.subGameList[enname].isDown = true
-    //             let subgamern = enname
-    //             if (this.app.gHandler.appGlobal.isRelease) {
-    //                 !this.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
-    //                     if (err) {
-    //                         cc.log(err)
-    //                         return self.payDailyCompoment.app.showAlert("加载游戏失败！请返回大厅进入！");
-    //                     }
-    //                     cc.director.loadScene(this.app.gHandler.subGameList[subgamern].lanchscene);
-    //                     // console.log('load subpackage script successfully.', subgamern);
-    //                 });
-    //             }else{
-    //                 cc.director.loadScene(this.app.gHandler.subGameList[subgamern].lanchscene);
-    //             }
-    //         }
-    //     }
-    // }
-        /** 判断子游戏是否下载更新等 */
+    
     checkSubGameDownload(enname) {
-        let self = this
-        let subdata = self.getRemoteSubgame(self.app.gHandler.subGameList[enname].game_id)
+        let self = this;
+        let subdata = this.getRemoteSubgame(this.app.gHandler.subGameList[enname].game_id)
         if (subdata.open == 0) {
             self.payDailyCompoment.app.showAlert("游戏没开放！");
         } else {
-            if (self.app.gHandler.gameGlobal.isdev) { // 模拟器 或者 开发状态 || cc.sys.os == "Windows"
-                cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
-                return
-            }
             let subgamev;
-            let localsubv = self.app.gHandler.localStorage.get(enname, "versionKey");
+            let localsubv = this.app.gHandler.localStorage.get(enname, "versionKey");
             if (enname == 'zrsx1' || enname == 'zrsx2') {
-                localsubv = self.app.gHandler.localStorage.get('zrsx', "versionKey");
-                subgamev = self.app.gHandler.appGlobal.subGameVersion['zrsx'];
+                localsubv = this.app.gHandler.localStorage.get('zrsx', "versionKey");
+                subgamev = this.app.gHandler.app.subGameVersion['zrsx'];
             } else if (enname == 'sbty1' || enname == 'sbty2') {
-                localsubv = self.app.gHandler.localStorage.get('sbty', "versionKey");
-                subgamev = self.app.gHandler.appGlobal.subGameVersion['sbty'];
+                localsubv = this.app.gHandler.localStorage.get('sbty', "versionKey");
+                subgamev = this.app.gHandler.app.subGameVersion['sbty'];
             } else {
-                subgamev = self.app.gHandler.appGlobal.subGameVersion[enname];
+                subgamev = this.app.gHandler.app.subGameVersion[enname];
             }
             // let txt = "local version: " + localsubv + " | remote version:" + subgamev;
-            let needup = self.app.gHandler.commonTools.versionCompare(localsubv, subgamev)
-            if (needup && !cc.sys.isBrowser) {
+            let needup = this.app.gHandler.commonTools.versionCompare(localsubv, subgamev)
+            if (needup && !cc.sys.isBrowser && cc.sys.os != "Windows") {
                 // console.log(txt + " | subgame : " + enname + " need update");
                 self.payDailyCompoment.app.showAlert("游戏需要下载更新!请返回大厅下载更新");
             } else {
                 // console.log(txt + " | subgame : " + enname + " not need update")
-                if (self.app.gHandler.appGlobal.isRelease) {
+                cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
+                if (this.app.gHandler.app.isRelease) {
                     let subgamern = enname
                     if (enname == "zrsx1" || enname == "zrsx2") {
                         subgamern = "zrsx"
                         if (enname == "zrsx1") {
                             if (cc.sys.isBrowser) {
                                 setTimeout(() => {
-                                    !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
-                                        if (err) {
-                                            return console.error(err);
-                                        }
-                                        cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
-                                        console.log('load subpackage script successfully.', subgamern);
-                                    });
+                                    this.loadBundle(subgamern)
                                 }, 3000)
                             } else {
-                                !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
-                                    if (err) {
-                                        return console.error(err);
-                                    }
-                                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
-                                    console.log('load subpackage script successfully.', subgamern);
-                                });
+                                this.loadBundle(subgamern)
                             }
                         }
                     } else if (enname == "sbty1" || enname == "sbty2") {
@@ -347,50 +275,42 @@ export default class NewClass extends cc.Component {
                         if (enname == "sbty1") {
                             if (cc.sys.isBrowser) {
                                 setTimeout(() => {
-                                    !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
-                                        if (err) {
-                                            return console.error(err);
-                                        }
-                                        cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
-                                        console.log('load subpackage script successfully.', subgamern);
-                                    });
+                                    this.loadBundle(subgamern)
                                 }, 3000)
                             } else {
-                                !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
-                                    if (err) {
-                                        return console.error(err);
-                                    }
-                                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
-                                        console.log('load subpackage script successfully.', subgamern);
-                                });
+                                this.loadBundle(subgamern)
                             }
                         }
                     } else {
                         if (cc.sys.isBrowser) {
                             setTimeout(() => {
-                                !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
-                                    if (err) {
-                                        return console.error(err);
-                                    }
-                                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
-                                    console.log('load subpackage script successfully.', subgamern);
-                                });
+                                this.loadBundle(subgamern)
                             }, 3000)
                         } else {
-                            !self.app.gHandler.gameGlobal.isdev && cc.loader.downloader.loadSubpackage(subgamern, function (err) {
-                                if (err) {
-                                    return console.error(err);
-                                }
-                                cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
-                                console.log('load subpackage script successfully.', subgamern);
-                            });
+                            this.loadBundle(subgamern)
                         }
                     }
-                }else{
-                    console.log('gHandler.appGlobal.isRelease',self.app.gHandler.appGlobal.isRelease)
-                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                 }
             }
+        }
+    }
+    loadBundle(subname) {
+        if (!cc.assetManager.getBundle(subname)) {
+            cc.assetManager.loadBundle(subname, function (err) {
+                if (err) {
+                    return console.error(err);
+                }
+                console.log('load subpackage script successfully.', subname);
+            });
+        }
+        if (!cc.assetManager.getBundle(subname + "Res")) {
+            cc.assetManager.loadBundle(subname + "Res", function (err) {
+                if (err) {
+                    return console.error(err);
+                }
+                this.app.gHandler[subname + 'Res'] = cc.assetManager.getBundle(subname + "Res");
+                console.log('load subpackage script successfully.', subname + 'Res', subname + "Res");
+            });
         }
     }
 }

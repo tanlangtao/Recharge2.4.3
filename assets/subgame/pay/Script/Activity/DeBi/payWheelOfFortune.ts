@@ -378,7 +378,7 @@ export default class NewClass extends cc.Component {
     scrollLoop(){
         var content = this.sccrollView.getChildByName('view').getChildByName('content');
         content.stopAllActions()
-        content.position=cc.v2(0,-120)
+        content.position=cc.v3(0,-120)
         let idx = 0;
         var action1 = cc.moveBy(10,cc.v2(0,245))
         let middleCallBack = cc.callFunc(()=>{

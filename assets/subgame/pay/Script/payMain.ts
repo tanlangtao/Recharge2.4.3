@@ -74,11 +74,10 @@ export default class NewClass extends cc.Component {
      * @param text 
      */
     public showAlert(text:string){
-        let lg_text = Language_pay.Lg.ChangeByText(text)
         var node = cc.instantiate(this.publicAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('payPublicAlert').init(lg_text)
+        node.getComponent('payPublicAlert').init(text)
     }
     /**
      * 显示公共输入界面

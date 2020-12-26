@@ -120,7 +120,12 @@ export default class NewClass extends cc.Component {
                 }
             });
             this.setTishiLabel(percent)
-        }
+        }else if(this.text == 'USDT'){
+            let percent = 0
+            this.app.loadIcon(`${src}/menu/menu_usdt_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_usdt_2`,this.currentIcon,249,86)
+            this.setTishiLabel(percent)
+        } 
     }
     setTishiLabel(percent) {
         this.tishiLabel.string = `${percent * 100} %`;
@@ -160,6 +165,8 @@ export default class NewClass extends cc.Component {
             this.addDc()
         }else if(this.text == 'IM充值'){
             this.addContent('im_pay')
+        }else if(this.text == 'USDT'){
+            this.addContent('digiccy')
         }
     }
 
