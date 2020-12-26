@@ -190,7 +190,7 @@ export default class NewClass extends cc.Component {
     //点进入游戏
     EnterGameClick(){
         //按键音效
-        this.app.clickClip.play()
+        this.app.loadMusic(1)
         let scree = this.app.gHandler.gameGlobal.pay.from_scene;
         this.app.gHandler.gameGlobal.pay.from_scene = "";
         if (scree == ""){

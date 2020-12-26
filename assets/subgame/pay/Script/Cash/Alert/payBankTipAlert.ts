@@ -17,7 +17,7 @@ export default class NewClass extends cc.Component {
     }
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         //payBankDh
         this.parentComponent.showAccountAlert();
 
@@ -26,7 +26,7 @@ export default class NewClass extends cc.Component {
 
     removeSelf(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         this.node.destroy();
     }
     // update (dt) {}

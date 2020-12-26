@@ -286,7 +286,7 @@ export default class NewClass extends cc.Component {
     }
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'||this.name == '救济金活动'|| 
         this.name == '每日任务2'||this.name == "每周佣金奖励" || this.name=="首存彩金6"|| 
         this.name=="每日救援金6" || this.name =='签到奖励6'|| this.name =='流水闯关1'

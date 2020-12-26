@@ -88,14 +88,14 @@ export default class NewClass extends cc.Component {
 
     removeSelf(){
         //按键音效
-        this.app.clickClip.play()
+        this.app.loadMusic(1)
 
         this.node.destroy();
     }
 
     pageUp(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         if(this.page > 1){
             this.page = this.page - 1
             this.fetchIndex();
@@ -104,7 +104,7 @@ export default class NewClass extends cc.Component {
 
     pageDown(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         if(this.page < this.results.data.total_page ){
             this.page = this.page + 1
             this.fetchIndex();

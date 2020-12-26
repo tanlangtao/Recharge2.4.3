@@ -35,7 +35,7 @@ export default class NewClass extends cc.Component {
    
    onClick(){
        //按键音效
-       this.app.clickClip.play();
+       this.app.loadMusic(1);
        console.log(this.data)
         if(this.data.data.list.length == 0){
             this.app.showAlert('请先设置账户!')

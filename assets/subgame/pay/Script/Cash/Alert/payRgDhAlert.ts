@@ -119,7 +119,7 @@ export default class NewClass extends cc.Component {
 
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         let amount = Number(this.amountLabel.string) ;
         let gold = Number(this.goldLabel.string);
@@ -172,7 +172,7 @@ export default class NewClass extends cc.Component {
     
     deleteAmount(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.amountLabel.string = '点击输入';
         this.app.setInputColor('',this.amountLabel);
@@ -180,7 +180,7 @@ export default class NewClass extends cc.Component {
 
     removeSelf(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.node.destroy();
     }

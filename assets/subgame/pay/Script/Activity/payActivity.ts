@@ -42,7 +42,7 @@ export default class NewClass extends cc.Component {
         //返回大厅
         if(!this.canExit) return
         //按键音效
-        this.app.clickClip.play()
+        this.app.loadMusic(1)
         cc.director.preloadScene('hall',()=>{
             cc.director.loadScene('hall');
         })

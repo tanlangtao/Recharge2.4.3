@@ -68,8 +68,6 @@ export default class NewClass extends cc.Component {
         };
         this.gHandler = gHandler
         this.token = this.config.token;
-        //音效
-        this.clickClip = this.node.getComponent(cc.AudioSource)
     }
     /**
      * 全局提示框
@@ -324,6 +322,7 @@ export default class NewClass extends cc.Component {
         let path :string='';
         switch(num){
             case 0 : path ='Button_Click';break;
+            case 1 : path ='dian';break;
         }
         cc.resources.load(`pay/sounds/${path}`, cc.AudioClip, function(err, clip:any) {
             if (err) {

@@ -43,7 +43,7 @@ export default class NewClass extends cc.Component {
 
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         if(this.accountInput.string == ''
             || this.account_nameInput.string == '')
@@ -80,21 +80,21 @@ export default class NewClass extends cc.Component {
 
     deleteAccount_name(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.account_nameInput.string = '';
     }
 
     deleteAccount(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.accountInput.string = '';
     }
     
     removeSelf(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         this.node.destroy();
     }
     // update (dt) {}

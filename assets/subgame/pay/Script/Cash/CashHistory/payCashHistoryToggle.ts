@@ -38,7 +38,7 @@ export default class NewClass extends cc.Component {
 
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.parentComponet.order_status = this.index;
         this.parentComponet.page = 1;

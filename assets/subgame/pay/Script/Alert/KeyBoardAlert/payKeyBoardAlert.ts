@@ -56,28 +56,28 @@ export default class NewClass extends cc.Component {
     }
     add1(e){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         let font  = e.target.children[0].getComponent(cc.Label).string;
         this.inputlabel.string = this.inputlabel.string+font;
     }
     deleteString(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.inputlabel.string = this.inputlabel.string.substr(0,this.inputlabel.string.length-1);
     }
 
     deleteAll(e){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.inputlabel.string ='';
     }
 
     toCap(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         if(this.isCap){
             this.CapContent.active = false;
@@ -92,7 +92,7 @@ export default class NewClass extends cc.Component {
 
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         let string = this.app.labelType(this.inputlabel.string,this.type);
         if(string == ''){
@@ -107,7 +107,7 @@ export default class NewClass extends cc.Component {
 
     removeSelf(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         
         this.node.removeFromParent();
     }

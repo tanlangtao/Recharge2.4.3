@@ -139,7 +139,7 @@ export default class NewClass extends cc.Component {
 
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         this.app.showLoading();
         if(this.text == '支付宝'){
             this.addContent('alipay')

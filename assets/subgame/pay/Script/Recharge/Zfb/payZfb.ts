@@ -192,7 +192,7 @@ export default class NewClass extends cc.Component {
     //确认充值按钮回调
     public onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         var amount = Number(this.amountLabel.string);
         var min_amount = Number(this.current.min_amount);
         var max_amount = Number(this.current.max_amount);
@@ -251,7 +251,7 @@ export default class NewClass extends cc.Component {
 
     addGold(e){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         var string = e.currentTarget.children[1].getComponent(cc.Label).string;
         let amount = this.amountLabel.string == Language_pay.Lg.ChangeByText('点击输入') ? '0': this.amountLabel.string;
         var sum = Number(amount)+Number(string);

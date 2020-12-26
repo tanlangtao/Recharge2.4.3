@@ -28,7 +28,7 @@ export default class NewClass extends cc.Component {
     }
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         
         if(this.passwordLabel.string == '点击输入' ){
             this.app.showAlert('密码不能为空!')
@@ -73,7 +73,7 @@ export default class NewClass extends cc.Component {
     }
     deletePassword(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.passwordLabel.string = '点击输入';
         this.app.setInputColor('',this.passwordLabel);
@@ -81,7 +81,7 @@ export default class NewClass extends cc.Component {
     
     removeSelf(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         this.node.destroy();
     }
     // update (dt) {}

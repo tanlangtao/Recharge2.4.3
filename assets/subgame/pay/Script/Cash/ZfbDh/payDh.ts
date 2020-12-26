@@ -144,7 +144,7 @@ export default class NewClass extends cc.Component {
 
     deleteAmount(){ 
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.amountLabel.string = '点击输入';
         this.app.setInputColor('',this.amountLabel);
@@ -214,7 +214,7 @@ export default class NewClass extends cc.Component {
 
     btn1Click(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         this.showAccountAlert()
     }
     changeSlider(s,p){
@@ -232,7 +232,7 @@ export default class NewClass extends cc.Component {
     }
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         var amount = Number(this.amountLabel.string);
         var minAmount = Number(this.current?this.current.min_amount:100);
         var maxAmount = Number(this.current?this.current.max_amount:10000);

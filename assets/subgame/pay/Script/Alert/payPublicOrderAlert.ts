@@ -87,7 +87,7 @@ export default class NewClass extends cc.Component {
 
     copyCard_num(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         
         if (this.app.gHandler.Reflect) {
             if (this.app.gHandler.Reflect.setClipboard(this.card_numLabel.string)) {
@@ -101,7 +101,7 @@ export default class NewClass extends cc.Component {
 
     copyCard_name(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         if (this.app.gHandler.Reflect) {
             if (this.app.gHandler.Reflect.setClipboard(this.card_nameLabel.string)) {
                 this.app.showAlert(`复制成功!:${this.card_nameLabel.string}`)
@@ -113,7 +113,7 @@ export default class NewClass extends cc.Component {
 
     copyAmount(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         if (this.app.gHandler.Reflect) {
             if (this.app.gHandler.Reflect.setClipboard(this.amountLabel.string)) {
@@ -126,7 +126,7 @@ export default class NewClass extends cc.Component {
 
     copyBankName(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
         if (this.app.gHandler.Reflect) {
             if (this.app.gHandler.Reflect.setClipboard(this.bank_nameLabel.string)) {
                 this.app.showAlert(`复制成功!:${this.bank_nameLabel.string}`)
@@ -138,14 +138,14 @@ export default class NewClass extends cc.Component {
     
     removeSelf(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         this.node.removeFromParent()
     }
 
     onClick(){
         //按键音效
-        this.app.clickClip.play();
+        this.app.loadMusic(1);
 
         var node = cc.instantiate(this.helpAlert);
         var canvas = cc.find('Canvas');
