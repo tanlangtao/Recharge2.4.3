@@ -47,7 +47,9 @@ export default class NewClass extends cc.Component {
                                 (data.type == 8?`${Language_pay.Lg.ChangeByText('网银支付')}` :
                                     (data.type == 9? `${Language_pay.Lg.ChangeByText('快捷支付')}` :
                                         (data.type == 14?`${Language_pay.Lg.ChangeByText('专享快付')}`:
-                                            ((data.type == 18 ||data.type == 19 ||data.type == 20 || data.type ==21)? `${Language_pay.Lg.ChangeByText("IM充值")}` :"")
+                                            ((data.type == 18 ||data.type == 19 ||data.type == 20 || data.type ==21)? `${Language_pay.Lg.ChangeByText("IM充值")}` :
+                                                (data.type == 23?`USDT`:"")
+                                            )
                                         )
                                     )
                                 )
