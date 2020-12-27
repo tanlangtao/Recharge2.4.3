@@ -60,7 +60,7 @@ export default class NewClass extends cc.Component {
     //联系客服
     onClick(){
         // 唤起IM
-        this.app.gHandler.Reflect.setOrientation("portrait", 640, 1136)
+        this.app.gHandler.reflect.setOrientation("portrait", 640, 1136)
         cc.director.loadScene('IMappStart');
     }
     //设置语言相关的资源和字
