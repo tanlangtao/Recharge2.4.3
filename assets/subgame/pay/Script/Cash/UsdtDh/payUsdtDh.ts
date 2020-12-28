@@ -6,8 +6,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Label)
     goldLabel: cc.Label = null; //余额
+
     @property(cc.Label)
-    usdt_goldLabel: cc.Label = null; //余额
+    usdt_goldLabel: cc.Label = null; //转换usdt余额
 
     @property(cc.Label)
     amountLabel: cc.Label = null; //兑换金额
@@ -38,26 +39,13 @@ export default class NewClass extends cc.Component {
 
     @property
     public data : any = {};
-    public showSelect = false;
     public results= null ;
-    public current = {channel_name: "银行卡1",
-        channel_type: "2",
-        max_amount: "40000",
-        min_amount: "1"};
-    //当前选择的银行卡信息
-    public Info = {
-        bank_name:'',
-        branch_name:'',
-        card_name:'',
-        card_num:'',
-        bank_province:'',
-        bank_city:''
-    };
-    public bankData = [];
-    public showBankSelect = false;
-    public bankId = null;
-    public action = 'add';
     app = null;
+    current= null;
+    walletAddress = ''
+    chanType = ''
+    info = []
+    itemID = ''
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
@@ -87,10 +75,9 @@ export default class NewClass extends cc.Component {
     }
     
     init(){
-        console.log(this.data.data.withDraw_info)
-        this.results = this.data.data.withDraw_info.bankcard.channel;
+        this.results = this.data.data.withDraw_info.usdt.channel;
+        console.log(this.results)
         this.results.sort((a,b)=>a.sort-b.sort);
-        
         for(let i = 0;i<this.results.length;i++){
             if(Number(this.results[i].is_close)>0){
                 this.current = this.results[i];
@@ -102,25 +89,12 @@ export default class NewClass extends cc.Component {
 
     //selectItem回调
     public initRender(){
-        this.bankData = [];
-        var data = this.data.data;
-        for(let i = 0 ;i < data.list.length ;i++){
+        for(let i = 0 ;i < this.data.data.list.length ;i++){
             let data = this.data.data.list[i];
             if (data.type == 3){
-                this.bankData.push(data)
+                this.info = JSON.parse(data.info)
             }
         }
-        
-        if(this.bankData.length>0){
-            let Info =JSON.parse(this.bankData[0].info)
-            for (var k in Info) {
-                this.Info[k] = Info[k]
-            }
-            this.bankId = this.bankData[0].id;
-        }
-        this.action = this.bankData.length != 0 ? 'edit' :'add';
-        this.goldLabel.string = this.app.config.toDecimal(data.game_gold);
-
         //最小金额也需要根据package_id判断
         let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
         withdraw_min_amount.forEach(item => {
@@ -128,10 +102,11 @@ export default class NewClass extends cc.Component {
                 this.current.min_amount = item.min_amount
             }
         });
-
+        this.goldLabel.string = this.app.config.toDecimal(this.data.data.game_gold);
         this.dhArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
-        this.walletAddressLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
-        if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
+        this.walletAddressLabel.string = this.walletAddress != '' ? this.app.config.testBankNum(this.walletAddress) :'未绑定';
+        this.chanTypeLabel.string = this.chanType != '' ? this.app.config.testBankNum(this.chanType) :'未绑定';
+        if(this.walletAddress == ""){
             this.bindBtn.active = true;
         }else{
             this.bindBtn.active = false;
@@ -163,15 +138,7 @@ export default class NewClass extends cc.Component {
     }
     //显示弹窗
     showAccountAlert(){
-        console.log(this.Info)
-        this.app.showBankAccountAlert({
-            text:this.bankData.length != 0  ?'修改银行卡' : '设置银行卡',
-            action:this.action,
-            itemId:this.bankId,
-            parentComponent:this,
-            //修改界面初始数据
-            changeData:this.Info
-        });
+        this.app.showUsdtAccountAlert(this.itemID);
     }
     //兑换
     public fetchwithDrawApply(){
@@ -179,9 +146,9 @@ export default class NewClass extends cc.Component {
         let dataStr=''
         //如果proxy_name为“”，则不传
         if(this.app.UrlData.proxy_name == ""){
-            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&account_id=${this.bankId}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
+            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
         }else{
-            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&account_id=${this.bankId}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
+            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
         }
         let self = this;
         self.DhBtn.getComponent(cc.Button).interactable  = false;
@@ -207,7 +174,7 @@ export default class NewClass extends cc.Component {
                     text:this.results[i].channel_name,
                     parentComponent:this,
                     index:i,
-                    channel :'bank_pay'
+                    channel :'usdt'
                 })
             }
          }
@@ -253,8 +220,8 @@ export default class NewClass extends cc.Component {
 
         if(this.results.length==0){
             this.app.showAlert('渠道未开放，请选择其他兑换方式！')
-        }else if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
-            this.app.showBankTipAlert(this)
+        }else if(this.walletAddressLabel.string == ''|| this.walletAddressLabel.string == '未绑定'){
+            this.app.showAlert('请先绑定钱包地址')
         }else if(this.amountLabel.string == '点击输入'){
             this.app.showAlert('兑换金额不能为空！')
         }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){

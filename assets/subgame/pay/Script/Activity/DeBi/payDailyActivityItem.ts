@@ -297,13 +297,14 @@ export default class NewClass extends cc.Component {
         }
     }
     loadBundle(subname) {
+        let self = this
         if (!cc.assetManager.getBundle(subname)) {
             cc.assetManager.loadBundle(subname, function (err) {
                 if (err) {
                     return console.error(err);
                 }
                 console.log('load subpackage script successfully.', subname);
-                cc.director.loadScene(this.app.gHandler.subGameList[subname].lanchscene);
+                cc.director.loadScene(self.app.gHandler.subGameList[subname].lanchscene);
             });
         }
         if (!cc.assetManager.getBundle(subname + "Res")) {
@@ -311,7 +312,7 @@ export default class NewClass extends cc.Component {
                 if (err) {
                     return console.error(err);
                 }
-                this.app.gHandler[subname + 'Res'] = cc.assetManager.getBundle(subname + "Res");
+                self.app.gHandler[subname + 'Res'] = cc.assetManager.getBundle(subname + "Res");
                 console.log('load subpackage script successfully.', subname + 'Res', subname + "Res");
             });
         }

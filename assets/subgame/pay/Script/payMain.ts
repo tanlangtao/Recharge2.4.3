@@ -207,6 +207,15 @@ export default class NewClass extends cc.Component {
             BankAccountAlert.changeContent(data.changeData);
         }
     }
+    public showUsdtAccountAlert(itemId){
+        var canvas = cc.find('Canvas');
+        var node = cc.instantiate(this.BankAccountAlert);
+        canvas.addChild(node);
+        let payUsdtAccountAlert = node.getComponent('payUsdtAccountAlert');
+        payUsdtAccountAlert.init({
+            itemId
+        })
+    }
     /**
      * 添加银行卡类型弹窗
      * @param data 

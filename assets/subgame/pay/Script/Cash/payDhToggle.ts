@@ -47,8 +47,8 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/menu_dhhistory_1`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/menu_dhhistory_2`,this.currentIcon,249,86)
         }else if(this.text == 'USDT兑换'){
-            this.app.loadIcon(`${src}/menu/menu_usdt_1`,this.normalIcon,242,86)
-            this.app.loadIcon(`${src}/menu/menu_usdt_2`,this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_usdtQb_1`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/menu_usdtQb_2`,this.currentIcon,249,86)
         }
     }
     // LIFE-CYCLE CALLBACKS:
