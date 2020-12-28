@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "BankDh",
+    "_name": "UsdtDh",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -27,23 +27,23 @@
         "__id__": 87
       },
       {
-        "__id__": 106
+        "__id__": 101
       },
       {
-        "__id__": 117
+        "__id__": 112
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 123
+        "__id__": 118
       },
       {
-        "__id__": 124
+        "__id__": 119
       }
     ],
     "_prefab": {
-      "__id__": 125
+      "__id__": 120
     },
     "_opacity": 255,
     "_color": {
@@ -3263,19 +3263,16 @@
       },
       {
         "__id__": 91
-      },
-      {
-        "__id__": 99
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 104
+        "__id__": 99
       }
     ],
     "_prefab": {
-      "__id__": 105
+      "__id__": 100
     },
     "_opacity": 255,
     "_color": {
@@ -3736,196 +3733,6 @@
     "sync": false
   },
   {
-    "__type__": "cc.Node",
-    "_name": "accountBtn",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 87
-    },
-    "_children": [],
-    "_active": false,
-    "_components": [
-      {
-        "__id__": 100
-      },
-      {
-        "__id__": 101
-      }
-    ],
-    "_prefab": {
-      "__id__": 103
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 134,
-      "height": 53
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        341.9,
-        -0.6,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 99
-    },
-    "_enabled": true,
-    "_materials": [],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "6b64b1ff-94f4-47b8-b0c2-3f6f1a08670d"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Button",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 99
-    },
-    "_enabled": true,
-    "_normalMaterial": null,
-    "_grayMaterial": null,
-    "duration": 0.1,
-    "zoomScale": 0.9,
-    "clickEvents": [
-      {
-        "__id__": 102
-      }
-    ],
-    "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 3,
-    "transition": 3,
-    "_N$normalColor": {
-      "__type__": "cc.Color",
-      "r": 214,
-      "g": 214,
-      "b": 214,
-      "a": 255
-    },
-    "_N$pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
-    },
-    "pressedColor": {
-      "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
-      "a": 255
-    },
-    "_N$hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "hoverColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_N$disabledColor": {
-      "__type__": "cc.Color",
-      "r": 124,
-      "g": 124,
-      "b": 124,
-      "a": 255
-    },
-    "_N$normalSprite": {
-      "__uuid__": "6733121b-c1ff-4e04-a172-d6b8f03a8f39"
-    },
-    "_N$pressedSprite": null,
-    "pressedSprite": null,
-    "_N$hoverSprite": null,
-    "hoverSprite": null,
-    "_N$disabledSprite": null,
-    "_N$target": null,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 1
-    },
-    "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
-    "handler": "btn1Click",
-    "customEventData": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "fdc260b2-e727-43e3-bd7e-b362cf0a3f73"
-    },
-    "fileId": "9fgcrrBYVIsYEZbZbbxgeK",
-    "sync": false
-  },
-  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -3972,20 +3779,20 @@
     },
     "_children": [
       {
-        "__id__": 107
+        "__id__": 102
       },
       {
-        "__id__": 112
+        "__id__": 107
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 115
+        "__id__": 110
       }
     ],
     "_prefab": {
-      "__id__": 116
+      "__id__": 111
     },
     "_opacity": 255,
     "_color": {
@@ -4039,23 +3846,23 @@
     "_name": "selectContent",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 106
+      "__id__": 101
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 108
+        "__id__": 103
       },
       {
-        "__id__": 109
+        "__id__": 104
       },
       {
-        "__id__": 110
+        "__id__": 105
       }
     ],
     "_prefab": {
-      "__id__": 111
+      "__id__": 106
     },
     "_opacity": 255,
     "_color": {
@@ -4109,7 +3916,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 107
+      "__id__": 102
     },
     "_enabled": true,
     "_materials": [
@@ -4139,7 +3946,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 107
+      "__id__": 102
     },
     "_enabled": true,
     "_layoutSize": {
@@ -4171,7 +3978,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 107
+      "__id__": 102
     },
     "_enabled": true,
     "allowSwitchOff": false,
@@ -4194,17 +4001,17 @@
     "_name": "dhqd",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 106
+      "__id__": 101
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 113
+        "__id__": 108
       }
     ],
     "_prefab": {
-      "__id__": 114
+      "__id__": 109
     },
     "_opacity": 255,
     "_color": {
@@ -4258,7 +4065,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 112
+      "__id__": 107
     },
     "_enabled": true,
     "_materials": [
@@ -4301,7 +4108,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 106
+      "__id__": 101
     },
     "_enabled": true,
     "alignMode": 1,
@@ -4345,17 +4152,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 118
+        "__id__": 113
       },
       {
-        "__id__": 119
+        "__id__": 114
       },
       {
-        "__id__": 121
+        "__id__": 116
       }
     ],
     "_prefab": {
-      "__id__": 122
+      "__id__": 117
     },
     "_opacity": 255,
     "_color": {
@@ -4409,7 +4216,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 117
+      "__id__": 112
     },
     "_enabled": true,
     "_materials": [
@@ -4441,7 +4248,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 117
+      "__id__": 112
     },
     "_enabled": true,
     "_normalMaterial": {
@@ -4452,7 +4259,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 120
+        "__id__": 115
       }
     ],
     "_N$interactable": true,
@@ -4525,7 +4332,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 117
+      "__id__": 112
     },
     "_enabled": true,
     "alignMode": 1,
@@ -4634,16 +4441,21 @@
       "__id__": 1
     },
     "_enabled": true,
+    "goldLabel": {
+      "__id__": 12
+    },
+    "usdt_goldLabel": null,
     "amountLabel": null,
-    "czArea": null,
-    "accountLabel": null,
-    "accountBtn": null,
+    "dhArea": null,
+    "walletAddressLabel": null,
+    "chanTypeLabel": null,
+    "bindBtn": {
+      "__id__": 80
+    },
     "selectContent": null,
-    "goldLabel": null,
     "CashAlert": null,
     "DhBtn": null,
-    "slider": null,
-    "progressBar": null,
+    "SelectItem": null,
     "data": {},
     "_id": ""
   },

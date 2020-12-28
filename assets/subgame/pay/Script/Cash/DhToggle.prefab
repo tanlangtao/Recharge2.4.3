@@ -295,7 +295,11 @@
       "__id__": 6
     },
     "_enabled": true,
-    "_materials": [],
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": null,
@@ -396,7 +400,11 @@
       "__id__": 9
     },
     "_enabled": true,
-    "_materials": [],
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": null,
@@ -541,6 +549,9 @@
     "currentIcon": {
       "__id__": 9
     },
+    "UsdtDh": {
+      "__uuid__": "fdc260b2-e727-43e3-bd7e-b362cf0a3f73"
+    },
     "app": null,
     "_id": ""
   },
@@ -552,7 +563,7 @@
     "asset": {
       "__uuid__": "c83019c6-5600-4abf-a181-1ee05d37f136"
     },
-    "fileId": "6dOL2XRFROyq1As+h89bJC",
+    "fileId": "",
     "sync": false
   }
 ]

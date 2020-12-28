@@ -32,7 +32,7 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
         // 唤起IM
-        this.app.gHandler.Reflect.setOrientation("portrait", 640, 1136)
+        this.app.gHandler.reflect.setOrientation("portrait", 640, 1136)
         cc.director.loadScene('IMappStart');
     }
 

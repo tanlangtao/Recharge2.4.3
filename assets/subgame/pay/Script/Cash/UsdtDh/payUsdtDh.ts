@@ -5,30 +5,33 @@ const {ccclass, property} = cc._decorator;
 export default class NewClass extends cc.Component {
 
     @property(cc.Label)
-    amountLabel: cc.Label = null;
+    goldLabel: cc.Label = null; //余额
+    @property(cc.Label)
+    usdt_goldLabel: cc.Label = null; //余额
 
     @property(cc.Label)
-    czArea: cc.Label = null;
+    amountLabel: cc.Label = null; //兑换金额
+
     @property(cc.Label)
-    accountLabel: cc.Label = null;
+    dhArea: cc.Label = null; //兑换范围
+
+    @property(cc.Label)
+    walletAddressLabel: cc.Label = null; 
+
+    @property(cc.Label)
+    chanTypeLabel: cc.Label = null;
 
     @property(cc.Node)
-    accountBtn: cc.Node = null;
+    bindBtn: cc.Node = null;
 
     @property(cc.Node)
     selectContent :cc.Node = null;
-
-    @property(cc.Label)
-    goldLabel: cc.Label = null;
 
     @property(cc.Prefab)
     CashAlert: cc.Prefab = null;
 
     @property(cc.Node)
     DhBtn: cc.Node = null;
-
-    @property(cc.Slider)
-    slider : cc.Slider = null;
 
     @property(cc.Prefab)
     SelectItem :cc.Prefab = null
@@ -84,6 +87,7 @@ export default class NewClass extends cc.Component {
     }
     
     init(){
+        console.log(this.data.data.withDraw_info)
         this.results = this.data.data.withDraw_info.bankcard.channel;
         this.results.sort((a,b)=>a.sort-b.sort);
         
@@ -125,12 +129,12 @@ export default class NewClass extends cc.Component {
             }
         });
 
-        this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
-        this.accountLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
+        this.dhArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
+        this.walletAddressLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
         if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
-            this.accountBtn.active = true;
+            this.bindBtn.active = true;
         }else{
-            this.accountBtn.active = false;
+            this.bindBtn.active = false;
         }
     }
 
@@ -140,15 +144,6 @@ export default class NewClass extends cc.Component {
 
         this.amountLabel.string = '点击输入';
         this.app.setInputColor('',this.amountLabel);
-        this.slider.progress = 0;
-    }
-
-     //点击最大
-     allGoldClick(){
-          //按键音效
-        this.app.loadMusic(1);
-        this.amountLabel.string = `${Math.floor(Number(this.goldLabel.string))}`;
-        this.slider.progress = 1;
     }
 
     //兑换提示
@@ -188,8 +183,6 @@ export default class NewClass extends cc.Component {
         }else{
             dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&account_id=${this.bankId}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
         }
-        
-
         let self = this;
         self.DhBtn.getComponent(cc.Button).interactable  = false;
         this.app.ajax('POST',url,dataStr,(response)=>{
@@ -262,7 +255,6 @@ export default class NewClass extends cc.Component {
             this.app.showAlert('渠道未开放，请选择其他兑换方式！')
         }else if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
             this.app.showBankTipAlert(this)
-
         }else if(this.amountLabel.string == '点击输入'){
             this.app.showAlert('兑换金额不能为空！')
         }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){

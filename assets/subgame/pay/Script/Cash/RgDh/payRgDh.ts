@@ -75,7 +75,8 @@ export default class payRgDh extends cc.Component {
     }
     showIm(){
         // 唤起IM
-        this.app.gHandler.Reflect.setOrientation("portrait", 640, 1136)
+        console.log('唤起IM','IMappStart')
+        this.app.gHandler.reflect.setOrientation("portrait", 640, 1136)
         cc.director.loadScene('IMappStart');
     }
 }

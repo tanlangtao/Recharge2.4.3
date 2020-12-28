@@ -180,7 +180,7 @@ export default class NewClass extends cc.Component {
         }
         let failcallback = (status) => {
         }
-        let endurl = this.app.gHandler.appGlobal.getIpGetEndurl(4);
-        this.app.gHandler.http.sendRequestIpGet(this.app.gHandler.appGlobal.server, endurl, callback, failcallback);
+        let endurl = this.app.gHandler.app.getIpGetEndurl(4);
+        this.app.gHandler.http.sendRequestIpGet(this.app.gHandler.app.server, endurl, callback, failcallback);
     }
 }

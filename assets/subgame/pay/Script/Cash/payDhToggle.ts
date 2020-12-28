@@ -23,6 +23,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     currentIcon : cc.Node = null;
 
+    @property(cc.Prefab)
+    UsdtDh : cc.Prefab = null;
+
     @property
     app= null;
     text = null;
@@ -31,18 +34,21 @@ export default class NewClass extends cc.Component {
         let src = Language_pay.Lg.getLgSrc()
         this.text=data.text;
         if(this.text == '支付宝兑换'){
-            this.app.loadIcon('cash/menu/menu_ali_1',this.normalIcon,242,86)
-            this.app.loadIcon('cash/menu/menu_ali_2',this.currentIcon,249,86);
+            this.app.loadIcon(`${src}/menu/menu_ali_1`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/menu_ali_2`,this.currentIcon,249,86);
 
         }else if(this.text == '银行卡兑换'){
-            this.app.loadIcon('cash/menu/menu_union_2',this.normalIcon,242,86)
-            this.app.loadIcon('cash/menu/menu_union_1',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_union_2`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/menu_union_1`,this.currentIcon,249,86)
         }else if(this.text == '人工兑换'){
-            this.app.loadIcon('cash/menu/menu_rengong_1',this.normalIcon,207,39)
-            this.app.loadIcon('cash/menu/menu_rengong_2',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_rengong_1`,this.normalIcon,207,39)
+            this.app.loadIcon(`${src}/menu/menu_rengong_2`,this.currentIcon,249,86)
         }else if(this.text == '兑换记录'){
-            this.app.loadIcon('cash/menu/menu_dhhistory_1',this.normalIcon,242,86)
-            this.app.loadIcon('cash/menu/menu_dhhistory_2',this.currentIcon,249,86)
+            this.app.loadIcon(`${src}/menu/menu_dhhistory_1`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/menu_dhhistory_2`,this.currentIcon,249,86)
+        }else if(this.text == 'USDT兑换'){
+            this.app.loadIcon(`${src}/menu/menu_usdt_1`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/menu_usdt_2`,this.currentIcon,249,86)
         }
     }
     // LIFE-CYCLE CALLBACKS:
@@ -63,6 +69,8 @@ export default class NewClass extends cc.Component {
             this.addContent('RgDh')
         }else if(this.text == '兑换记录'){
             this.addContent('DhHistory')
+        }else if(this.text == 'USDT兑换'){
+            this.addContent('USDT')
         }
     }
 
@@ -80,6 +88,9 @@ export default class NewClass extends cc.Component {
             content.scaleY = 1;
         }else if(data == 'DhHistory'){
             var node = cc.instantiate(this.DhHistory);
+            content.scaleY = 1/scalex;
+        }else if(data == 'USDT'){
+            var node = cc.instantiate(this.UsdtDh);
             content.scaleY = 1/scalex;
         }
         

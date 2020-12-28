@@ -1,0 +1,20 @@
+
+ani_ebg_dicecup.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dicecup_bot
+  rotate: false
+  xy: 0, 0
+  size: 135, 152
+  orig: 135, 152
+  offset: 0, 0
+  index: -1
+dicecup_cap
+  rotate: false
+  xy: 137, 0
+  size: 135, 152
+  orig: 135, 152
+  offset: 0, 0
+  index: -1

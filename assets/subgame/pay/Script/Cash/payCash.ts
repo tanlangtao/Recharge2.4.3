@@ -86,7 +86,12 @@ export default class NewClass extends cc.Component {
                 arr.push('支付宝兑换')
             }
         }
-        arr.push('兑换记录')
+        if(this.results.data.withDraw_info.usdt){
+            if(this.results.data.withDraw_info.usdt.is_close > 0){
+                arr.push('USDT兑换')
+            }
+        }
+        console.log(arr)
         for(let i:number = 0; i< arr.length; i++){
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);

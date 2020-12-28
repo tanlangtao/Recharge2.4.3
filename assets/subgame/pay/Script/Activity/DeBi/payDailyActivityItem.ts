@@ -233,6 +233,7 @@ export default class NewClass extends cc.Component {
     /** 判断子游戏是否下载更新等 */
     
     checkSubGameDownload(enname) {
+        console.log('checkSubGameDownload',enname)
         let self = this;
         let subdata = this.getRemoteSubgame(this.app.gHandler.subGameList[enname].game_id)
         if (subdata.open == 0) {
@@ -253,10 +254,9 @@ export default class NewClass extends cc.Component {
             let needup = this.app.gHandler.commonTools.versionCompare(localsubv, subgamev)
             if (needup && !cc.sys.isBrowser && cc.sys.os != "Windows") {
                 // console.log(txt + " | subgame : " + enname + " need update");
-                self.payDailyCompoment.app.showAlert("游戏需要下载更新!请返回大厅下载更新");
+                self.payDailyCompoment.app.showAlert(`游戏需要下载更新!请返回大厅下载更新 ${enname}`);
             } else {
                 // console.log(txt + " | subgame : " + enname + " not need update")
-                cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                 if (this.app.gHandler.app.isRelease) {
                     let subgamern = enname
                     if (enname == "zrsx1" || enname == "zrsx2") {
@@ -290,6 +290,8 @@ export default class NewClass extends cc.Component {
                             this.loadBundle(subgamern)
                         }
                     }
+                }else{
+                    cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                 }
             }
         }
@@ -301,6 +303,7 @@ export default class NewClass extends cc.Component {
                     return console.error(err);
                 }
                 console.log('load subpackage script successfully.', subname);
+                cc.director.loadScene(this.app.gHandler.subGameList[subname].lanchscene);
             });
         }
         if (!cc.assetManager.getBundle(subname + "Res")) {

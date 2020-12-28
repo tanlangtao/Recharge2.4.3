@@ -1,0 +1,654 @@
+{
+"skeleton": { "hash": "aMrlcQMZRgWMgkt3/2OUmPGqn3o", "spine": "3.6.53", "width": 32.95, "height": 36.41 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "dice02", "parent": "root", "y": 5 },
+	{ "name": "dice_route", "parent": "root", "y": -86 }
+],
+"slots": [
+	{ "name": "dice02", "bone": "dice02", "color": "ffffff00", "attachment": "dice01" },
+	{ "name": "dice_route02", "bone": "dice_route", "attachment": "dice_route02" }
+],
+"path": [
+	{
+		"name": "dice_route02",
+		"order": 0,
+		"bones": [ "dice02" ],
+		"target": "dice_route02"
+	}
+],
+"skins": {
+	"default": {
+		"dice02": {
+			"dice01": { "y": -5, "width": 29, "height": 33 },
+			"dice02": { "y": -5, "width": 29, "height": 33 },
+			"dice03": { "y": -5, "width": 29, "height": 33 },
+			"dice04": { "y": -5, "width": 29, "height": 33 },
+			"dice05": { "y": -5, "width": 29, "height": 33 },
+			"dice06": { "y": -5, "width": 29, "height": 33 }
+		},
+		"dice_route02": {
+			"dice_route02": {
+				"type": "path",
+				"closed": true,
+				"lengths": [ 51.62, 112.91, 153.56, 193.28 ],
+				"vertexCount": 12,
+				"vertices": [ -10.75, 111.61, 2.3, 109.77, 15.76, 107.86, 39.09, 89.55, 38.78, 76.71, 38.47, 63.88, -4.15, 51.24, -15.29, 53.74, -27.51, 56.49, -39.47, 72, -38.25, 84.15, -36.98, 96.81 ]
+			}
+		}
+	}
+},
+"animations": {
+	"dice2_p_1": {
+		"slots": {
+			"dice02": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 0, "name": "dice05" },
+					{ "time": 0.0667, "name": "dice04" },
+					{ "time": 0.2, "name": "dice02" },
+					{ "time": 0.2667, "name": "dice04" },
+					{ "time": 0.4333, "name": "dice01" },
+					{ "time": 0.5667, "name": "dice03" },
+					{ "time": 0.6667, "name": "dice05" },
+					{ "time": 0.7333, "name": "dice03" },
+					{ "time": 0.8333, "name": "dice02" },
+					{ "time": 0.9667, "name": "dice05" },
+					{ "time": 1.0333, "name": "dice03" },
+					{ "time": 1.1333, "name": "dice06" },
+					{ "time": 1.2333, "name": "dice02" },
+					{ "time": 1.3333, "name": "dice01" }
+				]
+			}
+		},
+		"bones": {
+			"dice02": {
+				"rotate": [
+					{ "time": 0, "angle": 3.53 },
+					{ "time": 0.0667, "angle": -34.58 },
+					{ "time": 0.1333, "angle": 16.95 },
+					{ "time": 0.2, "angle": 102.74 },
+					{ "time": 0.2667, "angle": 4.99 },
+					{ "time": 0.4, "angle": 38.22 },
+					{ "time": 0.4333, "angle": -40.45 },
+					{ "time": 0.5, "angle": -51.45 },
+					{ "time": 0.5667, "angle": -77.3 },
+					{ "time": 0.6333, "angle": -147.02 },
+					{ "time": 0.6667, "angle": -7.79 },
+					{ "time": 0.7333, "angle": 108.39 },
+					{ "time": 0.8333, "angle": 45.64 },
+					{ "time": 0.9, "angle": 0.41 },
+					{ "time": 0.9667, "angle": 30.7 },
+					{ "time": 1.0333, "angle": 64.16 },
+					{ "time": 1.1, "angle": 93.74 },
+					{ "time": 1.1667, "angle": 34.39 },
+					{ "time": 1.2333, "angle": 60 },
+					{ "time": 1.3, "angle": 90 },
+					{ "time": 1.5, "angle": 42.2 },
+					{ "time": 1.6667, "angle": 0.27 }
+				]
+			},
+			"dice_route": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 30 },
+					{ "time": 0.0667, "x": -28.75, "y": 15.1 },
+					{ "time": 0.1667, "x": 3.11, "y": 72.85 },
+					{ "time": 0.2333, "x": 11.12, "y": 35.76 },
+					{ "time": 0.3333, "x": 7.8, "y": 75.92 },
+					{ "time": 0.4, "x": -3.82, "y": 41.17 },
+					{ "time": 0.5, "x": 19.79, "y": 55.66 },
+					{ "time": 0.5667, "x": 24.88, "y": 23.38 },
+					{ "time": 0.6667, "x": 23.16, "y": 47.48 },
+					{ "time": 0.7333, "x": 23.16, "y": 9.03 },
+					{ "time": 0.8, "x": 23.73, "y": 24.52 },
+					{ "time": 0.9, "x": 39.23, "y": 10.75 },
+					{ "time": 0.9667, "x": 38.08, "y": 24.52 },
+					{ "time": 1.0667, "x": 40.38, "y": 15.34 },
+					{ "time": 1.1333, "x": 32.34, "y": 27.39 },
+					{ "time": 1.2333, "x": 24.31, "y": 13.91 },
+					{ "time": 1.3333, "x": 19.71, "y": 18.51 },
+					{ "time": 1.4333, "x": 16.27, "y": 10.47 },
+					{ "time": 1.5, "x": 8.23, "y": 12.77 },
+					{
+						"time": 1.6333,
+						"x": 0.77,
+						"y": 9.32,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 1.8333, "x": -4.25, "y": 6.47 }
+				]
+			}
+		},
+		"paths": {
+			"dice_route02": {
+				"position": [
+					{ "time": 0, "position": 4.5 }
+				],
+				"mix": [
+					{ "time": 0, "rotateMix": 0, "translateMix": 0.995 }
+				]
+			}
+		}
+	},
+	"dice2_p_2": {
+		"slots": {
+			"dice02": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 0, "name": "dice05" },
+					{ "time": 0.0667, "name": "dice04" },
+					{ "time": 0.2, "name": "dice02" },
+					{ "time": 0.2667, "name": "dice04" },
+					{ "time": 0.4333, "name": "dice01" },
+					{ "time": 0.5667, "name": "dice03" },
+					{ "time": 0.6667, "name": "dice05" },
+					{ "time": 0.7333, "name": "dice03" },
+					{ "time": 0.8333, "name": "dice02" },
+					{ "time": 0.9667, "name": "dice05" },
+					{ "time": 1.0333, "name": "dice03" },
+					{ "time": 1.1333, "name": "dice06" },
+					{ "time": 1.2333, "name": "dice03" },
+					{ "time": 1.3333, "name": "dice02" }
+				]
+			}
+		},
+		"bones": {
+			"dice02": {
+				"rotate": [
+					{ "time": 0, "angle": 3.53 },
+					{ "time": 0.0667, "angle": -34.58 },
+					{ "time": 0.1333, "angle": 16.95 },
+					{ "time": 0.2, "angle": 102.74 },
+					{ "time": 0.2667, "angle": 4.99 },
+					{ "time": 0.4, "angle": 38.22 },
+					{ "time": 0.4333, "angle": -40.45 },
+					{ "time": 0.5, "angle": -51.45 },
+					{ "time": 0.5667, "angle": -77.3 },
+					{ "time": 0.6333, "angle": -147.02 },
+					{ "time": 0.6667, "angle": -7.79 },
+					{ "time": 0.7333, "angle": 108.39 },
+					{ "time": 0.8333, "angle": 45.64 },
+					{ "time": 0.9, "angle": 0.41 },
+					{ "time": 0.9667, "angle": 30.7 },
+					{ "time": 1.0333, "angle": 64.16 },
+					{ "time": 1.1, "angle": 93.74 },
+					{ "time": 1.1667, "angle": 34.39 },
+					{ "time": 1.2333, "angle": 60 },
+					{ "time": 1.3, "angle": 90 },
+					{ "time": 1.5, "angle": 42.2 },
+					{ "time": 1.6667, "angle": 0.27 }
+				]
+			},
+			"dice_route": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 30 },
+					{ "time": 0.0667, "x": -28.75, "y": 15.1 },
+					{ "time": 0.1667, "x": 3.11, "y": 72.85 },
+					{ "time": 0.2333, "x": 11.12, "y": 35.76 },
+					{ "time": 0.3333, "x": 7.8, "y": 75.92 },
+					{ "time": 0.4, "x": 7.41, "y": 26.94 },
+					{ "time": 0.5, "x": 16.04, "y": 34.69 },
+					{ "time": 0.5667, "x": 18.89, "y": 6.9 },
+					{ "time": 0.6667, "x": 20.16, "y": 16.78 },
+					{ "time": 0.7333, "x": 23.91, "y": 3.78 },
+					{ "time": 0.8, "x": 36.47, "y": 11.04 },
+					{ "time": 0.9, "x": 39.23, "y": 10.75 },
+					{ "time": 0.9667, "x": 38.08, "y": 24.52 },
+					{ "time": 1.0667, "x": 40.38, "y": 15.34 },
+					{ "time": 1.1333, "x": 32.34, "y": 27.39 },
+					{ "time": 1.2333, "x": 24.31, "y": 11.91 },
+					{ "time": 1.3333, "x": 19.71, "y": 16.51 },
+					{ "time": 1.4333, "x": 16.27, "y": 8.47 },
+					{ "time": 1.5, "x": 15.72, "y": 15.01 },
+					{
+						"time": 1.6333,
+						"x": 12.01,
+						"y": 2.32,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 1.8333, "x": 17.49, "y": 0.32 }
+				]
+			}
+		},
+		"paths": {
+			"dice_route02": {
+				"position": [
+					{ "time": 0, "position": 4.5 }
+				],
+				"mix": [
+					{ "time": 0, "rotateMix": 0, "translateMix": 0.995 }
+				]
+			}
+		}
+	},
+	"dice2_p_3": {
+		"slots": {
+			"dice02": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 0, "name": "dice05" },
+					{ "time": 0.0667, "name": "dice04" },
+					{ "time": 0.2, "name": "dice02" },
+					{ "time": 0.2667, "name": "dice04" },
+					{ "time": 0.4333, "name": "dice01" },
+					{ "time": 0.5667, "name": "dice03" },
+					{ "time": 0.6667, "name": "dice05" },
+					{ "time": 0.7333, "name": "dice03" },
+					{ "time": 0.8333, "name": "dice02" },
+					{ "time": 0.9667, "name": "dice06" },
+					{ "time": 1.0667, "name": "dice02" },
+					{ "time": 1.1667, "name": "dice01" },
+					{ "time": 1.3333, "name": "dice03" }
+				]
+			}
+		},
+		"bones": {
+			"dice02": {
+				"rotate": [
+					{ "time": 0, "angle": 3.53 },
+					{ "time": 0.0667, "angle": -34.58 },
+					{ "time": 0.1333, "angle": 16.95 },
+					{ "time": 0.2, "angle": 102.74 },
+					{ "time": 0.2667, "angle": 4.99 },
+					{ "time": 0.4, "angle": 38.22 },
+					{ "time": 0.4333, "angle": -40.45 },
+					{ "time": 0.5, "angle": -51.45 },
+					{ "time": 0.5667, "angle": -77.3 },
+					{ "time": 0.6333, "angle": -147.02 },
+					{ "time": 0.6667, "angle": -7.79 },
+					{ "time": 0.7333, "angle": 108.39 },
+					{ "time": 0.8333, "angle": 45.64 },
+					{ "time": 0.9, "angle": 0.41 },
+					{ "time": 0.9667, "angle": 30.7 },
+					{ "time": 1.0333, "angle": 64.16 },
+					{ "time": 1.1, "angle": 93.74 },
+					{ "time": 1.1667, "angle": 34.39 },
+					{ "time": 1.2333, "angle": 98.69 },
+					{ "time": 1.5, "angle": 29.99 },
+					{ "time": 1.6667, "angle": 0.27 }
+				]
+			},
+			"dice_route": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 30 },
+					{ "time": 0.0667, "x": -28.75, "y": 15.1 },
+					{ "time": 0.1667, "x": 3.11, "y": 72.85 },
+					{ "time": 0.2333, "x": 11.12, "y": 35.76 },
+					{ "time": 0.3333, "x": 7.8, "y": 75.92 },
+					{ "time": 0.4, "x": -3.82, "y": 41.17 },
+					{ "time": 0.5, "x": -10.92, "y": 55.66 },
+					{ "time": 0.5667, "x": -19.31, "y": 23.38 },
+					{ "time": 0.6667, "x": -9.8, "y": 47.48 },
+					{ "time": 0.7333, "x": -8.3, "y": 9.03 },
+					{ "time": 0.8, "x": -6.27, "y": 24.52 },
+					{ "time": 0.9, "x": -10.77, "y": 10.75 },
+					{ "time": 0.9667, "x": -11.92, "y": 24.52 },
+					{ "time": 1.0667, "x": -19.62, "y": 15.34 },
+					{ "time": 1.1333, "x": -27.66, "y": 27.39 },
+					{ "time": 1.2333, "x": -27.69, "y": 13.91 },
+					{ "time": 1.3333, "x": -32.29, "y": 18.51 },
+					{ "time": 1.4333, "x": -33.73, "y": 10.47 },
+					{ "time": 1.5, "x": -31.77, "y": 12.77 },
+					{
+						"time": 1.6333,
+						"x": -19.23,
+						"y": 7.32,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 1.8333, "x": -14.25, "y": 4.47 }
+				]
+			}
+		},
+		"paths": {
+			"dice_route02": {
+				"position": [
+					{ "time": 0, "position": 4.5 }
+				],
+				"mix": [
+					{ "time": 0, "rotateMix": 0, "translateMix": 0.995 }
+				]
+			}
+		}
+	},
+	"dice2_p_4": {
+		"slots": {
+			"dice02": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 0, "name": "dice05" },
+					{ "time": 0.0667, "name": "dice04" },
+					{ "time": 0.2, "name": "dice02" },
+					{ "time": 0.2667, "name": "dice04" },
+					{ "time": 0.4333, "name": "dice01" },
+					{ "time": 0.5667, "name": "dice03" },
+					{ "time": 0.6667, "name": "dice05" },
+					{ "time": 0.7333, "name": "dice03" },
+					{ "time": 0.8333, "name": "dice02" },
+					{ "time": 0.9667, "name": "dice05" },
+					{ "time": 1.0333, "name": "dice03" },
+					{ "time": 1.1333, "name": "dice05" },
+					{ "time": 1.2333, "name": "dice06" },
+					{ "time": 1.3333, "name": "dice04" }
+				]
+			}
+		},
+		"bones": {
+			"dice02": {
+				"rotate": [
+					{ "time": 0, "angle": 3.53 },
+					{ "time": 0.0667, "angle": -34.58 },
+					{ "time": 0.1333, "angle": 16.95 },
+					{ "time": 0.2, "angle": 102.74 },
+					{ "time": 0.2667, "angle": 4.99 },
+					{ "time": 0.4333, "angle": -40.45 },
+					{ "time": 0.5, "angle": -51.45 },
+					{ "time": 0.5667, "angle": -77.3 },
+					{ "time": 0.6667, "angle": -7.79 },
+					{ "time": 0.7333, "angle": 108.39 },
+					{ "time": 0.8333, "angle": 45.64 },
+					{ "time": 0.9, "angle": 0.41 },
+					{ "time": 0.9667, "angle": 30.7 },
+					{ "time": 1.0333, "angle": 64.16 },
+					{ "time": 1.1, "angle": 93.74 },
+					{ "time": 1.1667, "angle": 34.39 },
+					{ "time": 1.3333, "angle": 98.27 },
+					{ "time": 1.5, "angle": 30.88 },
+					{ "time": 1.6667, "angle": 0.27 }
+				]
+			},
+			"dice_route": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 30 },
+					{ "time": 0.0667, "x": -28.75, "y": 15.1 },
+					{ "time": 0.1667, "x": -6.89, "y": 72.85 },
+					{ "time": 0.2333, "x": 1.12, "y": 35.76 },
+					{ "time": 0.3333, "x": -2.2, "y": 75.92 },
+					{ "time": 0.4, "x": -13.82, "y": 41.17 },
+					{ "time": 0.5, "x": 9.79, "y": 55.66 },
+					{ "time": 0.5667, "x": 14.88, "y": 23.38 },
+					{ "time": 0.6667, "x": 13.16, "y": 47.48 },
+					{ "time": 0.7333, "x": 13.16, "y": 9.03 },
+					{ "time": 0.8, "x": 13.73, "y": 24.52 },
+					{ "time": 0.9, "x": 29.23, "y": 4.75 },
+					{ "time": 0.9667, "x": 28.08, "y": 24.52 },
+					{ "time": 1.0667, "x": 30.38, "y": 15.34 },
+					{ "time": 1.1333, "x": 22.34, "y": 27.39 },
+					{ "time": 1.2333, "x": 14.31, "y": 13.91 },
+					{ "time": 1.3333, "x": 9.71, "y": 18.51 },
+					{ "time": 1.4333, "x": 6.27, "y": 7.47 },
+					{ "time": 1.5, "x": 10.23, "y": 6.77 },
+					{
+						"time": 1.6333,
+						"x": 8.77,
+						"y": -0.68,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 1.8333, "x": 5.77, "y": -0.68 }
+				]
+			}
+		},
+		"paths": {
+			"dice_route02": {
+				"position": [
+					{ "time": 0, "position": 4.5 }
+				],
+				"mix": [
+					{ "time": 0, "rotateMix": 0, "translateMix": 0.995 }
+				]
+			}
+		}
+	},
+	"dice2_p_5": {
+		"slots": {
+			"dice02": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 0, "name": "dice05" },
+					{ "time": 0.0667, "name": "dice04" },
+					{ "time": 0.2, "name": "dice02" },
+					{ "time": 0.2667, "name": "dice04" },
+					{ "time": 0.4333, "name": "dice01" },
+					{ "time": 0.5667, "name": "dice03" },
+					{ "time": 0.6667, "name": "dice05" },
+					{ "time": 0.7333, "name": "dice03" },
+					{ "time": 0.8333, "name": "dice02" },
+					{ "time": 0.9667, "name": "dice05" },
+					{ "time": 1.0333, "name": "dice03" },
+					{ "time": 1.1333, "name": "dice06" },
+					{ "time": 1.3, "name": "dice05" }
+				]
+			}
+		},
+		"bones": {
+			"dice02": {
+				"rotate": [
+					{ "time": 0, "angle": 3.53 },
+					{ "time": 0.0667, "angle": -34.58 },
+					{ "time": 0.1333, "angle": 16.95 },
+					{ "time": 0.2, "angle": 102.74 },
+					{ "time": 0.2667, "angle": 4.99 },
+					{ "time": 0.4, "angle": 38.22 },
+					{ "time": 0.4333, "angle": -40.45 },
+					{ "time": 0.5, "angle": -51.45 },
+					{ "time": 0.5667, "angle": -77.3 },
+					{ "time": 0.6333, "angle": -147.02 },
+					{ "time": 0.6667, "angle": -7.79 },
+					{ "time": 0.7333, "angle": 108.39 },
+					{ "time": 0.8333, "angle": 45.64 },
+					{ "time": 0.9, "angle": 0.41 },
+					{ "time": 0.9667, "angle": 30.7 },
+					{ "time": 1.0333, "angle": 64.16 },
+					{ "time": 1.1, "angle": 93.74 },
+					{ "time": 1.1667, "angle": 34.39 },
+					{ "time": 1.2333, "angle": 60 },
+					{ "time": 1.3, "angle": 90 },
+					{ "time": 1.5, "angle": 42.2 },
+					{ "time": 1.6667, "angle": 0.27 }
+				]
+			},
+			"dice_route": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 30 },
+					{ "time": 0.0667, "x": -28.75, "y": 15.1 },
+					{ "time": 0.1667, "x": 3.11, "y": 72.85 },
+					{ "time": 0.2333, "x": 11.12, "y": 35.76 },
+					{ "time": 0.3333, "x": 7.8, "y": 75.92 },
+					{ "time": 0.4, "x": -3.82, "y": 41.17 },
+					{ "time": 0.5, "x": -10.92, "y": 55.66 },
+					{ "time": 0.5667, "x": -19.31, "y": 23.38 },
+					{ "time": 0.6667, "x": -9.8, "y": 47.48 },
+					{ "time": 0.7333, "x": -8.3, "y": 9.03 },
+					{ "time": 0.8, "x": -6.27, "y": 24.52 },
+					{ "time": 0.9, "x": -10.77, "y": 10.75 },
+					{ "time": 0.9667, "x": -15.92, "y": 24.52 },
+					{ "time": 1.0667, "x": -22.62, "y": 15.34 },
+					{ "time": 1.1333, "x": -30.66, "y": 27.39 },
+					{ "time": 1.2333, "x": -29.69, "y": 13.91 },
+					{ "time": 1.3333, "x": -33.29, "y": 18.51 },
+					{ "time": 1.4333, "x": -33.73, "y": 10.47 },
+					{ "time": 1.5, "x": -34.77, "y": 19.77 },
+					{
+						"time": 1.6333,
+						"x": -29.23,
+						"y": 21.32,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 1.8333, "x": -23.25, "y": 21.47 }
+				]
+			}
+		},
+		"paths": {
+			"dice_route02": {
+				"position": [
+					{ "time": 0, "position": 4.5 }
+				],
+				"mix": [
+					{ "time": 0, "rotateMix": 0, "translateMix": 0.995 }
+				]
+			}
+		}
+	},
+	"dice2_p_6": {
+		"slots": {
+			"dice02": {
+				"color": [
+					{ "time": 0, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 1.8333, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 0, "name": "dice05" },
+					{ "time": 0.0667, "name": "dice04" },
+					{ "time": 0.2, "name": "dice02" },
+					{ "time": 0.2667, "name": "dice04" },
+					{ "time": 0.4333, "name": "dice01" },
+					{ "time": 0.5667, "name": "dice03" },
+					{ "time": 0.6667, "name": "dice05" },
+					{ "time": 0.7333, "name": "dice03" },
+					{ "time": 0.8333, "name": "dice02" },
+					{ "time": 0.9667, "name": "dice05" },
+					{ "time": 1.0333, "name": "dice03" },
+					{ "time": 1.1333, "name": "dice05" },
+					{ "time": 1.2333, "name": "dice04" },
+					{ "time": 1.3333, "name": "dice06" }
+				]
+			}
+		},
+		"bones": {
+			"dice02": {
+				"rotate": [
+					{ "time": 0, "angle": 3.53 },
+					{ "time": 0.0667, "angle": -34.58 },
+					{ "time": 0.1333, "angle": 16.95 },
+					{ "time": 0.2, "angle": 102.74 },
+					{ "time": 0.2667, "angle": 4.99 },
+					{ "time": 0.4, "angle": 38.22 },
+					{ "time": 0.4333, "angle": -40.45 },
+					{ "time": 0.5, "angle": -51.45 },
+					{ "time": 0.5667, "angle": -77.3 },
+					{ "time": 0.6333, "angle": -147.02 },
+					{ "time": 0.6667, "angle": -7.79 },
+					{ "time": 0.7333, "angle": 108.39 },
+					{ "time": 0.8333, "angle": 45.64 },
+					{ "time": 0.9, "angle": 0.41 },
+					{ "time": 0.9667, "angle": 30.7 },
+					{ "time": 1.0333, "angle": 64.16 },
+					{ "time": 1.1, "angle": 93.74 },
+					{ "time": 1.1667, "angle": 34.39 },
+					{ "time": 1.2333, "angle": 60 },
+					{ "time": 1.3, "angle": 90 },
+					{ "time": 1.5, "angle": 42.2 },
+					{ "time": 1.6667, "angle": 0.27 }
+				]
+			},
+			"dice_route": {
+				"translate": [
+					{ "time": 0, "x": 0, "y": 30 },
+					{ "time": 0.0667, "x": -28.75, "y": 15.1 },
+					{ "time": 0.1667, "x": 3.11, "y": 72.85 },
+					{ "time": 0.2333, "x": 11.12, "y": 35.76 },
+					{ "time": 0.3333, "x": 7.8, "y": 75.92 },
+					{ "time": 0.4, "x": -3.82, "y": 41.17 },
+					{ "time": 0.5, "x": 19.79, "y": 55.66 },
+					{ "time": 0.5667, "x": 24.88, "y": 23.38 },
+					{ "time": 0.6667, "x": 23.16, "y": 47.48 },
+					{ "time": 0.7333, "x": 23.16, "y": 9.03 },
+					{ "time": 0.8, "x": 23.73, "y": 24.52 },
+					{ "time": 0.9, "x": 39.23, "y": 10.75 },
+					{ "time": 0.9667, "x": 38.08, "y": 24.52 },
+					{ "time": 1.0667, "x": 40.38, "y": 15.34 },
+					{ "time": 1.1333, "x": 36.34, "y": 27.39 },
+					{ "time": 1.2333, "x": 34.31, "y": 13.91 },
+					{ "time": 1.3333, "x": 37.71, "y": 21.51 },
+					{ "time": 1.4333, "x": 38.27, "y": 13.47 },
+					{ "time": 1.5, "x": 40.23, "y": 18.77 },
+					{
+						"time": 1.6333,
+						"x": 42.77,
+						"y": 25.32,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 1.8333, "x": 41.75, "y": 31.47 }
+				]
+			}
+		},
+		"paths": {
+			"dice_route02": {
+				"position": [
+					{ "time": 0, "position": 4.5 }
+				],
+				"mix": [
+					{ "time": 0, "rotateMix": 0, "translateMix": 0.995 }
+				]
+			}
+		}
+	},
+	"dice2_roll": {
+		"slots": {
+			"dice02": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "time": 0, "name": "dice06" },
+					{ "time": 0.0667, "name": "dice01" },
+					{ "time": 0.1333, "name": "dice03" },
+					{ "time": 0.2, "name": "dice05" },
+					{ "time": 0.2667, "name": "dice04" },
+					{ "time": 0.3333, "name": "dice02" },
+					{ "time": 0.4, "name": "dice06" },
+					{ "time": 0.4667, "name": "dice01" },
+					{ "time": 0.5333, "name": "dice03" },
+					{ "time": 0.6, "name": "dice05" },
+					{ "time": 0.6667, "name": "dice04" },
+					{ "time": 0.7333, "name": "dice02" },
+					{ "time": 0.8, "name": "dice06" },
+					{ "time": 0.8667, "name": "dice01" },
+					{ "time": 0.9333, "name": "dice03" },
+					{ "time": 1, "name": "dice05" }
+				]
+			}
+		},
+		"bones": {
+			"dice_route": {
+				"translate": [
+					{ "time": 0, "x": -10, "y": -10 },
+					{ "time": 0.1667, "x": 5, "y": 9.5 },
+					{ "time": 0.3333, "x": 0, "y": 9 },
+					{ "time": 0.5, "x": 0, "y": 7 },
+					{ "time": 0.8333, "x": 0, "y": 46 },
+					{ "time": 1, "x": 0, "y": 30 }
+				]
+			}
+		},
+		"paths": {
+			"dice_route02": {
+				"position": [
+					{ "time": 0, "position": 2 },
+					{ "time": 0.2, "position": 2.5 },
+					{ "time": 0.6, "position": 3.5 },
+					{ "time": 1, "position": 4.5 }
+				],
+				"mix": [
+					{ "time": 0 },
+					{ "time": 0.1667, "rotateMix": 0.3 },
+					{ "time": 0.3333, "rotateMix": 0.6 },
+					{ "time": 0.5, "rotateMix": 0.9 },
+					{ "time": 0.6667, "rotateMix": 0.6 },
+					{ "time": 0.8333, "rotateMix": 0.3 },
+					{ "time": 1, "rotateMix": 0, "translateMix": 0.995 }
+				]
+			}
+		}
+	}
+}
+}
