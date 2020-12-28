@@ -46,6 +46,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     FruitHistroyAlert :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    UsdtAccountAlert :cc.Prefab = null;
+
     @property()
     clickClip :cc.Component = null;
     public UrlData : any = [];
@@ -209,7 +212,7 @@ export default class NewClass extends cc.Component {
     }
     public showUsdtAccountAlert(itemId){
         var canvas = cc.find('Canvas');
-        var node = cc.instantiate(this.BankAccountAlert);
+        var node = cc.instantiate(this.UsdtAccountAlert);
         canvas.addChild(node);
         let payUsdtAccountAlert = node.getComponent('payUsdtAccountAlert');
         payUsdtAccountAlert.init({

@@ -42,7 +42,8 @@ export default class NewClass extends cc.Component {
                 :(data.type ==4 ? '交易所'
                     :(data.type == 5 ? "赠送"
                         :(data.type == 3 ? "人工兑换"
-                            :''))));
+                            :( data.type == 6 ?"USDT兑换":''
+                            )))));
         this.amountLabel.string = this.app.config.toDecimal(data.amount);
         // 类型=兑换渠道
         // 当类型=人工兑换时，费率为玩家填写费率

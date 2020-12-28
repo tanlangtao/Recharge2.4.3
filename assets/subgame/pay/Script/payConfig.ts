@@ -139,6 +139,20 @@ export default class Config extends cc.Component {
         return data;
 
     }
+    public testAdressNum(str){
+        let newStr = ''
+        if(str.length > 8){
+            var startStr = str.slice(0,4)
+            var endStr = str.slice(str.length-4)
+            newStr = startStr +"******"+ endStr
+        }else{
+            var startStr = str.slice(0,2)
+            var endStr = str.slice(str.length-2)
+            newStr = startStr +"******"+ endStr
+        }
+        return newStr;
+
+    }
     public testZfbNum(num){
         var num1 = num.slice(0,2)
         var num2 = num.substring(num.length-2)

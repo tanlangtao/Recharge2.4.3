@@ -91,7 +91,7 @@ export default class NewClass extends cc.Component {
                 arr.push('USDT兑换')
             }
         }
-        console.log(arr)
+        arr.push('兑换记录')
         for(let i:number = 0; i< arr.length; i++){
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);

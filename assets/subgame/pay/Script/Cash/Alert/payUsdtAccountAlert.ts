@@ -18,6 +18,7 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+        this.selectContent.active = false
     }
 
     public init(itemId){
@@ -31,17 +32,22 @@ export default class NewClass extends cc.Component {
         this.walletAddressInput.string = str;
         if(this.walletAddressInput.string == ''){
             this.app.showAlert('钱包地址不能为空!')
-        }
-        else if(this.chanTypeLabel.string == ''|| this.chanTypeLabel.string == `请选择链类型`){
+        }else if(this.chanTypeLabel.string == ''|| this.chanTypeLabel.string == `请选择链类型`){
             this.app.showAlert('请选择链类型！')
-        }
-        else if(!this.isChinese(this.walletAddressInput.string )){
+        }else if(this.isChinese(this.walletAddressInput.string)){
             this.app.showAlert('钱包地址不能含有特殊字符！')
-        }
-        else{
+        } else{
             this.fetchBindAccountPay();
             this.node.removeFromParent();
         }
+    }
+    selectClick(){
+        this.selectContent.active = ! this.selectContent.active
+    }
+    selectItemClick(event){
+        let eventlabel = event.target.getChildByName('label').getComponent(cc.Label).string
+        this.chanTypeLabel.string = eventlabel
+        this.selectContent.active = false
     }
     fetchBindAccountPay() {
         var url = `${this.app.UrlData.host}/api/payment_account/saveAccount`;
@@ -65,10 +71,16 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`网络错误${errstatus}`)
         })
     }
+    removeSlef(){
+        this.node.removeFromParent()
+    }
     isChinese(s){
-        var ret = true;
+        var ret = false;
         for(var i = 0;i<s.length;i++){//遍历每一个文本字符bai
-            ret = ret && (s.charCodeAt(i) >= 10000);//判断文本字符的unicode值
+            //只要包含中文,就返回true
+            if(s.charCodeAt(i) >= 10000){
+                ret = true
+            }
         }
         return ret
     }

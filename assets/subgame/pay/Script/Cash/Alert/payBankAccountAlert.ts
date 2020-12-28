@@ -193,7 +193,7 @@ export default class NewClass extends cc.Component {
 
     onClick() {
         //按键音效
-        this.app.loadMusic(1);
+        this.app.clickClip.play();
         //去掉输入中的空格
         var str = this.accountInput.string.replace(/\s+/g,"");
         this.accountInput.string = str;
@@ -338,26 +338,26 @@ export default class NewClass extends cc.Component {
 
     deleteName() {
          //按键音效
-         this.app.loadMusic(1);
+         this.app.clickClip.play();
 
          this.nameInput.string = '';
     }
 
     deleteAccount() {
          //按键音效
-         this.app.loadMusic(1);
+         this.app.clickClip.play();
          this.accountInput.string = '';
     }
 
     deleteBankName() {
          //按键音效
-         this.app.loadMusic(1);
+         this.app.clickClip.play();
          this.bankNameInput.string = '';
     }
 
     removeSelf() {
          //按键音效
-         this.app.loadMusic(1);
+         this.app.clickClip.play();
 
         this.node.destroy();
     }

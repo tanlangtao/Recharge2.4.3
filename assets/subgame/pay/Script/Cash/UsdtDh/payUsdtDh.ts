@@ -11,6 +11,9 @@ export default class NewClass extends cc.Component {
     usdt_goldLabel: cc.Label = null; //转换usdt余额
 
     @property(cc.Label)
+    usdt_label: cc.Label = null; 
+
+    @property(cc.Label)
     amountLabel: cc.Label = null; //兑换金额
 
     @property(cc.Label)
@@ -44,8 +47,10 @@ export default class NewClass extends cc.Component {
     current= null;
     walletAddress = ''
     chanType = ''
-    info = []
+    info :any= {}
     itemID = ''
+    UsdtData :any= []
+    conf_val = 0 // 汇率
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
@@ -54,10 +59,24 @@ export default class NewClass extends cc.Component {
     setAmount() {
         this.app.showKeyBoard(this.amountLabel,1);
     }
+    public fetchGetConfigInfo(){
+        var url = `${this.app.UrlData.host}/api/config/getConfigInfo?conf_key=usdt_to_cny&token=${this.app.token}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                this.conf_val = Number(response.data[0].conf_val)
+                this.usdt_goldLabel.string = this.app.config.toDecimal(Number(this.goldLabel.string )/ this.conf_val)
+                this.usdt_label.string = this.app.config.toDecimal(1 / this.conf_val)
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`网络错误${errstatus}`)
+        })
+    }
 
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}&version=${this.app.version}`;
-
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading();
@@ -76,7 +95,6 @@ export default class NewClass extends cc.Component {
     
     init(){
         this.results = this.data.data.withDraw_info.usdt.channel;
-        console.log(this.results)
         this.results.sort((a,b)=>a.sort-b.sort);
         for(let i = 0;i<this.results.length;i++){
             if(Number(this.results[i].is_close)>0){
@@ -85,16 +103,27 @@ export default class NewClass extends cc.Component {
             }
         }
         this.radioList();
+        this.fetchGetConfigInfo()
     }
 
     //selectItem回调
     public initRender(){
-        for(let i = 0 ;i < this.data.data.list.length ;i++){
-            let data = this.data.data.list[i];
-            if (data.type == 3){
-                this.info = JSON.parse(data.info)
+        this.UsdtData = []
+        var data = this.data.data;
+        for(let i = 0 ;i < data.list.length ;i++){
+            let item = data.list[i];
+            if (item.type == 4){
+                this.UsdtData.push(item)
             }
         }
+        if(this.UsdtData.length>0){
+            let Info =JSON.parse(this.UsdtData[0].info)
+            for (var k in Info) {
+                this.info[k] = Info[k]
+            }
+            this.itemID = this.UsdtData[0].id;
+        }
+        console.log(this.UsdtData,this.info)
         //最小金额也需要根据package_id判断
         let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
         withdraw_min_amount.forEach(item => {
@@ -104,9 +133,10 @@ export default class NewClass extends cc.Component {
         });
         this.goldLabel.string = this.app.config.toDecimal(this.data.data.game_gold);
         this.dhArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
-        this.walletAddressLabel.string = this.walletAddress != '' ? this.app.config.testBankNum(this.walletAddress) :'未绑定';
-        this.chanTypeLabel.string = this.chanType != '' ? this.app.config.testBankNum(this.chanType) :'未绑定';
-        if(this.walletAddress == ""){
+        this.walletAddressLabel.string = this.info.wallet_addr != '' ? this.app.config.testAdressNum(this.info.wallet_addr) :'未绑定';
+        this.chanTypeLabel.string = this.info.protocol != '' ? this.info.protocol:'未绑定';
+
+        if(this.walletAddressLabel.string == '未绑定'){
             this.bindBtn.active = true;
         }else{
             this.bindBtn.active = false;
@@ -122,7 +152,7 @@ export default class NewClass extends cc.Component {
     }
 
     //兑换提示
-    showCashAlert(){
+    showCashAlert(conf_val){
         var node = cc.instantiate(this.CashAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
@@ -134,7 +164,7 @@ export default class NewClass extends cc.Component {
             parentComponent:this,
             rateMount: rateMount,
             amount:Number(this.amountLabel.string)
-        })
+        },conf_val)
     }
     //显示弹窗
     showAccountAlert(){
@@ -146,9 +176,9 @@ export default class NewClass extends cc.Component {
         let dataStr=''
         //如果proxy_name为“”，则不传
         if(this.app.UrlData.proxy_name == ""){
-            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
+            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
         }else{
-            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
+            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
         }
         let self = this;
         self.DhBtn.getComponent(cc.Button).interactable  = false;
@@ -188,19 +218,6 @@ export default class NewClass extends cc.Component {
         this.showAccountAlert()
         
     }
-    changeSlider(s,p){
-        let self = this;
-        let slider = s;
-        let progressbar = p;
-        if(slider == null || progressbar == null){
-            return;
-        }
-        progressbar.progress = slider.progress;
-        slider.node.on('slide', function(event){
-            progressbar.progress = slider.progress;
-            self.amountLabel.string = `${Math.floor(Number(self.goldLabel.string)*slider.progress)}`;
-        }, this);
-    }
     onClick(){
         //按键音效
         this.app.loadMusic(1);
@@ -227,12 +244,12 @@ export default class NewClass extends cc.Component {
         }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){
             this.app.showAlert(`兑换金额必须为${multiple_amount}的倍数！`)
         }
-        else if(amount >Number(this.goldLabel.string)){
+        else if(amount >Number(this.usdt_goldLabel.string)){
             this.app.showAlert('余额不足!')
         }else if(amount < minAmount || amount >maxAmount){
             this.app.showAlert('超出兑换范围!')
         }else{
-            this.showCashAlert();
+            this.showCashAlert(this.conf_val);
         }
     }
     // update (dt) {}
