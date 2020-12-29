@@ -133,8 +133,8 @@ export default class NewClass extends cc.Component {
         });
         this.goldLabel.string = this.app.config.toDecimal(this.data.data.game_gold);
         this.dhArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
-        this.walletAddressLabel.string = this.info.wallet_addr != '' ? this.app.config.testAdressNum(this.info.wallet_addr) :'未绑定';
-        this.chanTypeLabel.string = this.info.protocol != '' ? this.info.protocol:'未绑定';
+        this.walletAddressLabel.string = JSON.stringify(this.info)!= '{}' ? this.app.config.testAdressNum(this.info.wallet_addr) :'未绑定';
+        this.chanTypeLabel.string =JSON.stringify(this.info)!= '{}' ? this.info.protocol:'未绑定';
 
         if(this.walletAddressLabel.string == '未绑定'){
             this.bindBtn.active = true;
