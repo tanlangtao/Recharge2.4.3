@@ -50,7 +50,6 @@ export default class NewClass extends cc.Component {
     UsdtAccountAlert :cc.Prefab = null;
 
     @property()
-    clickClip :cc.Component = null;
     public UrlData : any = [];
     public config :Config = null;
     public token :string = null;
