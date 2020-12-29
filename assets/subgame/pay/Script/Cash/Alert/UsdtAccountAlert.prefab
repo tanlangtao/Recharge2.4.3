@@ -3371,7 +3371,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 61.66,
+      "width": 95.02,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -3423,8 +3423,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "TRC",
-    "_N$string": "TRC",
+    "_string": "TRC20",
+    "_N$string": "TRC20",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": true,
