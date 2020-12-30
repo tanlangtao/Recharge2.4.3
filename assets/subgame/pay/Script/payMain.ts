@@ -60,9 +60,11 @@ export default class NewClass extends cc.Component {
         this.config = new Config();
         this.UrlData =  {
             user_id:gHandler.gameGlobal.pay.user_id,
+            // user_id:"583865289", //德比online
             user_name:gHandler.gameGlobal.pay.user_name,
             client:gHandler.gameGlobal.pay.client,
             host:gHandler.gameGlobal.pay.pay_host,
+            // host:"https://pay1.whjfxly66.com", //online
             proxy_user_id:gHandler.gameGlobal.pay.proxy_user_id,
             proxy_name:gHandler.gameGlobal.pay.proxy_name,
             package_id:gHandler.gameGlobal.pay.package_id,

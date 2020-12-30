@@ -1145,7 +1145,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 76.43,
+      "width": 0,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1197,8 +1197,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "1金币",
-    "_N$string": "1金币",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 29.9,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1361,7 +1361,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 16.63,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1413,8 +1413,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "",
-    "_N$string": "",
+    "_string": "1",
+    "_N$string": "1",
     "_fontSize": 29.9,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -4281,8 +4281,8 @@
     "usdt_goldLabel": {
       "__id__": 18
     },
-    "usdt_label": {
-      "__id__": 35
+    "conf_val_label": {
+      "__id__": 29
     },
     "amountLabel": {
       "__id__": 52

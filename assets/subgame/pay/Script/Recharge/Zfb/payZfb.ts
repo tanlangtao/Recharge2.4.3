@@ -59,13 +59,14 @@ export default class NewClass extends cc.Component {
     public results : any = {};
     public current : any = {};
     public channel  = 'alipay';
-
+    conf_val = 0 // usdt充值汇率
     onLoad () {
         this.huodongLabel.node.active=false;
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         //请求支付宝
         this.fetchZfb()
         this.setLanguageResource()
+        this.getLocalConf()
     }
     init(data){
         let src = Language_pay.Lg.getLgSrc()
@@ -108,8 +109,10 @@ export default class NewClass extends cc.Component {
         }else if(this.channel =='digiccy'){
             this.app.loadIcon(`recharge/flag_usdt`,this.icon,100,100)
             this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont,200,45)
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.默认链类型为ERC20')}。2.${Language_pay.Lg.ChangeByText('参考汇率：1USDT ≈ 6.9金币')}。`;
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.默认链类型为ERC20')}。2.${Language_pay.Lg.ChangeByText(`参考汇率：1USDT`)} ≈ ${this.conf_val}${Language_pay.Lg.ChangeByText(`金币`)}。`;
             this.app.loadIcon(`recharge/subbg_usdt`,this.shuiyin,368,270)
+
+            
         }
     }
     setAmount() {
@@ -265,6 +268,45 @@ export default class NewClass extends cc.Component {
         this.amountLabel.string = `${sum}`;
         this.app.setInputColor(sum,this.amountLabel);
     }
+    getLocalConf(){
+        let pay_usdt = cc.sys.localStorage.getItem(`pay_usdt`)
+        let time = new Date().getTime()/1000
+        if(pay_usdt){
+            let created_time = JSON.parse(pay_usdt).time
+            if((time - created_time) > 6*3600){
+                //如果超过六个小时，则重新拉取数据
+                this.fetchGetConfigInfo()
+            }else{
+                //否则使用本地缓存的数据
+                this.setConf_val(JSON.parse(pay_usdt))
+            }
+        }else{
+            this.fetchGetConfigInfo()
+        }
+    }
+    setConf_val(pay_usdt){
+        this.conf_val = pay_usdt.conf_val
+        this.init(this.channel)
+    }
+    public fetchGetConfigInfo(){
+        var url = `${this.app.UrlData.host}/api/config/getConfigInfo?conf_key=usdt_to_cny1&token=${this.app.token}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                let time = new Date().getTime()/1000
+                let pay_usdt = {
+                    conf_val :Number(response.data[0].conf_val), //汇率
+                    time : time, //保存的时间
+                }
+                cc.sys.localStorage.setItem(`pay_usdt`,JSON.stringify(pay_usdt))
+                this.setConf_val(pay_usdt)
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`网络错误${errstatus}`)
+        })
+    }
     //设置语言相关的资源和字
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
@@ -282,4 +324,6 @@ export default class NewClass extends cc.Component {
         
         label.string = `${Language_pay.Lg.ChangeByText("开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！")}`
     }
+    
+    
 }

@@ -11,7 +11,7 @@ export default class NewClass extends cc.Component {
     usdt_goldLabel: cc.Label = null; //转换usdt余额
 
     @property(cc.Label)
-    usdt_label: cc.Label = null; 
+    conf_val_label: cc.Label = null; 
 
     @property(cc.Label)
     amountLabel: cc.Label = null; //兑换金额
@@ -59,21 +59,7 @@ export default class NewClass extends cc.Component {
     setAmount() {
         this.app.showKeyBoard(this.amountLabel,1);
     }
-    public fetchGetConfigInfo(){
-        var url = `${this.app.UrlData.host}/api/config/getConfigInfo?conf_key=usdt_to_cny&token=${this.app.token}`;
-        let self = this;
-        this.app.ajax('GET',url,'',(response)=>{
-            if(response.status == 0){
-                this.conf_val = Number(response.data[0].conf_val)
-                this.usdt_goldLabel.string = this.app.config.toDecimal(Number(this.goldLabel.string )/ this.conf_val)
-                this.usdt_label.string = this.app.config.toDecimal(1 / this.conf_val)
-            }else{
-                self.app.showAlert(response.msg)
-            }
-        },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
-        })
-    }
+    
 
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}&version=${this.app.version}`;
@@ -103,7 +89,7 @@ export default class NewClass extends cc.Component {
             }
         }
         this.radioList();
-        this.fetchGetConfigInfo()
+        this.getLocalConf()
     }
 
     //selectItem回调
@@ -251,6 +237,47 @@ export default class NewClass extends cc.Component {
         }else{
             this.showCashAlert(this.conf_val);
         }
+    }
+    getLocalConf(){
+        let cash_usdt = cc.sys.localStorage.getItem(`cash_usdt`)
+        let time = new Date().getTime()/1000
+        if(cash_usdt){
+            let created_time = JSON.parse(cash_usdt).time
+            if((time - created_time) > 6*3600){
+                //如果超过六个小时，则重新拉取数据
+                this.fetchGetConfigInfo()
+            }else{
+                //否则使用本地缓存的数据
+                this.setConf_val(JSON.parse(cash_usdt))
+            }
+        }else{
+            this.fetchGetConfigInfo()
+        }
+    }
+    setConf_val(cash_usdt){
+        
+        this.conf_val = Number(cash_usdt.conf_val)
+        this.usdt_goldLabel.string = this.app.config.toDecimal(Number(this.data.data.game_gold)/ this.conf_val)
+        this.conf_val_label.string = `${this.conf_val}金币`
+    }
+    public fetchGetConfigInfo(){
+        var url = `${this.app.UrlData.host}/api/config/getConfigInfo?conf_key=usdt_to_cny2&token=${this.app.token}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                let time = new Date().getTime()/1000
+                let cash_usdt = {
+                    conf_val :Number(response.data[0].conf_val), //汇率
+                    time : time, //保存的时间
+                }
+                cc.sys.localStorage.setItem(`cash_usdt`,JSON.stringify(cash_usdt))
+                this.setConf_val(cash_usdt)
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`网络错误${errstatus}`)
+        })
     }
     // update (dt) {}
 }
