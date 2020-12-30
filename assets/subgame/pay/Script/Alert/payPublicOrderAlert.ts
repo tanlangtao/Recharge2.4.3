@@ -89,8 +89,8 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
         
-        if (this.app.gHandler.Reflect) {
-            if (this.app.gHandler.Reflect.setClipboard(this.card_numLabel.string)) {
+        if (this.app.gHandler.reflect) {
+            if (this.app.gHandler.reflect.setClipboard(this.card_numLabel.string)) {
                 this.app.showAlert(`复制成功!:${this.card_numLabel.string}`)
             } else {
                 this.app.showAlert(`复制失败!请升级系统版本`)
@@ -102,8 +102,8 @@ export default class NewClass extends cc.Component {
     copyCard_name(){
         //按键音效
         this.app.loadMusic(1);
-        if (this.app.gHandler.Reflect) {
-            if (this.app.gHandler.Reflect.setClipboard(this.card_nameLabel.string)) {
+        if (this.app.gHandler.reflect) {
+            if (this.app.gHandler.reflect.setClipboard(this.card_nameLabel.string)) {
                 this.app.showAlert(`复制成功!:${this.card_nameLabel.string}`)
             } else {
                 this.app.showAlert(`复制失败!请升级系统版本`)
@@ -115,8 +115,8 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
 
-        if (this.app.gHandler.Reflect) {
-            if (this.app.gHandler.Reflect.setClipboard(this.amountLabel.string)) {
+        if (this.app.gHandler.reflect) {
+            if (this.app.gHandler.reflect.setClipboard(this.amountLabel.string)) {
                 this.app.showAlert(`复制成功!:${this.amountLabel.string}`)
             } else {
                 this.app.showAlert(`复制失败!请升级系统版本`)
@@ -127,8 +127,8 @@ export default class NewClass extends cc.Component {
     copyBankName(){
         //按键音效
         this.app.loadMusic(1);
-        if (this.app.gHandler.Reflect) {
-            if (this.app.gHandler.Reflect.setClipboard(this.bank_nameLabel.string)) {
+        if (this.app.gHandler.reflect) {
+            if (this.app.gHandler.reflect.setClipboard(this.bank_nameLabel.string)) {
                 this.app.showAlert(`复制成功!:${this.bank_nameLabel.string}`)
             } else {
                 this.app.showAlert(`复制失败!请升级系统版本`)

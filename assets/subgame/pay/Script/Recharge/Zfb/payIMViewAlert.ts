@@ -24,7 +24,7 @@ export default class NewClass extends cc.Component {
     }
     onClick(){
         cc.director.preloadScene('payRecharge',()=>{
-            this.app.gHandler.Reflect.setOrientation("landscape", 1334, 750)
+            this.app.gHandler.reflect.setOrientation("landscape", 1334, 750)
             cc.director.loadScene('payRecharge')
         })
     }

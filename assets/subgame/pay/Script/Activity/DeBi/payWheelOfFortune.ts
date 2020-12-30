@@ -31,6 +31,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     lw_frame_tip: cc.Node = null;
 
+    @property(cc.Node)
+    content : cc.Node = null; //scrollview content
+
     activity_id = 15
     app = null
     currentGold = ''
@@ -247,14 +250,12 @@ export default class NewClass extends cc.Component {
             if(info.prize.length >1){
                 info.prize.forEach(prizeItem=>{
                     var node = cc.instantiate(this.ListItem);
-                    var content = this.sccrollView.getChildByName('view').getChildByName('content');
-                    content.addChild(node);
+                    this.content.addChild(node);
                     node.getComponent('payWheelItem').init(user_name,this.getLevelName(prizeItem),prizeItem)
                 })
             }else{
                 var node = cc.instantiate(this.ListItem);
-                var content = this.sccrollView.getChildByName('view').getChildByName('content');
-                content.addChild(node);
+                this.content.addChild(node);
                 node.getComponent('payWheelItem').init(user_name,this.getLevelName(info.prize[0]),info.prize[0])
             }
            
@@ -266,15 +267,13 @@ export default class NewClass extends cc.Component {
             let id = this.app.config.randId(123000000,999999999)
             let level = this.app.config.randNum(1,8)
             let prize = this.getPrizeByLevel(level)
-            var content = this.sccrollView.getChildByName('view').getChildByName('content');
-            content.addChild(node);
+            this.content.addChild(node);
             node.getComponent('payWheelItem').init(id,this.getLevelName(prize),prize)
         }
     }
     //全服
     quanFuClick(){
-        var content = this.sccrollView.getChildByName('view').getChildByName('content');
-        content.removeAllChildren();
+        this.content.removeAllChildren();
         this.addRangeList()
 
         this.listStatus = 'all'
@@ -284,8 +283,7 @@ export default class NewClass extends cc.Component {
     }
     //个人
     geRenClick(){
-        var content = this.sccrollView.getChildByName('view').getChildByName('content');
-        content.removeAllChildren();
+        this.content.removeAllChildren();
         this.listStatus = 'single'
         this.page = 1
         this.fetchList()
@@ -376,9 +374,8 @@ export default class NewClass extends cc.Component {
         }
     }
     scrollLoop(){
-        var content = this.sccrollView.getChildByName('view').getChildByName('content');
-        content.stopAllActions()
-        content.position=cc.v3(0,-120)
+        this.content.stopAllActions()
+        this.content.position=cc.v3(0,-120)
         let idx = 0;
         var action1 = cc.moveBy(10,cc.v2(0,245))
         let middleCallBack = cc.callFunc(()=>{
@@ -394,25 +391,25 @@ export default class NewClass extends cc.Component {
             let totalPage = Math.ceil(this.totalCpunt / this.limit)
             idx +=1
             if(idx >totalPage){
-                console.log("idx",idx,"content.position.y",content.position.y,"content.height",content.height)
-                if(content.position.y < content.height + 120){
+                if(this.content.position.y < this.content.height + 120){
                     //说明还没有播到底部
                     var action3 = cc.moveBy(10,cc.v2(0,245))
-                    content.runAction(cc.sequence(action3,callBack))
+                    this.content.runAction(cc.sequence(action3,callBack))
                 }else{
                     //到底部了
-                    content.stopAllActions()
+                    this.content.stopAllActions()
                     idx = 0
                     var action4 = cc.moveTo(0,cc.v2(0,-120))
-                    content.runAction(cc.sequence(action4,action1,callBack))
+                    this.content.runAction(cc.sequence(action4,action1,callBack))
                 }
                 return 
             }else{
-                content.runAction(cc.sequence(action1,middleCallBack,callBack))
+                this.content.runAction(cc.sequence(action1,middleCallBack,callBack))
             }
         })
-        content.runAction(cc.sequence(action1,middleCallBack,callBack))
+        this.content.runAction(cc.sequence(action1,middleCallBack,callBack))
     }
     onDestroy(){
+        this.content.stopAllActions()
     }
 }

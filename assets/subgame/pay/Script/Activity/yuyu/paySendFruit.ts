@@ -199,7 +199,7 @@ export default class NewClass extends cc.Component {
         if (scree == this.app.gHandler.subGameList['hbsl'].lanchscene
             || scree == this.app.gHandler.subGameList['zrsx1'].lanchscene
             || scree == this.app.gHandler.subGameList['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
-            this.app.gHandler.Reflect && this.app.gHandler.Reflect.setOrientation("portrait")
+            this.app.gHandler.reflect && this.app.gHandler.reflect.setOrientation("portrait")
 
         }
         cc.director.preloadScene(scree,()=>{
