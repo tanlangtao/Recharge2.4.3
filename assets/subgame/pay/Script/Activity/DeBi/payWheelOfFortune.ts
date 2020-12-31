@@ -47,7 +47,7 @@ export default class NewClass extends cc.Component {
     page = 1;
     listStatus = 'all' //all 表示全服务, single 表示个人
     totalCpunt = 1//总条数
-    limit = 2
+    limit = 1
     setIdInfo(id,info){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
             info = []
@@ -62,11 +62,16 @@ export default class NewClass extends cc.Component {
         this.info.prizeList.forEach((e,index)=>{
             this.levelLabel[index].getComponent(cc.Label).string = e.prize
         })
+        this.rotateLoop()
+        
+        this.fetchgetUserIntegral()
+        this.scheduleOnce(this.rangeInit, 3);
+    }
+    rangeInit(){
+        console.log('延迟3秒')
         this.addRangeList()
         this.fetchList()
-        this.rotateLoop()
         this.scrollLoop()
-        this.fetchgetUserIntegral()
     }
     public fetchLuckyTurntable(num,outCallBack){
         let MaskLayer = this.node.getChildByName('MaskLayer')
@@ -262,7 +267,7 @@ export default class NewClass extends cc.Component {
         });
     }
     addRangeList(){
-        for(var i =0;i<15;i++){
+        for(var i =0;i<5;i++){
             var node = cc.instantiate(this.ListItem);
             let id = this.app.config.randId(123000000,999999999)
             let level = this.app.config.randNum(1,8)
