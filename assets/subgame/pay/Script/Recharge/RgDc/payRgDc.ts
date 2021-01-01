@@ -67,9 +67,9 @@ export default class NewClass extends cc.Component {
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
         
-        let VIPpay_banner_1= this.node.getChildByName('VIPpay_banner_1')
-        let tips000= this.node.getChildByName('frame').getChildByName('layout').getChildByName('tips000')
-        let btn_contactCS= this.node.getChildByName('frame').getChildByName('layout').getChildByName('btn_contactCS')
+        let VIPpay_banner_1= cc.find("Canvas/Recharge/Content/RgDc/VIPpay_banner_1")
+        let tips000= cc.find("Canvas/Recharge/Content/RgDc/frame/layout/tips000")
+        let btn_contactCS= cc.find("Canvas/Recharge/Content/RgDc/frame/layout/btn_contactCS")
 
         this.app.loadIconLg(`${src}/form/VIPpay_banner_1`,VIPpay_banner_1)
         this.app.loadIconLg(`${src}/font/tips000`,tips000)

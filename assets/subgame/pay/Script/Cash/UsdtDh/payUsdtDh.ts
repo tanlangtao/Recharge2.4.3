@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -54,6 +54,7 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
+        this.setLanguageResource()
     }
 
     setAmount() {
@@ -74,7 +75,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
             self.app.hideLoading();
         })
     }
@@ -118,11 +119,11 @@ export default class NewClass extends cc.Component {
             }
         });
         this.goldLabel.string = this.app.config.toDecimal(this.data.data.game_gold);
-        this.dhArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
-        this.walletAddressLabel.string = JSON.stringify(this.info)!= '{}' ? this.app.config.testAdressNum(this.info.wallet_addr) :'未绑定';
-        this.chanTypeLabel.string =JSON.stringify(this.info)!= '{}' ? this.info.protocol:'未绑定';
+        this.dhArea.string = `${Language_pay.Lg.ChangeByText('兑换范围')}:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
+        this.walletAddressLabel.string = JSON.stringify(this.info)!= '{}' ? this.app.config.testAdressNum(this.info.wallet_addr) :Language_pay.Lg.ChangeByText('未绑定');
+        this.chanTypeLabel.string =JSON.stringify(this.info)!= '{}' ? this.info.protocol:Language_pay.Lg.ChangeByText('未绑定');
 
-        if(this.walletAddressLabel.string == '未绑定'){
+        if(this.walletAddressLabel.string == Language_pay.Lg.ChangeByText('未绑定')){
             this.bindBtn.active = true;
         }else{
             this.bindBtn.active = false;
@@ -133,7 +134,7 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
 
-        this.amountLabel.string = '点击输入';
+        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
         this.app.setInputColor('',this.amountLabel);
     }
 
@@ -170,14 +171,14 @@ export default class NewClass extends cc.Component {
         self.DhBtn.getComponent(cc.Button).interactable  = false;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                self.app.showAlert('申请成功！');
+                self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功！'));
                 self.fetchIndex();
             }else{
                 self.app.showAlert(response.msg)
             }
             self.DhBtn.getComponent(cc.Button).interactable  = true;
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     radioList(){
@@ -222,18 +223,18 @@ export default class NewClass extends cc.Component {
         });
 
         if(this.results.length==0){
-            this.app.showAlert('渠道未开放，请选择其他兑换方式！')
-        }else if(this.walletAddressLabel.string == ''|| this.walletAddressLabel.string == '未绑定'){
-            this.app.showAlert('请先绑定钱包地址')
-        }else if(this.amountLabel.string == '点击输入'){
-            this.app.showAlert('兑换金额不能为空！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('渠道未开放，请选择其他兑换方式!'))
+        }else if(this.walletAddressLabel.string == ''|| this.walletAddressLabel.string == Language_pay.Lg.ChangeByText('未绑定')){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('请先绑定钱包地址'))
+        }else if(this.amountLabel.string == Language_pay.Lg.ChangeByText('点击输入')){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('兑换金额不能为空'))
         }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){
-            this.app.showAlert(`兑换金额必须为${multiple_amount}的倍数！`)
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('兑换金额必须为')}${multiple_amount}${Language_pay.Lg.ChangeByText('的倍数')}！`)
         }
         else if(amount >Number(this.usdt_goldLabel.string)){
-            this.app.showAlert('余额不足!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('余额不足'))
         }else if(amount < minAmount || amount >maxAmount){
-            this.app.showAlert('超出兑换范围!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('超出兑换范围'))
         }else{
             this.showCashAlert(this.conf_val);
         }
@@ -258,7 +259,7 @@ export default class NewClass extends cc.Component {
         
         this.conf_val = Number(cash_usdt.conf_val)
         this.usdt_goldLabel.string = this.app.config.toDecimal(Number(this.data.data.game_gold)/ this.conf_val)
-        this.conf_val_label.string = `${this.conf_val}金币`
+        this.conf_val_label.string = `${this.conf_val}${Language_pay.Lg.ChangeByText('金币')}`
     }
     public fetchGetConfigInfo(){
         var url = `${this.app.UrlData.host}/api/config/getConfigInfo?conf_key=usdt_to_cny2&token=${this.app.token}`;
@@ -276,8 +277,34 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
-    // update (dt) {}
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+
+        let zhye= cc.find('Canvas/Cash/Content/UsdtDh/titlebg/group1/zhye')
+        let ckhl= cc.find('Canvas/Cash/Content/UsdtDh/titlebg/group2/ckhl')
+        let dhje= cc.find('Canvas/Cash/Content/UsdtDh/titlebg/group3/dhje')
+        let btn_75= cc.find('Canvas/Cash/Content/UsdtDh/titlebg/group3/group2/75')
+        let qbdz= cc.find('Canvas/Cash/Content/UsdtDh/group4/qbdz')
+        let accountBtn= cc.find('Canvas/Cash/Content/UsdtDh/group4/accountBtn')
+        let llx= cc.find('Canvas/Cash/Content/UsdtDh/group5/llx')
+        let dhqd= cc.find('Canvas/Cash/Content/UsdtDh/group6/dhqd')
+        let btn= cc.find('Canvas/Cash/Content/UsdtDh/btn')
+
+        this.app.loadIconLg(`${src}/font/txt_zhye`,zhye)
+        this.app.loadIconLg(`${src}/font/txt_ckhl`,ckhl)
+        this.app.loadIconLg(`${src}/font/txt_dhje`,dhje)
+        this.app.loadIconLg(`${src}/btn/75`,btn_75)
+        this.app.loadIconLg(`${src}/font/txt_qbdz`,qbdz)
+        this.app.loadIconLg(`${src}/btn/bindbt`,accountBtn)
+        this.app.loadIconLg(`${src}/font/txt_llx`,llx)
+        this.app.loadIconLg(`${src}/font/txt_dhqd`,dhqd)
+        this.app.loadIconLg(`${src}/btn/btn_dh`,btn)
+
+        let label1 = cc.find('Canvas/Cash/Content/UsdtDh/titlebg/group3/group2/label').getComponent(cc.Label)
+        label1.string = Language_pay.Lg.ChangeByText('点击输入')
+    }
 }

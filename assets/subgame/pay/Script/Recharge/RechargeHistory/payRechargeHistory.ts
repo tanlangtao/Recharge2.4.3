@@ -118,8 +118,8 @@ export default class NewClass extends cc.Component {
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
 
-        let chongzhiklis= this.node.getChildByName('header').getChildByName('title').getChildByName('chongzhiklis')
-        let titlebg= this.node.getChildByName('Content').getChildByName('titlebg')
+        let chongzhiklis= cc.find("Canvas/Recharge/RechargeHistory/header/title/chongzhiklis")
+        let titlebg= cc.find("Canvas/Recharge/RechargeHistory/Content/titlebg")
 
         this.app.loadIconLg(`${src}/font/chongzhiklis`,chongzhiklis)
         this.app.loadIconLg(`${src}/form/cz_title_kuang`,titlebg)

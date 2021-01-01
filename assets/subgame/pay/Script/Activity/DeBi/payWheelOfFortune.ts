@@ -131,6 +131,7 @@ export default class NewClass extends cc.Component {
     }
     rotateLoop(){
         // rotateBy
+        this.lw_pan.stopAllActions()
         var action1  = cc.rotateBy(1000,36000)
         let callback = cc.callFunc(()=>{
             this.lw_pan.runAction(cc.sequence(action1,callback))
@@ -416,5 +417,6 @@ export default class NewClass extends cc.Component {
     }
     onDestroy(){
         this.content.stopAllActions()
+        this.lw_pan.stopAllActions()
     }
 }

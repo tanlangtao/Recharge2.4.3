@@ -676,7 +676,6 @@
     },
     "_resize": 1,
     "_N$layoutType": 1,
-    "_N$padding": 0,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -750,7 +749,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New ScrollView",
+    "_name": "ScrollView",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -987,7 +986,6 @@
     },
     "_resize": 1,
     "_N$layoutType": 2,
-    "_N$padding": 0,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -1082,7 +1080,11 @@
       "__id__": 20
     },
     "_enabled": true,
-    "_materials": [],
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": null,
@@ -1260,7 +1262,7 @@
     "asset": {
       "__uuid__": "fa0e03c1-d566-4c87-a33f-20e8ca61dcd4"
     },
-    "fileId": "7dfBVOQ5pOqJP3GvklWCfj",
+    "fileId": "",
     "sync": false
   }
 ]

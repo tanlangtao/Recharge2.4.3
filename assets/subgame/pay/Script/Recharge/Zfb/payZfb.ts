@@ -111,8 +111,6 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont,200,45)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.默认链类型为ERC20')}。2.${Language_pay.Lg.ChangeByText(`参考汇率：1USDT`)} ≈ ${this.conf_val}${Language_pay.Lg.ChangeByText(`金币`)}。`;
             this.app.loadIcon(`recharge/subbg_usdt`,this.shuiyin,368,270)
-
-            
         }
     }
     setAmount() {
@@ -311,10 +309,10 @@ export default class NewClass extends cc.Component {
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
         
-        let qudao= this.node.getChildByName('titlebg').getChildByName('group2').getChildByName('qudao')
-        let txt_czje= this.node.getChildByName('titlebg').getChildByName('group3').getChildByName('txt_czje')
-        let btn_75= this.node.getChildByName('titlebg').getChildByName('group3').getChildByName('group2').getChildByName('75')
-        let czgoldbt1= this.node.getChildByName('czgoldbt1')
+        let qudao= cc.find("Canvas/Recharge/Content/Zfb/titlebg/group2/qudao")
+        let txt_czje= cc.find("Canvas/Recharge/Content/Zfb/titlebg/group3/txt_czje")
+        let btn_75= cc.find("Canvas/Recharge/Content/Zfb/titlebg/group3/group2/75")
+        let czgoldbt1= cc.find("Canvas/Recharge/Content/Zfb/czgoldbt1")
         let label= this.node.getChildByName('label').getComponent(cc.Label)
 
         this.app.loadIconLg(`${src}/font/txt_qudao`,qudao)
