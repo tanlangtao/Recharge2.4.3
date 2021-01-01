@@ -268,7 +268,7 @@ export default class NewClass extends cc.Component {
         });
     }
     addRangeList(){
-        for(var i =0;i<5;i++){
+        for(var i =0;i<10;i++){
             var node = cc.instantiate(this.ListItem);
             let id = this.app.config.randId(123000000,999999999)
             let level = this.app.config.randNum(1,8)
