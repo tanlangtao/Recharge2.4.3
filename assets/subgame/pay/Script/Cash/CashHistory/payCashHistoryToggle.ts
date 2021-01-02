@@ -1,5 +1,5 @@
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -16,18 +16,19 @@ export default class NewClass extends cc.Component {
     text = null;
 
     public init(data){
+        let src = Language_pay.Lg.getLgSrc()
         this.text =data.text;
         this.index = data.index;
         this.parentComponet = data.parentComponet
         if(this.index == 0){
-            this.app.loadIcon('recharge/menu/menu_all_2',this.normalIcon,207,44)
-            this.app.loadIcon('recharge/menu/menu_all_1',this.currentIcon,249,86);
+            this.app.loadIcon(`${src}/menu/menu_all_2`,this.normalIcon,207,44)
+            this.app.loadIcon(`${src}/menu/menu_all_1`,this.currentIcon,249,86);
         }else if(this.index == 1){
-            this.app.loadIcon('recharge/menu/menu_unfinished_2',this.normalIcon,207,44)
-            this.app.loadIcon('recharge/menu/menu_unfinished_1',this.currentIcon,249,86);
+            this.app.loadIcon(`${src}/menu/menu_unfinished_2`,this.normalIcon,207,44)
+            this.app.loadIcon(`${src}/menu/menu_unfinished_1`,this.currentIcon,249,86);
         }else if(this.index == 2){
-            this.app.loadIcon('recharge/menu/menu_finished_2',this.normalIcon,207,44)
-            this.app.loadIcon('recharge/menu/menu_finished_1',this.currentIcon,249,86);
+            this.app.loadIcon(`${src}/menu/menu_finished_2`,this.normalIcon,207,44)
+            this.app.loadIcon(`${src}/menu/menu_finished_1`,this.currentIcon,249,86);
         }
     }
     // LIFE-CYCLE CALLBACKS:

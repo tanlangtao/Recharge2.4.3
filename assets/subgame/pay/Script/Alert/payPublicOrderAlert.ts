@@ -175,8 +175,7 @@ export default class NewClass extends cc.Component {
         let btn_fuzhi4= this.node.getChildByName('Content').getChildByName('group').getChildByName('btn_fuzhi4')
         let attention= this.node.getChildByName('Content').getChildByName('attention').getComponent(cc.Label)
         let label1= this.node.getChildByName('Content').getChildByName('label1').getComponent(cc.Label)
-        let label2= this.node.getChildByName('Content').getChildByName('label2').getComponent(cc.Label)
-        let label3= this.node.getChildByName('Content').getChildByName('label3').getComponent(cc.Label)
+        let label2= this.node.getChildByName('Content').getChildByName('label2').getComponent(cc.RichText)
         let label4= this.node.getChildByName('Content').getChildByName('label4').getComponent(cc.Label)
         let label5= this.node.getChildByName('Content').getChildByName('label5').getComponent(cc.Label)
         let label6= this.node.getChildByName('Content').getChildByName('label6').getComponent(cc.Label)
@@ -198,8 +197,7 @@ export default class NewClass extends cc.Component {
         
         attention.string = `${Language_pay.Lg.ChangeByText('特别提醒:')}`
         label1.string = `${Language_pay.Lg.ChangeByText('1.支持各种银行，支付宝，微信的银行卡转账；')}`
-        label2.string = `${Language_pay.Lg.ChangeByText('2.支付时输入金额与转账金额一致, ')}`
-        label3.string = `${Language_pay.Lg.ChangeByText('（包含小数点后2位数字）')}`
+        label2.string = `<color=#FF3333>${Language_pay.Lg.ChangeByText('2.支付时输入金额与转账金额一致')},</c><color=#F3C612> ${Language_pay.Lg.ChangeByText('（包含小数点后2位数字）')}</c>。`
         label4.string = `${Language_pay.Lg.ChangeByText('禁止修改金额，否则不到账；')}`
         label5.string = `${Language_pay.Lg.ChangeByText('3.以上收款账号限本次使用，账户不定期更换，每次支付前请依照本页所显示的银行账户付款;')}`
         label6.string = `${Language_pay.Lg.ChangeByText('4.正常付款1-5分钟内到账，未到账请联系客服。')}`

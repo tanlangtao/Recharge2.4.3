@@ -1,4 +1,4 @@
-
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 @ccclass
 export default class payRgDh extends cc.Component {
@@ -19,6 +19,7 @@ export default class payRgDh extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchImIndex();
         this.resizeCenter()
+        this.setLanguageResource()
     }
     
     fetchImIndex(){
@@ -39,7 +40,7 @@ export default class payRgDh extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
             self.app.hideLoading()
         })
     }
@@ -54,7 +55,7 @@ export default class payRgDh extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
    
@@ -78,5 +79,17 @@ export default class payRgDh extends cc.Component {
         console.log('唤起IM','IMappStart')
         this.app.gHandler.reflect.setOrientation("portrait", 640, 1136)
         cc.director.loadScene('IMappStart');
+    }
+     //设置语言相关的资源和字
+     setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let VIPpay_banner_1= cc.find("Canvas/Cash/Content/RgDh/VIPpay_banner_1")
+        let tips000= cc.find("Canvas/Cash/Content/RgDh/frame/layout/tips000")
+        let btn_contactCS= cc.find("Canvas/Cash/Content/RgDh/frame/layout/btn_contactCS")
+
+        this.app.loadIconLg(`${src}/form/VIPpay_banner_1`,VIPpay_banner_1)
+        this.app.loadIconLg(`${src}/font/tips000`,tips000)
+        this.app.loadIconLg(`${src}/btn/btn_contactCS`,btn_contactCS)
     }
 }

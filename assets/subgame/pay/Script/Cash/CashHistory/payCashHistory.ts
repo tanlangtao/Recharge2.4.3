@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -33,6 +33,7 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
 
         this.fetchIndex();
+        this.setLanguageResource()
     }
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&order_status=${this.order_status}&page=${this.page}&page_set=8&version=${this.app.version}`;
@@ -66,7 +67,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
             self.app.hideLoading();
         })
     }
@@ -110,6 +111,14 @@ export default class NewClass extends cc.Component {
             this.fetchIndex();
         }
 
+    }
+     //设置语言相关的资源和字
+     setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let titlebg= cc.find("Canvas/Cash/Content/DhHistory/Content/titlebg")
+
+        this.app.loadIconLg(`${src}/form/dh_title_kuang`,titlebg)
     }
     // update (dt) {}
 }

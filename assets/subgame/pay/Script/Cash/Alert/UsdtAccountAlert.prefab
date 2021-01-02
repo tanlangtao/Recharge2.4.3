@@ -345,7 +345,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Layout",
+    "_name": "Layout",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -873,7 +873,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bankcard_form",
+    "_name": "popup_usdt_frame",
     "_objFlags": 0,
     "_parent": {
       "__id__": 20

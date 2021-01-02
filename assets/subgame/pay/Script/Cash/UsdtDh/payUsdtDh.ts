@@ -171,7 +171,7 @@ export default class NewClass extends cc.Component {
         self.DhBtn.getComponent(cc.Button).interactable  = false;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功！'));
+                self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'));
                 self.fetchIndex();
             }else{
                 self.app.showAlert(response.msg)

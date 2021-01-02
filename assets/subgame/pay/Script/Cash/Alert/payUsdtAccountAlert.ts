@@ -1,5 +1,5 @@
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -19,6 +19,7 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.selectContent.active = false
+        this.setLanguageResource()
     }
 
     public init(itemId){
@@ -31,11 +32,11 @@ export default class NewClass extends cc.Component {
         var str = this.walletAddressInput.string.replace(/\s+/g,"");
         this.walletAddressInput.string = str;
         if(this.walletAddressInput.string == ''){
-            this.app.showAlert('钱包地址不能为空!')
-        }else if(this.chanTypeLabel.string == ''|| this.chanTypeLabel.string == `请选择链类型`){
-            this.app.showAlert('请选择链类型！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('钱包地址不能为空!'))
+        }else if(this.chanTypeLabel.string == ''|| this.chanTypeLabel.string == Language_pay.Lg.ChangeByText('请选择链类型')){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('请选择链类型'))
         }else if(this.isChinese(this.walletAddressInput.string)){
-            this.app.showAlert('钱包地址不能含有特殊字符！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('钱包地址不能含有特殊字符!'))
         } else{
             this.fetchBindAccountPay();
             this.node.removeFromParent();
@@ -63,12 +64,12 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 let bankCom = cc.find('Canvas/Cash/Content/UsdtDh').getComponent('payUsdtDh');
                 bankCom.fetchIndex();
-                self.app.showAlert('操作成功!')
+                self.app.showAlert(Language_pay.Lg.ChangeByText('操作成功!'))
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     removeSlef(){
@@ -83,5 +84,18 @@ export default class NewClass extends cc.Component {
             }
         }
         return ret
+    }
+     //设置语言相关的资源和字
+     setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let titleIcon= cc.find("Canvas/UsdtAccountAlert/Layout/titleIcon")
+        let popup_usdt_frame= cc.find("Canvas/UsdtAccountAlert/Layout/content/popup_usdt_frame")
+
+        this.app.loadIconLg(`${src}/font/title_usdt`,titleIcon)
+        this.app.loadIconLg(`${src}/form/popup_usdt_frame`,popup_usdt_frame)
+
+        this.walletAddressInput.placeholder = Language_pay.Lg.ChangeByText('请输入钱包地址')
+        this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('请选择链类型')
     }
 }

@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -77,7 +77,7 @@ export default class NewClass extends cc.Component {
                 this.account_id = this.selectArr[index].id;
                 this.account_type = 1
             }else{
-                this.accountLabel.string = '未设置'
+                this.accountLabel.string = Language_pay.Lg.ChangeByText('未设置')
             }
            
         }else if(index==1){
@@ -87,16 +87,16 @@ export default class NewClass extends cc.Component {
                 this.account_id = this.selectArr[index].id;
                 this.account_type = 2
             }else{
-                this.accountLabel.string = '未设置'
+                this.accountLabel.string = Language_pay.Lg.ChangeByText('未设置')
             }
         }
         let min_amount = Number(this.data.data.withDraw_info.artificial.min_amount);
         let max_amount = Number(this.data.data.withDraw_info.artificial.max_amount);
-        this.area.string = `兑换范围:(${min_amount}-${max_amount})`
+        this.area.string = `${Language_pay.Lg.ChangeByText('兑换范围')}:(${min_amount}-${max_amount})`
     }
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        
+        this.setLanguageResource()
     }
 
     setAmount() {
@@ -126,11 +126,11 @@ export default class NewClass extends cc.Component {
         let min_amount = Number(this.data.data.withDraw_info.artificial.min_amount);
         let max_amount = Number(this.data.data.withDraw_info.artificial.max_amount);
         if(amount> gold){
-            this.app.showAlert('余额不足！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('余额不足'))
         }else if(amount < min_amount || amount > max_amount){
-            this.app.showAlert(`不符合兑换范围！(${min_amount}-${max_amount})`)
-        }else if(this.accountLabel.string =='未设置'){
-            this.app.showAlert('兑换账户未设置,请选择其他兑换方式！')
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('超出兑换范围')}(${min_amount}-${max_amount})`)
+        }else if(this.accountLabel.string ==Language_pay.Lg.ChangeByText('未设置')){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('兑换账户未设置,请选择其他兑换方式!'))
         }else{
             this.showCashAlert()
         }
@@ -143,7 +143,7 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                self.app.showAlert('申请成功！');
+                self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'));
                 //刷新余额
                 let RgDh = cc.find('Canvas/Cash/Content/RgDh').getComponent('payRgDh');
                 RgDh.fetchIndex();
@@ -152,7 +152,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
 
@@ -174,7 +174,7 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
 
-        this.amountLabel.string = '点击输入';
+        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
         this.app.setInputColor('',this.amountLabel);
     }
 
@@ -183,6 +183,29 @@ export default class NewClass extends cc.Component {
         this.app.loadMusic(1);
 
         this.node.destroy();
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let toutpd= cc.find("Canvas/RgDhAlert/Layout/toutpd")
+        let txt_zhye2= cc.find("Canvas/RgDhAlert/Layout/content/txt_zhye2")
+        let txt_dhje2= cc.find("Canvas/RgDhAlert/Layout/content/txt_dhje2")
+        let btn_75= cc.find("Canvas/RgDhAlert/Layout/content/group2/75")
+        let txt_dhfs= cc.find("Canvas/RgDhAlert/Layout/content/txt_dhfs")
+        let txt_dhzh= cc.find("Canvas/RgDhAlert/Layout/content/txt_dhzh")
+        let btn1= cc.find("Canvas/RgDhAlert/Layout/btn1")
+
+        this.app.loadIconLg(`${src}/font/title_rgdh`,toutpd)
+        this.app.loadIconLg(`${src}/font/txt_zhye2`,txt_zhye2)
+        this.app.loadIconLg(`${src}/font/txt_dhje2`,txt_dhje2)
+        this.app.loadIconLg(`${src}/btn/75`,btn_75)
+        this.app.loadIconLg(`${src}/font/txt_dhfs`,txt_dhfs)
+        this.app.loadIconLg(`${src}/font/txt_dhzh`,txt_dhzh)
+        this.app.loadIconLg(`${src}/font/surecg`,btn1)
+
+        let label= cc.find("Canvas/RgDhAlert/Layout/content/group2/label").getComponent(cc.Label)
+        label.string = Language_pay.Lg.ChangeByText('点击输入')
     }
 
     // update (dt) {}

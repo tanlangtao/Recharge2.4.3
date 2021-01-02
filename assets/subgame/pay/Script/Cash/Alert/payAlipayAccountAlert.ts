@@ -1,7 +1,7 @@
 
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -22,8 +22,8 @@ export default class NewClass extends cc.Component {
     app = null;
 
     public init(data){
-
-        let iconPath = data.text =='设置支付宝' ? 'cash/title_szzfb' :'cash/title_xgzfb';
+        let src = Language_pay.Lg.getLgSrc()
+        let iconPath = data.text =='设置支付宝' ? `${src}/font/title_szzfb` :`${src}/font/title_xgzfb`;
         this.app.loadIcon(iconPath,this.titleIcon,283,51);
         this.action = data.action;
         this.itemId = data.itemId;
@@ -40,7 +40,6 @@ export default class NewClass extends cc.Component {
             e.string=e.string.replace(/[^\a-\z\A-\Z0-9\?\.\@\+\$]/g,'')
         })
     }
-
     onClick(){
         //按键音效
         this.app.loadMusic(1);
@@ -48,7 +47,7 @@ export default class NewClass extends cc.Component {
         if(this.accountInput.string == ''
             || this.account_nameInput.string == '')
         {
-            this.app.showAlert('输入不能为空!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('输入不能为空!'))
         }else{
             this.fetchBindAccountPay();
             this.node.removeFromParent();
@@ -69,12 +68,12 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 let zfbCom = cc.find('Canvas/Cash/Content/Dh').getComponent('payDh');
                 zfbCom.fetchIndex();
-                self.app.showAlert('操作成功!')
+                self.app.showAlert(Language_pay.Lg.ChangeByText('操作成功!'))
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
 
@@ -96,6 +95,18 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
         this.node.destroy();
+    }
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+
+        let bdali_form= cc.find('Canvas/AlipayAccountAlert/Layout/content/bdali_form')
+        let btn1= cc.find('Canvas/AlipayAccountAlert/Layout/btn1')
+
+        this.app.loadIconLg(`${src}/form/bdali_form`,bdali_form)
+        this.app.loadIconLg(`${src}/btn/surecg`,btn1)
+
+        this.accountInput.placeholder = Language_pay.Lg.ChangeByText('输入支付宝帐号')
+        this.account_nameInput.placeholder = Language_pay.Lg.ChangeByText('输入收款人姓名')
     }
     // update (dt) {}
 }

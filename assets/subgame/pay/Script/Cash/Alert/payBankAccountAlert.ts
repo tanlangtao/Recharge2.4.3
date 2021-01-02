@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 let cities = {
     '北京': ['北京'],
     '天津': ['天津'],
@@ -151,8 +151,8 @@ export default class NewClass extends cc.Component {
     app = null;
 
     public init(data) {
-        // let iconPath = data.text =='设置银行卡' ? 'cash/title_szyhk' :'cash/title_xgyhk';
-        let iconPath = 'cash/title_szyhk';
+        let src = Language_pay.Lg.getLgSrc()
+        let iconPath = data.text =='设置银行卡' ?`${src}/font/title_szyhk` :`${src}/font/title_xgyhk`;
         this.app.loadIcon(iconPath,this.titleIcon,283,51);
         this.action = data.action;
         this.itemId = data.itemId;
@@ -166,13 +166,13 @@ export default class NewClass extends cc.Component {
         this.selectProvinceLabel.string = data.bank_province;
         this.selectCityLabel.string = data.bank_city;
         if(this.selectProvinceLabel.string ==''){
-            this.selectProvinceLabel.string = '请选择开户省'
+            this.selectProvinceLabel.string = Language_pay.Lg.ChangeByText('请选择开户省')
         }
         if(this.selectCityLabel.string ==''){
-            this.selectCityLabel.string = '请选择开户市'
+            this.selectCityLabel.string = Language_pay.Lg.ChangeByText('请选择开户市')
         }
         if(this.selectBankLabel.string ==''){
-            this.selectBankLabel.string = '请选择开户行'
+            this.selectBankLabel.string = Language_pay.Lg.ChangeByText('请选择开户行')
         }
         if( this.accountInput.string != ''){
             this.accountMask.active = true// 禁止修改卡号
@@ -187,10 +187,8 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.addProvinceItem()
         this.addBankItem()
-        
+        this.setLanguageResource()
     }
-
-
     onClick() {
         //按键音效
         this.app.loadMusic(1)
@@ -198,30 +196,30 @@ export default class NewClass extends cc.Component {
         var str = this.accountInput.string.replace(/\s+/g,"");
         this.accountInput.string = str;
         if(this.accountInput.string == '' || this.nameInput.string == ''){
-            this.app.showAlert('姓名和卡号不能为空!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('姓名和卡号不能为空'))
         }
-        else if(this.selectProvinceLabel.string == '请选择开户省'|| this.selectProvinceLabel.string == ''){
-            this.app.showAlert('开户省不能为空！')
+        else if(this.selectProvinceLabel.string == Language_pay.Lg.ChangeByText('请选择开户省')|| this.selectProvinceLabel.string == ''){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('开户省不能为空'))
         }
-        else if(this.selectCityLabel.string == '请选择开户市' || this.selectCityLabel.string == ''){
-            this.app.showAlert('开户市不能为空！')
+        else if(this.selectCityLabel.string == Language_pay.Lg.ChangeByText('请选择开户市') || this.selectCityLabel.string == ''){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('开户市不能为空'))
         }
-        else if(this.selectBankLabel.string == '请选择开户行'||this.selectBankLabel.string == ''){
-            this.app.showAlert('开户行不能为空！')
+        else if(this.selectBankLabel.string == Language_pay.Lg.ChangeByText("请选择开户行")||this.selectBankLabel.string == ''){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('开户行不能为空'))
         }
         else if(this.accountInput.string.length>19||this.accountInput.string.length<15){
-            this.app.showAlert('无效卡号！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('无效卡号'))
         }else if(this.accountInput.string.slice(0,1)=='0'){
-            this.app.showAlert('无效卡号！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('无效卡号'))
         }
         else if(this.bankNameInput.string == ''){
-            this.app.showAlert('开户支行不能为空！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('开户支行不能为空'))
         }
         else if(!this.isChinese(this.nameInput.string )){
-            this.app.showAlert('姓名不能含有特殊字符！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('姓名不能含有特殊字符'))
         }
         else if(!this.isChinese(this.bankNameInput.string )){
-            this.app.showAlert('开户支行不能含有特殊字符！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('开户支行不能含有特殊字符'))
         }
         else{
             this.fetchBindAccountPay();
@@ -253,12 +251,12 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 let bankCom = cc.find('Canvas/Cash/Content/BankDh').getComponent('payBankDh');
                 bankCom.fetchIndex();
-                self.app.showAlert('操作成功!')
+                self.app.showAlert(Language_pay.Lg.ChangeByText('操作成功!'))
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     addProvinceItem(){
@@ -296,12 +294,12 @@ export default class NewClass extends cc.Component {
         } else {
             this.selectProvinceContent.active = false;
         }
-        this.selectCityLabel.string = '请选择开户市'
+        this.selectCityLabel.string = Language_pay.Lg.ChangeByText('请选择开户市')
         
     }
     selectCityClick() {
-        if(this.selectProvinceLabel.string == '请选择开户省') {
-            this.app.showAlert('请先选择开户省!')
+        if(this.selectProvinceLabel.string == Language_pay.Lg.ChangeByText('请选择开户省')) {
+            this.app.showAlert(Language_pay.Lg.ChangeByText('请先选择开户省'))
             return
         }
         var results = cities[this.selectProvinceLabel.string]
@@ -360,5 +358,18 @@ export default class NewClass extends cc.Component {
          this.app.loadMusic(1)
 
         this.node.destroy();
+    }
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+
+        let bankcard_form= cc.find('Canvas/BankAccountAlert/Layout/content/bankcard_form')
+        let btn1= cc.find('Canvas/BankAccountAlert/Layout/btn1')
+
+        this.app.loadIconLg(`${src}/form/bankcard_form`,bankcard_form)
+        this.app.loadIconLg(`${src}/btn/surecg`,btn1)
+
+        this.nameInput.placeholder = Language_pay.Lg.ChangeByText('请输入姓名')
+        this.accountInput.placeholder = Language_pay.Lg.ChangeByText('请输入银行卡号')
+        this.bankNameInput.placeholder = Language_pay.Lg.ChangeByText('请输入开户支行')
     }
 }

@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
     @property(cc.Prefab)
@@ -70,6 +70,7 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
         this.changeSlider(this.slider,this.progressBar);
+        this.setLanguageResource()
     }
 
     setAmount() {
@@ -90,7 +91,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
             self.app.hideLoading();
         })
     }
@@ -137,8 +138,8 @@ export default class NewClass extends cc.Component {
             }
         });
 
-        this.czArea.string = `兑换范围:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
-        this.accountLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :'未设置';
+        this.czArea.string = `${Language_pay.Lg.ChangeByText('兑换范围')}:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
+        this.accountLabel.string = this.bankData.length != 0 ? this.app.config.testBankNum(this.Info.card_num) :Language_pay.Lg.ChangeByText('未设置');
         if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
             this.accountBtn.active = true;
         }else{
@@ -150,7 +151,7 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
 
-        this.amountLabel.string = '点击输入';
+        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
         this.app.setInputColor('',this.amountLabel);
         this.slider.progress = 0;
         this.progressBar.progress = 0;
@@ -208,14 +209,14 @@ export default class NewClass extends cc.Component {
         self.DhBtn.getComponent(cc.Button).interactable  = false;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                self.app.showAlert('申请成功！');
+                self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'));
                 self.fetchIndex();
             }else{
                 self.app.showAlert(response.msg)
             }
             self.DhBtn.getComponent(cc.Button).interactable  = true;
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     radioList(){
@@ -273,22 +274,47 @@ export default class NewClass extends cc.Component {
         });
 
         if(this.results.length==0){
-            this.app.showAlert('渠道未开放，请选择其他兑换方式！')
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('渠道未开放，请选择其他兑换方式!')}`)
         }else if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
             this.app.showBankTipAlert(this)
 
-        }else if(this.amountLabel.string == '点击输入'){
-            this.app.showAlert('兑换金额不能为空！')
+        }else if(this.amountLabel.string == Language_pay.Lg.ChangeByText('点击输入')){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('兑换金额不能为空'))
         }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){
-            this.app.showAlert(`兑换金额必须为${multiple_amount}的倍数！`)
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('兑换金额必须为')}${multiple_amount}${Language_pay.Lg.ChangeByText('的倍数')}！`)
         }
         else if(amount >Number(this.goldLabel.string)){
-            this.app.showAlert('余额不足!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('余额不足'))
         }else if(amount < minAmount || amount >maxAmount){
-            this.app.showAlert('超出兑换范围!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('超出兑换范围'))
         }else{
             this.showCashAlert();
         }
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+
+        let txt_zhye= cc.find('Canvas/Cash/Content/BankDh/titlebg/group1/txt_zhye')
+        let txt_dhje= cc.find('Canvas/Cash/Content/BankDh/titlebg/group2/txt_dhje')
+        let btn_75= cc.find('Canvas/Cash/Content/BankDh/titlebg/group2/group2/75')
+        let btn_max= cc.find('Canvas/Cash/Content/BankDh/titlebg/group3/btn_max')
+        let bankbt= cc.find('Canvas/Cash/Content/BankDh/group4/bankbt')
+        let accountBtn= cc.find('Canvas/Cash/Content/BankDh/group4/accountBtn')
+        let txt_dhqd= cc.find('Canvas/Cash/Content/BankDh/group3/txt_dhqd')
+        let btn_dh= cc.find('Canvas/Cash/Content/BankDh/btn_dh')
+
+        this.app.loadIconLg(`${src}/font/txt_zhye`,txt_zhye)
+        this.app.loadIconLg(`${src}/font/txt_dhje`,txt_dhje)
+        this.app.loadIconLg(`${src}/btn/75`,btn_75)
+        this.app.loadIconLg(`${src}/btn/btn_max`,btn_max)
+        this.app.loadIconLg(`${src}/font/bankbt`,bankbt)
+        this.app.loadIconLg(`${src}/btn/btn_bindcard`,accountBtn)
+        this.app.loadIconLg(`${src}/font/txt_dhqd`,txt_dhqd)
+        this.app.loadIconLg(`${src}/btn/btn_dh`,btn_dh)
+
+        let label1 = cc.find('Canvas/Cash/Content/BankDh/titlebg/group2/group2/label').getComponent(cc.Label)
+        label1.string = Language_pay.Lg.ChangeByText('点击输入')
     }
     // update (dt) {}
 }

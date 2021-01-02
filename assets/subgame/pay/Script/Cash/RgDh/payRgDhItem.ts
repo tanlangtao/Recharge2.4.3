@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -31,6 +31,7 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+        this.setLanguageResource()
     }
    
    onClick(){
@@ -38,7 +39,7 @@ export default class NewClass extends cc.Component {
        this.app.loadMusic(1);
        console.log(this.data)
         if(this.data.data.list.length == 0){
-            this.app.showAlert('请先设置账户!')
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('请先设置账户!')}`)
         }else{
             this.showRgDhAlert();
         }
@@ -53,5 +54,19 @@ export default class NewClass extends cc.Component {
             data : this.data
         })
     }
-   
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        
+        let guanfrz= this.node.getChildByName('Layout').getChildByName('guanfrz')
+        let zhuanxkf= this.node.getChildByName('Layout').getChildByName('zhuanxkf')
+        let bg_fan= this.node.getChildByName('Layout').getChildByName('bg_fan')
+        let pingji= this.node.getChildByName('Layout').getChildByName('pingji').getComponent(cc.Label)
+
+        this.app.loadIconLg(`${src}/btn/guanfrz`,guanfrz)
+        this.app.loadIconLg(`${src}/btn/zhuanxkf`,zhuanxkf)
+        this.app.loadIconLg(`${src}/btn/btn_duihuan`,bg_fan)
+
+        pingji.string = Language_pay.Lg.ChangeByText(`月评级5星+`)
+    }
 }
