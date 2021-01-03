@@ -439,6 +439,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('paySchd').setIdInfo(id,info);
         }else  if(name == '新用户包赔活动2'){
             var node = cc.instantiate(this.Xyhbp);
+            node.getComponent('payXyhbp').setId(id)
             this.app.loadTitle('title/title_xyh',this.title);
         }else  if(name == '日业绩活动2'){
             var node = cc.instantiate(this.Ryjhd);
