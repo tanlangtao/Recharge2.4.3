@@ -229,7 +229,7 @@ export default class NewClass extends cc.Component {
         this.Alert3.active = false
     }
     getLocal(){
-        let PaySendFruit_2jin = cc.sys.localStorage.getItem("PaySendFruit_2jin")
+        let PaySendFruit_2jin = cc.sys.localStorage.getItem(`PaySendFruit_2jin_${this.app.UrlData.user_id}`)
         if(PaySendFruit_2jin){
             return false
         }else{
@@ -237,7 +237,7 @@ export default class NewClass extends cc.Component {
         }
     }
     setLocal(){
-        cc.sys.localStorage.setItem("PaySendFruit_2jin",JSON.stringify(true))
+        cc.sys.localStorage.setItem(`PaySendFruit_2jin_${this.app.UrlData.user_id}`,JSON.stringify(true))
     }
     onDestroy(){
         this.bg2.active = false

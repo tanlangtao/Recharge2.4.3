@@ -35,6 +35,7 @@ export default class NewClass extends cc.Component {
             this.app.showAlert("获取登陆ip失败!")
         }
         this.getLocal()
+        console.log(this.app.gHandler.app.deviceID,this.app.gHandler.gameGlobal.deviceID)
     }
     getFristPayAmount(){
         var url = `${this.app.UrlData.host}/api/activity/getFristPayAmount?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}&version=${this.app.version}`;
@@ -91,7 +92,7 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 self.app.showAlert('申请成功！')
 
-                cc.sys.localStorage.setItem(`isApplyReimburse`,true)
+                cc.sys.localStorage.setItem(`isApplyReimburse_${this.app.UrlData.user_id}`,true)
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -109,7 +110,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert('领取成功！')
                 //手动将领取结果赋值为1
                 this.FristPayAmount.is_received = 1
-                
+                this.renderBtn()
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -118,10 +119,10 @@ export default class NewClass extends cc.Component {
         })
     }
     setLocal(){
-        cc.sys.localStorage.setItem(`FristPayAmount`,JSON.stringify(this.FristPayAmount))
+        cc.sys.localStorage.setItem(`FristPayAmount_${this.app.UrlData.user_id}`,JSON.stringify(this.FristPayAmount))
     }
     getLocal(){
-        let localFristPayAmount = cc.sys.localStorage.getItem(`FristPayAmount`) 
+        let localFristPayAmount = cc.sys.localStorage.getItem(`FristPayAmount_${this.app.UrlData.user_id}`) 
         if (localFristPayAmount && JSON.parse(localFristPayAmount).frist_pay_amount >0){
             this.FristPayAmount = JSON.parse(localFristPayAmount)
             this.renderBtn()
@@ -134,7 +135,7 @@ export default class NewClass extends cc.Component {
             this.app.showAlert("参加活动失败:请先绑定手机号!")
             return
         }
-        let isApplyReimburse = cc.sys.localStorage.getItem(`isApplyReimburse`)
+        let isApplyReimburse = cc.sys.localStorage.getItem(`isApplyReimburse_${this.app.UrlData.user_id}`)
         if(!isApplyReimburse){
             return this.app.showAlert('请先点击申请包赔活动!')
         }
@@ -144,7 +145,7 @@ export default class NewClass extends cc.Component {
         this.receivereimburse()
     }
     applyReimburseClick(){
-        let isApplyReimburse = cc.sys.localStorage.getItem(`isApplyReimburse`)
+        let isApplyReimburse = cc.sys.localStorage.getItem(`isApplyReimburse_${this.app.UrlData.user_id}`)
         if(isApplyReimburse){
             this.app.showAlert('请勿重复提交申请!')
         }else{
