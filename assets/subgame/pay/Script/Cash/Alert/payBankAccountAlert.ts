@@ -229,7 +229,7 @@ export default class NewClass extends cc.Component {
     isChinese(s){
         var ret = true;
         for(var i = 0;i<s.length;i++){//遍历每一个文本字符bai
-            ret = ret && (s.charCodeAt(i) >= 10000);//判断文本字符的unicode值
+            ret = ret && (s.charCodeAt(i) >= 10000 ||s.charCodeAt(i)  == 183 );//判断文本字符的unicode值 ,183 为 · 
         }
         return ret
     }
