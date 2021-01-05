@@ -135,21 +135,22 @@ export default class NewClass extends cc.Component {
             this.app.showAlert("参加活动失败:请先绑定手机号!")
             return
         }
-        let isApplyReimburse = cc.sys.localStorage.getItem(`isApplyReimburse_${this.app.UrlData.user_id}`)
-        if(!isApplyReimburse){
-            return this.app.showAlert('请先点击申请包赔活动!')
-        }
+        // let isApplyReimburse = cc.sys.localStorage.getItem(`isApplyReimburse_${this.app.UrlData.user_id}`)
+        // if(!isApplyReimburse){
+        //     return this.app.showAlert('请先点击申请包赔活动!')
+        // }
         if(this.FristPayAmount.is_received!=0){
             return this.app.showAlert("同一用户仅限领取一次!")
         }
         this.receivereimburse()
     }
     applyReimburseClick(){
-        let isApplyReimburse = cc.sys.localStorage.getItem(`isApplyReimburse_${this.app.UrlData.user_id}`)
-        if(isApplyReimburse){
-            this.app.showAlert('请勿重复提交申请!')
-        }else{
-            this.applyReimburse()
-        }
+        // 20210104_精彩活动， 德比游戏新用户包赔活动调整,取消前端申请操作
+        // let isApplyReimburse = cc.sys.localStorage.getItem(`isApplyReimburse_${this.app.UrlData.user_id}`)
+        // if(isApplyReimburse){
+        //     this.app.showAlert('请勿重复提交申请!')
+        // }else{
+        //     this.applyReimburse()
+        // }
     }
 }
