@@ -111,6 +111,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Ryjhd :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    Lyhbp :cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -263,6 +266,10 @@ export default class NewClass extends cc.Component {
         else if(data.name == '日业绩活动2'){
             this.app.loadIcon('activity/btn_ryjhd2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_ryjhd1',this.currentIcon,249,86);
+        }
+        else if(data.name == '老用户包赔活动2'){
+            this.app.loadIcon('activity/btn_lyh2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_lyh1',this.currentIcon,249,86);
         }
 
         //响应每日签到2，显示红点
@@ -444,6 +451,10 @@ export default class NewClass extends cc.Component {
         }else  if(name == '日业绩活动2'){
             var node = cc.instantiate(this.Ryjhd);
             this.app.loadTitle('title/dm_title_ryjhd',this.title);
+        }else  if(name == '老用户包赔活动2'){
+            var node = cc.instantiate(this.Lyhbp);
+            node.getComponent('payLyhbp').setId(id)
+            this.app.loadTitle('title/title_lyh',this.title);
         }
         
         content.addChild(node);

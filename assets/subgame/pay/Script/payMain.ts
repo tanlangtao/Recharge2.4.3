@@ -56,6 +56,7 @@ export default class NewClass extends cc.Component {
     isTestPassworld = false;
     public version :number = 1 ;//充值后台接口，现默认为1
     gHandler = null;
+    login_token = null;//大厅token作为 Authorization的值
     onLoad () {
         this.config = new Config();
         this.UrlData =  {
@@ -72,6 +73,7 @@ export default class NewClass extends cc.Component {
         };
         this.gHandler = gHandler
         this.token = this.config.token;
+        this.login_token = gHandler.gameGlobal.token
     }
     /**
      * 全局提示框
@@ -298,6 +300,7 @@ export default class NewClass extends cc.Component {
      */
     ajax(method,url,data,successFn,faildFn){   
         var xhr = new XMLHttpRequest();
+        this.login_token
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 ) {
                 if(xhr.status == 200) {
@@ -318,8 +321,10 @@ export default class NewClass extends cc.Component {
         xhr.onerror = () => {
             xhr.abort()
         }
+        // xhr.setRequestHeader("Authorization",this.login_token)
+
         xhr.setRequestHeader("Content-Type"
-			, "application/x-www-form-urlencoded");
+            , "application/x-www-form-urlencoded");
         xhr.send(data);
     }
     //显示加载动画
