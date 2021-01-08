@@ -2583,7 +2583,7 @@
         "__id__": 71
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 74
@@ -2961,7 +2961,7 @@
         "__id__": 81
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 84
@@ -3339,7 +3339,7 @@
         "__id__": 91
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 94
@@ -3717,7 +3717,7 @@
         "__id__": 101
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 104
@@ -4095,7 +4095,7 @@
         "__id__": 111
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 114
@@ -5279,7 +5279,7 @@
     "asset": {
       "__uuid__": "231b63ce-c1ea-4b56-b695-ab450b60b772"
     },
-    "fileId": "5eRkaKFVBO6pf9miD3kTig",
+    "fileId": "13xRoRW55OKrBSaYFyg7Ow",
     "sync": false
   },
   {
@@ -5388,7 +5388,7 @@
     "asset": {
       "__uuid__": "231b63ce-c1ea-4b56-b695-ab450b60b772"
     },
-    "fileId": "267pK8FF1F+6fTaVJsXV2A",
+    "fileId": "00bY+mmexHhpD42QdJShBY",
     "sync": false
   },
   {
@@ -5471,8 +5471,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "申请后即视为参加此活动，充值本金最高提款200%，赔付彩金无提款上限。",
-    "_N$string": "申请后即视为参加此活动，充值本金最高提款200%，赔付彩金无提款上限。",
+    "_string": "申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。",
+    "_N$string": "申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。",
     "_fontSize": 19,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -5497,7 +5497,7 @@
     "asset": {
       "__uuid__": "231b63ce-c1ea-4b56-b695-ab450b60b772"
     },
-    "fileId": "8cIxzAXOBEZ4QshmeycpUs",
+    "fileId": "3ee92ONnZJ95jT1VsErApB",
     "sync": false
   },
   {
@@ -5606,7 +5606,7 @@
     "asset": {
       "__uuid__": "231b63ce-c1ea-4b56-b695-ab450b60b772"
     },
-    "fileId": "03ZYAxwAdB07OJyVMi8zz8",
+    "fileId": "00mQx2J9lNH4nKxiXhVQIm",
     "sync": false
   },
   {
@@ -5715,7 +5715,7 @@
     "asset": {
       "__uuid__": "231b63ce-c1ea-4b56-b695-ab450b60b772"
     },
-    "fileId": "b6P326fcNJUq7rT8OawviW",
+    "fileId": "2eCqQfQqdCQrCeScrAGzpN",
     "sync": false
   },
   {
@@ -5824,7 +5824,7 @@
     "asset": {
       "__uuid__": "231b63ce-c1ea-4b56-b695-ab450b60b772"
     },
-    "fileId": "acGx729TxJMqV4S2hqvhH4",
+    "fileId": "86B50jYO5Kz7uMQzgQO2I4",
     "sync": false
   },
   {
@@ -5933,7 +5933,7 @@
     "asset": {
       "__uuid__": "231b63ce-c1ea-4b56-b695-ab450b60b772"
     },
-    "fileId": "a2DolQc0FFw4lSi9mOj+5c",
+    "fileId": "85DeYnkh9MsrJ2E9/xfEs0",
     "sync": false
   },
   {
@@ -5946,7 +5946,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<color=#E8C999>1. 新会员注册好账号，需先绑定好手机号码与银行卡后联系上级进行申请，申请时\n间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高提款200%，赔付彩金无提款上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#EE000>《财神到》《水果机》《捕鱼·海王》《捕\n鱼·聚宝盆》《百人牛牛》</c>5款游戏， 进行其他游戏便视为放弃此活动。</color>",
+    "_N$string": "<color=#E8C999>1. 新会员注册好账号，需先绑定好手机号码与银行卡后联系上级进行申请，申请时\n间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#EE000>《财神到》《水果机》《捕鱼·海王》《捕\n鱼·聚宝盆》《百人牛牛》</c>5款游戏， 进行其他游戏便视为放弃此活动。</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 19,
     "_N$font": null,

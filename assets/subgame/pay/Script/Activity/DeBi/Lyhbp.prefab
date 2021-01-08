@@ -2287,7 +2287,7 @@
         "__id__": 65
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 68
@@ -2665,7 +2665,7 @@
         "__id__": 75
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 78
@@ -3043,7 +3043,7 @@
         "__id__": 85
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 88
@@ -3421,7 +3421,7 @@
         "__id__": 95
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 98
@@ -3959,8 +3959,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "1. 老会员每周限制参加一次（星期一到星期日），联系上级进行申请，申请时间：每天12:00-21:30。",
-    "_N$string": "1. 老会员每周限制参加一次（星期一到星期日），联系上级进行申请，申请时间：每天12:00-21:30。",
+    "_string": "1. 老会员每周限制参加一次（星期一到星期六），联系上级进行申请，申请时间：每天12:00-21:30。",
+    "_N$string": "1. 老会员每周限制参加一次（星期一到星期六），联系上级进行申请，申请时间：每天12:00-21:30。",
     "_fontSize": 18,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -3985,7 +3985,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "67gf6u/zxKI4gZXbQihBnB",
+    "fileId": "adfYJr9gpPmo6Auf9vSC+T",
     "sync": false
   },
   {
@@ -4068,8 +4068,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "申请后即视为参加此活动，充值本金最高提款200%，赔付彩金无提款上限。",
-    "_N$string": "申请后即视为参加此活动，充值本金最高提款200%，赔付彩金无提款上限。",
+    "_string": "申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。",
+    "_N$string": "申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。",
     "_fontSize": 18,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -4094,7 +4094,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "4aw3QY/6NEE5N56xlDofzH",
+    "fileId": "38uZ1LuNpMxqVYji/7GzTd",
     "sync": false
   },
   {
@@ -4203,7 +4203,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "ae+OPCKKJH2pkOFS6G6a/8",
+    "fileId": "eaJkyW5gZJ2bblEEHmXvtM",
     "sync": false
   },
   {
@@ -4312,7 +4312,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "c63eMUYOlM6rBG2Hu5b75K",
+    "fileId": "b2lCGdv5FOT6KMSrriECTx",
     "sync": false
   },
   {
@@ -4421,7 +4421,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "b02Pd9dyxBd6BRAyP9lc6u",
+    "fileId": "a86gH/RL9G+Ku8RlO7krIb",
     "sync": false
   },
   {
@@ -4451,7 +4451,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 868.03,
+      "width": 832.03,
       "height": 30.24
     },
     "_anchorPoint": {
@@ -4504,8 +4504,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面进行领取活动彩金。",
-    "_N$string": "3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面进行领取活动彩金。",
+    "_string": "3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面领取活动彩金。",
+    "_N$string": "3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面领取活动彩金。",
     "_fontSize": 18,
     "_lineHeight": 24,
     "_enableWrapText": true,
@@ -4530,7 +4530,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "8ejrcyJb9J44fXIHBtoF11",
+    "fileId": "dbNloeIi5JEZ+G1Et1DlyA",
     "sync": false
   },
   {
@@ -4639,7 +4639,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "5fF9ubNClDw5bMuqTMZ4p0",
+    "fileId": "f5Wd0KLM5HHb7NSaYba6BC",
     "sync": false
   },
   {
@@ -4748,7 +4748,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "1cZJnS2ZVLeozbNIjJy4mc",
+    "fileId": "922ddLcZdLKqhtJUsQHBmc",
     "sync": false
   },
   {
@@ -4857,7 +4857,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "d3NDn4mIhM44aiXH+Mt9zn",
+    "fileId": "afeZKTQyhEP7RWu/ABYL/b",
     "sync": false
   },
   {
@@ -4966,7 +4966,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "086m3Mb3tBfIWMoO0pi+Da",
+    "fileId": "f4xgypj9xJ8ovehyrrKMXK",
     "sync": false
   },
   {
@@ -4979,7 +4979,7 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<color=#E8C999>1. 老会员每周限制参加一次（星期一到星期日），联系上级进行申请，申请时间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高提款200%，赔付彩金无提款上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#FF0000>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》</c>\n5款游戏， 进行其他游戏便视为放弃此活动。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面进行领取活动彩金。\n4. 赢金到规定金额不提款视为放弃包赔资格（输完不能赔付）。\n5. 包赔金在每周日23:59:59未进行领取则视为自动放弃。\n6. 同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请兑换， 恶意套利者将封号处理。\n7.本活动最终解释权归德比所有。\n</color>",
+    "_N$string": "<color=#E8C999>1. 老会员每周限制参加一次（星期一到星期六），联系上级进行申请，申请时间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#FF0000>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》</c>\n5款游戏， 进行其他游戏便视为放弃此活动。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面领取活动彩金。\n4. 赢金到规定金额不提款视为放弃包赔资格（输完不能赔付）。\n5. 包赔金在每周日23:59:59未进行领取则视为自动放弃。\n6. 同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请兑换， 恶意套利者将封号处理。\n7.本活动最终解释权归德比所有。\n</color>",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 18,
     "_N$font": null,

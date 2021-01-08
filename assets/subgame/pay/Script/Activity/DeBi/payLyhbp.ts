@@ -115,10 +115,10 @@ export default class NewClass extends cc.Component {
         })
     }
     setLocal(){
-        cc.sys.localStorage.setItem(`FristPayAmount_${this.app.UrlData.user_id}`,JSON.stringify(this.FristPayAmount))
+        cc.sys.localStorage.setItem(`oldUserFristPayAmount_${this.app.UrlData.user_id}`,JSON.stringify(this.FristPayAmount))
     }
     getLocal(){
-        let localFristPayAmount = cc.sys.localStorage.getItem(`FristPayAmount_${this.app.UrlData.user_id}`) 
+        let localFristPayAmount = cc.sys.localStorage.getItem(`oldUserFristPayAmount_${this.app.UrlData.user_id}`) 
         if (localFristPayAmount && JSON.parse(localFristPayAmount).frist_pay_amount >0){
             this.FristPayAmount = JSON.parse(localFristPayAmount)
             this.renderBtn()
