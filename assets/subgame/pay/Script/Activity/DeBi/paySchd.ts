@@ -41,7 +41,7 @@ export default class NewClass extends cc.Component {
         }
     }
     getFristPayAmount(){
-        var url = `${this.app.UrlData.host}/api/activity/getFristPayAmount?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}&version=${this.app.version}`;
+        var url = `${this.app.UrlData.host}/api/activity/getFristPayAmount?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading()

@@ -300,7 +300,6 @@ export default class NewClass extends cc.Component {
      */
     ajax(method,url,data,successFn,faildFn){   
         var xhr = new XMLHttpRequest();
-        this.login_token
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 ) {
                 if(xhr.status == 200) {
@@ -321,8 +320,6 @@ export default class NewClass extends cc.Component {
         xhr.onerror = () => {
             xhr.abort()
         }
-        // xhr.setRequestHeader("Authorization",this.login_token)
-
         xhr.setRequestHeader("Content-Type"
             , "application/x-www-form-urlencoded");
         xhr.send(data);

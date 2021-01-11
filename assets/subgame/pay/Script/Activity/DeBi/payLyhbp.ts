@@ -34,7 +34,7 @@ export default class NewClass extends cc.Component {
         console.log(this.app.gHandler.app.deviceID,this.app.gHandler.gameGlobal.deviceID)
     }
     getFristPayAmount(){
-        var url = `${this.app.UrlData.host}/api/activity/GetFristPayAmountByWeek?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}&version=${this.app.version}`;
+        var url = `${this.app.UrlData.host}/api/activity/GetFristPayAmountByWeek?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){

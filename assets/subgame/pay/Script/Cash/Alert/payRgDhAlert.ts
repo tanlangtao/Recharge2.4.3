@@ -138,7 +138,7 @@ export default class NewClass extends cc.Component {
 
     public fetchwithDrawApply(){
         var url = `${this.app.UrlData.host}/api/artificial_order/withDrawApply`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&replace_id=${this.results.user_id}&replace_name=${this.results.nick_name}&account_id=${this.account_id}&amount=${this.amountLabel.string}&order_type=4&withdraw_type=3&account_type=${this.account_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&version=${this.app.version}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&replace_id=${this.results.user_id}&replace_name=${this.results.nick_name}&account_id=${this.account_id}&amount=${this.amountLabel.string}&order_type=4&withdraw_type=3&account_type=${this.account_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&center_auth=${this.app.login_token}`
 
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{

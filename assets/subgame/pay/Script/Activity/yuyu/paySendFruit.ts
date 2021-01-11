@@ -46,7 +46,7 @@ export default class NewClass extends cc.Component {
     }
 
     public fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}&version=${this.app.version}`;
+        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading();

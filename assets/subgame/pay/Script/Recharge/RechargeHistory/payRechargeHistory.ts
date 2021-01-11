@@ -39,7 +39,7 @@ export default class NewClass extends cc.Component {
     }
 
     public fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/payment/payHistory?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&order_status=${this.order_status}&page=${this.page}&page_set=8&version=${this.app.version}`;
+        var url = `${this.app.UrlData.host}/api/payment/payHistory?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&order_status=${this.order_status}&page=${this.page}&page_set=8`;
 
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{

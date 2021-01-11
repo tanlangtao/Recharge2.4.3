@@ -101,7 +101,7 @@ export default class NewClass extends cc.Component {
     }
     
     public fetchList(){
-        var url = `${this.app.UrlData.host}/api/activity/getSignHistory?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&page=${this.page}&limit=20&token=${this.app.token}&version=${this.app.version}`;
+        var url = `${this.app.UrlData.host}/api/activity/getSignHistory?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&page=${this.page}&limit=20&token=${this.app.token}`;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if(response.status == 0){

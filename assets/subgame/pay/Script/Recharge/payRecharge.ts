@@ -71,7 +71,7 @@ export default class NewClass extends cc.Component {
     }
 
     public fetchZfb() {
-        var url = `${this.app.UrlData.host}/api/payment/aliPayPaymentIndex?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&version=${this.app.version}`;
+        var url = `${this.app.UrlData.host}/api/payment/aliPayPaymentIndex?user_id=${this.app.UrlData.user_id}&token=${this.app.token}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading()
