@@ -74,7 +74,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
-        },true)
+        })
     }
 
     deleteAccount_name(){

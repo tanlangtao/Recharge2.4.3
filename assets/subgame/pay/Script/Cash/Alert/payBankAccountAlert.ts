@@ -257,7 +257,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
-        },true)
+        })
     }
     addProvinceItem(){
         var results = ['北京', '天津', '上海', '重庆', '河北','山西','辽宁','吉林','黑龙江','江苏','浙江','安徽','福建','江西','山东',
