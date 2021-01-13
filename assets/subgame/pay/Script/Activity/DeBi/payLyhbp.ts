@@ -15,7 +15,7 @@ export default class NewClass extends cc.Component {
     app = null
     login_ip = ''
 
-    info = [500,1000,2000,5000]
+    info = [150,300,600,1500]
     activity_id = 0
     FristPayAmount :any={}
     setId(id){

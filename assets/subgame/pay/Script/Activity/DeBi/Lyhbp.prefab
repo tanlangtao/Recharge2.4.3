@@ -250,7 +250,7 @@
   {
     "__type__": "cc.Node",
     "_name": "group1",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
@@ -655,7 +655,7 @@
   {
     "__type__": "cc.Node",
     "_name": "group2",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
@@ -909,8 +909,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "250",
-    "_N$string": "250",
+    "_string": "150",
+    "_N$string": "150",
     "_fontSize": 24,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1060,7 +1060,7 @@
   {
     "__type__": "cc.Node",
     "_name": "group3",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
@@ -1314,8 +1314,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "500",
-    "_N$string": "500",
+    "_string": "300",
+    "_N$string": "300",
     "_fontSize": 24,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1465,7 +1465,7 @@
   {
     "__type__": "cc.Node",
     "_name": "group3",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
@@ -1667,7 +1667,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 53.39,
+      "width": 40.04,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -1719,8 +1719,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "1000",
-    "_N$string": "1000",
+    "_string": "600",
+    "_N$string": "600",
     "_fontSize": 24,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -1870,7 +1870,7 @@
   {
     "__type__": "cc.Node",
     "_name": "group3",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
@@ -2124,8 +2124,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "2500",
-    "_N$string": "2500",
+    "_string": "1500",
+    "_N$string": "1500",
     "_fontSize": 24,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -3985,7 +3985,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "3c9uiU48lP+6N0HyF6TZro",
+    "fileId": "efWif3gvlK0IwjasuHik4L",
     "sync": false
   },
   {
@@ -4094,7 +4094,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "aahimRbtJOp6epllRI+vPy",
+    "fileId": "26S6AixRpJ7JId1+jlZ8FJ",
     "sync": false
   },
   {
@@ -4203,7 +4203,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "9a5yVh1nFKHLZSmey/I+S8",
+    "fileId": "67oTEvjRhM8r+VuMvAiPUi",
     "sync": false
   },
   {
@@ -4312,7 +4312,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "0enPQFibpFe5HcJEmc9gmy",
+    "fileId": "a1eGC+oGRFLKUUWguC268F",
     "sync": false
   },
   {
@@ -4421,7 +4421,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "45zeQ/8DtOG4DlRTKpaO/Y",
+    "fileId": "68WpQz5WZMcLrVyrg9UuOj",
     "sync": false
   },
   {
@@ -4530,7 +4530,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "688Sp38qdGXYbC8y6Q9rcX",
+    "fileId": "09Iuw1Sa5Esa5vmdLwUD6i",
     "sync": false
   },
   {
@@ -4639,7 +4639,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "ceqSWr3VRGxYoCksRpyLjU",
+    "fileId": "29q2DOadpCHYeCvJIbXlSe",
     "sync": false
   },
   {
@@ -4748,7 +4748,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "besut+kDVPwYNpVvT5c0ld",
+    "fileId": "c7G0jdchxM6ITkXbfW4xAU",
     "sync": false
   },
   {
@@ -4857,7 +4857,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "bcS03r6ERGV7Ul7u2Zp38h",
+    "fileId": "82ceFb+Z9EM66JfTtY8FYX",
     "sync": false
   },
   {
@@ -4966,7 +4966,7 @@
     "asset": {
       "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
     },
-    "fileId": "e3/FzU2BlBEI3PWkQJQlFC",
+    "fileId": "abt9gyLJpGvqfF5zYAsUjY",
     "sync": false
   },
   {
