@@ -117,6 +117,12 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Lyhbp :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    Xhysc :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    Lhysc :cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -278,6 +284,14 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_lyh2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_lyh1',this.currentIcon,249,86);
         }
+        else  if(data.name == '新会员首存活动三重奏2'){
+            this.app.loadIcon('activity/btn_xhysc2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_xhysc1',this.currentIcon,249,86);
+        }else  if(data.name == '老会员每日首存活动2'){
+            this.app.loadIcon('activity/btn_lhysc2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_lhysc1',this.currentIcon,249,86);
+        }
+        
 
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'){
@@ -465,6 +479,12 @@ export default class NewClass extends cc.Component {
         }else  if(name == '分享朋友圈活动3'){
             var node = cc.instantiate(this.Fxpyq3);
             this.app.loadTitle('title/dm_title_fxpyq',this.title);
+        }else  if(name == '新会员首存活动三重奏2'){
+            var node = cc.instantiate(this.Xhysc);
+            this.app.loadTitle('title/dm_title_xhysc',this.title);
+        }else  if(name == '老会员每日首存活动2'){
+            var node = cc.instantiate(this.Lhysc);
+            this.app.loadTitle('title/dm_title_lhysc',this.title);
         }
         
         content.addChild(node);
