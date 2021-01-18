@@ -91,11 +91,13 @@ export default class NewClass extends cc.Component {
         
         let titleIcon= cc.find("Canvas/UsdtAccountAlert/Layout/titleIcon")
         let popup_usdt_frame= cc.find("Canvas/UsdtAccountAlert/Layout/content/popup_usdt_frame")
+        let tishi= cc.find("Canvas/UsdtAccountAlert/Layout/tishi").getComponent(cc.Label)
 
         this.app.loadIconLg(`${src}/font/title_usdt`,titleIcon)
         this.app.loadIconLg(`${src}/form/popup_usdt_frame`,popup_usdt_frame)
 
         this.walletAddressInput.placeholder = Language_pay.Lg.ChangeByText('请输入钱包地址')
         this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('请选择链类型')
+        tishi.string = Language_pay.Lg.ChangeByText('温馨提示：绑定钱包地址后无法自行修改！请仔细填写您的钱包地址信息，如有错误将会导致您无法收到货币。')
     }
 }

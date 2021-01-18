@@ -100,6 +100,9 @@ export default class NewClass extends cc.Component {
     Fxpyq :cc.Prefab = null;
 
     @property(cc.Prefab)
+    Fxpyq3 :cc.Prefab = null;
+
+    @property(cc.Prefab)
     Byyljj :cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -248,6 +251,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon('activity/btn_stjzhd1',this.currentIcon,249,86);
         }
         else if(data.name == '分享朋友圈活动2'){
+            this.app.loadIcon('activity/btn_fxpyq2',this.normalIcon,242,86)
+            this.app.loadIcon('activity/btn_fxpyq1',this.currentIcon,249,86);
+        }
+        else if(data.name == '分享朋友圈活动3'){
             this.app.loadIcon('activity/btn_fxpyq2',this.normalIcon,242,86)
             this.app.loadIcon('activity/btn_fxpyq1',this.currentIcon,249,86);
         }
@@ -455,6 +462,9 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.Lyhbp);
             node.getComponent('payLyhbp').setId(id)
             this.app.loadTitle('title/title_lyh',this.title);
+        }else  if(name == '分享朋友圈活动3'){
+            var node = cc.instantiate(this.Fxpyq3);
+            this.app.loadTitle('title/dm_title_fxpyq',this.title);
         }
         
         content.addChild(node);
