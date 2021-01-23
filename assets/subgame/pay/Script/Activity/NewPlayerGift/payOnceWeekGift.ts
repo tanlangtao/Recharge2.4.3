@@ -1,7 +1,7 @@
 
 const {ccclass, property} = cc._decorator;
 
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -11,6 +11,7 @@ export default class NewClass extends cc.Component {
     info = []//配置信息
     activity_id = 0
     app = null
+    
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex()
@@ -20,6 +21,7 @@ export default class NewClass extends cc.Component {
             bonusLabel.string = item.bonus
             commissionLabel.string = `${Math.floor(item.minincome)} +`
         });
+        this.setLanguageResource()
     }
     setIdInfo(id,info){
         this.activity_id = id
@@ -77,5 +79,24 @@ export default class NewClass extends cc.Component {
             return
         }
         this.fetchPayBonus()
+    }
+     //设置语言相关的资源和字
+     setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let bg= cc.find('Canvas/Activity/Content/OnceWeekGift/bg')
+        let kuang= cc.find('Canvas/Activity/Content/OnceWeekGift/bg/kuang')
+        let event_weeklyCms_rules= cc.find('Canvas/Activity/Content/OnceWeekGift/bg/event_kuang1/event_weeklyCms_rules')
+
+        this.app.loadIconLg(`${src}/activeBigImage/event_weeklyCms_content`,bg)
+        this.app.loadIconLg(`${src}/activeSprite/event_weeklyCms_frames`,kuang)
+        this.app.loadIconLg(`${src}/activeSprite/event_weeklyCms_rules`,event_weeklyCms_rules)
+        this.Group.forEach(e=>{
+            this.app.loadIconLg(`${src}/activeSprite/btn_lingqu`,e.getChildByName('btn'))
+            this.app.loadIconLg(`${src}/activeSprite/btn_lingqu_done`,e.getChildByName('btnDone'))
+        })
+
+        let label= cc.find('Canvas/Activity/Content/OnceWeekGift/bg/event_kuang1/label').getComponent(cc.Label)
+
+        label.string = Language_pay.Lg.ChangeByText("1. 每周总领取佣金福利, 例如一周总领取佣金1万, 奖励300元。\n 2. 若总领佣金未超过3万, 依旧按照300元奖励, 以此类推。\n 3. 每周一到本周日为一个结算周期, 满足条件则可领取, 领取时间段为下个周一到周日。")
     }
 }

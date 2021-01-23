@@ -31,10 +31,13 @@
     "_components": [
       {
         "__id__": 13
+      },
+      {
+        "__id__": 14
       }
     ],
     "_prefab": {
-      "__id__": 14
+      "__id__": 15
     },
     "_opacity": 255,
     "_color": {
@@ -434,7 +437,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "即日起，凡使用官方指定通道，进行支付每笔赠送2.0%，次次充，次次送",
     "_N$string": "即日起，凡使用官方指定通道，进行支付每笔赠送2.0%，次次充，次次送",
     "_fontSize": 30,
@@ -444,6 +448,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -490,6 +496,16 @@
     "_id": ""
   },
   {
+    "__type__": "c76e5VhODFLl46GDYE4Z9ZC",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -497,7 +513,7 @@
     "asset": {
       "__uuid__": "ebcabade-ac3b-4f6d-ad7c-9a79c8306606"
     },
-    "fileId": "50XXzHWeBJJ7+CbobVk8I7",
+    "fileId": "",
     "sync": false
   }
 ]

@@ -21,17 +21,17 @@
         "__id__": 2
       },
       {
-        "__id__": 126
+        "__id__": 117
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 130
+        "__id__": 121
       }
     ],
     "_prefab": {
-      "__id__": 131
+      "__id__": 122
     },
     "_opacity": 255,
     "_color": {
@@ -95,14 +95,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 123
+        "__id__": 114
       },
       {
-        "__id__": 124
+        "__id__": 115
       }
     ],
     "_prefab": {
-      "__id__": 125
+      "__id__": 116
     },
     "_opacity": 255,
     "_color": {
@@ -153,7 +153,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New ScrollView",
+    "_name": "ScrollView",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -166,14 +166,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 120
+        "__id__": 111
       },
       {
-        "__id__": 121
+        "__id__": 112
       }
     ],
     "_prefab": {
-      "__id__": 122
+      "__id__": 113
     },
     "_opacity": 255,
     "_color": {
@@ -237,14 +237,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 117
+        "__id__": 108
       },
       {
-        "__id__": 118
+        "__id__": 109
       }
     ],
     "_prefab": {
-      "__id__": 119
+      "__id__": 110
     },
     "_opacity": 255,
     "_color": {
@@ -314,11 +314,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 115
+        "__id__": 106
       }
     ],
     "_prefab": {
-      "__id__": 116
+      "__id__": 107
     },
     "_opacity": 255,
     "_color": {
@@ -343,7 +343,7 @@
       "ctor": "Float64Array",
       "array": [
         -5.493,
-        312.021,
+        312,
         0,
         0,
         0,
@@ -527,7 +527,7 @@
       "ctor": "Float64Array",
       "array": [
         21.371,
-        -134.09,
+        -134.077,
         0,
         0,
         0,
@@ -553,7 +553,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Node",
+    "_name": "group1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 9
@@ -651,7 +651,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 10
@@ -726,7 +726,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "首次提款金额",
     "_N$string": "首次提款金额",
     "_fontSize": 25,
@@ -736,6 +737,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -831,7 +834,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "200+",
     "_N$string": "200+",
     "_fontSize": 25,
@@ -841,6 +845,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -936,7 +942,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "500+",
     "_N$string": "500+",
     "_fontSize": 25,
@@ -946,6 +953,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1041,7 +1050,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "1000+",
     "_N$string": "1000+",
     "_fontSize": 25,
@@ -1051,6 +1061,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1146,7 +1158,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "3000+",
     "_N$string": "3000+",
     "_fontSize": 25,
@@ -1156,6 +1169,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1251,7 +1266,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "5000+",
     "_N$string": "5000+",
     "_fontSize": 25,
@@ -1261,6 +1277,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1356,7 +1374,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "10000+",
     "_N$string": "10000+",
     "_fontSize": 25,
@@ -1366,6 +1385,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1461,7 +1482,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "50000+",
     "_N$string": "50000+",
     "_fontSize": 25,
@@ -1471,6 +1493,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1566,7 +1590,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "100000+",
     "_N$string": "100000+",
     "_fontSize": 25,
@@ -1576,6 +1601,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1671,7 +1698,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "500000+",
     "_N$string": "500000+",
     "_fontSize": 25,
@@ -1681,6 +1709,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1741,7 +1771,6 @@
     },
     "_resize": 0,
     "_N$layoutType": 2,
-    "_N$padding": 0,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -1772,7 +1801,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Node",
+    "_name": "group2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 9
@@ -1870,7 +1899,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 44
@@ -1945,7 +1974,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "赠送彩金",
     "_N$string": "赠送彩金",
     "_fontSize": 25,
@@ -1955,6 +1985,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2050,7 +2082,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "8",
     "_N$string": "8",
     "_fontSize": 25,
@@ -2060,6 +2093,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2155,7 +2190,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "18",
     "_N$string": "18",
     "_fontSize": 25,
@@ -2165,6 +2201,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2260,7 +2298,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "28",
     "_N$string": "28",
     "_fontSize": 25,
@@ -2270,6 +2309,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2365,7 +2406,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "38",
     "_N$string": "38",
     "_fontSize": 25,
@@ -2375,6 +2417,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2470,7 +2514,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "58",
     "_N$string": "58",
     "_fontSize": 25,
@@ -2480,6 +2525,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2575,7 +2622,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "88",
     "_N$string": "88",
     "_fontSize": 25,
@@ -2585,6 +2633,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2680,7 +2730,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "188",
     "_N$string": "188",
     "_fontSize": 25,
@@ -2690,6 +2741,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2785,7 +2838,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "388",
     "_N$string": "388",
     "_fontSize": 25,
@@ -2795,6 +2849,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2890,7 +2946,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "888",
     "_N$string": "888",
     "_fontSize": 25,
@@ -2900,6 +2957,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2960,7 +3019,6 @@
     },
     "_resize": 0,
     "_N$layoutType": 2,
-    "_N$padding": 0,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -2991,7 +3049,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Node",
+    "_name": "group3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 9
@@ -3065,7 +3123,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 78
@@ -3140,7 +3198,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "流水要求",
     "_N$string": "流水要求",
     "_fontSize": 25,
@@ -3150,6 +3209,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -3170,7 +3231,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 78
@@ -3245,7 +3306,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "一倍流水",
     "_N$string": "一倍流水",
     "_fontSize": 25,
@@ -3255,6 +3317,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -3315,7 +3379,6 @@
     },
     "_resize": 0,
     "_N$layoutType": 2,
-    "_N$padding": 0,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -3346,7 +3409,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Node",
+    "_name": "group4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 9
@@ -3420,7 +3483,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 88
@@ -3495,7 +3558,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "领取方式",
     "_N$string": "领取方式",
     "_fontSize": 25,
@@ -3505,6 +3569,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -3525,7 +3591,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 88
@@ -3600,7 +3666,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "联系客服领取",
     "_N$string": "联系客服领取",
     "_fontSize": 25,
@@ -3610,6 +3677,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -3670,7 +3739,6 @@
     },
     "_resize": 0,
     "_N$layoutType": 2,
-    "_N$padding": 0,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -3714,7 +3782,6 @@
     },
     "_resize": 0,
     "_N$layoutType": 1,
-    "_N$padding": 0,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -3753,25 +3820,16 @@
     "_children": [
       {
         "__id__": 101
-      },
-      {
-        "__id__": 104
-      },
-      {
-        "__id__": 107
-      },
-      {
-        "__id__": 110
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 113
+        "__id__": 104
       }
     ],
     "_prefab": {
-      "__id__": 114
+      "__id__": 105
     },
     "_opacity": 255,
     "_color": {
@@ -3822,7 +3880,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label7",
     "_objFlags": 0,
     "_parent": {
       "__id__": 100
@@ -3847,8 +3905,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 714.01,
-      "height": 27.72
+      "width": 848.01,
+      "height": 131.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3860,7 +3918,7 @@
       "ctor": "Float64Array",
       "array": [
         -409.956,
-        -23.86,
+        -75.75,
         0,
         0,
         0,
@@ -3897,16 +3955,19 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
-    "_string": "1. 所获彩金需要一倍流水即可提领, 每个会员按首次提款金额可以申请相对应的金币福利。",
-    "_N$string": "1. 所获彩金需要一倍流水即可提领, 每个会员按首次提款金额可以申请相对应的金币福利。",
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "1. 所获彩金需要一倍流水即可提领, 每个会员按首次提款金额可以申请相对应的金币福利。\n2. 请于次日中午12点-17点找客服领取，未领取视为自动放弃。\n3. 每位玩家、每一电话号码、及相同IP地址只能享有一次优惠。若会员有重复申请账号行为, 公司保留取消\n    或收回会员优惠彩金的权利。\n4.【德比游戏】保留对活动的最终解释权以及在无通知的情况下修改、终止活动的规则、适用于所有优惠。 ",
+    "_N$string": "1. 所获彩金需要一倍流水即可提领, 每个会员按首次提款金额可以申请相对应的金币福利。\n2. 请于次日中午12点-17点找客服领取，未领取视为自动放弃。\n3. 每位玩家、每一电话号码、及相同IP地址只能享有一次优惠。若会员有重复申请账号行为, 公司保留取消\n    或收回会员优惠彩金的权利。\n4.【德比游戏】保留对活动的最终解释权以及在无通知的情况下修改、终止活动的规则、适用于所有优惠。 ",
     "_fontSize": 18,
-    "_lineHeight": 22,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -3926,321 +3987,6 @@
     "sync": false
   },
   {
-    "__type__": "cc.Node",
-    "_name": "New Label",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 100
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 105
-      }
-    ],
-    "_prefab": {
-      "__id__": 106
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 209,
-      "g": 189,
-      "b": 152,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 498.05,
-      "height": 27.72
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        -409.956,
-        -51.58,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 104
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_useOriginalSize": false,
-    "_string": "2. 请于次日中午12点-17点找客服领取，未领取视为自动放弃。",
-    "_N$string": "2. 请于次日中午12点-17点找客服领取，未领取视为自动放弃。",
-    "_fontSize": 18,
-    "_lineHeight": 22,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "e5723c0f-5720-4329-9c51-bb73aa679c95"
-    },
-    "fileId": "498dkFefFF0YHCHgwE/F7u",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "New Label",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 100
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 108
-      }
-    ],
-    "_prefab": {
-      "__id__": 109
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 209,
-      "g": 189,
-      "b": 152,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 839.02,
-      "height": 49.72
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        -409.956,
-        -90.3,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 107
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_useOriginalSize": false,
-    "_string": "3. 每位玩家、每一电话号码、及相同IP地址只能享有一次优惠。若会员有重复申请账号行为, 公司保留取消\n    或收回会员优惠彩金的权利。",
-    "_N$string": "3. 每位玩家、每一电话号码、及相同IP地址只能享有一次优惠。若会员有重复申请账号行为, 公司保留取消\n    或收回会员优惠彩金的权利。",
-    "_fontSize": 18,
-    "_lineHeight": 22,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "e5723c0f-5720-4329-9c51-bb73aa679c95"
-    },
-    "fileId": "1753FBf9ZKzKu8fgtAykvc",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "New Label",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 100
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 111
-      }
-    ],
-    "_prefab": {
-      "__id__": 112
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 209,
-      "g": 189,
-      "b": 152,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 848.01,
-      "height": 27.72
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        -409.956,
-        -129.01999999999998,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 110
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_useOriginalSize": false,
-    "_string": "4.【德比游戏】保留对活动的最终解释权以及在无通知的情况下修改、终止活动的规则、适用于所有优惠。 ",
-    "_N$string": "4.【德比游戏】保留对活动的最终解释权以及在无通知的情况下修改、终止活动的规则、适用于所有优惠。 ",
-    "_fontSize": 18,
-    "_lineHeight": 22,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "e5723c0f-5720-4329-9c51-bb73aa679c95"
-    },
-    "fileId": "7eKp9WBn5ELbeL/I1ft2qq",
-    "sync": false
-  },
-  {
     "__type__": "cc.Layout",
     "_name": "",
     "_objFlags": 0,
@@ -4255,7 +4001,6 @@
     },
     "_resize": 0,
     "_N$layoutType": 2,
-    "_N$padding": 0,
     "_N$cellSize": {
       "__type__": "cc.Size",
       "width": 40,
@@ -4531,14 +4276,14 @@
     "_active": false,
     "_components": [
       {
-        "__id__": 127
+        "__id__": 118
       },
       {
-        "__id__": 128
+        "__id__": 119
       }
     ],
     "_prefab": {
-      "__id__": 129
+      "__id__": 120
     },
     "_opacity": 255,
     "_color": {
@@ -4592,7 +4337,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 126
+      "__id__": 117
     },
     "_enabled": true,
     "_materials": [
@@ -4624,7 +4369,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 126
+      "__id__": 117
     },
     "_enabled": true,
     "alignMode": 1,
@@ -4692,7 +4437,7 @@
     "asset": {
       "__uuid__": "e5723c0f-5720-4329-9c51-bb73aa679c95"
     },
-    "fileId": "50XXzHWeBJJ7+CbobVk8I7",
+    "fileId": "",
     "sync": false
   }
 ]

@@ -1,13 +1,4 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -38,7 +29,7 @@ export default class NewClass extends cc.Component {
             info = []
         }
         info.forEach((item,index) => {
-            this.recharge_amountLabel[index].string = `首存${item.recharge_amount}`
+            this.recharge_amountLabel[index].string = `${Language_pay.Lg.ChangeByText('首存')}${item.recharge_amount}`
             this.bonusLabel[index].string = item.bonus 
             this.recharge_amountLabelTest[index].string = `${item.recharge_amount}+`
             this.bonusLabelTest[index].string = item.bonus 
@@ -53,8 +44,9 @@ export default class NewClass extends cc.Component {
             this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
         }else{
             console.log("获取登陆ip失败!")
-            this.app.showAlert("获取登陆ip失败!")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
+        this.setLanguageResource()
     }
     getFristPayAmount(){
         var url = `${this.app.UrlData.host}/api/activity/getFristPayAmount?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}`;
@@ -93,7 +85,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             self.app.hideLoading()
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     receiveFristPaymentGold(){
@@ -103,23 +95,47 @@ export default class NewClass extends cc.Component {
         // let dataStr = `user_id=${this.app.UrlData.user_id}&token=${this.app.token}&activity_id=${this.activity_id}&login_ip=127.0.0.1&regin_ip=127.0.0.1&device_id=123456789`
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                self.app.showAlert('领取成功！')
+                self.app.showAlert(Language_pay.Lg.ChangeByText('领取成功!'))
                 this.getFristPayAmount()
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     onClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '') {
-            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('参加活动失败:请先绑定手机号!'))
             return
         }
         if(this.received){
-            return this.app.showAlert("同一用户仅限领取一次！")
+            return this.app.showAlert(Language_pay.Lg.ChangeByText('同一用户仅限领取一次!'))
         }
         this.receiveFristPaymentGold()
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let bg= cc.find('Canvas/Activity/Content/FirstDepostGold/bg')
+        let Layout= cc.find('Canvas/Activity/Content/FirstDepostGold/bg/Layout')
+        let group1= cc.find('Canvas/Activity/Content/FirstDepostGold/bg/Content/group1')
+
+        this.app.loadIconLg(`${src}/activeBigImage/yuyu_firstR`,bg)
+        this.app.loadIconLg(`${src}/activeSprite/frame_1`,Layout)
+        this.btnArr.forEach(e=>{
+            this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('bg1'))
+            this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
+        })
+        group1.children.forEach(e=>{
+           let txt_s = e.getChildByName('right').getChildByName('txt_s')
+           let txt_y = e.getChildByName('right').getChildByName('txt_y')
+           this.app.loadIconLg(`${src}/activeSprite/txt_zs`,txt_s)
+           this.app.loadIconLg(`${src}/activeSprite/txt_y`,txt_y)
+        })
+
+        let label= cc.find('Canvas/Activity/Content/FirstDepostGold/bg/Content/ScrollView/view/content/label').getComponent(cc.Label)
+
+        label.string = Language_pay.Lg.ChangeByText("备注：\n 1. 本活动需完成手机及银行卡绑定后才能参与\n 2. 若玩家第一笔充值金额低于最低首存金额的50元，第二笔充值金额即便达到首存门槛也无法领取奖励\n 3. 同一用户仅限领取一次 \n 4. 如有异常操作，则进行冻结账号处理\n 5. 首存活动可以与其他活动叠加\n 6. 需满足首充金额＋赠送彩金的一倍流水方可兑换\n 7. 本活动最终解释权归平台所有，平台有随时更改，停止并取消该活动的权利")
     }
 }

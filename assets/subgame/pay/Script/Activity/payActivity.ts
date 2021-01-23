@@ -1,4 +1,5 @@
 import gHandler = require("../../../../base/common/gHandler");
+import { Language_pay } from "./../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 @ccclass
 export default class NewClass extends cc.Component {
@@ -35,7 +36,7 @@ export default class NewClass extends cc.Component {
         nav.scaleX= scalex;
         nav.scaleY = scalex;
 
-        // this.getNotice() 
+        this.setLanguageResource()
     }
 
     public exitBtnClick(){
@@ -83,7 +84,7 @@ export default class NewClass extends cc.Component {
             }
         });
         // this.arr.push({
-        //     name:'新会员首存活动三重奏2',
+        //     name:'免费领水果6',
         //     info:JSON.stringify({"game": [{"gold": 10, "rounds": 2, "game_id": "5b1f3a3cb76a591e7f251711", "task_id": 100, "integral": 5}, {"gold": 10000, "game_id": "5b1f3a3cb76a591e7f251711", "task_id": 101, "integral": 10000, "winround": 1}, {"gold": 10000, "rounds": 3, "game_id": "5b1f3a3cb76a591e7f251715", "task_id": 102, "integral": 10000}, {"gold": 10000, "game_id": "5b1f3a3cb76a591e7f251715", "task_id": 103, "integral": 10000, "winround": 2}], "proxy": [{"gold": 200, "task_id": 300, "integral": 10000, "children_firstpay_num": 1}, {"gold": 10000, "task_id": 301, "integral": 10000, "children_firstpay_num": 2}], "bylevel": [{"gold": 100, "task_id": 400, "integral": 30}, {"gold": 100, "task_id": 401, "integral": 60}, {"gold": 100, "task_id": 402, "integral": 90}, {"gold": 100, "task_id": 403, "integral": 150}], "recharge": [{"gold": 10000, "task_id": 200, "integral": 10000, "recharge_num": 1}, {"gold": 10000, "task_id": 201, "integral": 10000, "recharge_amount": 200}], "flow_rate": 10}),
         //     id:10
         // })
@@ -183,5 +184,16 @@ export default class NewClass extends cc.Component {
         }
         let endurl = this.app.gHandler.app.getIpGetEndurl(4);
         this.app.gHandler.http.sendRequestIpGet(this.app.gHandler.app.server, endurl, callback, failcallback);
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let loadSP = cc.find('Loading/loadSP')
+        loadSP.children.forEach((e)=>{
+            if (e.name == Language_pay.Lg.Language){
+                e.active = true
+            }else{
+                e.active = false
+            }
+        })
     }
 }

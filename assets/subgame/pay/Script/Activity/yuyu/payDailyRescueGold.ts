@@ -1,13 +1,4 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -60,9 +51,9 @@ export default class NewClass extends cc.Component {
             this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
         }else{
             console.log("获取登陆ip失败!")
-            this.app.showAlert("获取登陆ip失败!")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
-       
+       this.setLanguageResource()
     }
     getLoseGoldInfo(){
         var url = `${this.app.UrlData.host}/api/activity/getLoseGoldInfo?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}`;
@@ -93,7 +84,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             this.app.hideLoading()
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     receiveFristPaymentGold(){
@@ -103,13 +94,13 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                self.app.showAlert('领取成功！')
+                self.app.showAlert(Language_pay.Lg.ChangeByText('领取成功!'))
                 this.getLoseGoldInfo()
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     renderBtn(received_info){
@@ -121,11 +112,11 @@ export default class NewClass extends cc.Component {
     }
     onClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '') {
-            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('参加活动失败:请先绑定手机号!'))
             return
         }
         if(this.received){
-            return this.app.showAlert("今日已领取，请明天再来！")
+            return this.app.showAlert(Language_pay.Lg.ChangeByText('今日已领取，请明天再来!'))
         }
         this.receiveFristPaymentGold()
     }
@@ -156,5 +147,22 @@ export default class NewClass extends cc.Component {
         }else{
             return false
         }
+    }
+     //设置语言相关的资源和字
+     setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let bg= cc.find('Canvas/Activity/Content/DailyRescueGold/bg')
+        let Layout= cc.find('Canvas/Activity/Content/DailyRescueGold/bg/Layout')
+
+        this.app.loadIconLg(`${src}/activeBigImage/yuyu_mrjyj`,bg)
+        this.app.loadIconLg(`${src}/activeSprite/frame_2`,Layout)
+
+        this.btnArr.forEach(e=>{
+            this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('bg1'))
+            this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
+        })
+        let label1= cc.find('Canvas/Activity/Content/DailyRescueGold/bg/Content/ScrollView/view/content/label').getComponent(cc.Label)
+
+        label1.string = Language_pay.Lg.ChangeByText("1. 本活动限定有充值记录， 且完成手机及银行卡绑定后才能参与\n 2. 同一用户一天仅可领取一次救援金，若当天已领取过其中一个档位的救援金，将无法领取其他档位的救援金\n 3. 亏损金额计算方式为当日游戏总输-当日游戏总赢(税前)，用户所领取的优惠金额 (如：赠送彩金、救援金…等) 将额外进行扣除\n 4. 用户的亏损金额计算至当天的23:59:59，次日0点将进行重置 \n 5. 需满足领取救援金额的一倍流水方可兑换\n 6. 如有异常操作，则进行冻结账号处理\n 7. 本活动最终解释权归平台所有，平台有随时更改，停止并取消该活动的权利 ")
     }
 }

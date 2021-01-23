@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -66,6 +66,7 @@ export default class NewClass extends cc.Component {
         
         this.fetchgetUserIntegral()
         this.scheduleOnce(this.rangeInit, 3);
+        this.setLanguageResource()
     }
     rangeInit(){
         console.log('延迟3秒')
@@ -419,4 +420,43 @@ export default class NewClass extends cc.Component {
         this.content.stopAllActions()
         this.lw_pan.stopAllActions()
     }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let bg= cc.find('Canvas/Activity/Content/WheelOfFortune/bg')
+        let lw_btn_serverRecord= cc.find('Canvas/Activity/Content/WheelOfFortune/bg/rightGroup/lw_btn_serverRecord')
+        let lw_btn_personalRecord= cc.find('Canvas/Activity/Content/WheelOfFortune/bg/rightGroup/lw_btn_personalRecord')
+        let lw_wenhao= cc.find('Canvas/Activity/Content/WheelOfFortune/bg/lw_wenhao')
+        let lw_btn_draw= cc.find('Canvas/Activity/Content/WheelOfFortune/bg/btn/lw_btn_draw')
+        let lw_btn_draw2= cc.find('Canvas/Activity/Content/WheelOfFortune/bg/btn/lw_btn_draw2')
+        let lw_zj_txt_jinbi= cc.find('Canvas/Activity/Content/WheelOfFortune/zhongjiangBg/sp2/lw_zj_txt_jinbi')
+        let lw_btn_confirm= cc.find('Canvas/Activity/Content/WheelOfFortune/zhongjiangBg/sp2/lw_btn_confirm')
+
+        this.app.loadIconLg(`${src}/activeBigImage/event_luckyWheel_bg`,bg)
+        this.app.loadIconLg(`${src}/activeSprite/lw_btn_serverRecord`,lw_btn_serverRecord)
+        this.app.loadIconLg(`${src}/activeSprite/lw_btn_personalRecord`,lw_btn_personalRecord)
+        this.app.loadIconLg(`${src}/activeSprite/lw_wenhao`,lw_wenhao)
+        this.app.loadIconLg(`${src}/activeSprite/lw_btn_draw`,lw_btn_draw)
+        this.app.loadIconLg(`${src}/activeSprite/lw_btn_draw2`,lw_btn_draw2)
+        this.app.loadIconLg(`${src}/activeSprite/lw_zj_txt_jinbi`,lw_zj_txt_jinbi)
+        this.app.loadIconLg(`${src}/activeSprite/lw_btn_confirm`,lw_btn_confirm)
+
+        this.levelLabel.forEach(e=>{
+            let lw_txt_jinbi = e.node.parent.getChildByName('lw_txt_jinbi')
+            this.app.loadIconLg(`${src}/activeSprite/lw_txt_jinbi`,lw_txt_jinbi)
+        })
+        
+        let label1 = cc.find('Canvas/Activity/Content/WheelOfFortune/bg/rightGroup/lw_frame_tip/label1').getComponent(cc.Label)
+        let label2 = cc.find('Canvas/Activity/Content/WheelOfFortune/bg/rightGroup/lw_frame_tip/label2').getComponent(cc.Label)
+        let label3 = cc.find('Canvas/Activity/Content/WheelOfFortune/bg/rightGroup/lw_frame_tip/label3').getComponent(cc.Label)
+        let label4 = cc.find('Canvas/Activity/Content/WheelOfFortune/bg/rightGroup/lw_frame_tip/label4').getComponent(cc.Label)
+        let label5 = cc.find('Canvas/Activity/Content/WheelOfFortune/bg/rightGroup/lw_frame_tip/label5').getComponent(cc.Label)
+        let label6 = cc.find('Canvas/Activity/Content/WheelOfFortune/bg/rightGroup/lw_frame_tip/label6').getComponent(cc.Label)
+        label1.string = Language_pay.Lg.ChangeByText('玩法介绍')
+        label2.string = Language_pay.Lg.ChangeByText('       积分抽奖, 点击转盘中央抽奖按钮, 消耗1000积分, 百分百获得随机金币奖励！')
+        label3.string = Language_pay.Lg.ChangeByText('积分获取')
+        label4.string = Language_pay.Lg.ChangeByText('       更多积分奖励, 敬请留意精彩活动。')
+        label5.string = Language_pay.Lg.ChangeByText('积分优惠')
+        label6.string = Language_pay.Lg.ChangeByText('       十连抽优惠一次。')
+    } 
 }

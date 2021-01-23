@@ -28,10 +28,13 @@
     "_components": [
       {
         "__id__": 25
+      },
+      {
+        "__id__": 26
       }
     ],
     "_prefab": {
-      "__id__": 26
+      "__id__": 27
     },
     "_opacity": 255,
     "_color": {
@@ -444,7 +447,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 6
@@ -519,7 +522,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "只要您在本平台注册过账号, 或者曾经登录过本平台, 都将有可能收到我们为您随机派发的神秘惊喜彩金, 彩金将由系统自动发送到您的账户, 敬请关注。",
     "_N$string": "只要您在本平台注册过账号, 或者曾经登录过本平台, 都将有可能收到我们为您随机派发的神秘惊喜彩金, 彩金将由系统自动发送到您的账户, 敬请关注。",
     "_fontSize": 25,
@@ -529,6 +533,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -932,6 +938,16 @@
     "_id": ""
   },
   {
+    "__type__": "d5256v8Nm1KvLTIojJDrZDA",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -939,7 +955,7 @@
     "asset": {
       "__uuid__": "9c846ffd-afcf-47c6-ad29-62373a0eab4a"
     },
-    "fileId": "50XXzHWeBJJ7+CbobVk8I7",
+    "fileId": "",
     "sync": false
   }
 ]

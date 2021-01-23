@@ -1,13 +1,4 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -56,9 +47,10 @@ export default class NewClass extends cc.Component {
             this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
         }else{
             console.log("获取登陆ip失败!")
-            this.app.showAlert("获取登陆ip失败!")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
         this.HistoryScroll.on('scroll-to-bottom',this.historyScrollToBottom);
+        this.setLanguageResource()
     }
     setIdInfo(id,info){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
@@ -80,7 +72,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             this.app.hideLoading()
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     userSignIn(){
@@ -90,13 +82,13 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                self.app.showAlert('签到成功！')
+                self.app.showAlert(Language_pay.Lg.ChangeByText('签到成功!'))
                 this.getSignInfo()
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     
@@ -111,7 +103,7 @@ export default class NewClass extends cc.Component {
                 this.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            this.app.showAlert(`网络错误${errstatus}`)
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     addList(data){
@@ -175,8 +167,8 @@ export default class NewClass extends cc.Component {
         this.RechargeProgress.getComponent(cc.ProgressBar).progress = todayRecharge_amount/recharge_amount_byday;
         this.SignInDayLabel.string = `${this.SignInfo.lx_sign_day}`
         this.seitchDay(this.SignInfo.lx_sign_day)
-        this.StatementProgress.getChildByName('label').getComponent(cc.Label).string = `今日流水: ${this.app.config.toDecimal(todayStatement)}`
-        this.RechargeProgress.getChildByName('label').getComponent(cc.Label).string = `今日充值: ${this.app.config.toDecimal(todayRecharge_amount)}`
+        this.StatementProgress.getChildByName('label').getComponent(cc.Label).string = `${Language_pay.Lg.ChangeByText('今日流水:')} ${this.app.config.toDecimal(todayStatement)}`
+        this.RechargeProgress.getChildByName('label').getComponent(cc.Label).string = `${Language_pay.Lg.ChangeByText('今日充值:')} ${this.app.config.toDecimal(todayRecharge_amount)}`
         //根据签到天数，计算当前可领取的水果
         let commonFruit = 0
         let HighgradeFruit = 0
@@ -240,11 +232,11 @@ export default class NewClass extends cc.Component {
     }
     SignInClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '') {
-            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('参加活动失败:请先绑定手机号!'))
             return
         }
         if(this.SignInfo.today_statement < this.info.statement_byday &&  this.SignInfo.recharge_amount < this.info.recharge_amount_byday ){
-            return this.app.showAlert("签到失败，签到条件不满足！")
+            return this.app.showAlert(Language_pay.Lg.ChangeByText('签到失败，签到条件不满足!'))
         }
         this.userSignIn()
     }
@@ -263,15 +255,55 @@ export default class NewClass extends cc.Component {
      //普通水果提货
     commonFruitClick(){
         if(this.commonFruitBtn.getChildByName('grey').active){
-            return this.app.showAlert("未达到领取标准")
+            return this.app.showAlert(Language_pay.Lg.ChangeByText('未达到领取标准'))
         }
         this.app.showTiHuoAlert(this.activity_id,1,this,1)
     }
     //高级水果提货
     HighgradeFruitClick(){
         if(this.HighgradeFruitBtn.getChildByName('grey').active){
-            return this.app.showAlert("未达到领取标准")
+            return this.app.showAlert(Language_pay.Lg.ChangeByText('未达到领取标准'))
         }
         this.app.showTiHuoAlert(this.activity_id,2,this,1)
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let bg= cc.find('Canvas/Activity/Content/DailySignIn/bg')
+        let btn_signInRecord= cc.find('Canvas/Activity/Content/DailySignIn/bg/btn_signInRecord')
+        let btn_signInToday= cc.find('Canvas/Activity/Content/DailySignIn/bg/group1/btn_signInToday')
+        let light1= cc.find('Canvas/Activity/Content/DailySignIn/bg/group1/btn_wyth1/light')
+        let light2= cc.find('Canvas/Activity/Content/DailySignIn/bg/group1/btn_wyth2/light')
+        let grey1= cc.find('Canvas/Activity/Content/DailySignIn/bg/group1/btn_wyth1/grey')
+        let grey2= cc.find('Canvas/Activity/Content/DailySignIn/bg/group1/btn_wyth2/grey')
+        let title_popup= cc.find('Canvas/Activity/Content/DailySignIn/GetGoldHistory/Alert/title_popup')
+        let rq= cc.find('Canvas/Activity/Content/DailySignIn/GetGoldHistory/Alert/title/rq')
+        let drls= cc.find('Canvas/Activity/Content/DailySignIn/GetGoldHistory/Alert/title/drls')
+        let lqje= cc.find('Canvas/Activity/Content/DailySignIn/GetGoldHistory/Alert/title/lqje')
+        let lqsj= cc.find('Canvas/Activity/Content/DailySignIn/GetGoldHistory/Alert/title/lqsj')
+
+        this.app.loadIconLg(`${src}/activeBigImage/yuyu_event_p2`,bg)
+        this.app.loadIconLg(`${src}/activeSprite/btn_signInRecord`,btn_signInRecord)
+        this.app.loadIconLg(`${src}/activeSprite/btn_signInToday`,btn_signInToday)
+        this.app.loadIconLg(`${src}/activeSprite/btn_lq`,light1)
+        this.app.loadIconLg(`${src}/activeSprite/btn_lq`,light2)
+        this.app.loadIconLg(`${src}/activeSprite/btn_lq2`,grey1)
+        this.app.loadIconLg(`${src}/activeSprite/btn_lq2`,grey2)
+        this.app.loadIconLg(`${src}/activeSprite/title_popup`,title_popup)
+        this.app.loadIconLg(`${src}/activeSprite/rq`,rq)
+        this.app.loadIconLg(`${src}/activeSprite/drls`,drls)
+        this.app.loadIconLg(`${src}/activeSprite/subtitile_mrcz`,lqje)
+        this.app.loadIconLg(`${src}/activeSprite/subtitile_qdsj`,lqsj)
+        this.DaoGroup.forEach(e=>{
+            this.app.loadIconLg(`${src}/activeSprite/icon_signIn`,e) 
+        })
+
+        let label1= cc.find('Canvas/Activity/Content/DailySignIn/bg/group1/StatementProgress/label').getComponent(cc.Label)
+        let label2= cc.find('Canvas/Activity/Content/DailySignIn/bg/group1/RechargeProgress/label').getComponent(cc.Label)
+        let label3= cc.find('Canvas/Activity/Content/DailySignIn/bg/Content/ScrollView/view/content/label').getComponent(cc.Label)
+
+        label1.string = Language_pay.Lg.ChangeByText("今日流水:")
+        label2.string = Language_pay.Lg.ChangeByText("今日充值:")
+        label3.string = Language_pay.Lg.ChangeByText("1. 本活动需完成手机及银行卡绑定才能参与\n 2. 当日流水达1000以上或者当日累计充值50元以上，即签到成功\n 3. 本活动需连续不间断签到，中间断签将回到第一天重新累计天数，已获得的奖励不会进行回收\n 4. 完成连续签到30天后，可继续参与本活动，回到第一天重新累计天数\n 5. 本活动所获得的水果斤数不併入免费领水果活动的水果斤数，反之亦然\n 6. 本活动奖励仅保留同一用户进行签到领取\n 7. 如有异常操作，则进行冻结账号处理\n 8. 本活动最终解释权归平台所有，平台有随时更改，停止并取消该活动的权利")
     }
 }

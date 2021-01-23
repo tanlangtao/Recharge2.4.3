@@ -1,13 +1,4 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -45,8 +36,9 @@ export default class NewClass extends cc.Component {
             this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
         }else{
             console.log("获取登陆ip失败!")
-            this.app.showAlert("获取登陆ip失败!")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
+        this.setLanguageResource()
     }
     init(id,level,ParentComponent,source_type,fruit_jin = 5){
         this.activity_id = id
@@ -73,7 +65,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     addProvinceItem(){
@@ -98,15 +90,15 @@ export default class NewClass extends cc.Component {
     }
     onCLick(){
         if(this.nameInput.string == ''){
-            this.app.showAlert('姓名不能为空！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('姓名不能为空!'))
         }else if(this.phoneNumInput.string == ''){
-            this.app.showAlert('手机号不能为空！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('手机号不能为空!'))
         }else if(!(/^1[3456789]\d{9}$/.test(this.phoneNumInput.string ))){
-            this.app.showAlert('手机号格式不正确，请重新输入！')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('手机号格式不正确，请重新输入!'))
         }else if(this.selectProvinceLabel.string =='请选择收货省' ||this.selectProvinceLabel.string == ''  ){
-            this.app.showAlert('请选择收货省!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('请选择收货省'))
         }else if(this.addressInput.string == ''){
-            this.app.showAlert('地址不能为空!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('地址不能为空!'))
         }else{
             this.submitAddress()
         }
@@ -117,6 +109,20 @@ export default class NewClass extends cc.Component {
         this.app.loadMusic(1);
 
         this.node.destroy();
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let contents_fill= cc.find('Canvas/TihuoAlert/Layout/content/contents_fill')
+        let btn1= cc.find('Canvas/TihuoAlert/Layout/btn1')
+
+        this.app.loadIconLg(`${src}/activeSprite/contents_fill`,contents_fill)
+        this.app.loadIconLg(`${src}/activeSprite/surecg`,btn1)
+        
+        this.nameInput.placeholder = Language_pay.Lg.ChangeByText('请输入姓名')
+        this.phoneNumInput.placeholder = Language_pay.Lg.ChangeByText('请输入手机号')
+        this.addressInput.placeholder = Language_pay.Lg.ChangeByText('请输入收货地址')
+        this.selectProvinceLabel.string = Language_pay.Lg.ChangeByText('请选择收货省')
     }
     // update (dt) {}
 }

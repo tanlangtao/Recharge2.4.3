@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -37,6 +37,7 @@ export default class NewClass extends cc.Component {
         this.info.sign_conf.forEach((e,i)=>{
             this.DayGroup[i].getChildByName('labelNode').getChildByName('label1').getComponent(cc.Label).string = `${e.integral}`
         })
+        this.setLanguageResource()
     }
     public fetchgetSignWeekInfo(){
         var url = `${this.app.UrlData.host}/api/activity/getSignWeekInfo?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}`;
@@ -119,5 +120,25 @@ export default class NewClass extends cc.Component {
     onClick(event){
         this.currentIntegral = event.target.getChildByName('labelNode').getChildByName('label1').getComponent(cc.Label).string 
         this.fetchsignInByWeek()
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let group1= cc.find('Canvas/Activity/Content/DailySign/bg/group1')
+        let d7= cc.find('Canvas/Activity/Content/DailySign/bg/d7')
+        let lw_zj_txt_jinbi= cc.find('Canvas/Activity/Content/DailySign/bg/zhongjiangBg/sp2/lw_zj_txt_jinbi')
+        let lw_zj_txt_jf= cc.find('Canvas/Activity/Content/DailySign/bg/zhongjiangBg/sp2/lw_zj_txt_jf')
+        let lw_btn_confirm= cc.find('Canvas/Activity/Content/DailySign/bg/zhongjiangBg/sp2/lw_btn_confirm')
+
+        group1.children.forEach(e=>{
+            this.app.loadIconLg(`${src}/activeSprite/yilingqu`,e.getChildByName('yilingqu'))
+        })
+        this.app.loadIconLg(`${src}/activeSprite/yilingqu`,d7)
+        this.app.loadIconLg(`${src}/activeSprite/lw_zj_txt_jinbi`,lw_zj_txt_jinbi)
+        this.app.loadIconLg(`${src}/activeSprite/lw_zj_txt_jf`,lw_zj_txt_jf)
+        this.app.loadIconLg(`${src}/activeSprite/lw_btn_confirm`,lw_btn_confirm)
+
+        let title= cc.find('Canvas/Activity/Content/DailySign/bg/title').getComponent(cc.Label)
+        title.string = Language_pay.Lg.ChangeByText('每周累计签到达到指定天数, 即可获得相应奖励')
     }
 }

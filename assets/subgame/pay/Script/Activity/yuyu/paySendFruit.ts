@@ -1,6 +1,6 @@
 
 const {ccclass, property} = cc._decorator;
-
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -40,6 +40,7 @@ export default class NewClass extends cc.Component {
         this.fetchIndex()
         this.getSignInfo()
         this.bg2.active = false
+        this.setLanguageResource()
     }
     setId(id){
         this.activity_id = id
@@ -65,7 +66,7 @@ export default class NewClass extends cc.Component {
             }
             console.log(this.bindBankNum)
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
             self.app.hideLoading();
         })
     }
@@ -85,17 +86,17 @@ export default class NewClass extends cc.Component {
         },(errstatus)=>{
             this.app.hideLoading()
             console.log(url,errstatus)
-            this.app.showAlert(`网络错误${errstatus}`)
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     //点立即参与
     LiJiCanYuClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '' || !this.bindBankNum) {
-            this.app.showAlert('请绑定手机跟银行卡实名认证后参与活动')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('请绑定手机跟银行卡实名认证后参与活动'))
             return
         }
         if(!this.canClick){
-            this.app.showAlert('你点的太快了，请等待活动数据返回!')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('你点的太快了，请等待活动数据返回!'))
             return
         }
         this.bg2.active = true
@@ -135,7 +136,7 @@ export default class NewClass extends cc.Component {
                     this.Alert2.active = true
                 }
             }
-            this.content.children[0].getComponent(cc.Label).string = `恭喜您已获得${this.fruit_jin}斤水果`
+            this.content.children[0].getComponent(cc.Label).string = `${Language_pay.Lg.ChangeByText('恭喜您已获得')}${this.fruit_jin}${Language_pay.Lg.ChangeByText('')}`
         }else if(this.checkFreeFruitResult.data.inviter){
             //inviter不为空，是为邀请者
             this.source_type =3
@@ -147,16 +148,16 @@ export default class NewClass extends cc.Component {
 
             if(this.fruit_jin >= 5){
                 //显示获得5斤水果弹窗
-                this.Alert3.getChildByName('content').getChildByName('label').getComponent(cc.Label).string = `恭喜获得${this.fruit_jin}斤水果`
+                this.Alert3.getChildByName('content').getChildByName('label').getComponent(cc.Label).string = `${Language_pay.Lg.ChangeByText('恭喜您已获得')}${this.fruit_jin}${Language_pay.Lg.ChangeByText('斤水果')}`
                 this.Alert3.active = true
             }
-            this.content.children[0].getComponent(cc.Label).string = `恭喜您已获得${this.fruit_jin}斤水果`
+            this.content.children[0].getComponent(cc.Label).string = `${Language_pay.Lg.ChangeByText('恭喜您已获得')}${this.fruit_jin}${Language_pay.Lg.ChangeByText('斤水果')}`
         }
         this.content.children.forEach((e,i)=>{
             if(i !=0){
                 let id = this.app.config.randId(123000000,999999999)
                 let jin = this.app.config.randNum(2,5)
-                e.getComponent(cc.Label).string = `恭喜${id}已获得${jin == 4?5 :jin}斤水果`
+                e.getComponent(cc.Label).string = `${Language_pay.Lg.ChangeByText('恭喜')}${id}${Language_pay.Lg.ChangeByText('已获得')}${jin == 4?5 :jin}${Language_pay.Lg.ChangeByText('斤水果')}`
             }
             
         })
@@ -174,7 +175,7 @@ export default class NewClass extends cc.Component {
     //点立即提货
     LiJiTiHuoClick(){
         if(this.fruit_jin % 5 != 0 || this.fruit_jin < 5){
-            return this.app.showAlert('水果斤数未达5斤，无法领取')
+            return this.app.showAlert(Language_pay.Lg.ChangeByText('水果斤数未达5斤，无法领取'))
         }
         this.closeAllAlert()
         this.app.showTiHuoAlert(this.activity_id,1,this,this.source_type,this.fruit_jin)
@@ -211,7 +212,7 @@ export default class NewClass extends cc.Component {
         if(this.checkFreeFruitResult.data.inviter.group){
             this.app.showFruitHistoryeAlert(this.checkFreeFruitResult.data.inviter.group)
         }else{
-            this.app.showAlert('当前没有未完成进度')
+            this.app.showAlert(Language_pay.Lg.ChangeByText('当前没有未完成进度'))
         }
     }
     closeAlert1(){
@@ -241,5 +242,72 @@ export default class NewClass extends cc.Component {
     }
     onDestroy(){
         this.bg2.active = false
+    }
+     //设置语言相关的资源和字
+     setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let bg= cc.find('Canvas/Activity/Content/SendFruit/bg')
+        let yuyu_btn_join= cc.find('Canvas/Activity/Content/SendFruit/bg/yuyu_btn_join')
+        let yuyu_zi_byqz= cc.find('Canvas/Activity/Content/SendFruit/bg/Content/yuyu_zi_byqz')
+        let yuyu_zi_yqz= cc.find('Canvas/Activity/Content/SendFruit/bg/Content/yuyu_zi_yqz')
+        let yuyu_zi_fhfs= cc.find('Canvas/Activity/Content/SendFruit/bg/Content/yuyu_zi_fhfs')
+        let yuyu_event_p3= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/yuyu_event_p3')
+        let btn_jdlist= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/btn_jdlist')
+        let yuyu_zi_yhd= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/group/yuyu_zi_yhd')
+        let yuyu_zi_jsg= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/group/yuyu_zi_jsg')
+        let yuyu_btn_invite= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/yuyu_btn_invite')
+        let yuyu_btn_ljth= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/yuyu_btn_ljth')
+        let yuyu_title_mflsj= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/yuyu_title_mflsj')
+        let zi_congrat= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert1/content/zi_congrat')
+        let btn_invite= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert1/content/btn_invite')
+        let btn_enterGame= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert1/content/btn_enterGame')
+        let zi_congrat2= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert2/content/zi_congrat')
+        let btn_pickUp= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert2/content/btn_pickUp')
+        let zi_congrat3= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert3/content/zi_congrat')
+        let btn_pickUp2= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert3/content/btn_pickUp')
+
+        this.app.loadIconLg(`${src}/activeBigImage/yuyu_event_p1`,bg)
+        this.app.loadIconLg(`${src}/activeSprite/yuyu_btn_join`,yuyu_btn_join)
+        this.app.loadIconLg(`${src}/activeSprite/yuyu_zi_byqz`,yuyu_zi_byqz)
+        this.app.loadIconLg(`${src}/activeSprite/yuyu_zi_yqz`,yuyu_zi_yqz)
+        this.app.loadIconLg(`${src}/activeSprite/yuyu_zi_fhfs`,yuyu_zi_fhfs)
+        this.app.loadIconLg(`${src}/activeBigImage/yuyu_event_p3`,yuyu_event_p3)
+        this.app.loadIconLg(`${src}/activeSprite/btn_jdlist`,btn_jdlist)
+        this.app.loadIconLg(`${src}/activeSprite/yuyu_zi_yhd`,yuyu_zi_yhd)
+        this.app.loadIconLg(`${src}/activeSprite/yuyu_zi_jsg`,yuyu_zi_jsg)
+        this.app.loadIconLg(`${src}/activeSprite/yuyu_btn_invite`,yuyu_btn_invite)
+        this.app.loadIconLg(`${src}/activeSprite/yuyu_btn_ljth`,yuyu_btn_ljth)
+        this.app.loadIconLg(`${src}/title/yuyu_title_mflsj`,yuyu_title_mflsj)
+        this.app.loadIconLg(`${src}/activeSprite/zi_congrat`,zi_congrat)
+        this.app.loadIconLg(`${src}/activeSprite/btn_invite`,btn_invite)
+        this.app.loadIconLg(`${src}/activeSprite/btn_enterGame`,btn_enterGame)
+        this.app.loadIconLg(`${src}/activeSprite/zi_congrat`,zi_congrat2)
+        this.app.loadIconLg(`${src}/activeSprite/btn_pickUp`,btn_pickUp)
+        this.app.loadIconLg(`${src}/activeSprite/zi_congrat`,zi_congrat3)
+        this.app.loadIconLg(`${src}/activeSprite/btn_pickUp`,btn_pickUp2)
+
+        let label1 = cc.find('Canvas/Activity/Content/SendFruit/bg/label1').getComponent(cc.Label)
+        let label2 = cc.find('Canvas/Activity/Content/SendFruit/bg/Content/label2').getComponent(cc.Label)
+        let label3 = cc.find('Canvas/Activity/Content/SendFruit/bg/Content/label3').getComponent(cc.Label)
+        let label4 = cc.find('Canvas/Activity/Content/SendFruit/bg/Content/label4').getComponent(cc.Label)
+        let label5 = cc.find('Canvas/Activity/Content/SendFruit/bg/label5').getComponent(cc.Label)
+        let label6= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/group2/label').getComponent(cc.Label)
+        let label7= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert1/content/label1').getComponent(cc.Label)
+        let label8= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert1/content/label2').getComponent(cc.Label)
+        let label9= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert2/content/label1').getComponent(cc.Label)
+        let label10= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert2/content/label2').getComponent(cc.Label)
+        let label11= cc.find('Canvas/Activity/Content/SendFruit/SendFruit_bg2/Alert3/content/label').getComponent(cc.Label)
+
+        label1.string = Language_pay.Lg.ChangeByText("邀请好友一起玩游戏, 你和好友都可以获得包邮到家的免费水果哦, 水果满5斤即可邮寄。")
+        label2.string = Language_pay.Lg.ChangeByText("一开始默认所有用户皆为被邀请者身份, 可进行被邀请者的相关任务。被邀请者在完成手机号及银行卡绑定后即可获得3斤水果; 之后在充值50元后任意进行一局游戏, 或邀请2名好友完成APP下载注册并绑定手机及银行卡, 即可立即满5斤发货。")
+        label3.string = Language_pay.Lg.ChangeByText("成功生成至少一名下级的代理, 可获得邀请者身份进行相关任务。邀请3名好友完成APP下载注册并绑定手机及银行卡, 或3名好友任一名充值50元后任意进行一局游戏, 即可以获得5斤包邮到家的水果 (如果全部是高质量的游戏玩家, 水果价值更高哦) 。")
+        label4.string = Language_pay.Lg.ChangeByText("玩家成功提交发货申请后, 达标审核通过自动发货, 水果根据邀请玩家的价值随机发送。")
+        label5.string = Language_pay.Lg.ChangeByText("1. 邀请有效好友达五人以上时，按照邀请数，每邀请三名有效好友便可获得一次5斤水果。\n 2. 本活动奖励仅保留同一用户进行领取。\n 3. 如有异常操作，则进行冻结账号处理。\n 4. 该活动发展的新玩家自动成为该玩家下线，享受代理收入。\n 5. 本活动最终解释权归平台所有，平台有随时更改，停止并取消该活动的权利。")
+        label6.string = Language_pay.Lg.ChangeByText("规则:\n 1. 被邀请者在成功生成一名直属下级后, 将会同时获得邀请者的身份, 在完成被邀请者的相关任务后, 可接着进行邀请者的任务\n 2. 本活动邀请的新玩家自动成为该代理的下线, 代理享受永久收益, 新玩家充值游戏, 代理所获得水果的价值越高\n 3. 本活动奖励仅保留同一用户进行领取\n 4. 如有异常操作, 则进行冻结账号处理\n 5. 本活动最终解释权归平台所有, 平台有随时更改, 停止并取消该活动的权利")
+        label7.string = Language_pay.Lg.ChangeByText("已经获得3斤水果")
+        label8.string = Language_pay.Lg.ChangeByText("邀请两个人或者充值50元后玩一把游戏即可达到发货资格")
+        label9.string = Language_pay.Lg.ChangeByText("已经获得2斤水果")
+        label10.string = Language_pay.Lg.ChangeByText("点选下方按钮可以立即提货, 完成提货即可参加邀请者活动")
+        label11.string = Language_pay.Lg.ChangeByText("恭喜获得5斤水果")
     }
 }

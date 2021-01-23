@@ -1,5 +1,6 @@
 
 import payMain from '../../payMain'
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -30,6 +31,7 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setActivityConfig()
         this.fetchByDayTaskDetail()
+        this.setLanguageResource()
     }
     public setIdInfo(id,info){
         this.activity_id = id
@@ -135,5 +137,16 @@ export default class NewClass extends cc.Component {
                 }
             });
         }
+    }
+     //设置语言相关的资源和字
+     setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let lw_zj_txt_jinbi= cc.find('Canvas/Activity/Content/DailyActivity/bg/zhongjiangBg/sp2/lw_zj_txt_jinbi')
+        let lw_zj_txt_jf= cc.find('Canvas/Activity/Content/DailyActivity/bg/zhongjiangBg/sp2/lw_zj_txt_jf')
+        let lw_btn_confirm= cc.find('Canvas/Activity/Content/DailyActivity/bg/zhongjiangBg/sp2/lw_btn_confirm')
+
+        this.app.loadIconLg(`${src}/activeSprite/lw_zj_txt_jinbi`,lw_zj_txt_jinbi)
+        this.app.loadIconLg(`${src}/activeSprite/lw_zj_txt_jf`,lw_zj_txt_jf)
+        this.app.loadIconLg(`${src}/activeSprite/lw_btn_confirm`,lw_btn_confirm)
     }
 }

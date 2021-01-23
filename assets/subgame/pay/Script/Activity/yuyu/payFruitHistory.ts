@@ -1,13 +1,4 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -22,6 +13,7 @@ export default class NewClass extends cc.Component {
     group = [];
     page = 1;
     totalPage = 1;
+    app = null;
     init(group){
         group.forEach((e)=>{
             this.group.unshift(e) // 反序
@@ -29,10 +21,14 @@ export default class NewClass extends cc.Component {
         this.totalPage = Math.ceil(this.group.length /3)
         this.renderList()
     }
+    onLoad(){
+        this.app = cc.find('Canvas/Main').getComponent('payMain');
+        this.setLanguageResource()
+    }
     renderList(){
         let total = this.foot.getChildByName('total').getComponent(cc.Label)
         let middle = this.foot.getChildByName('middle').getComponent(cc.Label)
-        total.string = `共 ${this.totalPage} 页`
+        total.string = `${Language_pay.Lg.ChangeByText('共')} ${this.totalPage} ${Language_pay.Lg.ChangeByText('页')}`
         middle.string = `${this.page} / ${this.totalPage}`
 
         let start = 3*this.page - 3
@@ -77,6 +73,25 @@ export default class NewClass extends cc.Component {
     }
     removeSelf(){
         this.node.removeFromParent()
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let title= cc.find('Canvas/Activity/Content/FruitHistory/Alert/title')
+        let frame_jdlist= cc.find('Canvas/Activity/Content/FruitHistory/Alert/frame_jdlist')
+
+        this.app.loadIconLg(`${src}/activeSprite/title_jdlist`,title)
+        this.app.loadIconLg(`${src}/activeSprite/frame_jdlist`,frame_jdlist)
+
+        let first = cc.find('Canvas/Activity/Content/FruitHistory/Alert/foot/first').getComponent(cc.Label)
+        let up = cc.find('Canvas/Activity/Content/FruitHistory/Alert/foot/up').getComponent(cc.Label)
+        let down = cc.find('Canvas/Activity/Content/FruitHistory/Alert/foot/down').getComponent(cc.Label)
+        let last = cc.find('Canvas/Activity/Content/FruitHistory/Alert/foot/last').getComponent(cc.Label)
+
+        first.string = Language_pay.Lg.ChangeByText('首页')
+        up.string = Language_pay.Lg.ChangeByText('上一页')
+        down.string = Language_pay.Lg.ChangeByText('下一页')
+        last.string = Language_pay.Lg.ChangeByText('尾页')
     }
     // update (dt) {}
 }

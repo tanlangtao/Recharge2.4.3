@@ -1,4 +1,5 @@
 import payDailyActivity from "./payDailyActivity"
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -39,6 +40,7 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setLabel()
         this.switchBtn("goToBtn")
+        this.setLanguageResource()
     }
     init(game_id,task_id,data){
         this.game_id = `${game_id}`
@@ -53,37 +55,37 @@ export default class NewClass extends cc.Component {
         this.gameLabel.string = `${gameName}${roomLevelName}`
         if(this.type == "1"){
             //总局+积分
-            this.targetLabel.string = `在${gameName}${roomLevelName}中完成${this.data.rounds}局`
+            this.targetLabel.string = `${Language_pay.Lg.ChangeByText('在')}${gameName}${roomLevelName}${Language_pay.Lg.ChangeByText('中完成')}${this.data.rounds}${Language_pay.Lg.ChangeByText('局')}`
             this.rewardLabel.string = `${this.data.integral}`
             this.rewardLabel.node.parent.getChildByName('integral').active = true // 显示积分图标
             this.progressTotal = this.data.rounds
         }else if(this.type == "2"){
             //总局+金币
-            this.targetLabel.string = `在${gameName}${roomLevelName}中完成${this.data.rounds}局`
+            this.targetLabel.string = `${Language_pay.Lg.ChangeByText('在')}${gameName}${roomLevelName}${Language_pay.Lg.ChangeByText('中完成')}${this.data.rounds}${Language_pay.Lg.ChangeByText('局')}`
             this.rewardLabel.string = `${this.data.gold}`
             this.rewardLabel.node.parent.getChildByName('gold').active = true // 
             this.progressTotal = this.data.rounds
         }else if(this.type == '3'){
             //赢局 + 积分 
-            this.targetLabel.string = `在${gameName}${roomLevelName}胜利${this.data.winround}局`
+            this.targetLabel.string = `${Language_pay.Lg.ChangeByText('在')}${gameName}${roomLevelName}${Language_pay.Lg.ChangeByText('胜利')}${this.data.winround}${Language_pay.Lg.ChangeByText('局')}`
             this.rewardLabel.string = `${this.data.integral}`
             this.rewardLabel.node.parent.getChildByName('integral').active = true // 
             this.progressTotal = this.data.winround
         }else if(this.type == '4'){
             //赢局 +  金币
-            this.targetLabel.string = `在${gameName}${roomLevelName}胜利${this.data.winround}局`
+            this.targetLabel.string = `${Language_pay.Lg.ChangeByText('在')}${gameName}${roomLevelName}${Language_pay.Lg.ChangeByText('胜利')}${this.data.winround}${Language_pay.Lg.ChangeByText('局')}`
             this.rewardLabel.string = `${this.data.gold}`
             this.rewardLabel.node.parent.getChildByName('gold').active = true // 
             this.progressTotal = this.data.winround
         }else if(this.type == '5'){
             //流水 + 积分 
-            this.targetLabel.string = `在${gameName}${roomLevelName}中累计达到${this.data.game_statement}流水`
+            this.targetLabel.string = `${Language_pay.Lg.ChangeByText('在')}${gameName}${roomLevelName}${Language_pay.Lg.ChangeByText('中累计达到')}${this.data.game_statement}${Language_pay.Lg.ChangeByText('流水')}`
             this.rewardLabel.string = `${this.data.integral}`
             this.rewardLabel.node.parent.getChildByName('integral').active = true // 
             this.progressTotal = this.data.game_statement
         }else if(this.type == '6'){
             //流水 + 金币
-            this.targetLabel.string = `在${gameName}${roomLevelName}中累计达到${this.data.game_statement}流水`
+            this.targetLabel.string = `${Language_pay.Lg.ChangeByText('在')}${gameName}${roomLevelName}${Language_pay.Lg.ChangeByText('中累计达到')}${this.data.game_statement}${Language_pay.Lg.ChangeByText('流水')}`
             this.rewardLabel.string = `${this.data.gold}`
             this.rewardLabel.node.parent.getChildByName('gold').active = true // 
             this.progressTotal = this.data.game_statement
@@ -143,13 +145,13 @@ export default class NewClass extends cc.Component {
     switchRoomLevel(key){
         switch (key) {
             case '1':
-                return "体验场"
+                return `${Language_pay.Lg.ChangeByText('体验场')}`
             case '2' :
-                return "初级场"
+                return `${Language_pay.Lg.ChangeByText('初级场')}`
             case '3':
-                return "中级场"
+                return `${Language_pay.Lg.ChangeByText('中级场')}`
             case '4':
-                return "高级场"
+                return `${Language_pay.Lg.ChangeByText('高级场')}`
             default :
                 console.log('房间等级错误',key)
                 return ""
@@ -158,19 +160,19 @@ export default class NewClass extends cc.Component {
     switchGameId(Gameid){
         switch(Gameid) {
             case "5b1f3a3cb76a591e7f251715" :
-                return "炸金花"
+                return `${Language_pay.Lg.ChangeByText('炸金花')}`
             case "5b1f3a3cb76a591e7f251711" :
-                return "斗地主"
+                return `${Language_pay.Lg.ChangeByText('斗地主')}`
             case "5c6a62be7ff09a54amb446aa" :
-                return "跑得快"
+                return `${Language_pay.Lg.ChangeByText('跑得快')}`
             case "5b1f3a3cb76a591e7f25170" :
-                return "二人麻将"
+                return `${Language_pay.Lg.ChangeByText('二人麻将')}`
             case "5b1f3a3cb76a591e7f251714" :
-                return "抢庄牛牛"
+                return `${Language_pay.Lg.ChangeByText('抢庄牛牛')}`
             case "5b1f3a3cb76a591e7f25171" :
-                return "十三水"
+                return `${Language_pay.Lg.ChangeByText('十三水')}`
             case "5b1f3a3cb76a591e7f25176" :
-                return "德州扑克"
+                return `${Language_pay.Lg.ChangeByText('德州扑克')}`
             default :
                 return ""
         }
@@ -198,21 +200,21 @@ export default class NewClass extends cc.Component {
     //点击前往
     goToBtnClick(){
         var gameName = this.switchGameId(this.game_id)
-        if(gameName == "炸金花"){
+        if(gameName == Language_pay.Lg.ChangeByText('炸金花')){
             this.checkSubGameDownload("zjh")
-        }else if(gameName == "斗地主"){
+        }else if(gameName == Language_pay.Lg.ChangeByText('斗地主')){
             this.checkSubGameDownload("ddz")
-        }else if(gameName == "跑得快"){
+        }else if(gameName == Language_pay.Lg.ChangeByText('跑得快')){
             this.checkSubGameDownload("pdk")
-        }else if(gameName == "跑得快"){
+        }else if(gameName == Language_pay.Lg.ChangeByText('跑得快')){
             this.checkSubGameDownload("pdk")
-        }else if(gameName == "二人麻将"){
+        }else if(gameName == Language_pay.Lg.ChangeByText('二人麻将')){
             this.checkSubGameDownload("ermj")
-        }else if(gameName == "抢庄牛牛"){
+        }else if(gameName == Language_pay.Lg.ChangeByText('抢庄牛牛')){
             this.checkSubGameDownload("qznn")
-        }else if(gameName == "十三水"){
+        }else if(gameName == Language_pay.Lg.ChangeByText('十三水')){
             this.checkSubGameDownload("sss")
-        }else if(gameName == "德州扑克"){
+        }else if(gameName == Language_pay.Lg.ChangeByText('德州扑克')){
             this.checkSubGameDownload("dzpk")
         }
     }
@@ -237,7 +239,7 @@ export default class NewClass extends cc.Component {
         let self = this;
         let subdata = this.getRemoteSubgame(this.app.gHandler.subGameList[enname].game_id)
         if (subdata.open == 0) {
-            self.payDailyCompoment.app.showAlert("游戏没开放！");
+            self.payDailyCompoment.app.showAlert(Language_pay.Lg.ChangeByText('游戏没开放!'));
         } else {
             let subgamev;
             let localsubv = this.app.gHandler.localStorage.get(enname, "versionKey");
@@ -254,7 +256,7 @@ export default class NewClass extends cc.Component {
             let needup = this.app.gHandler.commonTools.versionCompare(localsubv, subgamev)
             if (needup && !cc.sys.isBrowser && cc.sys.os != "Windows") {
                 console.log(" | subgame : " + enname + " need update");
-                self.payDailyCompoment.app.showAlert(`游戏需要下载更新!请返回大厅下载更新 ${enname}`);
+                self.payDailyCompoment.app.showAlert(`${Language_pay.Lg.ChangeByText('游戏需要下载更新!请返回大厅下载更新')} ${enname}`);
             } else {
                 console.log(" | subgame : " + enname + " not need update")
                 cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
@@ -314,6 +316,17 @@ export default class NewClass extends cc.Component {
                 console.log('load subpackage script successfully.', subname + 'Res', subname + "Res");
             });
         }
-        
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let btn= this.node.getChildByName('btn')
+        let goto= this.node.getChildByName('goto')
+        let btn_done= this.node.getChildByName('btn_done')
+
+        this.app.loadIconLg(`${src}/activeSprite/fdsafsd`,btn)
+        this.app.loadIconLg(`${src}/activeSprite/yrt`,goto)
+        this.app.loadIconLg(`${src}/activeSprite/hgrt`,btn_done)
+
     }
 }

@@ -28,10 +28,13 @@
     "_components": [
       {
         "__id__": 21
+      },
+      {
+        "__id__": 22
       }
     ],
     "_prefab": {
-      "__id__": 22
+      "__id__": 23
     },
     "_opacity": 255,
     "_color": {
@@ -334,7 +337,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -412,7 +415,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "在游戏首页点击 (全民代理) 到 (月入百万) 页面, 保存二维码和截图此页面图片, 分享到微信朋友圈24小时, 收集5个赞, 满足分享条件请联系在线客服申请彩金。每个申请用户需绑定好 (银行卡) 方便提现, 一个微信每15天可申请一次 。",
     "_N$string": "在游戏首页点击 (全民代理) 到 (月入百万) 页面, 保存二维码和截图此页面图片, 分享到微信朋友圈24小时, 收集5个赞, 满足分享条件请联系在线客服申请彩金。每个申请用户需绑定好 (银行卡) 方便提现, 一个微信每15天可申请一次 。",
     "_fontSize": 25,
@@ -422,6 +426,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -772,6 +778,16 @@
     "_id": ""
   },
   {
+    "__type__": "c738654GdtFZ7OeWuoSqQU1",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -779,7 +795,7 @@
     "asset": {
       "__uuid__": "6b44b0f6-bd71-4a68-a191-1bd4e57cb3e9"
     },
-    "fileId": "50XXzHWeBJJ7+CbobVk8I7",
+    "fileId": "",
     "sync": false
   }
 ]

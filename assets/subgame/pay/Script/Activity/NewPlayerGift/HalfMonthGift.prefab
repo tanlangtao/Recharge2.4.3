@@ -28,10 +28,13 @@
     "_components": [
       {
         "__id__": 22
+      },
+      {
+        "__id__": 23
       }
     ],
     "_prefab": {
-      "__id__": 23
+      "__id__": 24
     },
     "_opacity": 255,
     "_color": {
@@ -159,7 +162,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -237,7 +240,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "1. 半月存款过三次金额累计到达300元以上, 每半个月可领一次。",
     "_N$string": "1. 半月存款过三次金额累计到达300元以上, 每半个月可领一次。",
     "_fontSize": 25,
@@ -247,6 +251,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -294,7 +300,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -372,7 +378,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "2. 流水要求一倍, 每个账号同 (手机-姓名-IP) 只允许一个账号申请。",
     "_N$string": "2. 流水要求一倍, 每个账号同 (手机-姓名-IP) 只允许一个账号申请。",
     "_fontSize": 25,
@@ -382,6 +389,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -429,7 +438,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -507,7 +516,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_useOriginalSize": false,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_string": "3. 彩金发放时间为1号和16号, 如期间未联系客服领取视为放弃。",
     "_N$string": "3. 彩金发放时间为1号和16号, 如期间未联系客服领取视为放弃。",
     "_fontSize": 25,
@@ -517,6 +527,8 @@
     "_isSystemFontUsed": true,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -797,6 +809,16 @@
     "_id": ""
   },
   {
+    "__type__": "aef39ZmrctFFKFmTIkKh8Dv",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -804,7 +826,7 @@
     "asset": {
       "__uuid__": "e811ed28-22f2-48fa-b195-06610f7ac0a1"
     },
-    "fileId": "50XXzHWeBJJ7+CbobVk8I7",
+    "fileId": "",
     "sync": false
   }
 ]

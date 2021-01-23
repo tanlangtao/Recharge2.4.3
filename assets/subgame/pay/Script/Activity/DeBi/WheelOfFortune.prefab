@@ -4081,7 +4081,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 105
@@ -4189,7 +4189,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 105
@@ -4297,7 +4297,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 105
@@ -4405,7 +4405,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label4",
     "_objFlags": 0,
     "_parent": {
       "__id__": 105
@@ -4513,7 +4513,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label5",
     "_objFlags": 0,
     "_parent": {
       "__id__": 105
@@ -4590,8 +4590,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "积分获取",
-    "_N$string": "积分获取",
+    "_string": "积分优惠",
+    "_N$string": "积分优惠",
     "_fontSize": 22,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -4621,7 +4621,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "New Label",
+    "_name": "label6",
     "_objFlags": 0,
     "_parent": {
       "__id__": 105
@@ -6196,7 +6196,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 53.65,
-      "height": 41.18
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6436,7 +6436,7 @@
         1,
         1,
         1,
-        1
+        0
       ]
     },
     "_eulerAngles": {
@@ -6593,7 +6593,7 @@
       }
     ],
     "paused": false,
-    "defaultSkin": "",
+    "defaultSkin": "default",
     "defaultAnimation": "chuxian",
     "_preCacheMode": 0,
     "_cacheMode": 0,

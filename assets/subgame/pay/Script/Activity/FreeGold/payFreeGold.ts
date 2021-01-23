@@ -1,4 +1,5 @@
 import payMain from '../../payMain'
+import { Language_pay } from "./../../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -20,6 +21,7 @@ export default class NewClass extends cc.Component {
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex()
+        this.setLanguageResource()
     }
 
     public setIdInfo(id,info){
@@ -43,7 +45,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             this.app.hideLoading()
-            this.app.showAlert(`网络错误${errstatus}`)
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
 
@@ -56,27 +58,46 @@ export default class NewClass extends cc.Component {
                 cc.log('领取成功!',response)
                 this.last_num = response.data.last_num;
                 this.numLabel.string = this.last_num;
-                self.app.showAlert('领取成功!')
+                self.app.showAlert(Language_pay.Lg.ChangeByText('领取成功!'))
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     onClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '') {
-            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('参加活动失败:请先绑定手机号!'))
             return
         }
         if(Number(this.last_num)<=0) {
-            this.app.showAlert("免费金币次数已领完，请明天再来吧！")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('免费金币次数已领完，请明天再来吧!'))
             return
         }
         if(this.app.gHandler.gameGlobal.player.gold >= this.amount) {
-            this.app.showAlert("金币余额不符合领取规则！")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('金币余额不符合领取规则!'))
             return
         }
         this.fetchGold()
     }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let bg= cc.find('Canvas/Activity/Content/FreeGold/bg')
+        let event_alms_t2= cc.find('Canvas/Activity/Content/FreeGold/bg/content/group1/event_alms_t2')
+        let event_alms_t1= cc.find('Canvas/Activity/Content/FreeGold/bg/content/group2/event_alms_t1')
+        let event_alms_t3= cc.find('Canvas/Activity/Content/FreeGold/bg/content/group3/event_alms_t3')
+        let alms_btn_lingqu= cc.find('Canvas/Activity/Content/FreeGold/bg/alms_btn_lingqu')
+        
+        this.app.loadIconLg(`${src}/activeBigImage/event_alms`,bg)
+        this.app.loadIconLg(`${src}/activeSprite/event_alms_t2`,event_alms_t2)
+        this.app.loadIconLg(`${src}/activeSprite/event_alms_t1`,event_alms_t1)
+        this.app.loadIconLg(`${src}/activeSprite/event_alms_t3`,event_alms_t3)
+        this.app.loadIconLg(`${src}/activeSprite/alms_btn_lingqu`,alms_btn_lingqu)
+       
+        let label= cc.find('Canvas/Activity/Content/FreeGold/bg/label').getComponent(cc.Label)
+
+        label.string = Language_pay.Lg.ChangeByText('* 注：请先绑定手机及银行卡')
+    }   
 }

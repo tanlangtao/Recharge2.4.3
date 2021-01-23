@@ -144,7 +144,15 @@ export default class NewClass extends cc.Component {
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         let cash = cc.find('Canvas/Cash').getComponent('payCash')
-        let rate = cash.results.data.package_rate ?Number (cash.results.data.package_rate)  : 0;
+        let package_rate = JSON.parse(cash.results.data.package_rate)
+        let package_rate_byPackage = "0"
+        package_rate.usdt.forEach(e => {
+            if(e.package_id == this.app.UrlData.package_id){
+                package_rate_byPackage = e.rate
+            }
+        });
+        console.log('package_rate_byPackage',package_rate_byPackage)
+        let rate = package_rate_byPackage ?Number (package_rate_byPackage)  : 0;
         let rate2 =cash.results.data.channel_rate ?Number (cash.results.data.channel_rate)  : 0;
         let rateMount = (rate+rate2)*Number(this.amountLabel.string);
         node.getComponent('payCashAlert').init({

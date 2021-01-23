@@ -1,5 +1,6 @@
 const {ccclass, property} = cc._decorator;
 import payMain from '../../payMain'
+import { Language_pay } from "./../../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
@@ -51,6 +52,7 @@ export default class NewClass extends cc.Component {
         // let scalex = cc.winSize.width / 1334;
         // this.Middle.scaleX = scalex;
         // this.Middle.scaleY = scalex;
+        this.setLanguageResource()
     }
 
     fetchIndex(){
@@ -69,7 +71,7 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             this.app.hideLoading()
-            this.app.showAlert(`网络错误${errstatus}`)
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     
@@ -152,12 +154,12 @@ export default class NewClass extends cc.Component {
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 this.fetchIndex();
-                this.app.showAlert('领取成功!')
+                this.app.showAlert(Language_pay.Lg.ChangeByText('领取成功!'))
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     public fetchList(){
@@ -171,7 +173,7 @@ export default class NewClass extends cc.Component {
                 this.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            this.app.showAlert(`网络错误${errstatus}`)
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     addList(data){
@@ -209,7 +211,7 @@ export default class NewClass extends cc.Component {
    //领取
     btnGetGoldClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '') {
-            this.app.showAlert("参加活动失败:请先绑定手机号！")
+            this.app.showAlert(Language_pay.Lg.ChangeByText('参加活动失败:请先绑定手机号！'))
             return
         }
         this.fetchGold()
@@ -228,6 +230,41 @@ export default class NewClass extends cc.Component {
     }
     historyScrollToBottom = ()=>{
         this.fetchList()
+    }
+    //设置语言相关的资源和字
+    setLanguageResource(){
+        let src = Language_pay.Lg.getLgSrc()
+        let title= cc.find('Canvas/Activity/Content/ChuangGuan1/bg/title')
+        let btn_history= cc.find('Canvas/Activity/Content/ChuangGuan1/btn_history')
+        let HongBaoGroup= cc.find('Canvas/Activity/Content/ChuangGuan1/Middle/HongBaoGroup')
+        let wenzi_jrls= cc.find('Canvas/Activity/Content/ChuangGuan1/bg/wenzi_jrls')
+        let jrkl= cc.find('Canvas/Activity/Content/ChuangGuan1/foot/jrkl')
+        let txt_jinbi= cc.find('Canvas/Activity/Content/ChuangGuan1/foot/txt_jinbi')
+        let btn_lingqu= cc.find('Canvas/Activity/Content/ChuangGuan1/foot/btn_lingqu')
+        let lsjl= cc.find('Canvas/Activity/Content/ChuangGuan1/GetGoldHistory/Alert/lsjl')
+        let rq= cc.find('Canvas/Activity/Content/ChuangGuan1/GetGoldHistory/Alert/title/rq')
+        let drls= cc.find('Canvas/Activity/Content/ChuangGuan1/GetGoldHistory/Alert/title/drls')
+        let lqje= cc.find('Canvas/Activity/Content/ChuangGuan1/GetGoldHistory/Alert/title/lqje')
+        let lqsj= cc.find('Canvas/Activity/Content/ChuangGuan1/GetGoldHistory/Alert/title/lqsj')
+
+        this.app.loadIconLg(`${src}/activeSprite/txt_title01`,title)
+        this.app.loadIconLg(`${src}/activeSprite/btn_record`,btn_history)
+        HongBaoGroup.children.forEach(e=>{
+            this.app.loadIconLg(`${src}/activeSprite/falidikuang`,e)
+            this.app.loadIconLg(`${src}/activeSprite/falidikuang2`,e.getChildByName('bg'))
+        })
+        this.app.loadIconLg(`${src}/activeSprite/wenzi_jrls`,wenzi_jrls)
+        this.app.loadIconLg(`${src}/activeSprite/jrkl`,jrkl)
+        this.app.loadIconLg(`${src}/activeSprite/txt_jinbi`,txt_jinbi)
+        this.app.loadIconLg(`${src}/activeSprite/btn_lingqu`,btn_lingqu)
+        this.app.loadIconLg(`${src}/activeSprite/lsjl`,lsjl)
+        this.app.loadIconLg(`${src}/activeSprite/rq`,rq)
+        this.app.loadIconLg(`${src}/activeSprite/drls`,drls)
+        this.app.loadIconLg(`${src}/activeSprite/lqje`,lqje)
+        this.app.loadIconLg(`${src}/activeSprite/lqsj`,lqsj)
+
+        let Label1= cc.find('Canvas/Activity/Content/ChuangGuan1/bg/Label1').getComponent(cc.Label)
+        Label1.string = Language_pay.Lg.ChangeByText('1.仅计算以下游戏流水：水果机、海王捕鱼、财神到。\n 2.当日流水达到指定的档位，即可于次日领取活动规定的相应金币。\n 3.每日通过游戏，输赢均可产生同等额度的流水。\n4.兑换需五倍彩金流水，不限制游戏。\n 5.每日23:59:59，活动计算用的今日流水及昨日彩金未领取会归零。')
     }
 
     onDestroy(){
