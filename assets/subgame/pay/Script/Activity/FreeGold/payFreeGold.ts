@@ -94,7 +94,7 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/activeSprite/event_alms_t2`,event_alms_t2)
         this.app.loadIconLg(`${src}/activeSprite/event_alms_t1`,event_alms_t1)
         this.app.loadIconLg(`${src}/activeSprite/event_alms_t3`,event_alms_t3)
-        this.app.loadIconLg(`${src}/activeSprite/alms_btn_lingqu`,alms_btn_lingqu)
+        this.app.loadIconLg(`${src}/activeSprite/btn_alms`,alms_btn_lingqu)
        
         let label= cc.find('Canvas/Activity/Content/FreeGold/bg/label').getComponent(cc.Label)
 
