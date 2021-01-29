@@ -1,4 +1,4 @@
-
+import gHandler = require("../../../../base/common/gHandler");
 export namespace Language_pay {
     class Class_Language_pay {
         public Language = 'Chinese'
@@ -262,6 +262,33 @@ export namespace Language_pay {
             "手机号格式不正确，请重新输入!",
             "手机号不能为空!",
             "姓名不能为空!",
+            "下单金额",
+            "到账金额",
+            "状态",
+            "类型",
+            "下单时间",
+            "到账时间",
+            "操作",
+            "支付宝",
+            "银联扫码",
+            "微信",
+            "网银充值",
+            "IM充值",
+            "USDT充值",
+            "重置",
+            "在充值过程中，如果遇到没有回应等任何问题，请联系客服处理",
+            "联系客服",
+            "最 大",
+            "绑定支付宝",
+            "绑定银行卡",
+            "在兑换过程中，如果遇到没有回应等任何问题，请联系客服处理",
+            "兑换",
+            "绑 定",
+            "兑换金额",
+            "费率",
+            "申请时间",
+            "备注",
+            "钱包地址不符合要求(42位16进制组合, 开头为0x), 请重新输入。",
 
         ]
         private English =[
@@ -306,14 +333,35 @@ export namespace Language_pay {
         }
         getLgSrc(){
             let src = ''
+            // gHandler.gameGlobal.pay.package_id = 8 // test
             switch(this.Language){
-                case "Chinese": src = `language/Chinese`
+                case "Chinese": 
+                        if(gHandler.gameGlobal.pay.package_id == 8){
+                            src = `language/Chinese/package_8`
+                        }else{
+                            src = `language/Chinese/package_1_7`
+                        }
                     break
-                case "English": src = 'language/English'
+                case "English": 
+                    if(gHandler.gameGlobal.pay.package_id == 8){
+                        src = `language/English/package_8`
+                    }else{
+                        src = `language/English/package_1_7`
+                    }
                     break
-                case "Thai": src = 'language/Thai'
+                case "Thai":
+                    if(gHandler.gameGlobal.pay.package_id == 8){
+                        src = `language/Thai/package_8`
+                    }else{
+                        src = `language/Thai/package_1_7`
+                    }
                     break
-                case "Vietnamese": src = 'language/Vietnamese' 
+                case "Vietnamese":
+                    if(gHandler.gameGlobal.pay.package_id == 8){
+                        src = `language/Vietnamese/package_8`
+                    }else{
+                        src = `language/Vietnamese/package_1_7`
+                    }
                     break
                 default : src = `language/Chinese`
                     console.log('未知语言',Language_pay.Lg.Language)

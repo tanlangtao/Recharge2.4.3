@@ -115,9 +115,9 @@ export default class NewClass extends cc.Component {
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
 
-        let title_shouyi= cc.find('Canvas/Cash/header/title/title_shouyi')
+        let title= cc.find('Canvas/Cash/header/title')
         
-        this.app.loadIconLg(`${src}/font/title_shouyi`,title_shouyi)
+        this.app.loadIconLg(`${src}/font/title_shouyi`,title)
         
         let loadSP = cc.find('Loading/loadSP')
         loadSP.children.forEach((e)=>{

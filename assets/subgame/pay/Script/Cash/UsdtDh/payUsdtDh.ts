@@ -305,12 +305,19 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/font/txt_zhye`,zhye)
         this.app.loadIconLg(`${src}/font/txt_ckhl`,ckhl)
         this.app.loadIconLg(`${src}/font/txt_dhje`,dhje)
-        this.app.loadIconLg(`${src}/btn/75`,btn_75)
         this.app.loadIconLg(`${src}/font/txt_qbdz`,qbdz)
-        this.app.loadIconLg(`${src}/btn/bindbt`,accountBtn)
         this.app.loadIconLg(`${src}/font/txt_llx`,llx)
         this.app.loadIconLg(`${src}/font/txt_dhqd`,dhqd)
-        this.app.loadIconLg(`${src}/btn/btn_dh`,btn)
+
+        if(this.app.UrlData.package_id == 8){
+            btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
+            accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
+            this.app.loadIconLg(`${src}/font/jiesuan`,btn.children[0])
+        }else{
+            this.app.loadIconLg(`${src}/btn/75`,btn_75)
+            this.app.loadIconLg(`${src}/btn/bindbt`,accountBtn)
+            this.app.loadIconLg(`${src}/btn/btn_dh`,btn)
+        }
 
         let label1 = cc.find('Canvas/Cash/Content/UsdtDh/titlebg/group3/group2/label').getComponent(cc.Label)
         label1.string = Language_pay.Lg.ChangeByText('点击输入')

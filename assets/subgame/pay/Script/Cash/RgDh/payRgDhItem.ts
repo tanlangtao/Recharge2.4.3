@@ -65,7 +65,11 @@ export default class NewClass extends cc.Component {
 
         this.app.loadIconLg(`${src}/btn/guanfrz`,guanfrz)
         this.app.loadIconLg(`${src}/btn/zhuanxkf`,zhuanxkf)
-        this.app.loadIconLg(`${src}/btn/btn_duihuan`,bg_fan)
+        if(this.app.UrlData.package_id == 8){
+            bg_fan.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('兑换')
+        }else{
+            this.app.loadIconLg(`${src}/btn/btn_chongzhi`,bg_fan)
+        }
 
         pingji.string = Language_pay.Lg.ChangeByText(`月评级5星+`)
     }

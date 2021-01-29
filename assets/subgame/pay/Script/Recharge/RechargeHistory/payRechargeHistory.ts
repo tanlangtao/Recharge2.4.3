@@ -122,7 +122,17 @@ export default class NewClass extends cc.Component {
         let titlebg= cc.find("Canvas/Recharge/RechargeHistory/Content/titlebg")
 
         this.app.loadIconLg(`${src}/font/chongzhiklis`,chongzhiklis)
-        this.app.loadIconLg(`${src}/form/cz_title_kuang`,titlebg)
+        if(this.app.UrlData.package_id == 8){
+            titlebg.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('下单金额')
+            titlebg.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('到账金额')
+            titlebg.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('状态')
+            titlebg.children[3].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('类型')
+            titlebg.children[4].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('下单时间')
+            titlebg.children[5].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('到账时间')
+            titlebg.children[6].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('操作')
+        }else{
+            this.app.loadIconLg(`${src}/form/cz_title_kuang`,titlebg)
+        }
     }
     // update (dt) {}
 }

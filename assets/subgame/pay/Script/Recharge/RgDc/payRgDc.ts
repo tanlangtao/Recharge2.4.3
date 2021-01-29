@@ -71,8 +71,13 @@ export default class NewClass extends cc.Component {
         let tips000= cc.find("Canvas/Recharge/Content/RgDc/frame/layout/tips000")
         let btn_contactCS= cc.find("Canvas/Recharge/Content/RgDc/frame/layout/btn_contactCS")
 
+        if(this.app.UrlData.package_id == 8){
+            tips000.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('在充值过程中，如果遇到没有回应等任何问题，请联系客服处理')
+            btn_contactCS.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('联系客服')
+        }else{
+            this.app.loadIconLg(`${src}/font/tips000`,tips000)
+            this.app.loadIconLg(`${src}/btn/btn_contactCS`,btn_contactCS)
+        }
         this.app.loadIconLg(`${src}/form/VIPpay_banner_1`,VIPpay_banner_1)
-        this.app.loadIconLg(`${src}/font/tips000`,tips000)
-        this.app.loadIconLg(`${src}/btn/btn_contactCS`,btn_contactCS)
     }
 }

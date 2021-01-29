@@ -35,8 +35,8 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(Language_pay.Lg.ChangeByText('钱包地址不能为空!'))
         }else if(this.chanTypeLabel.string == ''|| this.chanTypeLabel.string == Language_pay.Lg.ChangeByText('请选择链类型')){
             this.app.showAlert(Language_pay.Lg.ChangeByText('请选择链类型'))
-        }else if(this.isChinese(this.walletAddressInput.string)){
-            this.app.showAlert(Language_pay.Lg.ChangeByText('钱包地址不能含有特殊字符!'))
+        }else if(this.charCodeAddress(this.walletAddressInput.string)){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('钱包地址不符合要求(42位16进制组合, 开头为0x), 请重新输入。'))
         } else{
             this.fetchBindAccountPay();
             this.node.removeFromParent();
@@ -75,13 +75,21 @@ export default class NewClass extends cc.Component {
     removeSlef(){
         this.node.removeFromParent()
     }
-    isChinese(s){
+    charCodeAddress(s){
         var ret = false;
         for(var i = 0;i<s.length;i++){//遍历每一个文本字符bai
             //只要包含中文,就返回true
             if(s.charCodeAt(i) >= 10000){
                 ret = true
             }
+        }
+        if(s.charCodeAt(0)!= 48 || s.charCodeAt(1) != 120){
+            //开头不是0x，返回true
+            ret = true
+        }
+        if(s.length != 42){
+            //长度不是42位，返回true
+            ret = true
         }
         return ret
     }

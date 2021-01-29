@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "434752c3-99d7-4c52-ac27-b41e74305aee",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 93,
+  "height": 24,
+  "platformSettings": {},
+  "subMetas": {
+    "银行卡：": {
+      "ver": "1.0.4",
+      "uuid": "172f1c85-9e2d-471d-aaab-fe5b2c7f7f54",
+      "rawTextureUuid": "434752c3-99d7-4c52-ac27-b41e74305aee",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 93,
+      "height": 24,
+      "rawWidth": 93,
+      "rawHeight": 24,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
