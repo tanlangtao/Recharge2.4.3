@@ -305,7 +305,7 @@ export default class NewClass extends cc.Component {
         }else{
             this.app.loadIconLg(`${src}/btn/btn_max`,btn_max)
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
-            this.app.loadIconLg(`${src}/btn/accountBtn`,accountBtn)
+            this.app.loadIconLg(`${src}/btn/btn_bindali`,accountBtn)
             this.app.loadIconLg(`${src}/btn/btn_dh`,btn_dh)
         }
 
