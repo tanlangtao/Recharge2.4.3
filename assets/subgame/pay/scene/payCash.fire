@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        358.9539982217157,
+        358.80515010544025,
         0,
         0,
         0,
@@ -404,6 +404,18 @@
     "FruitHistroyAlert": null,
     "UsdtAccountAlert": {
       "__uuid__": "0b4a21d3-28c5-41f3-82ae-c53fb7838cd1"
+    },
+    "BankAccountAlert_8": {
+      "__uuid__": "beda466c-c907-4709-8f19-d7768371c4b7"
+    },
+    "AlipayAccountAlert_8": {
+      "__uuid__": "eea9eabb-e48e-46f2-a248-b40efa1e5014"
+    },
+    "WriteMoneyAlert_8": {
+      "__uuid__": "923c2f28-8d24-4387-9c0a-7016f89bfdf2"
+    },
+    "UsdtAccountAlert_8": {
+      "__uuid__": "2c4ab69c-aa67-41df-9bf6-01d3244a4702"
     },
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"

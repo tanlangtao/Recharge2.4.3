@@ -99,10 +99,18 @@ export default class NewClass extends cc.Component {
         
         let titleIcon= cc.find("Canvas/UsdtAccountAlert/Layout/titleIcon")
         let popup_usdt_frame= cc.find("Canvas/UsdtAccountAlert/Layout/content/popup_usdt_frame")
+        let btn1= cc.find("Canvas/UsdtAccountAlert/Layout/btn1")
         let tishi= cc.find("Canvas/UsdtAccountAlert/Layout/tishi").getComponent(cc.Label)
 
         this.app.loadIconLg(`${src}/font/title_usdt`,titleIcon)
-        this.app.loadIconLg(`${src}/form/popup_usdt_frame`,popup_usdt_frame)
+
+        if(this.app.UrlData.package_id == 8){
+            this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
+            
+        }else{
+            this.app.loadIconLg(`${src}/form/popup_usdt_frame`,popup_usdt_frame)
+            this.app.loadIconLg(`${src}/btn/surecg`,btn1)
+        }
 
         this.walletAddressInput.placeholder = Language_pay.Lg.ChangeByText('请输入钱包地址')
         this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('请选择链类型')

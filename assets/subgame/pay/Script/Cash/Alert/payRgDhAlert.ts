@@ -199,10 +199,16 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/font/title_rgdh`,toutpd)
         this.app.loadIconLg(`${src}/font/txt_zhye2`,txt_zhye2)
         this.app.loadIconLg(`${src}/font/txt_dhje2`,txt_dhje2)
-        this.app.loadIconLg(`${src}/btn/75`,btn_75)
         this.app.loadIconLg(`${src}/font/txt_dhfs`,txt_dhfs)
         this.app.loadIconLg(`${src}/font/txt_dhzh`,txt_dhzh)
-        this.app.loadIconLg(`${src}/font/surecg`,btn1)
+        
+        if(this.app.UrlData.package_id == 8){
+            this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
+            btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
+        }else{
+            this.app.loadIconLg(`${src}/btn/75`,btn_75)
+            this.app.loadIconLg(`${src}/btn/surecg`,btn1)
+        }
 
         let label= cc.find("Canvas/RgDhAlert/Layout/content/group2/label").getComponent(cc.Label)
         label.string = Language_pay.Lg.ChangeByText('点击输入')

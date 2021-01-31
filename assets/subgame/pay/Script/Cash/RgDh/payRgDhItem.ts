@@ -16,6 +16,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     RgDhAlert :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    RgDhAlert_8 :cc.Prefab = null;
     @property()
     app = null;
     results = null;
@@ -46,7 +49,12 @@ export default class NewClass extends cc.Component {
    }
 
    showRgDhAlert(){
-        var node = cc.instantiate(this.RgDhAlert);
+        var node = null
+        if(this.app.UrlData.package_id == 8){
+            node = cc.instantiate(this.RgDhAlert_8);
+        }else{
+            node = cc.instantiate(this.RgDhAlert);
+        }
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         node.getComponent('payRgDhAlert').init({

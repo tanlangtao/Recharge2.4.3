@@ -49,6 +49,21 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     UsdtAccountAlert :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    BankAccountAlert_8 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    AlipayAccountAlert_8 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    WriteMoneyAlert_8 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    UsdtAccountAlert_8 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    PublicOrderAlert_8 :cc.Prefab = null;
+    
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -171,7 +186,12 @@ export default class NewClass extends cc.Component {
      * @param data 
      */
     public showOrderAlert(type,data){
-        var node = cc.instantiate(this.PublicOrderAlert);
+        var node = null
+        if(this.UrlData.package_id == 8){
+            node = cc.instantiate(this.PublicOrderAlert_8);
+        }else{
+            node = cc.instantiate(this.PublicOrderAlert);
+        }
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         node.getComponent('payPublicOrderAlert').init(type,data)
@@ -202,7 +222,13 @@ export default class NewClass extends cc.Component {
      */
     public showBankAccountAlert(data){
         var canvas = cc.find('Canvas');
-        var node = cc.instantiate(this.BankAccountAlert);
+        
+        var node = null
+        if(this.UrlData.package_id == 8){
+            node = cc.instantiate(this.BankAccountAlert_8);
+        }else{
+            node = cc.instantiate(this.BankAccountAlert);
+        }
         canvas.addChild(node);
         let BankAccountAlert = node.getComponent('payBankAccountAlert');
         BankAccountAlert.init({
@@ -216,7 +242,12 @@ export default class NewClass extends cc.Component {
     }
     public showUsdtAccountAlert(itemId){
         var canvas = cc.find('Canvas');
-        var node = cc.instantiate(this.UsdtAccountAlert);
+        var node = null
+        if(this.UrlData.package_id == 8){
+            node = cc.instantiate(this.UsdtAccountAlert_8);
+        }else{
+            node = cc.instantiate(this.UsdtAccountAlert);
+        }
         canvas.addChild(node);
         let payUsdtAccountAlert = node.getComponent('payUsdtAccountAlert');
         payUsdtAccountAlert.init({
@@ -262,7 +293,13 @@ export default class NewClass extends cc.Component {
      * @param data 
      */
     showWriteMoneyAlert(component,type,data){
-        var node = cc.instantiate(this.WriteMoneyAlert);
+        var node = null
+        if(this.UrlData.package_id == 8){
+            node = cc.instantiate(this.WriteMoneyAlert_8);
+        }else{
+            node = cc.instantiate(this.WriteMoneyAlert);
+        }
+
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
         node.getComponent('payWriteMoneyAlert').init(component,type,data)

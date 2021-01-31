@@ -40,6 +40,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     SelectItem :cc.Prefab = null
 
+    @property(cc.Prefab)
+    CashAlert_8: cc.Prefab = null;
+
     @property
     public data : any = {};
     public results= null ;
@@ -140,7 +143,12 @@ export default class NewClass extends cc.Component {
 
     //兑换提示
     showCashAlert(conf_val){
-        var node = cc.instantiate(this.CashAlert);
+        var node = null
+        if(this.app.UrlData.package_id == 8){
+            node = cc.instantiate(this.CashAlert_8);
+        }else{
+            node = cc.instantiate(this.CashAlert);
+        }
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         let cash = cc.find('Canvas/Cash').getComponent('payCash')

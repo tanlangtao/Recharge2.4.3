@@ -44,7 +44,12 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/menu_rengong_1`,this.normalIcon,207,39)
             this.app.loadIcon(`${src}/menu/menu_rengong_2`,this.currentIcon,249,86)
         }else if(this.text == '兑换记录'){
-            this.app.loadIcon(`${src}/menu/menu_dhhistory_1`,this.normalIcon,242,86)
+            if(this.app.UrlData.package_id == 8){
+                this.app.loadIcon(`${src}/menu/menu_dhhistory_1`,this.normalIcon,102,99)
+            }else{
+                this.app.loadIcon(`${src}/menu/menu_dhhistory_1`,this.normalIcon,242,86)
+            }
+            
             this.app.loadIcon(`${src}/menu/menu_dhhistory_2`,this.currentIcon,249,86)
         }else if(this.text == 'USDT兑换'){
             this.app.loadIcon(`${src}/menu/menu_usdtQb_1`,this.normalIcon,242,86)
