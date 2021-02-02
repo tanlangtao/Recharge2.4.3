@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        358.80515010544025,
+        359.61704892148816,
         0,
         0,
         0,
@@ -403,7 +403,7 @@
     "TiHuoDoneAlert": null,
     "FruitHistroyAlert": null,
     "UsdtAccountAlert": {
-      "__uuid__": "0b4a21d3-28c5-41f3-82ae-c53fb7838cd1"
+      "__uuid__": "f327124c-9968-4ec2-ae09-6be4a756a506"
     },
     "BankAccountAlert_8": {
       "__uuid__": "beda466c-c907-4709-8f19-d7768371c4b7"
@@ -415,8 +415,9 @@
       "__uuid__": "923c2f28-8d24-4387-9c0a-7016f89bfdf2"
     },
     "UsdtAccountAlert_8": {
-      "__uuid__": "2c4ab69c-aa67-41df-9bf6-01d3244a4702"
+      "__uuid__": "9e3e54a2-db2b-47fe-9e9d-9ae98c5a87b7"
     },
+    "PublicOrderAlert_8": null,
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"
   },

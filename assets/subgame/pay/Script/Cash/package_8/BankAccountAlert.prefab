@@ -478,7 +478,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        295.341,
+        309.413,
         0,
         0,
         0,
@@ -547,7 +547,7 @@
     "_alignFlags": 1,
     "_left": 0,
     "_right": 0,
-    "_top": 30.658999999999992,
+    "_top": 16.58699999999999,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -2535,7 +2535,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 400,
-      "height": 60
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2546,7 +2546,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        -25.04,
         0,
         0,
         0,
@@ -3076,7 +3076,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 400,
-      "height": 60
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3087,7 +3087,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        -25.04,
         0,
         0,
         0,
@@ -3588,7 +3588,7 @@
   {
     "__type__": "cc.Node",
     "_name": "New Label",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 93
     },
@@ -3624,7 +3624,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -200,
+        -225.04,
         0,
         0,
         0,
@@ -4121,7 +4121,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -200,
+        -225.04,
         0,
         0,
         0,
@@ -4618,7 +4618,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -200,
+        -225.04,
         0,
         0,
         0,
@@ -5108,7 +5108,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 400,
-      "height": 60
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5119,7 +5119,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        -25.04,
         0,
         0,
         0,

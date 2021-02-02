@@ -84,7 +84,6 @@ export default class NewClass extends cc.Component {
             proxy_user_id:gHandler.gameGlobal.pay.proxy_user_id,
             proxy_name:gHandler.gameGlobal.pay.proxy_name,
             package_id:gHandler.gameGlobal.pay.package_id,
-            // package_id:8,
             imHost:gHandler.gameGlobal.im_host
         };
         this.gHandler = gHandler
@@ -203,7 +202,12 @@ export default class NewClass extends cc.Component {
      */
     public showAlipayAccountAlert(data){
         var canvas = cc.find('Canvas');
-        var node = cc.instantiate(this.AlipayAccountAlert);
+        var node = null
+        if(this.UrlData.package_id == 8){
+            node = cc.instantiate(this.AlipayAccountAlert_8);
+        }else{
+            node = cc.instantiate(this.AlipayAccountAlert);
+        }
         canvas.addChild(node);
         let AlipayAccountAlert = node.getComponent('payAlipayAccountAlert');
         AlipayAccountAlert.init({

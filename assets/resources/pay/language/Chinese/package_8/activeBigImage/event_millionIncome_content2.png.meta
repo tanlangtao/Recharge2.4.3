@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "47eb4594-e107-44be-8021-5c25f9259ef7",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1334,
+  "height": 750,
+  "platformSettings": {},
+  "subMetas": {
+    "event_millionIncome_content2": {
+      "ver": "1.0.4",
+      "uuid": "68abf6b7-7c87-421a-8c85-d6de71fefb61",
+      "rawTextureUuid": "47eb4594-e107-44be-8021-5c25f9259ef7",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 117,
+      "offsetY": -35,
+      "trimX": 260,
+      "trimY": 90,
+      "width": 1048,
+      "height": 640,
+      "rawWidth": 1334,
+      "rawHeight": 750,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

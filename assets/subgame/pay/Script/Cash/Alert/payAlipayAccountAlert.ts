@@ -103,7 +103,9 @@ export default class NewClass extends cc.Component {
         let btn1= cc.find('Canvas/AlipayAccountAlert/Layout/btn1')
         if(this.app.UrlData.package_id ==8){
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
-
+            this.app.loadIconLg(`${src}/font/zfbzh`,bdali_form.children[0])
+            this.app.loadIconLg(`${src}/font/skrxm`,bdali_form.children[1])
+            bdali_form.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("*温馨提示：绑定支付宝成功后无法自行修改!请仔细填写您的姓名和账号!")
         }else{
             this.app.loadIconLg(`${src}/form/bdali_form`,bdali_form)
             this.app.loadIconLg(`${src}/btn/surecg`,btn1)

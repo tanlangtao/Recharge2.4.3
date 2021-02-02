@@ -28,6 +28,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     CashAlert : cc.Prefab =null;
 
+    @property(cc.Prefab)
+    CashAlert_8 : cc.Prefab =null;
+
     @property
     app = null;
     data = null;
@@ -158,7 +161,12 @@ export default class NewClass extends cc.Component {
 
     //兑换提示
     showCashAlert(){
-        var node = cc.instantiate(this.CashAlert);
+        var node = null;
+        if(this.app.UrlData.package_id == 8){
+            node = cc.instantiate(this.CashAlert_8);
+        }else{
+            node = cc.instantiate(this.CashAlert);
+        }
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         let rateMount = Number(this.data.data.withDraw_info.artificial.rate)*Number(this.amountLabel.string);
@@ -197,15 +205,17 @@ export default class NewClass extends cc.Component {
         let btn1= cc.find("Canvas/RgDhAlert/Layout/btn1")
 
         this.app.loadIconLg(`${src}/font/title_rgdh`,toutpd)
-        this.app.loadIconLg(`${src}/font/txt_zhye2`,txt_zhye2)
-        this.app.loadIconLg(`${src}/font/txt_dhje2`,txt_dhje2)
         this.app.loadIconLg(`${src}/font/txt_dhfs`,txt_dhfs)
         this.app.loadIconLg(`${src}/font/txt_dhzh`,txt_dhzh)
         
         if(this.app.UrlData.package_id == 8){
+            this.app.loadIconLg(`${src}/font/txt_zhye`,txt_zhye2)
+            this.app.loadIconLg(`${src}/font/txt_dhje`,txt_dhje2)
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
         }else{
+            this.app.loadIconLg(`${src}/font/txt_zhye2`,txt_zhye2)
+            this.app.loadIconLg(`${src}/font/txt_dhje2`,txt_dhje2)
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/surecg`,btn1)
         }

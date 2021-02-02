@@ -193,6 +193,19 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi2)
         this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi3)
         this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi4)
+
+        if(this.app.UrlData.package_id == 8){
+            btn_fuzhi1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
+            btn_fuzhi2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
+            btn_fuzhi3.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
+            btn_fuzhi4.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
+
+        }else{
+            this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi1)
+            this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi2)
+            this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi3)
+            this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi4)
+        }
         this.app.loadIconLg(`${src}/font/btn_how`,btn1)
         
         attention.string = `${Language_pay.Lg.ChangeByText('特别提醒:')}`

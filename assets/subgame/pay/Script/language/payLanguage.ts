@@ -290,6 +290,8 @@ export namespace Language_pay {
             "备注",
             "钱包地址不符合要求(42位16进制组合, 开头为0x), 请重新输入。",
             "*温馨提示：绑定银行卡后无法自行修改! 请仔细填写您的银行卡信息!",
+            "*温馨提示：绑定支付宝成功后无法自行修改!请仔细填写您的姓名和账号!",
+            "复 制",
         ]
         private English =[
         ]
@@ -333,7 +335,6 @@ export namespace Language_pay {
         }
         getLgSrc(){
             let src = ''
-            // gHandler.gameGlobal.pay.package_id = 8 // test
             switch(this.Language){
                 case "Chinese": 
                         if(gHandler.gameGlobal.pay.package_id == 8){

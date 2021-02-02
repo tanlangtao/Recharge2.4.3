@@ -138,7 +138,11 @@ export default class NewClass extends cc.Component {
         this.data = data;
         //显示导航
         if(data.name == '流水闯关活动' ){
-            this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
+            if(this.app.UrlData.package_id == 8){
+                this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,100,98)
+            }else{
+                this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
+            }
             this.app.loadIcon(`${src}/menu/activity/btn_huodong1`,this.currentIcon,249,86);
         }
         else if(data.name == '救济金活动'){
@@ -222,7 +226,11 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/yuyu_btn_mrjyj1`,this.currentIcon,249,86);
         }
         else if(data.name == '流水闯关1'){
-            this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
+            if(this.app.UrlData.package_id == 8){
+                this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,100,98)
+            }else{
+                this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
+            }
             this.app.loadIcon(`${src}/menu/activity/btn_huodong1`,this.currentIcon,249,86);
         }
         else if(data.name == '二人麻将活动1'){
