@@ -1672,8 +1672,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "请选择链类型",
-    "_N$string": "请选择链类型",
+    "_string": "ERC20",
+    "_N$string": "ERC20",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1709,7 +1709,7 @@
       "__id__": 39
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 44
@@ -2606,7 +2606,7 @@
         "__id__": 84
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 92

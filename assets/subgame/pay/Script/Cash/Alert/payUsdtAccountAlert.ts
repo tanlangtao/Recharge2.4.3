@@ -43,7 +43,8 @@ export default class NewClass extends cc.Component {
         }
     }
     selectClick(){
-        this.selectContent.active = !this.selectContent.active
+        // 需求修改 20210204_充提模块， 绑定USDT钱包 链类型 写死为  ERC20
+        // this.selectContent.active = !this.selectContent.active
     }
     selectItemClick(event){
         let eventlabel = event.target.getChildByName('label').getComponent(cc.Label).string
@@ -114,7 +115,7 @@ export default class NewClass extends cc.Component {
         }
 
         this.walletAddressInput.placeholder = Language_pay.Lg.ChangeByText('请输入钱包地址')
-        this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('请选择链类型')
+        // this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('请选择链类型')
         tishi.string = Language_pay.Lg.ChangeByText('温馨提示：绑定钱包地址后无法自行修改！请仔细填写您的钱包地址信息，如有错误将会导致您无法收到货币。')
     }
 }
