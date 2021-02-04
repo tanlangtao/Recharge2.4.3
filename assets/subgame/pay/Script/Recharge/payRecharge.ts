@@ -152,7 +152,9 @@ export default class NewClass extends cc.Component {
                     arr.push('人工代充值')
                     break 
                 case "digiccy" :
-                    arr.push('USDT')
+                    if ( this.zfbResults.data.digiccy.length > 0  ) {
+                        arr.push('USDT')
+                    }
                     break
             }
         });
