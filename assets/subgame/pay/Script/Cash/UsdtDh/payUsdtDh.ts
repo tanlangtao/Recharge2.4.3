@@ -116,11 +116,12 @@ export default class NewClass extends cc.Component {
         console.log(this.UsdtData,this.info)
         //最小金额也需要根据package_id判断
         let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
-        withdraw_min_amount.forEach(item => {
+        withdraw_min_amount['usdt'].forEach(item => {
             if(item.package_id == this.app.UrlData.package_id){
                 this.current.min_amount = item.min_amount
             }
         });
+        console.log(this.data)
         this.goldLabel.string = this.app.config.toDecimal(this.data.data.game_gold);
         this.dhArea.string = `${Language_pay.Lg.ChangeByText('兑换范围')}:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
         this.walletAddressLabel.string = JSON.stringify(this.info)!= '{}' ? this.app.config.testAdressNum(this.info.wallet_addr) :Language_pay.Lg.ChangeByText('未绑定');
@@ -231,7 +232,7 @@ export default class NewClass extends cc.Component {
         //增加渠道对于兑换金额和倍数的判断
         var multiple_amount = 1;
         let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
-        withdraw_min_amount.forEach(item => {
+        withdraw_min_amount['usdt'].forEach(item => {
             if(item.package_id == this.app.UrlData.package_id){
                 minAmount = item.min_amount
                 multiple_amount = item.multiple_amount
@@ -283,8 +284,14 @@ export default class NewClass extends cc.Component {
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
                 let time = new Date().getTime()/1000
+                let Jsonconf_val = JSON.parse(response.data[0].conf_val)
+                for(var i in Jsonconf_val){
+                    if(i == this.app.UrlData.package_id){
+                        this.conf_val = Jsonconf_val[i]
+                    }
+                }
                 let cash_usdt = {
-                    conf_val :Number(response.data[0].conf_val), //汇率
+                    conf_val :Number(this.conf_val), //汇率
                     time : time, //保存的时间
                 }
                 cc.sys.localStorage.setItem(`cash_usdt`,JSON.stringify(cash_usdt))
