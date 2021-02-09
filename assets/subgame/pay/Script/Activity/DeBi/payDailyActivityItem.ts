@@ -173,6 +173,8 @@ export default class NewClass extends cc.Component {
                 return `${Language_pay.Lg.ChangeByText('十三水')}`
             case "5b1f3a3cb76a591e7f25176" :
                 return `${Language_pay.Lg.ChangeByText('德州扑克')}`
+            case "5b1f3a3cb76a591e7f251732" :
+                return `${Language_pay.Lg.ChangeByText('梭哈')}`
             default :
                 return ""
         }
@@ -216,6 +218,8 @@ export default class NewClass extends cc.Component {
             this.checkSubGameDownload("sss")
         }else if(gameName == Language_pay.Lg.ChangeByText('德州扑克')){
             this.checkSubGameDownload("dzpk")
+        }else if(gameName == Language_pay.Lg.ChangeByText('梭哈')){
+            this.checkSubGameDownload("suoha_Hall")
         }
     }
     /** 根据id获取服务器子游戏信息 */
