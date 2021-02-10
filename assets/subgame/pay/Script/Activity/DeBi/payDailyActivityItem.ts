@@ -219,7 +219,7 @@ export default class NewClass extends cc.Component {
         }else if(gameName == Language_pay.Lg.ChangeByText('德州扑克')){
             this.checkSubGameDownload("dzpk")
         }else if(gameName == Language_pay.Lg.ChangeByText('梭哈')){
-            this.checkSubGameDownload("suoha_Hall")
+            this.checkSubGameDownload("suoha")
         }
     }
     /** 根据id获取服务器子游戏信息 */
