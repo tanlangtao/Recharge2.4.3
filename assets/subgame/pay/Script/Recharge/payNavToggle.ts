@@ -124,6 +124,11 @@ export default class NewClass extends cc.Component {
             let percent = 0
             this.app.loadIcon(`${src}/menu/menu_usdt_1`,this.normalIcon,207,39)
             this.app.loadIcon(`${src}/menu/menu_usdt_2`,this.currentIcon,249,86)
+            discount_rate.usdt.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
             this.setTishiLabel(percent)
         } 
     }

@@ -327,8 +327,15 @@ export default class NewClass extends cc.Component {
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
                 let time = new Date().getTime()/1000
+                let JsonConfval = JSON.parse(response.data[0].conf_val)
+                let Package_conf_val = 7
+                for (var i in JsonConfval){
+                    if( i == this.app.UrlData.package_id){
+                        Package_conf_val = JsonConfval[i]
+                    }
+                }
                 let pay_usdt = {
-                    conf_val :Number(response.data[0].conf_val), //汇率
+                    conf_val :Number(Package_conf_val), //汇率
                     time : time, //保存的时间
                 }
                 cc.sys.localStorage.setItem(`pay_usdt`,JSON.stringify(pay_usdt))
