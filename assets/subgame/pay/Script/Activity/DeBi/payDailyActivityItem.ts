@@ -331,6 +331,5 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/activeSprite/fdsafsd`,btn)
         this.app.loadIconLg(`${src}/activeSprite/yrt`,goto)
         this.app.loadIconLg(`${src}/activeSprite/hgrt`,btn_done)
-
     }
 }

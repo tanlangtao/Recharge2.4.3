@@ -78,7 +78,8 @@ export default class NewClass extends cc.Component {
             e.name == '幸运轮盘2' || e.name == '四季发财红包雨2' ||e.name == '每日签到2' || e.name == '流水奖励活动2'||
             e.name == '日亏损活动2' ||e.name == '神秘彩金活动2'||e.name == '首提加赠活动2' ||e.name == '分享朋友圈活动2'||
             e.name == '捕鱼盈利嘉奖2' ||e.name == '首充活动2' ||e.name == '新用户包赔活动2'||e.name == '日业绩活动2'||
-            e.name =='老用户包赔活动2' || e.name =='分享朋友圈活动3'||e.name =='新会员首存活动三重奏2' ||e.name =='老会员每日首存活动2'
+            e.name =='老用户包赔活动2' || e.name =='分享朋友圈活动3'||e.name =='新会员首存活动三重奏2' ||e.name =='老会员每日首存活动2'||
+            e.name =='每日任务8' ||e.name =='每日签到8'
             )){
                 this.arr.push(e);
             }

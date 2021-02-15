@@ -20,6 +20,9 @@ export default class NewClass extends cc.Component {
     DailyActivity : cc.Prefab = null;
 
     @property(cc.Prefab)
+    DailyActivity_8 : cc.Prefab = null;
+
+    @property(cc.Prefab)
     NewPlayerGift: cc.Prefab = null;
     @property(cc.Prefab)
     HalfMonthGift: cc.Prefab = null;
@@ -85,6 +88,9 @@ export default class NewClass extends cc.Component {
     DailySignTwo :cc.Prefab = null;
 
     @property(cc.Prefab)
+    DailySignTwo_8 :cc.Prefab = null;
+
+    @property(cc.Prefab)
     Lsjlhd :cc.Prefab = null;
     
     @property(cc.Prefab)
@@ -138,18 +144,14 @@ export default class NewClass extends cc.Component {
         this.data = data;
         //显示导航
         if(data.name == '流水闯关活动' ){
-            if(this.app.UrlData.package_id == 8){
-                this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,100,98)
-            }else{
-                this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
-            }
+            this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_huodong1`,this.currentIcon,249,86);
         }
         else if(data.name == '救济金活动'){
             this.app.loadIcon(`${src}/menu/activity/menu_alms_2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/menu_alms_1`,this.currentIcon,249,86);
         }
-        else if(data.name == '每日任务2'){
+        else if(data.name == '每日任务2'|| data.name == '每日任务8'){
             this.app.loadIcon(`${src}/menu/activity/btn_dailyMission2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_dailyMission1`,this.currentIcon,249,86);
         }
@@ -226,11 +228,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/yuyu_btn_mrjyj1`,this.currentIcon,249,86);
         }
         else if(data.name == '流水闯关1'){
-            if(this.app.UrlData.package_id == 8){
-                this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,100,98)
-            }else{
-                this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
-            }
+            this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_huodong1`,this.currentIcon,249,86);
         }
         else if(data.name == '二人麻将活动1'){
@@ -245,7 +243,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_redRain2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_redRain1`,this.currentIcon,249,86);
         }
-        else if(data.name == '每日签到2'){
+        else if(data.name == '每日签到2'||data.name == '每日签到8'){
             this.app.loadIcon(`${src}/menu/activity/btn_qd2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_qd1`,this.currentIcon,249,86);
         }
@@ -300,10 +298,8 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,249,86);
         }
-        
-
         //响应每日签到2，显示红点
-        if(this.name == '每日签到2'){
+        if(this.name == '每日签到2'|| this.name == '每日签到8'){
             this.fetchgetSignWeekInfo(this.id)
         }
     }
@@ -332,7 +328,7 @@ export default class NewClass extends cc.Component {
         }
         this.addContent(this.name,JSON.parse(this.data.info),this.id)
 
-        if(this.name == '每日签到2'){
+        if(this.name == '每日签到2' || this.name == '每日签到8'){
             this.fetchgetSignWeekInfo(this.id)
         }
     }
@@ -369,6 +365,10 @@ export default class NewClass extends cc.Component {
             this.app.loadTitle(`${src}/title/alms_zi2`,this.title);
         }else if(name == '每日任务2'){
             var node = cc.instantiate(this.DailyActivity);
+            node.getComponent('payDailyActivity').setIdInfo(id,info);
+            this.app.loadTitle(`${src}/title/dm_title`,this.title);
+        }else if(name == '每日任务8'){
+            var node = cc.instantiate(this.DailyActivity_8);
             node.getComponent('payDailyActivity').setIdInfo(id,info);
             this.app.loadTitle(`${src}/title/dm_title`,this.title);
         }else if(name == '每周佣金奖励'){
@@ -452,6 +452,10 @@ export default class NewClass extends cc.Component {
         }
         else  if(name == '每日签到2'){
             var node = cc.instantiate(this.DailySignTwo);
+            node.getComponent('payDailySign').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/mrqd`,this.title);
+        }else  if(name == '每日签到8'){
+            var node = cc.instantiate(this.DailySignTwo_8);
             node.getComponent('payDailySign').setIdInfo(id,info)
             this.app.loadTitle(`${src}/title/mrqd`,this.title);
         }else  if(name == '流水奖励活动2'){

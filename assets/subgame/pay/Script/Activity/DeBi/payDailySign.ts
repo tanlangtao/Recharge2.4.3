@@ -125,7 +125,7 @@ export default class NewClass extends cc.Component {
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
         let group1= cc.find('Canvas/Activity/Content/DailySign/bg/group1')
-        let d7= cc.find('Canvas/Activity/Content/DailySign/bg/d7')
+        let d7_yilingqu= cc.find('Canvas/Activity/Content/DailySign/bg/d7/yilingqu')
         let lw_zj_txt_jinbi= cc.find('Canvas/Activity/Content/DailySign/bg/zhongjiangBg/sp2/lw_zj_txt_jinbi')
         let lw_zj_txt_jf= cc.find('Canvas/Activity/Content/DailySign/bg/zhongjiangBg/sp2/lw_zj_txt_jf')
         let lw_btn_confirm= cc.find('Canvas/Activity/Content/DailySign/bg/zhongjiangBg/sp2/lw_btn_confirm')
@@ -133,12 +133,36 @@ export default class NewClass extends cc.Component {
         group1.children.forEach(e=>{
             this.app.loadIconLg(`${src}/activeSprite/yilingqu`,e.getChildByName('yilingqu'))
         })
-        this.app.loadIconLg(`${src}/activeSprite/yilingqu`,d7)
+        this.app.loadIconLg(`${src}/activeSprite/yilingqu`,d7_yilingqu)
         this.app.loadIconLg(`${src}/activeSprite/lw_zj_txt_jinbi`,lw_zj_txt_jinbi)
         this.app.loadIconLg(`${src}/activeSprite/lw_zj_txt_jf`,lw_zj_txt_jf)
         this.app.loadIconLg(`${src}/activeSprite/lw_btn_confirm`,lw_btn_confirm)
 
         let title= cc.find('Canvas/Activity/Content/DailySign/bg/title').getComponent(cc.Label)
         title.string = Language_pay.Lg.ChangeByText('每周累计签到达到指定天数, 即可获得相应奖励')
+        let day1 = cc.find('Canvas/Activity/Content/DailySign/bg/group1/d1/day')
+        let day2 = cc.find('Canvas/Activity/Content/DailySign/bg/group1/d2/day')
+        let day3 = cc.find('Canvas/Activity/Content/DailySign/bg/group1/d3/day')
+        let day4 = cc.find('Canvas/Activity/Content/DailySign/bg/group1/d4/day')
+        let day5 = cc.find('Canvas/Activity/Content/DailySign/bg/group1/d5/day')
+        let day6 = cc.find('Canvas/Activity/Content/DailySign/bg/group1/d6/day')
+        let day7 = cc.find('Canvas/Activity/Content/DailySign/bg/d7/day')
+        if(this.app.UrlData.package_id != 8){
+            this.app.loadIconLg(`${src}/activeSprite/day1`,day1)
+            this.app.loadIconLg(`${src}/activeSprite/day2`,day2)
+            this.app.loadIconLg(`${src}/activeSprite/day3`,day3)
+            this.app.loadIconLg(`${src}/activeSprite/day4`,day4)
+            this.app.loadIconLg(`${src}/activeSprite/day5`,day5)
+            this.app.loadIconLg(`${src}/activeSprite/day6`,day6)
+            this.app.loadIconLg(`${src}/activeSprite/day7`,day7)
+        }else{
+            day1.getComponent(cc.Label).string == Language_pay.Lg.ChangeByText('第一天')
+            day2.getComponent(cc.Label).string == Language_pay.Lg.ChangeByText('第二天')
+            day3.getComponent(cc.Label).string == Language_pay.Lg.ChangeByText('第三天')
+            day4.getComponent(cc.Label).string == Language_pay.Lg.ChangeByText('第四天')
+            day5.getComponent(cc.Label).string == Language_pay.Lg.ChangeByText('第五天')
+            day6.getComponent(cc.Label).string == Language_pay.Lg.ChangeByText('第六天')
+            day7.getComponent(cc.Label).string == Language_pay.Lg.ChangeByText('第七天')
+        }
     }
 }
