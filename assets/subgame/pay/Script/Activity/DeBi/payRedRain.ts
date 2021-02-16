@@ -16,8 +16,12 @@ export default class NewClass extends cc.Component {
         let jifen= cc.find('Canvas/Activity/Content/RedRain/bg/ScrollView/view/content/jifen')
         let huodong= cc.find('Canvas/Activity/Content/RedRain/bg/ScrollView/view/content/huodong')
 
-        this.app.loadIconLg(`${src}/activeBigImage/hongbaoyu`,bg)
-        this.app.loadIconLg(`${src}/activeSprite/jifen`,jifen)
+        if(this.app.UrlData.package_id == 8){
+            this.app.loadIconLg(`${src}/activeBigImage/hongbaoyu`,bg.getChildByName('hongbaoyu'))
+        }else{
+            this.app.loadIconLg(`${src}/activeBigImage/hongbaoyu`,bg)
+            this.app.loadIconLg(`${src}/activeSprite/jifen`,jifen)
+        }
         this.app.loadIconLg(`${src}/activeSprite/huodong`,huodong)
 
         let label1= cc.find('Canvas/Activity/Content/RedRain/bg/ScrollView/view/content/kuang2/line1/label1').getComponent(cc.Label)

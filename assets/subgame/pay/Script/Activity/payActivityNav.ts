@@ -85,6 +85,9 @@ export default class NewClass extends cc.Component {
     RedRain : cc.Prefab = null;
 
     @property(cc.Prefab)
+    RedRain_8 : cc.Prefab = null;
+
+    @property(cc.Prefab)
     DailySignTwo :cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -151,7 +154,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/menu_alms_2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/menu_alms_1`,this.currentIcon,249,86);
         }
-        else if(data.name == '每日任务2'|| data.name == '每日任务8'){
+        else if(data.name == '每日任务2'){
             this.app.loadIcon(`${src}/menu/activity/btn_dailyMission2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_dailyMission1`,this.currentIcon,249,86);
         }
@@ -243,7 +246,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_redRain2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_redRain1`,this.currentIcon,249,86);
         }
-        else if(data.name == '每日签到2'||data.name == '每日签到8'){
+        else if(data.name == '每日签到2'){
             this.app.loadIcon(`${src}/menu/activity/btn_qd2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_qd1`,this.currentIcon,249,86);
         }
@@ -297,6 +300,18 @@ export default class NewClass extends cc.Component {
         }else  if(data.name == '老会员每日首存活动2'){
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,249,86);
+        }
+        else if(data.name == '每日签到8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_qd2`,this.normalIcon,101,107)
+            this.app.loadIcon(`${src}/menu/activity/btn_qd1`,this.currentIcon,101,92);
+        }
+        else if( data.name == '每日任务8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_dailyMission2`,this.normalIcon,103,109)
+            this.app.loadIcon(`${src}/menu/activity/btn_dailyMission1`,this.currentIcon,103,93);
+        }
+        else if(data.name == '四季发财红包雨8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_redRain2`,this.normalIcon,178,93)
+            this.app.loadIcon(`${src}/menu/activity/btn_redRain1`,this.currentIcon,178,109);
         }
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'){
@@ -448,6 +463,9 @@ export default class NewClass extends cc.Component {
             this.app.loadTitle(`${src}/title/xingyunlunpan`,this.title);
         }else  if(name == '四季发财红包雨2'){
             var node = cc.instantiate(this.RedRain);
+            this.app.loadTitle(`${src}/title/db_redrain`,this.title);
+        }else  if(name == '四季发财红包雨8'){
+            var node = cc.instantiate(this.RedRain_8);
             this.app.loadTitle(`${src}/title/db_redrain`,this.title);
         }
         else  if(name == '每日签到2'){
