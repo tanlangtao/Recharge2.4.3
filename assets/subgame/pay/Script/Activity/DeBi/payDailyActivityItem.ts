@@ -203,23 +203,21 @@ export default class NewClass extends cc.Component {
     goToBtnClick(){
         var gameName = this.switchGameId(this.game_id)
         if(gameName == Language_pay.Lg.ChangeByText('炸金花')){
-            this.checkSubGameDownload("zjh")
+            this.checkSubGameDownload("zjh",'炸金花')
         }else if(gameName == Language_pay.Lg.ChangeByText('斗地主')){
-            this.checkSubGameDownload("ddz")
+            this.checkSubGameDownload("ddz",'斗地主')
         }else if(gameName == Language_pay.Lg.ChangeByText('跑得快')){
-            this.checkSubGameDownload("pdk")
-        }else if(gameName == Language_pay.Lg.ChangeByText('跑得快')){
-            this.checkSubGameDownload("pdk")
+            this.checkSubGameDownload("pdk",'跑得快')
         }else if(gameName == Language_pay.Lg.ChangeByText('二人麻将')){
-            this.checkSubGameDownload("ermj")
+            this.checkSubGameDownload("ermj",'二人麻将')
         }else if(gameName == Language_pay.Lg.ChangeByText('抢庄牛牛')){
-            this.checkSubGameDownload("qznn")
+            this.checkSubGameDownload("qznn",'抢庄牛牛')
         }else if(gameName == Language_pay.Lg.ChangeByText('十三水')){
-            this.checkSubGameDownload("sss")
+            this.checkSubGameDownload("sss",'十三水')
         }else if(gameName == Language_pay.Lg.ChangeByText('德州扑克')){
-            this.checkSubGameDownload("dzpk")
+            this.checkSubGameDownload("dzpk",'德州扑克')
         }else if(gameName == Language_pay.Lg.ChangeByText('梭哈')){
-            this.checkSubGameDownload("suoha")
+            this.checkSubGameDownload("suoha","梭哈")
         }
     }
     /** 根据id获取服务器子游戏信息 */
@@ -238,7 +236,7 @@ export default class NewClass extends cc.Component {
     }
     /** 判断子游戏是否下载更新等 */
     
-    checkSubGameDownload(enname) {
+    checkSubGameDownload(enname,rname) {
         console.log('checkSubGameDownload',enname)
         let self = this;
         let subdata = this.getRemoteSubgame(this.app.gHandler.subGameList[enname].game_id)
@@ -260,7 +258,7 @@ export default class NewClass extends cc.Component {
             let needup = this.app.gHandler.commonTools.versionCompare(localsubv, subgamev)
             if (needup && !cc.sys.isBrowser && cc.sys.os != "Windows") {
                 console.log(" | subgame : " + enname + " need update");
-                self.payDailyCompoment.app.showAlert(`${Language_pay.Lg.ChangeByText('游戏需要下载更新!请返回大厅下载更新')} ${enname}`);
+                self.payDailyCompoment.app.showAlert(`${Language_pay.Lg.ChangeByText('游戏需要下载更新!请返回大厅下载更新')} ${rname}`);
             } else {
                 console.log(" | subgame : " + enname + " not need update")
                 cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
