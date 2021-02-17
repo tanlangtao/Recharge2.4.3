@@ -27,6 +27,8 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     HalfMonthGift: cc.Prefab = null;
     @property(cc.Prefab)
+    HalfMonthGift_8: cc.Prefab = null;
+    @property(cc.Prefab)
     OnceWeekGift: cc.Prefab = null;
     @property(cc.Prefab)
     OneMonthMillion: cc.Prefab = null;
@@ -110,6 +112,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     Fxpyq3 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Fxpyq_8 :cc.Prefab = null;
 
     @property(cc.Prefab)
     Byyljj :cc.Prefab = null;
@@ -313,6 +318,15 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_redRain2`,this.normalIcon,178,93)
             this.app.loadIcon(`${src}/menu/activity/btn_redRain1`,this.currentIcon,178,109);
         }
+        else if(data.name == '15天送58元8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_58for15days2`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_58for15days1`,this.currentIcon,249,86);
+        }
+        else if(data.name == '分享朋友圈活动8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_fxpyq2`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_fxpyq1`,this.currentIcon,249,86);
+        }
+
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'){
             this.fetchgetSignWeekInfo(this.id)
@@ -518,6 +532,13 @@ export default class NewClass extends cc.Component {
         }else  if(name == '老会员每日首存活动2'){
             var node = cc.instantiate(this.Lhysc);
             this.app.loadTitle(`${src}/title/dm_title_lhysc`,this.title);
+        }else if (name == "15天送58元8") {
+            var node = cc.instantiate(this.HalfMonthGift_8)
+            this.app.loadTitle(`${src}/title/dm_title_58for15days`,this.title);
+        }
+        else  if(name == '分享朋友圈活动8'){
+            var node = cc.instantiate(this.Fxpyq_8);
+            this.app.loadTitle(`${src}/title/dm_title_fxpyq`,this.title);
         }
         
         content.addChild(node);

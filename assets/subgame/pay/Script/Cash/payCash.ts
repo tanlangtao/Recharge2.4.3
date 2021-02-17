@@ -34,6 +34,7 @@ export default class NewClass extends cc.Component {
         let scalex = cc.winSize.width / 1334;
         this.node.scaleY = scalex;
         this.node.scaleX = scalex;
+        this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
         this.setLanguageResource()
     }
     public exitBtnClick(){
