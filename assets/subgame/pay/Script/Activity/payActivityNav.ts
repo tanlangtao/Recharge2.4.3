@@ -84,6 +84,9 @@ export default class NewClass extends cc.Component {
     WheelOfFortune : cc.Prefab = null;
 
     @property(cc.Prefab)
+    WheelOfFortune_8 : cc.Prefab = null;
+
+    @property(cc.Prefab)
     RedRain : cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -319,12 +322,16 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_redRain1`,this.currentIcon,178,109);
         }
         else if(data.name == '15天送58元8'){
-            this.app.loadIcon(`${src}/menu/activity/btn_58for15days2`,this.normalIcon,242,86)
-            this.app.loadIcon(`${src}/menu/activity/btn_58for15days1`,this.currentIcon,249,86);
+            this.app.loadIcon(`${src}/menu/activity/btn_58for15days2`,this.normalIcon,132,107)
+            this.app.loadIcon(`${src}/menu/activity/btn_58for15days1`,this.currentIcon,132,107);
         }
         else if(data.name == '分享朋友圈活动8'){
-            this.app.loadIcon(`${src}/menu/activity/btn_fxpyq2`,this.normalIcon,242,86)
-            this.app.loadIcon(`${src}/menu/activity/btn_fxpyq1`,this.currentIcon,249,86);
+            this.app.loadIcon(`${src}/menu/activity/btn_fxpyq2`,this.normalIcon,128,108)
+            this.app.loadIcon(`${src}/menu/activity/btn_fxpyq1`,this.currentIcon,128,108);
+        }
+        else if(data.name == '幸运轮盘8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_xyzp2`,this.normalIcon,102,94)
+            this.app.loadIcon(`${src}/menu/activity/btn_xyzp1`,this.currentIcon,102,110);
         }
 
         //响应每日签到2，显示红点
@@ -539,6 +546,11 @@ export default class NewClass extends cc.Component {
         else  if(name == '分享朋友圈活动8'){
             var node = cc.instantiate(this.Fxpyq_8);
             this.app.loadTitle(`${src}/title/dm_title_fxpyq`,this.title);
+        }
+        else  if(name == '幸运轮盘8'){
+            var node = cc.instantiate(this.WheelOfFortune_8);
+            node.getComponent('payWheelOfFortune').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/xingyunlunpan`,this.title);
         }
         
         content.addChild(node);

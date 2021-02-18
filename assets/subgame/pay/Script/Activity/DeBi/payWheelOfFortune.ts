@@ -432,7 +432,11 @@ export default class NewClass extends cc.Component {
         let lw_zj_txt_jinbi= cc.find('Canvas/Activity/Content/WheelOfFortune/zhongjiangBg/sp2/lw_zj_txt_jinbi')
         let lw_btn_confirm= cc.find('Canvas/Activity/Content/WheelOfFortune/zhongjiangBg/sp2/lw_btn_confirm')
 
-        this.app.loadIconLg(`${src}/activeBigImage/event_luckyWheel_bg`,bg)
+        if(this.app.UrlData.package_id == 8){
+            this.app.loadIconLg(`${src}/activeSprite/jifen`,bg.getChildByName("jifen"))
+        }else{
+            this.app.loadIconLg(`${src}/activeBigImage/event_luckyWheel_bg`,bg)
+        }
         this.app.loadIconLg(`${src}/activeSprite/lw_btn_serverRecord`,lw_btn_serverRecord)
         this.app.loadIconLg(`${src}/activeSprite/lw_btn_personalRecord`,lw_btn_personalRecord)
         this.app.loadIconLg(`${src}/activeSprite/lw_wenhao`,lw_wenhao)
