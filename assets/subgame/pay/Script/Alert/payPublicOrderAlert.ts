@@ -161,25 +161,26 @@ export default class NewClass extends cc.Component {
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
 
-        let title_orderinfo= this.node.getChildByName('Content').getChildByName('title_orderinfo')
-        let txt_chongzhifangshi= this.node.getChildByName('Content').getChildByName('group').getChildByName('group1').getChildByName('txt_chongzhifangshi')
-        let txt_shoukuanyinhang= this.node.getChildByName('Content').getChildByName('group').getChildByName('group1').getChildByName('txt_shoukuanyinhang')
-        let txt_shoukuanzhanghao= this.node.getChildByName('Content').getChildByName('group').getChildByName('group1').getChildByName('txt_shoukuanzhanghao')
-        let txt_shoukuanxingming= this.node.getChildByName('Content').getChildByName('group').getChildByName('group1').getChildByName('txt_shoukuanxingming')
-        let txt_zhuanzhuangjie= this.node.getChildByName('Content').getChildByName('group').getChildByName('group1').getChildByName('txt_zhuanzhuangjie')
-        let txt_beizhu2= this.node.getChildByName('Content').getChildByName('group').getChildByName('group1').getChildByName('txt_beizhu2')
-        let txt_playername= this.node.getChildByName('Content').getChildByName('group').getChildByName('txt_playername')
-        let btn_fuzhi1= this.node.getChildByName('Content').getChildByName('group').getChildByName('btn_fuzhi1')
-        let btn_fuzhi2= this.node.getChildByName('Content').getChildByName('group').getChildByName('btn_fuzhi2')
-        let btn_fuzhi3= this.node.getChildByName('Content').getChildByName('group').getChildByName('btn_fuzhi3')
-        let btn_fuzhi4= this.node.getChildByName('Content').getChildByName('group').getChildByName('btn_fuzhi4')
-        let attention= this.node.getChildByName('Content').getChildByName('attention').getComponent(cc.Label)
-        let label1= this.node.getChildByName('Content').getChildByName('label1').getComponent(cc.Label)
-        let label2= this.node.getChildByName('Content').getChildByName('label2').getComponent(cc.RichText)
-        let label4= this.node.getChildByName('Content').getChildByName('label4').getComponent(cc.Label)
-        let label5= this.node.getChildByName('Content').getChildByName('label5').getComponent(cc.Label)
-        let label6= this.node.getChildByName('Content').getChildByName('label6').getComponent(cc.Label)
-        let btn1= this.node.getChildByName('Content').getChildByName('btn1')
+        let title_orderinfo= cc.find("Canvas/PublicOrderAlert/Content/title_orderinfo")
+        let txt_chongzhifangshi= cc.find("Canvas/PublicOrderAlert/Content/group/group1/txt_chongzhifangshi")
+        let txt_shoukuanyinhang= cc.find("Canvas/PublicOrderAlert/Content/group/group1/txt_shoukuanyinhang")
+        let txt_shoukuanzhanghao= cc.find("Canvas/PublicOrderAlert/Content/group/group1/txt_shoukuanzhanghao")
+        let txt_shoukuanxingming= cc.find("Canvas/PublicOrderAlert/Content/group/group1/txt_shoukuanxingming")
+        let txt_zhuanzhuangjie= cc.find("Canvas/PublicOrderAlert/Content/group/group1/txt_zhuanzhuangjie")
+        let txt_beizhu2= cc.find("Canvas/PublicOrderAlert/Content/group/group1/txt_beizhu2")
+        let yhkzzLabel= cc.find("Canvas/PublicOrderAlert/Content/group/group2/yhkzz").getComponent(cc.Label)
+        let txt_playername= cc.find("Canvas/PublicOrderAlert/Content/group/txt_playername")
+        let btn_fuzhi1=cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi1")
+        let btn_fuzhi2= cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi2")
+        let btn_fuzhi3= cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi3")
+        let btn_fuzhi4= cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi4")
+        let attention= cc.find("Canvas/PublicOrderAlert/Content/attention").getComponent(cc.Label)
+        let label1= cc.find("Canvas/PublicOrderAlert/Content/label1").getComponent(cc.Label)
+        let label2= cc.find("Canvas/PublicOrderAlert/Content/label2").getComponent(cc.RichText)
+        let label4= cc.find("Canvas/PublicOrderAlert/Content/label4").getComponent(cc.Label)
+        let label5= cc.find("Canvas/PublicOrderAlert/Content/label5").getComponent(cc.Label)
+        let label6= cc.find("Canvas/PublicOrderAlert/Content/label6").getComponent(cc.Label)
+        let btn1= cc.find("Canvas/PublicOrderAlert/Content/btn1")
 
         this.app.loadIconLg(`${src}/font/title_orderinfo`,title_orderinfo)
         this.app.loadIconLg(`${src}/font/txt_chongzhifangshi`,txt_chongzhifangshi)
@@ -189,10 +190,6 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/font/txt_zhuanzhuangjie`,txt_zhuanzhuangjie)
         this.app.loadIconLg(`${src}/font/txt_beizhu2`,txt_beizhu2)
         this.app.loadIconLg(`${src}/font/txt_playername`,txt_playername)
-        this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi1)
-        this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi2)
-        this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi3)
-        this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi4)
 
         if(this.app.UrlData.package_id == 8){
             btn_fuzhi1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
@@ -206,9 +203,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi3)
             this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi4)
         }
-        this.app.loadIconLg(`${src}/font/btn_how`,btn1)
+        this.app.loadIconLg(`${src}/btn/btn_how`,btn1)
         
         attention.string = `${Language_pay.Lg.ChangeByText('特别提醒:')}`
+        yhkzzLabel.string = `${Language_pay.Lg.ChangeByText('银行卡转账')}`
         label1.string = `${Language_pay.Lg.ChangeByText('1.支持各种银行，支付宝，微信的银行卡转账；')}`
         label2.string = `<color=#FF3333>${Language_pay.Lg.ChangeByText('2.支付时输入金额与转账金额一致')},</c><color=#F3C612> ${Language_pay.Lg.ChangeByText('（包含小数点后2位数字）')}</c>。`
         label4.string = `${Language_pay.Lg.ChangeByText('禁止修改金额，否则不到账；')}`
