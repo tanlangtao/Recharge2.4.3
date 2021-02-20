@@ -47,7 +47,7 @@ export default class NewClass extends cc.Component {
     page = 1;
     listStatus = 'all' //all 表示全服务, single 表示个人
     totalCpunt = 1//总条数
-    limit = 1
+    limit = 10
     setIdInfo(id,info){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
             info = []
@@ -241,7 +241,8 @@ export default class NewClass extends cc.Component {
     addList(data){
         cc.log(data)
         data.forEach((item) => {
-            if(item.activity_name!='幸运轮盘2'||item.activity_name!='幸运轮盘8'){
+            console.log('item',item)
+            if(item.activity_name!='幸运轮盘2' && item.activity_name!='幸运轮盘8'){
                 return 
             }
             let info = JSON.parse(item.receive_info);
@@ -253,6 +254,7 @@ export default class NewClass extends cc.Component {
             }else{
                 user_name = item.user_name
             }
+            console.log('info',info)
             if(info.prize.length >1){
                 info.prize.forEach(prizeItem=>{
                     var node = cc.instantiate(this.ListItem);
