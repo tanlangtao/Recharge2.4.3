@@ -261,6 +261,7 @@ export default class NewClass extends cc.Component {
                 self.payDailyCompoment.app.showAlert(`${Language_pay.Lg.ChangeByText('游戏需要下载更新!请返回大厅下载更新')} ${rname}`);
             } else {
                 console.log(" | subgame : " + enname + " not need update")
+                self.app.gHandler.audioMgr.stopBg();//关闭大厅音乐
                 cc.director.loadScene(self.app.gHandler.subGameList[enname].lanchscene);
                 if (this.app.gHandler.app.isRelease) {
                     let subgamern = enname

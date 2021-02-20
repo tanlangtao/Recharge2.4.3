@@ -241,7 +241,7 @@ export default class NewClass extends cc.Component {
     addList(data){
         cc.log(data)
         data.forEach((item) => {
-            if(item.activity_name!='幸运轮盘2'){
+            if(item.activity_name!='幸运轮盘2'||item.activity_name!='幸运轮盘8'){
                 return 
             }
             let info = JSON.parse(item.receive_info);
@@ -253,7 +253,6 @@ export default class NewClass extends cc.Component {
             }else{
                 user_name = item.user_name
             }
-           
             if(info.prize.length >1){
                 info.prize.forEach(prizeItem=>{
                     var node = cc.instantiate(this.ListItem);

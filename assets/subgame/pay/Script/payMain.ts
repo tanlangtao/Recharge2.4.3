@@ -76,7 +76,7 @@ export default class NewClass extends cc.Component {
         this.config = new Config();
         this.UrlData =  {
             user_id:gHandler.gameGlobal.pay.user_id,
-            // user_id:"446343457", //德比online
+            // user_id:"358959472", //
             user_name:gHandler.gameGlobal.pay.user_name,
             client:gHandler.gameGlobal.pay.client,
             host:gHandler.gameGlobal.pay.pay_host,
