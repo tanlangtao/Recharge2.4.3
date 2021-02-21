@@ -198,10 +198,10 @@ export default class NewClass extends cc.Component {
             btn_fuzhi4.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
 
         }else{
-            this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi1)
-            this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi2)
-            this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi3)
-            this.app.loadIconLg(`${src}/font/btn_fuzhi`,btn_fuzhi4)
+            this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi1)
+            this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi2)
+            this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi3)
+            this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi4)
         }
         this.app.loadIconLg(`${src}/btn/btn_how`,btn1)
         

@@ -297,6 +297,7 @@ export namespace Language_pay {
             "第五天",
             "第六天",
             "第七天",
+            "银行卡转账",
         ]
         private English =[
         ]
