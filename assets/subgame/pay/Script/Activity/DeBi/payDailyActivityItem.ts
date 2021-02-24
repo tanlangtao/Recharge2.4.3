@@ -96,8 +96,9 @@ export default class NewClass extends cc.Component {
         let isReceive = false
         Detail.received_task.forEach(e => {
             //数组里存在，则表示已领取
-            let task_id = e.slice(-3)
-            if(task_id == this.task_id){
+            let item = JSON.parse(e)
+            console.log(item.task_id,this.task_id,item.game_id,this.game_id)
+            if(item.task_id == this.task_id && item.game_id == this.game_id){
                 isReceive = true
             }
         });
