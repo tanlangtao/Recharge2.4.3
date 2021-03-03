@@ -34,6 +34,6 @@ export default class NewClass extends cc.Component {
         label6.string = `88${Language_pay.Lg.ChangeByText("元")}`
         label7.string = `20${Language_pay.Lg.ChangeByText("人")}`
         label8.string = `188${Language_pay.Lg.ChangeByText("元")}`
-        label9.string = Language_pay.Lg.ChangeByText("1. 同设备、同IP、账号异常、对刷套利者扣除收益一律封号处理\n 2. 满足条件可联系客服领取")
+        label9.string = Language_pay.Lg.ChangeByText("1. 同设备、同IP、账号异常、对刷套利者扣除收益一律封号处理\n2. 满足条件可联系客服领取")
     }
 }

@@ -41,7 +41,7 @@ export default class NewClass extends cc.Component {
         let label15= cc.find('Canvas/Activity/Content/RedRain/bg/ScrollView/view/content/frame_1/label15').getComponent(cc.Label)
 
         label1.string = Language_pay.Lg.ChangeByText('四季发财红包雨')
-        label2.string = Language_pay.Lg.ChangeByText("下雨时间\n 每场15分钟")
+        label2.string = Language_pay.Lg.ChangeByText("下雨时间\n每场15分钟")
         label3.string = Language_pay.Lg.ChangeByText('领取条件')
         label4.string = Language_pay.Lg.ChangeByText('充值')
         label5.string = Language_pay.Lg.ChangeByText('流水')
@@ -54,6 +54,6 @@ export default class NewClass extends cc.Component {
         label12.string = Language_pay.Lg.ChangeByText('秋雨')
         label13.string = Language_pay.Lg.ChangeByText('冬雨')
         label14.string = Language_pay.Lg.ChangeByText('一倍流水')
-        label15.string = Language_pay.Lg.ChangeByText("1.每场红包雨下雨时间前达成领取条件, 即可参加这一场红包雨。\n 2.每场雨可随机获得最小红包至财神红包数额区间的随机数额红包。\n 3.当日存款、流水可累计, 所获红包一倍流水即可兑换。")
+        label15.string = Language_pay.Lg.ChangeByText("1.每场红包雨下雨时间前达成领取条件, 即可参加这一场红包雨。\n2.每场雨可随机获得最小红包至财神红包数额区间的随机数额红包。\n3.当日存款、流水可累计, 所获红包一倍流水即可兑换。")
     }   
 }

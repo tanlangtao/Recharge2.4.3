@@ -97,6 +97,6 @@ export default class NewClass extends cc.Component {
 
         let label= cc.find('Canvas/Activity/Content/OnceWeekGift/bg/event_kuang1/label').getComponent(cc.Label)
 
-        label.string = Language_pay.Lg.ChangeByText("1. 每周总领取佣金福利, 例如一周总领取佣金1万, 奖励300元。\n 2. 若总领佣金未超过3万, 依旧按照300元奖励, 以此类推。\n 3. 每周一到本周日为一个结算周期, 满足条件则可领取, 领取时间段为下个周一到周日。")
+        label.string = Language_pay.Lg.ChangeByText("1. 每周总领取佣金福利, 例如一周总领取佣金1万, 奖励300元。\n2. 若总领佣金未超过3万, 依旧按照300元奖励, 以此类推。\n3. 每周一到本周日为一个结算周期, 满足条件则可领取, 领取时间段为下个周一到周日。")
     }
 }

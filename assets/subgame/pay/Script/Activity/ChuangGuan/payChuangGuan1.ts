@@ -264,7 +264,7 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/activeSprite/lqsj`,lqsj)
 
         let Label1= cc.find('Canvas/Activity/Content/ChuangGuan1/bg/Label1').getComponent(cc.Label)
-        Label1.string = Language_pay.Lg.ChangeByText('1.仅计算以下游戏流水：水果机、海王捕鱼、财神到。\n 2.当日流水达到指定的档位，即可于次日领取活动规定的相应金币。\n 3.每日通过游戏，输赢均可产生同等额度的流水。\n4.兑换需五倍彩金流水，不限制游戏。\n 5.每日23:59:59，活动计算用的今日流水及昨日彩金未领取会归零。')
+        Label1.string = Language_pay.Lg.ChangeByText('1.仅计算以下游戏流水：水果机、海王捕鱼、财神到。\n2.当日流水达到指定的档位，即可于次日领取活动规定的相应金币。\n3.每日通过游戏，输赢均可产生同等额度的流水。\n4.兑换需五倍彩金流水，不限制游戏。\n5.每日23:59:59，活动计算用的今日流水及昨日彩金未领取会归零。')
     }
 
     onDestroy(){

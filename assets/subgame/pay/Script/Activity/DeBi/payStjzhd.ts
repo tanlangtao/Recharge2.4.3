@@ -30,6 +30,6 @@ export default class NewClass extends cc.Component {
         label4.string = Language_pay.Lg.ChangeByText('一倍流水')
         label5.string = Language_pay.Lg.ChangeByText('领取方式')
         label6.string = Language_pay.Lg.ChangeByText('联系客服领取')
-        label7.string = Language_pay.Lg.ChangeByText("1. 所获彩金需要一倍流水即可提领, 每个会员按首次提款金额可以申请相对应的金币福利。\n 2. 请于次日中午12点-17点找客服领取，未领取视为自动放弃。\n 3. 每位玩家、每一电话号码、及相同IP地址只能享有一次优惠。若会员有重复申请账号行为, 公司保留取消\n     或收回会员优惠彩金的权利。\n 4.【德比游戏】保留对活动的最终解释权以及在无通知的情况下修改、终止活动的规则、适用于所有优惠。")
+        label7.string = Language_pay.Lg.ChangeByText("1. 所获彩金需要一倍流水即可提领, 每个会员按首次提款金额可以申请相对应的金币福利。\n2. 请于次日中午12点-17点找客服领取，未领取视为自动放弃。\n3. 每位玩家、每一电话号码、及相同IP地址只能享有一次优惠。若会员有重复申请账号行为, 公司保留取消\n    或收回会员优惠彩金的权利。\n4.【德比游戏】保留对活动的最终解释权以及在无通知的情况下修改、终止活动的规则、适用于所有优惠。")
     }   
 }

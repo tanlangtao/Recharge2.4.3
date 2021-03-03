@@ -26,6 +26,6 @@ export default class NewClass extends cc.Component {
         label2.string = Language_pay.Lg.ChangeByText('每日彩金')
         label3.string = Language_pay.Lg.ChangeByText('日亏损')
         label4.string = Language_pay.Lg.ChangeByText('每日彩金')
-        rule.string = Language_pay.Lg.ChangeByText("<color=#FFFD9C>1. 按充值金额计算亏损, 例如充值2000亏了, 即可申请180元彩金。\n 2. 严禁注册多账号利用此活动在平台套彩金, 违规账号一律冻结处理。\n 3. 请于次日中午12点-17点找客服领取, 未领取视为自动放弃。\n 4.  本活动仅限 </c><color=#ff0000> 棋牌类游戏</c>（财神到，聚宝盆，海王，水果机，二八杠，百人牛牛），其他\n 等游戏不计入亏损计算。\n 5.  参与首充或者包赔活动 ，需扣除赠送金额再进行计算。</color>")
+        rule.string = Language_pay.Lg.ChangeByText("<color=#FFFD9C>1. 按充值金额计算亏损, 例如充值2000亏了, 即可申请180元彩金。\n2. 严禁注册多账号利用此活动在平台套彩金, 违规账号一律冻结处理。\n3. 请于次日中午12点-17点找客服领取, 未领取视为自动放弃。\n4.  本活动仅限 </c><color=#ff0000> 棋牌类游戏</c>（财神到，聚宝盆，海王，水果机，二八杠，百人牛牛），其他\n等游戏不计入亏损计算。\n5.  参与首充或者包赔活动 ，需扣除赠送金额再进行计算。</color>")
     }   
 }

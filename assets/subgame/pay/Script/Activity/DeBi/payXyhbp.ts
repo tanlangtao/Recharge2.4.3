@@ -52,7 +52,7 @@ export default class NewClass extends cc.Component {
         if(this.FristPayAmount.is_received == 0 && this.FristPayAmount.frist_pay_amount >= this.info[0] ){
             let btnIndex = 0;
             this.info.forEach((item,index)=>{
-               if(this.FristPayAmount.frist_pay_amount >= item) {
+               if(index < this.btnArr.length &&this.FristPayAmount.frist_pay_amount >= item) {
                    btnIndex = index
                }
            })
@@ -140,15 +140,28 @@ export default class NewClass extends cc.Component {
         let event4_xzcyh_text= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/event4_xzcyh_text')
         
         this.app.loadIconLg(`${src}/activeBigImage/event4_xzcyh_bg`,bg)
-        this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_frame2`,event4_xzcyh_frame2)
-        this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_content`,event4_xzcyh_content)
         this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_text`,event4_xzcyh_text)
         this.btnArr.forEach(e=>{
             this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('btn_linqu'))
             this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
         })
         let label= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/ScrollView/view/content/label').getComponent(cc.RichText)
+        if(this.app.UrlData.package_id == 8) {
+            let title1 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title1').getComponent(cc.Label)
+            let title2 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title2').getComponent(cc.Label)
+            let title3 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title3').getComponent(cc.Label)
+            let title4 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title4').getComponent(cc.Label)
+            let tishi= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/ScrollView/view/content/label').getComponent(cc.Label)
+            title1.string = Language_pay.Lg.ChangeByText('首充金额')
+            title2.string = Language_pay.Lg.ChangeByText('包赔金额')
+            title3.string = Language_pay.Lg.ChangeByText('最高兑换金额')
+            title4.string = Language_pay.Lg.ChangeByText('限制最高注')
 
-        label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 新会员注册好账号，需先绑定好手机号码与银行卡后联系上级进行申请，申请\n 时间：每天12:00-21:30。\n 申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n 2. 参加活动的会员，只能进行指定游戏</c><color=#EE000>《财神到》《水果机》《捕鱼·海王》\n 《捕鱼·聚宝盆》《百人牛牛》</c>5款游戏， 进行其他游戏便视为放弃此活动。\n 3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本\n 活动界面进行领取活动彩金。\n 4. 赢金到规定金额不提款视为放弃包赔资格（输完不能赔付）。\n 5. 同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请\n 兑换， 恶意套利者将封号处理。\n 6. 本活动最终解释权归德比所有。</color>")
+            tishi.string = Language_pay.Lg.ChangeByText("1.新会员注册好账号，须先绑定好手机号码与银行卡后联系上级进行申请。申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2.参加活动的会员，只能进行指定游戏《财神到》、《水果机》、《捕鱼．聚宝盆》、《捕鱼．海王》等4款游戏，进行其他游戏便视为放弃此活动。\n3.在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面进行领取活动彩金。\n4.赢金到规定金额不兑换视为放弃包赔资格(输完不能赔付)。\n5.同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6.本活动最终解释权仅新盛所有。")
+        }else{
+            this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_frame2`,event4_xzcyh_frame2)
+            this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_content`,event4_xzcyh_content)
+            label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 新会员注册好账号，需先绑定好手机号码与银行卡后联系上级进行申请，申请\n时间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#EE000>《财神到》《水果机》《捕鱼·海王》\n《捕鱼·聚宝盆》《百人牛牛》</c>5款游戏， 进行其他游戏便视为放弃此活动。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本\n活动界面进行领取活动彩金。\n4. 赢金到规定金额不提款视为放弃包赔资格（输完不能赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请\n兑换， 恶意套利者将封号处理。\n6. 本活动最终解释权归德比所有。</color>")
+        }
     }   
 }

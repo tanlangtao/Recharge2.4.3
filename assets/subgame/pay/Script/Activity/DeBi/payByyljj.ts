@@ -24,6 +24,6 @@ export default class NewClass extends cc.Component {
         title1.string = Language_pay.Lg.ChangeByText('充值金额')
         title2.string = Language_pay.Lg.ChangeByText('盈利到')
         title3.string = Language_pay.Lg.ChangeByText('嘉奖金额')
-        ruleLabel.string = Language_pay.Lg.ChangeByText("本活动于2020/12/28 00:00开始\n 1. 一个ID每天在活动界面只能选择其中一档金额，且参与1次，充值成功后联系客服申请参加活动;  活动时间：12:00 到 24:00。\n 2. 参与此活动，指定参加捕鱼游戏，中途如果跳转参加其他游戏则视为放弃该活动（放弃活动将失去该活动所有福利）。\n 3. 总金额达到充值金额的三倍要及时兑换。 \n 4. 嘉奖金联系在线客服领取时请提供客户手机号，银行卡号，且必须与绑定平台实名一致。\n 5. 同IP、同设备关联不符合，刷子自觉，恶意套利将封号处理。\n 6. 本活动最终解释权归德比所有。")
+        ruleLabel.string = Language_pay.Lg.ChangeByText("本活动于2020/12/28 00:00开始\n1. 一个ID每天在活动界面只能选择其中一档金额，且参与1次，充值成功后联系客服申请参加活动;  活动时间：12:00 到 24:00。\n2. 参与此活动，指定参加捕鱼游戏，中途如果跳转参加其他游戏则视为放弃该活动（放弃活动将失去该活动所有福利）。\n3. 总金额达到充值金额的三倍要及时兑换。 \n4. 嘉奖金联系在线客服领取时请提供客户手机号，银行卡号，且必须与绑定平台实名一致。\n5. 同IP、同设备关联不符合，刷子自觉，恶意套利将封号处理。\n6. 本活动最终解释权归德比所有。")
     }
 }

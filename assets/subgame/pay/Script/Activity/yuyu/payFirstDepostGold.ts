@@ -136,6 +136,6 @@ export default class NewClass extends cc.Component {
 
         let label= cc.find('Canvas/Activity/Content/FirstDepostGold/bg/Content/ScrollView/view/content/label').getComponent(cc.Label)
 
-        label.string = Language_pay.Lg.ChangeByText("备注：\n 1. 本活动需完成手机及银行卡绑定后才能参与\n 2. 若玩家第一笔充值金额低于最低首存金额的50元，第二笔充值金额即便达到首存门槛也无法领取奖励\n 3. 同一用户仅限领取一次 \n 4. 如有异常操作，则进行冻结账号处理\n 5. 首存活动可以与其他活动叠加\n 6. 需满足首充金额＋赠送彩金的一倍流水方可兑换\n 7. 本活动最终解释权归平台所有，平台有随时更改，停止并取消该活动的权利")
+        label.string = Language_pay.Lg.ChangeByText("备注：\n1. 本活动需完成手机及银行卡绑定后才能参与\n2. 若玩家第一笔充值金额低于最低首存金额的50元，第二笔充值金额即便达到首存门槛也无法领取奖励\n3. 同一用户仅限领取一次 \n4. 如有异常操作，则进行冻结账号处理\n5. 首存活动可以与其他活动叠加\n6. 需满足首充金额＋赠送彩金的一倍流水方可兑换\n7. 本活动最终解释权归平台所有，平台有随时更改，停止并取消该活动的权利")
     }
 }

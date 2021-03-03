@@ -93,7 +93,7 @@ export default class NewClass extends cc.Component {
         let label3= cc.find('Canvas/Activity/Content/KaiYeZhuCeSong/Code/label3').getComponent(cc.Label)
 
         label1.string = Language_pay.Lg.ChangeByText("1、活动仅限下述玩法使用：红包乱斗，捕鱼聚宝盆，轮盘，奔驰宝马，水果机，骰宝。同时，通过注册金，无论赢利多少，也仅能用于继续玩这六款游戏，若有违规则拒绝兑换。")
-        label2.string = Language_pay.Lg.ChangeByText("2、每位玩家不可重复领取。\n 3、每组序号不可重复使用。\n 4、领取需绑定手机号、银行卡。\n 5、兑换需满足彩金八倍流水。\n 6、禁止一切异常操作行为。")
+        label2.string = Language_pay.Lg.ChangeByText("2、每位玩家不可重复领取。\n3、每组序号不可重复使用。\n4、领取需绑定手机号、银行卡。\n5、兑换需满足彩金八倍流水。\n6、禁止一切异常操作行为。")
         label3.string = Language_pay.Lg.ChangeByText('（邀请码获取请咨询您的代理）')
         this.codeInput.placeholder = Language_pay.Lg.ChangeByText('请输入5位邀请码')
     }

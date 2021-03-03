@@ -34,6 +34,6 @@ export default class NewClass extends cc.Component {
         label6.string = Language_pay.Lg.ChangeByText("(包赔金需一倍流水, 且不限制游戏)")
         label7.string = Language_pay.Lg.ChangeByText("(包赔金需一倍流水, 且不限制游戏)")
         label8.string = Language_pay.Lg.ChangeByText("❈找客服进行备注申请")
-        rule.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 活动仅限以下玩法：水果机、海王捕鱼、财神到(中途可更换其他规则内游戏)。\n 2. 包赔, 只可指定专线和专线ID参与。当天, 与平台其他活动不可同时参与。\n 3. 在规定游戏中亏损至余额低于5时, 即可联系客服申请包赔金。\n 4. 在领取包赔金或兑换前进行非规定游戏和要求, 首次违规扣除收益且不可参与当前包赔活动;</c><color=#EE000>\n     二次违规扣除收益跟充值本金, 且不可再申请包赔活动。</c>\n 5. 参与活动后只可以最高兑换指定金额, 超出扣除。\n 6. 每个ID用户只限领取一次。\n 7. 如有异常操作, 一律扣除收益并封号处理。</color>")
+        rule.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 活动仅限以下玩法：水果机、海王捕鱼、财神到(中途可更换其他规则内游戏)。\n2. 包赔, 只可指定专线和专线ID参与。当天, 与平台其他活动不可同时参与。\n3. 在规定游戏中亏损至余额低于5时, 即可联系客服申请包赔金。\n4. 在领取包赔金或兑换前进行非规定游戏和要求, 首次违规扣除收益且不可参与当前包赔活动;</c><color=#EE000>\n    二次违规扣除收益跟充值本金, 且不可再申请包赔活动。</c>\n5. 参与活动后只可以最高兑换指定金额, 超出扣除。\n6. 每个ID用户只限领取一次。\n7. 如有异常操作, 一律扣除收益并封号处理。</color>")
     }
 }

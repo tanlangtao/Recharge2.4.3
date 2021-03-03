@@ -126,7 +126,13 @@ export default class NewClass extends cc.Component {
     Schd :cc.Prefab = null;
 
     @property(cc.Prefab)
+    Schd_8 :cc.Prefab = null;
+
+    @property(cc.Prefab)
     Xyhbp :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Xyhbp_8 :cc.Prefab = null;
 
     @property(cc.Prefab)
     Ryjhd :cc.Prefab = null;
@@ -333,7 +339,14 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp2`,this.normalIcon,102,94)
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp1`,this.currentIcon,102,110);
         }
-
+        else if(data.name == '首充活动8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_schd2`,this.normalIcon,180,108)
+            this.app.loadIcon(`${src}/menu/activity/btn_schd1`,this.currentIcon,180,108);
+        }
+        else if(data.name == '新用户包赔大放送8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_xyh2`,this.normalIcon,206,102)
+            this.app.loadIcon(`${src}/menu/activity/btn_xyh1`,this.currentIcon,206,102);
+        }
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'){
             this.fetchgetSignWeekInfo(this.id)
@@ -551,6 +564,16 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.WheelOfFortune_8);
             node.getComponent('payWheelOfFortune').setIdInfo(id,info)
             this.app.loadTitle(`${src}/title/xingyunlunpan`,this.title);
+        }
+        else  if(name == '首充活动8'){
+            var node = cc.instantiate(this.Schd_8);
+            this.app.loadTitle(`${src}/title/dm_title_schd`,this.title);
+            node.getComponent('paySchd').setIdInfo(id,info);
+        }
+        else  if(name == '新用户包赔大放送8'){
+            var node = cc.instantiate(this.Xyhbp_8);
+            node.getComponent('payXyhbp').setId(id)
+            this.app.loadTitle(`${src}/title/title_xyh`,this.title);
         }
         
         content.addChild(node);

@@ -256,7 +256,7 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/activeSprite/lqsj`,lqsj)
 
         let Label1= cc.find('Canvas/Activity/Content/ChuangGuan/bg/Label1').getComponent(cc.Label)
-        Label1.string = Language_pay.Lg.ChangeByText('1、每日通过游戏, 输赢均可产生同等额度的流水。\n 2、当日流水达到指定的档位, 即可领取活动规定的相应金币。\n 3、每日23:59:59, 活动计算用的当日流水归零。')
+        Label1.string = Language_pay.Lg.ChangeByText('1、每日通过游戏, 输赢均可产生同等额度的流水。\n2、当日流水达到指定的档位, 即可领取活动规定的相应金币。\n3、每日23:59:59, 活动计算用的当日流水归零。')
     }
 
     onDestroy(){

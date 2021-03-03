@@ -34,6 +34,6 @@ export default class NewClass extends cc.Component {
         label5.string = `5${Language_pay.Lg.ChangeByText("人")}+`
         label6.string = `10${Language_pay.Lg.ChangeByText("人")}+`
         label7.string = `20${Language_pay.Lg.ChangeByText("人")}+`
-        rule.string = Language_pay.Lg.ChangeByText("规则1：\n 推荐新增直属下级会员需累计充值300以上， 累计流水500以上连续游戏3天为有效直属玩家。\n 规则2：\n 推荐会员不允许同ip，同设备，同实名，一个会员只能计算一次。\n 温馨提示：\n 如发现任何团队或个人以不诚实方式进行套利将取消活动资格。\n 领取方式：\n 达到申请要求后可直接联系在线客服领取，每周一至周日为一个活动周期（第二周申请上周推荐奖励）。")
+        rule.string = Language_pay.Lg.ChangeByText("规则1：\n推荐新增直属下级会员需累计充值300以上， 累计流水500以上连续游戏3天为有效直属玩家。\n规则2：\n推荐会员不允许同ip，同设备，同实名，一个会员只能计算一次。\n温馨提示：\n如发现任何团队或个人以不诚实方式进行套利将取消活动资格。\n领取方式：\n达到申请要求后可直接联系在线客服领取，每周一至周日为一个活动周期（第二周申请上周推荐奖励）。")
     }
 }
