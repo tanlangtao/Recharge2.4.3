@@ -340,12 +340,12 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp1`,this.currentIcon,102,110);
         }
         else if(data.name == '首充活动8'){
-            this.app.loadIcon(`${src}/menu/activity/btn_schd2`,this.normalIcon,180,108)
-            this.app.loadIcon(`${src}/menu/activity/btn_schd1`,this.currentIcon,180,108);
+            this.app.loadIcon(`${src}/menu/activity/btn_schd2`,this.normalIcon,169,102)
+            this.app.loadIcon(`${src}/menu/activity/btn_schd1`,this.currentIcon,169,102);
         }
         else if(data.name == '新用户包赔大放送8'){
-            this.app.loadIcon(`${src}/menu/activity/btn_xyh2`,this.normalIcon,206,102)
-            this.app.loadIcon(`${src}/menu/activity/btn_xyh1`,this.currentIcon,206,102);
+            this.app.loadIcon(`${src}/menu/activity/btn_xyh2`,this.normalIcon,169,102)
+            this.app.loadIcon(`${src}/menu/activity/btn_xyh1`,this.currentIcon,169,102);
         }
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'){
