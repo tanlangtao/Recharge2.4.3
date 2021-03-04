@@ -242,7 +242,7 @@ export default class NewClass extends cc.Component {
         cc.log(data)
         data.forEach((item) => {
             // console.log('item',item)
-            if(item.activity_name!='幸运轮盘2' && item.activity_name!='幸运轮盘-8'){
+            if(item.activity_name!='幸运轮盘2' && item.activity_name!='幸运轮盘8'){
                 return 
             }
             let info = JSON.parse(item.receive_info);
