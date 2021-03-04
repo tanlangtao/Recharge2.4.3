@@ -343,7 +343,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_schd2`,this.normalIcon,169,102)
             this.app.loadIcon(`${src}/menu/activity/btn_schd1`,this.currentIcon,169,102);
         }
-        else if(data.name == '新用户包赔活动-2'){
+        else if(data.name == '新用户包赔活动-8'){
             this.app.loadIcon(`${src}/menu/activity/btn_xyh2`,this.normalIcon,169,102)
             this.app.loadIcon(`${src}/menu/activity/btn_xyh1`,this.currentIcon,169,102);
         }
@@ -570,7 +570,7 @@ export default class NewClass extends cc.Component {
             this.app.loadTitle(`${src}/title/dm_title_schd`,this.title);
             node.getComponent('paySchd').setIdInfo(id,info);
         }
-        else  if(name == '新用户包赔活动-2'){
+        else  if(name == '新用户包赔活动-8'){
             var node = cc.instantiate(this.Xyhbp_8);
             node.getComponent('payXyhbp').setId(id)
             this.app.loadTitle(`${src}/title/title_xyh`,this.title);
