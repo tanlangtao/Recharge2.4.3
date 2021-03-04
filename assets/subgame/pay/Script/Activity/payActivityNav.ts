@@ -315,40 +315,40 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,249,86);
         }
-        else if(data.name == '每日签到8'){
+        else if(data.name == '每日签到-8'){
             this.app.loadIcon(`${src}/menu/activity/btn_qd2`,this.normalIcon,101,107)
             this.app.loadIcon(`${src}/menu/activity/btn_qd1`,this.currentIcon,101,92);
         }
-        else if( data.name == '每日任务8'){
+        else if( data.name == '每日任务-8'){
             this.app.loadIcon(`${src}/menu/activity/btn_dailyMission2`,this.normalIcon,103,109)
             this.app.loadIcon(`${src}/menu/activity/btn_dailyMission1`,this.currentIcon,103,93);
         }
-        else if(data.name == '四季发财红包雨8'){
+        else if(data.name == '四季发财红包雨-8'){
             this.app.loadIcon(`${src}/menu/activity/btn_redRain2`,this.normalIcon,178,93)
             this.app.loadIcon(`${src}/menu/activity/btn_redRain1`,this.currentIcon,178,109);
         }
-        else if(data.name == '15天送58元8'){
+        else if(data.name == '15天送58元-8'){
             this.app.loadIcon(`${src}/menu/activity/btn_58for15days2`,this.normalIcon,132,107)
             this.app.loadIcon(`${src}/menu/activity/btn_58for15days1`,this.currentIcon,132,107);
         }
-        else if(data.name == '分享朋友圈活动8'){
+        else if(data.name == '分享朋友圈活动-8'){
             this.app.loadIcon(`${src}/menu/activity/btn_fxpyq2`,this.normalIcon,128,108)
             this.app.loadIcon(`${src}/menu/activity/btn_fxpyq1`,this.currentIcon,128,108);
         }
-        else if(data.name == '幸运轮盘8'){
+        else if(data.name == '幸运轮盘-8'){
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp2`,this.normalIcon,102,94)
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp1`,this.currentIcon,102,110);
         }
-        else if(data.name == '首充活动8'){
+        else if(data.name == '首充活动-8'){
             this.app.loadIcon(`${src}/menu/activity/btn_schd2`,this.normalIcon,169,102)
             this.app.loadIcon(`${src}/menu/activity/btn_schd1`,this.currentIcon,169,102);
         }
-        else if(data.name == '新用户包赔大放送8'){
+        else if(data.name == '新用户包赔活动-2'){
             this.app.loadIcon(`${src}/menu/activity/btn_xyh2`,this.normalIcon,169,102)
             this.app.loadIcon(`${src}/menu/activity/btn_xyh1`,this.currentIcon,169,102);
         }
         //响应每日签到2，显示红点
-        if(this.name == '每日签到2'|| this.name == '每日签到8'){
+        if(this.name == '每日签到2'|| this.name == '每日签到-8'){
             this.fetchgetSignWeekInfo(this.id)
         }
     }
@@ -377,7 +377,7 @@ export default class NewClass extends cc.Component {
         }
         this.addContent(this.name,JSON.parse(this.data.info),this.id)
 
-        if(this.name == '每日签到2' || this.name == '每日签到8'){
+        if(this.name == '每日签到2' || this.name == '每日签到-8'){
             this.fetchgetSignWeekInfo(this.id)
         }
     }
@@ -416,7 +416,7 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.DailyActivity);
             node.getComponent('payDailyActivity').setIdInfo(id,info);
             this.app.loadTitle(`${src}/title/dm_title`,this.title);
-        }else if(name == '每日任务8'){
+        }else if(name == '每日任务-8'){
             var node = cc.instantiate(this.DailyActivity_8);
             node.getComponent('payDailyActivity').setIdInfo(id,info);
             this.app.loadTitle(`${src}/title/dm_title`,this.title);
@@ -498,7 +498,7 @@ export default class NewClass extends cc.Component {
         }else  if(name == '四季发财红包雨2'){
             var node = cc.instantiate(this.RedRain);
             this.app.loadTitle(`${src}/title/db_redrain`,this.title);
-        }else  if(name == '四季发财红包雨8'){
+        }else  if(name == '四季发财红包雨-8'){
             var node = cc.instantiate(this.RedRain_8);
             this.app.loadTitle(`${src}/title/db_redrain`,this.title);
         }
@@ -506,7 +506,7 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.DailySignTwo);
             node.getComponent('payDailySign').setIdInfo(id,info)
             this.app.loadTitle(`${src}/title/mrqd`,this.title);
-        }else  if(name == '每日签到8'){
+        }else  if(name == '每日签到-8'){
             var node = cc.instantiate(this.DailySignTwo_8);
             node.getComponent('payDailySign').setIdInfo(id,info)
             this.app.loadTitle(`${src}/title/mrqd`,this.title);
@@ -552,25 +552,25 @@ export default class NewClass extends cc.Component {
         }else  if(name == '老会员每日首存活动2'){
             var node = cc.instantiate(this.Lhysc);
             this.app.loadTitle(`${src}/title/dm_title_lhysc`,this.title);
-        }else if (name == "15天送58元8") {
+        }else if (name == "15天送58元-8") {
             var node = cc.instantiate(this.HalfMonthGift_8)
             this.app.loadTitle(`${src}/title/dm_title_58for15days`,this.title);
         }
-        else  if(name == '分享朋友圈活动8'){
+        else  if(name == '分享朋友圈活动-8'){
             var node = cc.instantiate(this.Fxpyq_8);
             this.app.loadTitle(`${src}/title/dm_title_fxpyq`,this.title);
         }
-        else  if(name == '幸运轮盘8'){
+        else  if(name == '幸运轮盘-8'){
             var node = cc.instantiate(this.WheelOfFortune_8);
             node.getComponent('payWheelOfFortune').setIdInfo(id,info)
             this.app.loadTitle(`${src}/title/xingyunlunpan`,this.title);
         }
-        else  if(name == '首充活动8'){
+        else  if(name == '首充活动-8'){
             var node = cc.instantiate(this.Schd_8);
             this.app.loadTitle(`${src}/title/dm_title_schd`,this.title);
             node.getComponent('paySchd').setIdInfo(id,info);
         }
-        else  if(name == '新用户包赔大放送8'){
+        else  if(name == '新用户包赔活动-2'){
             var node = cc.instantiate(this.Xyhbp_8);
             node.getComponent('payXyhbp').setId(id)
             this.app.loadTitle(`${src}/title/title_xyh`,this.title);
