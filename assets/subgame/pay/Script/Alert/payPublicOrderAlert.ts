@@ -75,6 +75,7 @@ export default class NewClass extends cc.Component {
         this.card_nameLabel.string = data.data.card_name;
         this.card_numLabel.string = data.data.card_num;
         this.nickNameLabel.string = data.data.user_name;
+        this.remarkLabel.string = data.data.remark;
     }
     onLoad () {
         this.config = new Config();
