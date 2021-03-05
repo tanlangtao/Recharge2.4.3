@@ -136,6 +136,17 @@ export default class NewClass extends cc.Component {
             }
         }
     }
+    copyRemark(){
+        //按键音效
+        this.app.loadMusic(1);
+        if (this.app.gHandler.reflect) {
+            if (this.app.gHandler.reflect.setClipboard(this.remarkLabel.string)) {
+                this.app.showAlert(`复制成功!:${this.remarkLabel.string}`)
+            } else {
+                this.app.showAlert(`复制失败!请升级系统版本`)
+            }
+        }
+    }
     
     removeSelf(){
         //按键音效
@@ -175,12 +186,11 @@ export default class NewClass extends cc.Component {
         let btn_fuzhi2= cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi2")
         let btn_fuzhi3= cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi3")
         let btn_fuzhi4= cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi4")
+        let btn_fuzhi5= cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi5")
         let attention= cc.find("Canvas/PublicOrderAlert/Content/attention").getComponent(cc.Label)
         let label1= cc.find("Canvas/PublicOrderAlert/Content/label1").getComponent(cc.Label)
         let label2= cc.find("Canvas/PublicOrderAlert/Content/label2").getComponent(cc.RichText)
-        let label4= cc.find("Canvas/PublicOrderAlert/Content/label4").getComponent(cc.Label)
-        let label5= cc.find("Canvas/PublicOrderAlert/Content/label5").getComponent(cc.Label)
-        let label6= cc.find("Canvas/PublicOrderAlert/Content/label6").getComponent(cc.Label)
+        let label3= cc.find("Canvas/PublicOrderAlert/Content/label3").getComponent(cc.Label)
         let btn1= cc.find("Canvas/PublicOrderAlert/Content/btn1")
 
         this.app.loadIconLg(`${src}/font/title_orderinfo`,title_orderinfo)
@@ -197,22 +207,22 @@ export default class NewClass extends cc.Component {
             btn_fuzhi2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi3.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi4.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
+            btn_fuzhi5.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
 
         }else{
             this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi1)
             this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi2)
             this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi3)
             this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi4)
+            this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi5)
         }
         this.app.loadIconLg(`${src}/btn/btn_how`,btn1)
         
         attention.string = `${Language_pay.Lg.ChangeByText('特别提醒:')}`
         yhkzzLabel.string = `${Language_pay.Lg.ChangeByText('银行卡转账')}`
-        label1.string = `${Language_pay.Lg.ChangeByText('1.支持各种银行，支付宝，微信的银行卡转账；')}`
-        label2.string = `<color=#FF3333>${Language_pay.Lg.ChangeByText('2.支付时输入金额与转账金额一致')},</c><color=#F3C612> ${Language_pay.Lg.ChangeByText('（包含小数点后2位数字）')}</c>。`
-        label4.string = `${Language_pay.Lg.ChangeByText('禁止修改金额，否则不到账；')}`
-        label5.string = `${Language_pay.Lg.ChangeByText('3.以上收款账号限本次使用，账户不定期更换，每次支付前请依照本页所显示的银行账户付款;')}`
-        label6.string = `${Language_pay.Lg.ChangeByText('4.正常付款1-5分钟内到账，未到账请联系客服。')}`
+        label1.string = `${Language_pay.Lg.ChangeByText('1. 只支持银行卡转银行卡支付；')}`
+        label2.string = `${Language_pay.Lg.ChangeByText('2. 支付时输入金额与订单金额一致，并填写附言(备注)信息；')}`
+        label3.string = `${Language_pay.Lg.ChangeByText('3. 正常付款1-5分钟内到账，未到账请联系客服。')}`
     }
     // update (dt) {}
 }

@@ -27,17 +27,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 127
+        "__id__": 120
       },
       {
-        "__id__": 128
+        "__id__": 121
       },
       {
-        "__id__": 129
+        "__id__": 122
       }
     ],
     "_prefab": {
-      "__id__": 130
+      "__id__": 123
     },
     "_opacity": 255,
     "_color": {
@@ -347,41 +347,35 @@
         "__id__": 18
       },
       {
-        "__id__": 91
+        "__id__": 96
       },
       {
-        "__id__": 94
+        "__id__": 99
       },
       {
-        "__id__": 97
+        "__id__": 102
       },
       {
-        "__id__": 109
+        "__id__": 108
       },
       {
-        "__id__": 112
-      },
-      {
-        "__id__": 115
-      },
-      {
-        "__id__": 118
+        "__id__": 111
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 123
+        "__id__": 116
       },
       {
-        "__id__": 124
+        "__id__": 117
       },
       {
-        "__id__": 125
+        "__id__": 118
       }
     ],
     "_prefab": {
-      "__id__": 126
+      "__id__": 119
     },
     "_opacity": 255,
     "_color": {
@@ -790,22 +784,25 @@
       },
       {
         "__id__": 82
+      },
+      {
+        "__id__": 87
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 87
+        "__id__": 92
       },
       {
-        "__id__": 88
+        "__id__": 93
       },
       {
-        "__id__": 89
+        "__id__": 94
       }
     ],
     "_prefab": {
-      "__id__": 90
+      "__id__": 95
     },
     "_opacity": 255,
     "_color": {
@@ -1084,7 +1081,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        119,
+        114,
         0,
         0,
         0,
@@ -1191,7 +1188,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        68,
+        58,
         0,
         0,
         0,
@@ -1298,7 +1295,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        17,
+        2,
         0,
         0,
         0,
@@ -1405,7 +1402,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        -34,
+        -54,
         0,
         0,
         0,
@@ -1512,7 +1509,7 @@
       "ctor": "Float64Array",
       "array": [
         107.417,
-        -85,
+        -110,
         0,
         0,
         0,
@@ -1605,7 +1602,7 @@
     "_N$paddingTop": 10,
     "_N$paddingBottom": 0,
     "_N$spacingX": 0,
-    "_N$spacingY": 20,
+    "_N$spacingY": 25,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_N$affectedByScale": false,
@@ -1853,7 +1850,7 @@
       "ctor": "Float64Array",
       "array": [
         -90,
-        119,
+        114,
         0,
         0,
         0,
@@ -1961,7 +1958,7 @@
       "ctor": "Float64Array",
       "array": [
         -90,
-        68,
+        58,
         0,
         0,
         0,
@@ -2069,7 +2066,7 @@
       "ctor": "Float64Array",
       "array": [
         -90,
-        17,
+        2,
         0,
         0,
         0,
@@ -2177,7 +2174,7 @@
       "ctor": "Float64Array",
       "array": [
         -90,
-        -34,
+        -54,
         0,
         0,
         0,
@@ -2285,7 +2282,7 @@
       "ctor": "Float64Array",
       "array": [
         -68.474,
-        -85,
+        -110,
         0,
         0,
         0,
@@ -2379,7 +2376,7 @@
     "_N$paddingTop": 10,
     "_N$paddingBottom": 0,
     "_N$spacingX": 0,
-    "_N$spacingY": 20,
+    "_N$spacingY": 25,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_N$affectedByScale": false,
@@ -2852,7 +2849,7 @@
       "ctor": "Float64Array",
       "array": [
         316,
-        63,
+        60,
         0,
         0,
         0,
@@ -3050,7 +3047,7 @@
       "ctor": "Float64Array",
       "array": [
         316,
-        12,
+        4,
         0,
         0,
         0,
@@ -3248,7 +3245,7 @@
       "ctor": "Float64Array",
       "array": [
         316,
-        -40,
+        -51,
         0,
         0,
         0,
@@ -3404,6 +3401,204 @@
     "sync": false
   },
   {
+    "__type__": "cc.Node",
+    "_name": "btn_fuzhi5",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 18
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 88
+      },
+      {
+        "__id__": 89
+      }
+    ],
+    "_prefab": {
+      "__id__": 91
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 96,
+      "height": 43
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        316,
+        -107,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 87
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "cf865220-ae93-4828-b2c8-10b2dbbff17a"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Button",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 87
+    },
+    "_enabled": true,
+    "_normalMaterial": null,
+    "_grayMaterial": null,
+    "duration": 0.1,
+    "zoomScale": 1.2,
+    "clickEvents": [
+      {
+        "__id__": 90
+      }
+    ],
+    "_N$interactable": true,
+    "_N$enableAutoGrayEffect": false,
+    "_N$transition": 2,
+    "transition": 2,
+    "_N$normalColor": {
+      "__type__": "cc.Color",
+      "r": 214,
+      "g": 214,
+      "b": 214,
+      "a": 255
+    },
+    "_N$pressedColor": {
+      "__type__": "cc.Color",
+      "r": 211,
+      "g": 211,
+      "b": 211,
+      "a": 255
+    },
+    "pressedColor": {
+      "__type__": "cc.Color",
+      "r": 211,
+      "g": 211,
+      "b": 211,
+      "a": 255
+    },
+    "_N$hoverColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "hoverColor": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_N$disabledColor": {
+      "__type__": "cc.Color",
+      "r": 124,
+      "g": 124,
+      "b": 124,
+      "a": 255
+    },
+    "_N$normalSprite": {
+      "__uuid__": "cf865220-ae93-4828-b2c8-10b2dbbff17a"
+    },
+    "_N$pressedSprite": {
+      "__uuid__": "539b612b-60d2-4460-9839-766171cade6f"
+    },
+    "pressedSprite": {
+      "__uuid__": "539b612b-60d2-4460-9839-766171cade6f"
+    },
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
+    "_N$disabledSprite": null,
+    "_N$target": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "",
+    "_componentId": "ef762TkLSBD75EHdQeBcX5c",
+    "handler": "copyRemark",
+    "customEventData": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "c12910e5-446e-4906-82a1-1f7611170eab"
+    },
+    "fileId": "0aVp8rvv9Kn5KiiZxqhMVW",
+    "sync": false
+  },
+  {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
@@ -3514,11 +3709,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 92
+        "__id__": 97
       }
     ],
     "_prefab": {
-      "__id__": 93
+      "__id__": 98
     },
     "_opacity": 255,
     "_color": {
@@ -3543,7 +3738,7 @@
       "ctor": "Float64Array",
       "array": [
         -384,
-        -61.96,
+        -105.413,
         0,
         0,
         0,
@@ -3572,7 +3767,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 91
+      "__id__": 96
     },
     "_enabled": true,
     "_materials": [
@@ -3622,11 +3817,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 95
+        "__id__": 100
       }
     ],
     "_prefab": {
-      "__id__": 96
+      "__id__": 101
     },
     "_opacity": 255,
     "_color": {
@@ -3651,7 +3846,7 @@
       "ctor": "Float64Array",
       "array": [
         -9,
-        -93,
+        -152,
         0,
         0,
         0,
@@ -3680,7 +3875,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 94
+      "__id__": 99
     },
     "_enabled": true,
     "_materials": [
@@ -3690,8 +3885,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "1.支持各种银行，支付宝，微信的银行卡转账；",
-    "_N$string": "1.支持各种银行，支付宝，微信的银行卡转账；",
+    "_string": "1. 只支持银行卡转银行卡支付；",
+    "_N$string": "1. 只支持银行卡转银行卡支付；",
     "_fontSize": 25,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -3728,23 +3923,17 @@
     },
     "_children": [
       {
-        "__id__": 98
-      },
-      {
-        "__id__": 101
-      },
-      {
-        "__id__": 104
+        "__id__": 103
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 107
+        "__id__": 106
       }
     ],
     "_prefab": {
-      "__id__": 108
+      "__id__": 107
     },
     "_opacity": 255,
     "_color": {
@@ -3756,7 +3945,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 698.6500000000001,
+      "width": 669.45,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -3768,8 +3957,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -383.003,
-        -125.621,
+        -383,
+        -190,
         0,
         0,
         0,
@@ -3798,17 +3987,17 @@
     "_name": "RICHTEXT_CHILD",
     "_objFlags": 1024,
     "_parent": {
-      "__id__": 97
+      "__id__": 102
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 99
+        "__id__": 104
       }
     ],
     "_prefab": {
-      "__id__": 100
+      "__id__": 105
     },
     "_opacity": 255,
     "_color": {
@@ -3820,7 +4009,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 377.8,
+      "width": 669.45,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -3863,117 +4052,8 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 98
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_string": "2.支付时输入金额与转账金额一致,",
-    "_N$string": "2.支付时输入金额与转账金额一致,",
-    "_fontSize": 25,
-    "_lineHeight": 25,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "c12910e5-446e-4906-82a1-1f7611170eab"
-    },
-    "fileId": "b8sRPBBMpBObO492ZnCfPc",
-    "sync": false
-  },
-  {
-    "__type__": "cc.PrivateNode",
-    "_name": "RICHTEXT_CHILD",
-    "_objFlags": 1024,
-    "_parent": {
-      "__id__": 97
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 102
-      }
-    ],
-    "_prefab": {
       "__id__": 103
     },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 243,
-      "g": 198,
-      "b": 18,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 295.85,
-      "height": 31.5
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        377.8,
-        -31.5,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "showInEditor": false,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 101
-    },
     "_enabled": true,
     "_materials": [
       {
@@ -3982,8 +4062,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": " （包含小数点后2位数字）",
-    "_N$string": " （包含小数点后2位数字）",
+    "_string": "2. 支付时输入金额与订单金额一致，并填写附言(备注)信息；",
+    "_N$string": "2. 支付时输入金额与订单金额一致，并填写附言(备注)信息；",
     "_fontSize": 25,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -4008,116 +4088,7 @@
     "asset": {
       "__uuid__": "c12910e5-446e-4906-82a1-1f7611170eab"
     },
-    "fileId": "25TM+JG3xCRKwih7XhL0Ep",
-    "sync": false
-  },
-  {
-    "__type__": "cc.PrivateNode",
-    "_name": "RICHTEXT_CHILD",
-    "_objFlags": 1024,
-    "_parent": {
-      "__id__": 97
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 105
-      }
-    ],
-    "_prefab": {
-      "__id__": 106
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 51,
-      "b": 51,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 25,
-      "height": 31.5
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        673.6500000000001,
-        -31.5,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "showInEditor": false,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 104
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_string": "。",
-    "_N$string": "。",
-    "_fontSize": 25,
-    "_lineHeight": 25,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "c12910e5-446e-4906-82a1-1f7611170eab"
-    },
-    "fileId": "bcOnzFkHpFNJuUQVCXvk3V",
+    "fileId": "33+BV8XP5KZKrY6oa4xXyQ",
     "sync": false
   },
   {
@@ -4125,12 +4096,12 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 97
+      "__id__": 102
     },
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<color=#FF3333>2.支付时输入金额与转账金额一致,</c><color=#F3C612> （包含小数点后2位数字）</c>。</color>",
+    "_N$string": "2. 支付时输入金额与订单金额一致，并填写附言(备注)信息；",
     "_N$horizontalAlign": 0,
     "_N$fontSize": 25,
     "_N$font": null,
@@ -4154,7 +4125,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "label4",
+    "_name": "label3",
     "_objFlags": 0,
     "_parent": {
       "__id__": 8
@@ -4163,11 +4134,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 110
+        "__id__": 109
       }
     ],
     "_prefab": {
-      "__id__": 111
+      "__id__": 110
     },
     "_opacity": 255,
     "_color": {
@@ -4192,7 +4163,7 @@
       "ctor": "Float64Array",
       "array": [
         -9,
-        -155.483,
+        -229,
         0,
         0,
         0,
@@ -4221,7 +4192,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 109
+      "__id__": 108
     },
     "_enabled": true,
     "_materials": [
@@ -4231,116 +4202,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "禁止修改金额，否则不到账；",
-    "_N$string": "禁止修改金额，否则不到账；",
-    "_fontSize": 25,
-    "_lineHeight": 25,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 3,
-    "_N$cacheMode": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "c12910e5-446e-4906-82a1-1f7611170eab"
-    },
-    "fileId": "bdu6fQdrNHIabevz86EK3Q",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "label5",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 8
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 113
-      }
-    ],
-    "_prefab": {
-      "__id__": 114
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 51,
-      "b": 51,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 750,
-      "height": 56.49999999999999
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 1
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        -9,
-        -185.759,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 112
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_string": "3.以上收款账号限本次使用，账户不定期更换，每次支付前请依照本页所显示的银行账户付款;",
-    "_N$string": "3.以上收款账号限本次使用，账户不定期更换，每次支付前请依照本页所显示的银行账户付款;",
+    "_string": "3. 正常付款1-5分钟内到账，未到账请联系客服。",
+    "_N$string": "3. 正常付款1-5分钟内到账，未到账请联系客服。",
     "_fontSize": 25,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -4370,114 +4233,6 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "label6",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 8
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 116
-      }
-    ],
-    "_prefab": {
-      "__id__": 117
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 51,
-      "b": 51,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 750,
-      "height": 31.5
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 1
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        -9,
-        -238.656,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 115
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_string": "4.正常付款1-5分钟内到账，未到账请联系客服。",
-    "_N$string": "4.正常付款1-5分钟内到账，未到账请联系客服。",
-    "_fontSize": 25,
-    "_lineHeight": 25,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 3,
-    "_N$cacheMode": 0,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "c12910e5-446e-4906-82a1-1f7611170eab"
-    },
-    "fileId": "90bsC8k+BNE7BaOPdNuXKV",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
     "_name": "btn1",
     "_objFlags": 0,
     "_parent": {
@@ -4487,14 +4242,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 119
+        "__id__": 112
       },
       {
-        "__id__": 120
+        "__id__": 113
       }
     ],
     "_prefab": {
-      "__id__": 122
+      "__id__": 115
     },
     "_opacity": 255,
     "_color": {
@@ -4548,7 +4303,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 118
+      "__id__": 111
     },
     "_enabled": true,
     "_materials": [
@@ -4580,7 +4335,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 118
+      "__id__": 111
     },
     "_enabled": true,
     "_normalMaterial": null,
@@ -4589,7 +4344,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 121
+        "__id__": 114
       }
     ],
     "_N$interactable": true,
