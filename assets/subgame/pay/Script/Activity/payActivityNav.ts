@@ -146,6 +146,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Lhysc :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    Lhysc_8 :cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -347,6 +350,11 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_xyh2`,this.normalIcon,169,102)
             this.app.loadIcon(`${src}/menu/activity/btn_xyh1`,this.currentIcon,169,102);
         }
+        else  if(data.name == '老会员每日首存活动8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,164,108)
+            this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,164,108);
+        }
+
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'){
             this.fetchgetSignWeekInfo(this.id)
@@ -574,6 +582,11 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.Xyhbp_8);
             node.getComponent('payXyhbp').setId(id)
             this.app.loadTitle(`${src}/title/title_xyh`,this.title);
+        }
+        else  if(name == '老会员每日首存活动8'){
+            var node = cc.instantiate(this.Lhysc_8);
+            node.getComponent('payLhysc').setId(id);
+            this.app.loadTitle(`${src}/title/dm_title_lhysc`,this.title);
         }
         
         content.addChild(node);

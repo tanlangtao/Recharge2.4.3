@@ -4,7 +4,7 @@ let appGlobal = {
     /* ------------------------------------------------------------------- */
     pinpai: "test", // 渠道 test （特斯特） debi （德比） qibao（七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）
     // pinpai: "debi", // 渠道 test debi qibao
-    huanjin: "pre", // dev pre online
+    huanjin: "dev", // dev pre online
     // huanjin: "pre", // pre online
     // huanjin: "online", // pre online
 
