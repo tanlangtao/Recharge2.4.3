@@ -35,6 +35,11 @@ export default class NewClass extends cc.Component {
             clearTimeout(this.timer)
         }, 1000);
         let scalex = cc.winSize.width / 1334;
+        console.log("scalex",scalex)
+        if(scalex >1.1){
+            //超出此缩放比例，则缩小node
+            this.Content.scaleY = 1.1/scalex;
+        }
         this.node.scaleY = scalex;
         this.node.scaleX = scalex;
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)

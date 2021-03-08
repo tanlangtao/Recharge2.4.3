@@ -63,6 +63,12 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     PublicOrderAlert_8 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert :cc.Prefab =null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert_8 :cc.Prefab =null;
     
     @property()
     public UrlData : any = [];
@@ -185,15 +191,22 @@ export default class NewClass extends cc.Component {
      * @param type 
      * @param data 
      */
-    public showOrderAlert(type,data){
+    public showOrderAlert(type,data,beforePay = true){
         var node = null
+        var beforePayOrder = null
         if(this.UrlData.package_id == 8){
             node = cc.instantiate(this.PublicOrderAlert_8);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_8);
         }else{
             node = cc.instantiate(this.PublicOrderAlert);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert);
         }
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
+        //弹出提示确认框
+        if(beforePay){
+            canvas.addChild(beforePayOrder);
+        }
         node.getComponent('payPublicOrderAlert').init(type,data)
     }
 

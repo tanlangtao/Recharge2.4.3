@@ -78,7 +78,7 @@ export default class NewClass extends cc.Component {
         var data = {
             data : this.results
         }
-        this.app.showOrderAlert(2,data);
+        this.app.showOrderAlert(2,data,false);
     }
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()

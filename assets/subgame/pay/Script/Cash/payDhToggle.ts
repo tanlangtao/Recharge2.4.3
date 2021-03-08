@@ -75,22 +75,16 @@ export default class NewClass extends cc.Component {
 
     addContent(data){
         var content = cc.find('Canvas/Cash/Content');
-        let scalex = cc.winSize.width / 1334;
         if(data == 'Dh'){
             var node = cc.instantiate(this.Dh);
-            content.scaleY = 1;
         }else if(data == 'BankDh'){
             var node = cc.instantiate(this.BankDh);
-            content.scaleY = 1;
         }else if(data == 'RgDh'){
             var node = cc.instantiate(this.RgDh);
-            content.scaleY = 1;
         }else if(data == 'DhHistory'){
             var node = cc.instantiate(this.DhHistory);
-            content.scaleY = 1/scalex;
         }else if(data == 'USDT'){
             var node = cc.instantiate(this.UsdtDh);
-            content.scaleY = 1/scalex;
         }
         
         content.removeAllChildren();
