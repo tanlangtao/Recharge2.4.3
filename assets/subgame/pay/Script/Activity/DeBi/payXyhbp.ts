@@ -25,6 +25,9 @@ export default class NewClass extends cc.Component {
             console.log("获取登陆ip失败!")
             this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
+        if(this.app.UrlData.package_id == 8){
+            this.info = [100,150]
+        }
         this.getLocal()
         this.setLanguageResource()
     }
