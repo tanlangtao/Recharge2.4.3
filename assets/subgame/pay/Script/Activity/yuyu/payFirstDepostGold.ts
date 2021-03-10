@@ -122,7 +122,7 @@ export default class NewClass extends cc.Component {
         let group1= cc.find('Canvas/Activity/Content/FirstDepostGold/bg/Content/group1')
 
         this.app.loadIconLg(`${src}/activeBigImage/yuyu_firstR`,bg)
-        this.app.loadIconLg(`${src}/activeSprite/frame_1`,Layout)
+        
         this.btnArr.forEach(e=>{
             this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('bg1'))
             this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
@@ -133,9 +133,20 @@ export default class NewClass extends cc.Component {
            this.app.loadIconLg(`${src}/activeSprite/txt_zs`,txt_s)
            this.app.loadIconLg(`${src}/activeSprite/txt_y`,txt_y)
         })
-
         let label= cc.find('Canvas/Activity/Content/FirstDepostGold/bg/Content/ScrollView/view/content/label').getComponent(cc.Label)
+        if(this.app.UrlData.package_id == 8){
+            label.string = Language_pay.Lg.ChangeByText("活动规则：\n1. 新注册玩家完成手机以及银行卡绑定才能参与。\n2. 必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的三倍流水才能申请兑换。\n3. 游戏规则：仅参加以下游戏《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》。\n4. 同一用户仅限领取一次，恶意套利者将封号处理。\n5. 本活动最终解释权归新盛所有。")
+            let label1 = cc.find('Canvas/Activity/Content/FirstDepostGold/bg/label1').getComponent(cc.Label)
+            let label2 = cc.find('Canvas/Activity/Content/FirstDepostGold/bg/label2').getComponent(cc.Label)
+            label1.string = Language_pay.Lg.ChangeByText('首充')
+            label2.string = Language_pay.Lg.ChangeByText('赠送金币')
+        }else{
+            this.app.loadIconLg(`${src}/activeSprite/frame_1`,Layout)
+            label.string = Language_pay.Lg.ChangeByText("备注：\n1. 本活动需完成手机及银行卡绑定后才能参与\n2. 若玩家第一笔充值金额低于最低首存金额的50元，第二笔充值金额即便达到首存门槛也无法领取奖励\n3. 同一用户仅限领取一次 \n4. 如有异常操作，则进行冻结账号处理\n5. 首存活动可以与其他活动叠加\n6. 需满足首充金额＋赠送彩金的一倍流水方可兑换\n7. 本活动最终解释权归平台所有，平台有随时更改，停止并取消该活动的权利")
+        }
 
-        label.string = Language_pay.Lg.ChangeByText("备注：\n1. 本活动需完成手机及银行卡绑定后才能参与\n2. 若玩家第一笔充值金额低于最低首存金额的50元，第二笔充值金额即便达到首存门槛也无法领取奖励\n3. 同一用户仅限领取一次 \n4. 如有异常操作，则进行冻结账号处理\n5. 首存活动可以与其他活动叠加\n6. 需满足首充金额＋赠送彩金的一倍流水方可兑换\n7. 本活动最终解释权归平台所有，平台有随时更改，停止并取消该活动的权利")
+        
+
+        
     }
 }
