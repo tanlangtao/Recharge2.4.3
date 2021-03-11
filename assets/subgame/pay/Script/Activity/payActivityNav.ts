@@ -345,7 +345,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp2`,this.normalIcon,102,94)
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp1`,this.currentIcon,102,110);
         }
-        else if(data.name == '首充活动-8'){
+        else if(data.name == '首充活动-81'){
             this.app.loadIcon(`${src}/menu/activity/btn_schd2`,this.normalIcon,169,102)
             this.app.loadIcon(`${src}/menu/activity/btn_schd1`,this.currentIcon,169,102);
         }
@@ -357,7 +357,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,164,108)
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,164,108);
         }
-        else if(data.name == "首存彩金8"){
+        else if(data.name == "首充活动-8"){
             this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj2`,this.normalIcon,95,110)
             this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj1`,this.currentIcon,95,110);
         }
@@ -579,7 +579,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('payWheelOfFortune').setIdInfo(id,info)
             this.app.loadTitle(`${src}/title/xingyunlunpan`,this.title);
         }
-        else  if(name == '首充活动-8'){
+        else  if(name == '首充活动-81'){
             var node = cc.instantiate(this.Schd_8);
             this.app.loadTitle(`${src}/title/dm_title_schd`,this.title);
             node.getComponent('paySchd').setIdInfo(id,info);
@@ -594,7 +594,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('payLhysc').setId(id);
             this.app.loadTitle(`${src}/title/dm_title_lhysc`,this.title);
         }
-        else if (name == "首存彩金8") {
+        else if (name == "首充活动-8") {
             var node = cc.instantiate(this.FirstDepostGold_8)
             node.getComponent('payFirstDepostGold').setIdInfo(id,info);
             this.app.loadTitle(`${src}/title/yuyu_title_sccj`,this.title);
