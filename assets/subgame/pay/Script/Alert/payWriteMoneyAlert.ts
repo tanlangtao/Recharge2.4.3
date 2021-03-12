@@ -43,7 +43,7 @@ export default class NewClass extends cc.Component {
         }
     }
     fetchCheckOrder(){
-        let url = `${this.app.UrlData.host}/api/trading_order/checkOrder?user_id=${this.app.UrlData.user_id}&token=${this.app.token}`;
+        let url = `${this.app.UrlData.host}/api/trading_order/checkOrder?user_id=${this.app.UrlData.user_id}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
@@ -83,7 +83,7 @@ export default class NewClass extends cc.Component {
         let imHost = this.app.UrlData.imHost;
         let url = `${imHost}/im/api/artificial`;
         let amount = Number(this.amountLabel.string);
-        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&replace_id=${this.data.user_id}&replace_name=${decodeURI(this.data.nick_name)}&gold=${this.amountLabel.string}&amount=${amount}&exchange_price=1&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&replace_id=${this.data.user_id}&replace_name=${decodeURI(this.data.nick_name)}&gold=${this.amountLabel.string}&amount=${amount}&exchange_price=1&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.code == 0){

@@ -43,7 +43,7 @@ export default class NewClass extends cc.Component {
     // 绑定资金密码
     fetchBindAccountPay(){
         var url = `${this.app.UrlData.host}/api/user_funds_password/bindPassword`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&password=${this.passwordLabel.string}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&password=${this.passwordLabel.string}`
 
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{

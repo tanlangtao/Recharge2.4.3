@@ -47,7 +47,7 @@ export default class NewClass extends cc.Component {
     }
 
     public fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}`;
+        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading();
@@ -71,7 +71,7 @@ export default class NewClass extends cc.Component {
         })
     }
     public getSignInfo(){
-        var url = `${this.app.UrlData.host}/api/activity/checkFreeFruit?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&token=${this.app.token}`;
+        var url = `${this.app.UrlData.host}/api/activity/checkFreeFruit?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}`;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if(response.status == 0){

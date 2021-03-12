@@ -58,7 +58,7 @@ export default class NewClass extends cc.Component {
      */
     public fetchGetTask(game_id,task_id,rewardLabelString,isIntegral,callBack = ()=>{}){
         var url = `${this.app.UrlData.host}/api/activity/getTask`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&game_id=${game_id}&task_id=${task_id}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&game_id=${game_id}&task_id=${task_id}`
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 this.app.showAlert("领取成功!")
@@ -75,7 +75,7 @@ export default class NewClass extends cc.Component {
         })
     }
     public fetchByDayTaskDetail(){
-        var url = `${this.app.UrlData.host}/api/activity/dayTaskDetail?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}`;
+        var url = `${this.app.UrlData.host}/api/activity/dayTaskDetail?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}`;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if (response.status == 0) {

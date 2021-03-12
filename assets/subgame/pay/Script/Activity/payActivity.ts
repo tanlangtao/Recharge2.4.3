@@ -50,7 +50,7 @@ export default class NewClass extends cc.Component {
     }
 
     public fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/activity_config/activityConfig?package_id=${this.app.UrlData.package_id}&token=${this.app.token}`;
+        var url = `${this.app.UrlData.host}/api/activity_config/activityConfig?package_id=${this.app.UrlData.package_id}`;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if (response.status == 0) {

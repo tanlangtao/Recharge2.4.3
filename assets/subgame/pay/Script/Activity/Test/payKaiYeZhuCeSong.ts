@@ -41,7 +41,7 @@ export default class NewClass extends cc.Component {
     }
     public fetchRegisterGetGold(){
         var url = `${this.app.UrlData.host}/api/activity/registerGetGold`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&activity_id=${this.activity_id}&ip=${this.login_ip}&device_id=${this.app.gHandler.app.deviceID}&code=${this.codeInput.string}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&activity_id=${this.activity_id}&ip=${this.login_ip}&device_id=${this.app.gHandler.app.deviceID}&code=${this.codeInput.string}`
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 this.app.showAlert(Language_pay.Lg.ChangeByText('领取成功!'))

@@ -56,7 +56,7 @@ export default class NewClass extends cc.Component {
 
     fetchBindAccountPay(){
         var url = `${this.app.UrlData.host}/api/user_funds_password/updatePassword`;
-        let dataStr  =`user_id=${this.app.UrlData.user_id}&old_password=${this.oldPasswordLabel.string}&password=${this.newPasswordLabel.string}&token=${this.app.token}`;
+        let dataStr  =`user_id=${this.app.UrlData.user_id}&old_password=${this.oldPasswordLabel.string}&password=${this.newPasswordLabel.string}`;
 
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{

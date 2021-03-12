@@ -56,7 +56,7 @@ export default class NewClass extends cc.Component {
     }
 
     fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/activity/receiveGoldInfo?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}`;
+        var url = `${this.app.UrlData.host}/api/activity/receiveGoldInfo?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}`;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if(response.status == 0){
@@ -149,7 +149,7 @@ export default class NewClass extends cc.Component {
         let level = this.remainingLevel.join();
         cc.log(level)
         let url = `${this.app.UrlData.host}/api/activity/receiveGold`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&level=${level}&gold=${this.remainingGold}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&activity_name=${this.activity_name}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&level=${level}&gold=${this.remainingGold}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&activity_name=${this.activity_name}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
@@ -163,7 +163,7 @@ export default class NewClass extends cc.Component {
         })
     }
     public fetchList(){
-        var url = `${this.app.UrlData.host}/api/activity/activityList?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&page=${this.page}&limit=20&token=${this.app.token}&activity_id=${this.activity_id}`;
+        var url = `${this.app.UrlData.host}/api/activity/activityList?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&page=${this.page}&limit=20&activity_id=${this.activity_id}`;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if(response.status == 0){

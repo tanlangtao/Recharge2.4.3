@@ -41,7 +41,7 @@ export default class NewClass extends cc.Component {
     }
 
     fetchcheckPassword(){
-        var url = `${this.app.UrlData.host}/api/user_funds_password/checkPassword?user_id=${this.app.UrlData.user_id}&password=${this.passwordLabel.string}&token=${this.app.token}`;
+        var url = `${this.app.UrlData.host}/api/user_funds_password/checkPassword?user_id=${this.app.UrlData.user_id}&password=${this.passwordLabel.string}`;
 
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{

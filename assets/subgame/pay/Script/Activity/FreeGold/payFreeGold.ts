@@ -34,7 +34,7 @@ export default class NewClass extends cc.Component {
     
     fetchIndex(){
         var url = `${this.app.UrlData.host}/api/activity/getAlmsNum`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}`
         this.app.ajax('POST',url,dataStr,(response)=>{
             this.app.hideLoading()
             if(response.status == 0){
@@ -51,7 +51,7 @@ export default class NewClass extends cc.Component {
 
     public fetchGold(){
         let url = `${this.app.UrlData.host}/api/activity/getAlms`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){

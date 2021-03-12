@@ -66,7 +66,7 @@ export default class NewClass extends cc.Component {
     
 
     public fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}`;
+        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading();
@@ -180,9 +180,9 @@ export default class NewClass extends cc.Component {
         let dataStr=''
         //如果proxy_name为“”，则不传
         if(this.app.UrlData.proxy_name == ""){
-            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&center_auth=${this.app.login_token}`
+            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&package_id=${this.app.UrlData.package_id}`
         }else{
-            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&center_auth=${this.app.login_token}`
+            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
         }
         let self = this;
         self.DhBtn.getComponent(cc.Button).interactable  = false;
@@ -279,7 +279,7 @@ export default class NewClass extends cc.Component {
         this.conf_val_label.string = `${this.conf_val}${Language_pay.Lg.ChangeByText('金币')}`
     }
     public fetchGetConfigInfo(){
-        var url = `${this.app.UrlData.host}/api/config/getConfigInfo?conf_key=usdt_to_cny2&token=${this.app.token}`;
+        var url = `${this.app.UrlData.host}/api/config/getConfigInfo?conf_key=usdt_to_cny2`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){

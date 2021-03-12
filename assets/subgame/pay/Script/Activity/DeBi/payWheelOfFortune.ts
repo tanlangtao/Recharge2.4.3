@@ -78,7 +78,7 @@ export default class NewClass extends cc.Component {
         let MaskLayer = this.node.getChildByName('MaskLayer')
         MaskLayer.active = true //开启遮罩 
         var url = `${this.app.UrlData.host}/api/activity/luckyTurntable`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&num=${num}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&num=${num}`
         this.app.ajax('POST',url,dataStr,(response)=>{
             console.log(response)
             if(response.status == 0){
@@ -206,7 +206,7 @@ export default class NewClass extends cc.Component {
         })
     }
     fetchgetUserIntegral(){
-        var url = `${this.app.UrlData.host}/api/activity/getUserIntegral?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
+        var url = `${this.app.UrlData.host}/api/activity/getUserIntegral?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()
             if(response.status == 0){
@@ -222,9 +222,9 @@ export default class NewClass extends cc.Component {
     fetchList(){
         if(this.listStatus =='all'){
             //不传id，返回全服务记录
-            var url = `${this.app.UrlData.host}/api/activity/activityList?package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
+            var url = `${this.app.UrlData.host}/api/activity/activityList?package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
         }else if(this.listStatus == 'single'){
-            var url = `${this.app.UrlData.host}/api/activity/activityList?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
+            var url = `${this.app.UrlData.host}/api/activity/activityList?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&page=${this.page}&limit=${this.limit}`;
         }
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading()

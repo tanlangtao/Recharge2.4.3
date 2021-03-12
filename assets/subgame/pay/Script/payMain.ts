@@ -355,6 +355,11 @@ export default class NewClass extends cc.Component {
      * @param faildFn 失败回调 
      */
     ajax(method,url,data,successFn,faildFn){   
+        if(method == "GET"){
+            url = url+`&token=${this.token}&center_auth=${this.login_token}`
+        }else{
+            data = data+`&token=${this.token}&center_auth=${this.login_token}`
+        }
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 ) {

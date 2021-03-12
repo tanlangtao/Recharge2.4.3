@@ -30,7 +30,7 @@ export default class NewClass extends cc.Component {
     }
     fetchIndex(){
         var url = `${this.app.UrlData.host}/api/activity/proxyApplyIncome`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}&package_id=${this.app.UrlData.package_id}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}`
         this.app.ajax('POST',url,dataStr,(response)=>{
             this.app.hideLoading()
             if(response.status == 0){
@@ -61,7 +61,7 @@ export default class NewClass extends cc.Component {
     }
     fetchPayBonus(){
         var url = `${this.app.UrlData.host}/api/activity/proxyPayBonus`;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&token=${this.app.token}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}`
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 this.app.showAlert("领取成功！")

@@ -397,7 +397,7 @@ export default class NewClass extends cc.Component {
         }
     }
     public fetchgetSignWeekInfo(activity_id){
-        var url = `${this.app.UrlData.host}/api/activity/getSignWeekInfo?user_id=${this.app.UrlData.user_id}&activity_id=${activity_id}&token=${this.app.token}`;
+        var url = `${this.app.UrlData.host}/api/activity/getSignWeekInfo?user_id=${this.app.UrlData.user_id}&activity_id=${activity_id}`;
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
                 if(response.data.sign_today==1){
