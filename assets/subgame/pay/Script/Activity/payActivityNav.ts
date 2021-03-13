@@ -317,7 +317,7 @@ export default class NewClass extends cc.Component {
         else  if(data.name == '新会员首存活动三重奏2'){
             this.app.loadIcon(`${src}/menu/activity/btn_xhysc2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_xhysc1`,this.currentIcon,249,86);
-        }else  if(data.name == '老会员每日首存活动2'){
+        }else  if(data.name == '老会员每日首存活动非自动领取2'){
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,249,86);
         }
@@ -563,8 +563,9 @@ export default class NewClass extends cc.Component {
         }else  if(name == '新会员首存活动三重奏2'){
             var node = cc.instantiate(this.Xhysc);
             this.app.loadTitle(`${src}/title/dm_title_xhysc`,this.title);
-        }else  if(name == '老会员每日首存活动2'){
+        }else  if(name == '老会员每日首存活动非自动领取2'){
             var node = cc.instantiate(this.Lhysc);
+            node.getComponent('payLhysc').setId(id);
             this.app.loadTitle(`${src}/title/dm_title_lhysc`,this.title);
         }else if (name == "15天送58元8") {
             var node = cc.instantiate(this.HalfMonthGift_8)
@@ -600,7 +601,6 @@ export default class NewClass extends cc.Component {
             this.app.loadTitle(`${src}/title/yuyu_title_sccj`,this.title);
         }
         content.addChild(node);
-
     }
     
     onDestroy(){
