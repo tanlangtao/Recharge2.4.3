@@ -24,20 +24,20 @@
         "__id__": 6
       },
       {
-        "__id__": 91
+        "__id__": 94
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 95
+        "__id__": 98
       },
       {
-        "__id__": 96
+        "__id__": 99
       }
     ],
     "_prefab": {
-      "__id__": 97
+      "__id__": 100
     },
     "_opacity": 255,
     "_color": {
@@ -241,14 +241,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 88
+        "__id__": 91
       },
       {
-        "__id__": 89
+        "__id__": 92
       }
     ],
     "_prefab": {
-      "__id__": 90
+      "__id__": 93
     },
     "_opacity": 255,
     "_color": {
@@ -2621,16 +2621,19 @@
       },
       {
         "__id__": 73
+      },
+      {
+        "__id__": 76
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 86
+        "__id__": 89
       }
     ],
     "_prefab": {
-      "__id__": 87
+      "__id__": 90
     },
     "_opacity": 255,
     "_color": {
@@ -2687,7 +2690,7 @@
       "__id__": 69
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 71
@@ -2788,6 +2791,114 @@
   },
   {
     "__type__": "cc.Node",
+    "_name": "event4_xzcyh_text",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 69
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 74
+      }
+    ],
+    "_prefab": {
+      "__id__": 75
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 203,
+      "g": 123,
+      "b": 135,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 475.1,
+      "height": 37.8
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        -63,
+        83,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 73
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "每周五盛世开启， 申请时间： 12:00-18:00",
+    "_N$string": "每周五盛世开启， 申请时间： 12:00-18:00",
+    "_fontSize": 25,
+    "_lineHeight": 30,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 1,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "b711d19a-5c37-4733-8097-cfdc544bf14b"
+    },
+    "fileId": "5cp+Tw7p5F/rg4cAB89Zxg",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
     "_name": "ScrollView",
     "_objFlags": 0,
     "_parent": {
@@ -2795,20 +2906,20 @@
     },
     "_children": [
       {
-        "__id__": 74
+        "__id__": 77
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 83
+        "__id__": 86
       },
       {
-        "__id__": 84
+        "__id__": 87
       }
     ],
     "_prefab": {
-      "__id__": 85
+      "__id__": 88
     },
     "_opacity": 255,
     "_color": {
@@ -2862,21 +2973,21 @@
     "_name": "view",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 73
+      "__id__": 76
     },
     "_children": [
       {
-        "__id__": 75
+        "__id__": 78
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 81
+        "__id__": 84
       }
     ],
     "_prefab": {
-      "__id__": 82
+      "__id__": 85
     },
     "_opacity": 255,
     "_color": {
@@ -2930,21 +3041,21 @@
     "_name": "content",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 74
+      "__id__": 77
     },
     "_children": [
       {
-        "__id__": 76
+        "__id__": 79
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 79
+        "__id__": 82
       }
     ],
     "_prefab": {
-      "__id__": 80
+      "__id__": 83
     },
     "_opacity": 255,
     "_color": {
@@ -2998,17 +3109,17 @@
     "_name": "label",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 75
+      "__id__": 78
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 77
+        "__id__": 80
       }
     ],
     "_prefab": {
-      "__id__": 78
+      "__id__": 81
     },
     "_opacity": 255,
     "_color": {
@@ -3062,7 +3173,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 76
+      "__id__": 79
     },
     "_enabled": true,
     "_materials": [
@@ -3072,8 +3183,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "1.新会员注册好账号，须先绑定好手机号码与银行卡后联系上级进行申请。申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2.参加活动的会员，只能进行指定游戏《财神到》、《水果机》、《捕鱼．聚宝盆》、《捕鱼．海王》等4款游戏，进行其他游戏便视为放弃此活动。\n3.在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面进行领取活动彩金。\n4.赢金到规定金额不兑换视为放弃包赔资格(输完不能赔付)。\n5.同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6.本活动最终解释权仅新盛所有。",
-    "_N$string": "1.新会员注册好账号，须先绑定好手机号码与银行卡后联系上级进行申请。申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2.参加活动的会员，只能进行指定游戏《财神到》、《水果机》、《捕鱼．聚宝盆》、《捕鱼．海王》等4款游戏，进行其他游戏便视为放弃此活动。\n3.在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面进行领取活动彩金。\n4.赢金到规定金额不兑换视为放弃包赔资格(输完不能赔付)。\n5.同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6.本活动最终解释权仅新盛所有。",
+    "_string": "1. 新会员注册好账号， 需先绑定好手机号码与银行卡后联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6. 本活动最终解释权归新盛棋牌所有。",
+    "_N$string": "1. 新会员注册好账号， 需先绑定好手机号码与银行卡后联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6. 本活动最终解释权归新盛棋牌所有。",
     "_fontSize": 22,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -3106,7 +3217,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 75
+      "__id__": 78
     },
     "_enabled": true,
     "_layoutSize": {
@@ -3149,7 +3260,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 74
+      "__id__": 77
     },
     "_enabled": true,
     "_materials": [
@@ -3180,7 +3291,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 73
+      "__id__": 76
     },
     "_enabled": true,
     "_materials": [
@@ -3210,7 +3321,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 73
+      "__id__": 76
     },
     "_enabled": true,
     "horizontal": false,
@@ -3222,10 +3333,10 @@
     "scrollEvents": [],
     "cancelInnerEvents": true,
     "_N$content": {
-      "__id__": 75
+      "__id__": 78
     },
     "content": {
-      "__id__": 75
+      "__id__": 78
     },
     "_N$horizontalScrollBar": null,
     "_N$verticalScrollBar": null,
@@ -3364,14 +3475,14 @@
     "_active": false,
     "_components": [
       {
-        "__id__": 92
+        "__id__": 95
       },
       {
-        "__id__": 93
+        "__id__": 96
       }
     ],
     "_prefab": {
-      "__id__": 94
+      "__id__": 97
     },
     "_opacity": 255,
     "_color": {
@@ -3425,7 +3536,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 91
+      "__id__": 94
     },
     "_enabled": true,
     "_materials": [
@@ -3457,7 +3568,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 91
+      "__id__": 94
     },
     "_enabled": true,
     "alignMode": 1,
