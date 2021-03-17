@@ -160,7 +160,7 @@ export default class NewClass extends cc.Component {
             title3.string = Language_pay.Lg.ChangeByText('最高兑换金额')
             title4.string = Language_pay.Lg.ChangeByText('限制最高注')
 
-            tishi.string = Language_pay.Lg.ChangeByText("1.新会员注册好账号，须先绑定好手机号码与银行卡后联系上级进行申请。申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2.参加活动的会员，只能进行指定游戏《财神到》、《水果机》、《捕鱼．聚宝盆》、《捕鱼．海王》等4款游戏，进行其他游戏便视为放弃此活动。\n3.在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面进行领取活动彩金。\n4.赢金到规定金额不兑换视为放弃包赔资格(输完不能赔付)。\n5.同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6.本活动最终解释权仅新盛所有。")
+            tishi.string = Language_pay.Lg.ChangeByText("1. 新会员注册好账号， 需先绑定好手机号码与银行卡后联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领取则视为自动放弃。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6. 本活动最终解释权归新盛棋牌所有。")
         }else{
             this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_frame2`,event4_xzcyh_frame2)
             this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_content`,event4_xzcyh_content)
