@@ -142,6 +142,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     Lyhbp :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    Lyhbp_8 :cc.Prefab = null;
 
     @property(cc.Prefab)
     Xhysc :cc.Prefab = null;
@@ -360,6 +363,10 @@ export default class NewClass extends cc.Component {
         else if(data.name == "首充活动-8"){
             this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj2`,this.normalIcon,95,110)
             this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj1`,this.currentIcon,95,110);
+        }
+        else if(data.name == '老用户包赔活动8'){
+            this.app.loadIcon(`${src}/menu/activity/btn_lyh2`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_lyh1`,this.currentIcon,249,86);
         }
 
         //响应每日签到2，显示红点
@@ -599,6 +606,11 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.FirstDepostGold_8)
             node.getComponent('payFirstDepostGold').setIdInfo(id,info);
             this.app.loadTitle(`${src}/title/yuyu_title_sccj`,this.title);
+        }
+        else  if(name == '老用户包赔活动8'){
+            var node = cc.instantiate(this.Lyhbp_8);
+            node.getComponent('payLyhbp').setId(id)
+            this.app.loadTitle(`${src}/title/title_lyh`,this.title);
         }
         content.addChild(node);
     }

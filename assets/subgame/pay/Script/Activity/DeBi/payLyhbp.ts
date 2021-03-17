@@ -26,6 +26,9 @@ export default class NewClass extends cc.Component {
         }
         this.getLocal()
         this.setLanguageResource()
+        if(this.app.UrlData.package_id == 8){
+            this.info = [200,300]
+        }
     }
     getFristPayAmount(){
         var url = `${this.app.UrlData.host}/api/activity/GetFristPayAmountByWeek?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}`;
@@ -100,6 +103,7 @@ export default class NewClass extends cc.Component {
                 self.app.showAlert(Language_pay.Lg.ChangeByText("领取成功!"))
                 //手动将领取结果赋值为1
                 this.FristPayAmount.is_received = 1
+                this.setLocal()
                 this.renderBtn()
             }else{
                 self.app.showAlert(response.msg)
@@ -109,11 +113,14 @@ export default class NewClass extends cc.Component {
         })
     }
     setLocal(){
+        let time = new Date().getTime()/1000
+        this.FristPayAmount.getTime = time
         cc.sys.localStorage.setItem(`oldUserFristPayAmount_${this.app.UrlData.user_id}`,JSON.stringify(this.FristPayAmount))
     }
     getLocal(){
+        let newTime = new Date().getTime()/1000
         let localFristPayAmount = cc.sys.localStorage.getItem(`oldUserFristPayAmount_${this.app.UrlData.user_id}`) 
-        if (localFristPayAmount && JSON.parse(localFristPayAmount).frist_pay_amount >0){
+        if (localFristPayAmount && JSON.parse(localFristPayAmount).frist_pay_amount >0 && (newTime-JSON.parse(localFristPayAmount).getTime ) < 3600){
             this.FristPayAmount = JSON.parse(localFristPayAmount)
             this.renderBtn()
         }else{
@@ -150,6 +157,15 @@ export default class NewClass extends cc.Component {
         title1.string = Language_pay.Lg.ChangeByText("首充金额")
         title2.string = Language_pay.Lg.ChangeByText("包赔金额")
         title3.string = Language_pay.Lg.ChangeByText("最高兑换金额")
-        label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员每周限制参加一次（星期一到星期六），联系上级进行申请，申请时间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#FF0000>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》</c>\n5款游戏， 进行其他游戏便视为放弃此活动。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面领取活动彩金。\n4. 赢金到规定金额不提款视为放弃包赔资格（输完不能赔付）。\n5. 包赔金在每周日23:59:59未进行领取则视为自动放弃。\n6. 同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请兑换， 恶意套利者将封号处理。\n7.本活动最终解释权归德比所有。</color>")
+        
+        if(this.app.UrlData.package_id == 8){
+            let event_xs_lyh_tip =cc.find('Canvas/Activity/Content/Lyhbp/event_xs_lyh_tip')
+            this.app.loadIconLg(`${src}/activeSprite/event_xs_lyh_tip`,event_xs_lyh_tip)
+            let title4= cc.find('Canvas/Activity/Content/Lyhbp/group1/title4').getComponent(cc.Label)
+            title4.string = Language_pay.Lg.ChangeByText("限制最高注")
+            label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封\n号处理。\n6.本活动最终解释权归新盛所有。\n</color>")
+        }else{
+            label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员每周限制参加一次（星期一到星期六），联系上级进行申请，申请时间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#FF0000>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》</c>\n5款游戏， 进行其他游戏便视为放弃此活动。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不能赔付）。\n5. 包赔金在每周日23:59:59未进行领取则视为自动放弃。\n6. 同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请兑换， 恶意套利者将封号处理。\n7.本活动最终解释权归德比所有。</color>")
+        }
     }   
 }
