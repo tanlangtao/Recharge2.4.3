@@ -54,6 +54,9 @@ export default class NewClass extends cc.Component {
     FirstDepostGold_8: cc.Prefab = null;
 
     @property(cc.Prefab)
+    FirstDepostGoldHDSQQDLQ_8: cc.Prefab = null;
+
+    @property(cc.Prefab)
     DailyRescueGold: cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -368,6 +371,10 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_lyh2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_lyh1`,this.currentIcon,249,86);
         }
+        else if(data.name == "首充活动后端申请前端领取8"){
+            this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj2`,this.normalIcon,95,110)
+            this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj1`,this.currentIcon,95,110);
+        }
 
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'){
@@ -611,6 +618,11 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.Lyhbp_8);
             node.getComponent('payLyhbp').setId(id)
             this.app.loadTitle(`${src}/title/title_lyh`,this.title);
+        }
+        else if (name == "首充活动后端申请前端领取8") {
+            var node = cc.instantiate(this.FirstDepostGoldHDSQQDLQ_8)
+            node.getComponent('payFirstDepostGoldHDSQQDLQ').setIdInfo(id,info);
+            this.app.loadTitle(`${src}/title/yuyu_title_sccj`,this.title);
         }
         content.addChild(node);
     }
