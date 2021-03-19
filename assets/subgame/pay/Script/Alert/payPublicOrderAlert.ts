@@ -84,15 +84,8 @@ export default class NewClass extends cc.Component {
 
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setLanguageResource()
-
-        let label1Node = cc.find("Canvas/PublicOrderAlert/Content/label1")
-        let label2Node = cc.find("Canvas/PublicOrderAlert/Content/label2")
-        var action = cc.blink(2, 2);
-        var action2 = cc.blink(2, 2);
-        label1Node.runAction(action.repeatForever())
-        label2Node.runAction(action2.repeatForever())
+        this.blinkFun()
     }
-
     copyCard_num(){
         //按键音效
         this.app.loadMusic(1);
@@ -198,6 +191,7 @@ export default class NewClass extends cc.Component {
         let label1= cc.find("Canvas/PublicOrderAlert/Content/label1").getComponent(cc.Label)
         let label2= cc.find("Canvas/PublicOrderAlert/Content/label2").getComponent(cc.Label)
         let label3= cc.find("Canvas/PublicOrderAlert/Content/label3").getComponent(cc.Label)
+        let jineTip= cc.find("Canvas/PublicOrderAlert/Content/group/group2/jineTip").getComponent(cc.Label)
         let btn1= cc.find("Canvas/PublicOrderAlert/Content/btn1")
 
         this.app.loadIconLg(`${src}/font/title_orderinfo`,title_orderinfo)
@@ -227,10 +221,22 @@ export default class NewClass extends cc.Component {
         
         attention.string = `${Language_pay.Lg.ChangeByText('特别提醒:')}`
         yhkzzLabel.string = `${Language_pay.Lg.ChangeByText('银行卡转账')}`
-        label1.string = `${Language_pay.Lg.ChangeByText('1. 只支持银行卡转银行卡支付；')}`
-        label2.string = `${Language_pay.Lg.ChangeByText('2. 支付时输入金额与订单金额一致，并填写附言(备注)信息；')}`
+        jineTip.string = `${Language_pay.Lg.ChangeByText('(转账的金额请确保完全一致)')}`
+        label1.string = `${Language_pay.Lg.ChangeByText('1. 只支持银行卡转银行卡支付,不支持支付宝和微信；')}`
+        label2.string = `${Language_pay.Lg.ChangeByText('2. 转账的金额必须与订单的收款金额完全一致，并填写附言(备注)信息；')}`
         label3.string = `${Language_pay.Lg.ChangeByText('3. 正常付款1-5分钟内到账，未到账请联系客服。')}`
-        
+    }
+    blinkFun(){
+        let label1Node = cc.find("Canvas/PublicOrderAlert/Content/label1")
+        let label2Node = cc.find("Canvas/PublicOrderAlert/Content/label2")
+        label1Node.stopAllActions()
+        label2Node.stopAllActions()
+        var action1 = cc.tintTo(0.2, 255, 212, 105);
+        var action2 = cc.tintTo(0.2, 229, 49, 20);
+        var action3 = cc.tintTo(0.2, 255, 212, 105);
+        var action4 = cc.tintTo(0.2, 229, 49, 20);
+        label1Node.runAction(cc.sequence(action1,action2).repeatForever())
+        label2Node.runAction(cc.sequence(action3,action4).repeatForever())
     }
     // update (dt) {}
 }

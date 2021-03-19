@@ -109,10 +109,7 @@ export default class NewClass extends cc.Component {
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay3`,this.iconFont,252,45) 
             }
-            this.blinkNode.stopAllActions()
-            this.blinkNode.active = true
-            var action = cc.blink(2, 2);
-            this.blinkNode.runAction(action.repeatForever())
+            this.blinkFun()
         }else if(this.channel == 'quick_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
@@ -243,6 +240,7 @@ export default class NewClass extends cc.Component {
     public onClick(){
         //按键音效
         this.app.loadMusic(1);
+        this.DelayBtn()
         var amount = Number(this.amountLabel.string);
         var min_amount = Number(this.current.min_amount);
         var max_amount = Number(this.current.max_amount);
@@ -263,6 +261,13 @@ export default class NewClass extends cc.Component {
                 cc.log(encodeURI(url))
             }
         }
+    }
+    DelayBtn(){
+        let czgoldbt1= cc.find("Canvas/Recharge/Content/Zfb/czgoldbt1").getComponent(cc.Button)
+        czgoldbt1.interactable = false
+        this.scheduleOnce(()=>{
+            czgoldbt1.interactable = true
+        },1)
     }
 
     showPayIM(){
@@ -376,6 +381,11 @@ export default class NewClass extends cc.Component {
         }
         label.string = `${Language_pay.Lg.ChangeByText("开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！")}`
     }
-    
-    
+    blinkFun(){
+        this.blinkNode.stopAllActions()
+        this.blinkNode.active = true
+        var action1 = cc.tintTo(0.2, 255, 212, 105);
+        var action2 = cc.tintTo(0.2, 229, 49, 20);
+        this.blinkNode.runAction(cc.sequence(action1,action2).repeatForever())
+    }
 }
