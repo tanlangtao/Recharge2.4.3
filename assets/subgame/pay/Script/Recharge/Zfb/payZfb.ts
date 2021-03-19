@@ -54,6 +54,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     shuiyin: cc.Node = null;
 
+    @property(cc.Node)
+    blinkNode: cc.Node = null;
+
     @property()
     public app  = null;
     public results : any = {};
@@ -106,6 +109,10 @@ export default class NewClass extends cc.Component {
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay3`,this.iconFont,252,45) 
             }
+            this.blinkNode.stopAllActions()
+            this.blinkNode.active = true
+            var action = cc.blink(2, 2);
+            this.blinkNode.runAction(action.repeatForever())
         }else if(this.channel == 'quick_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`

@@ -84,6 +84,13 @@ export default class NewClass extends cc.Component {
 
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setLanguageResource()
+
+        let label1Node = cc.find("Canvas/PublicOrderAlert/Content/label1")
+        let label2Node = cc.find("Canvas/PublicOrderAlert/Content/label2")
+        var action = cc.blink(2, 2);
+        var action2 = cc.blink(2, 2);
+        label1Node.runAction(action.repeatForever())
+        label2Node.runAction(action2.repeatForever())
     }
 
     copyCard_num(){
@@ -189,7 +196,7 @@ export default class NewClass extends cc.Component {
         let btn_fuzhi5= cc.find("Canvas/PublicOrderAlert/Content/group/btn_fuzhi5")
         let attention= cc.find("Canvas/PublicOrderAlert/Content/attention").getComponent(cc.Label)
         let label1= cc.find("Canvas/PublicOrderAlert/Content/label1").getComponent(cc.Label)
-        let label2= cc.find("Canvas/PublicOrderAlert/Content/label2").getComponent(cc.RichText)
+        let label2= cc.find("Canvas/PublicOrderAlert/Content/label2").getComponent(cc.Label)
         let label3= cc.find("Canvas/PublicOrderAlert/Content/label3").getComponent(cc.Label)
         let btn1= cc.find("Canvas/PublicOrderAlert/Content/btn1")
 
@@ -223,6 +230,7 @@ export default class NewClass extends cc.Component {
         label1.string = `${Language_pay.Lg.ChangeByText('1. 只支持银行卡转银行卡支付；')}`
         label2.string = `${Language_pay.Lg.ChangeByText('2. 支付时输入金额与订单金额一致，并填写附言(备注)信息；')}`
         label3.string = `${Language_pay.Lg.ChangeByText('3. 正常付款1-5分钟内到账，未到账请联系客服。')}`
+        
     }
     // update (dt) {}
 }

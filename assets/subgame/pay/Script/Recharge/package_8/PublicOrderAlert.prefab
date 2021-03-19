@@ -27,17 +27,17 @@
     "_active": true,
     "_components": [
       {
+        "__id__": 134
+      },
+      {
         "__id__": 135
       },
       {
         "__id__": 136
-      },
-      {
-        "__id__": 137
       }
     ],
     "_prefab": {
-      "__id__": 138
+      "__id__": 137
     },
     "_opacity": 255,
     "_color": {
@@ -353,29 +353,29 @@
         "__id__": 114
       },
       {
-        "__id__": 117
+        "__id__": 118
       },
       {
-        "__id__": 123
+        "__id__": 122
       },
       {
-        "__id__": 126
+        "__id__": 125
       }
     ],
     "_active": true,
     "_components": [
       {
+        "__id__": 130
+      },
+      {
         "__id__": 131
       },
       {
         "__id__": 132
-      },
-      {
-        "__id__": 133
       }
     ],
     "_prefab": {
-      "__id__": 134
+      "__id__": 133
     },
     "_opacity": 255,
     "_color": {
@@ -4378,23 +4378,26 @@
     "_components": [
       {
         "__id__": 115
+      },
+      {
+        "__id__": 116
       }
     ],
     "_prefab": {
-      "__id__": 116
+      "__id__": 117
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 51,
-      "b": 51,
+      "g": 212,
+      "b": 105,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 750,
-      "height": 31.5
+      "height": 33.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4464,6 +4467,24 @@
     "_id": ""
   },
   {
+    "__type__": "cc.LabelOutline",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 114
+    },
+    "_enabled": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 212,
+      "b": 105,
+      "a": 255
+    },
+    "_width": 1,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -4481,32 +4502,31 @@
     "_parent": {
       "__id__": 8
     },
-    "_children": [
-      {
-        "__id__": 118
-      }
-    ],
+    "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 121
+        "__id__": 119
+      },
+      {
+        "__id__": 120
       }
     ],
     "_prefab": {
-      "__id__": 122
+      "__id__": 121
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 51,
-      "b": 51,
+      "g": 212,
+      "b": 105,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 669.45,
-      "height": 31.5
+      "width": 671.45,
+      "height": 33.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4543,71 +4563,6 @@
     "_id": ""
   },
   {
-    "__type__": "cc.PrivateNode",
-    "_name": "RICHTEXT_CHILD",
-    "_objFlags": 1024,
-    "_parent": {
-      "__id__": 117
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 119
-      }
-    ],
-    "_prefab": {
-      "__id__": 120
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 51,
-      "b": 51,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 669.45,
-      "height": 31.5
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        -31.5,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "showInEditor": false,
-    "_id": ""
-  },
-  {
     "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
@@ -4641,35 +4596,21 @@
     "_id": ""
   },
   {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "5dcf4e7f-fa3c-4695-a00f-fe8fda26661d"
-    },
-    "fileId": "b9ioxGTalK6KB+KzPf/QOk",
-    "sync": false
-  },
-  {
-    "__type__": "cc.RichText",
+    "__type__": "cc.LabelOutline",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 117
+      "__id__": 118
     },
     "_enabled": true,
-    "_fontFamily": "Arial",
-    "_isSystemFontUsed": true,
-    "_N$string": "2. 支付时输入金额与订单金额一致，并填写附言(备注)信息；",
-    "_N$horizontalAlign": 0,
-    "_N$fontSize": 25,
-    "_N$font": null,
-    "_N$cacheMode": 0,
-    "_N$maxWidth": 0,
-    "_N$lineHeight": 25,
-    "_N$imageAtlas": null,
-    "_N$handleTouchEvent": true,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 212,
+      "b": 105,
+      "a": 255
+    },
+    "_width": 1,
     "_id": ""
   },
   {
@@ -4694,11 +4635,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 124
+        "__id__": 123
       }
     ],
     "_prefab": {
-      "__id__": 125
+      "__id__": 124
     },
     "_opacity": 255,
     "_color": {
@@ -4752,7 +4693,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 123
+      "__id__": 122
     },
     "_enabled": true,
     "_materials": [
@@ -4802,14 +4743,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 127
+        "__id__": 126
       },
       {
-        "__id__": 128
+        "__id__": 127
       }
     ],
     "_prefab": {
-      "__id__": 130
+      "__id__": 129
     },
     "_opacity": 255,
     "_color": {
@@ -4863,7 +4804,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 126
+      "__id__": 125
     },
     "_enabled": true,
     "_materials": [
@@ -4895,7 +4836,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 126
+      "__id__": 125
     },
     "_enabled": true,
     "_normalMaterial": null,
@@ -4904,7 +4845,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 129
+        "__id__": 128
       }
     ],
     "_N$interactable": true,
