@@ -63,6 +63,7 @@ export default class NewClass extends cc.Component {
     public current : any = {};
     public channel  = 'alipay';
     conf_val = 0 // usdt充值汇率
+    login_ip = ''
     onLoad () {
         this.huodongLabel.node.active=false;
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -70,6 +71,12 @@ export default class NewClass extends cc.Component {
         this.fetchZfb()
         this.setLanguageResource()
         this.getLocalConf()
+        if(this.app.gHandler.gameGlobal.ipList) {
+            this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
+        }else{
+            console.log("获取登陆ip失败!")
+            this.app.showAlert("获取登陆ip失败!")
+        }
     }
     init(data){
         let src = Language_pay.Lg.getLgSrc()
@@ -256,7 +263,7 @@ export default class NewClass extends cc.Component {
             //     this.showPayIM()
             // }
             else{
-                var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&center_auth=${this.app.login_token}`;
+                var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&order_ip=${this.login_ip}&device_id=${this.app.gHandler.app.deviceID}&token=${this.app.token}&center_auth=${this.app.login_token}`;
                 cc.sys.openURL(encodeURI(url))
                 cc.log(encodeURI(url))
             }
@@ -271,7 +278,7 @@ export default class NewClass extends cc.Component {
     }
 
     showPayIM(){
-        var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&token=${this.app.token}&center_auth=${this.app.login_token}`;
+        var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&order_ip=${this.login_ip}&device_id=${this.app.gHandler.app.deviceID}&token=${this.app.token}&center_auth=${this.app.login_token}`;
         cc.find('payGlobal').getComponent('payGlobal').imWebViewUrl = encodeURI(url)
         cc.director.preloadScene("payIM",()=>{
             this.app.gHandler.reflect.setOrientation("portrait", 640, 1136)
