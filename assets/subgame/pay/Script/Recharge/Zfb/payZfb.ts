@@ -57,6 +57,12 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     blinkNode: cc.Node = null;
 
+    @property(cc.Prefab)
+    BindBankAccountTipAlert : cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BindBankAccountTipAlert_8 : cc.Prefab = null;
+
     @property()
     public app  = null;
     public results : any = {};
@@ -64,6 +70,7 @@ export default class NewClass extends cc.Component {
     public channel  = 'alipay';
     conf_val = 0 // usdt充值汇率
     login_ip = ''
+    IsBindBankAccount = false // 判断是否已经绑卡
     onLoad () {
         this.huodongLabel.node.active=false;
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -187,6 +194,9 @@ export default class NewClass extends cc.Component {
                     // self.huodongLabel.node.active=true;
 
                     this.setInterval(discount_rate.bankcard_transfer)
+                    //验证有没有绑卡
+                    this.app.showLoading();
+                    this.fetchIndex()
                 }else if(self.channel == 'quick_pay'){
                     self.results = response.data.quick_pay;
                     this.setInterval(discount_rate.quick_pay)
@@ -248,6 +258,10 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
         this.DelayBtn()
+        if(!this.IsBindBankAccount){
+            this.showBindBankAccountTip()
+            return
+        }
         var amount = Number(this.amountLabel.string);
         var min_amount = Number(this.current.min_amount);
         var max_amount = Number(this.current.max_amount);
@@ -365,6 +379,54 @@ export default class NewClass extends cc.Component {
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)
         })
+    }
+    public fetchIndex(){
+        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}`;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                let bankData = [];
+                let data = response.data;
+                for(let i = 0 ;i < data.list.length ;i++){
+                    let data = response.data.list[i];
+                    if (data.type == 3){
+                        bankData.push(data)
+                    }
+                }
+                if(bankData.length == 0){
+                    //提示绑卡
+                    this.showBindBankAccountTip()
+                }else{
+                    this.IsBindBankAccount =true
+                }
+                this.app.hideLoading();
+            }else{
+                this.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+            this.app.hideLoading();
+        })
+    }
+    showBindBankAccountTip(){
+        let canvas = cc.find("Canvas")
+        let node = null
+        if(this.app.UrlData.package_id == 8){
+             node = cc.instantiate(this.BindBankAccountTipAlert_8)
+        }else{
+            node = cc.instantiate(this.BindBankAccountTipAlert)
+        }
+        node.getComponent("payBindBankAccountTipAlert").init(this)
+        canvas.addChild(node)
+    }
+    //显示弹窗
+    showAccountAlert(){
+        this.app.showBankAccountAlert({
+            text: '设置银行卡',
+            action:"add",
+            itemId:null,
+            parentComponent:this,
+            changeData:false
+        });
     }
     //设置语言相关的资源和字
     setLanguageResource(){

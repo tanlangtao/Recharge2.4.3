@@ -149,13 +149,14 @@ export default class NewClass extends cc.Component {
     action = 'add';
     itemId = null;
     app = null;
-
+    parentComponent = null;
     public init(data) {
         let src = Language_pay.Lg.getLgSrc()
         let iconPath = data.text =='设置银行卡' ?`${src}/font/title_szyhk` :`${src}/font/title_xgyhk`;
         this.app.loadIcon(iconPath,this.titleIcon,283,51);
         this.action = data.action;
         this.itemId = data.itemId;
+        this.parentComponent = data.parentComponent
     }
 
     changeContent(data){
@@ -249,8 +250,7 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
-                let bankCom = cc.find('Canvas/Cash/Content/BankDh').getComponent('payBankDh');
-                bankCom.fetchIndex();
+                this.parentComponent.fetchIndex();
                 self.app.showAlert(Language_pay.Lg.ChangeByText('操作成功!'))
             }else{
                 self.app.showAlert(response.msg)

@@ -252,7 +252,8 @@ export default class NewClass extends cc.Component {
         BankAccountAlert.init({
             text:data.text,
             action:data.action,
-            itemId:data.itemId
+            itemId:data.itemId,
+            parentComponent:data.parentComponent
         })
         if(data.changeData){
             BankAccountAlert.changeContent(data.changeData);
