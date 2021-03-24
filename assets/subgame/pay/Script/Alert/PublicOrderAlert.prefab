@@ -1081,7 +1081,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        114,
+        99,
         0,
         0,
         0,
@@ -1188,7 +1188,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        58,
+        28,
         0,
         0,
         0,
@@ -1295,7 +1295,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        2,
+        -43,
         0,
         0,
         0,
@@ -1402,7 +1402,7 @@
       "ctor": "Float64Array",
       "array": [
         80,
-        -54,
+        -114,
         0,
         0,
         0,
@@ -1477,7 +1477,7 @@
       "__id__": 19
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 36
@@ -1602,7 +1602,7 @@
     "_N$paddingTop": 10,
     "_N$paddingBottom": 0,
     "_N$spacingX": 0,
-    "_N$spacingY": 25,
+    "_N$spacingY": 40,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_N$affectedByScale": false,
@@ -1849,7 +1849,7 @@
       "ctor": "Float64Array",
       "array": [
         -90,
-        114,
+        99,
         0,
         0,
         0,
@@ -1957,7 +1957,7 @@
       "ctor": "Float64Array",
       "array": [
         -90,
-        58,
+        29,
         0,
         0,
         0,
@@ -2065,7 +2065,7 @@
       "ctor": "Float64Array",
       "array": [
         -90,
-        2,
+        -42,
         0,
         0,
         0,
@@ -2173,7 +2173,7 @@
       "ctor": "Float64Array",
       "array": [
         -90,
-        -54,
+        -112,
         0,
         0,
         0,
@@ -2249,7 +2249,7 @@
       "__id__": 40
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 57
@@ -2376,7 +2376,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 250,
+      "width": 320,
       "height": 31
     },
     "_anchorPoint": {
@@ -2389,7 +2389,7 @@
       "ctor": "Float64Array",
       "array": [
         18.326,
-        -53.43,
+        -111.469,
         0,
         0,
         0,
@@ -2924,7 +2924,7 @@
       "ctor": "Float64Array",
       "array": [
         316,
-        60,
+        40,
         0,
         0,
         0,
@@ -3122,7 +3122,7 @@
       "ctor": "Float64Array",
       "array": [
         316,
-        4,
+        -36,
         0,
         0,
         0,
@@ -3320,7 +3320,7 @@
       "ctor": "Float64Array",
       "array": [
         316,
-        -51,
+        -111,
         0,
         0,
         0,
@@ -3483,7 +3483,7 @@
       "__id__": 18
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 90
@@ -3924,7 +3924,7 @@
       "ctor": "Float64Array",
       "array": [
         -9,
-        -152,
+        -142.339,
         0,
         0,
         0,
@@ -3963,8 +3963,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "1. 只支持银行卡转银行卡支付,不支持支付宝和微信；",
-    "_N$string": "1. 只支持银行卡转银行卡支付,不支持支付宝和微信；",
+    "_string": "1.请使用与绑定银行卡相同账户名的账户进行支付。",
+    "_N$string": "1.请使用与绑定银行卡相同账户名的账户进行支付。",
     "_fontSize": 25,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -4040,7 +4040,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 796.45,
+      "width": 697.85,
       "height": 33.5
     },
     "_anchorPoint": {
@@ -4053,7 +4053,7 @@
       "ctor": "Float64Array",
       "array": [
         -384,
-        -190,
+        -180.339,
         0,
         0,
         0,
@@ -4092,8 +4092,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "2. 转账的金额必须与订单的收款金额完全一致，并填写附言(备注)信息；",
-    "_N$string": "2. 转账的金额必须与订单的收款金额完全一致，并填写附言(备注)信息；",
+    "_string": "2.转账的金额必须和订单上的收款金额完全一致，包括小数点。",
+    "_N$string": "2.转账的金额必须和订单上的收款金额完全一致，包括小数点。",
     "_fontSize": 25,
     "_lineHeight": 25,
     "_enableWrapText": true,
@@ -4167,7 +4167,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 750,
-      "height": 31.5
+      "height": 56.49999999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4179,7 +4179,7 @@
       "ctor": "Float64Array",
       "array": [
         -9,
-        -229,
+        -219.339,
         0,
         0,
         0,
@@ -4218,8 +4218,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "3. 正常付款1-5分钟内到账，未到账请联系客服。",
-    "_N$string": "3. 正常付款1-5分钟内到账，未到账请联系客服。",
+    "_string": "3.单笔订单有效时间为30分钟，正常付款1-5分钟内到账， 未到账请联系客服。",
+    "_N$string": "3.单笔订单有效时间为30分钟，正常付款1-5分钟内到账， 未到账请联系客服。",
     "_fontSize": 25,
     "_lineHeight": 25,
     "_enableWrapText": true,

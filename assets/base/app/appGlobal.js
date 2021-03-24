@@ -2,7 +2,7 @@
 let appGlobal = {
     isRelease: true, // 是否是版本发布状态
     /* ------------------------------------------------------------------- */
-    pinpai: "test", // 渠道 test （特斯特） debi （德比） qibao（七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）xinsheng(新盛)
+    pinpai: "xinsheng", // 渠道 test （特斯特） debi （德比） qibao（七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）,xinsheng(新盛)
     // pinpai: "debi", // 渠道 test debi qibao
     huanjin: "pre", // dev pre online
     // huanjin: "pre", // pre online

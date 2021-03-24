@@ -228,9 +228,9 @@ export default class NewClass extends cc.Component {
         attention.string = `${Language_pay.Lg.ChangeByText('特别提醒:')}`
         yhkzzLabel.string = `${Language_pay.Lg.ChangeByText('银行卡转账')}`
         jineTip.string = `${Language_pay.Lg.ChangeByText('(转账的金额请确保完全一致)')}`
-        label1.string = `${Language_pay.Lg.ChangeByText('1. 只支持银行卡转银行卡支付,不支持支付宝和微信；')}`
-        label2.string = `${Language_pay.Lg.ChangeByText('2. 转账的金额必须与订单的收款金额完全一致，并填写附言(备注)信息；')}`
-        label3.string = `${Language_pay.Lg.ChangeByText('3. 正常付款1-5分钟内到账，未到账请联系客服。')}`
+        label1.string = `${Language_pay.Lg.ChangeByText('1.请使用与绑定银行卡相同账户名的账户进行支付。')}`
+        label2.string = `${Language_pay.Lg.ChangeByText('2.转账的金额必须和订单上的收款金额完全一致，包括小数点。')}`
+        label3.string = `${Language_pay.Lg.ChangeByText('3.单笔订单有效时间为30分钟，正常付款1-5分钟内到账， 未到账请联系客服。')}`
     }
     blinkFun(){
         let label1Node = cc.find("Canvas/PublicOrderAlert/Content/label1")

@@ -614,8 +614,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 600,
-      "height": 50
+      "width": 660,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -627,7 +627,7 @@
       "ctor": "Float64Array",
       "array": [
         -145,
-        -25,
+        -28,
         0,
         0,
         0,
@@ -703,7 +703,7 @@
       "__id__": 7
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 18
@@ -725,8 +725,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 352,
-      "height": 52.4
+      "width": 300,
+      "height": 69.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -738,7 +738,7 @@
       "ctor": "Float64Array",
       "array": [
         489.713,
-        25.192,
+        23.837,
         0,
         0,
         0,
@@ -777,10 +777,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "本渠道不支持微信，支付宝转账",
-    "_N$string": "本渠道不支持微信，支付宝转账",
+    "_string": "请使用与绑定银行卡相同账户名的账户进行支付",
+    "_N$string": "请使用与绑定银行卡相同账户名的账户进行支付",
     "_fontSize": 25,
-    "_lineHeight": 40,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -788,10 +788,10 @@
     "_batchAsBitmap": false,
     "_styleFlags": 0,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
+    "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 3,
     "_N$cacheMode": 0,
     "_id": ""
   },

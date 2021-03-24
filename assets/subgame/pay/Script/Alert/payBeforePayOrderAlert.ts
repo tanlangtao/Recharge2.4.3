@@ -30,8 +30,8 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/font/title_tip`,title_tip)
         label1.string = Language_pay.Lg.ChangeByText('【温馨提示】')
         label2.string = Language_pay.Lg.ChangeByText('       系统收款账号不定期更换，请勿保存！请每次付款前认真核对，打入非指定银行账号，损失自重！')
-        label3.string = Language_pay.Lg.ChangeByText('1. 只支持银行卡转银行卡支付,不支持支付宝和微信；')
-        label4.string = Language_pay.Lg.ChangeByText('2. 转账的金额必须与订单的收款金额完全一致，并填写附言(备注)信息；')
+        label3.string = Language_pay.Lg.ChangeByText('1.进行转账的账户名必须和绑定银行卡的账户名一样。')
+        label4.string = Language_pay.Lg.ChangeByText('2.转账的金额必须和订单上的收款金额完全一致，包括小数点。')
         this.app.loadIconLg(`${src}/btn/surebtn1`,btn1)
     }
     blinkFun(){

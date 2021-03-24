@@ -9,6 +9,9 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setLanguageResource()
     }
+    removeSelf(){
+        this.node.removeFromParent()
+    }
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
 
@@ -20,8 +23,8 @@ export default class NewClass extends cc.Component {
         let label2= cc.find('Canvas/helpAlert/Content/label2').getComponent(cc.Label)
         let label3= cc.find('Canvas/helpAlert/Content/label3').getComponent(cc.Label)
 
-        label1.string = `${Language_pay.Lg.ChangeByText('银行卡转银行卡支付流程：\n进入银行APP > 点击转账 > 复制收款账号、 收款姓名、收款银行粘贴到对应转账信息 > 输入转账金额（包含小数点后2位数字） > 输入附言（备注）信息 > 完成充值。')}`
-        // label2.string = `${Language_pay.Lg.ChangeByText("2.支付宝转账流程 ：支付宝首页 > 转账 > 转到银行卡 > 输入姓名、卡号、银行、金额(包含小数点后2位数字) > 点击下一步 > 点击确认转账。")}`
-        // label3.string = `${Language_pay.Lg.ChangeByText("3.微信转账流程 ：微信 > 我的 > 支付 > 收付款 > 转账到银行卡 > 输入姓名、卡号、银行 > 点击下一步 > 转账金额(包含小数点后2位数字) > 点击转账。")}`
+        label1.string = `${Language_pay.Lg.ChangeByText('充值流程：\n请使用与绑定银行卡相同账户名的账户进行支付。\n1.银行卡转账流程\n进入银行APP > 点击转账 > 复制收款账号、收款姓名、收款银行粘贴到对应转账信息 > 输入转账金额(包含小数点后2位数字) > 完成充值。')}`
+        label2.string = `${Language_pay.Lg.ChangeByText("2.支付宝转账流程\n支付宝首页 > 转账 > 转到银行卡 > 输入姓名、卡号、银行、金额(包含小数点后2位数字) > 点击下一步 > 点击确认转账。")}`
+        label3.string = `${Language_pay.Lg.ChangeByText("3.微信转账流程\n微信 > 我的 > 支付 > 收付款 > 转账到银行卡 > 输入姓名、卡号、银行 > 点击下一步 > 转账金额(包含小数点后2位数字) > 点击转账。")}`
     }
 }

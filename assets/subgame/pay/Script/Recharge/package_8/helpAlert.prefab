@@ -34,13 +34,10 @@
       },
       {
         "__id__": 37
-      },
-      {
-        "__id__": 38
       }
     ],
     "_prefab": {
-      "__id__": 39
+      "__id__": 38
     },
     "_opacity": 255,
     "_color": {
@@ -870,7 +867,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "ef762TkLSBD75EHdQeBcX5c",
+    "_componentId": "e55c1kZKtVP6q4k2JPOBowF",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -913,7 +910,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 700,
-      "height": 210.39999999999998
+      "height": 250.39999999999998
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -925,7 +922,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        125.757,
+        132.613,
         0,
         0,
         0,
@@ -964,8 +961,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "银行卡转银行卡支付流程：\n进入银行APP > 点击转账 > 复制收款账号、 收款姓名、收款银行粘贴到对应转账信息 > 输入转账金额（包含小数点后2位数字） > 输入附言（备注）信息 > 完成充值。",
-    "_N$string": "银行卡转银行卡支付流程：\n进入银行APP > 点击转账 > 复制收款账号、 收款姓名、收款银行粘贴到对应转账信息 > 输入转账金额（包含小数点后2位数字） > 输入附言（备注）信息 > 完成充值。",
+    "_string": "充值流程：\n请使用与绑定银行卡相同账户名的账户进行支付。\n1.银行卡转账流程\n进入银行APP > 点击转账 > 复制收款账号、收款姓名、收款银行粘贴到对应转账信息 > 输入转账金额(包含小数点后2位数字) > 完成充值。",
+    "_N$string": "充值流程：\n请使用与绑定银行卡相同账户名的账户进行支付。\n1.银行卡转账流程\n进入银行APP > 点击转账 > 复制收款账号、收款姓名、收款银行粘贴到对应转账信息 > 输入转账金额(包含小数点后2位数字) > 完成充值。",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1001,7 +998,7 @@
       "__id__": 8
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 26
@@ -1021,7 +1018,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 700,
-      "height": 130.39999999999998
+      "height": 170.39999999999998
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1033,7 +1030,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -22.736,
+        -73.73,
         0,
         0,
         0,
@@ -1072,8 +1069,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "",
-    "_N$string": "",
+    "_string": "2.支付宝转账流程\n支付宝首页 > 转账 > 转到银行卡 > 输入姓名、卡号、银行、金额(包含小数点后2位数字) > 点击下一步 > 点击确认转账。",
+    "_N$string": "2.支付宝转账流程\n支付宝首页 > 转账 > 转到银行卡 > 输入姓名、卡号、银行、金额(包含小数点后2位数字) > 点击下一步 > 点击确认转账。",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1109,7 +1106,7 @@
       "__id__": 8
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 29
@@ -1129,7 +1126,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 700,
-      "height": 130.39999999999998
+      "height": 170.39999999999998
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1141,7 +1138,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -200.339,
+        -237.449,
         0,
         0,
         0,
@@ -1180,8 +1177,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "",
-    "_N$string": "",
+    "_string": "3.微信转账流程\n微信 > 我的 > 支付 > 收付款 > 转账到银行卡 > 输入姓名、卡号、银行 > 点击下一步 > 转账金额(包含小数点后2位数字) > 点击转账。",
+    "_N$string": "3.微信转账流程\n微信 > 我的 > 支付 > 收付款 > 转账到银行卡 > 输入姓名、卡号、银行 > 点击下一步 > 转账金额(包含小数点后2位数字) > 点击转账。",
     "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1377,27 +1374,6 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": null,
-    "_id": ""
-  },
-  {
-    "__type__": "ef762TkLSBD75EHdQeBcX5c",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "helpAlert": null,
-    "amountLabel": null,
-    "bank_nameLabel": null,
-    "card_nameLabel": null,
-    "card_numLabel": null,
-    "nickNameLabel": null,
-    "remarkLabel": null,
-    "publicAlert": null,
-    "fuzhiBtn4": null,
-    "popWindowBG": null,
-    "results": {},
     "_id": ""
   },
   {

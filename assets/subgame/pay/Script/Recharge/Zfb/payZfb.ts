@@ -89,6 +89,7 @@ export default class NewClass extends cc.Component {
         let src = Language_pay.Lg.getLgSrc()
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.channel = data;
+        this.blinkNode.active = false
         if(this.channel == 'alipay' ){
             this.app.loadIcon(`recharge/flag_alipay`,this.icon,100,100)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装支付宝')}。`
@@ -437,6 +438,7 @@ export default class NewClass extends cc.Component {
         let btn_75= cc.find("Canvas/Recharge/Content/Zfb/titlebg/group3/group2/75")
         let czgoldbt1= cc.find("Canvas/Recharge/Content/Zfb/czgoldbt1")
         let label= this.node.getChildByName('label').getComponent(cc.Label)
+        let blinkLabel = this.blinkNode.getComponent(cc.Label)
 
         this.app.loadIconLg(`${src}/font/txt_qudao`,qudao)
         this.app.loadIconLg(`${src}/font/txt_czje`,txt_czje)
@@ -449,6 +451,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/btn/czgoldbt1`,czgoldbt1)
         }
         label.string = `${Language_pay.Lg.ChangeByText("开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！")}`
+        blinkLabel.string =Language_pay.Lg.ChangeByText("请使用与绑定银行卡相同账户名的账户进行支付")
     }
     blinkFun(){
         this.blinkNode.stopAllActions()
