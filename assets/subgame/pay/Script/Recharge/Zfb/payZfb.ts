@@ -184,8 +184,8 @@ export default class NewClass extends cc.Component {
                     this.setInterval(discount_rate.alipay)
                 }else if(self.channel == 'union_pay'){
                     self.results = response.data.union_pay;
-
                     this.setInterval(discount_rate.union_pay)
+                    
                 }else if(self.channel == 'wechat_pay'){
                     self.results = response.data.wechat_pay;
 
@@ -204,6 +204,9 @@ export default class NewClass extends cc.Component {
                 }else if(self.channel == 'bank_pay'){
                     self.results = response.data.bank_pay;
                     this.setInterval(discount_rate.bank_pay)
+                    //验证有没有绑卡
+                    this.app.showLoading();
+                    this.fetchIndex()
                 }else if(self.channel =='im_pay'){
                     self.results = response.data.im_pay;
                     this.setInterval(discount_rate.im_pay)
@@ -259,7 +262,7 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
         this.DelayBtn()
-        if(!this.IsBindBankAccount){
+        if((this.channel == 'bankcard_transfer' || this.channel =="bank_pay" )&& !this.IsBindBankAccount){
             this.showBindBankAccountTip()
             return
         }

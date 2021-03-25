@@ -9,7 +9,7 @@ let appGlobal = {
     // huanjin: "online", // pre online
 
     // account_name: "706763739", // 账号,  dev
-    // account_name: "246760447", // 账号,  pre
+    account_name: "884112373", // 账号,  pre
     // account_name: "198066453", // 账号,  pre
     // account_name: "770971700", // 账号,  
 
