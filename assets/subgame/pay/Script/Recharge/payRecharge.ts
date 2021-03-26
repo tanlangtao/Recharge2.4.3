@@ -185,14 +185,14 @@ export default class NewClass extends cc.Component {
         }else if(arr[0]=='微信' && this.zfbResults.data.wechat_pay.length > 0 ){
             node.getComponent('payNavToggle').addContent('wechat_pay')
 
-        }else if(arr[0]=='快捷支付' && this.app.UrlData.client=='desktop' && this.zfbResults.data.quick_pay.length > 0){
+        }else if(arr[0]=='快捷支付' && this.zfbResults.data.quick_pay.length > 0){
             node.getComponent('payNavToggle').addContent('quick_pay')
 
-        }else if(arr[0]=='网银支付' && this.app.UrlData.client=='desktop' && this.zfbResults.data.bank_pay.length > 0  ){
+        }else if(arr[0]=='网银支付' && this.zfbResults.data.bank_pay.length > 0  ){
             node.getComponent('payNavToggle').addContent('bank_pay')
         }else if(arr[0]=='IM充值' && this.zfbResults.data.im_pay.length > 0  ){
             node.getComponent('payNavToggle').addContent('im_pay')
-        }else if(arr[0]=='USDT' && this.zfbResults.data.im_pay.length > 0  ){
+        }else if(arr[0]=='USDT' && this.zfbResults.data.digiccy.length > 0  ){
             node.getComponent('payNavToggle').addContent('digiccy')
         }
     }
