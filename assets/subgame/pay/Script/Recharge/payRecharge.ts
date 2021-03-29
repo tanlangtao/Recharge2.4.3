@@ -1,5 +1,5 @@
 //充值首页
-import { Language_pay } from "./../language/payLanguage";
+import { Language_pay } from "../language/payLanguage";
 const {ccclass, property} = cc._decorator;
 
 @ccclass

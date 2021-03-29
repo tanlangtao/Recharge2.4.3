@@ -1,7 +1,7 @@
 //充值导航
 
 const {ccclass, property} = cc._decorator;
-import { Language_pay } from "./../language/payLanguage";
+import { Language_pay } from "../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
