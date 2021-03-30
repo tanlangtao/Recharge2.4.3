@@ -84,9 +84,6 @@ export default class NewClass extends cc.Component {
     ChuangGuan1 :cc.Prefab = null;
 
     @property(cc.Prefab)
-    ErRenMaJiang :cc.Prefab = null;
-
-    @property(cc.Prefab)
     WheelOfFortune : cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -112,9 +109,6 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     Smcjhd :cc.Prefab = null;
-
-    @property(cc.Prefab)
-    Stjzhd :cc.Prefab = null;
 
     @property(cc.Prefab)
     Fxpyq :cc.Prefab = null;
@@ -260,10 +254,6 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_huodong2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_huodong1`,this.currentIcon,249,86);
         }
-        else if(data.name == '二人麻将活动1'){
-            this.app.loadIcon(`${src}/menu/activity/btn_2rmjhd2`,this.normalIcon,242,86)
-            this.app.loadIcon(`${src}/menu/activity/btn_2rmjhd1`,this.currentIcon,249,86);
-        }
         else if(data.name == '幸运轮盘2'){
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp1`,this.currentIcon,249,86);
@@ -287,10 +277,6 @@ export default class NewClass extends cc.Component {
         else if(data.name == '神秘彩金活动2'){
             this.app.loadIcon(`${src}/menu/activity/btn_smcj2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_smcj1`,this.currentIcon,249,86);
-        }
-        else if(data.name == '首提加赠活动2'){
-            this.app.loadIcon(`${src}/menu/activity/btn_stjzhd2`,this.normalIcon,242,86)
-            this.app.loadIcon(`${src}/menu/activity/btn_stjzhd1`,this.currentIcon,249,86);
         }
         else if(data.name == '分享朋友圈活动2'){
             this.app.loadIcon(`${src}/menu/activity/btn_fxpyq2`,this.normalIcon,242,86)
@@ -516,9 +502,6 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.ChuangGuan1);
             node.getComponent('payChuangGuan1').setId(id,name,info);
             this.app.loadTitle(`${src}/title/txt_title02`,this.title);
-        }else  if(name == '二人麻将活动1'){
-            var node = cc.instantiate(this.ErRenMaJiang);
-            this.app.loadTitle(`${src}/title/title_2rmjhd`,this.title);
         }else  if(name == '幸运轮盘2'){
             var node = cc.instantiate(this.WheelOfFortune);
             node.getComponent('payWheelOfFortune').setIdInfo(id,info)
@@ -547,9 +530,6 @@ export default class NewClass extends cc.Component {
         }else  if(name == '神秘彩金活动2'){
             var node = cc.instantiate(this.Smcjhd);
             this.app.loadTitle(`${src}/title/title_smcj`,this.title);
-        }else  if(name == '首提加赠活动2'){
-            var node = cc.instantiate(this.Stjzhd);
-            this.app.loadTitle(`${src}/title/dm_title_stjzhd`,this.title);
         }else  if(name == '分享朋友圈活动2'){
             var node = cc.instantiate(this.Fxpyq);
             this.app.loadTitle(`${src}/title/dm_title_fxpyq`,this.title);
