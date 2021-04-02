@@ -24,7 +24,8 @@ export default class NewClass extends cc.Component {
     activity_id = 13
     login_ip = ''
     received = false
-    setIdInfo(id,info){
+    activeName = ''
+    setIdInfo(id,info,activeName=''){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
             info = []
         }
@@ -36,6 +37,7 @@ export default class NewClass extends cc.Component {
         });
         this.info = info
         this.activity_id = id
+        this.activeName = activeName
     }
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -140,7 +142,7 @@ export default class NewClass extends cc.Component {
             let label2 = cc.find('Canvas/Activity/Content/FirstDepostGold/bg/label2').getComponent(cc.Label)
             label1.string = Language_pay.Lg.ChangeByText('首充')
             label2.string = Language_pay.Lg.ChangeByText('赠送金币')
-        }else if(this.app.UrlData.package_id == 2){
+        }else if(this.activeName== "首充活动-2"){
             this.app.loadIconLg(`${src}/activeBigImage/event_db_sccj_content`,bg)
             this.app.loadIconLg(`${src}/activeSprite/frame_1`,Layout)
             label.string = Language_pay.Lg.ChangeByText("活动规则：\n1. 新注册玩家完成手机以及银行卡绑定才能参与。\n2. 必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的三倍流水才能申请兑换。\n3. 游戏规则：仅参加以下游戏《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》。\n4. 同一用户仅限领取一次，恶意套利者将封号处理。\n5. 本活动最终解释权归德比所有。")

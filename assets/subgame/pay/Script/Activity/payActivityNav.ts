@@ -620,7 +620,7 @@ export default class NewClass extends cc.Component {
         }
         else if (name == "首充活动-2" ) {
             var node = cc.instantiate(this.FirstDepostGold_2)
-            node.getComponent('payFirstDepostGold').setIdInfo(id,info);
+            node.getComponent('payFirstDepostGold').setIdInfo(id,info,"首充活动-2");
             this.app.loadTitle(`${src}/title/yuyu_title_sccj`,this.title);
         }
         else  if(name == '老会员每日首存活动2'){
