@@ -720,6 +720,9 @@
     "FirstDepostGold": {
       "__uuid__": "587454e2-e1e3-4053-b5f8-78a79ae09cae"
     },
+    "FirstDepostGold_2": {
+      "__uuid__": "94d53989-bc09-4f00-9a65-c2356d21bf83"
+    },
     "FirstDepostGold_8": null,
     "FirstDepostGoldHDSQQDLQ_8": null,
     "DailyRescueGold": {
@@ -749,9 +752,6 @@
     "ChuangGuan1": {
       "__uuid__": "d6e94dbf-6273-4722-8f62-c1bc95f3122e"
     },
-    "ErRenMaJiang": {
-      "__uuid__": "dc57cb9f-cf4f-4afa-b7f6-f272efa87f46"
-    },
     "WheelOfFortune": {
       "__uuid__": "17bd3c41-86a5-47f5-a180-2a2fc334eaa6"
     },
@@ -776,9 +776,6 @@
     },
     "Smcjhd": {
       "__uuid__": "9c846ffd-afcf-47c6-ad29-62373a0eab4a"
-    },
-    "Stjzhd": {
-      "__uuid__": "e5723c0f-5720-4329-9c51-bb73aa679c95"
     },
     "Fxpyq": {
       "__uuid__": "421e3cfe-7c8c-47d3-8cc0-ba9d0979dc29"
@@ -812,6 +809,9 @@
       "__uuid__": "ab65d83e-69b3-4d24-8d31-f2e385907124"
     },
     "Lhysc_8": null,
+    "Lhysc_2": {
+      "__uuid__": "df90517b-57ec-4ea6-93a7-245f576e591f"
+    },
     "app": null,
     "_id": ""
   },

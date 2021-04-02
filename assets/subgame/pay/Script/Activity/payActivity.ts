@@ -81,7 +81,8 @@ export default class NewClass extends cc.Component {
             e.name =='老用户包赔活动2' || e.name =='分享朋友圈活动3'||e.name =='新会员首存活动三重奏2' ||e.name =='老会员每日首存活动非自动领取2'||
             e.name =='每日任务8' ||e.name =='每日签到8'||e.name =='四季发财红包雨8'||e.name =='15天送58元8'||e.name =='分享朋友圈活动8'||
             e.name =='幸运轮盘8'  || e.name =='首充活动-81' || e.name =='新用户包赔活动-8' || e.name == "老会员每日首存活动8"|| 
-            e.name == "首充活动-8"||e.name=="老用户包赔活动8"||e.name == '首充活动后端申请前端领取8'
+            e.name == "首充活动-8"||e.name=="老用户包赔活动8"||e.name == '首充活动后端申请前端领取8'|| e.name == "首充活动-2" || 
+            e.name =="老会员每日首存活动2"
             )){
                 this.arr.push(e);
             }

@@ -51,6 +51,9 @@ export default class NewClass extends cc.Component {
     FirstDepostGold: cc.Prefab = null;
 
     @property(cc.Prefab)
+    FirstDepostGold_2: cc.Prefab = null;
+
+    @property(cc.Prefab)
     FirstDepostGold_8: cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -151,6 +154,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     Lhysc_8 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Lhysc_2 :cc.Prefab = null;
 
     @property
     app = null;
@@ -361,6 +367,14 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj2`,this.normalIcon,95,110)
             this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj1`,this.currentIcon,95,110);
         }
+        else if(data.name == "首充活动-2"){
+            this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj2`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/activity/yuyu_btn_sccj1`,this.currentIcon,249,86);
+        }
+        else  if(data.name == '老会员每日首存活动2'){
+            this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,242,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,249,86);
+        }
 
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'){
@@ -386,7 +400,7 @@ export default class NewClass extends cc.Component {
         this.app.loadMusic(1);
         if(this.name == '流水闯关活动'||this.name == '流水闯关活动1'||this.name == '救济金活动'|| 
         this.name == '每日任务2'||this.name == "每周佣金奖励" || this.name=="首存彩金6"|| 
-        this.name=="每日救援金6" || this.name =='签到奖励6'|| this.name =='流水闯关1'
+        this.name=="每日救援金6" || this.name =='签到奖励6'|| this.name =='流水闯关1'|| this.name=="首存彩金2"
         ){
             this.app.showLoading();
         }
@@ -467,7 +481,7 @@ export default class NewClass extends cc.Component {
         }else if (name == "老用户每日存送1") {
             var node = cc.instantiate(this.OldPlayerCunSong)
             this.app.loadTitle(`${src}/title/dm_title_old`,this.title);
-        }else if (name == "首存彩金6") {
+        }else if (name == "首存彩金6" ) {
             var node = cc.instantiate(this.FirstDepostGold)
             node.getComponent('payFirstDepostGold').setIdInfo(id,info);
             this.app.loadTitle(`${src}/title/yuyu_title_sccj`,this.title);
@@ -603,6 +617,16 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.FirstDepostGoldHDSQQDLQ_8)
             node.getComponent('payFirstDepostGoldHDSQQDLQ').setIdInfo(id,info);
             this.app.loadTitle(`${src}/title/yuyu_title_sccj`,this.title);
+        }
+        else if (name == "首充活动-2" ) {
+            var node = cc.instantiate(this.FirstDepostGold_2)
+            node.getComponent('payFirstDepostGold').setIdInfo(id,info);
+            this.app.loadTitle(`${src}/title/yuyu_title_sccj`,this.title);
+        }
+        else  if(name == '老会员每日首存活动2'){
+            var node = cc.instantiate(this.Lhysc_2);
+            node.getComponent('payLhysc').setId(id,'老会员每日首存活动2');
+            this.app.loadTitle(`${src}/title/dm_title_lhysc`,this.title);
         }
         content.addChild(node);
     }
