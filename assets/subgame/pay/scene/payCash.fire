@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        353.6089976827336,
+        325.06264059628865,
         0,
         0,
         0,
@@ -418,6 +418,8 @@
       "__uuid__": "9e3e54a2-db2b-47fe-9e9d-9ae98c5a87b7"
     },
     "PublicOrderAlert_8": null,
+    "BeforePayOrderAlert": null,
+    "BeforePayOrderAlert_8": null,
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"
   },
@@ -1215,6 +1217,9 @@
     },
     "Cash_8": {
       "__uuid__": "5c1b4eda-a516-4900-ae96-bc140edcd7ba"
+    },
+    "Cash_9": {
+      "__uuid__": "aa8402c3-acf7-46e2-8222-326e34d0f4ba"
     },
     "_id": "fbtBFN0DZIkpWfgg4ozZVt"
   },

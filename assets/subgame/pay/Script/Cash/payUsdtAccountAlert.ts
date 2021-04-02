@@ -105,7 +105,7 @@ export default class NewClass extends cc.Component {
 
         this.app.loadIconLg(`${src}/font/title_usdt`,titleIcon)
 
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8||this.app.UrlData.package_id == 9){
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
             this.app.loadIconLg(`${src}/font/txt_qbdz`,popup_usdt_frame.children[0])
             this.app.loadIconLg(`${src}/font/txt_llx`,popup_usdt_frame.children[1])

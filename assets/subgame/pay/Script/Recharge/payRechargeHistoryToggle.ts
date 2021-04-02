@@ -21,18 +21,37 @@ export default class NewClass extends cc.Component {
         this.text =data.text;
         this.index = data.index;
         this.parentComponet = data.parentComponet;
-        if(this.index == 0){
-            this.app.loadIcon(`${src}/menu/menu_all_2`,this.normalIcon,207,44)
-            this.app.loadIcon(`${src}/menu/menu_all_1`,this.currentIcon,249,86);
-        }else if(this.index == 1){
-            this.app.loadIcon(`${src}/menu/menu_finished_2`,this.normalIcon,207,44)
-            this.app.loadIcon(`${src}/menu/menu_finished_1`,this.currentIcon,249,86);
-        }else if(this.index == 2){
-            this.app.loadIcon(`${src}/menu/menu_unfinished_2`,this.normalIcon,207,44)
-            this.app.loadIcon(`${src}/menu/menu_unfinished_1`,this.currentIcon,249,86);
-        }else if(this.index == 3){
-            this.app.loadIcon(`${src}/menu/menu_revoke_2`,this.normalIcon,207,44)
-            this.app.loadIcon(`${src}/menu/menu_revoke_1`,this.currentIcon,249,86);
+        if(this.app.UrlData.package_id == 9)
+        {
+            let zi = cc.find( "zi" , this.node );
+            if( cc.isValid( zi ) )
+            {
+                if(this.index == 0){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "全部"); 
+                }else if(this.index == 1){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "已完成"); 
+                }else if(this.index == 2){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "未完成"); 
+                }else if(this.index == 3){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "已撤销"); 
+                }
+            }
+        }
+        else
+        {
+            if(this.index == 0){
+                this.app.loadIcon(`${src}/menu/menu_all_2`,this.normalIcon,207,44)
+                this.app.loadIcon(`${src}/menu/menu_all_1`,this.currentIcon,249,86);
+            }else if(this.index == 1){
+                this.app.loadIcon(`${src}/menu/menu_finished_2`,this.normalIcon,207,44)
+                this.app.loadIcon(`${src}/menu/menu_finished_1`,this.currentIcon,249,86);
+            }else if(this.index == 2){
+                this.app.loadIcon(`${src}/menu/menu_unfinished_2`,this.normalIcon,207,44)
+                this.app.loadIcon(`${src}/menu/menu_unfinished_1`,this.currentIcon,249,86);
+            }else if(this.index == 3){
+                this.app.loadIcon(`${src}/menu/menu_revoke_2`,this.normalIcon,207,44)
+                this.app.loadIcon(`${src}/menu/menu_revoke_1`,this.currentIcon,249,86);
+            }
         }
     }
     // LIFE-CYCLE CALLBACKS:

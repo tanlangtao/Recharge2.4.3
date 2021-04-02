@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "5e2cdec8-789b-4406-a5bf-d470641eef88",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 139,
+  "height": 24,
+  "platformSettings": {},
+  "subMetas": {
+    "bankcard_form_0": {
+      "ver": "1.0.4",
+      "uuid": "fee52dc0-2cc4-4949-9c7e-b7e9be5f2bac",
+      "rawTextureUuid": "5e2cdec8-789b-4406-a5bf-d470641eef88",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 139,
+      "height": 24,
+      "rawWidth": 139,
+      "rawHeight": 24,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

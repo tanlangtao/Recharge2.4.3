@@ -262,7 +262,7 @@ export default class NewClass extends cc.Component {
     public showUsdtAccountAlert(itemId){
         var canvas = cc.find('Canvas');
         var node = null
-        if(this.UrlData.package_id == 8){
+        if(this.UrlData.package_id == 8||this.UrlData.package_id == 9){
             node = cc.instantiate(this.UsdtAccountAlert_8);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);

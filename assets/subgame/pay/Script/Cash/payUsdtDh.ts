@@ -145,7 +145,7 @@ export default class NewClass extends cc.Component {
     //兑换提示
     showCashAlert(conf_val){
         var node = null
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 ||this.app.UrlData.package_id == 9){
             node = cc.instantiate(this.CashAlert_8);
         }else{
             node = cc.instantiate(this.CashAlert);
@@ -324,7 +324,7 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/font/txt_llx`,llx)
         this.app.loadIconLg(`${src}/font/txt_dhqd`,dhqd)
 
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 9 ){
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn.children[0])

@@ -19,6 +19,10 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     RgDhAlert_8 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    RgDhAlert_9 :cc.Prefab = null;
+
     @property()
     app = null;
     results = null;
@@ -52,6 +56,8 @@ export default class NewClass extends cc.Component {
         var node = null
         if(this.app.UrlData.package_id == 8){
             node = cc.instantiate(this.RgDhAlert_8);
+        }else  if(this.app.UrlData.package_id == 9){
+            node = cc.instantiate(this.RgDhAlert_9);
         }else{
             node = cc.instantiate(this.RgDhAlert);
         }

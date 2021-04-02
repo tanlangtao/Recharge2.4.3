@@ -330,6 +330,11 @@ export default class NewClass extends cc.Component {
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn_dh.children[0])
+        }else if(this.app.UrlData.package_id == 9){
+            btn_max.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最 大")
+            btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
+            accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")
+            this.app.loadIconLg(`${src}/font/jiesuan`,btn_dh.children[0])
         }else{
             this.app.loadIconLg(`${src}/btn/btn_max`,btn_max)
             this.app.loadIconLg(`${src}/btn/75`,btn_75)

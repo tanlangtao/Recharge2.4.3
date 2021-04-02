@@ -314,7 +314,16 @@ export namespace Language_pay {
             "包赔专线盛世开启，申请时间： 12:00-20:00",
             "活动规则：\n1. 新注册玩家完成手机以及银行卡绑定才能参与。\n2. 必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的三倍流水才能申请兑换。\n3. 游戏规则：仅参加以下游戏《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》。\n4. 同一用户仅限领取一次，恶意套利者将封号处理。\n5. 本活动最终解释权归德比所有。",
             "1.本活动需要完成手机和银行卡绑定后才能参与。\n2.游戏规则：仅限参与财神到，水果机，捕鱼·海王，捕鱼·聚宝盆，百人牛牛，红包乱斗，二八杠，21点，奔驰宝马游戏。\n3.单日充值金额累加统计，当日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4.每日23:59:59，活动计算的当日充值金额累加归零。\n5.每一个账号（同一ip，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 本活动最终解释权归德比所有。",
-            
+            "人工兑换",
+            "银行卡",
+            "USDT钱包",
+            "兑换记录",
+            "支付宝",
+            "温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%",
+            "全部",
+            "已完成",
+            "未完成",
+            "已撤销",
         ]
         private English =[
         ]
@@ -362,6 +371,9 @@ export namespace Language_pay {
                 case "Chinese": 
                         if(gHandler.gameGlobal.pay.package_id == 8){
                             src = `language/Chinese/package_8`
+                        }
+                        else if(gHandler.gameGlobal.pay.package_id == 9){
+                            src = `language/Chinese/package_9`
                         }else{
                             src = `language/Chinese/package_1_7`
                         }
@@ -369,6 +381,8 @@ export namespace Language_pay {
                 case "English": 
                     if(gHandler.gameGlobal.pay.package_id == 8){
                         src = `language/English/package_8`
+                    }else if(gHandler.gameGlobal.pay.package_id == 9){
+                        src = `language/English/package_9`
                     }else{
                         src = `language/English/package_1_7`
                     }
@@ -376,6 +390,8 @@ export namespace Language_pay {
                 case "Thai":
                     if(gHandler.gameGlobal.pay.package_id == 8){
                         src = `language/Thai/package_8`
+                    }else if(gHandler.gameGlobal.pay.package_id == 9){
+                        src = `language/Thai/package_9`
                     }else{
                         src = `language/Thai/package_1_7`
                     }
@@ -383,6 +399,8 @@ export namespace Language_pay {
                 case "Vietnamese":
                     if(gHandler.gameGlobal.pay.package_id == 8){
                         src = `language/Vietnamese/package_8`
+                    }else if(gHandler.gameGlobal.pay.package_id == 9){
+                        src = `language/Vietnamese/package_9`
                     }else{
                         src = `language/Vietnamese/package_1_7`
                     }

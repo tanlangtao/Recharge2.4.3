@@ -30,9 +30,18 @@ export default class NewClass extends cc.Component {
         let src = Language_pay.Lg.getLgSrc()
         this.text=data.text;
         this.app.loadIcon(`${src}/menu/tishi`,this.tishi,97,55);
+        let zi = cc.find( "zi" , this.node );
+
         if(this.text == '支付宝'){
-            this.app.loadIcon(`${src}/menu/menu_alipay_1`,this.normalIcon,207,39)
-            this.app.loadIcon(`${src}/menu/menu_alipay_2`,this.currentIcon,249,86);
+            if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝充值");  
+            }
+            else
+            {
+                this.app.loadIcon(`${src}/menu/menu_alipay_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_alipay_2`,this.currentIcon,249,86);
+            }
             let percent = 0
             discount_rate.alipay.forEach( (e,i) => {
                 if(e.package_id == this.app.UrlData.package_id) {
@@ -41,8 +50,15 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '转账到银行卡'){
-            this.app.loadIcon(`${src}/menu/menu_tobank_1`,this.normalIcon,207,39)
-            this.app.loadIcon(`${src}/menu/menu_tobank_2`,this.currentIcon,249,86)
+            if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账到银行卡");  
+            }
+            else
+            {
+                this.app.loadIcon(`${src}/menu/menu_tobank_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_tobank_2`,this.currentIcon,249,86);
+            }
 
             let percent = 0
             discount_rate.bankcard_transfer.forEach( (e,i) => {
@@ -52,8 +68,15 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '银联扫码'){
-            this.app.loadIcon(`${src}/menu/menu_ylsm_1`,this.normalIcon,207,39)
-            this.app.loadIcon(`${src}/menu/menu_ylsm_2`,this.currentIcon,249,86)
+            if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银联扫码");  
+            }
+            else
+            {
+                this.app.loadIcon(`${src}/menu/menu_ylsm_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_ylsm_2`,this.currentIcon,249,86);
+            }
 
             let percent = 0
             discount_rate.union_pay.forEach( (e,i) => {
@@ -63,8 +86,15 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '微信'){
-            this.app.loadIcon(`${src}/menu/menu_wxpay_1`,this.normalIcon,207,39)
-            this.app.loadIcon(`${src}/menu/menu_wxpay_2`,this.currentIcon,249,86)
+            if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "微信支付");  
+            }
+            else
+            {
+                this.app.loadIcon(`${src}/menu/menu_wxpay_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_wxpay_2`,this.currentIcon,249,86);
+            }
 
             let percent = 0
             discount_rate.wechat_pay.forEach( (e,i) => {
@@ -74,8 +104,15 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '快捷支付'){
-            this.app.loadIcon(`${src}/menu/menu_kuaijie_1`,this.normalIcon,207,39)
-            this.app.loadIcon(`${src}/menu/menu_kuaijie_2`,this.currentIcon,249,86)
+            if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "快捷支付");  
+            }
+            else
+            {
+                this.app.loadIcon(`${src}/menu/menu_kuaijie_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_kuaijie_2`,this.currentIcon,249,86);
+            }
 
             let percent = 0
             discount_rate.quick_pay.forEach( (e,i) => {
@@ -85,8 +122,15 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '网银支付'){
-            this.app.loadIcon(`${src}/menu/menu_unionpay_1`,this.normalIcon,207,39)
-            this.app.loadIcon(`${src}/menu/menu_unionpay_2`,this.currentIcon,249,86)
+            if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "网银支付");  
+            }
+            else
+            {
+                this.app.loadIcon(`${src}/menu/menu_unionpay_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_unionpay_2`,this.currentIcon,249,86);
+            }
 
             let percent = 0
             discount_rate.bank_pay.forEach( (e,i) => {
@@ -96,8 +140,15 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '人工代充值'){
-            this.app.loadIcon(`${src}/menu/menu_VIPpay_1`,this.normalIcon,207,39)
-            this.app.loadIcon(`${src}/menu/menu_VIPpay_2`,this.currentIcon,249,86)
+            if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "专享快付");  
+            }
+            else
+            {
+                this.app.loadIcon(`${src}/menu/menu_VIPpay_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_VIPpay_2`,this.currentIcon,249,86);
+            }
             let percent = 0
             discount_rate.daichong.forEach( (e,i) => {
                 if(e.package_id == this.app.UrlData.package_id) {
@@ -107,11 +158,14 @@ export default class NewClass extends cc.Component {
             this.setTishiLabel(percent)
         }else if(this.text == 'IM充值'){
             if(this.app.UrlData.package_id == 2){
-                this.app.loadIcon(`${src}/menu/menu_rgpay_1`,this.normalIcon,207,39)
-                this.app.loadIcon(`${src}/menu/menu_rgpay_2`,this.currentIcon,249,86)
+                this.app.loadIcon(`${src}/menu/menu_rgpay_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_rgpay_2`,this.currentIcon,249,86);
+            }else if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "IM充值");  
             }else{
-                this.app.loadIcon(`${src}/menu/menu_IMpay_1`,this.normalIcon,207,39)
-                this.app.loadIcon(`${src}/menu/menu_IMpay_2`,this.currentIcon,249,86)
+                this.app.loadIcon(`${src}/menu/menu_IMpay_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_IMpay_2`,this.currentIcon,249,86);
             }
             let percent = 0
             discount_rate.im_pay.forEach( (e,i) => {
@@ -122,8 +176,15 @@ export default class NewClass extends cc.Component {
             this.setTishiLabel(percent)
         }else if(this.text == 'USDT'){
             let percent = 0
-            this.app.loadIcon(`${src}/menu/menu_usdt_1`,this.normalIcon,207,39)
-            this.app.loadIcon(`${src}/menu/menu_usdt_2`,this.currentIcon,249,86)
+            if(this.app.UrlData.package_id == 9 )
+            {
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT钱包");  
+            }
+            else
+            {
+                this.app.loadIcon(`${src}/menu/menu_usdt_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_usdt_2`,this.currentIcon,249,86);
+            }
             discount_rate.usdt.forEach( (e,i) => {
                 if(e.package_id == this.app.UrlData.package_id) {
                     percent = e.interval[0].percent

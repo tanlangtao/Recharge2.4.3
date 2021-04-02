@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "b004adb8-7670-4610-8ecb-8d06e7569b16",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 102,
+  "height": 96,
+  "platformSettings": {},
+  "subMetas": {
+    "btn_millionIncome2": {
+      "ver": "1.0.4",
+      "uuid": "47fc3cd3-bb90-4ccc-9c4c-f3b78cb8d10b",
+      "rawTextureUuid": "b004adb8-7670-4610-8ecb-8d06e7569b16",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 102,
+      "height": 96,
+      "rawWidth": 102,
+      "rawHeight": 96,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
