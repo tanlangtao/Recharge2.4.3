@@ -219,7 +219,11 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 let bankCom = cc.find('Canvas/Cash/Content/BankDh').getComponent('payBankDh');
                 bankCom.fetchIndex();
-                self.app.showAlert(Language_pay.Lg.ChangeByText('操作成功!'))
+                if(response.msg !="Success!"){
+                    self.app.showAlert(response.msg);
+                }else{
+                    self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'));
+                }
             }else{
                 self.app.showAlert(response.msg)
             }
