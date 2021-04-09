@@ -10,7 +10,7 @@ export default class NewClass extends cc.Component {
     app = null
     login_ip = ''
 
-    info = [140,210,350,700,140]
+    info = [200,300,500,1000,2000]
     activity_id = 0
     FristPayAmount :any={}
     setId(id){
@@ -26,7 +26,7 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
         if(this.app.UrlData.package_id == 8){
-            this.info = [100,150]
+            this.info = [200,300]
         }
         this.getLocal()
         this.setLanguageResource()
@@ -102,8 +102,9 @@ export default class NewClass extends cc.Component {
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 self.app.showAlert(Language_pay.Lg.ChangeByText('领取成功!'))
-                //手动将领取结果赋值为1
+                //手动将领取结果赋值为1,记录在本地 
                 this.FristPayAmount.is_received = 1
+                this.setLocal()
                 this.renderBtn()
             }else{
                 self.app.showAlert(response.msg)
@@ -117,7 +118,7 @@ export default class NewClass extends cc.Component {
     }
     getLocal(){
         let localFristPayAmount = cc.sys.localStorage.getItem(`FristPayAmount_${this.app.UrlData.user_id}`) 
-        if (localFristPayAmount && JSON.parse(localFristPayAmount).frist_pay_amount >0){
+        if (localFristPayAmount && JSON.parse(localFristPayAmount).frist_pay_amount >0 && JSON.parse(localFristPayAmount).is_received == 1 ){
             this.FristPayAmount = JSON.parse(localFristPayAmount)
             this.renderBtn()
         }else{
