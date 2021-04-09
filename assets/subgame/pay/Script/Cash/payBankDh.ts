@@ -226,7 +226,7 @@ export default class NewClass extends cc.Component {
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 if(response.msg !="Success!"){
-                    self.app.showAlert(response.msg);
+                    self.app.showAlert(response.msg.msg);
                 }else{
                     self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'));
                 }

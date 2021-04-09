@@ -10,7 +10,7 @@ let appGlobal = {
 
     // account_name: "706763739", // 账号,  dev
     // account_name: "884112373", // 账号,  pre
-    account_name: "800444223", // 账号,  pre
+    account_name: "448981222", // 账号,  pre
     // account_name: "770971700", // 账号,  
 
     account_pass: "123456", //密码, 
