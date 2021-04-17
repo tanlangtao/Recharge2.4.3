@@ -2,7 +2,7 @@
   "ver": "1.2.9",
   "uuid": "a7c161e6-067f-46c8-b7a8-027787b909c2",
   "optimizationPolicy": "AUTO",
-  "asyncLoadAssets": false,
+  "asyncLoadAssets": true,
   "readonly": false,
   "subMetas": {}
 }

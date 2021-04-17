@@ -27,7 +27,11 @@ export default class NewClass extends cc.Component {
         let label3= cc.find('Canvas/BeforePayOrderAlert/popWindowBG/content/label3').getComponent(cc.Label)
         let label4= cc.find('Canvas/BeforePayOrderAlert/popWindowBG/content/label4').getComponent(cc.Label)
 
-        this.app.loadIconLg(`${src}/font/title_tip`,title_tip)
+        if(this.app.UrlData.package_id == 10){
+            title_tip.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('提示')
+        }else{
+            this.app.loadIconLg(`${src}/font/title_tip`,title_tip)
+        }
         label1.string = Language_pay.Lg.ChangeByText('【温馨提示】')
         label2.string = Language_pay.Lg.ChangeByText('       系统收款账号不定期更换，请勿保存！请每次付款前认真核对，打入非指定银行账号，损失自重！')
         label3.string = Language_pay.Lg.ChangeByText('1.进行转账的账户名必须和绑定银行卡的账户名一样。')

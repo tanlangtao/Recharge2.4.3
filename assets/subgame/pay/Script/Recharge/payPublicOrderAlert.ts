@@ -199,23 +199,32 @@ export default class NewClass extends cc.Component {
         let label3= cc.find("Canvas/PublicOrderAlert/Content/label3").getComponent(cc.Label)
         let jineTip= cc.find("Canvas/PublicOrderAlert/Content/group/group2/jineTip").getComponent(cc.Label)
         let btn1= cc.find("Canvas/PublicOrderAlert/Content/btn1")
-
-        this.app.loadIconLg(`${src}/font/title_orderinfo`,title_orderinfo)
-        this.app.loadIconLg(`${src}/font/txt_chongzhifangshi`,txt_chongzhifangshi)
-        this.app.loadIconLg(`${src}/font/txt_shoukuanyinhang`,txt_shoukuanyinhang)
-        this.app.loadIconLg(`${src}/font/txt_shoukuanzhanghao`,txt_shoukuanzhanghao)
-        this.app.loadIconLg(`${src}/font/txt_shoukuanxingming`,txt_shoukuanxingming)
-        this.app.loadIconLg(`${src}/font/txt_zhuanzhuangjie`,txt_zhuanzhuangjie)
-        this.app.loadIconLg(`${src}/font/txt_beizhu2`,txt_beizhu2)
-        this.app.loadIconLg(`${src}/font/txt_playername`,txt_playername)
-
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 10){
+            title_orderinfo.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("订单信息:")
+            txt_chongzhifangshi.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("充值方式:")
+            txt_shoukuanyinhang.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("收款银行:")
+            txt_shoukuanzhanghao.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("收款账号:")
+            txt_shoukuanxingming.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("收款姓名:")
+            txt_zhuanzhuangjie.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("收款金额:")
+            txt_playername.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("用户昵称:")
+            btn1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('如何充值')
+        }else{
+            this.app.loadIconLg(`${src}/font/title_orderinfo`,title_orderinfo)
+            this.app.loadIconLg(`${src}/font/txt_chongzhifangshi`,txt_chongzhifangshi)
+            this.app.loadIconLg(`${src}/font/txt_shoukuanyinhang`,txt_shoukuanyinhang)
+            this.app.loadIconLg(`${src}/font/txt_shoukuanzhanghao`,txt_shoukuanzhanghao)
+            this.app.loadIconLg(`${src}/font/txt_shoukuanxingming`,txt_shoukuanxingming)
+            this.app.loadIconLg(`${src}/font/txt_zhuanzhuangjie`,txt_zhuanzhuangjie)
+            this.app.loadIconLg(`${src}/font/txt_beizhu2`,txt_beizhu2)
+            this.app.loadIconLg(`${src}/font/txt_playername`,txt_playername)
+            this.app.loadIconLg(`${src}/btn/btn_how`,btn1)
+        }
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10){
             btn_fuzhi1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi3.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi4.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi5.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
-
         }else{
             this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi1)
             this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi2)
@@ -223,7 +232,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi4)
             this.app.loadIconLg(`${src}/btn/btn_fuzhi`,btn_fuzhi5)
         }
-        this.app.loadIconLg(`${src}/btn/btn_how`,btn1)
+        
         
         attention.string = `${Language_pay.Lg.ChangeByText('特别提醒:')}`
         yhkzzLabel.string = `${Language_pay.Lg.ChangeByText('银行卡转账')}`

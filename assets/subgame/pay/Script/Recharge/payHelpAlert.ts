@@ -17,7 +17,11 @@ export default class NewClass extends cc.Component {
 
         let title_cztutor= cc.find('Canvas/helpAlert/Content/title_cztutor')
 
-        this.app.loadIconLg(`${src}/font/title_cztutor`,title_cztutor)
+        if(this.app.UrlData.package_id == 10){
+            title_cztutor.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('充值指引')
+        }else{
+            this.app.loadIconLg(`${src}/font/title_cztutor`,title_cztutor)
+        }
 
         let label1= cc.find('Canvas/helpAlert/Content/label1').getComponent(cc.Label)
         let label2= cc.find('Canvas/helpAlert/Content/label2').getComponent(cc.Label)

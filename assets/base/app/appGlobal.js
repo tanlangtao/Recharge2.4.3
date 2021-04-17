@@ -10,7 +10,7 @@ let appGlobal = {
 
     // account_name: "706763739", // 账号,  dev
     // account_name: "884112373", // 账号,  pre
-    account_name: "448981222", // 账号,  pre
+    // account_name: "448981222", // 账号,  pre
     // account_name: "770971700", // 账号,  
 
     account_pass: "123456", //密码, 
@@ -135,6 +135,11 @@ let appGlobal = {
             pre: 799197169,
             online: 779681851
         },
+        fuxing3: {
+            dev: 566844838,
+            pre: 799197169,
+            online: 779681851
+        },
     },
     versionJson: {}, // version.json
     subGameVersion: {}, // version.json 中的version部分
@@ -216,6 +221,8 @@ let appGlobal = {
             this.packageID = 7
         }else if (this.pinpai == "xinsheng") {
             this.packageID = 8
+        }else if (this.pinpai == "fuxing3") {
+            this.packageID = 10
         }
         if (hqq.isDebug) {
             if (!this.deviceID) {
