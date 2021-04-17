@@ -466,7 +466,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 250,
+      "width": 300,
       "height": 97.8
     },
     "_anchorPoint": {
@@ -478,7 +478,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        228.226,
+        187.32799999999997,
         -246.193,
         0,
         0,
@@ -518,8 +518,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "3. 彩金发放时间为1号和16号, 如期间未联系客服领取视为放弃。",
-    "_N$string": "3. 彩金发放时间为1号和16号, 如期间未联系客服领取视为放弃。",
+    "_string": "3. 彩金方放时间为1号和16号的10:00--20:00,如期间未联系客服领取视为放弃。",
+    "_N$string": "3. 彩金方放时间为1号和16号的10:00--20:00,如期间未联系客服领取视为放弃。",
     "_fontSize": 25,
     "_lineHeight": 30,
     "_enableWrapText": true,
@@ -548,7 +548,7 @@
     "_target": null,
     "_alignFlags": 32,
     "_left": 0,
-    "_right": 31.774,
+    "_right": 22.671999999999997,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,

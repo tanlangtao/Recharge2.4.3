@@ -88,6 +88,24 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BeforePayOrderAlert_9 :cc.Prefab =null;
 
+    @property(cc.Prefab)
+    BankAccountAlert_10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    AlipayAccountAlert_10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    WriteMoneyAlert_10 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    UsdtAccountAlert_10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    PublicOrderAlert_10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert_10 :cc.Prefab =null;
+
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -108,8 +126,7 @@ export default class NewClass extends cc.Component {
             // host:"https://pay1.whjfxly66.com", //online
             proxy_user_id:gHandler.gameGlobal.pay.proxy_user_id,
             proxy_name:gHandler.gameGlobal.pay.proxy_name,
-            package_id:10,
-            // package_id:gHandler.gameGlobal.pay.package_id,
+            package_id:gHandler.gameGlobal.pay.package_id,
             imHost:gHandler.gameGlobal.im_host
         };
         this.gHandler = gHandler
@@ -219,6 +236,9 @@ export default class NewClass extends cc.Component {
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.PublicOrderAlert_9);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_9);
+        }else if(this.UrlData.package_id == 10){
+            node = cc.instantiate(this.PublicOrderAlert_10);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_10);
         }else{
             node = cc.instantiate(this.PublicOrderAlert);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert);
@@ -243,6 +263,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.AlipayAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.AlipayAccountAlert_9);
+        }else if(this.UrlData.package_id == 10){
+            node = cc.instantiate(this.AlipayAccountAlert_10);
         }else{
             node = cc.instantiate(this.AlipayAccountAlert);
         }
@@ -270,6 +292,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.BankAccountAlert_9);
+        }else if(this.UrlData.package_id == 10){
+            node = cc.instantiate(this.BankAccountAlert_10);
         }else{
             node = cc.instantiate(this.BankAccountAlert);
         }
@@ -292,6 +316,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.UsdtAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.UsdtAccountAlert_9);
+        }else if(this.UrlData.package_id == 10){
+            node = cc.instantiate(this.UsdtAccountAlert_10);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }
@@ -345,6 +371,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.WriteMoneyAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.WriteMoneyAlert_9);
+        }else if(this.UrlData.package_id == 10){
+            node = cc.instantiate(this.WriteMoneyAlert_10);
         }else{
             node = cc.instantiate(this.WriteMoneyAlert);
         }

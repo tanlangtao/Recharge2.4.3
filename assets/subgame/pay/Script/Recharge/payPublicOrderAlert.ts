@@ -200,7 +200,7 @@ export default class NewClass extends cc.Component {
         let jineTip= cc.find("Canvas/PublicOrderAlert/Content/group/group2/jineTip").getComponent(cc.Label)
         let btn1= cc.find("Canvas/PublicOrderAlert/Content/btn1")
         if(this.app.UrlData.package_id == 10){
-            title_orderinfo.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("订单信息:")
+            title_orderinfo.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("订单信息")
             txt_chongzhifangshi.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("充值方式:")
             txt_shoukuanyinhang.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("收款银行:")
             txt_shoukuanzhanghao.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("收款账号:")
