@@ -475,7 +475,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        259.34799999999996,
+        250,
         0,
         0,
         0,
@@ -544,7 +544,7 @@
     "_alignFlags": 1,
     "_left": 0,
     "_right": 0,
-    "_top": 16.652000000000015,
+    "_top": 25.99999999999997,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -4341,7 +4341,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "6c95261d-f593-452f-a017-5c5531bb24fd"
+      "__uuid__": "2dfe9ded-801a-4784-b522-fa8e576e2ce4"
     },
     "_type": 1,
     "_sizeMode": 0,

@@ -31,6 +31,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     CashAlert_8 : cc.Prefab =null;
 
+    @property(cc.Prefab)
+    CashAlert_9 : cc.Prefab =null;
+
     @property
     app = null;
     data = null;
@@ -164,6 +167,8 @@ export default class NewClass extends cc.Component {
         var node = null;
         if(this.app.UrlData.package_id == 8){
             node = cc.instantiate(this.CashAlert_8);
+        }else if(this.app.UrlData.package_id == 9){
+            node = cc.instantiate(this.CashAlert_9);
         }else{
             node = cc.instantiate(this.CashAlert);
         }

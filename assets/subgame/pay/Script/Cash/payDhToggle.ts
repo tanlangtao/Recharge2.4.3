@@ -26,6 +26,12 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     UsdtDh : cc.Prefab = null;
 
+    @property(cc.Node)
+    tishi : cc.Node = null;
+
+    @property(cc.Label)
+    tishiLabel : cc.Label =null;
+
     @property
     app= null;
     text = null;
@@ -33,16 +39,17 @@ export default class NewClass extends cc.Component {
     public init(data){
         let src = Language_pay.Lg.getLgSrc()
         this.text=data.text;
-        
+        this.app.loadIcon(`${src}/menu/tishi`,this.tishi,97,55);    
         if(this.app.UrlData.package_id == 9)
         {
             let zi = cc.find( "zi" , this.node );
             if( cc.isValid( zi ) )
             {
                 if(this.text == '支付宝兑换'){
-                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");  
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");
                 }else if(this.text == '银行卡兑换'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡");
+                    this.setTishiLabel(0.02);
                 }else if(this.text == '人工兑换'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "人工兑换");
                 }else if(this.text == '兑换记录'){
@@ -72,6 +79,17 @@ export default class NewClass extends cc.Component {
             }
         }
     }
+
+    setTishiLabel(percent) {
+        cc.log("payDhToggle" , this.text , ' percent=',percent);
+        this.tishiLabel.string = `${percent * 100} %`;
+        if (percent == 0){
+            this.tishi.active = false
+        }else{
+            this.tishi.active = true
+        }
+    }
+
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
@@ -87,11 +105,6 @@ export default class NewClass extends cc.Component {
             this.addContent('Dh');
         }else if(this.text == '银行卡兑换'){
             this.addContent('BankDh');
-            let tips = cc.find( "checkmark/tips" , this.node );
-            if( cc.isValid( tips ) )
-            {
-                tips.active = true;
-            }
         }else if(this.text == '人工兑换'){
             this.addContent('RgDh');
         }else if(this.text == '兑换记录'){

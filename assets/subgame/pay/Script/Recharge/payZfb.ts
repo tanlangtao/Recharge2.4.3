@@ -63,6 +63,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BindBankAccountTipAlert_8 : cc.Prefab = null;
 
+    @property(cc.Prefab)
+    BindBankAccountTipAlert_9 : cc.Prefab = null;
+
     @property()
     public app  = null;
     public results : any = {};
@@ -440,6 +443,8 @@ export default class NewClass extends cc.Component {
         let node = null
         if(this.app.UrlData.package_id == 8){
              node = cc.instantiate(this.BindBankAccountTipAlert_8)
+        }else if(this.app.UrlData.package_id == 9){
+            node = cc.instantiate(this.BindBankAccountTipAlert_9)
         }else{
             node = cc.instantiate(this.BindBankAccountTipAlert)
         }
@@ -471,6 +476,9 @@ export default class NewClass extends cc.Component {
         this.app.loadIconLg(`${src}/font/txt_czje`,txt_czje)
         
         if(this.app.UrlData.package_id == 8){
+            this.app.loadIconLg(`${src}/font/lijigoumai`,czgoldbt1.children[0])
+            btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('重置')
+        }else if(this.app.UrlData.package_id == 9){
             this.app.loadIconLg(`${src}/font/lijigoumai`,czgoldbt1.children[0])
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('重置')
         }else{

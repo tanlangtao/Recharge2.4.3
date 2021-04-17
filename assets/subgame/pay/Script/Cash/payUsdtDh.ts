@@ -43,6 +43,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     CashAlert_8: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    CashAlert_9: cc.Prefab = null;
+
     @property
     public data : any = {};
     public results= null ;
@@ -145,7 +148,9 @@ export default class NewClass extends cc.Component {
     //兑换提示
     showCashAlert(conf_val){
         var node = null
-        if(this.app.UrlData.package_id == 8 ||this.app.UrlData.package_id == 9){
+        if(this.app.UrlData.package_id == 9){
+            node = cc.instantiate(this.CashAlert_9);
+        }else if(this.app.UrlData.package_id == 8s){
             node = cc.instantiate(this.CashAlert_8);
         }else{
             node = cc.instantiate(this.CashAlert);

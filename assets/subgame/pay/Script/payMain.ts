@@ -70,6 +70,24 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BeforePayOrderAlert_8 :cc.Prefab =null;
     
+    @property(cc.Prefab)
+    BankAccountAlert_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    AlipayAccountAlert_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    WriteMoneyAlert_9 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    UsdtAccountAlert_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    PublicOrderAlert_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert_9 :cc.Prefab =null;
+
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -93,6 +111,7 @@ export default class NewClass extends cc.Component {
             package_id:gHandler.gameGlobal.pay.package_id,
             imHost:gHandler.gameGlobal.im_host
         };
+        this.UrlData.package_id = 9;
         this.gHandler = gHandler
         this.token = this.config.token;
         this.login_token = gHandler.gameGlobal.token
@@ -197,6 +216,9 @@ export default class NewClass extends cc.Component {
         if(this.UrlData.package_id == 8){
             node = cc.instantiate(this.PublicOrderAlert_8);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_8);
+        }else if(this.UrlData.package_id == 9){
+            node = cc.instantiate(this.PublicOrderAlert_9);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_9);
         }else{
             node = cc.instantiate(this.PublicOrderAlert);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert);
@@ -219,6 +241,8 @@ export default class NewClass extends cc.Component {
         var node = null
         if(this.UrlData.package_id == 8){
             node = cc.instantiate(this.AlipayAccountAlert_8);
+        }else if(this.UrlData.package_id == 9){
+            node = cc.instantiate(this.AlipayAccountAlert_9);
         }else{
             node = cc.instantiate(this.AlipayAccountAlert);
         }
@@ -244,6 +268,8 @@ export default class NewClass extends cc.Component {
         var node = null
         if(this.UrlData.package_id == 8){
             node = cc.instantiate(this.BankAccountAlert_8);
+        }else if(this.UrlData.package_id == 9){
+            node = cc.instantiate(this.BankAccountAlert_9);
         }else{
             node = cc.instantiate(this.BankAccountAlert);
         }
@@ -262,8 +288,10 @@ export default class NewClass extends cc.Component {
     public showUsdtAccountAlert(itemId){
         var canvas = cc.find('Canvas');
         var node = null
-        if(this.UrlData.package_id == 8||this.UrlData.package_id == 9){
+        if(this.UrlData.package_id == 8){
             node = cc.instantiate(this.UsdtAccountAlert_8);
+        }else if(this.UrlData.package_id == 9){
+            node = cc.instantiate(this.UsdtAccountAlert_9);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }
@@ -315,6 +343,8 @@ export default class NewClass extends cc.Component {
         var node = null
         if(this.UrlData.package_id == 8){
             node = cc.instantiate(this.WriteMoneyAlert_8);
+        }else if(this.UrlData.package_id == 9){
+            node = cc.instantiate(this.WriteMoneyAlert_9);
         }else{
             node = cc.instantiate(this.WriteMoneyAlert);
         }

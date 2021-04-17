@@ -194,6 +194,7 @@ export default class NewClass extends cc.Component {
         } 
     }
     setTishiLabel(percent) {
+        cc.log("payNavToggle" , this.text);
         this.tishiLabel.string = `${percent * 100} %`;
         if (percent == 0){
             this.tishi.active = false
