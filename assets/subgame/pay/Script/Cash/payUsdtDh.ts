@@ -40,12 +40,6 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     SelectItem :cc.Prefab = null
 
-    @property(cc.Prefab)
-    CashAlert_8: cc.Prefab = null;
-
-    @property(cc.Prefab)
-    CashAlert_9: cc.Prefab = null;
-
     @property
     public data : any = {};
     public results= null ;
@@ -147,14 +141,7 @@ export default class NewClass extends cc.Component {
 
     //兑换提示
     showCashAlert(conf_val){
-        var node = null
-        if(this.app.UrlData.package_id == 9){
-            node = cc.instantiate(this.CashAlert_9);
-        }else if(this.app.UrlData.package_id == 8s){
-            node = cc.instantiate(this.CashAlert_8);
-        }else{
-            node = cc.instantiate(this.CashAlert);
-        }
+        var node = cc.instantiate(this.CashAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         let cash = cc.find('Canvas/Cash').getComponent('payCash')
@@ -326,21 +313,38 @@ export default class NewClass extends cc.Component {
         let dhqd= cc.find('Canvas/Cash/Content/UsdtDh/group6/dhqd')
         let btn= cc.find('Canvas/Cash/Content/UsdtDh/btn')
 
-        this.app.loadIconLg(`${src}/font/txt_zhye`,zhye)
-        this.app.loadIconLg(`${src}/font/txt_ckhl`,ckhl)
-        this.app.loadIconLg(`${src}/font/txt_dhje`,dhje)
-        this.app.loadIconLg(`${src}/font/txt_qbdz`,qbdz)
-        this.app.loadIconLg(`${src}/font/txt_llx`,llx)
-        this.app.loadIconLg(`${src}/font/txt_dhqd`,dhqd)
+        
 
         if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 9 ){
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn.children[0])
+            this.app.loadIconLg(`${src}/font/txt_zhye`,zhye)
+            this.app.loadIconLg(`${src}/font/txt_ckhl`,ckhl)
+            this.app.loadIconLg(`${src}/font/txt_dhje`,dhje)
+            this.app.loadIconLg(`${src}/font/txt_qbdz`,qbdz)
+            this.app.loadIconLg(`${src}/font/txt_llx`,llx)
+            this.app.loadIconLg(`${src}/font/txt_dhqd`,dhqd)
+        }else if( this.app.UrlData.package_id == 10){
+            zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
+            zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("参考汇率")
+            zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")
+            zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("钱包地址")
+            zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("链类型")
+            zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换渠道")
+            accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
+            this.app.loadIconLg(`${src}/btn/75`,btn_75)
+            this.app.loadIconLg(`${src}/font/jiesuan`,btn.children[0])
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/bindbt`,accountBtn)
             this.app.loadIconLg(`${src}/btn/btn_dh`,btn)
+            this.app.loadIconLg(`${src}/font/txt_zhye`,zhye)
+            this.app.loadIconLg(`${src}/font/txt_ckhl`,ckhl)
+            this.app.loadIconLg(`${src}/font/txt_dhje`,dhje)
+            this.app.loadIconLg(`${src}/font/txt_qbdz`,qbdz)
+            this.app.loadIconLg(`${src}/font/txt_llx`,llx)
+            this.app.loadIconLg(`${src}/font/txt_dhqd`,dhqd)
         }
 
         let label1 = cc.find('Canvas/Cash/Content/UsdtDh/titlebg/group3/group2/label').getComponent(cc.Label)

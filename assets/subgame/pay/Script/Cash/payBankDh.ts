@@ -329,10 +329,17 @@ export default class NewClass extends cc.Component {
         let txt_dhqd= cc.find('Canvas/Cash/Content/BankDh/group3/txt_dhqd')
         let btn_dh= cc.find('Canvas/Cash/Content/BankDh/btn_dh')
 
-        this.app.loadIconLg(`${src}/font/txt_zhye`,txt_zhye)
-        this.app.loadIconLg(`${src}/font/txt_dhje`,txt_dhje)
-        this.app.loadIconLg(`${src}/font/bankbt`,bankbt)
-        this.app.loadIconLg(`${src}/font/txt_dhqd`,txt_dhqd)
+        if(this.app.UrlData.package_id == 10){
+            txt_zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
+            txt_dhje.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")
+            bankbt.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("银行卡")
+            txt_dhqd.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换渠道")
+        }else{
+            this.app.loadIconLg(`${src}/font/txt_zhye`,txt_zhye)
+            this.app.loadIconLg(`${src}/font/txt_dhje`,txt_dhje)
+            this.app.loadIconLg(`${src}/font/bankbt`,bankbt)
+            this.app.loadIconLg(`${src}/font/txt_dhqd`,txt_dhqd)
+        }
 
         if(this.app.UrlData.package_id == 8){
             btn_max.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最 大")
@@ -342,6 +349,11 @@ export default class NewClass extends cc.Component {
         }else if(this.app.UrlData.package_id == 9){
             btn_max.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最 大")
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
+            accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")
+            this.app.loadIconLg(`${src}/font/jiesuan`,btn_dh.children[0])
+        }else if(this.app.UrlData.package_id == 10){
+            btn_max.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最 大")
+            this.app.loadIconLg(`${src}/btn/75`,btn_75)
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn_dh.children[0])
         }else{

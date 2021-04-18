@@ -12,6 +12,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Cash_9 :cc.Prefab = null
 
+    @property(cc.Prefab)
+    Cash_10 :cc.Prefab = null
+
     app = null
     onLoad() {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -21,6 +24,10 @@ export default class NewClass extends cc.Component {
             
         }else if(this.app.UrlData.package_id == 9){
             var node = cc.instantiate(this.Cash_9)
+            cc.find("Canvas").addChild(node)
+            
+        }else if(this.app.UrlData.package_id == 10){
+            var node = cc.instantiate(this.Cash_10)
             cc.find("Canvas").addChild(node)
             
         }else{

@@ -209,16 +209,28 @@ export default class NewClass extends cc.Component {
         let txt_dhzh= cc.find("Canvas/RgDhAlert/Layout/content/txt_dhzh")
         let btn1= cc.find("Canvas/RgDhAlert/Layout/btn1")
 
-        this.app.loadIconLg(`${src}/font/title_rgdh`,toutpd)
-        this.app.loadIconLg(`${src}/font/txt_dhfs`,txt_dhfs)
-        this.app.loadIconLg(`${src}/font/txt_dhzh`,txt_dhzh)
+        
         
         if(this.app.UrlData.package_id == 8){
             this.app.loadIconLg(`${src}/font/txt_zhye`,txt_zhye2)
             this.app.loadIconLg(`${src}/font/txt_dhje`,txt_dhje2)
+            this.app.loadIconLg(`${src}/font/title_rgdh`,toutpd)
+            this.app.loadIconLg(`${src}/font/txt_dhfs`,txt_dhfs)
+            this.app.loadIconLg(`${src}/font/txt_dhzh`,txt_dhzh)
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
+        }else if(this.app.UrlData.package_id == 10){
+            toutpd.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("人工兑换")
+            txt_zhye2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
+            txt_dhje2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")
+            txt_dhfs.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换方式")
+            txt_dhzh.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换账户")
+            this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
+            this.app.loadIconLg(`${src}/btn/75`,btn_75)
         }else{
+            this.app.loadIconLg(`${src}/font/title_rgdh`,toutpd)
+            this.app.loadIconLg(`${src}/font/txt_dhfs`,txt_dhfs)
+            this.app.loadIconLg(`${src}/font/txt_dhzh`,txt_dhzh)
             this.app.loadIconLg(`${src}/font/txt_zhye2`,txt_zhye2)
             this.app.loadIconLg(`${src}/font/txt_dhje2`,txt_dhje2)
             this.app.loadIconLg(`${src}/btn/75`,btn_75)

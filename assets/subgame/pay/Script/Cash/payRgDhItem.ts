@@ -12,9 +12,6 @@ export default class NewClass extends cc.Component {
     iconSprite: cc.Node = null;
 
     @property(cc.Prefab)
-    TestPasswordAlert:cc.Prefab = null;
-
-    @property(cc.Prefab)
     RgDhAlert :cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -22,6 +19,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     RgDhAlert_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    RgDhAlert_10 :cc.Prefab = null;
 
     @property()
     app = null;
@@ -58,6 +58,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.RgDhAlert_8);
         }else  if(this.app.UrlData.package_id == 9){
             node = cc.instantiate(this.RgDhAlert_9);
+        }else  if(this.app.UrlData.package_id == 10){
+            node = cc.instantiate(this.RgDhAlert_10);
         }else{
             node = cc.instantiate(this.RgDhAlert);
         }

@@ -127,7 +127,7 @@ export default class NewClass extends cc.Component {
         }else if(data == 'USDT'){
             var node = cc.instantiate(this.UsdtDh);
         }
-        
+        console.log(cc.find("Canvas"))
         content.removeAllChildren();
         content.addChild(node);
     }

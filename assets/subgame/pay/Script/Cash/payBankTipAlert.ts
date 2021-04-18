@@ -36,7 +36,11 @@ export default class NewClass extends cc.Component {
         let btn1= cc.find('Canvas/BankTipAlert/Layout/btn1')
         let Label= cc.find('Canvas/BankTipAlert/Layout/Label').getComponent(cc.Label)
 
-        this.app.loadIconLg(`${src}/btn/surecg`,btn1)
+        if(this.app.UrlData.package_id == 10){
+            this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
+        }else{
+            this.app.loadIconLg(`${src}/btn/surecg`,btn1)
+        }
 
         Label.string = Language_pay.Lg.ChangeByText('请完善银行卡绑定信息')
     }

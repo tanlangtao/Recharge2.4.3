@@ -533,13 +533,13 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$transition": 1,
+    "transition": 1,
     "_N$normalColor": {
       "__type__": "cc.Color",
-      "r": 214,
-      "g": 214,
-      "b": 214,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_N$pressedColor": {
@@ -577,15 +577,9 @@
       "b": 124,
       "a": 255
     },
-    "_N$normalSprite": {
-      "__uuid__": "c876da1c-1283-48eb-a42f-4496f566b932"
-    },
-    "_N$pressedSprite": {
-      "__uuid__": "01fb4f37-1c74-4be6-95d4-c0bb61a8f93a"
-    },
-    "pressedSprite": {
-      "__uuid__": "01fb4f37-1c74-4be6-95d4-c0bb61a8f93a"
-    },
+    "_N$normalSprite": null,
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
     "_N$hoverSprite": null,
     "hoverSprite": null,
     "_N$disabledSprite": null,
@@ -2522,7 +2516,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -679,
+        -666.627,
         290,
         0,
         0,
@@ -2979,7 +2973,7 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 9,
-    "_left": -12,
+    "_left": 0.3730000000000473,
     "_right": 1089,
     "_top": 85,
     "_bottom": 0,

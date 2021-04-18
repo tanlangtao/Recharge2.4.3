@@ -107,11 +107,11 @@ export default class NewClass extends cc.Component {
         }
         //首次加载，顺序第一的显示
         if(arr[0]=='人工兑换'){
-            node.getComponent('payDhToggle').addContent('RgDh')
+            this.ToggleContainer.children[0].getComponent('payDhToggle').addContent('RgDh')
         }else if(this.results.data.withDraw_info.bankcard.channel.length > 0){
-            node.getComponent('payDhToggle').addContent('BankDh')
+            this.ToggleContainer.children[0].getComponent('payDhToggle').addContent('BankDh')
         }else if(this.results.data.withDraw_info.alipay.channel.length > 0){
-            node.getComponent('payDhToggle').addContent('Dh')
+            this.ToggleContainer.children[0].getComponent('payDhToggle').addContent('Dh')
         }
     }
     onDestroy(){

@@ -118,7 +118,7 @@ export default class NewClass extends cc.Component {
         
         let titlebg= cc.find("Canvas/Cash/Content/DhHistory/Content/titlebg")
 
-        if(this.app.UrlData.package_id==8) {
+        if(this.app.UrlData.package_id==8 || this.app.UrlData.package_id==9 ||this.app.UrlData.package_id==10) {
             titlebg.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('类型')
             titlebg.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('兑换金额')
             titlebg.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('费率')
@@ -127,15 +127,6 @@ export default class NewClass extends cc.Component {
             titlebg.children[5].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('申请时间')
             titlebg.children[6].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('到账时间')
             titlebg.children[7].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('备注')
-        }else if(this.app.UrlData.package_id==9) {
-            titlebg.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('类型')
-            titlebg.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('兑换金额')
-            titlebg.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('费率')
-            titlebg.children[3].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('到账金额')
-            titlebg.children[4].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('状态')
-            titlebg.children[5].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('申请时间')
-            titlebg.children[6].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('到账时间')
-            titlebg.children[7].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('操作')
         }else{
             this.app.loadIconLg(`${src}/form/dh_title_kuang`,titlebg)
         }

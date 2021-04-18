@@ -53,6 +53,10 @@ export default class NewClass extends cc.Component {
             if(this.app.UrlData.package_id == 9 )
             {
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账到银行卡");  
+            }else if(this.app.UrlData.package_id == 10)
+            {
+                this.app.loadIcon(`${src}/menu/menu_tobank_1`,this.normalIcon,151,33);
+                this.app.loadIcon(`${src}/menu/menu_tobank_2`,this.currentIcon,191,33);
             }
             else
             {

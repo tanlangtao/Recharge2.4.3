@@ -372,7 +372,16 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/bankcard_form_3`, bankcard_form.children[3])
             this.app.loadIconLg(`${src}/font/bankcard_form_4`, bankcard_form.children[4])
             this.app.loadIconLg(`${src}/font/bankcard_form_5`, bankcard_form.children[5])
-            this.app.loadIconLg(`${src}/font/bankcard_form_5`, bankcard_form.children[5])
+            this.app.loadIconLg(`${src}/font/queding`, btn1.children[0])
+            bankcard_form.getChildByName('label').getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('*温馨提示：绑定银行卡后无法自行修改! 请仔细填写您的银行卡信息!')
+        }else if(this.app.UrlData.package_id == 8){
+            this.titleIcon.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('绑定银行卡')
+            bankcard_form.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('银行卡号:')
+            bankcard_form.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('收款人姓名:')
+            bankcard_form.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('开户省:')
+            bankcard_form.children[3].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('开户市:')
+            bankcard_form.children[4].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('开户银行:')
+            bankcard_form.children[5].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('开户支行:')
             this.app.loadIconLg(`${src}/font/queding`, btn1.children[0])
             bankcard_form.getChildByName('label').getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('*温馨提示：绑定银行卡后无法自行修改! 请仔细填写您的银行卡信息!')
         }else{
