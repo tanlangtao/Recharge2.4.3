@@ -398,8 +398,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 845,
-      "height": 700
+      "width": 927,
+      "height": 670
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -411,7 +411,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -12.978,
+        -13,
         0,
         0,
         0,
@@ -478,7 +478,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        295,
+        280,
         0,
         0,
         0,
@@ -617,8 +617,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        382.005,
-        310.042,
+        416,
+        275,
         0,
         0,
         0,
@@ -686,8 +686,8 @@
     "_target": null,
     "_alignFlags": 33,
     "_left": 0,
-    "_right": 11.995000000000005,
-    "_top": 11.458000000000027,
+    "_right": 19,
+    "_top": 31.5,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -855,8 +855,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 745,
-      "height": 605
+      "width": 827,
+      "height": 575
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -868,7 +868,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -16.358000000000004,
+        -10,
         0,
         0,
         0,
@@ -1718,9 +1718,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "417e434a-ad92-40f0-b0b8-5c7cdeae76ca"
+      "__uuid__": "d5096eea-02aa-4200-aed9-081c8cc7532e"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -1825,9 +1825,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "417e434a-ad92-40f0-b0b8-5c7cdeae76ca"
+      "__uuid__": "d5096eea-02aa-4200-aed9-081c8cc7532e"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -1932,9 +1932,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "417e434a-ad92-40f0-b0b8-5c7cdeae76ca"
+      "__uuid__": "d5096eea-02aa-4200-aed9-081c8cc7532e"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -2039,9 +2039,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "417e434a-ad92-40f0-b0b8-5c7cdeae76ca"
+      "__uuid__": "d5096eea-02aa-4200-aed9-081c8cc7532e"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -2146,9 +2146,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "417e434a-ad92-40f0-b0b8-5c7cdeae76ca"
+      "__uuid__": "d5096eea-02aa-4200-aed9-081c8cc7532e"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -2253,9 +2253,9 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "417e434a-ad92-40f0-b0b8-5c7cdeae76ca"
+      "__uuid__": "d5096eea-02aa-4200-aed9-081c8cc7532e"
     },
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
@@ -6206,8 +6206,8 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 745,
-      "height": 605
+      "width": 827,
+      "height": 575
     },
     "_resize": 0,
     "_N$layoutType": 0,
@@ -6241,8 +6241,8 @@
     "_alignFlags": 45,
     "_left": 50,
     "_right": 50,
-    "_top": 63.85800000000006,
-    "_bottom": 31.141999999999975,
+    "_top": 57.50000000000006,
+    "_bottom": 37.49999999999998,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
@@ -6316,7 +6316,7 @@
       "ctor": "Float64Array",
       "array": [
         13,
-        -275,
+        -260,
         0,
         0,
         0,
@@ -7820,8 +7820,8 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 845,
-      "height": 700
+      "width": 927,
+      "height": 670
     },
     "_resize": 0,
     "_N$layoutType": 0,
@@ -7857,7 +7857,7 @@
     "_right": 0,
     "_top": 0,
     "_bottom": 0,
-    "_verticalCenter": -12.978,
+    "_verticalCenter": -13,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
     "_isAbsRight": true,

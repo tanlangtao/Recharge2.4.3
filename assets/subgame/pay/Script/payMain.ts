@@ -129,6 +129,10 @@ export default class NewClass extends cc.Component {
             package_id:gHandler.gameGlobal.pay.package_id,
             imHost:gHandler.gameGlobal.im_host
         };
+        if(hqq.isDebug)
+        {
+            this.UrlData.package_id = 9;
+        }
         this.gHandler = gHandler
         this.token = this.config.token;
         this.login_token = gHandler.gameGlobal.token
