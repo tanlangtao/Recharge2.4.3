@@ -122,7 +122,7 @@ export default class NewClass extends cc.Component {
         let titlebg= cc.find("Canvas/Recharge/RechargeHistory/Content/titlebg")
 
         this.app.loadIconLg(`${src}/font/chongzhiklis`,chongzhiklis)
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 9 || this.app.UrlData.package_id == 10){
             titlebg.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('下单金额')
             titlebg.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('到账金额')
             titlebg.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('状态')

@@ -87,6 +87,8 @@ export default class NewClass extends cc.Component {
 
         if(this.app.UrlData.package_id == 10){
             btn_dingdan1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('订 单')
+        }else if(this.app.UrlData.package_id == 9){
+            btn_dingdan1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('订 单')
         }else{
             this.app.loadIconLg(`${src}/btn/btn_dingdan1`,btn_dingdan1)
         }

@@ -208,6 +208,16 @@ export default class NewClass extends cc.Component {
             txt_zhuanzhuangjie.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("收款金额:")
             txt_playername.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("用户昵称:")
             btn1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('如何充值')
+        }else if(this.app.UrlData.package_id == 9){
+            this.app.loadIconLg(`${src}/font/title_orderinfo`,title_orderinfo)
+            this.app.loadIconLg(`${src}/font/txt_chongzhifangshi`,txt_chongzhifangshi)
+            this.app.loadIconLg(`${src}/font/txt_shoukuanyinhang`,txt_shoukuanyinhang)
+            this.app.loadIconLg(`${src}/font/txt_shoukuanzhanghao`,txt_shoukuanzhanghao)
+            this.app.loadIconLg(`${src}/font/txt_shoukuanxingming`,txt_shoukuanxingming)
+            this.app.loadIconLg(`${src}/font/txt_zhuanzhuangjie`,txt_zhuanzhuangjie)
+            this.app.loadIconLg(`${src}/font/txt_beizhu2`,txt_beizhu2)
+            this.app.loadIconLg(`${src}/font/txt_playername`,txt_playername)
+            btn1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('如何充值')
         }else{
             this.app.loadIconLg(`${src}/font/title_orderinfo`,title_orderinfo)
             this.app.loadIconLg(`${src}/font/txt_chongzhifangshi`,txt_chongzhifangshi)

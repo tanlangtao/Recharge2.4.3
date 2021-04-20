@@ -135,7 +135,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1044,
+      "width": 900,
       "height": 240
     },
     "_anchorPoint": {
@@ -2478,8 +2478,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 41,
-    "_left": 19,
-    "_right": 19,
+    "_left": 91,
+    "_right": 91,
     "_top": 14.757000000000005,
     "_bottom": 0,
     "_verticalCenter": 0,

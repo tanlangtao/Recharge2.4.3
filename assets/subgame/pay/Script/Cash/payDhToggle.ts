@@ -39,7 +39,10 @@ export default class NewClass extends cc.Component {
     public init(data){
         let src = Language_pay.Lg.getLgSrc()
         this.text=data.text;
-        this.app.loadIcon(`${src}/menu/tishi`,this.tishi,97,55);    
+        if( cc.isValid(this.tishi ) )
+        {
+            this.app.loadIcon(`${src}/menu/tishi`,this.tishi,97,55);
+        }    
         if(this.app.UrlData.package_id == 9)
         {
             let zi = cc.find( "zi" , this.node );
@@ -49,7 +52,7 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");
                 }else if(this.text == '银行卡兑换'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡");
-                    this.setTishiLabel(0.02);
+                    // this.setTishiLabel(0.02);
                 }else if(this.text == '人工兑换'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "人工兑换");
                 }else if(this.text == '兑换记录'){

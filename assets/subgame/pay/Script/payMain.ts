@@ -394,19 +394,40 @@ export default class NewClass extends cc.Component {
      */
     public loadIcon(url,node,w,h){
         cc.resources.load(`pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
-            node.width = w;
-            node.height = h;
-            node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            if( cc.isValid( node ) )
+            {
+                node.width = w;
+                node.height = h;
+                node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            }
+            else
+            {
+                cc.log("loadIcon url=",url,"node is null")
+            }
         })
     }
     public loadTitle(url,node){
         cc.resources.load(`pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
-            node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            if( cc.isValid( node ))
+            {
+                node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            }
+            else
+            {
+                cc.log("loadTitle url=",url,"node is null")
+            }
         })
     }
     public loadIconLg(url,node){
         cc.resources.load(`pay/${url}`,cc.SpriteFrame,(err, spriteFrame)=>{
-            node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            if( cc.isValid( node ) )
+            {
+                node.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            }
+            else
+            {
+                cc.log("loadIconLg url=",url,"node is null")
+            }
         })
     }
     /**

@@ -40,8 +40,11 @@ export default class NewClass extends cc.Component {
             //超出此缩放比例，则缩小node
             this.Content.scaleY = 1.1/scalex;
         }
-        this.node.scaleY = scalex;
-        this.node.scaleX = scalex;
+        if(this.app.UrlData.package_id == 9)
+        {  
+            this.node.scaleY = scalex;
+            this.node.scaleX = scalex;
+        }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
         this.setLanguageResource()
     }
@@ -203,8 +206,15 @@ export default class NewClass extends cc.Component {
         let title= cc.find('Canvas/Recharge/header/title')
         let chongzhilishi= cc.find('Canvas/Recharge/chongzhilishi')
         
-        this.app.loadIconLg(`${src}/font/9`,title)
-        this.app.loadIconLg(`${src}/btn/chongzhilishi`,chongzhilishi)
+        this.app.loadIconLg(`${src}/font/9`,title);
+        if(this.app.UrlData.package_id == 9)
+        {
+            chongzhilishi.getComponent(cc.Widget).target = cc.find('Canvas');
+        }
+        else
+        {
+            this.app.loadIconLg(`${src}/btn/chongzhilishi`,chongzhilishi);
+        }
         
         let loadSP = cc.find('Loading/loadSP')
         loadSP.children.forEach((e)=>{
