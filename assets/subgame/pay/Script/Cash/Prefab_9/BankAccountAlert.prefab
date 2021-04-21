@@ -2308,7 +2308,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 600,
-      "height": 50.4
+      "height": 90.39999999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2319,8 +2319,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        15.708,
-        -185,
+        17.165,
+        -196.653,
         0,
         0,
         0,
@@ -2359,8 +2359,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "*温馨提示：绑定银行卡后无法自行修改! 请仔细填写!",
-    "_N$string": "*温馨提示：绑定银行卡后无法自行修改! 请仔细填写!",
+    "_string": "*温馨提示：绑定银行卡后无法自行修改! 请仔细填写您的银行卡信息!",
+    "_N$string": "*温馨提示：绑定银行卡后无法自行修改! 请仔细填写您的银行卡信息!",
     "_fontSize": 25,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -6316,7 +6316,7 @@
       "ctor": "Float64Array",
       "array": [
         13,
-        -260,
+        -277,
         0,
         0,
         0,
@@ -6575,7 +6575,7 @@
     "_left": 0,
     "_right": 0,
     "_top": 0,
-    "_bottom": 37,
+    "_bottom": 20,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,

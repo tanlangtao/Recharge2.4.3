@@ -718,7 +718,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "queding",
+    "_name": "New Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 16
@@ -743,8 +743,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 75,
-      "height": 36
+      "width": 60,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -781,7 +781,7 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -795,21 +795,22 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "a4e3254d-054d-4210-a0d9-ff8d2399d474"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
+    "_string": "绑定",
+    "_N$string": "绑定",
+    "_fontSize": 30,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_N$cacheMode": 0,
     "_id": ""
   },
   {
@@ -820,7 +821,7 @@
     "asset": {
       "__uuid__": "0e18de5a-f9f0-4a05-8821-7fa7d4e5b489"
     },
-    "fileId": "b9x28xiIxJW5sppYiLrHVp",
+    "fileId": "a8N7VcYydMMqvULEz5VSSQ",
     "sync": false
   },
   {
