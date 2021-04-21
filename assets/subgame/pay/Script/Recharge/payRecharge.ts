@@ -40,10 +40,13 @@ export default class NewClass extends cc.Component {
             //超出此缩放比例，则缩小node
             this.Content.scaleY = 1.1/scalex;
         }
+        this.node.scaleY = scalex;
+        this.node.scaleX = scalex;
         if(this.app.UrlData.package_id == 9)
         {  
-            this.node.scaleY = scalex;
-            this.node.scaleX = scalex;
+            let fanhui = cc.find("header/fanhui",this.node);
+            fanhui.scaleY/=this.node.scaleY;
+            fanhui.scaleX/=this.node.scaleX;
         }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
         this.setLanguageResource()
