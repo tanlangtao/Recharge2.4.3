@@ -77,6 +77,8 @@ export default class NewClass extends cc.Component {
         this.app.loadMusic(1);
         this.app.showLoading();
         var node = cc.instantiate(this.RechargeHistory);
+        node.scaleY/=this.node.scaleY;
+        node.scaleX/=this.node.scaleX;
         var Recharge = cc.find('Canvas/Recharge');
         Recharge.addChild(node);
     }
