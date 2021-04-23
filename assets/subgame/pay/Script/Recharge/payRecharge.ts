@@ -40,7 +40,7 @@ export default class NewClass extends cc.Component {
             //超出此缩放比例，则缩小node
             this.Content.scaleY = 1.1/scalex;
         }
-        this.node.scaleY = scalex;
+        // this.node.scaleY = scalex;
         this.node.scaleX = scalex;
         if(this.app.UrlData.package_id == 9)
         {  
@@ -77,8 +77,6 @@ export default class NewClass extends cc.Component {
         this.app.loadMusic(1);
         this.app.showLoading();
         var node = cc.instantiate(this.RechargeHistory);
-        node.scaleY/=this.node.scaleY;
-        node.scaleX/=this.node.scaleX;
         var Recharge = cc.find('Canvas/Recharge');
         Recharge.addChild(node);
     }

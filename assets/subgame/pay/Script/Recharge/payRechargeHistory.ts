@@ -32,11 +32,12 @@ export default class NewClass extends cc.Component {
 
         this.fetchIndex();
         let scalex = cc.winSize.width / 1334;
-        var content = cc.find('Canvas/Recharge/RechargeHistory/Content')
+        var content = cc.find('Canvas/Recharge/RechargeHistory/Content');
         if(this.app.UrlData.package_id == 9)
         {
-            content.scaleY = scalex;
-            content.scaleX = scalex;
+            let fanhui = cc.find("header/fanhui",this.node);
+            fanhui.scaleY/=scalex;
+            fanhui.scaleX/=scalex;
         }
         else
         {
