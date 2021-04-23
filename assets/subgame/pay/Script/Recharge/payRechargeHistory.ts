@@ -33,8 +33,15 @@ export default class NewClass extends cc.Component {
         this.fetchIndex();
         let scalex = cc.winSize.width / 1334;
         var content = cc.find('Canvas/Recharge/RechargeHistory/Content')
-        content.scaleY = scalex;
-        content.scaleX = scalex;
+        if(this.app.UrlData.package_id == 9)
+        {
+            content.scaleY = scalex;
+            content.scaleX = scalex;
+        }
+        else
+        {
+            content.scaleY = 1/scalex;
+        }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
         this.setLanguageResource()
     }
