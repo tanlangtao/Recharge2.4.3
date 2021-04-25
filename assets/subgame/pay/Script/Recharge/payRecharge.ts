@@ -45,7 +45,7 @@ export default class NewClass extends cc.Component {
         if(this.app.UrlData.package_id == 9)
         {  
             let fanhui = cc.find("header/fanhui",this.node);
-            fanhui.scaleY/=this.node.scaleY;
+            // fanhui.scaleY/=this.node.scaleY;
             fanhui.scaleX/=this.node.scaleX;
         }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)

@@ -36,8 +36,12 @@ export default class NewClass extends cc.Component {
         if(this.app.UrlData.package_id == 9)
         {
             let fanhui = cc.find("header/fanhui",this.node);
-            fanhui.scaleY/=scalex;
+            // fanhui.scaleY/=scalex;
             fanhui.scaleX/=scalex;
+
+            let title = cc.find("header/title",this.node);
+            // fanhui.scaleY/=scalex;
+            title.scaleX/=scalex;
         }
         else
         {
