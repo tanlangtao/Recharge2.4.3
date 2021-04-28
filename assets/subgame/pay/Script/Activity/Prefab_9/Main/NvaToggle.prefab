@@ -712,7 +712,7 @@
     "_dstBlendFactor": 771,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 30,
+    "_fontSize": 25,
     "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": null,
@@ -975,157 +975,71 @@
       "__id__": 2
     },
     "currentIcon": {
-      "__id__": 9
+      "__id__": 5
     },
-    "ChuangGuan": {
-      "__uuid__": "e981f7b1-1b02-439f-a638-b2ebde0a5710"
-    },
-    "FreeGold": {
-      "__uuid__": "9be00158-0823-4104-b53a-34008638b29e"
-    },
-    "DailyActivity": {
-      "__uuid__": "d21e7850-d692-4873-bf8e-d824599ed9b3"
-    },
-    "DailyActivity_8": {
-      "__uuid__": "e04399cc-0c02-49b4-9a06-6403fe25854e"
-    },
-    "NewPlayerGift": {
-      "__uuid__": "6b44b0f6-bd71-4a68-a191-1bd4e57cb3e9"
-    },
-    "HalfMonthGift": {
-      "__uuid__": "e811ed28-22f2-48fa-b195-06610f7ac0a1"
-    },
-    "HalfMonthGift_8": {
-      "__uuid__": "698120e4-3391-43ff-abe9-716d1e9792e6"
-    },
-    "OnceWeekGift": {
-      "__uuid__": "4fb710d7-f001-4af0-8458-446e50236d19"
-    },
-    "OneMonthMillion": {
-      "__uuid__": "050f15f9-1aab-4c0e-b5ac-608d0e0c456f"
-    },
-    "RechargeRebate": {
-      "__uuid__": "ebcabade-ac3b-4f6d-ad7c-9a79c8306606"
-    },
-    "RecommendFriends": {
-      "__uuid__": "fe13d13f-e0ea-45b7-9469-39fb1e5845ee"
-    },
-    "KaiYeZhuCeSong": {
-      "__uuid__": "2058800c-997d-4406-a03f-08747930d91b"
-    },
-    "OldPlayerCunSong": {
-      "__uuid__": "d3b29dae-b4f9-4742-8788-01612813a8d1"
-    },
-    "NewPlayerCunSong": {
-      "__uuid__": "7435d9fe-1279-4456-bbc1-52c92a473714"
-    },
-    "FirstDepostGold": {
-      "__uuid__": "587454e2-e1e3-4053-b5f8-78a79ae09cae"
-    },
+    "ChuangGuan": null,
+    "FreeGold": null,
+    "DailyActivity": null,
+    "DailyActivity_8": null,
+    "NewPlayerGift": null,
+    "HalfMonthGift": null,
+    "HalfMonthGift_8": null,
+    "OnceWeekGift": null,
+    "OneMonthMillion": null,
+    "RechargeRebate": null,
+    "RecommendFriends": null,
+    "KaiYeZhuCeSong": null,
+    "OldPlayerCunSong": null,
+    "NewPlayerCunSong": null,
+    "FirstDepostGold": null,
     "FirstDepostGold_2": null,
-    "FirstDepostGold_8": {
-      "__uuid__": "f9edc8d9-dd89-45fb-beff-f9dd9217bbe2"
-    },
-    "FirstDepostGoldHDSQQDLQ_8": {
-      "__uuid__": "92beffa9-5ad7-4cd7-8ded-6443453277e8"
-    },
-    "DailyRescueGold": {
-      "__uuid__": "d4f44a13-edd2-4de2-905c-e2e20fa3a64d"
-    },
-    "DailySignIn": {
-      "__uuid__": "06032184-9770-4865-8ea2-07bfe70e876a"
-    },
-    "SendFruit": {
-      "__uuid__": "31c33971-bac4-4670-ac94-a37f42051e4f"
-    },
-    "FaPengYouQuan": {
-      "__uuid__": "48d412bd-9ca7-43de-8eb5-659ea86e4ff2"
-    },
-    "NewUserMeiRiBaoPei": {
-      "__uuid__": "238aca4e-4717-4a56-8aed-144d4f71378f"
-    },
-    "OldUserMeiRiBaoPei": {
-      "__uuid__": "48266734-144d-43c7-a5a4-60ed5746658b"
-    },
-    "ZhiShuYongHuFuChi": {
-      "__uuid__": "1a0af070-7976-4f15-b874-0d4831bc418d"
-    },
-    "DailyRescueGold2": {
-      "__uuid__": "ed06c896-d0a1-4ef7-91ea-ae66b34e246c"
-    },
-    "ChuangGuan1": {
-      "__uuid__": "d6e94dbf-6273-4722-8f62-c1bc95f3122e"
-    },
-    "WheelOfFortune": {
-      "__uuid__": "17bd3c41-86a5-47f5-a180-2a2fc334eaa6"
-    },
-    "WheelOfFortune_8": {
-      "__uuid__": "7d71254f-a04c-46ff-8b2a-b6bbb6df4e80"
-    },
-    "RedRain": {
-      "__uuid__": "67f13c89-bedc-4dfc-a50a-aec6753184c4"
-    },
-    "RedRain_8": {
-      "__uuid__": "1841b7e9-cf56-4af7-8d70-1c46a2eaeae1"
-    },
-    "DailySignTwo": {
-      "__uuid__": "c0d77160-e13c-4f26-a22e-9852ce2f83ef"
-    },
-    "DailySignTwo_8": {
-      "__uuid__": "45524426-fc6e-4bc4-a16b-bac56cf9de8c"
-    },
-    "Lsjlhd": {
-      "__uuid__": "6150ff49-45d8-46e7-8782-3518b7343828"
-    },
-    "Rkshd": {
-      "__uuid__": "1bc85ab7-f550-4eaa-8496-4c96b4f6cdfa"
-    },
-    "Smcjhd": {
-      "__uuid__": "9c846ffd-afcf-47c6-ad29-62373a0eab4a"
-    },
-    "Fxpyq": {
-      "__uuid__": "421e3cfe-7c8c-47d3-8cc0-ba9d0979dc29"
-    },
-    "Fxpyq3": {
-      "__uuid__": "aa882cfc-2da1-45a4-9cbf-cc9e0e4717a9"
-    },
-    "Fxpyq_8": {
-      "__uuid__": "b014603f-cd05-4f4a-a3d7-3c1c80f15dee"
-    },
-    "Byyljj": {
-      "__uuid__": "c5d73751-29bb-4cf7-b570-418ca24b90e7"
-    },
-    "Schd": {
-      "__uuid__": "2637091e-5e5e-4b07-8040-855914292fc7"
-    },
-    "Schd_8": {
-      "__uuid__": "5835af98-0e77-4e41-bdb2-4b6810c17a8e"
-    },
-    "Xyhbp": {
-      "__uuid__": "231b63ce-c1ea-4b56-b695-ab450b60b772"
-    },
-    "Xyhbp_8": {
-      "__uuid__": "b711d19a-5c37-4733-8097-cfdc544bf14b"
-    },
-    "Ryjhd": {
-      "__uuid__": "4720cda3-a47d-46ec-89aa-2c3562f61956"
-    },
-    "Lyhbp": {
-      "__uuid__": "33c99110-ec7a-4b57-a550-265b51381044"
-    },
-    "Lyhbp_8": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
-    },
-    "Xhysc": {
-      "__uuid__": "4b6899a5-9609-48c1-aa8d-d5a3a04d8db8"
-    },
-    "Lhysc": {
-      "__uuid__": "ab65d83e-69b3-4d24-8d31-f2e385907124"
-    },
-    "Lhysc_8": {
-      "__uuid__": "af77b65e-30f1-4df3-9f2a-ec494c625a89"
-    },
+    "FirstDepostGold_8": null,
+    "FirstDepostGoldHDSQQDLQ_8": null,
+    "DailyRescueGold": null,
+    "DailySignIn": null,
+    "SendFruit": null,
+    "FaPengYouQuan": null,
+    "NewUserMeiRiBaoPei": null,
+    "OldUserMeiRiBaoPei": null,
+    "ZhiShuYongHuFuChi": null,
+    "DailyRescueGold2": null,
+    "ChuangGuan1": null,
+    "WheelOfFortune": null,
+    "WheelOfFortune_8": null,
+    "RedRain": null,
+    "RedRain_8": null,
+    "DailySignTwo": null,
+    "DailySignTwo_8": null,
+    "Lsjlhd": null,
+    "Rkshd": null,
+    "Smcjhd": null,
+    "Fxpyq": null,
+    "Fxpyq3": null,
+    "Fxpyq_8": null,
+    "Byyljj": null,
+    "Schd": null,
+    "Schd_8": null,
+    "Xyhbp": null,
+    "Xyhbp_8": null,
+    "Ryjhd": null,
+    "Lyhbp": null,
+    "Lyhbp_8": null,
+    "Xhysc": null,
+    "Lhysc": null,
+    "Lhysc_8": null,
     "Lhysc_2": null,
+    "Lhysc_9": {
+      "__uuid__": "292df014-e04f-48e5-8306-d541520b00ed"
+    },
+    "Lhybp_9": {
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
+    },
+    "FirstDepostGold_9": {
+      "__uuid__": "f37a7665-3968-41ff-8b76-7e50bab3614b"
+    },
+    "Xyhbp_9": {
+      "__uuid__": "31c9cd03-6888-45f2-a0bd-01c9d6e97ff0"
+    },
     "app": null,
     "_id": ""
   },

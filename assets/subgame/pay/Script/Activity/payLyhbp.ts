@@ -163,7 +163,13 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/activeSprite/event_xs_lyh_tip`,event_xs_lyh_tip)
             let title4= cc.find('Canvas/Activity/Content/Lyhbp/group1/title4').getComponent(cc.Label)
             title4.string = Language_pay.Lg.ChangeByText("限制最高注")
-            label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封\n号处理。\n6.本活动最终解释权归新盛所有。\n</color>")
+            label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封\n号处理。\n6.本活动最终解释权归新盛所有。\n</color>")
+        }else if(this.app.UrlData.package_id == 9){
+            let event_xs_lyh_tip =cc.find('Canvas/Activity/Content/Lyhbp/event_xs_lyh_tip')
+            this.app.loadIconLg(`${src}/activeSprite/event_xs_lyh_tip`,event_xs_lyh_tip)
+            let title4= cc.find('Canvas/Activity/Content/Lyhbp/group1/title4').getComponent(cc.Label)
+            title4.string = Language_pay.Lg.ChangeByText("限制最高注")
+            label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封\n号处理。\n6.本活动最终解释权归新贵所有。\n</color>")
         }else{
             label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员每周限制参加一次（星期一到星期六），联系上级进行申请，申请时间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#FF0000>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》</c>\n5款游戏， 进行其他游戏便视为放弃此活动。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不能赔付）。\n5. 包赔金在每周日23:59:59未进行领取则视为自动放弃。\n6. 同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请兑换， 恶意套利者将封号处理。\n7.本活动最终解释权归德比所有。</color>")
         }

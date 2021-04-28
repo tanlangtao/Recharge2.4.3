@@ -82,21 +82,15 @@ export default class NewClass extends cc.Component {
             e.name =='每日任务8' ||e.name =='每日签到8'||e.name =='四季发财红包雨8'||e.name =='15天送58元8'||e.name =='分享朋友圈活动8'||
             e.name =='幸运轮盘8'  || e.name =='首充活动-81' || e.name =='新用户包赔活动-8' || e.name == "老会员每日首存活动8"|| 
             e.name == "首充活动-8"||e.name=="老用户包赔活动8"||e.name == '首充活动后端申请前端领取8'|| e.name == "首充活动-2" || 
-            e.name =="老会员每日首存活动2"
+            e.name =="老会员每日首存活动2" || e.name == "老会员每日首存活动9" || e.name == "老用户包赔活动9" ||e.name == "首充活动-9" || e.name == "新用户包赔活动-9"
             )){
                 this.arr.push(e);
             }
         });
-        // this.arr.push({
-        //     name:'老会员每日首存活动8',
-        //     info:JSON.stringify({"game": [{"gold": 10, "rounds": 2, "game_id": "5b1f3a3cb76a591e7f251711", "task_id": 100, "integral": 5}, {"gold": 10000, "game_id": "5b1f3a3cb76a591e7f251711", "task_id": 101, "integral": 10000, "winround": 1}, {"gold": 10000, "rounds": 3, "game_id": "5b1f3a3cb76a591e7f251715", "task_id": 102, "integral": 10000}, {"gold": 10000, "game_id": "5b1f3a3cb76a591e7f251715", "task_id": 103, "integral": 10000, "winround": 2}], "proxy": [{"gold": 200, "task_id": 300, "integral": 10000, "children_firstpay_num": 1}, {"gold": 10000, "task_id": 301, "integral": 10000, "children_firstpay_num": 2}], "bylevel": [{"gold": 100, "task_id": 400, "integral": 30}, {"gold": 100, "task_id": 401, "integral": 60}, {"gold": 100, "task_id": 402, "integral": 90}, {"gold": 100, "task_id": 403, "integral": 150}], "recharge": [{"gold": 10000, "task_id": 200, "integral": 10000, "recharge_num": 1}, {"gold": 10000, "task_id": 201, "integral": 10000, "recharge_amount": 200}], "flow_rate": 10}),
-        //     id:23
-        // })
     }
 
     public addNavToggle(){
         this.arr.sort((a,b)=>a.order_by-b.order_by);
-        
         if(gHandler.isJFCJ){
             //如果是从积分抽奖过来，则优先显示积分抽奖
             let arr_0 = this.arr[0]
@@ -113,16 +107,16 @@ export default class NewClass extends cc.Component {
             let data = this.arr[i];
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);
+            
             node.getComponent('payActivityNav').init(data)
+            if(this.arr[0].info != "" && this.arr[0].info != "{}"){
+                node.getComponent('payActivityNav').addContent(this.arr[0].name,JSON.parse(this.arr[0].info),this.arr[0].id);
+            }else{
+                node.getComponent('payActivityNav').addContent(this.arr[0].name,{},this.arr[0].id);
+            }
         }
         if(this.arr.length==0) return;
         
-        
-        if(this.arr[0].info != "" && this.arr[0].info != "{}"){
-            node.getComponent('payActivityNav').addContent(this.arr[0].name,JSON.parse(this.arr[0].info),this.arr[0].id);
-        }else{
-            node.getComponent('payActivityNav').addContent(this.arr[0].name,{},this.arr[0].id);
-        }
     }
 
     /**

@@ -131,8 +131,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1020,
-      "height": 650
+      "width": 1080,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -143,8 +143,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        135,
-        -40,
+        120,
+        0,
         0,
         0,
         0,
@@ -184,7 +184,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "b805789f-4d96-4962-9aa8-a525631d9efd"
+      "__uuid__": "54750607-3e59-4940-ac1a-bb9a10425e17"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -211,9 +211,9 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 41,
-    "_left": 292,
-    "_right": 22,
-    "_top": 90,
+    "_left": 247,
+    "_right": 7,
+    "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -233,7 +233,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "2byu6E6mlGgaSYhn9LBdGY",
     "sync": false
@@ -286,8 +286,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        15.202,
-        40.182,
+        2.488,
+        57.82,
         0,
         0,
         0,
@@ -350,8 +350,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -279.634,
-        29.912,
+        -295,
+        30,
         0,
         0,
         0,
@@ -414,7 +414,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "e84yW+L3JFL5JgClmMVfWt",
     "sync": false
@@ -458,8 +458,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -143.711,
-        29.912,
+        -152,
+        30,
         0,
         0,
         0,
@@ -522,7 +522,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "713xGlXhVLSJJxYMQdXMSD",
     "sync": false
@@ -566,8 +566,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -3.39,
-        29.912,
+        -10,
+        30,
         0,
         0,
         0,
@@ -630,7 +630,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "0fIioI0rtAmIIwuzpv3s1u",
     "sync": false
@@ -674,8 +674,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        132.005,
-        29.912,
+        132,
+        30,
         0,
         0,
         0,
@@ -738,7 +738,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "d1ZWDZ92VBXY+WWX4/E5/i",
     "sync": false
@@ -749,7 +749,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "59cVZV9TtBQZp/n2Hs/mfO",
     "sync": false
@@ -802,8 +802,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        17.405,
-        -2.187,
+        4.691,
+        18.1,
         0,
         0,
         0,
@@ -866,8 +866,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -279.634,
-        29.912,
+        -297,
+        30,
         0,
         0,
         0,
@@ -930,7 +930,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "c75UvVb/xEnamfnjbYzKOy",
     "sync": false
@@ -974,8 +974,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -143.711,
-        29.912,
+        -154,
+        30,
         0,
         0,
         0,
@@ -1038,7 +1038,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "c19mRTwBFHdJ3gkZ7WZqe8",
     "sync": false
@@ -1082,8 +1082,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -6.513,
-        29.912,
+        -12,
+        30,
         0,
         0,
         0,
@@ -1146,7 +1146,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "26icVvsDNEgZXFdxNwoSjz",
     "sync": false
@@ -1190,8 +1190,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        130.514,
-        29.912,
+        131,
+        30,
         0,
         0,
         0,
@@ -1254,7 +1254,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "838dxmOpRPz4TX2YQsQBzo",
     "sync": false
@@ -1265,7 +1265,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "80+gRB/S1BxpjoBm6tI+AG",
     "sync": false
@@ -1318,8 +1318,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        17.405,
-        -43.187,
+        4.691,
+        -21.508,
         0,
         0,
         0,
@@ -1382,8 +1382,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -279.634,
-        29.912,
+        -297,
+        30,
         0,
         0,
         0,
@@ -1446,7 +1446,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "56TEIR+MRH9KKhetKAdIxS",
     "sync": false
@@ -1490,8 +1490,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -143.711,
-        29.912,
+        -154,
+        30,
         0,
         0,
         0,
@@ -1554,7 +1554,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "78w1eygc9AEogIN2q3tGQa",
     "sync": false
@@ -1598,8 +1598,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -6.513,
-        29.912,
+        -12,
+        30,
         0,
         0,
         0,
@@ -1662,7 +1662,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "bbWM1nFqNFY7OIEf/5FsND",
     "sync": false
@@ -1706,8 +1706,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        130.514,
-        29.912,
+        131,
+        30,
         0,
         0,
         0,
@@ -1770,7 +1770,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "0bgFU+MItK5aoWeIdd2Z4E",
     "sync": false
@@ -1781,7 +1781,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "5bazR+xmhIWauMVYzVi2UY",
     "sync": false
@@ -1832,8 +1832,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        253.442,
-        26.942,
+        240.728,
+        48.275,
         0,
         0,
         0,
@@ -1959,7 +1959,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "c9baCWaJVE+pWw7lT1WFVE",
     "sync": false
@@ -2066,7 +2066,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "23Qg9Dfo9OzI1hrE/F0Ew2",
     "sync": false
@@ -2159,7 +2159,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "3aOPOwgDJOLpb/98cxVVPn",
     "sync": false
@@ -2210,8 +2210,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        253.442,
-        -14.058,
+        240.728,
+        11.843,
         0,
         0,
         0,
@@ -2337,7 +2337,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "5fkXg8cBVIR7AgfHDBG0Mh",
     "sync": false
@@ -2444,7 +2444,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "0fTglU38BDrIFmeXmtmHcV",
     "sync": false
@@ -2537,7 +2537,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "e6sWvm7nZMDLtpzISUD8eE",
     "sync": false
@@ -2591,7 +2591,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 850.03,
+      "width": 897.26,
       "height": 247.79999999999998
     },
     "_anchorPoint": {
@@ -2603,8 +2603,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -260.571,
-        -240.644,
+        -285.776,
+        -243.107,
         0,
         0,
         0,
@@ -2655,7 +2655,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 840.05,
+      "width": 886.72,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -2710,7 +2710,7 @@
     "_dstBlendFactor": 771,
     "_string": "1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。",
     "_N$string": "1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。",
-    "_fontSize": 18,
+    "_fontSize": 19,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
@@ -2732,9 +2732,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
-    "fileId": "eaAMM+bgdBRrKifRW3Let7",
+    "fileId": "aa+vbitrFHb7qCLaa37q8c",
     "sync": false
   },
   {
@@ -2764,7 +2764,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 734,
+      "width": 774.78,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -2819,7 +2819,7 @@
     "_dstBlendFactor": 771,
     "_string": "2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。",
     "_N$string": "2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。",
-    "_fontSize": 18,
+    "_fontSize": 19,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
@@ -2841,9 +2841,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
-    "fileId": "05O1BOcxpD1aW7Ond06umY",
+    "fileId": "51xsmHAONLa7zAybdowr06",
     "sync": false
   },
   {
@@ -2873,7 +2873,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 850.03,
+      "width": 897.26,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -2928,7 +2928,7 @@
     "_dstBlendFactor": 771,
     "_string": "3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。",
     "_N$string": "3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。",
-    "_fontSize": 18,
+    "_fontSize": 19,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
@@ -2950,9 +2950,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
-    "fileId": "4alMgCkzdAfZp+wPeaCX5r",
+    "fileId": "ac/N0jmA1IaLsPZR/AZDH+",
     "sync": false
   },
   {
@@ -2982,7 +2982,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 470.01,
+      "width": 515.12,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -3035,9 +3035,9 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "4. 赢金到规定金额不兑换视为放弃包赔资格（输完赔付）。",
-    "_N$string": "4. 赢金到规定金额不兑换视为放弃包赔资格（输完赔付）。",
-    "_fontSize": 18,
+    "_string": "4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。",
+    "_N$string": "4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。",
+    "_fontSize": 19,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
@@ -3059,9 +3059,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
-    "fileId": "64+BedpGhBVqfStMzXM2zZ",
+    "fileId": "43DBjWiR1NJY/0KaV2ATuI",
     "sync": false
   },
   {
@@ -3091,7 +3091,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 844.03,
+      "width": 890.92,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -3146,7 +3146,7 @@
     "_dstBlendFactor": 771,
     "_string": "5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封",
     "_N$string": "5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封",
-    "_fontSize": 18,
+    "_fontSize": 19,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
@@ -3168,9 +3168,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
-    "fileId": "76tpEbiB5MwJsYtcmRmrTr",
+    "fileId": "02HnFKL/JAXrbwFSOA/OZI",
     "sync": false
   },
   {
@@ -3200,7 +3200,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 72,
+      "width": 76,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -3255,7 +3255,7 @@
     "_dstBlendFactor": 771,
     "_string": "号处理。",
     "_N$string": "号处理。",
-    "_fontSize": 18,
+    "_fontSize": 19,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
@@ -3277,9 +3277,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
-    "fileId": "17rebhAG1CO7dQktB9RoaM",
+    "fileId": "f0Y8WNmWlN2KKDv+qHurAp",
     "sync": false
   },
   {
@@ -3309,7 +3309,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 267.01,
+      "width": 281.85,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -3362,9 +3362,9 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "6.本活动最终解释权归新盛所有。",
-    "_N$string": "6.本活动最终解释权归新盛所有。",
-    "_fontSize": 18,
+    "_string": "6.本活动最终解释权归新贵所有。",
+    "_N$string": "6.本活动最终解释权归新贵所有。",
+    "_fontSize": 19,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
@@ -3386,9 +3386,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
-    "fileId": "aeI4UvUN9Ea6YOSof2kS7p",
+    "fileId": "dfvdG0xxFLvYLhFeyDVQJs",
     "sync": false
   },
   {
@@ -3401,9 +3401,9 @@
     "_enabled": true,
     "_fontFamily": "Arial",
     "_isSystemFontUsed": true,
-    "_N$string": "<color=#E8C999>1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封\n号处理。\n6.本活动最终解释权归新盛所有。\n</color>",
+    "_N$string": "<color=#E8C999>1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封\n号处理。\n6.本活动最终解释权归新贵所有。\n</color>",
     "_N$horizontalAlign": 0,
-    "_N$fontSize": 18,
+    "_N$fontSize": 19,
     "_N$font": null,
     "_N$cacheMode": 0,
     "_N$maxWidth": 0,
@@ -3418,7 +3418,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "71iZ2IwhtCepu92/Lr1Ce+",
     "sync": false
@@ -3455,15 +3455,15 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        -98.124,
+        -282.367,
+        -93.958,
         0,
         0,
         0,
@@ -3502,9 +3502,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "764cf501-e6e9-405b-b0e8-fb22f1283d57"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -3525,7 +3523,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "7az4orEE5JtpNLS8SVt9yL",
     "sync": false
@@ -3581,7 +3579,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "27070948-5180-4fc6-b540-f45ceb94fbdf"
+      "__uuid__": "4f82d221-ddd6-432a-850b-2882abf95bad"
     },
     "fileId": "",
     "sync": false

@@ -162,6 +162,18 @@ export default class NewClass extends cc.Component {
             title4.string = Language_pay.Lg.ChangeByText('限制最高注')
             event4_xzcyh_text.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('包赔专线盛世开启，申请时间： 12:00-20:00')
             tishi.string = Language_pay.Lg.ChangeByText("1. 新会员注册好账号， 需先绑定好手机号码与银行卡后联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领取则视为自动放弃。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6. 本活动最终解释权归新盛游戏所有。")
+        }else if(this.app.UrlData.package_id == 9) {
+            let title1 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title1').getComponent(cc.Label)
+            let title2 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title2').getComponent(cc.Label)
+            let title3 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title3').getComponent(cc.Label)
+            let title4 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title4').getComponent(cc.Label)
+            let tishi= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/ScrollView/view/content/label').getComponent(cc.Label)
+            title1.string = Language_pay.Lg.ChangeByText('首充金额')
+            title2.string = Language_pay.Lg.ChangeByText('包赔金额')
+            title3.string = Language_pay.Lg.ChangeByText('最高兑换金额')
+            title4.string = Language_pay.Lg.ChangeByText('限制最高注')
+            this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_text`,event4_xzcyh_text)
+            tishi.string = Language_pay.Lg.ChangeByText("1. 新会员注册好账号， 需先绑定好手机号码与银行卡后联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领取则视为自动放弃。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6. 本活动最终解释权归新贵游戏所有。")
         }else{
             this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_frame2`,event4_xzcyh_frame2)
             this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_content`,event4_xzcyh_content)

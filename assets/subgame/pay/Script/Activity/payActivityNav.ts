@@ -158,6 +158,18 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Lhysc_2 :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    Lhysc_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Lhybp_9 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    FirstDepostGold_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Xyhbp_9 :cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -375,10 +387,25 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,249,86);
         }
-
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'){
             this.fetchgetSignWeekInfo(this.id)
+        }
+        if(this.app.UrlData.package_id == 9)
+        {
+            let zi = cc.find( "zi" , this.node );
+            if( cc.isValid( zi ) )
+            {
+                if(data.name == '老会员每日首存活动9'){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "老会员每日首存");
+                }else if(data.name == '老用户包赔活动9'){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "老用户包赔");
+                }else if(data.name == '首充活动-9'){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "首充活动");
+                }else if(data.name == '新用户包赔活动-9'){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "新用户包赔活动");
+                }
+            }
         }
     }
     // LIFE-CYCLE CALLBACKS:
@@ -627,6 +654,18 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.Lhysc_2);
             node.getComponent('payLhysc').setId(id,'老会员每日首存活动2');
             this.app.loadTitle(`${src}/title/dm_title_lhysc`,this.title);
+        }else  if(name == '老会员每日首存活动9'){
+            var node = cc.instantiate(this.Lhysc_9);
+            node.getComponent('payLhysc').setId(id,'老会员每日首存活动9');
+        }else  if(name == '老用户包赔活动9'){
+            var node = cc.instantiate(this.Lhybp_9);
+            node.getComponent('payLyhbp').setId(id,'老用户包赔活动9');
+        }else  if(name == '首充活动-9'){
+            var node = cc.instantiate(this.FirstDepostGold_9);
+            node.getComponent('payFirstDepostGold').setIdInfo(id,info,'首充活动-9');
+        }else  if(name == '新用户包赔活动-9'){
+            var node = cc.instantiate(this.Xyhbp_9);
+            node.getComponent('payXyhbp').setId(id)
         }
         content.addChild(node);
     }
