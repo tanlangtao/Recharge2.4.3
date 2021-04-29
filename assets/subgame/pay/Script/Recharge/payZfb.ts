@@ -66,6 +66,10 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BindBankAccountTipAlert_9 : cc.Prefab = null;
 
+    @property(cc.Prefab)
+    BindBankAccountTipAlert_10 : cc.Prefab = null;
+    
+
     @property()
     public app  = null;
     public results : any = {};
@@ -446,6 +450,8 @@ export default class NewClass extends cc.Component {
              node = cc.instantiate(this.BindBankAccountTipAlert_8)
         }else if(this.app.UrlData.package_id == 9){
             node = cc.instantiate(this.BindBankAccountTipAlert_9)
+        }else if(this.app.UrlData.package_id == 10){
+            node = cc.instantiate(this.BindBankAccountTipAlert_10)
         }else{
             node = cc.instantiate(this.BindBankAccountTipAlert)
         }

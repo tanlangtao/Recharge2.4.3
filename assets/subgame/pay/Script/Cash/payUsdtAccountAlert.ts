@@ -112,9 +112,9 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/title_usdt`,titleIcon)
         }else if(this.app.UrlData.package_id == 10){
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
-            titleIcon.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('绑定USDT钱包')
-            popup_usdt_frame.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('钱包地址')
-            popup_usdt_frame.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('链类型')
+            this.app.loadIconLg(`${src}/font/title_usdt`,titleIcon)
+            this.app.loadIconLg(`${src}/font/txt_qbdz`,popup_usdt_frame.children[0])
+            this.app.loadIconLg(`${src}/font/txt_llx`,popup_usdt_frame.children[1])
         }else{
             this.app.loadIconLg(`${src}/form/popup_usdt_frame`,popup_usdt_frame)
             this.app.loadIconLg(`${src}/btn/surecg`,btn1)

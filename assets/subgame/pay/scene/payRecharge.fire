@@ -444,12 +444,18 @@
     "BeforePayOrderAlert_9": {
       "__uuid__": "637fc153-511c-4b36-a6f3-87df988610eb"
     },
-    "BankAccountAlert_10": null,
-    "AlipayAccountAlert_10": null,
+    "BankAccountAlert_10": {
+      "__uuid__": "d579c6bd-8edb-4fcc-9c82-2b4a5c1e073d"
+    },
+    "AlipayAccountAlert_10": {
+      "__uuid__": "02ac9e3c-6c45-4074-ada7-df4cf888e9b4"
+    },
     "WriteMoneyAlert_10": {
       "__uuid__": "4cbc5e9b-6ffb-4993-ba76-2b0cecc8d770"
     },
-    "UsdtAccountAlert_10": null,
+    "UsdtAccountAlert_10": {
+      "__uuid__": "9f4d64ca-2c29-4e0c-84f8-61717496bae1"
+    },
     "PublicOrderAlert_10": {
       "__uuid__": "33270ce8-707b-47f3-906d-5672548d8930"
     },

@@ -401,7 +401,7 @@ export namespace Language_pay {
         }
         getLgSrc(){
             let src = ''
-            // gHandler.gameGlobal.pay.package_id  = 9 // 测试
+            // gHandler.gameGlobal.pay.package_id  = 10 // 测试
             switch(this.Language){
                 case "Chinese": 
                         if(gHandler.gameGlobal.pay.package_id == 8){
