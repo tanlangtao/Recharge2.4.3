@@ -82,7 +82,8 @@ export default class NewClass extends cc.Component {
             e.name =='每日任务8' ||e.name =='每日签到8'||e.name =='四季发财红包雨8'||e.name =='15天送58元8'||e.name =='分享朋友圈活动8'||
             e.name =='幸运轮盘8'  || e.name =='首充活动-81' || e.name =='新用户包赔活动-8' || e.name == "老会员每日首存活动8"|| 
             e.name == "首充活动-8"||e.name=="老用户包赔活动8"||e.name == '首充活动后端申请前端领取8'|| e.name == "首充活动-2" || 
-            e.name =="老会员每日首存活动2" || e.name == "老会员每日首存活动9" || e.name == "老用户包赔活动9" ||e.name == "首充活动-9" || e.name == "新用户包赔活动-9"
+            e.name =="老会员每日首存活动2" || e.name == "老会员每日首存活动9" || e.name == "老用户包赔活动9" ||e.name == "首充活动-9" || 
+            e.name == "新用户包赔活动-9"||e.name =='15天送58元9'||e.name =='每日签到9'||e.name == "每日任务9"||e.name == "四季发财红包雨9"||e.name== "幸运轮盘9"
             )){
                 this.arr.push(e);
             }
@@ -109,10 +110,12 @@ export default class NewClass extends cc.Component {
             this.ToggleContainer.addChild(node);
             
             node.getComponent('payActivityNav').init(data)
-            if(this.arr[0].info != "" && this.arr[0].info != "{}"){
-                node.getComponent('payActivityNav').addContent(this.arr[0].name,JSON.parse(this.arr[0].info),this.arr[0].id);
-            }else{
-                node.getComponent('payActivityNav').addContent(this.arr[0].name,{},this.arr[0].id);
+            if(i== 0){
+                if(this.arr[0].info != "" && this.arr[0].info != "{}"){
+                    node.getComponent('payActivityNav').addContent(this.arr[0].name,JSON.parse(this.arr[0].info),this.arr[0].id);
+                }else{
+                    node.getComponent('payActivityNav').addContent(this.arr[0].name,{},this.arr[0].id);
+                }
             }
         }
         if(this.arr.length==0) return;

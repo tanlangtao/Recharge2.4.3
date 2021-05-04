@@ -24,11 +24,13 @@ export default class NewClass extends cc.Component {
             console.log("获取登陆ip失败!")
             this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
-        this.getLocal()
         this.setLanguageResource()
         if(this.app.UrlData.package_id == 8){
             this.info = [200,300]
+        }else if(this.app.UrlData.package_id == 9){
+            this.info = [200,300]
         }
+        this.getLocal()
     }
     getFristPayAmount(){
         var url = `${this.app.UrlData.host}/api/activity/GetFristPayAmountByWeek?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}`;
@@ -122,6 +124,7 @@ export default class NewClass extends cc.Component {
         let localFristPayAmount = cc.sys.localStorage.getItem(`oldUserFristPayAmount_${this.app.UrlData.user_id}`) 
         if (localFristPayAmount && JSON.parse(localFristPayAmount).frist_pay_amount >0 && (newTime-JSON.parse(localFristPayAmount).getTime ) < 3600){
             this.FristPayAmount = JSON.parse(localFristPayAmount)
+            console.log(this.FristPayAmount)
             this.renderBtn()
         }else{
             this.getFristPayAmount()

@@ -170,6 +170,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Xyhbp_9 :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    HalfMonthGift_9 :cc.Prefab = null;
+
     @property
     app = null;
     name = null;
@@ -388,7 +391,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,249,86);
         }
         //响应每日签到2，显示红点
-        if(this.name == '每日签到2'|| this.name == '每日签到8'){
+        if(this.name == '每日签到2'|| this.name == '每日签到8'||this.name == '每日签到9'){
             this.fetchgetSignWeekInfo(this.id)
         }
         if(this.app.UrlData.package_id == 9)
@@ -404,6 +407,16 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "首充活动");
                 }else if(data.name == '新用户包赔活动-9'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "新用户包赔活动");
+                }else if(data.name =="15天送58元9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "15天送58元");
+                }else if(data.name =="每日签到9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "每日签到");
+                }else if(data.name =="每日任务9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "每日任务");
+                }else if(data.name =="四季发财红包雨9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "四季发财红包雨");
+                }else if(data.name =="幸运轮盘9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "幸运轮盘");
                 }
             }
         }
@@ -433,7 +446,7 @@ export default class NewClass extends cc.Component {
         }
         this.addContent(this.name,JSON.parse(this.data.info),this.id)
 
-        if(this.name == '每日签到2' || this.name == '每日签到8'){
+        if(this.name == '每日签到2' || this.name == '每日签到8' || this.name == '每日签到9'){
             this.fetchgetSignWeekInfo(this.id)
         }
     }
@@ -666,6 +679,19 @@ export default class NewClass extends cc.Component {
         }else  if(name == '新用户包赔活动-9'){
             var node = cc.instantiate(this.Xyhbp_9);
             node.getComponent('payXyhbp').setId(id)
+        }else if (name == "15天送58元9") {
+            var node = cc.instantiate(this.HalfMonthGift_9)
+        }else  if(name == '每日签到9'){
+            var node = cc.instantiate(this.DailySignTwo_8);
+            node.getComponent('payDailySign').setIdInfo(id,info)
+        }else if(name == '每日任务9'){
+            var node = cc.instantiate(this.DailyActivity_8);
+            node.getComponent('payDailyActivity').setIdInfo(id,info);
+        }else  if(name == '四季发财红包雨9'){
+            var node = cc.instantiate(this.RedRain_8);
+        }else  if(name == '幸运轮盘9'){
+            var node = cc.instantiate(this.WheelOfFortune_8);
+            node.getComponent('payWheelOfFortune').setIdInfo(id,info)
         }
         content.addChild(node);
     }

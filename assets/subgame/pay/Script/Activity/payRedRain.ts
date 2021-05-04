@@ -16,7 +16,7 @@ export default class NewClass extends cc.Component {
         let jifen= cc.find('Canvas/Activity/Content/RedRain/bg/ScrollView/view/content/jifen')
         let huodong= cc.find('Canvas/Activity/Content/RedRain/bg/ScrollView/view/content/huodong')
 
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 ||this.app.UrlData.package_id == 9 ){
             this.app.loadIconLg(`${src}/activeBigImage/hongbaoyu`,bg.getChildByName('hongbaoyu'))
         }else{
             this.app.loadIconLg(`${src}/activeBigImage/hongbaoyu`,bg)

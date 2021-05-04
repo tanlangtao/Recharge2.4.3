@@ -147,7 +147,7 @@ export default class NewClass extends cc.Component {
         let day5 = cc.find('Canvas/Activity/Content/DailySign/bg/group1/d5/day')
         let day6 = cc.find('Canvas/Activity/Content/DailySign/bg/group1/d6/day')
         let day7 = cc.find('Canvas/Activity/Content/DailySign/bg/d7/day')
-        if(this.app.UrlData.package_id != 8){
+        if(this.app.UrlData.package_id != 8 &&this.app.UrlData.package_id != 9){
             this.app.loadIconLg(`${src}/activeSprite/day1`,day1)
             this.app.loadIconLg(`${src}/activeSprite/day2`,day2)
             this.app.loadIconLg(`${src}/activeSprite/day3`,day3)

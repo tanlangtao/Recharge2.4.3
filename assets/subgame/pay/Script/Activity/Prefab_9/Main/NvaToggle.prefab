@@ -980,7 +980,9 @@
     "ChuangGuan": null,
     "FreeGold": null,
     "DailyActivity": null,
-    "DailyActivity_8": null,
+    "DailyActivity_8": {
+      "__uuid__": "e04399cc-0c02-49b4-9a06-6403fe25854e"
+    },
     "NewPlayerGift": null,
     "HalfMonthGift": null,
     "HalfMonthGift_8": null,
@@ -1005,11 +1007,17 @@
     "DailyRescueGold2": null,
     "ChuangGuan1": null,
     "WheelOfFortune": null,
-    "WheelOfFortune_8": null,
+    "WheelOfFortune_8": {
+      "__uuid__": "7d71254f-a04c-46ff-8b2a-b6bbb6df4e80"
+    },
     "RedRain": null,
-    "RedRain_8": null,
+    "RedRain_8": {
+      "__uuid__": "1841b7e9-cf56-4af7-8d70-1c46a2eaeae1"
+    },
     "DailySignTwo": null,
-    "DailySignTwo_8": null,
+    "DailySignTwo_8": {
+      "__uuid__": "45524426-fc6e-4bc4-a16b-bac56cf9de8c"
+    },
     "Lsjlhd": null,
     "Rkshd": null,
     "Smcjhd": null,
@@ -1039,6 +1047,9 @@
     },
     "Xyhbp_9": {
       "__uuid__": "31c9cd03-6888-45f2-a0bd-01c9d6e97ff0"
+    },
+    "HalfMonthGift_9": {
+      "__uuid__": "156af16d-7896-44f3-8bca-2fba6a590c7c"
     },
     "app": null,
     "_id": ""

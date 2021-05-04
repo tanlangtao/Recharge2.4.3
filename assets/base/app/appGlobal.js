@@ -2,14 +2,14 @@
 let appGlobal = {
     isRelease: true, // 是否是版本发布状态
     /* ------------------------------------------------------------------- */
-    pinpai: "xinsheng", // 渠道 test （特斯特） debi （德比） qibao（七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）,xinsheng(新盛)
+    pinpai: "xingui", // 渠道 test （特斯特） debi （德比） qibao（七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）,xinsheng(新盛)
     // pinpai: "debi", // 渠道 test debi qibao
     huanjin: "pre", // dev pre online
     // huanjin: "pre", // pre online
     // huanjin: "online", // pre online
 
     // account_name: "706763739", // 账号,  dev
-    // account_name: "884112373", // 账号,  pre
+    account_name: "952122437", // 账号,  pre
     // account_name: "448981222", // 账号,  pre
     // account_name: "770971700", // 账号,  
 
@@ -140,6 +140,11 @@ let appGlobal = {
             pre: 799197169,
             online: 779681851
         },
+        xingui :{
+            dev: 566844838,
+            pre: 952122437,
+            online: 779681851
+        },
     },
     versionJson: {}, // version.json
     subGameVersion: {}, // version.json 中的version部分
@@ -223,6 +228,8 @@ let appGlobal = {
             this.packageID = 8
         }else if (this.pinpai == "fuxing3") {
             this.packageID = 10
+        }else if (this.pinpai == "xingui") {
+            this.packageID = 9
         }
         if (hqq.isDebug) {
             if (!this.deviceID) {
