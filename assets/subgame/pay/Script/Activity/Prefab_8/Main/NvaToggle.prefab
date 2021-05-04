@@ -798,24 +798,17 @@
     "NewPlayerCunSong": {
       "__uuid__": "7435d9fe-1279-4456-bbc1-52c92a473714"
     },
-    "FirstDepostGold": {
-      "__uuid__": "587454e2-e1e3-4053-b5f8-78a79ae09cae"
-    },
+    "FirstDepostGold": null,
+    "FirstDepostGold_2": null,
     "FirstDepostGold_8": {
       "__uuid__": "f9edc8d9-dd89-45fb-beff-f9dd9217bbe2"
     },
     "FirstDepostGoldHDSQQDLQ_8": {
       "__uuid__": "92beffa9-5ad7-4cd7-8ded-6443453277e8"
     },
-    "DailyRescueGold": {
-      "__uuid__": "d4f44a13-edd2-4de2-905c-e2e20fa3a64d"
-    },
-    "DailySignIn": {
-      "__uuid__": "06032184-9770-4865-8ea2-07bfe70e876a"
-    },
-    "SendFruit": {
-      "__uuid__": "31c33971-bac4-4670-ac94-a37f42051e4f"
-    },
+    "DailyRescueGold": null,
+    "DailySignIn": null,
+    "SendFruit": null,
     "FaPengYouQuan": {
       "__uuid__": "48d412bd-9ca7-43de-8eb5-659ea86e4ff2"
     },
@@ -833,9 +826,6 @@
     },
     "ChuangGuan1": {
       "__uuid__": "d6e94dbf-6273-4722-8f62-c1bc95f3122e"
-    },
-    "ErRenMaJiang": {
-      "__uuid__": "dc57cb9f-cf4f-4afa-b7f6-f272efa87f46"
     },
     "WheelOfFortune": {
       "__uuid__": "17bd3c41-86a5-47f5-a180-2a2fc334eaa6"
@@ -863,9 +853,6 @@
     },
     "Smcjhd": {
       "__uuid__": "9c846ffd-afcf-47c6-ad29-62373a0eab4a"
-    },
-    "Stjzhd": {
-      "__uuid__": "e5723c0f-5720-4329-9c51-bb73aa679c95"
     },
     "Fxpyq": {
       "__uuid__": "421e3cfe-7c8c-47d3-8cc0-ba9d0979dc29"
@@ -909,6 +896,12 @@
     "Lhysc_8": {
       "__uuid__": "af77b65e-30f1-4df3-9f2a-ec494c625a89"
     },
+    "Lhysc_2": null,
+    "Lhysc_9": null,
+    "Lhybp_9": null,
+    "FirstDepostGold_9": null,
+    "Xyhbp_9": null,
+    "HalfMonthGift_9": null,
     "app": null,
     "_id": ""
   },

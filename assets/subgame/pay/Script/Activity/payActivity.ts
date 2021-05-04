@@ -72,8 +72,9 @@ export default class NewClass extends cc.Component {
             if(e.is_close == 2 && (e.name =='流水闯关活动' || e.name == '救济金活动' || e.name == "每日任务2"||
             e.name == "新人大礼包"||e.name == "月入百万"||e.name == "每周佣金奖励"||e.name == "15天送58元" ||
             e.name == "充值返利" || e.name == "推荐好友"||e.name == "开业注册送1" || e.name == "新用户首次存送1" ||
-            e.name == "老用户每日存送1" ||e.name == "首存彩金6"  ||  e.name == "每日救援金6" || e.name =='签到奖励6' ||
-            e.name == '免费领水果6' ||e.name == "发朋友圈活动1" || e.name == "直属用户扶持1" ||e.name == "老用户包赔活动1" ||
+            e.name == "老用户每日存送1"   || 
+            // e.name =='签到奖励6' ||e.name == '免费领水果6'||e.name == "首存彩金6" ||  e.name == "每日救援金6" ||
+            e.name == "发朋友圈活动1" || e.name == "直属用户扶持1" ||e.name == "老用户包赔活动1" ||
             e.name == "新用户包赔活动1" ||e.name == '每日救援金1' || e.name == '流水闯关1' ||
             e.name == '幸运轮盘2' || e.name == '四季发财红包雨2' ||e.name == '每日签到2' || e.name == '流水奖励活动2'||
             e.name == '日亏损活动2' ||e.name == '神秘彩金活动2' ||e.name == '分享朋友圈活动2'||

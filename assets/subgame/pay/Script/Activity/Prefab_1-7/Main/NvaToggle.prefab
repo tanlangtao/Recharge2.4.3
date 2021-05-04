@@ -717,23 +717,15 @@
     "NewPlayerCunSong": {
       "__uuid__": "7435d9fe-1279-4456-bbc1-52c92a473714"
     },
-    "FirstDepostGold": {
-      "__uuid__": "587454e2-e1e3-4053-b5f8-78a79ae09cae"
-    },
+    "FirstDepostGold": null,
     "FirstDepostGold_2": {
       "__uuid__": "94d53989-bc09-4f00-9a65-c2356d21bf83"
     },
     "FirstDepostGold_8": null,
     "FirstDepostGoldHDSQQDLQ_8": null,
-    "DailyRescueGold": {
-      "__uuid__": "d4f44a13-edd2-4de2-905c-e2e20fa3a64d"
-    },
-    "DailySignIn": {
-      "__uuid__": "06032184-9770-4865-8ea2-07bfe70e876a"
-    },
-    "SendFruit": {
-      "__uuid__": "31c33971-bac4-4670-ac94-a37f42051e4f"
-    },
+    "DailyRescueGold": null,
+    "DailySignIn": null,
+    "SendFruit": null,
     "FaPengYouQuan": {
       "__uuid__": "48d412bd-9ca7-43de-8eb5-659ea86e4ff2"
     },
@@ -812,6 +804,11 @@
     "Lhysc_2": {
       "__uuid__": "df90517b-57ec-4ea6-93a7-245f576e591f"
     },
+    "Lhysc_9": null,
+    "Lhybp_9": null,
+    "FirstDepostGold_9": null,
+    "Xyhbp_9": null,
+    "HalfMonthGift_9": null,
     "app": null,
     "_id": ""
   },
