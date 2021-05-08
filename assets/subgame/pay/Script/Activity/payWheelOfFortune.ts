@@ -59,6 +59,7 @@ export default class NewClass extends cc.Component {
     }
     onLoad(){
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+        console.log(this.info.prizeList)
         this.info.prizeList.forEach((e,index)=>{
             this.levelLabel[index].getComponent(cc.Label).string = e.prize
         })
