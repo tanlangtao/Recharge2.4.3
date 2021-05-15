@@ -173,6 +173,15 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     HalfMonthGift_9 :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    CdxHeNei_10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    CdxQiQu_10 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    FfcBaoPei_10 :cc.Prefab = null;
+    
     @property
     app = null;
     name = null;
@@ -389,6 +398,18 @@ export default class NewClass extends cc.Component {
         else  if(data.name == '老会员每日首存活动2'){
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc2`,this.normalIcon,242,86)
             this.app.loadIcon(`${src}/menu/activity/btn_lhysc1`,this.currentIcon,249,86);
+        }
+        else  if(data.name == '河内连赢活动10'){
+            this.app.loadIcon(`${src}/menu/activity/hnly1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/hnly2`,this.currentIcon,174,30);
+        }
+        else  if(data.name == '奇趣连赢活动10'){
+            this.app.loadIcon(`${src}/menu/activity/qqly1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/qqly2`,this.currentIcon,174,30);
+        }
+        else  if(data.name == '分分彩包赔活动10'){
+            this.app.loadIcon(`${src}/menu/activity/baopei1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/baopei2`,this.currentIcon,174,30);
         }
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'||this.name == '每日签到9'){
@@ -692,6 +713,15 @@ export default class NewClass extends cc.Component {
         }else  if(name == '幸运轮盘9'){
             var node = cc.instantiate(this.WheelOfFortune_8);
             node.getComponent('payWheelOfFortune').setIdInfo(id,info)
+        }else  if(name == '河内连赢活动10'){
+            var node = cc.instantiate(this.CdxHeNei_10);
+            node.getComponent('payCdxHeNei').setIdInfo(id,info)
+        }else  if(name == '奇趣连赢活动10'){
+            var node = cc.instantiate(this.CdxQiQu_10);
+            node.getComponent('payCdxQiQu').setIdInfo(id,info)
+        }else  if(name == '分分彩包赔活动10'){
+            var node = cc.instantiate(this.FfcBaoPei_10);
+            node.getComponent('payFfcBaoPei').setIdInfo(id,info)
         }
         content.addChild(node);
     }
