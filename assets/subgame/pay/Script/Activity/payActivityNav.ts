@@ -182,6 +182,12 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     FfcBaoPei_10 :cc.Prefab = null;
     
+    @property(cc.Prefab)
+    AGABaoPei_10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    XyhZyBp10 :cc.Prefab = null;
+    
     @property
     app = null;
     name = null;
@@ -411,6 +417,15 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/baopei1`,this.normalIcon,182,30)
             this.app.loadIcon(`${src}/menu/activity/baopei2`,this.currentIcon,174,30);
         }
+        else  if(data.name == 'AGA专属包赔10'){
+            this.app.loadIcon(`${src}/menu/activity/AGA1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/AGA2`,this.currentIcon,174,30);
+        }
+        else  if(data.name == '新用户包赔活动10'){
+            this.app.loadIcon(`${src}/menu/activity/xyhbp1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/xyhbp2`,this.currentIcon,174,30);
+        }
+
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'||this.name == '每日签到9'){
             this.fetchgetSignWeekInfo(this.id)
@@ -722,6 +737,12 @@ export default class NewClass extends cc.Component {
         }else  if(name == '分分彩包赔活动10'){
             var node = cc.instantiate(this.FfcBaoPei_10);
             node.getComponent('payFfcBaoPei').setIdInfo(id,info)
+        }else  if(name == 'AGA专属包赔10'){
+            var node = cc.instantiate(this.AGABaoPei_10);
+            node.getComponent('payAGABaoPei').setIdInfo(id,info)
+        }else  if(name == '新用户包赔活动10'){
+            var node = cc.instantiate(this.XyhZyBp10);
+            node.getComponent('payXyhZyBp').setIdInfo(id,info)
         }
         content.addChild(node);
     }
