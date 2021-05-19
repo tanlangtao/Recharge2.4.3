@@ -187,6 +187,12 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     XyhZyBp10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    XyhSc_10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    LyhSc_10 :cc.Prefab = null;
     
     @property
     app = null;
@@ -424,6 +430,12 @@ export default class NewClass extends cc.Component {
         else  if(data.name == '新用户包赔活动10'){
             this.app.loadIcon(`${src}/menu/activity/xyhbp1`,this.normalIcon,182,30)
             this.app.loadIcon(`${src}/menu/activity/xyhbp2`,this.currentIcon,174,30);
+        }else  if(data.name == '新用户首存活动10'){
+            this.app.loadIcon(`${src}/menu/activity/xyh1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/xyh2`,this.currentIcon,174,30);
+        }else  if(data.name == '老用户首存活动10'){
+            this.app.loadIcon(`${src}/menu/activity/lyh1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/lyh2`,this.currentIcon,174,30);
         }
 
         //响应每日签到2，显示红点
@@ -743,6 +755,12 @@ export default class NewClass extends cc.Component {
         }else  if(name == '新用户包赔活动10'){
             var node = cc.instantiate(this.XyhZyBp10);
             node.getComponent('payXyhZyBp').setIdInfo(id,info)
+        }else  if(name == '新用户首存活动10'){
+            var node = cc.instantiate(this.XyhSc_10);
+            node.getComponent('payFirstDepostGold').setIdInfo(id,info)
+        }else  if(name == '老用户首存活动10'){
+            var node = cc.instantiate(this.LyhSc_10);
+            node.getComponent('payLhysc').setId(id,"",info)
         }
         content.addChild(node);
     }
