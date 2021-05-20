@@ -118,7 +118,7 @@ export default class NewClass extends cc.Component {
         this.config = new Config();
         this.UrlData =  {
             user_id:gHandler.gameGlobal.pay.user_id,
-            // user_id:"139983487", // 8
+            // user_id:"271790644", // 10
             // user_id:"324745169", //online
             user_name:gHandler.gameGlobal.pay.user_name,
             client:gHandler.gameGlobal.pay.client,
