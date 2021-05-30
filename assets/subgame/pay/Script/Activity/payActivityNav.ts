@@ -174,6 +174,9 @@ export default class NewClass extends cc.Component {
     HalfMonthGift_9 :cc.Prefab = null;
 
     @property(cc.Prefab)
+    UsdtCunKuan_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
     CdxHeNei_10 :cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -193,6 +196,11 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     LyhSc_10 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    FfcBaoPei_QiQu_10 :cc.Prefab = null;
+
+
     
     @property
     app = null;
@@ -419,9 +427,9 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`${src}/menu/activity/qqly1`,this.normalIcon,182,30)
             this.app.loadIcon(`${src}/menu/activity/qqly2`,this.currentIcon,174,30);
         }
-        else  if(data.name == '分分彩包赔活动10'){
-            this.app.loadIcon(`${src}/menu/activity/baopei1`,this.normalIcon,182,30)
-            this.app.loadIcon(`${src}/menu/activity/baopei2`,this.currentIcon,174,30);
+        else  if(data.name == '河内分分彩包赔10'){
+            this.app.loadIcon(`${src}/menu/activity/bphn1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/bphn2`,this.currentIcon,174,30);
         }
         else  if(data.name == 'AGA专属包赔10'){
             this.app.loadIcon(`${src}/menu/activity/AGA1`,this.normalIcon,182,30)
@@ -436,8 +444,11 @@ export default class NewClass extends cc.Component {
         }else  if(data.name == '老用户首存活动10'){
             this.app.loadIcon(`${src}/menu/activity/lyh1`,this.normalIcon,182,30)
             this.app.loadIcon(`${src}/menu/activity/lyh2`,this.currentIcon,174,30);
+        }else  if(data.name == '奇趣分分彩包赔10'){
+            this.app.loadIcon(`${src}/menu/activity/bpqq1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/bpqq2`,this.currentIcon,174,30);
         }
-
+        
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'||this.name == '每日签到9'){
             this.fetchgetSignWeekInfo(this.id)
@@ -465,6 +476,8 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "四季发财红包雨");
                 }else if(data.name =="幸运轮盘9"){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "幸运轮盘");
+                }else if(data.name =="USDT存款大礼包9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT存款大礼包");
                 }
             }
         }
@@ -746,7 +759,7 @@ export default class NewClass extends cc.Component {
         }else  if(name == '奇趣连赢活动10'){
             var node = cc.instantiate(this.CdxQiQu_10);
             node.getComponent('payCdxQiQu').setIdInfo(id,info)
-        }else  if(name == '分分彩包赔活动10'){
+        }else  if(name == '河内分分彩包赔10'){
             var node = cc.instantiate(this.FfcBaoPei_10);
             node.getComponent('payFfcBaoPei').setIdInfo(id,info)
         }else  if(name == 'AGA专属包赔10'){
@@ -761,6 +774,12 @@ export default class NewClass extends cc.Component {
         }else  if(name == '老用户首存活动10'){
             var node = cc.instantiate(this.LyhSc_10);
             node.getComponent('payLhysc').setId(id,"",info)
+        }else  if(name == '奇趣分分彩包赔10'){
+            var node = cc.instantiate(this.FfcBaoPei_QiQu_10);
+            node.getComponent('payFfcBaoPei_QiQu').setIdInfo(id,info)
+        }else  if(name == 'USDT存款大礼包9'){
+            var node = cc.instantiate(this.UsdtCunKuan_9);
+            node.getComponent('payUsdtCunKuan').setIdInfo(id,info)
         }
         content.addChild(node);
     }

@@ -170,4 +170,13 @@ export default class Config extends cc.Component {
         var num = parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
         return num
     }
+    public transitionTime(time){
+        let transTime =``
+        if(time <10){
+            transTime = `0${time}:00`
+        }else{
+            transTime = `${time}:00`
+        }
+        return transTime
+    }
 }

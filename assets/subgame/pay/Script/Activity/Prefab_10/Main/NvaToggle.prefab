@@ -675,6 +675,7 @@
     "FirstDepostGold_9": null,
     "Xyhbp_9": null,
     "HalfMonthGift_9": null,
+    "UsdtCunKuan_9": null,
     "CdxHeNei_10": {
       "__uuid__": "4658728b-29e0-4b14-a114-93f598ca54ee"
     },
@@ -695,6 +696,9 @@
     },
     "LyhSc_10": {
       "__uuid__": "6217b4f2-7590-4fef-86a7-42ad09c21d9a"
+    },
+    "FfcBaoPei_QiQu_10": {
+      "__uuid__": "e52ec5dd-e437-4641-b3f7-6b9232da7a02"
     },
     "app": null,
     "_id": ""
