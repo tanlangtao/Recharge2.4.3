@@ -55,25 +55,18 @@ export default class NewClass extends cc.Component {
                         if(index < this.btnArr.length &&  response.data.num >=item.recharge_num) {
                            btnIndex = index
                        }
+                        this.btnArr[btnIndex].active = true
+                        this.btnArr[btnIndex].getChildByName("bg2").active = false
                    })
-                   this.btnArr[btnIndex].active = true
-                   this.btnArr[btnIndex].getChildByName("bg2").active = false
                 }
                 if(response.data["received_info"]){
-                    if(response.data.received_info[0].receive_amount >= this.info[0].bonus){
-                        this.btnArr.forEach(e=>{
-                            e.active = false
-                        })
-                        let btnIndex = 0;
+                    response.data.received_info.forEach((e)=>{
                         this.info.forEach((item,index)=>{
-                           if(response.data.received_info[0].receive_amount  >= item.bonus) {
-                               btnIndex = index
-                           }
-                       })
-                       // 显示已领取
-                       this.btnArr[btnIndex].active = true
-                       this.btnArr[btnIndex].getChildByName("bg2").active = true
-                    }
+                            if(e.receive_amount == item.bonus){
+                                this.btnArr[index].getChildByName("bg2").active = true
+                            }
+                        })
+                    })
                 }
             }else{
                 self.app.showAlert(response.msg)
@@ -83,13 +76,15 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`${Language_pay.Lg.ChangeByText("网络错误")}${errstatus}`)
         })
     }
-    receiveUsdtPayGold(){
+    receiveUsdtPayGold(targeIndex){
         var url = `${this.app.UrlData.host}/api/activity/receiveUsdtPayGold`;
         let self = this;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=${this.login_ip ? this.login_ip:"127.0.0.1"}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.app.deviceID}`
-        // let dataStr = `user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&login_ip=127.0.0.1&regin_ip=127.0.0.1&device_id=123456789`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&index=${targeIndex}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=${this.login_ip ? this.login_ip:"127.0.0.1"}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.app.deviceID}`
+        // let dataStr = `user_id=${this.app.UrlData.user_id}&index=${targeIndex}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=127.0.0.3&regin_ip=127.0.0.2&device_id=123456783`
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
+                //刷新领取状态
+                this.btnArr[targeIndex].getChildByName("bg2").active = true
                 self.app.showAlert(Language_pay.Lg.ChangeByText('领取成功!'))
             }else{
                 self.app.showAlert(response.msg)
@@ -98,12 +93,13 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`${Language_pay.Lg.ChangeByText("网络错误")}${errstatus}`)
         })
     }
-    onClick(){
+    onClick(e){
         if(this.app.gHandler.gameGlobal.player.phonenum == '') {
             this.app.showAlert(Language_pay.Lg.ChangeByText("参加活动失败:请先绑定手机号!"))
             return
         }
-        this.receiveUsdtPayGold()
+        let targeIndex = e.target.name
+        this.receiveUsdtPayGold(targeIndex)
     }
     //设置语言相关的资源和字
     setLanguageResource(){

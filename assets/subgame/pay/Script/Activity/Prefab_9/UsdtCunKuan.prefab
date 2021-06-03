@@ -1620,7 +1620,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn",
+    "_name": "0",
     "_objFlags": 0,
     "_parent": {
       "__id__": 40
@@ -1923,7 +1923,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn",
+    "_name": "1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 40
@@ -2226,7 +2226,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn",
+    "_name": "2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 40
