@@ -52,26 +52,28 @@ export default class NewClass extends cc.Component {
                 if(response.data.num  >= this.info[0].recharge_num ){
                     let btnIndex = 0;
                     this.info.forEach((item,index)=>{
-                        if(index < this.btnArr.length && response.data.num  >= this.info[0].recharge_num) {
+                        if(index < this.btnArr.length &&  response.data.num >=item.recharge_num) {
                            btnIndex = index
                        }
                    })
                    this.btnArr[btnIndex].active = true
                    this.btnArr[btnIndex].getChildByName("bg2").active = false
                 }
-                if(response.data.received_info.receive_amount >= this.info[0].bonus){
-                    this.btnArr.forEach(e=>{
-                        e.active = false
-                    })
-                    let btnIndex = 0;
-                    this.info.forEach((item,index)=>{
-                       if(response.data.received_info.receive_amount  >= item.bonus) {
-                           btnIndex = index
-                       }
-                   })
-                   // 显示已领取
-                   this.btnArr[btnIndex].active = true
-                   this.btnArr[btnIndex].getChildByName("bg2").active = true
+                if(response.data["received_info"]){
+                    if(response.data.received_info[0].receive_amount >= this.info[0].bonus){
+                        this.btnArr.forEach(e=>{
+                            e.active = false
+                        })
+                        let btnIndex = 0;
+                        this.info.forEach((item,index)=>{
+                           if(response.data.received_info[0].receive_amount  >= item.bonus) {
+                               btnIndex = index
+                           }
+                       })
+                       // 显示已领取
+                       this.btnArr[btnIndex].active = true
+                       this.btnArr[btnIndex].getChildByName("bg2").active = true
+                    }
                 }
             }else{
                 self.app.showAlert(response.msg)
