@@ -46,6 +46,7 @@ export default class NewClass extends cc.Component {
         this.infoInit()
         this.setLanguageResource()
         this.getRewardFFCFlag()
+        this.ApplyBtnInit()
     }
     infoInit(){
         let label1 = cc.find("Canvas/Activity/Content/FfcBaoPei/bg/Layout/label2").getComponent(cc.Label)
@@ -65,7 +66,6 @@ export default class NewClass extends cc.Component {
             e.getComponent(cc.Label).string = `${this.info.lose_range[index].percent*100}%`
         })
     }
-    
     getRewardFFCFlag(){
         var url = `${this.app.UrlData.host}/api/activity/getRewardFFCFlag?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}&package_id=${this.app.UrlData.package_id}&lottery=HNFFC`;
         let self = this;
@@ -91,6 +91,8 @@ export default class NewClass extends cc.Component {
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'))
+                this.setLocal()
+                this.ApplyBtnInit()
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -152,9 +154,20 @@ export default class NewClass extends cc.Component {
         }
         this.receiveRewardHeNei()
     }
-    //确认申请
-    onApplyReimburse(){
-
+    ApplyBtnInit(){
+        let btn= cc.find('Canvas/Activity/Content/FfcBaoPei/bg/Layout/groupBtn2/btn').getComponent(cc.Button)
+        btn.interactable = this.getLocal()
+    }
+    getLocal(){
+        let local = cc.sys.localStorage.getItem(`ApplyFfcBaoPei_${this.app.UrlData.user_id}`)
+        if(local){
+            return false
+        }else{
+            return true
+        }
+    }
+    setLocal(){
+        cc.sys.localStorage.setItem(`ApplyFfcBaoPei_${this.app.UrlData.user_id}`,JSON.stringify(true))
     }
     //设置语言相关的资源和字
     setLanguageResource(){
@@ -172,7 +185,7 @@ export default class NewClass extends cc.Component {
         title.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("净亏损区间")
         title.children[3].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("对应比例")
         title.children[4].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("流水要求")
-        rule.string = `<color=#FFFFFF>1. 新玩家注册好账号，需先绑定好手机号码与银行卡联系上级或进线客服进行申请，申请完毕后前往当前活动界面进行确认申请， \n确认申请开放时间： 每天19:00~21:00。<color=#FF0000>所有未进行确认申请的玩家无法领取活动彩金。</c>\n2. 平台中的新玩家活动只能参加其中一个。<color=#F3DC5B>\n3. 活动限制：仅限分分彩猜大小-河内分分彩房间，单局下注仅限一个区域（大或小），不能投注豹子，进行其他游戏视为放弃此活动。\n4. 在规定游戏中连续下注"${this.info.round}局且单局下注金额为${this.info.bet_min}~${this.info.bet_max}金币，依照累计产生的净亏损前往本活动界面领取活动彩金。</c>\n5. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金需${this.info.flow_rate}倍流水方可申请兑换。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</c></color>")}`
+        rule.string = `<color=#FFFFFF>1. 新玩家注册好账号，需先绑定好手机号码与银行卡联系上级或进线客服进行申请，申请完毕后前往当前活动界面进行确认申请， \n确认申请开放时间： 每天${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}。<color=#FF0000>所有未进行确认申请的玩家无法领取活动彩金。</c>\n2. 平台中的新玩家活动只能参加其中一个。<color=#F3DC5B>\n3. 活动限制：仅限分分彩猜大小-河内分分彩房间，单局下注仅限一个区域（大或小），不能投注豹子，进行其他游戏视为放弃此活动。\n4. 在规定游戏中连续下注"${this.info.round}局且单局下注金额为${this.info.bet_min}~${this.info.bet_max}金币，依照累计产生的净亏损前往本活动界面领取活动彩金。</c>\n5. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金需${this.info.flow_rate}倍流水方可申请兑换。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</c></color>")}`
     
         let btn= cc.find('Canvas/Activity/Content/FfcBaoPei/bg/Layout/groupBtn2/btn')
         this.app.loadIconLg(`${src}/activeSprite/anniu`,btn)

@@ -68,6 +68,7 @@ export default class NewClass extends cc.Component {
         this.infoInit()
         this.setLanguageResource()
         this.getFristPayAmount()
+        this.ApplyBtnInit()
     }
     infoInit(){
         let group1 = cc.find("Canvas/Activity/Content/AGABaoPei/bg/Layout/group1")
@@ -80,6 +81,21 @@ export default class NewClass extends cc.Component {
         group2.children[2].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[1].max_withdraw_amount}`
     }
     
+    getApplyReimburseUser(){
+        var url = `${this.app.UrlData.host}/api/activity/getApplyReimburseUser?user_id=${this.app.UrlData.user_id}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            let btn= cc.find('Canvas/Activity/Content/AGABaoPei/bg/Layout/groupBtn2/btn').getComponent(cc.Button)
+            if(response.status == 0){
+                btn.interactable = false
+            }else{
+                btn.interactable = true
+            }
+        },(errstatus)=>{
+            self.app.hideLoading()
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+        })
+    }
     getFristPayAmount(){
         var url = `${this.app.UrlData.host}/api/activity/getFristPayAmount?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}`;
         let self = this;
@@ -120,6 +136,9 @@ export default class NewClass extends cc.Component {
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'))
+                //缓存申请结果
+                this.setLocal()
+                this.ApplyBtnInit()
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -155,6 +174,21 @@ export default class NewClass extends cc.Component {
            this.btnArr[btnIndex].getChildByName("bg2").active = true
         }
     }
+    ApplyBtnInit(){
+        let btn= cc.find('Canvas/Activity/Content/AGABaoPei/bg/Layout/groupBtn2/btn').getComponent(cc.Button)
+        btn.interactable = this.getLocal()
+    }
+    getLocal(){
+        let local = cc.sys.localStorage.getItem(`ApplyPayAGABaoPei_${this.app.UrlData.user_id}`)
+        if(local){
+            return false
+        }else{
+            return true
+        }
+    }
+    setLocal(){
+        cc.sys.localStorage.setItem(`ApplyPayAGABaoPei_${this.app.UrlData.user_id}`,JSON.stringify(true))
+    }
     onClick(){
         if(this.app.gHandler.gameGlobal.player.phonenum == '') {
             this.app.showAlert(Language_pay.Lg.ChangeByText('参加活动失败:请先绑定手机号!'))
@@ -180,7 +214,7 @@ export default class NewClass extends cc.Component {
         title.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最高兑换金额")
         title.children[3].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("限制最高注")
         let rule = cc.find("Canvas/Activity/Content/AGABaoPei/bg/Content/ScrollView/view/content/rule").getComponent(cc.RichText)
-        rule.string = `<color=#FFFFFF>1. 新会员注册好账号，需先绑定好手机号码与银行卡后联系上级或进线客服进行申请，申请完毕后前往当前活动界面进行确认申请，\n确认申请开放时间： 每天12:00~21:00。<color=#FF0000>所有未进行确认申请的玩家无法领取活动彩金。</c>\n2. 平台中的新玩家活动只能参加其中一个。\n3. 参加活动的玩家只能AGA电子游戏<color=#F3DC5B>《多福多财》《城堡争霸》《疯狂旋涡》《云谷寻宝》</c>，进行其他游戏视为放弃活动。\n4. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领取\n视为自动放弃。\n5. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n6. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金无需流水限制可直接申请兑换。\n7. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>`
+        rule.string = `<color=#FFFFFF>1. 新会员注册好账号，需先绑定好手机号码与银行卡后联系上级或进线客服进行申请，申请完毕后前往当前活动界面进行确认申请，\n确认申请开放时间： 每天${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}。<color=#FF0000>所有未进行确认申请的玩家无法领取活动彩金。</c>\n2. 平台中的新玩家活动只能参加其中一个。\n3. 参加活动的玩家只能AGA电子游戏<color=#F3DC5B>《多福多财》《城堡争霸》《疯狂旋涡》《云谷寻宝》</c>，进行其他游戏视为放弃活动。\n4. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领取\n视为自动放弃。\n5. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n6. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金无需流水限制可直接申请兑换。\n7. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>`
         
         let btn= cc.find('Canvas/Activity/Content/AGABaoPei/bg/Layout/groupBtn2/btn')
         this.app.loadIconLg(`${src}/activeSprite/anniu`,btn)
