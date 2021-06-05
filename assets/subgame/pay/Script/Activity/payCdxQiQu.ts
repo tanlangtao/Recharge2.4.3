@@ -170,7 +170,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/activeSprite/btn_ylq`,e.getChildByName('bg2'))
         })
         let title= cc.find('Canvas/Activity/Content/CdxQiQu/bg/Layout/title')
-        let rule = cc.find("Canvas/Activity/Content/CdxQiQu/bg/Content/ScrollView/view/content/rule").getComponent(cc.Label)
+        let rule = cc.find("Canvas/Activity/Content/CdxQiQu/bg/Content/ScrollView/view/content/rule").getComponent(cc.RichText)
         let label1 = cc.find("Canvas/Activity/Content/CdxQiQu/bg/Layout/label1").getComponent(cc.Label)
         title.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("游戏房间")
         title.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("连赢局数")
@@ -178,6 +178,6 @@ export default class NewClass extends cc.Component {
         title.children[3].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("彩金")
         title.children[4].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("流水要求")
         label1.string = Language_pay.Lg.ChangeByText("奇趣分分彩")
-        rule.string = `${Language_pay.Lg.ChangeByText("1. 本活动需先绑定好手机号码与银行卡后才能参与，平台中的老玩家活动只能参加其中一个。\n2. 活动限制：仅限彩源猜大小-奇趣分分彩房间，中途进行其他游戏视为放弃此活动。\n3. 在规定游戏中依照连赢局数且单局盈利不低于")}${this.info.win}${Language_pay.Lg.ChangeByText("金币，前往本活动界面进行领取活动彩金。\n4. 每天只能领取一次， 超过23:59:59符合条件不进行领取则视为自动放弃。\n5. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金需")}${this.info.flow_rate}${Language_pay.Lg.ChangeByText("倍流水方可申请兑换。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。")}`
+        rule.string = `${Language_pay.Lg.ChangeByText("<color=#ffffff>1. 本活动需先绑定好手机号码与银行卡后才能参与，平台中的老玩家活动只能参加其中一个。\n2. 活动限制：</c><color=#E3FD00>仅限分分彩猜大小-奇趣分分彩房间</c>，中途进行其他游戏视为放弃此活动。\n3. 在<color=#E3FD00>规定游戏中单局净盈利不低于1000金币</c>，依照连赢局数前往本活动界面进行领取活动彩金。\n4. 每天只能领取一次， 超过23:59:59符合条件不进行领取则视为自动放弃。\n5. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金需10倍流水方可申请兑换。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据\n实际情况，随时调整活动内容。</color>")}`
     }   
 }
