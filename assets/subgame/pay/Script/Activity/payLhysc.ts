@@ -130,7 +130,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/activeBigImage/lyhsc_bg`,bg)
             this.app.loadIconLg(`${src}/activeSprite/lyhsc_biao`,lyhsc_biao)
             label1.string = Language_pay.Lg.ChangeByText("本金一倍+\n彩金8倍流水")
-            rule.string = Language_pay.Lg.ChangeByText("<color=#FFFFFF>1.本活动需要完成手机和银行卡绑定后才能参与。\n2. 游戏规则：仅参加以下游戏</c><color=#F3DC5B>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《AGA电子游戏》《CQ9电子游戏》《AG电子\n游戏》《PT电子游戏》《JDP电子游戏》</c>。\n3. 单日充值金额累加统计，单日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4. 每日23:59:59，活动计算的当日充值金额累加归零。\n5. 每一个账户（同一IP，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>")
+            rule.string = Language_pay.Lg.ChangeByText("<color=#FFFFFF>1.本活动需要完成手机和银行卡绑定后才能参与。\n2. 游戏规则：仅参加以下游戏</c><color=#F3DC5B>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《AGA电子游戏》《CQ9电子游戏》《AG电子\n游戏》《PT电子游戏》《JDP电子游戏》《PG电子游戏》</c>。\n3. 单日充值金额累加统计，单日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4. 每日23:59:59，活动计算的当日充值金额累加归零。\n5. 每一个账户（同一IP，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>")
         }else{
             let label1= cc.find('Canvas/Activity/Content/Lhysc/bg/FootContent/label1').getComponent(cc.Label)
             let title1= cc.find('Canvas/Activity/Content/Lhysc/bg/group1/title1').getComponent(cc.Label)
