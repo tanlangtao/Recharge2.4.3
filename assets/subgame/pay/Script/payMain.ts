@@ -117,8 +117,8 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.config = new Config();
         this.UrlData =  {
-            // user_id:gHandler.gameGlobal.pay.user_id,
-            user_id:"320560580", // 奇趣 10
+            user_id:gHandler.gameGlobal.pay.user_id,
+            // user_id:"408990033", // 奇趣 10
             // user_id:"738059019", // 河内 10
             // user_id:"324745169", //online
             user_name:gHandler.gameGlobal.pay.user_name,
@@ -127,8 +127,8 @@ export default class NewClass extends cc.Component {
             // host:"https://pay1.whjfxly66.com", //online
             proxy_user_id:gHandler.gameGlobal.pay.proxy_user_id,
             proxy_name:gHandler.gameGlobal.pay.proxy_name,
-            package_id:10,
-            // package_id:gHandler.gameGlobal.pay.package_id,
+            // package_id:10,
+            package_id:gHandler.gameGlobal.pay.package_id,
             imHost:gHandler.gameGlobal.im_host
         };
         this.gHandler = gHandler
