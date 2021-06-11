@@ -139,7 +139,7 @@ let appGlobal = {
         },
         fuxing3: {
             dev: 566844838,
-            pre: 799197169,
+            pre: 405061573,
             online: 779681851
         },
         xingui :{
