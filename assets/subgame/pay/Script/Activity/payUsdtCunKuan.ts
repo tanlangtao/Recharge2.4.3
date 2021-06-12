@@ -115,6 +115,6 @@ export default class NewClass extends cc.Component {
         })
         
         let rule= cc.find('Canvas/Activity/Content/UsdtCunKuan/bg/Content/ScrollView/view/content/rule').getComponent(cc.Label)
-        rule.string = Language_pay.Lg.ChangeByText("活动规则：\n1. 只要您使用虚拟货币USDT进行存款，单笔充值100USDT以上，累计达到相对应的充值次数即可领取相对应的彩金（彩金1倍流水即可申请兑换）。\n2. 同IP同设备多账号仅限1个账号享受活动资格。\n3. USDT地址绑定，依照平台指引地址类型进行绑定，如有疑问请及时咨询客服。\n4. 本活动最终解释权归新贵游戏所有。")
+        rule.string = Language_pay.Lg.ChangeByText("活动规则：\n1. 只要您使用虚拟货币USDT进行存款，单笔充值100USDT以上，累计达到相对应的充值次数即可领取相对应的彩金（彩金5倍流水即可申请兑换）。\n2. 同IP同设备多账号仅限1个账号享受活动资格。\n3. USDT地址绑定，依照平台指引地址类型进行绑定，如有疑问请及时咨询客服。\n4. 本活动最终解释权归新贵游戏所有。")
     }  
 }
