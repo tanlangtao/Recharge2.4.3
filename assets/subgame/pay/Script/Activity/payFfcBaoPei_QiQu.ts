@@ -157,7 +157,16 @@ export default class NewClass extends cc.Component {
     }
     ApplyBtnInit(){
         let btn= cc.find('Canvas/Activity/Content/FfcBaoPei_QiQu/bg/Layout/groupBtn2/btn').getComponent(cc.Button)
-        btn.interactable = this.getLocal()
+        let h = new Date().getHours()
+        if(this.getLocal()){
+            if(h < this.info.start || h > this.info.end){
+                btn.getComponent(cc.Button).interactable = false
+            }else{
+                btn.getComponent(cc.Button).interactable = true
+            }
+        }else{
+            btn.interactable = false
+        }
     }
     getLocal(){
         let local = cc.sys.localStorage.getItem(`ApplyFfcBaoPei_QiQu_${this.app.UrlData.user_id}`)
@@ -190,12 +199,6 @@ export default class NewClass extends cc.Component {
         
         let btn= cc.find('Canvas/Activity/Content/FfcBaoPei_QiQu/bg/Layout/groupBtn2/btn')
         this.app.loadIconLg(`${src}/activeSprite/anniu`,btn)
-        let h = new Date().getHours()
-        if(h < this.info.start || h > this.info.end){
-            btn.getComponent(cc.Button).interactable = false
-        }else{
-            btn.getComponent(cc.Button).interactable = true
-        }
         let label= cc.find('Canvas/Activity/Content/FfcBaoPei_QiQu/bg/Layout/groupBtn2/label').getComponent(cc.Label)
         label.string = `${Language_pay.Lg.ChangeByText("开放时间")}\n${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}`
     }   
