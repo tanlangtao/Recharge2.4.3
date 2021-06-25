@@ -114,6 +114,7 @@ export default class NewClass extends cc.Component {
     public version :number = 1 ;//充值后台接口，现默认为1
     gHandler = null;
     login_token = null;//大厅token作为 Authorization的值
+    EffectState = 0;//音效
     onLoad () {
         this.config = new Config();
         this.UrlData =  {
@@ -134,6 +135,7 @@ export default class NewClass extends cc.Component {
         this.gHandler = gHandler
         this.token = this.config.token;
         this.login_token = gHandler.gameGlobal.token
+        this.EffectState =  gHandler.audioMgr.getEffectState();
     }
     /**
      * 全局提示框
@@ -476,6 +478,10 @@ export default class NewClass extends cc.Component {
         this.Loading.active = false;
     }
     loadMusic(num :number):void{
+        //判断音效是否开启
+        if(!this.EffectState){
+           return
+        }
         let path :string='';
         switch(num){
             case 0 : path ='Button_Click';break;
