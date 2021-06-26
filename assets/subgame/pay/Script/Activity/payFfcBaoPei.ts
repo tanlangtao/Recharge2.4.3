@@ -158,9 +158,9 @@ export default class NewClass extends cc.Component {
         let h = new Date().getHours()
         if(this.getLocal()){
             if(h < this.info.start || h >= this.info.end){
-                btn.getComponent(cc.Button).interactable = false
+                btn.interactable = false
             }else{
-                btn.getComponent(cc.Button).interactable = true
+                btn.interactable = true
             }
         }else{
             btn.interactable = false

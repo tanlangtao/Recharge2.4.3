@@ -175,7 +175,12 @@ export default class Config extends cc.Component {
         if(time <10){
             transTime = `0${time}:00`
         }else{
-            transTime = `${time}:00`
+            if(time == 24){
+                transTime = `23:59:59`
+            }else{
+                transTime = `${time}:00`
+            }
+            
         }
         return transTime
     }

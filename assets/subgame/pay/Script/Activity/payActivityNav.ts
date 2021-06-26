@@ -200,7 +200,20 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     FfcBaoPei_QiQu_10 :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    Xyhschd_9 :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    FfcBaoPei_QiQu_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Xyhbpdfs_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Ryjhd_9 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    Bwfcjl_9 :cc.Prefab = null;
     
     @property
     app = null;
@@ -478,6 +491,16 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "幸运轮盘");
                 }else if(data.name =="USDT存款大礼包9"){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT存款大礼包");
+                }else if(data.name =="新用户首存活动9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "新用户首存活动");
+                }else if(data.name =="分分彩猜大小奇趣包赔9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "分分彩猜大小\n奇趣包赔");
+                }else if(data.name =="新用户包赔大放送9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "新用户包赔大放送");
+                }else if(data.name =="日业绩活动9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "日业绩活动");
+                }else if(data.name =="百万扶持奖励9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "百万扶持奖励");
                 }
             }
         }
@@ -780,6 +803,21 @@ export default class NewClass extends cc.Component {
         }else  if(name == 'USDT存款大礼包9'){
             var node = cc.instantiate(this.UsdtCunKuan_9);
             node.getComponent('payUsdtCunKuan').setIdInfo(id,info)
+        }else  if(name == '新用户首存活动9'){
+            var node = cc.instantiate(this.Xyhschd_9);
+            node.getComponent('payXyhschd').setIdInfo(id,info)
+        }else  if(name == '分分彩猜大小奇趣包赔9'){
+            var node = cc.instantiate(this.FfcBaoPei_QiQu_9);
+            node.getComponent('payFfcBaoPei_QiQu').setIdInfo(id,info)
+        }else  if(name == '新用户包赔大放送9'){
+            var node = cc.instantiate(this.Xyhbpdfs_9);
+            node.getComponent('payXyhbpdfs').setIdInfo(id,info)
+        }else  if(name == '日业绩活动9'){
+            var node = cc.instantiate(this.Ryjhd_9);
+            node.getComponent('payRyjhd9').setIdInfo(id,info)
+        }else  if(name == '百万扶持奖励9'){
+            var node = cc.instantiate(this.Bwfcjl_9);
+            node.getComponent('payBwfcjl').setIdInfo(id,info)
         }
         content.addChild(node);
     }

@@ -86,7 +86,8 @@ export default class NewClass extends cc.Component {
             e.name =="老会员每日首存活动2" || e.name == "老会员每日首存活动9" || e.name == "老用户包赔活动9" ||e.name == "首充活动-9" || 
             e.name == "新用户包赔活动-9"||e.name =='15天送58元9'||e.name =='每日签到9'||e.name == "每日任务9"||e.name == "四季发财红包雨9"||e.name== "幸运轮盘9"||
             e.name== "河内连赢活动10"|| e.name == "奇趣连赢活动10"||e.name == "河内分分彩包赔10"||e.name == "AGA专属包赔10"||e.name == "新用户包赔活动10"||
-            e.name == "新用户首存活动10" || e.name == "老用户首存活动10"||e.name == "奇趣分分彩包赔10"||e.name == "USDT存款大礼包9"
+            e.name == "新用户首存活动10" || e.name == "老用户首存活动10"||e.name == "奇趣分分彩包赔10"||e.name == "USDT存款大礼包9"||e.name == "新用户首存活动9"||
+            e.name == "分分彩猜大小奇趣包赔9"||e.name == "新用户包赔大放送9"||e.name =="日业绩活动9"||e.name =="百万扶持奖励9"
             )){
                 this.arr.push(e);
             }

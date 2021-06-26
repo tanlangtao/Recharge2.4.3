@@ -10,38 +10,16 @@ export default class NewClass extends cc.Component {
     login_ip = ''
 
     info = {
-        balance:0,
-        conf:[
-            {
-                first_pay_max:0,
-                first_pay_min:0,
-                gold:0
-            },
-            {
-                first_pay_max:0,
-                first_pay_min:0,
-                gold:0
-            },
-        ],
+        flow_rate:0,
         start:0,
         end:0,
-        flow_rate:0,
-        game_id:[],
-        recharge_min_amount:0,
-        start_date:"",
-        withdraw_conf:{
-            condition:[
-                {
-                    max_withdraw_amount:0,
-                    recharge_amount:0,
-                },
-                {
-                    max_withdraw_amount:0,
-                    recharge_amount:0,
-                }
-            ],
-            is_open:1
-        }
+        range:[
+            {
+                bonus:0,
+                flow_rate:0,
+                recharge_amount:0
+            }
+        ]
     }
     activity_id = 0
     FristPayAmount = {
@@ -71,14 +49,12 @@ export default class NewClass extends cc.Component {
         this.ApplyBtnInit()
     }
     infoInit(){
-        let group1 = cc.find("Canvas/Activity/Content/XyhZyBp/bg/Layout/group1")
-        let group2 = cc.find("Canvas/Activity/Content/XyhZyBp/bg/Layout/group2")
-        group1.children[0].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[0].recharge_amount}`
-        group1.children[1].getComponent(cc.Label).string = `${this.info.conf[0].gold}`
-        group1.children[2].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[0].max_withdraw_amount}`
-        group2.children[0].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[1].recharge_amount}`
-        group2.children[1].getComponent(cc.Label).string = `${this.info.conf[1].gold}`
-        group2.children[2].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[1].max_withdraw_amount}`
+        let group = cc.find("Canvas/Activity/Content/Xyhschd/bg/group")
+        group.children[0].getComponent(cc.Label).string = `${this.info.range[0].recharge_amount}`
+        group.children[1].getComponent(cc.Label).string = `${this.info.range[0].bonus}`
+        group.children[2].getComponent(cc.Label).string = `${this.info.range[1].recharge_amount}`
+        group.children[3].getComponent(cc.Label).string = `${this.info.range[1].bonus}`
+        group.children[4].getComponent(cc.Label).string = `本金1倍+\n彩金${this.info.flow_rate}倍流水`
     }
     
     getFristPayAmount(){
@@ -97,8 +73,8 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
-    receivereimburse(){
-        var url = `${this.app.UrlData.host}/api/activity/reimburse`;
+    receiveFristPayGold(){
+        var url = `${this.app.UrlData.host}/api/activity/receiveFristPayGold`;
         let self = this;
         let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${this.app.UrlData.user_name}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=${this.login_ip ? this.login_ip:"127.0.0.1"}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.app.deviceID}`
         // let dataStr = `user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=127.0.0.1&regin_ip=127.0.0.1&device_id=123456789`
@@ -114,8 +90,8 @@ export default class NewClass extends cc.Component {
         })
     }
     //确认申请
-    applyReimburse(){
-        var url = `${this.app.UrlData.host}/api/activity/applyReimburse`;
+    applyFristPay(){
+        var url = `${this.app.UrlData.host}/api/activity/applyFristPay`;
         let self = this;
         let dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${this.app.UrlData.user_name}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=${this.login_ip ? this.login_ip:"127.0.0.1"}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.app.deviceID}`
         this.app.ajax('POST',url,dataStr,(response)=>{
@@ -134,10 +110,10 @@ export default class NewClass extends cc.Component {
         this.btnArr.forEach((e)=>{
             e.active = false
         })
-        if(this.FristPayAmount.is_received == 0 && this.FristPayAmount.frist_pay_amount >= this.info.conf[0].first_pay_min ){
+        if(this.FristPayAmount.is_received == 0 && this.FristPayAmount.frist_pay_amount >= this.info.range[0].recharge_amount ){
             let btnIndex = 0;
-            this.info.conf.forEach((item,index)=>{
-               if(this.FristPayAmount.frist_pay_amount >= item.first_pay_min && this.FristPayAmount.frist_pay_amount < item.first_pay_max) {
+            this.info.range.forEach((item,index)=>{
+               if(this.FristPayAmount.frist_pay_amount >= item.recharge_amount) {
                    btnIndex = index
                }
            })
@@ -148,8 +124,8 @@ export default class NewClass extends cc.Component {
                 e.active = false
             })
             let btnIndex = 0;
-            this.info.conf.forEach((item,index)=>{
-                if(this.FristPayAmount.frist_pay_amount >= item.first_pay_min && this.FristPayAmount.frist_pay_amount < item.first_pay_max) {
+            this.info.range.forEach((item,index)=>{
+                if(this.FristPayAmount.frist_pay_amount >= item.recharge_amount ) {
                     btnIndex = index
                 }
             })
@@ -166,10 +142,10 @@ export default class NewClass extends cc.Component {
         if(this.FristPayAmount.is_received!=0){
             return this.app.showAlert(Language_pay.Lg.ChangeByText("同一用户仅限领取一次!"))
         }
-        this.receivereimburse()
+        this.receiveFristPayGold()
     }
     ApplyBtnInit(){
-        let btn= cc.find('Canvas/Activity/Content/XyhZyBp/bg/Layout/groupBtn2/btn').getComponent(cc.Button)
+        let btn= cc.find('Canvas/Activity/Content/Xyhschd/bg/applyBtn').getComponent(cc.Button)
         let h = new Date().getHours()
         if(this.getLocal()){
             if(h < this.info.start || h >= this.info.end){
@@ -177,12 +153,14 @@ export default class NewClass extends cc.Component {
             }else{
                 btn.interactable = true
             }
+            btn.node.children[0].active = false
         }else{
+            btn.node.children[0].active = true
             btn.interactable = false
         }
     }
     getLocal(){
-        let local = cc.sys.localStorage.getItem(`ApplyXyhZyBp_${this.app.UrlData.user_id}`)
+        let local = cc.sys.localStorage.getItem(`ApplyXyhschd_${this.app.UrlData.user_id}`)
         if(local){
             return false
         }else{
@@ -190,29 +168,28 @@ export default class NewClass extends cc.Component {
         }
     }
     setLocal(){
-        cc.sys.localStorage.setItem(`ApplyXyhZyBp_${this.app.UrlData.user_id}`,JSON.stringify(true))
+        cc.sys.localStorage.setItem(`ApplyXyhschd_${this.app.UrlData.user_id}`,JSON.stringify(true))
     }
     //设置语言相关的资源和字
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
-        let xyhbp_bg= cc.find('Canvas/Activity/Content/XyhZyBp/bg/xyhbp_bg')
-        let title= cc.find('Canvas/Activity/Content/XyhZyBp/bg/Layout/title')
-        this.app.loadIconLg(`${src}/activeBigImage/xyhbp_bg`,xyhbp_bg)
+        let bg= cc.find('Canvas/Activity/Content/Xyhschd/bg')
+        let title= cc.find('Canvas/Activity/Content/Xyhschd/bg/title')
+        this.app.loadIconLg(`${src}/activeBigImage/XG_event_20210623-1`,bg)
         this.btnArr.forEach(e=>{
-            this.app.loadIconLg(`${src}/activeSprite/btn_lq`,e)
-            this.app.loadIconLg(`${src}/activeSprite/btn_ylq`,e.getChildByName('bg2'))
+            this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName("btn_linqu"))
+            this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
         })
-        title.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("首充彩金")
-        title.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("包赔金额")
-        title.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最高兑换金额")
-        title.children[3].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("限制最高注")
-        let rule = cc.find("Canvas/Activity/Content/XyhZyBp/bg/Content/ScrollView/view/content/rule").getComponent(cc.RichText)
-        rule.string = `<color=#FFFFFF>1. 新会员注册好账号，需先绑定好手机号码与银行卡后联系上级或进线客服进行申请，申请完毕后前往当前活动界面进行确认申请，\n确认申请开放时间： 每天${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}。<color=#ff0000>所有未进行确认申请的玩家无法领取活动彩金。</c>\n2. 平台中的新玩家活动只能参加其中一个。\n3. 参加活动的玩家只能进行<color=#F3DC5B>《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》</c>指定游戏，进行其他游戏视为放弃活动。\n4. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领\n取视为自动放弃。\n5. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n6. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金无需流水限制可直接申请兑换。\n7. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>`
-    
-        let btn= cc.find('Canvas/Activity/Content/XyhZyBp/bg/Layout/groupBtn2/btn')
-        this.app.loadIconLg(`${src}/activeSprite/anniu`,btn)
+        title.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("首充金额")
+        title.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("活动彩金")
+        title.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("提现流水要求")
+        let rule = cc.find("Canvas/Activity/Content/Xyhschd/bg/rule").getComponent(cc.Label)
+        rule.string = `1. 新注册玩家完成手机以及银行卡绑定后前往当前活动进行申请， 申请开放时间为每天${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}。所有未进行申请的玩家无法领取活动彩金。\n2.平台中的新用户活动只能参加一个，申请后即视为参加此活动。\n3. 玩家必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的${this.info.flow_rate}倍流水才能申请兑换。\n4. 游戏规则：仅参加以下游戏《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《多福多财》《疯狂旋涡》《CQ9电子游戏》《PT电子游戏》《JDB电子游戏》《PG电子游戏》《AG电子游戏》。\n5. 同一用户仅限领取一次，恶意套利者将封号处理。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。`
+        let applyBtn= cc.find('Canvas/Activity/Content/Xyhschd/bg/applyBtn')
+        this.app.loadIconLg(`${src}/activeSprite/btn_apply`,applyBtn)
+        this.app.loadIconLg(`${src}/activeSprite/btn_done`,applyBtn.getChildByName("btn_done"))
         
-        let label= cc.find('Canvas/Activity/Content/XyhZyBp/bg/Layout/groupBtn2/label').getComponent(cc.Label)
-        label.string = `${Language_pay.Lg.ChangeByText("开放时间")}\n${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}`
+        let label= cc.find('Canvas/Activity/Content/Xyhschd/bg/label1').getComponent(cc.Label)
+        label.string = `${Language_pay.Lg.ChangeByText("申请开放时间")}\n${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}`
     }   
 }
