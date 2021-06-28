@@ -25,7 +25,7 @@ export default class NewClass extends cc.Component {
     PerformanceInfo = {
         amount:0,
         grant:0,
-        received_info:[]
+        received_info:[],
     }
     targeIndex = 0
     setIdInfo(id,info){

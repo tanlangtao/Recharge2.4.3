@@ -35,12 +35,15 @@ export default class NewClass extends cc.Component {
     setId(id,activeName = '',info = []){
         this.activity_id = id
         this.activeName = activeName
+        console.log(info)
         if(info.length>=1){
             this.info = []
             info.forEach((e,index)=>{
-                this.group1.children[index].getComponent(cc.Label).string = `${e.recharge_amount}`
-                this.group2.children[index].getComponent(cc.Label).string = `${e.bonus}`
-                this.info.push(e.recharge_amount)
+                if(index<this.group1.children.length){
+                    this.group1.children[index].getComponent(cc.Label).string = `${e.recharge_amount}`
+                    this.group2.children[index].getComponent(cc.Label).string = `${e.bonus}`
+                    this.info.push(e.recharge_amount)
+                }
             })
         }
     }
@@ -133,8 +136,8 @@ export default class NewClass extends cc.Component {
             rule.string = Language_pay.Lg.ChangeByText("<color=#FFFFFF>1.本活动需要完成手机和银行卡绑定后才能参与。\n2. 游戏规则：仅参加以下游戏</c><color=#F3DC5B>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《AGA电子游戏》《CQ9电子游戏》《AG电子\n游戏》《PT电子游戏》《JDP电子游戏》《PG电子游戏》</c>。\n3. 单日充值金额累加统计，单日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4. 每日23:59:59，活动计算的当日充值金额累加归零。\n5. 每一个账户（同一IP，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>")
         }else{
             let label1= cc.find('Canvas/Activity/Content/Lhysc/bg/FootContent/label1').getComponent(cc.Label)
-            let title1= cc.find('Canvas/Activity/Content/Lhysc/bg/group1/title1').getComponent(cc.Label)
-            let title2= cc.find('Canvas/Activity/Content/Lhysc/bg/group2/title2').getComponent(cc.Label)
+            let title1= cc.find('Canvas/Activity/Content/Lhysc/bg/group3/title1').getComponent(cc.Label)
+            let title2= cc.find('Canvas/Activity/Content/Lhysc/bg/group3/title2').getComponent(cc.Label)
             let title3= cc.find('Canvas/Activity/Content/Lhysc/bg/group3/title3').getComponent(cc.Label)
             let title4= cc.find('Canvas/Activity/Content/Lhysc/bg/group3/title4').getComponent(cc.Label)
 
@@ -155,7 +158,7 @@ export default class NewClass extends cc.Component {
                     this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('btn_linqu'))
                     this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
                 })
-                label1.string = Language_pay.Lg.ChangeByText("1.本活动需要完成手机和银行卡绑定后才能参与。\n2.游戏规则：仅限参与财神到，水果机，捕鱼·海王，捕鱼·聚宝盆，百人牛牛，红包乱斗，二八杠，21点，奔驰宝马游戏。\n3.单日充值金额累加统计，当日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4.每日23:59:59，活动计算的当日充值金额累加归零。\n5.每一个账号（同一ip，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 本活动最终解释权归新贵所有。")
+                label1.string = Language_pay.Lg.ChangeByText("1.本活动需要完成手机和银行卡绑定后才能参与。\n2.游戏规则：仅限参加以下游戏《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《多福多财》《疯狂漩涡》《CQ9电子游戏》《AG电子游戏》《PT电子游戏》《JDP电子游戏》《PG电子游戏》《百人牛牛》《奔驰宝马》。\n3.单日充值金额累加统计，达到指定档位即可领取活动规定的相应金币。\n4.每日23:59:59，活动计算的当日充值金额累加归零。\n5.每一个账号（同一ip，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。")
             }else if(this.activeName == '老会员每日首存活动2'){
                 this.app.loadIconLg(`${src}/activeBigImage/event_db_lhysc_content`,bg)
                 label1.string = Language_pay.Lg.ChangeByText("1.本活动需要完成手机和银行卡绑定后才能参与。\n2.游戏规则：仅限参与财神到，水果机，捕鱼·海王，捕鱼·聚宝盆，百人牛牛，红包乱斗，二八杠，21点，奔驰宝马游戏。\n3.单日充值金额累加统计，当日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4.每日23:59:59，活动计算的当日充值金额累加归零。\n5.每一个账号（同一ip，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 本活动最终解释权归德比所有。")

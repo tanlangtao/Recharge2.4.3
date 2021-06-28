@@ -168,6 +168,7 @@ export default class NewClass extends cc.Component {
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay`,this.iconFont,168,45)
             }
+            this.blinkFun()
         }else if(this.channel =='im_pay'){
             
             this.app.loadIcon(`recharge/icon_im`,this.icon,100,100)

@@ -725,8 +725,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
-      "height": 69.8
+      "width": 330,
+      "height": 81.1
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -738,7 +738,7 @@
       "ctor": "Float64Array",
       "array": [
         489.713,
-        23.837,
+        -418.961,
         0,
         0,
         0,
@@ -779,8 +779,8 @@
     "_dstBlendFactor": 771,
     "_string": "请使用与绑定银行卡相同账户名的账户进行支付",
     "_N$string": "请使用与绑定银行卡相同账户名的账户进行支付",
-    "_fontSize": 25,
-    "_lineHeight": 30,
+    "_fontSize": 30,
+    "_lineHeight": 35,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -5168,6 +5168,8 @@
     "BindBankAccountTipAlert_8": {
       "__uuid__": "ee08f36d-444e-4212-9039-76af1acdee1d"
     },
+    "BindBankAccountTipAlert_9": null,
+    "BindBankAccountTipAlert_10": null,
     "app": null,
     "_id": ""
   },

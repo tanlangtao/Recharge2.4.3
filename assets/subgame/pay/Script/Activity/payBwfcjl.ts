@@ -25,7 +25,8 @@ export default class NewClass extends cc.Component {
     PerformanceInfo = {
         amount:0,
         grant:0,
-        received_info:[]
+        received_info:[],
+        monday:0
     }
     targeIndex = 0
     setIdInfo(id,info){
@@ -47,7 +48,14 @@ export default class NewClass extends cc.Component {
         }
         this.infoInit()
         this.setLanguageResource()
-        this.getReceivePerformanceInfo()
+        
+        let toDay = new Date().getDate()
+        if(this.getLocal() !=  toDay ){
+            this.getReceivePerformanceInfo()
+        }else{
+            this.PerformanceInfo =JSON.parse(cc.sys.localStorage.getItem(`PerformanceInfo_${this.app.UrlData.user_id}`)) 
+            this.renderBtn()
+        }
     }
     infoInit(){
         let group1 = cc.find("Canvas/Activity/Content/Bwfcjl/bg/group1")
@@ -72,6 +80,7 @@ export default class NewClass extends cc.Component {
                 console.log(response)
                 this.PerformanceInfo = response.data
                 this.renderBtn()
+                this.setLocal(response.data)
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -96,11 +105,21 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
+    getLocal(){
+        let local = cc.sys.localStorage.getItem(`Bwfcjl_${this.app.UrlData.user_id}`)
+        
+        return local
+    }
+    setLocal(PerformanceInfo){
+        let date = new Date().getDate()
+        cc.sys.localStorage.setItem(`Bwfcjl_${this.app.UrlData.user_id}`,date)
+        cc.sys.localStorage.setItem(`PerformanceInfo_${this.app.UrlData.user_id}`,JSON.stringify(PerformanceInfo))
+    }
     renderBtn(){
         this.btnArr.forEach((e)=>{
             e.active = false
         })
-        if(this.PerformanceInfo.amount  >= this.info.range[0].performance ){
+        if(this.PerformanceInfo.amount  >= this.info.range[0].performance && this.PerformanceInfo.monday == 1){
             let btnIndex = 0;
             this.info.range.forEach((item,index)=>{
                 if(index < this.btnArr.length &&  this.PerformanceInfo.amount >=item.performance && this.PerformanceInfo.grant >=item.grant) {

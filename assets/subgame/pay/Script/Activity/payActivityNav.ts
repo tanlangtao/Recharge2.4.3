@@ -215,6 +215,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Bwfcjl_9 :cc.Prefab = null;
     
+    @property(cc.Prefab)
+    RedRain_9 :cc.Prefab = null;
+    
     @property
     app = null;
     name = null;
@@ -472,7 +475,7 @@ export default class NewClass extends cc.Component {
             if( cc.isValid( zi ) )
             {
                 if(data.name == '老会员每日首存活动9'){
-                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "老会员每日首存");
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "老用户首存活动");
                 }else if(data.name == '老用户包赔活动9'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "老用户包赔");
                 }else if(data.name == '首充活动-9'){
@@ -501,6 +504,8 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "日业绩活动");
                 }else if(data.name =="百万扶持奖励9"){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "百万扶持奖励");
+                }else if(data.name =="四季发财红包雨9"){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "四季发财红包雨");
                 }
             }
         }
@@ -753,7 +758,7 @@ export default class NewClass extends cc.Component {
             this.app.loadTitle(`${src}/title/dm_title_lhysc`,this.title);
         }else  if(name == '老会员每日首存活动9'){
             var node = cc.instantiate(this.Lhysc_9);
-            node.getComponent('payLhysc').setId(id,'老会员每日首存活动9');
+            node.getComponent('payLhysc').setId(id,'老会员每日首存活动9',info);
         }else  if(name == '老用户包赔活动9'){
             var node = cc.instantiate(this.Lhybp_9);
             node.getComponent('payLyhbp').setId(id,'老用户包赔活动9');
@@ -771,8 +776,6 @@ export default class NewClass extends cc.Component {
         }else if(name == '每日任务9'){
             var node = cc.instantiate(this.DailyActivity_8);
             node.getComponent('payDailyActivity').setIdInfo(id,info);
-        }else  if(name == '四季发财红包雨9'){
-            var node = cc.instantiate(this.RedRain_8);
         }else  if(name == '幸运轮盘9'){
             var node = cc.instantiate(this.WheelOfFortune_8);
             node.getComponent('payWheelOfFortune').setIdInfo(id,info)
@@ -818,6 +821,8 @@ export default class NewClass extends cc.Component {
         }else  if(name == '百万扶持奖励9'){
             var node = cc.instantiate(this.Bwfcjl_9);
             node.getComponent('payBwfcjl').setIdInfo(id,info)
+        }else  if(name == '四季发财红包雨9'){
+            var node = cc.instantiate(this.RedRain_9);
         }
         content.addChild(node);
     }
