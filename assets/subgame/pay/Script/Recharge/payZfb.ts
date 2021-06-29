@@ -102,22 +102,16 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`recharge/flag_alipay`,this.icon,100,100)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装支付宝')}。`
             this.app.loadIcon(`recharge/subbg_alipay`,this.shuiyin,368,270)
-            if(p_id == 8 || p_id == 10){
+            if(p_id == 8 || p_id == 10|| p_id == 9){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('支付宝')
-            }else if( p_id == 9 ){
-                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('支付宝');
-                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%')}`;
             }else{
                 this.app.loadIcon(`${src}/font/flagname_alipay`,this.iconFont,126,45)
             }
         }else if(this.channel == 'union_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8|| p_id == 10){
+            if(p_id == 8|| p_id == 10 || p_id == 9){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('银联扫码')
-            }else if( p_id == 9 ){
-                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('银联扫码');
-                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%')}`;
             }else{
                 this.app.loadIcon(`${src}/font/flagname_scan_code_unionpay`,this.iconFont,168,45)
             }
@@ -125,22 +119,16 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`recharge/flag_wxpay`,this.icon,100,100)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装微信')}。`;
             this.app.loadIcon(`recharge/subbg_wxpay`,this.shuiyin,368,270)
-            if(p_id == 8|| p_id == 10){
+            if(p_id == 8|| p_id == 10|| p_id == 9){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('微信')
-            }else if( p_id == 9 ){
-                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('微信');
-                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%')}`;
             }else{
                 this.app.loadIcon(`${src}/font/flagname_wxpay`,this.iconFont,84,45)
             }
         }else if(this.channel == 'bankcard_transfer'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8 || p_id == 10){
+            if(p_id == 8 || p_id == 10|| p_id == 9){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('转账到银行卡')
-            }else if( p_id == 9 ){
-                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('转账到银行卡');
-                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%')}`;
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay3`,this.iconFont,252,45) 
             }
@@ -148,11 +136,8 @@ export default class NewClass extends cc.Component {
         }else if(this.channel == 'quick_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8 || p_id == 10){
+            if(p_id == 8 || p_id == 10|| p_id == 9){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('快捷支付')
-            }else if( p_id == 9 ){
-                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('快捷支付');
-                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%')}`;
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay2`,this.iconFont,168,45)
             }
@@ -160,11 +145,8 @@ export default class NewClass extends cc.Component {
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8|| p_id == 10){
+            if(p_id == 8|| p_id == 10|| p_id == 9){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('网银充值')
-            }else if( p_id == 9 ){
-                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('网银充值');
-                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%')}`;
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay`,this.iconFont,168,45)
             }
@@ -173,11 +155,8 @@ export default class NewClass extends cc.Component {
             
             this.app.loadIcon(`recharge/icon_im`,this.icon,100,100)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8|| p_id == 10){
+            if(p_id == 8|| p_id == 10|| p_id == 9){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('IM充值')
-            }else if( p_id == 9 ){
-                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('IM充值');
-                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%')}`;
             }else{
                 if(p_id == 2){
                     this.app.loadIcon(`${src}/font/flagname_rgpay`,this.iconFont,136,42)
@@ -190,11 +169,8 @@ export default class NewClass extends cc.Component {
             
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.默认链类型为ERC20')}。2.${Language_pay.Lg.ChangeByText(`参考汇率：1USDT`)} ≈ ${this.conf_val}${Language_pay.Lg.ChangeByText(`金币`)}。`;
             this.app.loadIcon(`recharge/subbg_usdt`,this.shuiyin,368,270)
-            if(p_id == 8|| p_id == 10){
+            if(p_id == 8|| p_id == 10|| p_id == 9){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('USDT充值')
-            }else if( p_id == 9 ){
-                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('USDT充值');
-                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示:充值比例1元=1金币充值优惠:100-30000,赠送2%')}`;
             }else{
                 this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont,200,45)
             }

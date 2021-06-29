@@ -34,6 +34,8 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "未完成"); 
                 }else if(this.index == 3){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "已撤销"); 
+                    //隐藏已撤销选项
+                    this.node.removeFromParent()
                 }
             }
         }
@@ -51,9 +53,8 @@ export default class NewClass extends cc.Component {
             }else if(this.index == 3){
                 this.app.loadIcon(`${src}/menu/menu_revoke_2`,this.normalIcon,207,44)
                 this.app.loadIcon(`${src}/menu/menu_revoke_1`,this.currentIcon,249,86);
-                if(this.app.UrlData.package_id == 10){
-                    this.node.removeFromParent()
-                }
+                //隐藏已撤销选项
+                this.node.removeFromParent()
             }
         }
     }
