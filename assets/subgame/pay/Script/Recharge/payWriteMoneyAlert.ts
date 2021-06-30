@@ -133,6 +133,11 @@ export default class NewClass extends cc.Component {
             toutpd.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("输入金额")
             this.app.loadIconLg(`${src}/font/queding`,surebtn1.children[0])
             this.app.loadIconLg(`${src}/font/txt_czje`,txt_czje2)
+        }else if (this.app.UrlData.package_id == 9){
+            btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
+            this.app.loadIconLg(`${src}/font/title_srje`,toutpd)
+            this.app.loadIconLg(`${src}/font/txt_czje`,txt_czje2)
+            this.app.loadIconLg(`${src}/font/queding`,surebtn1.children[0])
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/surebtn1`,surebtn1)
