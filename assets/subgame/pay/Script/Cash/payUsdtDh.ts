@@ -50,7 +50,7 @@ export default class NewClass extends cc.Component {
     info :any= {}
     itemID = ''
     UsdtData :any= []
-    conf_val = 0 // 汇率
+    conf_val = 6 // 汇率
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();

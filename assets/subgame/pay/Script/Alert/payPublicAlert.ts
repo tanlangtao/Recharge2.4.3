@@ -19,7 +19,7 @@ export default class NewClass extends cc.Component {
         var self = this;
         this.timer = setTimeout(() => {
             this.node.destroy()
-        }, 1500)
+        }, 3000)
     }
 
     removeSelf(){

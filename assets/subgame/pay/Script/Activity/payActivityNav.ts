@@ -217,6 +217,15 @@ export default class NewClass extends cc.Component {
     
     @property(cc.Prefab)
     RedRain_9 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Xyhschd_11 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Lhysc_11 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    RedRain_11 :cc.Prefab = null;
     
     @property
     app = null;
@@ -463,6 +472,26 @@ export default class NewClass extends cc.Component {
         }else  if(data.name == '奇趣分分彩包赔10'){
             this.app.loadIcon(`${src}/menu/activity/bpqq1`,this.normalIcon,182,30)
             this.app.loadIcon(`${src}/menu/activity/bpqq2`,this.currentIcon,174,30);
+        }else  if(data.name == '新用户首存活动11'){
+            this.app.loadIcon(`${src}/menu/activity/btn_db_xyhsccj2`,this.normalIcon,241,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_db_xyhsccj1`,this.currentIcon,241,86);
+        }else  if(data.name == '老会员每日首存活动11'){
+            this.app.loadIcon(`${src}/menu/activity/btn_lhyschd2`,this.normalIcon,241,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_lhyschd1`,this.currentIcon,241,86);
+        }else if(data.name == '每日签到11'){
+            this.app.loadIcon(`${src}/menu/activity/btn_qd2`,this.normalIcon,241,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_qd1`,this.currentIcon,241,86);
+        }
+        else if( data.name == '每日任务11'){
+            this.app.loadIcon(`${src}/menu/activity/btn_dailyMission2`,this.normalIcon,241,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_dailyMission1`,this.currentIcon,241,86);
+        }
+        else if(data.name == '四季发财红包雨11'){
+            this.app.loadIcon(`${src}/menu/activity/btn_redRain2`,this.normalIcon,241,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_redRain1`,this.currentIcon,241,86);
+        }else if(data.name == '幸运轮盘11'){
+            this.app.loadIcon(`${src}/menu/activity/btn_xyzp2`,this.normalIcon,241,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_xyzp1`,this.currentIcon,241,86);
         }
         
         //响应每日签到2，显示红点
@@ -823,6 +852,29 @@ export default class NewClass extends cc.Component {
             node.getComponent('payBwfcjl').setIdInfo(id,info)
         }else  if(name == '四季发财红包雨9'){
             var node = cc.instantiate(this.RedRain_9);
+        }else  if(name == '新用户首存活动11'){
+            var node = cc.instantiate(this.Xyhschd_11);
+            node.getComponent('payXyhschd').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/dm_title_xyhsc`,this.title);
+        }else  if(name == '老会员每日首存活动11'){
+            var node = cc.instantiate(this.Lhysc_11);
+            node.getComponent('payLhysc').setId(id,'老会员每日首存活动11',info);
+            this.app.loadTitle(`${src}/title/dm_title_lhyschd`,this.title);
+        }else if(name == '每日任务11'){
+            var node = cc.instantiate(this.DailyActivity);
+            node.getComponent('payDailyActivity').setIdInfo(id,info);
+            this.app.loadTitle(`${src}/title/dm_title`,this.title);
+        }else  if(name == '每日签到11'){
+            var node = cc.instantiate(this.DailySignTwo);
+            node.getComponent('payDailySign').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/mrqd`,this.title);
+        }else  if(name == '幸运轮盘11'){
+            var node = cc.instantiate(this.WheelOfFortune);
+            node.getComponent('payWheelOfFortune').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/xingyunlunpan`,this.title);
+        }else  if(name == '四季发财红包雨11'){
+            var node = cc.instantiate(this.RedRain_11);
+            this.app.loadTitle(`${src}/title/db_redrain`,this.title);
         }
         content.addChild(node);
     }

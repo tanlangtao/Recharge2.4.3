@@ -18,6 +18,8 @@ export default class NewClass extends cc.Component {
 
         if(this.app.UrlData.package_id == 8 ||this.app.UrlData.package_id == 9 ){
             this.app.loadIconLg(`${src}/activeBigImage/hongbaoyu`,bg.getChildByName('hongbaoyu'))
+        }else if(this.app.UrlData.package_id == 11 ){
+            this.app.loadIconLg(`${src}/activeBigImage/hongbaoyu11`,bg)
         }else{
             this.app.loadIconLg(`${src}/activeBigImage/hongbaoyu`,bg)
             this.app.loadIconLg(`${src}/activeSprite/jifen`,jifen)

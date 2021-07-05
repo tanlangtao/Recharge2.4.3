@@ -186,8 +186,13 @@ export default class NewClass extends cc.Component {
         let rule = cc.find("Canvas/Activity/Content/Xyhschd/bg/rule").getComponent(cc.Label)
         rule.string = `1. 新注册玩家完成手机以及银行卡绑定后前往当前活动进行申请， 申请开放时间为每天${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}。所有未进行申请的玩家无法领取活动彩金。\n2.平台中的新用户活动只能参加一个，申请后即视为参加此活动。\n3. 玩家必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的${this.info.flow_rate}倍流水才能申请兑换。\n4. 游戏规则：仅参加以下游戏《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《多福多财》《疯狂旋涡》《CQ9电子游戏》《PT电子游戏》《JDB电子游戏》《PG电子游戏》《AG电子游戏》。\n5. 同一用户仅限领取一次，恶意套利者将封号处理。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。`
         let applyBtn= cc.find('Canvas/Activity/Content/Xyhschd/bg/applyBtn')
-        this.app.loadIconLg(`${src}/activeSprite/btn_apply`,applyBtn)
-        this.app.loadIconLg(`${src}/activeSprite/btn_done`,applyBtn.getChildByName("btn_done"))
+        if(this.app.UrlData.package_id == 11){
+            this.app.loadIconLg(`${src}/activeSprite/btn_apply2`,applyBtn)
+            this.app.loadIconLg(`${src}/activeSprite/btn_done2`,applyBtn.getChildByName("btn_done"))
+        }else{
+            this.app.loadIconLg(`${src}/activeSprite/btn_apply`,applyBtn)
+            this.app.loadIconLg(`${src}/activeSprite/btn_done`,applyBtn.getChildByName("btn_done"))
+        }
         
         let label= cc.find('Canvas/Activity/Content/Xyhschd/bg/label1').getComponent(cc.Label)
         label.string = `${Language_pay.Lg.ChangeByText("申请开放时间")}\n${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}`
