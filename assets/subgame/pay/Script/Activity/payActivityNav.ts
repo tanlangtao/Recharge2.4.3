@@ -227,6 +227,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     RedRain_11 :cc.Prefab = null;
     
+    @property(cc.Prefab)
+    Bytghl_11 :cc.Prefab = null;
+    
     @property
     app = null;
     name = null;
@@ -492,6 +495,9 @@ export default class NewClass extends cc.Component {
         }else if(data.name == '幸运轮盘11'){
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp2`,this.normalIcon,241,86)
             this.app.loadIcon(`${src}/menu/activity/btn_xyzp1`,this.currentIcon,241,86);
+        }else if(data.name == '捕鱼通关豪礼11'){
+            this.app.loadIcon(`${src}/menu/activity/btn_bytghl2`,this.normalIcon,241,86)
+            this.app.loadIcon(`${src}/menu/activity/btn_bytghl1`,this.currentIcon,241,86);
         }
         
         //响应每日签到2，显示红点
@@ -875,6 +881,10 @@ export default class NewClass extends cc.Component {
         }else  if(name == '四季发财红包雨11'){
             var node = cc.instantiate(this.RedRain_11);
             this.app.loadTitle(`${src}/title/db_redrain`,this.title);
+        }else  if(name == '捕鱼通关豪礼11'){
+            var node = cc.instantiate(this.Bytghl_11);
+            node.getComponent('payBytghl').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/dm_title_bytghl`,this.title);
         }
         content.addChild(node);
     }
