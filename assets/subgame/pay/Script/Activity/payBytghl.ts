@@ -81,7 +81,7 @@ export default class NewClass extends cc.Component {
     receiveFishPassGold(){
         var url = `${this.app.UrlData.host}/api/activity/receiveFishPassGold`;
         let self = this;
-        let dataStr = `user_id=${this.app.UrlData.user_id}&index=${this.targeIndex}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=${this.login_ip ? this.login_ip:"127.0.0.1"}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.app.deviceID}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&index=${this.targeIndex}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=${this.login_ip ? this.login_ip:this.app.gHandler.gameGlobal.regin_ip}&regin_ip=${this.app.gHandler.gameGlobal.regin_ip}&device_id=${this.app.gHandler.app.deviceID}`
         // let dataStr = `user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&activity_id=${this.activity_id}&login_ip=127.0.0.1&regin_ip=127.0.0.1&device_id=123456789`
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
