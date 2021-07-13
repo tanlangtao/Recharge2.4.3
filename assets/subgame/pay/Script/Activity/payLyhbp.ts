@@ -9,7 +9,13 @@ export default class NewClass extends cc.Component {
     app = null
     login_ip = ''
 
-    info = [250,500,1000,2500]
+    info = {
+        start:10,
+        end:20,
+        range:[
+            250,500,1000,2500
+        ]
+    }
     activity_id = 0
     FristPayAmount :any={}
     setId(id){
@@ -26,9 +32,10 @@ export default class NewClass extends cc.Component {
         }
         this.setLanguageResource()
         if(this.app.UrlData.package_id == 8){
-            this.info = [200,300]
+            this.info.range = [200,300]
         }else if(this.app.UrlData.package_id == 9){
-            this.info = [200,300]
+            this.info.range = [200,300]
+            this.ApplyBtnInit()
         }
         this.getLocal()
     }
@@ -55,7 +62,7 @@ export default class NewClass extends cc.Component {
         })
         if(this.FristPayAmount.is_received == 0 && this.FristPayAmount.frist_pay_amount >= this.info[0] ){
             let btnIndex = 0;
-            this.info.forEach((item,index)=>{
+            this.info.range.forEach((item,index)=>{
                if(this.FristPayAmount.frist_pay_amount >= item) {
                    btnIndex = index
                }
@@ -68,7 +75,7 @@ export default class NewClass extends cc.Component {
             })
 
             let btnIndex = 0;
-            this.info.forEach((item,index)=>{
+            this.info.range.forEach((item,index)=>{
                if(this.FristPayAmount.frist_pay_amount >= item) {
                    btnIndex = index
                }
@@ -86,8 +93,8 @@ export default class NewClass extends cc.Component {
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 self.app.showAlert(Language_pay.Lg.ChangeByText("申请成功!"))
-
-                cc.sys.localStorage.setItem(`isApplyReimburse_${this.app.UrlData.user_id}`,true)
+                cc.sys.localStorage.setItem(`ApplyLyhBp_${this.app.UrlData.user_id}`,true)
+                this.ApplyBtnInit()
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -128,6 +135,27 @@ export default class NewClass extends cc.Component {
             this.renderBtn()
         }else{
             this.getFristPayAmount()
+        }
+    }
+    getLocalApply(){
+        let local = cc.sys.localStorage.getItem(`ApplyLyhBp_${this.app.UrlData.user_id}`)
+        if(local){
+            return false
+        }else{
+            return true
+        }
+    }
+    ApplyBtnInit(){
+        let btn= cc.find('Canvas/Activity/Content/Lyhbp/applyBtn').getComponent(cc.Button)
+        let h = new Date().getHours()
+        if(this.getLocalApply()){
+            if(h < this.info.start || h >= this.info.end){
+                btn.interactable = false
+            }else{
+                btn.interactable = true
+            }
+        }else{
+            btn.interactable = false
         }
     }
     onClick(){
@@ -172,7 +200,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/activeSprite/event_xs_lyh_tip`,event_xs_lyh_tip)
             let title4= cc.find('Canvas/Activity/Content/Lyhbp/group1/title4').getComponent(cc.Label)
             title4.string = Language_pay.Lg.ChangeByText("限制最高注")
-            label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请兑换， 恶意套利者将封\n号处理。\n6.本活动最终解释权归新贵所有。\n</color>")
+            label.string = Language_pay.Lg.ChangeByText(`<color=#E8C999>1. 老会员每周限制参加一次，绑定手机以及银行卡后前往当前活动进行申请，申请时间：每周五/周六\n ${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}。\n2. 参加活动的会员，只能进行指定游戏《财神到》《捕鱼·聚宝盆》游戏，进行其他游戏便视为放弃此活动。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可前往本活动界面进行\n领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不能赔付）。\n5. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金无需流水限制可\n直接申请兑换。\n6.平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权\n根据活动情况随时调整活动内容。\n</color>`)
         }else{
             label.string = Language_pay.Lg.ChangeByText("<color=#E8C999>1. 老会员每周限制参加一次（星期一到星期六），联系上级进行申请，申请时间：每天12:00-21:30。\n申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员，只能进行指定游戏</c><color=#FF0000>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》</c>\n5款游戏， 进行其他游戏便视为放弃此活动。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往本活动界面领取活动彩金。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不能赔付）。\n5. 包赔金在每周日23:59:59未进行领取则视为自动放弃。\n6. 同IP同设备多账号，仅限1个账号享受包赔活动，包赔金无需流水可直接申请兑换， 恶意套利者将封号处理。\n7.本活动最终解释权归德比所有。</color>")
         }

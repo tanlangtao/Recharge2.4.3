@@ -56,6 +56,12 @@ export default class NewClass extends cc.Component {
         label12.string = Language_pay.Lg.ChangeByText('秋雨')
         label13.string = Language_pay.Lg.ChangeByText('冬雨')
         label14.string = Language_pay.Lg.ChangeByText('一倍流水')
-        label15.string = Language_pay.Lg.ChangeByText("1.每场红包雨下雨时间前达成领取条件, 即可参加这一场红包雨。\n2.每场雨可随机获得最小红包至财神红包数额区间的随机数额红包。\n3.当日存款、流水可累计, 所获红包一倍流水即可兑换。")
+        if(this.app.UrlData.package_id==11){
+            label14.string = Language_pay.Lg.ChangeByText('3倍流水')
+            label15.string = Language_pay.Lg.ChangeByText("1.每场红包雨下雨时间前达成领取条件, 即可参加这一场红包雨。\n2.每场雨可随机获得最小红包至财神红包数额区间的随机数额红包。\n3.当日存款、流水可累计, 所获红包三倍流水即可兑换。")
+        }else{
+            label15.string = Language_pay.Lg.ChangeByText("1.每场红包雨下雨时间前达成领取条件, 即可参加这一场红包雨。\n2.每场雨可随机获得最小红包至财神红包数额区间的随机数额红包。\n3.当日存款、流水可累计, 所获红包一倍流水即可兑换。")
+        }
+        
     }   
 }

@@ -94,8 +94,8 @@ export default class NewClass extends cc.Component {
             }
         });
         // this.arr.push({
-        //     name:"河内连赢活动10",
-        //     info:"",
+        //     name:"老用户包赔活动9",
+        //     info:"[{\"bonus\": 28, \"flow_rate\": 8, \"recharge_amount\": 200}, {\"bonus\": 88, \"flow_rate\": 8, \"recharge_amount\": 500}, {\"bonus\": 128, \"flow_rate\": 8, \"recharge_amount\": 1000}, {\"bonus\": 168, \"flow_rate\": 8, \"recharge_amount\": 3000}, {\"bonus\": 288, \"flow_rate\": 8, \"recharge_amount\": 5000}, {\"bonus\": 388, \"flow_rate\": 8, \"recharge_amount\": 10000}]",
         //     id:10
         // })
     }
