@@ -128,7 +128,7 @@ export default class NewClass extends cc.Component {
             // host:"https://pay1.whjfxly66.com", //online
             proxy_user_id:gHandler.gameGlobal.pay.proxy_user_id,
             proxy_name:gHandler.gameGlobal.pay.proxy_name,
-            // package_id:11,
+            // package_id:10,
             package_id:gHandler.gameGlobal.pay.package_id,
             imHost:gHandler.gameGlobal.im_host
         };

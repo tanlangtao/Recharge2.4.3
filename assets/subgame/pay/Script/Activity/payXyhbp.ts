@@ -10,11 +10,44 @@ export default class NewClass extends cc.Component {
     app = null
     login_ip = ''
 
-    info = [200,300,500,1000,2000]
+    info = {
+        conf:[  
+            {
+                first_pay_min:200,
+                gold:0
+            },
+            {first_pay_min:300},
+            {first_pay_min:500},
+            {first_pay_min:1000},
+            {first_pay_min:2000},
+        ],
+        start:0,
+        end:0,
+        flow_rate:0,
+        game_id:[],
+        recharge_min_amount:0,
+        start_date:"",
+        withdraw_conf:{
+            condition:[
+                {
+                    max_withdraw_amount:0,
+                    recharge_amount:0,
+                },
+                {
+                    max_withdraw_amount:0,
+                    recharge_amount:0,
+                }
+            ],
+            is_open:1
+        }
+    }
     activity_id = 0
     FristPayAmount :any={}
-    setId(id){
+    setId(id,info :any= null){
         this.activity_id = id
+        if(info != null){
+            this.info = info
+        }
     }
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -26,10 +59,24 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
         if(this.app.UrlData.package_id == 8){
-            this.info = [200,300]
+            this.info.conf = [  
+                {first_pay_min:200},
+                {first_pay_min:300},
+            ]
         }
         this.getLocal()
         this.setLanguageResource()
+        this.infoInit()
+    }
+    infoInit(){
+        let group1 = cc.find("Canvas/Activity/Content/Xyhbp/bg/Layout/group1")
+        let group2 = cc.find("Canvas/Activity/Content/Xyhbp/bg/Layout/group2")
+        group1.children[0].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[0].recharge_amount}`
+        group1.children[1].getComponent(cc.Label).string = `${this.info.conf[0].gold}`
+        group1.children[2].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[0].max_withdraw_amount}`
+        group2.children[0].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[1].recharge_amount}`
+        group2.children[1].getComponent(cc.Label).string = `${this.info.conf[1].gold}`
+        group2.children[2].getComponent(cc.Label).string = `${this.info.withdraw_conf.condition[1].max_withdraw_amount}`
     }
     getFristPayAmount(){
         var url = `${this.app.UrlData.host}/api/activity/getFristPayAmount?user_id=${this.app.UrlData.user_id}&activity_id=${this.activity_id}`;
@@ -52,10 +99,10 @@ export default class NewClass extends cc.Component {
         this.btnArr.forEach((e)=>{
             e.active = false
         })
-        if(this.FristPayAmount.is_received == 0 && this.FristPayAmount.frist_pay_amount >= this.info[0] ){
+        if(this.FristPayAmount.is_received == 0 && this.FristPayAmount.frist_pay_amount >= this.info.conf[0].first_pay_min ){
             let btnIndex = 0;
-            this.info.forEach((item,index)=>{
-               if(index < this.btnArr.length &&this.FristPayAmount.frist_pay_amount >= item) {
+            this.info.conf.forEach((item,index)=>{
+               if(index < this.btnArr.length &&this.FristPayAmount.frist_pay_amount >= item.first_pay_min) {
                    btnIndex = index
                }
            })
@@ -67,8 +114,8 @@ export default class NewClass extends cc.Component {
             })
 
             let btnIndex = 0;
-            this.info.forEach((item,index)=>{
-               if(this.FristPayAmount.frist_pay_amount >= item) {
+            this.info.conf.forEach((item,index)=>{
+               if(this.FristPayAmount.frist_pay_amount >= item.first_pay_min) {
                    btnIndex = index
                }
            })
@@ -138,19 +185,15 @@ export default class NewClass extends cc.Component {
      //设置语言相关的资源和字
      setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
-        let bg= cc.find('Canvas/Activity/Content/Xyhbp/bg')
-        let event4_xzcyh_frame2= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame')
-        let event4_xzcyh_content= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content')
-        let event4_xzcyh_text= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/event4_xzcyh_text')
         
-        this.app.loadIconLg(`${src}/activeBigImage/event4_xzcyh_bg`,bg)
-        
-        this.btnArr.forEach(e=>{
-            this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('btn_linqu'))
-            this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
-        })
-        let label= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/ScrollView/view/content/label').getComponent(cc.RichText)
         if(this.app.UrlData.package_id == 8) {
+            this.btnArr.forEach(e=>{
+                this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('btn_linqu'))
+                this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
+            })
+            let bg= cc.find('Canvas/Activity/Content/Xyhbp/bg')
+            let event4_xzcyh_text= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/event4_xzcyh_text')
+            this.app.loadIconLg(`${src}/activeBigImage/event4_xzcyh_bg`,bg)
             let title1 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title1').getComponent(cc.Label)
             let title2 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title2').getComponent(cc.Label)
             let title3 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title3').getComponent(cc.Label)
@@ -163,6 +206,13 @@ export default class NewClass extends cc.Component {
             event4_xzcyh_text.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('包赔专线盛世开启，申请时间： 12:00-20:00')
             tishi.string = Language_pay.Lg.ChangeByText("1. 新会员注册好账号， 需先绑定好手机号码与银行卡后联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领取则视为自动放弃。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6. 本活动最终解释权归新盛游戏所有。")
         }else if(this.app.UrlData.package_id == 9) {
+            this.btnArr.forEach(e=>{
+                this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('btn_linqu'))
+                this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
+            })
+            let bg= cc.find('Canvas/Activity/Content/Xyhbp/bg')
+            let event4_xzcyh_text= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/event4_xzcyh_text')
+            this.app.loadIconLg(`${src}/activeBigImage/event4_xzcyh_bg`,bg)
             let title1 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title1').getComponent(cc.Label)
             let title2 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title2').getComponent(cc.Label)
             let title3 = cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame/title3').getComponent(cc.Label)
@@ -174,7 +224,29 @@ export default class NewClass extends cc.Component {
             title4.string = Language_pay.Lg.ChangeByText('限制最高注')
             this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_text`,event4_xzcyh_text)
             tishi.string = Language_pay.Lg.ChangeByText("1. 新会员注册好账号， 需先绑定好手机号码与银行卡后联系上级进行申请，申请后即视为参加此活动，充值本金最高兑换200%，赔付彩金无兑换上限。\n2. 参加活动的会员只能进行指定游戏《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》。\n3. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领取则视为自动放弃。\n4. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n5. 同IP同设备多账号，仅限1个账号享受包赔活动资格，包赔金无需流水可直接申请，恶意套利者将封号处理。\n6. 本活动最终解释权归新贵游戏所有。")
+        }else if(this.app.UrlData.package_id == 10){
+            this.btnArr.forEach(e=>{
+                this.app.loadIconLg(`${src}/activeSprite/btn_lq`,e)
+                this.app.loadIconLg(`${src}/activeSprite/btn_ylq`,e.getChildByName('bg2'))
+            })
+            let title = cc.find('Canvas/Activity/Content/Xyhbp/bg/Layout/title')
+            let rule= cc.find('Canvas/Activity/Content/Xyhbp/bg/Content/ScrollView/view/content/rule').getComponent(cc.RichText)
+            title.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('首充金额')
+            title.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('包赔金额')
+            title.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('最高兑换金额')
+            title.children[3].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('限制最高注')
+            rule.string = Language_pay.Lg.ChangeByText(`<color=#FFFFFF>1. 新用户注册好账号，绑定手机号码与银行卡进行申请，名额有限，先到先得，<color=#ff0000>活动开放时间等待官方通知</c>\n2. 平台中的新玩家活动只能参加其中一个，申请后即视为参加此活动。\n3. 参加活动的玩家只能进行<color=#F3DC5B>《财神到》《捕鱼·海王》《捕鱼·聚宝盆》《水果机》《AGA电子游戏》</c>游戏，进行其他游戏视为放弃\n活动，当日23:59:59未进行领取视为自动放弃。\n4. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时前往app端《专线包赔活动》界面领取。\n5. 赢金到规定金额内不兑换视为放弃包赔资格（输完不赔付）。\n6. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金无需流水限制可直接申请兑换。\n7. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>`)
         }else{
+            this.btnArr.forEach(e=>{
+                this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('btn_linqu'))
+                this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))
+            })
+            let bg= cc.find('Canvas/Activity/Content/Xyhbp/bg')
+            let event4_xzcyh_frame2= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_frame')
+            let event4_xzcyh_content= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content')
+            let event4_xzcyh_text= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/event4_xzcyh_text')
+            this.app.loadIconLg(`${src}/activeBigImage/event4_xzcyh_bg`,bg)
+            let label= cc.find('Canvas/Activity/Content/Xyhbp/bg/event4_xzcyh_content/ScrollView/view/content/label').getComponent(cc.RichText)
             this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_frame2`,event4_xzcyh_frame2)
             this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_content`,event4_xzcyh_content)
             this.app.loadIconLg(`${src}/activeSprite/event4_xzcyh_text`,event4_xzcyh_text)

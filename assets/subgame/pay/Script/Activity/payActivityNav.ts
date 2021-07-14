@@ -229,6 +229,9 @@ export default class NewClass extends cc.Component {
     
     @property(cc.Prefab)
     Bytghl_11 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Xyhbp_10 :cc.Prefab = null;
     
     @property
     app = null;
@@ -498,7 +501,11 @@ export default class NewClass extends cc.Component {
         }else if(data.name == '捕鱼通关豪礼11'){
             this.app.loadIcon(`${src}/menu/activity/btn_bytghl2`,this.normalIcon,241,86)
             this.app.loadIcon(`${src}/menu/activity/btn_bytghl1`,this.currentIcon,241,86);
+        }else  if(data.name == '专线包赔活动10'){
+            this.app.loadIcon(`${src}/menu/activity/zsbp1`,this.normalIcon,182,30)
+            this.app.loadIcon(`${src}/menu/activity/zsbp2`,this.currentIcon,174,30);
         }
+        
         
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'||this.name == '每日签到9'){
@@ -885,7 +892,11 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.Bytghl_11);
             node.getComponent('payBytghl').setIdInfo(id,info)
             this.app.loadTitle(`${src}/title/dm_title_bytghl`,this.title);
+        }else  if(name == '专线包赔活动10'){
+            var node = cc.instantiate(this.Xyhbp_10);
+            node.getComponent('payXyhbp').setId(id,info)
         }
+        
         content.addChild(node);
     }
     
