@@ -838,7 +838,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('payXyhZyBp').setIdInfo(id,info)
         }else  if(name == '新用户首存活动10'){
             var node = cc.instantiate(this.XyhSc_10);
-            node.getComponent('payFirstDepostGold').setIdInfo(id,info)
+            node.getComponent('payXyhscqdsq').setIdInfo(id,info)
         }else  if(name == '老用户首存活动10'){
             var node = cc.instantiate(this.LyhSc_10);
             node.getComponent('payLhysc').setId(id,"",info)
