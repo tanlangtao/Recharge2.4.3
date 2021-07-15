@@ -15,7 +15,17 @@ export default class NewClass extends cc.Component {
 
     app = null
     PayAmountByDay = null
-    info = [100,500,1000,2000,3000,5000,10000]
+    info = {
+        range:[
+            {recharge_amount:100},
+            {recharge_amount:500},
+            {recharge_amount:1000},
+            {recharge_amount:2000},
+            {recharge_amount:3000},
+            {recharge_amount:5000},
+            {recharge_amount:10000},
+        ]
+    }
     activity_id = 0
     login_ip = ""
     activeName = ''
@@ -33,18 +43,17 @@ export default class NewClass extends cc.Component {
         }
         this.setLanguageResource()
     }
-    setId(id,activeName = '',info = []){
+    setId(id,activeName = '',info = {range:[]}){
         this.activity_id = id
         this.activeName = activeName
         console.log(info)
-        if(info.length>=1){
-            this.info = []
-            info.forEach((e,index)=>{
+        this.info = info
+        if(info.range.length>=1){
+            info.range.forEach((e,index)=>{
                 if(index<this.group1.children.length){
                     this.group1.children[index].getComponent(cc.Label).string = `${e.recharge_amount}`
                     this.group2.children[index].getComponent(cc.Label).string = `${e.bonus}`
                     this.flow_rate = e.flow_rate
-                    this.info.push(e.recharge_amount)
                 }
             })
         }
@@ -95,10 +104,11 @@ export default class NewClass extends cc.Component {
         this.btnGroup.children.forEach((e)=>{
             e.active = false
         })
-        if(this.PayAmountByDay.is_received == 0 && this.PayAmountByDay.pay_amount_byday >= this.info[0] ){
+        
+        if(this.PayAmountByDay.is_received == 0 && this.PayAmountByDay.pay_amount_byday >= this.info.range[0].recharge_amount ){
             let btnIndex = 0;
-            this.info.forEach((item,index)=>{
-               if(index < this.btnGroup.children.length &&this.PayAmountByDay.pay_amount_byday >= item) {
+            this.info.range.forEach((item,index)=>{
+               if(index < this.btnGroup.children.length &&this.PayAmountByDay.pay_amount_byday >= item.recharge_amount) {
                    btnIndex = index
                }
            })
@@ -110,8 +120,8 @@ export default class NewClass extends cc.Component {
             })
 
             let btnIndex = 0;
-            this.info.forEach((item,index)=>{
-               if(this.PayAmountByDay.pay_amount_byday >= item) {
+            this.info.range.forEach((item,index)=>{
+               if(this.PayAmountByDay.pay_amount_byday >= item.recharge_amount) {
                    btnIndex = index
                }
            })

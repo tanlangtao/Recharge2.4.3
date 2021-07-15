@@ -19,7 +19,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     btnArr: cc.Node[] = [];
 
-    info = []
+    info = {
+        range:[]
+    }
     app = null
     activity_id = 13
     login_ip = ''
@@ -27,9 +29,11 @@ export default class NewClass extends cc.Component {
     activeName = ''
     setIdInfo(id,info,activeName=''){
         if(JSON.stringify(info) == "{}" || JSON.stringify(info) == ""){
-            info = []
+            info = {
+                range:[]
+            }
         }
-        info.forEach((item,index) => {
+        info.range.forEach((item,index) => {
             this.recharge_amountLabel[index].string = `${Language_pay.Lg.ChangeByText('首存')}${item.recharge_amount}`
             this.bonusLabel[index].string = item.bonus 
             this.recharge_amountLabelTest[index].string = `${item.recharge_amount}+`
@@ -57,9 +61,9 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading()
             if(response.status == 0){
                 console.log(response)
-                if(response.data.is_received == 0 && response.data.frist_pay_amount >= this.info[0].recharge_amount ){
+                if(response.data.is_received == 0 && response.data.frist_pay_amount >= this.info.range[0].recharge_amount ){
                     let btnIndex = 0;
-                    this.info.forEach((item,index)=>{
+                    this.info.range.forEach((item,index)=>{
                        if(response.data.frist_pay_amount >= item.recharge_amount) {
                            btnIndex = index
                        }
@@ -72,7 +76,7 @@ export default class NewClass extends cc.Component {
                     })
 
                     let btnIndex = 0;
-                    this.info.forEach((item,index)=>{
+                    this.info.range.forEach((item,index)=>{
                        if(response.data.frist_pay_amount >= item.recharge_amount) {
                            btnIndex = index
                        }
