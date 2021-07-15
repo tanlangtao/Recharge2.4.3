@@ -803,7 +803,7 @@ export default class NewClass extends cc.Component {
             node.getComponent('payLhysc').setId(id,'老会员每日首存活动9',info);
         }else  if(name == '老用户包赔活动9'){
             var node = cc.instantiate(this.Lhybp_9);
-            node.getComponent('payLyhbp').setId(id,'老用户包赔活动9');
+            node.getComponent('payLyhbp').setId(id,'老用户包赔活动9',info);
         }else  if(name == '首充活动-9'){
             var node = cc.instantiate(this.FirstDepostGold_9);
             node.getComponent('payFirstDepostGold').setIdInfo(id,info,'首充活动-9');
