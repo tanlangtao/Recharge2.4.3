@@ -44,17 +44,33 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
         this.infoInit()
-        this.setLanguageResource()
+        if(this.app.UrlData.package_id == 12){
+            this.setRule12()
+        }else{
+            this.setLanguageResource()
+        }
         this.getFristPayAmount()
         this.ApplyBtnInit()
     }
     infoInit(){
-        let group = cc.find("Canvas/Activity/Content/Xyhschd/bg/group")
-        group.children[0].getComponent(cc.Label).string = `${this.info.range[0].recharge_amount}`
-        group.children[1].getComponent(cc.Label).string = `${this.info.range[0].bonus}`
-        group.children[2].getComponent(cc.Label).string = `${this.info.range[1].recharge_amount}`
-        group.children[3].getComponent(cc.Label).string = `${this.info.range[1].bonus}`
-        group.children[4].getComponent(cc.Label).string = `本金1倍+\n彩金${this.info.flow_rate}倍流水`
+        if(this.app.UrlData.package_id == 12){
+            let group1 = cc.find("Canvas/Activity/Content/Xyhschd/bg/group/group1")
+            let group2 = cc.find("Canvas/Activity/Content/Xyhschd/bg/group/group2")
+            let label1 = cc.find("Canvas/Activity/Content/Xyhschd/bg/group/label1")
+            this.info.range.forEach((e,index)=>{
+                if(index>=this.btnArr.length){return}
+                group1.children[index].getComponent(cc.Label).string = `${e.recharge_amount}`
+                group2.children[index].getComponent(cc.Label).string = `${e.bonus}`
+            })
+            label1.getComponent(cc.Label).string =`本金1倍+\n彩金${this.info.flow_rate}倍流水`
+        }else{
+            let group = cc.find("Canvas/Activity/Content/Xyhschd/bg/group")
+            group.children[0].getComponent(cc.Label).string = `${this.info.range[0].recharge_amount}`
+            group.children[1].getComponent(cc.Label).string = `${this.info.range[0].bonus}`
+            group.children[2].getComponent(cc.Label).string = `${this.info.range[1].recharge_amount}`
+            group.children[3].getComponent(cc.Label).string = `${this.info.range[1].bonus}`
+            group.children[4].getComponent(cc.Label).string = `本金1倍+\n彩金${this.info.flow_rate}倍流水`
+        }
     }
     
     getFristPayAmount(){
@@ -193,8 +209,14 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/activeSprite/btn_apply`,applyBtn)
             this.app.loadIconLg(`${src}/activeSprite/btn_done`,applyBtn.getChildByName("btn_done"))
         }
-        
         let label= cc.find('Canvas/Activity/Content/Xyhschd/bg/label1').getComponent(cc.Label)
         label.string = `${Language_pay.Lg.ChangeByText("申请开放时间")}\n${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}`
-    }   
+    } 
+    setRule12(){
+        let label= cc.find('Canvas/Activity/Content/Xyhschd/bg/label1').getComponent(cc.Label)
+        label.string = `${Language_pay.Lg.ChangeByText("申请开放时间")}\n${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}`
+
+        let rule = cc.find("Canvas/Activity/Content/Xyhschd/bg/rule").getComponent(cc.Label)
+        rule.string = `1. 新注册玩家完成手机以及银行卡绑定后前往当前活动进行申请， 申请开放时间为每天${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}。所有未进行申请的玩家无法领取活动彩金。\n2.平台中的新用户活动只能参加一个，申请后即视为参加此活动。\n3. 玩家必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的${this.info.flow_rate}倍流水才能申请兑换。\n4. 游戏规则：仅参加以下游戏《财神到》《水果机》《多福多财》《疯狂旋涡》《捕鱼·聚宝盆》《捕鱼·海王》。\n5. 每一个账号(同一IP，同一设备，同一姓名视为一个账号）仅限领取一次。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；\n同时平台有权根据实际情况，随时调整活动内容。`
+    }
 }

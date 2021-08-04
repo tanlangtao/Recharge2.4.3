@@ -38,10 +38,14 @@ export default class NewClass extends cc.Component {
             console.log("获取登陆ip失败!")
             this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
-        if(this.app.UrlData.package_id == 8|| this.app.UrlData.package_id == 2||this.app.UrlData.package_id == 9||this.app.UrlData.package_id == 10||this.app.UrlData.package_id == 11){
+        if(this.app.UrlData.package_id == 8|| this.app.UrlData.package_id == 2||this.app.UrlData.package_id == 9||this.app.UrlData.package_id == 10||this.app.UrlData.package_id == 11||this.app.UrlData.package_id == 12){
             this.getPayAmountByDay()
         }
-        this.setLanguageResource()
+        if(this.app.UrlData.package_id==12){
+            this.setRule12()
+        }else{
+            this.setLanguageResource()
+        }
     }
     setId(id,activeName = '',info = {range:[]}){
         this.activity_id = id
@@ -177,12 +181,16 @@ export default class NewClass extends cc.Component {
                 label1.string = Language_pay.Lg.ChangeByText("1.本活动需要完成手机和银行卡绑定后才能参与。\n2.游戏规则：仅限参与财神到，水果机，捕鱼·海王，捕鱼·聚宝盆，百人牛牛，红包乱斗，二八杠，21点，奔驰宝马游戏。\n3.单日充值金额累加统计，当日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4.每日23:59:59，活动计算的当日充值金额累加归零。\n5.每一个账号（同一ip，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 本活动最终解释权归德比所有。")
             }else if(this.app.UrlData.package_id == 11){
                 this.app.loadIconLg(`${src}/activeBigImage/event_db_lhysc_content11`,bg)
-                label1.string = Language_pay.Lg.ChangeByText("1.本活动需要完成手机和银行卡绑定后才能参与。\n2.游戏规则：仅限参与财神到，水果机，捕鱼·海王，捕鱼·聚宝盆，百人牛牛，红包乱斗，二八杠，21点，奔驰宝马游戏。\n3.单日充值金额累加统计，当日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4.每日23:59:59，活动计算的当日充值金额累加归零。\n5.每一个账号（同一ip，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 本活动最终解释权归德比所有。")
+                label1.string = Language_pay.Lg.ChangeByText("1.本活动需要完成手机和银行卡绑定后才能参与。\n2.游戏规则：仅限参与财神到，水果机，捕鱼·海王，捕鱼·聚宝盆，百人牛牛，红包乱斗，二八杠，21点，奔驰宝马游戏。\n3.单日充值金额累加统计，当日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4.每日23:59:59，活动计算的当日充值金额累加归零。\n5.每一个账号（同一ip，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 本活动最终解释权归新豪所有。")
             }else{
                 this.app.loadIconLg(`${src}/activeBigImage/event12-3_lhysc_content`,bg)
                 label1.string = Language_pay.Lg.ChangeByText("1.实名限制2及2个以上不符合。\n2.只限游戏（财神到，水果机，捕鱼，百人牛牛，红包乱斗，二八杠，21点，奔驰宝马）。\n3.每个账号一天只限第一次充值（如果遇到无法一笔充值达到有效的档位，可充值两次以上）。\n4.充值成功未下注之前找专线客服专员申请。\n5.每一个账号（同一ip，同一设备，同一姓名）视为一个账号，只能申请一次。\n6. 本活动最终解释权归德比所有。")
             }
         }
         
-    }   
+    } 
+    setRule12(){
+        let label1= cc.find('Canvas/Activity/Content/Lhysc/bg/FootContent/label1').getComponent(cc.Label)
+        label1.string = `1. 本活动需要完成手机和银行卡绑定后才能参与。\n2. 游戏规则：仅参加以下游戏《财神到》《水果机》《多福多财》《疯狂旋涡》《捕鱼·聚宝盆》《捕鱼·海王》。\n3. 单日充值金额累加统计， 单日累计充值金额达到指定档位，即可领取活动规定的相应金币。\n4. 每日23:59:59，活动计算的当日充值金额累加归零。\n5. 每一个账号(同一IP，同一设备，同一姓名视为一个账号）每天只能领取一次。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。`
+    }  
 }

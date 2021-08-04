@@ -18,7 +18,7 @@ export default class NewClass extends cc.Component {
     app= null
     onLoad() {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12 ){
             var node = cc.instantiate(this.Recharge_8)
             cc.find("Canvas").addChild(node)
         }else if(this.app.UrlData.package_id == 9){

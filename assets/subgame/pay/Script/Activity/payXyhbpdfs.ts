@@ -66,7 +66,11 @@ export default class NewClass extends cc.Component {
         }
         this.infoInit()
         this.getLocal()
-        this.setLanguageResource()
+        if(this.app.UrlData.package_id == 12){
+            this.setRule12()
+        }else{
+            this.setLanguageResource()
+        }
         this.ApplyBtnInit()
     }
     infoInit(){
@@ -229,4 +233,10 @@ export default class NewClass extends cc.Component {
         let label= cc.find('Canvas/Activity/Content/Xyhbpdfs/bg/event4_xzcyh_frame/label1').getComponent(cc.Label)
         label.string = `${Language_pay.Lg.ChangeByText("开放时间")}\n${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}`
     }   
+    setRule12(){
+        let tishi= cc.find('Canvas/Activity/Content/Xyhbpdfs/bg/event4_xzcyh_content/ScrollView/view/content/label').getComponent(cc.Label)
+        tishi.string = `1. 新注册玩家完成手机以及银行卡绑定后前往当前活动进行申请， 申请开放时间为每天${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}。所有未进行申请的玩家无法领取活动彩金。\n2. 平台中的新玩家活动只能参加其中一个，申请后即视为参加此活动。\n3. 参加活动的玩家只能进行《财神到》《水果机》《多福多财》《疯狂旋涡》《捕鱼·聚宝盆》《捕鱼·海王》指定游戏，进行其他游戏视为放弃活动。\n4. 在规定游戏中投注对应档位最高单注金额内，亏损至余额低于10金币时即可在本活动界面领取活动彩金，当日23:59:59未进行领取视为自动放弃。\n5. 赢金到规定金额不兑换视为放弃包赔资格（输完不赔付）。\n6. 同一用户（同IP同设备视为同一用户）仅限参加一次活动，活动彩金无需流水限制可直接申请兑换。\n7. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。`
+        let label= cc.find('Canvas/Activity/Content/Xyhbpdfs/bg/event4_xzcyh_frame/label1').getComponent(cc.Label)
+        label.string = `${Language_pay.Lg.ChangeByText("开放时间")}\n${this.app.config.transitionTime(this.info.start)}-${this.app.config.transitionTime(this.info.end)}`
+    }
 }

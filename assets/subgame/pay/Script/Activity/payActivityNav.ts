@@ -233,6 +233,21 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     Xyhbp_10 :cc.Prefab = null;
     
+    @property(cc.Prefab)
+    Xyhschd_12 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Xyhbpdfs_12 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    LyhSc_12 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    Bybphd_12 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    Bwfcjl_12 :cc.Prefab = null;
+    
     @property
     app = null;
     name = null;
@@ -504,9 +519,22 @@ export default class NewClass extends cc.Component {
         }else  if(data.name == '专线包赔活动10'){
             this.app.loadIcon(`${src}/menu/activity/zsbp1`,this.normalIcon,182,30)
             this.app.loadIcon(`${src}/menu/activity/zsbp2`,this.currentIcon,174,30);
+        }else  if(data.name == '新用户首存活动12'){
+            this.app.loadIcon(`${src}/menu/activity/btn_xyhschd2`,this.normalIcon,180,109)
+            this.app.loadIcon(`${src}/menu/activity/btn_xyhschd1`,this.currentIcon,180,109);
+        }else  if(data.name == '新用户包赔活动12'){
+            this.app.loadIcon(`${src}/menu/activity/btn_xyhbp2`,this.normalIcon,180,109)
+            this.app.loadIcon(`${src}/menu/activity/btn_xyhbp1`,this.currentIcon,180,109);
+        }else  if(data.name == '老用户首存活动12'){
+            this.app.loadIcon(`${src}/menu/activity/btn_lyhbc2`,this.normalIcon,180,109)
+            this.app.loadIcon(`${src}/menu/activity/btn_lyhbc1`,this.currentIcon,180,109);
+        }else  if(data.name == '捕鱼包赔活动12'){
+            this.app.loadIcon(`${src}/menu/activity/btn_bybp2`,this.normalIcon,154,95)
+            this.app.loadIcon(`${src}/menu/activity/btn_bybp1`,this.currentIcon,154,95);
+        }else  if(data.name == '百万扶持奖励活动12'){
+            this.app.loadIcon(`${src}/menu/activity/btn_bwfc2`,this.normalIcon,152,103)
+            this.app.loadIcon(`${src}/menu/activity/btn_bwfc1`,this.currentIcon,152,103);
         }
-        
-        
         //响应每日签到2，显示红点
         if(this.name == '每日签到2'|| this.name == '每日签到8'||this.name == '每日签到9'){
             this.fetchgetSignWeekInfo(this.id)
@@ -895,6 +923,26 @@ export default class NewClass extends cc.Component {
         }else  if(name == '专线包赔活动10'){
             var node = cc.instantiate(this.Xyhbp_10);
             node.getComponent('payXyhbp').setId(id,info)
+        }else  if(name == '新用户首存活动12'){
+            var node = cc.instantiate(this.Xyhschd_12);
+            node.getComponent('payXyhschd').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/event_xl_xyhsc_title`,this.title);
+        }else if(name == '新用户包赔活动12'){
+            var node = cc.instantiate(this.Xyhbpdfs_12);
+            node.getComponent('payXyhbpdfs').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/event_xl_xyhbp_title`,this.title);
+        }else  if(name == '老用户首存活动12'){
+            var node = cc.instantiate(this.LyhSc_12);
+            node.getComponent('payLhysc').setId(id,"",info)
+            this.app.loadTitle(`${src}/title/event_xl_lyhsc_title`,this.title);
+        }else if(name == '捕鱼包赔活动12'){
+            var node = cc.instantiate(this.Bybphd_12);
+            node.getComponent('payBybphd').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/event_xl_bybp_title`,this.title);
+        }else if(name == '百万扶持奖励活动12'){
+            var node = cc.instantiate(this.Bwfcjl_12);
+            node.getComponent('payBwfcjl').setIdInfo(id,info)
+            this.app.loadTitle(`${src}/title/event_xl_bwfc_title`,this.title);
         }
         
         content.addChild(node);

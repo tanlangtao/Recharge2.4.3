@@ -173,7 +173,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/activeBigImage/xyhsc_bg`,bg)
             this.app.loadIconLg(`${src}/activeSprite/xyhsc_biao`,xyhsc_biao)
             label1.string = Language_pay.Lg.ChangeByText(`本金一倍+\n彩金${this.info.flow_rate}倍流水`)
-            rule.string = Language_pay.Lg.ChangeByText(`<color=#FFFFFF>1. 新注册玩家完成手机以及银行卡绑定后前往当前活动进行申请。<color=#FF000>所有未进行申请的玩家无法领取活动彩金</c>。\n2. 平台中的新用户活动只能参加一个。\n2. 玩家必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的8倍流水才能申请兑换。\n3. 游戏规则：仅参加以下游戏</c><color=#F3DC5B>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《AGA电子》《CQ9电子游戏》\n《PT电子游戏》《JDB电子游戏》《PG电子游戏》《AG电子游戏》</c>。\n4. 同一用户仅限领取一次，恶意套利者将封号处理。\n5. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>`)
+            rule.string = Language_pay.Lg.ChangeByText(`<color=#FFFFFF>1. 新注册玩家完成手机以及银行卡绑定后前往当前活动进行申请。<color=#FF000>所有未进行申请的玩家无法领取活动彩金</c>。\n2. 平台中的新用户活动只能参加一个。\n3. 玩家必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的8倍流水才能申请兑换。\n4. 游戏规则：仅参加以下游戏</c><color=#F3DC5B>《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《AGA电子》《CQ9电子游戏》\n《PT电子游戏》《JDB电子游戏》《PG电子游戏》《AG电子游戏》</c>。\n5. 同一用户仅限领取一次，恶意套利者将封号处理。\n6. 平台拥有最终解释权，严禁一切恶意行为，出现违规情况，一律封号处理；同时平台有权根据实际情况，随时调整活动内容。</color>`)
         }
     }
 }
