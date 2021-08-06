@@ -434,7 +434,7 @@ export default class NewClass extends cc.Component {
         let lw_zj_txt_jinbi= cc.find('Canvas/Activity/Content/WheelOfFortune/zhongjiangBg/sp2/lw_zj_txt_jinbi')
         let lw_btn_confirm= cc.find('Canvas/Activity/Content/WheelOfFortune/zhongjiangBg/sp2/lw_btn_confirm')
 
-        if(this.app.UrlData.package_id == 8||this.app.UrlData.package_id == 9){
+        if(this.app.UrlData.package_id == 8||this.app.UrlData.package_id == 9|| this.app.UrlData.package_id == 12){
             this.app.loadIconLg(`${src}/activeSprite/jifen`,bg.getChildByName("jifen"))
         }else{
             this.app.loadIconLg(`${src}/activeBigImage/event_luckyWheel_bg`,bg)

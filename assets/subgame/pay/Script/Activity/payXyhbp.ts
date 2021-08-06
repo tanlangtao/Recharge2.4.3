@@ -58,7 +58,7 @@ export default class NewClass extends cc.Component {
             console.log("获取登陆ip失败!")
             this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             this.info.conf = [  
                 {first_pay_min:200},
                 {first_pay_min:300},
@@ -186,7 +186,7 @@ export default class NewClass extends cc.Component {
      setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
         
-        if(this.app.UrlData.package_id == 8) {
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12) {
             this.btnArr.forEach(e=>{
                 this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('btn_linqu'))
                 this.app.loadIconLg(`${src}/activeSprite/btn_Ylinqu`,e.getChildByName('bg2'))

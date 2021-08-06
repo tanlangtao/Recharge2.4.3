@@ -161,7 +161,7 @@ export default class NewClass extends cc.Component {
             title2.string = Language_pay.Lg.ChangeByText('赠送金额')
             title3.string = Language_pay.Lg.ChangeByText('兑换限制')
             title4.string = Language_pay.Lg.ChangeByText('一倍流水')
-            if(this.app.UrlData.package_id == 8){
+            if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
                 this.app.loadIconLg(`${src}/activeBigImage/event12-3_lhysc_content`,bg)
                 this.btnGroup.children.forEach(e=>{
                     this.app.loadIconLg(`${src}/activeSprite/btn_linqu`,e.getChildByName('btn_linqu'))

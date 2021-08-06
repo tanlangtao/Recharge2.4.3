@@ -126,7 +126,7 @@ export default class NewClass extends cc.Component {
         label2.string = `3${Language_pay.Lg.ChangeByText('倍')}`
         
         
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             let title1= cc.find('Canvas/Activity/Content/Schd/bg/title1').getComponent(cc.Label)
             let title2= cc.find('Canvas/Activity/Content/Schd/bg/title2').getComponent(cc.Label)
             let title3= cc.find('Canvas/Activity/Content/Schd/bg/title3').getComponent(cc.Label)

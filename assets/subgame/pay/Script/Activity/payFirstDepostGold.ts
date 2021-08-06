@@ -151,7 +151,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/activeSprite/txt_y`,txt_y)
             })
             let label= cc.find('Canvas/Activity/Content/FirstDepostGold/bg/Content/ScrollView/view/content/label').getComponent(cc.Label)
-            if(this.app.UrlData.package_id == 8){
+            if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
                 label.string = Language_pay.Lg.ChangeByText("活动规则：\n1. 新注册玩家完成手机以及银行卡绑定才能参与。\n2. 必须充值成功未下注时进行领取，需满足首充金额一倍流水+赠送彩金的三倍流水才能申请兑换。\n3. 游戏规则：仅参加以下游戏《财神到》《水果机》《捕鱼·海王》《捕鱼·聚宝盆》《百人牛牛》。\n4. 同一用户仅限领取一次，恶意套利者将封号处理。\n5. 本活动最终解释权归新盛所有。")
                 let label1 = cc.find('Canvas/Activity/Content/FirstDepostGold/bg/label1').getComponent(cc.Label)
                 let label2 = cc.find('Canvas/Activity/Content/FirstDepostGold/bg/label2').getComponent(cc.Label)

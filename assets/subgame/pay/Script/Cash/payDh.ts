@@ -167,7 +167,7 @@ export default class NewClass extends cc.Component {
      //兑换提示
      showCashAlert(){
         var node = null
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             node = cc.instantiate(this.CashAlert_8);
         }else if(this.app.UrlData.package_id == 9){
             node = cc.instantiate(this.CashAlert_9);
@@ -303,7 +303,7 @@ export default class NewClass extends cc.Component {
 
         
         
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             btn_max.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最 大")
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定支付宝")

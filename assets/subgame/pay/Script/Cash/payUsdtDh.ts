@@ -315,7 +315,7 @@ export default class NewClass extends cc.Component {
 
         
 
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 9 ){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 9 || this.app.UrlData.package_id == 12){
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn.children[0])

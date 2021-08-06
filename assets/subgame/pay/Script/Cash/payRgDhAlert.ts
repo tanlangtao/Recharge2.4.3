@@ -165,7 +165,7 @@ export default class NewClass extends cc.Component {
     //兑换提示
     showCashAlert(){
         var node = null;
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             node = cc.instantiate(this.CashAlert_8);
         }else if(this.app.UrlData.package_id == 9){
             node = cc.instantiate(this.CashAlert_9);
@@ -211,7 +211,7 @@ export default class NewClass extends cc.Component {
 
         
         
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             this.app.loadIconLg(`${src}/font/txt_zhye`,txt_zhye2)
             this.app.loadIconLg(`${src}/font/txt_dhje`,txt_dhje2)
             this.app.loadIconLg(`${src}/font/title_rgdh`,toutpd)

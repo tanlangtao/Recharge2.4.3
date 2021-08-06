@@ -38,7 +38,7 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(Language_pay.Lg.ChangeByText('获取登陆ip失败!'))
         }
         this.setLanguageResource()
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             this.info.conf = [{first_pay_min:200},{first_pay_min:300}]
         }else if(this.app.UrlData.package_id == 9){
             this.ApplyBtnInit()
@@ -202,7 +202,7 @@ export default class NewClass extends cc.Component {
         title2.string = Language_pay.Lg.ChangeByText("包赔金额")
         title3.string = Language_pay.Lg.ChangeByText("最高兑换金额")
         
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             let event_xs_lyh_tip =cc.find('Canvas/Activity/Content/Lyhbp/event_xs_lyh_tip')
             this.app.loadIconLg(`${src}/activeSprite/event_xs_lyh_tip`,event_xs_lyh_tip)
             let title4= cc.find('Canvas/Activity/Content/Lyhbp/group1/title4').getComponent(cc.Label)

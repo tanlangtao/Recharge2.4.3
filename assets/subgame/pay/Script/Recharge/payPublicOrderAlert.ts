@@ -229,7 +229,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/txt_playername`,txt_playername)
             this.app.loadIconLg(`${src}/btn/btn_how`,btn1)
         }
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 12){
             btn_fuzhi1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi3.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")

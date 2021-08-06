@@ -233,7 +233,7 @@ export default class NewClass extends cc.Component {
     public showOrderAlert(type,data,beforePay = true){
         var node = null
         var beforePayOrder = null
-        if(this.UrlData.package_id == 8){
+        if(this.UrlData.package_id == 8 || this.UrlData.package_id == 12){
             node = cc.instantiate(this.PublicOrderAlert_8);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_8);
         }else if(this.UrlData.package_id == 9){
@@ -262,7 +262,7 @@ export default class NewClass extends cc.Component {
     public showAlipayAccountAlert(data){
         var canvas = cc.find('Canvas');
         var node = null
-        if(this.UrlData.package_id == 8){
+        if(this.UrlData.package_id == 8 || this.UrlData.package_id == 12){
             node = cc.instantiate(this.AlipayAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.AlipayAccountAlert_9);
@@ -291,7 +291,7 @@ export default class NewClass extends cc.Component {
         var canvas = cc.find('Canvas');
         
         var node = null
-        if(this.UrlData.package_id == 8){
+        if(this.UrlData.package_id == 8 || this.UrlData.package_id == 12){
             node = cc.instantiate(this.BankAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.BankAccountAlert_9);
@@ -315,7 +315,7 @@ export default class NewClass extends cc.Component {
     public showUsdtAccountAlert(itemId){
         var canvas = cc.find('Canvas');
         var node = null
-        if(this.UrlData.package_id == 8){
+        if(this.UrlData.package_id == 8 || this.UrlData.package_id == 12){
             node = cc.instantiate(this.UsdtAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.UsdtAccountAlert_9);
@@ -370,7 +370,7 @@ export default class NewClass extends cc.Component {
      */
     showWriteMoneyAlert(component,type,data){
         var node = null
-        if(this.UrlData.package_id == 8){
+        if(this.UrlData.package_id == 8 || this.UrlData.package_id == 12){
             node = cc.instantiate(this.WriteMoneyAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.WriteMoneyAlert_9);

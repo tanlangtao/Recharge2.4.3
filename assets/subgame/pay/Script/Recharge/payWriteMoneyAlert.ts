@@ -123,7 +123,7 @@ export default class NewClass extends cc.Component {
 
         
 
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             this.app.loadIconLg(`${src}/font/queding`,surebtn1.children[0])
             this.app.loadIconLg(`${src}/font/toutpd`,toutpd)
