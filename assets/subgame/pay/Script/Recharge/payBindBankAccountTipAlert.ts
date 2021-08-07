@@ -39,7 +39,7 @@ export default class NewClass extends cc.Component {
 
         Label1.string = Language_pay.Lg.ChangeByText('【温馨提示】')
         Label2.string = Language_pay.Lg.ChangeByText('请先绑定银行卡后才可以进行充值\n现在就去绑定银行卡')
-        if(this.app.UrlData.package_id == 8){
+        if(this.app.UrlData.package_id == 8 ||this.app.UrlData.package_id == 12){
             btn1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('绑  定')
             let title_tip = cc.find('Canvas/BindBankAccountTipAlert/Layout/title_tip')
             this.app.loadIconLg(`${src}/font/title_tip`,title_tip)
