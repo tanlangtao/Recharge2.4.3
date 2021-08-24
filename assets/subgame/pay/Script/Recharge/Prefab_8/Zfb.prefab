@@ -953,19 +953,19 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 330,
-      "height": 81.1
+      "height": 80.1
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 1,
-      "y": 0.5
+      "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
         633.033,
-        -433.245,
+        -398.331,
         0,
         0,
         0,
@@ -1037,7 +1037,7 @@
       "b": 105,
       "a": 255
     },
-    "_width": 1,
+    "_width": 0.5,
     "_id": ""
   },
   {
@@ -1421,7 +1421,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 180,
+      "width": 300,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1476,7 +1476,7 @@
     "_string": "",
     "_N$string": "",
     "_fontSize": 20,
-    "_lineHeight": 40,
+    "_lineHeight": 22,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,

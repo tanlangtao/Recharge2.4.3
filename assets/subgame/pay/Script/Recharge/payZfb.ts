@@ -78,6 +78,9 @@ export default class NewClass extends cc.Component {
     conf_val = 0 // usdt充值汇率
     login_ip = ''
     IsBindBankAccount = false // 判断是否已经绑卡
+    free_num = 0//免费次数
+    handling_fee = 0//手续费
+    handling_feeName = ""//需要显示手续费的渠道名
     onLoad () {
         this.huodongLabel.node.active=false;
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -133,7 +136,11 @@ export default class NewClass extends cc.Component {
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay3`,this.iconFont,252,45) 
             }
-            this.blinkFun()
+            let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
+            blinkNodeLabel.string = "请使用与绑定银行卡相同账户名的账户进行支付"
+            blinkNodeLabel.fontSize = 30
+            blinkNodeLabel.lineHeight = 35
+            this.blinkFun(this.blinkNode)
         }
         else if(this.channel == 'quick_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
@@ -152,7 +159,11 @@ export default class NewClass extends cc.Component {
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay`,this.iconFont,168,45)
             }
-            this.blinkFun()
+            let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
+            blinkNodeLabel.string = "请使用与绑定银行卡相同账户名的账户进行支付"
+            blinkNodeLabel.fontSize = 30
+            blinkNodeLabel.lineHeight = 35
+            this.blinkFun(this.blinkNode)
         }else if(this.channel =='im_pay'){
             
             this.app.loadIcon(`recharge/icon_im`,this.icon,100,100)
@@ -253,14 +264,22 @@ export default class NewClass extends cc.Component {
     }
     public initRender(){
         var span_amount = this.current.span_amount.split(',');
-        this.czArea.string = `${Language_pay.Lg.ChangeByText('充值范围')}:(${this.current.min_amount}-${this.current.max_amount})`
+        this.czArea.string = `${Language_pay.Lg.ChangeByText('充值范围')}:(${this.current.min_amount}-${this.current.max_amount}) ${this.current.name == this.handling_feeName && this.handling_fee!=0 ?`\n手续费率：${this.app.config.toDecimal2(this.handling_fee*100)}%`:""}`
         this.gold1.string = span_amount[0]?span_amount[0]:'10';
         this.gold2.string = span_amount[1]?span_amount[1]:'50';
         this.gold3.string = span_amount[2]?span_amount[2]:'100';
         this.gold4.string = span_amount[3]?span_amount[3]:'500';
         this.gold5.string = span_amount[4]?span_amount[4]:'1000';
         this.gold6.string = span_amount[5]?span_amount[5]:'5000';
-        //"test"
+        if(this.current.name == this.handling_feeName && this.handling_fee !=0){
+            let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
+            blinkNodeLabel.string = "温馨提示：此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
+            blinkNodeLabel.fontSize = 20
+            blinkNodeLabel.lineHeight = 25
+            this.blinkFun(this.blinkNode)
+        }else if(this.channel != 'bankcard_transfer' && this.channel != 'bank_pay'){
+            this.blinkNode.active = false
+        }
     }
 
     public deleteAmount(){
@@ -327,16 +346,39 @@ export default class NewClass extends cc.Component {
     }
 
     radioList(){
+        
         this.selectContent.removeAllChildren();
         for( var i = 0 ; i < this.results.length ; i++){
-            var node = cc.instantiate(this.SelectItem);
-            this.selectContent.addChild(node);
-            node.getComponent('paySelectItem').init({
-                text:this.results[i].name,
-                parentComponent:this,
-                index:i,
-                channel:this.channel
-            })
+            if(this.results[i].rate != "" && this.results[i].rate !="0.0000"){
+                let rate = JSON.parse(this.results[i].rate)
+                //当rate不为空时要根据渠道id判断是否需要显示
+                let packageArr= []
+                for(let k in rate){
+                    packageArr.push(Number(k))
+                }
+                if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
+                    var node = cc.instantiate(this.SelectItem);
+                    this.selectContent.addChild(node);
+                    node.getComponent('paySelectItem').init({
+                        text:this.results[i].name,
+                        parentComponent:this,
+                        index:i,
+                        channel:this.channel
+                    })
+                    this.free_num = rate[this.app.UrlData.package_id].free_num
+                    this.handling_fee = rate[this.app.UrlData.package_id].handling_fee
+                    this.handling_feeName = this.results[i].name
+                }
+            }else{
+                var node = cc.instantiate(this.SelectItem);
+                this.selectContent.addChild(node);
+                node.getComponent('paySelectItem').init({
+                    text:this.results[i].name,
+                    parentComponent:this,
+                    index:i,
+                    channel:this.channel
+                })
+            }
         }
     }
 
@@ -478,11 +520,11 @@ export default class NewClass extends cc.Component {
         label.string = `${Language_pay.Lg.ChangeByText("开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！")}`
         blinkLabel.string =Language_pay.Lg.ChangeByText("请使用与绑定银行卡相同账户名的账户进行支付")
     }
-    blinkFun(){
-        this.blinkNode.stopAllActions()
-        this.blinkNode.active = true
+    blinkFun(blinkNode){
+        blinkNode.stopAllActions()
+        blinkNode.active = true
         var action1 = cc.tintTo(0.2, 255, 212, 105);
         var action2 = cc.tintTo(0.2, 229, 49, 20);
-        this.blinkNode.runAction(cc.sequence(action1,action2).repeatForever())
+        blinkNode.runAction(cc.sequence(action1,action2).repeatForever())
     }
 }

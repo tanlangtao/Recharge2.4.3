@@ -132,7 +132,21 @@ export default class NewClass extends cc.Component {
         sortArr.forEach((e) => {
             switch (e){
                 case "alipay" :
-                    if (this.zfbResults.data.alipay.length > 0 ) {
+                     //新增渠道判断
+                     if(this.zfbResults.data.alipay.length  === 1){
+                        let results = this.zfbResults.data.alipay[0]
+                        if(results.rate != "" && results.rate !="0.0000"){
+                            let rate = JSON.parse(results.rate)
+                            //当rate不为空时要根据渠道id判断是否需要显示
+                            let packageArr= []
+                            for(let k in rate){
+                                packageArr.push(k)
+                            }
+                            if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
+                                arr.push('支付宝')
+                            }
+                        }
+                    }else if(this.zfbResults.data.alipay.length >1){
                         arr.push('支付宝')
                     }
                     break
@@ -152,7 +166,21 @@ export default class NewClass extends cc.Component {
                     }
                     break
                 case "wechat_pay" :
-                    if (this.zfbResults.data.wechat_pay.length > 0 ) {
+                    //新增渠道判断
+                    if(this.zfbResults.data.wechat_pay.length  === 1){
+                        let results = this.zfbResults.data.wechat_pay[0]
+                        let rate = JSON.parse(results.rate)
+                        if(rate != "" && rate !="0.0000"){
+                            //当rate不为空时要根据渠道id判断是否需要显示
+                            let packageArr= []
+                            for(let k in rate){
+                                packageArr.push(Number(k))
+                            }
+                            if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
+                                arr.push('微信')
+                            }
+                        }
+                    }else if(this.zfbResults.data.alipay.length >1){
                         arr.push('微信')
                     }
                     break
