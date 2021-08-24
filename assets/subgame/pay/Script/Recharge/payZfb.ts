@@ -260,6 +260,7 @@ export default class NewClass extends cc.Component {
         this.gold4.string = span_amount[3]?span_amount[3]:'500';
         this.gold5.string = span_amount[4]?span_amount[4]:'1000';
         this.gold6.string = span_amount[5]?span_amount[5]:'5000';
+        //"test"
     }
 
     public deleteAmount(){
