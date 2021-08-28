@@ -264,7 +264,7 @@ export default class NewClass extends cc.Component {
     }
     public initRender(){
         var span_amount = this.current.span_amount.split(',');
-        this.czArea.string = `${Language_pay.Lg.ChangeByText('充值范围')}:(${this.current.min_amount}-${this.current.max_amount}) ${this.current.name == this.handling_feeName && this.handling_fee!=0 ?`\n手续费率：${this.app.config.toDecimal2(this.handling_fee*100)}%`:""}`
+        this.czArea.string = `${Language_pay.Lg.ChangeByText('充值范围')}:(${this.current.min_amount}-${this.current.max_amount})`
         this.gold1.string = span_amount[0]?span_amount[0]:'10';
         this.gold2.string = span_amount[1]?span_amount[1]:'50';
         this.gold3.string = span_amount[2]?span_amount[2]:'100';
