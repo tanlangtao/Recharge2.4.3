@@ -312,7 +312,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/txt_dhje`,txt_dhje)
             this.app.loadIconLg(`${src}/font/zfb`,zfb)
             this.app.loadIconLg(`${src}/font/txt_dhqd`,txt_dhqd)
-        }else if(this.app.UrlData.package_id == 10){
+        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             btn_max.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最 大")
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定支付宝")

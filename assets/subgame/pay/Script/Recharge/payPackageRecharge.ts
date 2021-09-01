@@ -24,7 +24,7 @@ export default class NewClass extends cc.Component {
         }else if(this.app.UrlData.package_id == 9){
             var node = cc.instantiate(this.Recharge_9)
             cc.find("Canvas").addChild(node)
-        }else if(this.app.UrlData.package_id == 10){
+        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             var node = cc.instantiate(this.Recharge_10)
             cc.find("Canvas").addChild(node)
         }else{

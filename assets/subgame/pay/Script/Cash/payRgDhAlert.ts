@@ -219,7 +219,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/txt_dhzh`,txt_dhzh)
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
-        }else if(this.app.UrlData.package_id == 10){
+        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             toutpd.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("人工兑换")
             txt_zhye2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
             txt_dhje2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")

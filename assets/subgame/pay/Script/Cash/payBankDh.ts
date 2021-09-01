@@ -329,7 +329,7 @@ export default class NewClass extends cc.Component {
         let txt_dhqd= cc.find('Canvas/Cash/Content/BankDh/group3/txt_dhqd')
         let btn_dh= cc.find('Canvas/Cash/Content/BankDh/btn_dh')
 
-        if(this.app.UrlData.package_id == 10){
+        if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             txt_zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
             txt_dhje.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")
             bankbt.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("银行卡")
@@ -351,7 +351,7 @@ export default class NewClass extends cc.Component {
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn_dh.children[0])
-        }else if(this.app.UrlData.package_id == 10){
+        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             btn_max.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最 大")
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")

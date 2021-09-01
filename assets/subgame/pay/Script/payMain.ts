@@ -239,7 +239,7 @@ export default class NewClass extends cc.Component {
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.PublicOrderAlert_9);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_9);
-        }else if(this.UrlData.package_id == 10){
+        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
             node = cc.instantiate(this.PublicOrderAlert_10);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_10);
         }else{
@@ -266,7 +266,7 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.AlipayAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.AlipayAccountAlert_9);
-        }else if(this.UrlData.package_id == 10){
+        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
             node = cc.instantiate(this.AlipayAccountAlert_10);
         }else{
             node = cc.instantiate(this.AlipayAccountAlert);
@@ -295,7 +295,7 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.BankAccountAlert_9);
-        }else if(this.UrlData.package_id == 10){
+        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
             node = cc.instantiate(this.BankAccountAlert_10);
         }else{
             node = cc.instantiate(this.BankAccountAlert);
@@ -319,7 +319,7 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.UsdtAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.UsdtAccountAlert_9);
-        }else if(this.UrlData.package_id == 10){
+        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
             node = cc.instantiate(this.UsdtAccountAlert_10);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
@@ -374,7 +374,7 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.WriteMoneyAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.WriteMoneyAlert_9);
-        }else if(this.UrlData.package_id == 10){
+        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
             node = cc.instantiate(this.WriteMoneyAlert_10);
         }else{
             node = cc.instantiate(this.WriteMoneyAlert);

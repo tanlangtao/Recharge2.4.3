@@ -44,7 +44,7 @@ export default class NewClass extends cc.Component {
 
         this.app.loadIconLg(`${src}/btn/guanfrz`,guanfrz)
         this.app.loadIconLg(`${src}/btn/zhuanxkf`,zhuanxkf)
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 12){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 12){
             bg_fan.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('充值')
         }else{
             this.app.loadIconLg(`${src}/btn/btn_chongzhi`,bg_fan)

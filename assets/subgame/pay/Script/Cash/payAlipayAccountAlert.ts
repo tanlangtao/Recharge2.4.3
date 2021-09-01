@@ -106,7 +106,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/zfbzh`,bdali_form.children[0])
             this.app.loadIconLg(`${src}/font/skrxm`,bdali_form.children[1])
             bdali_form.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("*温馨提示：绑定支付宝成功后无法自行修改!请仔细填写您的姓名和账号!")
-        }else if(this.app.UrlData.package_id == 10){
+        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             this.titleIcon.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定支付宝")
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
             bdali_form.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("支付宝账户:")

@@ -325,7 +325,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/txt_qbdz`,qbdz)
             this.app.loadIconLg(`${src}/font/txt_llx`,llx)
             this.app.loadIconLg(`${src}/font/txt_dhqd`,dhqd)
-        }else if( this.app.UrlData.package_id == 10){
+        }else if( this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
             zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("参考汇率")
             zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")

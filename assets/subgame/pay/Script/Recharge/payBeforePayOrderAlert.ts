@@ -27,7 +27,7 @@ export default class NewClass extends cc.Component {
         let label3= cc.find('Canvas/BeforePayOrderAlert/popWindowBG/content/label3').getComponent(cc.Label)
         let label4= cc.find('Canvas/BeforePayOrderAlert/popWindowBG/content/label4').getComponent(cc.Label)
 
-        if(this.app.UrlData.package_id == 10){
+        if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             title_tip.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('提示')
         }else{
             this.app.loadIconLg(`${src}/font/title_tip`,title_tip)

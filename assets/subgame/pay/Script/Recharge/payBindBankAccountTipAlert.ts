@@ -43,7 +43,7 @@ export default class NewClass extends cc.Component {
             btn1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('绑  定')
             let title_tip = cc.find('Canvas/BindBankAccountTipAlert/Layout/title_tip')
             this.app.loadIconLg(`${src}/font/title_tip`,title_tip)
-        }else if(this.app.UrlData.package_id == 10){
+        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
             btn1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('绑  定')
             let title_tip = cc.find('Canvas/BindBankAccountTipAlert/Layout/title_tip')
             title_tip.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('提示')

@@ -66,7 +66,7 @@ export default class NewClass extends cc.Component {
 
     public fetchIndex(){
         // 20210508_支付系统, 正式环境富鑫II游戏(package_id=10)屏蔽充值界面和收益界面信息
-        // if(this.app.UrlData.package_id == 10 && appGlobal.huanjin == 'online') {
+        // if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15 && appGlobal.huanjin == 'online') {
         //     this.app.hideLoading()
         //     return
         // }
