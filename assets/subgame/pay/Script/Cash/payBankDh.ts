@@ -138,9 +138,10 @@ export default class NewClass extends cc.Component {
 
         //最小金额也需要根据package_id判断
         let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
+        
         withdraw_min_amount['bank'].forEach(item => {
             //9.1日增加,兑换的最小金额，取渠道和支付方式相比，较大的最小兑换金额
-            if(item.package_id == this.app.UrlData.package_id && this.current.min_amount <item.minAmount){
+            if(item.package_id == this.app.UrlData.package_id && Number(this.current.min_amount) <Number(item.min_amount)){
                 this.current.min_amount = item.min_amount
             }
         });
@@ -293,8 +294,8 @@ export default class NewClass extends cc.Component {
         var multiple_amount = 1;
         let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
         withdraw_min_amount['bank'].forEach(item => {
-            if(item.package_id == this.app.UrlData.package_id ){
-                minAmount = minAmount < item.min_amount ? item.min_amount:minAmount
+            if(item.package_id == this.app.UrlData.package_id ){    
+                minAmount = minAmount < Number(item.min_amount) ? Number(item.min_amount):Number(minAmount)
                 multiple_amount = item.multiple_amount
             }
         });
