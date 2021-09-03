@@ -180,9 +180,10 @@ export default class NewClass extends cc.Component {
                                 arr.push('微信')
                             }
                         }
-                    }else if(this.zfbResults.data.alipay.length >1){
+                    }else if(this.zfbResults.data.wechat_pay.length >1){
                         arr.push('微信')
                     }
+                    console.log(arr)
                     break
                 case "union_pay" :
                     if (this.zfbResults.data.union_pay.length > 0 ) {
