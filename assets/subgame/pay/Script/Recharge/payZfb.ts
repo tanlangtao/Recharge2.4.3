@@ -108,7 +108,7 @@ export default class NewClass extends cc.Component {
             if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9 ||p_id ==12){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('支付宝')
             }else{
-                this.app.loadIcon(`${src}/font/flagname_alipay`,this.iconFont,126,45)
+                this.app.loadIcon(`${src}/font/flagname_alipay`,this.iconFont.children[0],126,45)
             }
         }
         else if(this.channel == 'union_pay'){
@@ -117,7 +117,7 @@ export default class NewClass extends cc.Component {
             if(p_id == 8|| p_id == 10 || p_id == 15 || p_id == 9||p_id ==12){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('银联扫码')
             }else{
-                this.app.loadIcon(`${src}/font/flagname_scan_code_unionpay`,this.iconFont,168,45)
+                this.app.loadIcon(`${src}/font/flagname_scan_code_unionpay`,this.iconFont.children[0],168,45)
             }
         }else if(this.channel == 'wechat_pay'){
             this.app.loadIcon(`recharge/flag_wxpay`,this.icon,100,100)
@@ -126,7 +126,7 @@ export default class NewClass extends cc.Component {
             if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('微信')
             }else{
-                this.app.loadIcon(`${src}/font/flagname_wxpay`,this.iconFont,84,45)
+                this.app.loadIcon(`${src}/font/flagname_wxpay`,this.iconFont.children[0],84,45)
             }
         }else if(this.channel == 'bankcard_transfer'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
@@ -134,7 +134,7 @@ export default class NewClass extends cc.Component {
             if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('转账到银行卡')
             }else{
-                this.app.loadIcon(`${src}/font/flagname_unionpay3`,this.iconFont,252,45) 
+                this.app.loadIcon(`${src}/font/flagname_unionpay3`,this.iconFont.children[0],252,45) 
             }
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             blinkNodeLabel.string = "请使用与绑定银行卡相同账户名的账户进行支付"
@@ -148,7 +148,7 @@ export default class NewClass extends cc.Component {
             if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('快捷支付')
             }else{
-                this.app.loadIcon(`${src}/font/flagname_unionpay2`,this.iconFont,168,45)
+                this.app.loadIcon(`${src}/font/flagname_unionpay2`,this.iconFont.children[0],168,45)
             }
         }else if(this.channel == 'bank_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
@@ -157,7 +157,7 @@ export default class NewClass extends cc.Component {
             if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('网银充值')
             }else{
-                this.app.loadIcon(`${src}/font/flagname_unionpay`,this.iconFont,168,45)
+                this.app.loadIcon(`${src}/font/flagname_unionpay`,this.iconFont.children[0],168,45)
             }
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             blinkNodeLabel.string = "请使用与绑定银行卡相同账户名的账户进行支付"
@@ -172,9 +172,9 @@ export default class NewClass extends cc.Component {
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('IM充值')
             }else{
                 if(p_id == 2){
-                    this.app.loadIcon(`${src}/font/flagname_rgpay`,this.iconFont,136,42)
+                    this.app.loadIcon(`${src}/font/flagname_rgpay`,this.iconFont.children[0],136,42)
                 }else{
-                    this.app.loadIcon(`${src}/font/title_im`,this.iconFont,136,45)
+                    this.app.loadIcon(`${src}/font/title_im`,this.iconFont.children[0],136,45)
                 }
             }
         }else if(this.channel =='digiccy'){
@@ -185,7 +185,7 @@ export default class NewClass extends cc.Component {
             if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('USDT充值')
             }else{
-                this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont,200,45)
+                this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont.children[0],200,45)
             }
         }
     }
@@ -274,11 +274,17 @@ export default class NewClass extends cc.Component {
         if(this.current.name == this.handling_feeName && this.handling_fee !=0){
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             blinkNodeLabel.string = "温馨提示：此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
-            blinkNodeLabel.fontSize = 20
-            blinkNodeLabel.lineHeight = 25
+            blinkNodeLabel.fontSize = 23
+            blinkNodeLabel.lineHeight = 28
             this.blinkFun(this.blinkNode)
+
+            let handling_feeLabel = this.iconFont.children[1]
+            handling_feeLabel.getComponent(cc.Label).string = `手续费率:${this.app.config.toDecimal2(this.handling_fee*100)}%,前${this.free_num}笔免费`
+            this.blinkFun(handling_feeLabel)
+
         }else if(this.channel != 'bankcard_transfer' && this.channel != 'bank_pay'){
             this.blinkNode.active = false
+            this.iconFont.children[1].active = false
         }
     }
 
