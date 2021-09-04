@@ -280,6 +280,7 @@ export default class NewClass extends cc.Component {
 
             let handling_feeLabel = this.iconFont.children[1]
             handling_feeLabel.getComponent(cc.Label).string = `手续费率:${this.app.config.toDecimal2(this.handling_fee*100)}%,前${this.free_num}笔免费`
+            handling_feeLabel.getComponent(cc.Label).fontSize = 35
             this.blinkFun(handling_feeLabel)
 
         }else if(this.channel != 'bankcard_transfer' && this.channel != 'bank_pay'){
