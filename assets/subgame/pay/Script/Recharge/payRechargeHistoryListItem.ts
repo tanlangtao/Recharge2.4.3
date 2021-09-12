@@ -84,10 +84,7 @@ export default class NewClass extends cc.Component {
         let src = Language_pay.Lg.getLgSrc()
 
         let btn_dingdan1= this.node.getChildByName('5').getChildByName('btn_dingdan1')
-
-        if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
-            btn_dingdan1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('订 单')
-        }else if(this.app.UrlData.package_id == 9){
+        if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 9 || this.app.UrlData.package_id == 15){
             btn_dingdan1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('订 单')
         }else{
             this.app.loadIconLg(`${src}/btn/btn_dingdan1`,btn_dingdan1)

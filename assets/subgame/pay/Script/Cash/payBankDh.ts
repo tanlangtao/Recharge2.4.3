@@ -10,9 +10,6 @@ export default class NewClass extends cc.Component {
     publicAlert : cc.Prefab = null;
 
     @property(cc.Prefab)
-    BankAccountAlert :cc.Prefab = null;
-
-    @property(cc.Prefab)
     SelectItem : cc.Prefab =null;
 
     @property(cc.Label)
@@ -43,12 +40,6 @@ export default class NewClass extends cc.Component {
 
     @property(cc.ProgressBar)
     progressBar : cc.ProgressBar = null;
-
-    @property(cc.Prefab)
-    CashAlert_8: cc.Prefab = null;
-
-    @property(cc.Prefab)
-    CashAlert_9: cc.Prefab = null;
 
     @property
     public data : any = {};
@@ -177,13 +168,7 @@ export default class NewClass extends cc.Component {
     //兑换提示
     showCashAlert(){
         var node =null;
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
-            node = cc.instantiate(this.CashAlert_8);
-        }else if(this.app.UrlData.package_id == 9){
-            node = cc.instantiate(this.CashAlert_9);
-        }else{
-            node = cc.instantiate(this.CashAlert);
-        }
+        node = cc.instantiate(this.CashAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         let cash = cc.find('Canvas/Cash').getComponent('payCash')
@@ -331,11 +316,13 @@ export default class NewClass extends cc.Component {
         let txt_dhqd= cc.find('Canvas/Cash/Content/BankDh/group3/txt_dhqd')
         let btn_dh= cc.find('Canvas/Cash/Content/BankDh/btn_dh')
 
-        if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        if(this.app.UrlData.package_id == 10 ){
             txt_zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
             txt_dhje.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")
             bankbt.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("银行卡")
             txt_dhqd.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换渠道")
+        }else if(this.app.UrlData.package_id == 15){
+
         }else{
             this.app.loadIconLg(`${src}/font/txt_zhye`,txt_zhye)
             this.app.loadIconLg(`${src}/font/txt_dhje`,txt_dhje)
@@ -353,11 +340,13 @@ export default class NewClass extends cc.Component {
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn_dh.children[0])
-        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        }else if(this.app.UrlData.package_id == 10){
             btn_max.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("最 大")
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn_dh.children[0])
+        }else if(this.app.UrlData.package_id == 15){
+
         }else{
             this.app.loadIconLg(`${src}/btn/btn_max`,btn_max)
             this.app.loadIconLg(`${src}/btn/75`,btn_75)

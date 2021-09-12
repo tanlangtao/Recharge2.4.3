@@ -30,9 +30,6 @@ export default class NewClass extends cc.Component {
     publicAlert : cc.Prefab = null;
 
     @property(cc.Node)
-    fuzhiBtn4 : cc.Node = null;
-
-    @property(cc.Node)
     popWindowBG : cc.Node = null;
 
     @property
@@ -199,7 +196,7 @@ export default class NewClass extends cc.Component {
         let label3= cc.find("Canvas/PublicOrderAlert/Content/label3").getComponent(cc.Label)
         let jineTip= cc.find("Canvas/PublicOrderAlert/Content/group/group2/jineTip").getComponent(cc.Label)
         let btn1= cc.find("Canvas/PublicOrderAlert/Content/btn1")
-        if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        if(this.app.UrlData.package_id == 10 ){
             title_orderinfo.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("订单信息")
             txt_chongzhifangshi.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("充值方式:")
             txt_shoukuanyinhang.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("收款银行:")
@@ -218,6 +215,8 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/txt_beizhu2`,txt_beizhu2)
             this.app.loadIconLg(`${src}/font/txt_playername`,txt_playername)
             btn1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('如何充值')
+        }else if(this.app.UrlData.package_id == 15){
+
         }else{
             this.app.loadIconLg(`${src}/font/title_orderinfo`,title_orderinfo)
             this.app.loadIconLg(`${src}/font/txt_chongzhifangshi`,txt_chongzhifangshi)
@@ -229,7 +228,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/txt_playername`,txt_playername)
             this.app.loadIconLg(`${src}/btn/btn_how`,btn1)
         }
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 12){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 15){
             btn_fuzhi1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")
             btn_fuzhi3.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("复 制")

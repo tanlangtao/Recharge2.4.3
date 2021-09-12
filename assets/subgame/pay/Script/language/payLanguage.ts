@@ -437,15 +437,17 @@ export namespace Language_pay {
         }
         getLgSrc(){
             let src = ''
-            // gHandler.gameGlobal.pay.package_id  = 10 // 测试
+            // gHandler.gameGlobal.pay.package_id  = 15 // 测试
             switch(this.Language){
                 case "Chinese": 
                         if(gHandler.gameGlobal.pay.package_id == 8||gHandler.gameGlobal.pay.package_id == 12){
                             src = `language/Chinese/package_8`
                         }else if(gHandler.gameGlobal.pay.package_id == 9){
                             src = `language/Chinese/package_9`
-                        }else if(gHandler.gameGlobal.pay.package_id == 10 || gHandler.gameGlobal.pay.package_id == 15){
+                        }else if(gHandler.gameGlobal.pay.package_id == 10){
                             src = `language/Chinese/package_10`
+                        }else if(gHandler.gameGlobal.pay.package_id == 15){
+                            src = `language/Chinese/package_15`
                         }else{
                             src = `language/Chinese/package_1_7`
                         }
@@ -455,8 +457,10 @@ export namespace Language_pay {
                         src = `language/English/package_8`
                     }else if(gHandler.gameGlobal.pay.package_id == 9){
                         src = `language/English/package_9`
-                    }else if(gHandler.gameGlobal.pay.package_id == 10 || gHandler.gameGlobal.pay.package_id == 15){
+                    }else if(gHandler.gameGlobal.pay.package_id == 10){
                         src = `language/English/package_10`
+                    }else if(gHandler.gameGlobal.pay.package_id == 15){
+                        src = `language/Chinese/package_15`
                     }else{
                         src = `language/English/package_1_7`
                     }
@@ -466,8 +470,10 @@ export namespace Language_pay {
                         src = `language/Thai/package_8`
                     }else if(gHandler.gameGlobal.pay.package_id == 9){
                         src = `language/Thai/package_9`
-                    }else if(gHandler.gameGlobal.pay.package_id == 10 || gHandler.gameGlobal.pay.package_id == 15){
+                    }else if(gHandler.gameGlobal.pay.package_id == 10){
                         src = `language/Thai/package_10`
+                    }else if(gHandler.gameGlobal.pay.package_id == 15){
+                        src = `language/Chinese/package_15`
                     }else{
                         src = `language/Thai/package_1_7`
                     }
@@ -477,8 +483,10 @@ export namespace Language_pay {
                         src = `language/Vietnamese/package_8`
                     }else if(gHandler.gameGlobal.pay.package_id == 9){
                         src = `language/Vietnamese/package_9`
-                    }else if(gHandler.gameGlobal.pay.package_id == 10 || gHandler.gameGlobal.pay.package_id == 15){
+                    }else if(gHandler.gameGlobal.pay.package_id == 10){
                         src = `language/Vietnamese/package_10`
+                    }else if(gHandler.gameGlobal.pay.package_id == 15){
+                        src = `language/Chinese/package_15`
                     }else{
                         src = `language/Vietnamese/package_1_7`
                     }

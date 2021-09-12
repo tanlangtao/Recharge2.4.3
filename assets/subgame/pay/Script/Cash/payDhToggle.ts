@@ -43,8 +43,7 @@ export default class NewClass extends cc.Component {
         {
             this.app.loadIcon(`${src}/menu/tishi`,this.tishi,97,55);
         }    
-        if(this.app.UrlData.package_id == 9)
-        {
+        if(this.app.UrlData.package_id == 9){
             let zi = cc.find( "zi" , this.node );
             if( cc.isValid( zi ) )
             {
@@ -61,9 +60,25 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT钱包");
                 }
             }
-        }
-        else
-        {
+        }else if(this.app.UrlData.package_id == 15){
+            if(this.text == '支付宝兑换'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");
+            }else if(this.text == '银行卡兑换'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡");
+                // this.setTishiLabel(0.02);
+            }else if(this.text == '人工兑换'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "人工兑换");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "人工兑换");
+            }else if(this.text == '兑换记录'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "兑换记录");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "兑换记录");
+            }else if(this.text == 'USDT兑换'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT钱包");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT钱包");
+            }
+        }else{
             if(this.text == '支付宝兑换'){
                 this.app.loadIcon(`${src}/menu/menu_ali_1`,this.normalIcon,242,86)
                 this.app.loadIcon(`${src}/menu/menu_ali_2`,this.currentIcon,249,86);  

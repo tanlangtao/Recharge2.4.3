@@ -59,17 +59,6 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     BindBankAccountTipAlert : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    BindBankAccountTipAlert_8 : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    BindBankAccountTipAlert_9 : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    BindBankAccountTipAlert_10 : cc.Prefab = null;
-    
-
     @property()
     public app  = null;
     public results : any = {};
@@ -292,7 +281,8 @@ export default class NewClass extends cc.Component {
     public deleteAmount(){
         
         this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
-        this.app.setInputColor('',this.amountLabel);
+        this.app.setInputColor("sum",this.amountLabel);
+
     }
 
     //确认充值按钮回调
@@ -475,15 +465,7 @@ export default class NewClass extends cc.Component {
     showBindBankAccountTip(){
         let canvas = cc.find("Canvas")
         let node = null
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
-             node = cc.instantiate(this.BindBankAccountTipAlert_8)
-        }else if(this.app.UrlData.package_id == 9){
-            node = cc.instantiate(this.BindBankAccountTipAlert_9)
-        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
-            node = cc.instantiate(this.BindBankAccountTipAlert_10)
-        }else{
-            node = cc.instantiate(this.BindBankAccountTipAlert)
-        }
+        node = cc.instantiate(this.BindBankAccountTipAlert)
         node.getComponent("payBindBankAccountTipAlert").init(this)
         canvas.addChild(node)
     }
@@ -508,18 +490,20 @@ export default class NewClass extends cc.Component {
         let label= this.node.getChildByName('label').getComponent(cc.Label)
         let blinkLabel = this.blinkNode.getComponent(cc.Label)
 
-        this.app.loadIconLg(`${src}/font/txt_qudao`,qudao)
-        this.app.loadIconLg(`${src}/font/txt_czje`,txt_czje)
-        
+        if(this.app.UrlData.package_id != 15){
+            this.app.loadIconLg(`${src}/font/txt_qudao`,qudao)
+            this.app.loadIconLg(`${src}/font/txt_czje`,txt_czje)
+        }
         if(this.app.UrlData.package_id == 8||this.app.UrlData.package_id == 12){
             this.app.loadIconLg(`${src}/font/lijigoumai`,czgoldbt1.children[0])
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('重置')
         }else if(this.app.UrlData.package_id == 9){
             this.app.loadIconLg(`${src}/font/lijigoumai`,czgoldbt1.children[0])
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('重置')
-        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        }else if(this.app.UrlData.package_id == 10){
             this.app.loadIconLg(`${src}/font/ljcz`,czgoldbt1.children[0])
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
+        }else if(this.app.UrlData.package_id == 15){
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/czgoldbt1`,czgoldbt1)

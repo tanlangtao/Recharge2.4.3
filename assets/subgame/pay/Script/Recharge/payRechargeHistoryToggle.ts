@@ -21,8 +21,7 @@ export default class NewClass extends cc.Component {
         this.text =data.text;
         this.index = data.index;
         this.parentComponet = data.parentComponet;
-        if(this.app.UrlData.package_id == 9)
-        {
+        if(this.app.UrlData.package_id == 9){
             let zi = cc.find( "zi" , this.node );
             if( cc.isValid( zi ) )
             {
@@ -38,9 +37,25 @@ export default class NewClass extends cc.Component {
                     this.node.removeFromParent()
                 }
             }
-        }
-        else
-        {
+        }else if(this.app.UrlData.package_id == 15){
+            if(this.index == 0){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "全部"); 
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "全部"); 
+            }else if(this.index == 1){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "已完成"); 
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "已完成"); 
+            }else if(this.index == 2){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "未完成"); 
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "未完成"); 
+                //隐藏未完成选项
+                this.node.removeFromParent()
+            }else if(this.index == 3){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "已撤销"); 
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "已撤销"); 
+                //隐藏已撤销选项
+                this.node.removeFromParent()
+            }
+        }else{
             if(this.index == 0){
                 this.app.loadIcon(`${src}/menu/menu_all_2`,this.normalIcon,207,44)
                 this.app.loadIcon(`${src}/menu/menu_all_1`,this.currentIcon,249,86);

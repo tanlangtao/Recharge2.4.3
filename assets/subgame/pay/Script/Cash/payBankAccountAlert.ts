@@ -361,7 +361,7 @@ export default class NewClass extends cc.Component {
     }
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
-
+        
         let bankcard_form= cc.find('Canvas/BankAccountAlert/Layout/content/bankcard_form')
         let btn1= cc.find('Canvas/BankAccountAlert/Layout/btn1')
 
@@ -374,7 +374,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/bankcard_form_5`, bankcard_form.children[5])
             this.app.loadIconLg(`${src}/font/queding`, btn1.children[0])
             bankcard_form.getChildByName('label').getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('*温馨提示：绑定银行卡后无法自行修改! 请仔细填写您的银行卡信息!')
-        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        }else if(this.app.UrlData.package_id == 10){
             this.app.loadIconLg(`${src}/font/bankcard_form_0`, bankcard_form.children[0])
             this.app.loadIconLg(`${src}/font/bankcard_form_1`, bankcard_form.children[1])
             this.app.loadIconLg(`${src}/font/bankcard_form_2`, bankcard_form.children[2])
@@ -393,6 +393,8 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/bankcard_form_5`, bankcard_form.children[5])
             this.app.loadIconLg(`${src}/font/queding`, btn1.children[0])
             bankcard_form.getChildByName('label').getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('*温馨提示：绑定银行卡后无法自行修改! 请仔细填写您的银行卡信息!')
+        }else if(this.app.UrlData.package_id == 15){
+
         }else{
             this.app.loadIconLg(`${src}/form/bankcard_form`,bankcard_form)
             this.app.loadIconLg(`${src}/btn/surecg`,btn1)

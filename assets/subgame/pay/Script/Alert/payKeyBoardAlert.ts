@@ -97,9 +97,9 @@ export default class NewClass extends cc.Component {
         let string = this.app.labelType(this.inputlabel.string,this.type);
         if(string == ''){
             string = '点击输入'
-            this.app.setInputColor('',this.label)
+            this.app.setInputColor("",this.label);
         }else{
-            this.app.setInputColor('2',this.label)
+            this.app.setInputColor("2",this.label);
         }
         this.label.string = string;
         this.node.removeFromParent();

@@ -28,12 +28,6 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     CashAlert : cc.Prefab =null;
 
-    @property(cc.Prefab)
-    CashAlert_8 : cc.Prefab =null;
-
-    @property(cc.Prefab)
-    CashAlert_9 : cc.Prefab =null;
-
     @property
     app = null;
     data = null;
@@ -165,13 +159,7 @@ export default class NewClass extends cc.Component {
     //兑换提示
     showCashAlert(){
         var node = null;
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 12){
-            node = cc.instantiate(this.CashAlert_8);
-        }else if(this.app.UrlData.package_id == 9){
-            node = cc.instantiate(this.CashAlert_9);
-        }else{
-            node = cc.instantiate(this.CashAlert);
-        }
+        node = cc.instantiate(this.CashAlert);
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         let rateMount = Number(this.data.data.withDraw_info.artificial.rate)*Number(this.amountLabel.string);
@@ -219,7 +207,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/txt_dhzh`,txt_dhzh)
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
-        }else if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        }else if(this.app.UrlData.package_id == 10){
             toutpd.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("人工兑换")
             txt_zhye2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
             txt_dhje2.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")

@@ -4147,7 +4147,7 @@
       "__id__": 12
     },
     "CashAlert": {
-      "__uuid__": "7cf62f60-de17-44ef-bd28-9e2d0663c5f1"
+      "__uuid__": "0b55d3e3-da96-42a2-afb4-4cbe87a7c78a"
     },
     "DhBtn": {
       "__id__": 100
@@ -4157,9 +4157,6 @@
     },
     "progressBar": {
       "__id__": 51
-    },
-    "CashAlert_8": {
-      "__uuid__": "0b55d3e3-da96-42a2-afb4-4cbe87a7c78a"
     },
     "data": {},
     "_id": ""

@@ -106,6 +106,27 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BeforePayOrderAlert_10 :cc.Prefab =null;
 
+    @property(cc.Prefab)
+    BankAccountAlert_15 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    AlipayAccountAlert_15 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    WriteMoneyAlert_15 :cc.Prefab = null;
+    
+    @property(cc.Prefab)
+    UsdtAccountAlert_15 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    PublicOrderAlert_15 :cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert_15 :cc.Prefab =null;
+
+    @property(cc.Prefab)
+    BankTipAlert_15 :cc.Prefab = null;
+
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -239,9 +260,12 @@ export default class NewClass extends cc.Component {
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.PublicOrderAlert_9);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_9);
-        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
+        }else if(this.UrlData.package_id == 10 ){
             node = cc.instantiate(this.PublicOrderAlert_10);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_10);
+        }else if( this.UrlData.package_id == 15){
+            node = cc.instantiate(this.PublicOrderAlert_15);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_15);
         }else{
             node = cc.instantiate(this.PublicOrderAlert);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert);
@@ -266,8 +290,10 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.AlipayAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.AlipayAccountAlert_9);
-        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
+        }else if(this.UrlData.package_id == 10){
             node = cc.instantiate(this.AlipayAccountAlert_10);
+        }else if( this.UrlData.package_id == 15){
+            node = cc.instantiate(this.AlipayAccountAlert_15);
         }else{
             node = cc.instantiate(this.AlipayAccountAlert);
         }
@@ -295,8 +321,10 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.BankAccountAlert_9);
-        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
+        }else if(this.UrlData.package_id == 10){
             node = cc.instantiate(this.BankAccountAlert_10);
+        }else if(this.UrlData.package_id == 15){
+            node = cc.instantiate(this.BankAccountAlert_15);
         }else{
             node = cc.instantiate(this.BankAccountAlert);
         }
@@ -319,8 +347,10 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.UsdtAccountAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.UsdtAccountAlert_9);
-        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
+        }else if(this.UrlData.package_id == 10){
             node = cc.instantiate(this.UsdtAccountAlert_10);
+        }else if(this.UrlData.package_id == 15){
+            node = cc.instantiate(this.UsdtAccountAlert_15);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }
@@ -337,6 +367,9 @@ export default class NewClass extends cc.Component {
     public showBankTipAlert(component){
         var canvas = cc.find('Canvas');
         var node = cc.instantiate(this.BankTipAlert);
+        if(this.UrlData.package_id == 15){
+            node = cc.instantiate(this.BankTipAlert_15);
+        }
         node.getComponent('payBankTipAlert').init(component)
         canvas.addChild(node);
     }
@@ -359,6 +392,10 @@ export default class NewClass extends cc.Component {
     setInputColor(msg,input){
         let color1 = new cc.Color(255, 255, 255);
         let color2 = new cc.Color(187, 187, 187);
+        if(this.UrlData.package_id == 15){
+             color1 = new cc.Color(133, 147, 186);
+             color2 = new cc.Color(133, 147, 186);
+        }
         //设置字的颜色
         msg == '' ? input.node.color = color2:input.node.color = color1;
     }
@@ -374,8 +411,10 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.WriteMoneyAlert_8);
         }else if(this.UrlData.package_id == 9){
             node = cc.instantiate(this.WriteMoneyAlert_9);
-        }else if(this.UrlData.package_id == 10 || this.UrlData.package_id == 15){
+        }else if(this.UrlData.package_id == 10){
             node = cc.instantiate(this.WriteMoneyAlert_10);
+        }else if(this.UrlData.package_id == 15){
+            node = cc.instantiate(this.WriteMoneyAlert_15);
         }else{
             node = cc.instantiate(this.WriteMoneyAlert);
         }

@@ -313,8 +313,6 @@ export default class NewClass extends cc.Component {
         let dhqd= cc.find('Canvas/Cash/Content/UsdtDh/group6/dhqd')
         let btn= cc.find('Canvas/Cash/Content/UsdtDh/btn')
 
-        
-
         if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 9 || this.app.UrlData.package_id == 12){
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
@@ -325,7 +323,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/txt_qbdz`,qbdz)
             this.app.loadIconLg(`${src}/font/txt_llx`,llx)
             this.app.loadIconLg(`${src}/font/txt_dhqd`,dhqd)
-        }else if( this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        }else if( this.app.UrlData.package_id == 10){
             zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("账户余额")
             zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("参考汇率")
             zhye.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")
@@ -335,6 +333,8 @@ export default class NewClass extends cc.Component {
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/font/jiesuan`,btn.children[0])
+        }else if(this.app.UrlData.package_id == 15){
+
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/bindbt`,accountBtn)

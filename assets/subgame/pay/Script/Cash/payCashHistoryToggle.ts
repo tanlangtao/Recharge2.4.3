@@ -36,7 +36,7 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
     }
-
+    
     onClick(){
         //按键音效
         this.app.loadMusic(1);

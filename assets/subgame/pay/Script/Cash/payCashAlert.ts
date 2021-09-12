@@ -47,8 +47,10 @@ export default class NewClass extends cc.Component {
         let src = Language_pay.Lg.getLgSrc()
 
         let btn1= cc.find('Canvas/CashAlert/popWindowBG/btn1')
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 12){
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 12){
             this.app.loadIconLg(`${src}/font/queding`,btn1.children[0])
+        }else if(this.app.UrlData.package_id == 15){
+
         }else{
             this.app.loadIconLg(`${src}/btn/surebtn1`,btn1)
         }

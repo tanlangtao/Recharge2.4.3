@@ -58,7 +58,7 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.RgDhAlert_8);
         }else  if(this.app.UrlData.package_id == 9){
             node = cc.instantiate(this.RgDhAlert_9);
-        }else  if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        }else  if(this.app.UrlData.package_id == 10){
             node = cc.instantiate(this.RgDhAlert_10);
         }else{
             node = cc.instantiate(this.RgDhAlert);

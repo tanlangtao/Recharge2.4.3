@@ -128,7 +128,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/queding`,surebtn1.children[0])
             this.app.loadIconLg(`${src}/font/toutpd`,toutpd)
             this.app.loadIconLg(`${src}/font/txt_czje2`,txt_czje2)
-        }else if (this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15){
+        }else if (this.app.UrlData.package_id == 10){
             btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
             toutpd.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("输入金额")
             this.app.loadIconLg(`${src}/font/queding`,surebtn1.children[0])
@@ -138,6 +138,8 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/title_srje`,toutpd)
             this.app.loadIconLg(`${src}/font/txt_czje`,txt_czje2)
             this.app.loadIconLg(`${src}/font/queding`,surebtn1.children[0])
+        }else if (this.app.UrlData.package_id == 15){
+            btn_75.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("重置")
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/surebtn1`,surebtn1)

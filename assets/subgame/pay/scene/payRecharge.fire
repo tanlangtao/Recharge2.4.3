@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        258.0755703277627,
+        257.2095449239783,
         0,
         0,
         0,
@@ -461,6 +461,18 @@
     },
     "BeforePayOrderAlert_10": {
       "__uuid__": "f9365029-26cb-432d-bd95-236f362760bf"
+    },
+    "BankAccountAlert_15": null,
+    "AlipayAccountAlert_15": null,
+    "WriteMoneyAlert_15": {
+      "__uuid__": "7f6a289a-ca3c-45e1-9553-023afabe98d7"
+    },
+    "UsdtAccountAlert_15": null,
+    "PublicOrderAlert_15": {
+      "__uuid__": "41182a14-10e2-4634-8c99-1b75886a52cc"
+    },
+    "BeforePayOrderAlert_15": {
+      "__uuid__": "01030710-580c-45a0-ab56-24bd4d3422c1"
     },
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"
@@ -1268,6 +1280,9 @@
     },
     "Recharge_10": {
       "__uuid__": "4eefa444-adf1-4edb-a635-5b561317223b"
+    },
+    "Recharge_15": {
+      "__uuid__": "e4555d7b-f282-40eb-a422-36108309d62b"
     },
     "_id": "e6WBw7PHFG4JRYQ64OK84P"
   },
