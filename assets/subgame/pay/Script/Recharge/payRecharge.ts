@@ -242,6 +242,11 @@ export default class NewClass extends cc.Component {
             node.getComponent('payNavToggle').addContent('digiccy')
         }
     }
+    webLinkClick(){
+        let url = "https://www.vfanglife.com/"
+        cc.sys.openURL(encodeURI(url))
+        cc.log(encodeURI(url))
+    }
     //设置语言相关的资源和字
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
