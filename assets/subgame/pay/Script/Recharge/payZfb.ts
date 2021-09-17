@@ -69,6 +69,8 @@ export default class NewClass extends cc.Component {
     IsBindBankAccount = false // 判断是否已经绑卡
     free_num = 0//免费次数
     handling_fee = 0//手续费
+    first_min = 0//小额渠道显示的充值金额第一次
+    second_min = 0//小额渠道显示的充值金额第二次
     handling_feeName = ""//需要显示手续费的渠道名
     onLoad () {
         this.huodongLabel.node.active=false;
@@ -179,7 +181,12 @@ export default class NewClass extends cc.Component {
         }
     }
     setAmount() {
-        this.app.showKeyBoard(this.amountLabel,1);
+        if(this.current.name == this.handling_feeName && this.handling_fee !=0){
+            //如果是小额充值方式，则禁用输入
+            this.app.showAlert("请点选下方充值金额")
+        }else{
+            this.app.showKeyBoard(this.amountLabel,1);
+        }
     }
 
     public fetchZfb(){
@@ -271,6 +278,27 @@ export default class NewClass extends cc.Component {
             handling_feeLabel.getComponent(cc.Label).string = `前${this.free_num}笔免费`
             handling_feeLabel.getComponent(cc.Label).fontSize = 35
             this.blinkFun(handling_feeLabel)
+
+            //请求获取当前的免费次数
+            let callBack = (is_first)=>{
+                //0 代表二次  1 代表 首次
+                if(is_first == 1){
+                    this.gold1.string = `${this.first_min}`
+                    this.gold2.string = `${this.first_min}`
+                    this.gold3.string = `${this.first_min}`
+                    this.gold4.string = `${this.first_min}`
+                    this.gold5.string = `${this.first_min}`
+                    this.gold6.string = `${this.first_min}`
+                }else{
+                    this.gold1.string = `${this.second_min}`
+                    this.gold2.string = `${this.second_min}`
+                    this.gold3.string = `${this.second_min}`
+                    this.gold4.string = `${this.second_min}`
+                    this.gold5.string = `${this.second_min}`
+                    this.gold6.string = `${this.second_min}`
+                }
+            }
+            this.getPayFlagbyPayType(callBack)
 
         }else if(this.channel != 'bankcard_transfer' && this.channel != 'bank_pay'){
             this.blinkNode.active = false
@@ -364,6 +392,8 @@ export default class NewClass extends cc.Component {
                     })
                     this.free_num = rate[this.app.UrlData.package_id].free_num
                     this.handling_fee = rate[this.app.UrlData.package_id].handling_fee
+                    this.first_min = rate[this.app.UrlData.package_id].first_min
+                    this.second_min = rate[this.app.UrlData.package_id].second_min
                     this.handling_feeName = this.results[i].name
                 }
             }else{
@@ -454,6 +484,20 @@ export default class NewClass extends cc.Component {
                     this.IsBindBankAccount =true
                 }
                 this.app.hideLoading();
+            }else{
+                this.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            this.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+            this.app.hideLoading();
+        })
+    }
+    public getPayFlagbyPayType(callBack){
+        var url = `${this.app.UrlData.host}/api/payment/getPayFlagbyPayType?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}&pay_type=${this.current.pay_type}&channel_type=${this.current.channel_id}`;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                // 0 代表二次  1 代表 首次
+                callBack(response.data["is_first"])
             }else{
                 this.app.showAlert(response.msg)
             }
