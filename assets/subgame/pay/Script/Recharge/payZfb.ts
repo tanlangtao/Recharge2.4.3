@@ -181,7 +181,7 @@ export default class NewClass extends cc.Component {
         }
     }
     setAmount() {
-        if(this.current.name == this.handling_feeName && this.handling_fee !=0){
+        if(this.current.name == this.handling_feeName && this.handling_fee !=0 ){
             //如果是小额充值方式，则禁用输入
             this.app.showAlert("请点选下方充值金额")
         }else{
@@ -232,6 +232,7 @@ export default class NewClass extends cc.Component {
                     self.results = response.data.digiccy;
                 }
                 self.current = self.results[0];
+                self.handling_feeName = self.results[0]
                 self.radioList();
                 self.initRender();
             }else{
@@ -282,14 +283,14 @@ export default class NewClass extends cc.Component {
             //请求获取当前的免费次数
             let callBack = (is_first)=>{
                 //0 代表二次  1 代表 首次
-                if(is_first == 1){
+                if(is_first == 1 && this.first_min > 0 ){
                     this.gold1.string = `${this.first_min}`
                     this.gold2.string = `${this.first_min}`
                     this.gold3.string = `${this.first_min}`
                     this.gold4.string = `${this.first_min}`
                     this.gold5.string = `${this.first_min}`
                     this.gold6.string = `${this.first_min}`
-                }else{
+                }else if(this.second_min > 0){
                     this.gold1.string = `${this.second_min}`
                     this.gold2.string = `${this.second_min}`
                     this.gold3.string = `${this.second_min}`
