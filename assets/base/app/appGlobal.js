@@ -2,7 +2,7 @@
 let appGlobal = {
     isRelease: true, // 是否是版本发布状态
     /* ------------------------------------------------------------------- */
-    pinpai: "xingui", // 渠道 test （特斯特） debi （德比） qibao（七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）,xinsheng(新盛),xingui
+    pinpai: "test", // 渠道 test （特斯特） debi （德比） qibao（七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）,xinsheng(新盛),xingui
     // pinpai: "debi", // 渠道 test debi qibao xingui
     huanjin: "pre", // dev pre online
     // huanjin: "pre", // pre online
@@ -12,7 +12,7 @@ let appGlobal = {
     // account_name: "952122437", // 账号,  pre
     // account_name: "361267714", // 账号,  pre
     // account_name: "887927706", // 账号,  新贵 pre
-    account_name: "748558578", // 账号,  pre
+    // account_name: "748558578", // 账号,  pre
     // account_name: "367063627", // 账号,  pre
     // account_name: "320560580", // 账号,  
 

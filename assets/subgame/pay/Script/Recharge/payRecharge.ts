@@ -140,7 +140,7 @@ export default class NewClass extends cc.Component {
                             //当rate不为空时要根据渠道id判断是否需要显示
                             let packageArr= []
                             for(let k in rate){
-                                packageArr.push(k)
+                                packageArr.push(Number(k))
                             }
                             if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
                                 arr.push('支付宝')
