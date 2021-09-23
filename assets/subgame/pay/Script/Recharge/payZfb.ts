@@ -73,7 +73,6 @@ export default class NewClass extends cc.Component {
     second_min = 0//小额渠道显示的充值金额第二次
     handling_feeName = ""//需要显示手续费的渠道名
     onLoad () {
-        this.huodongLabel.node.active=false;
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         //请求支付宝
         this.fetchZfb()
@@ -553,7 +552,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/czgoldbt1`,czgoldbt1)
         }
-        label.string = `${Language_pay.Lg.ChangeByText("开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！")}`
+        label.string = `温馨提醒：\n该充值渠道只能使用专属充值方式，若使用其他支付方式支付，会影响即时到帐上分`
         blinkLabel.string =Language_pay.Lg.ChangeByText("请使用与绑定银行卡相同账户名的账户进行支付")
     }
     blinkFun(blinkNode){

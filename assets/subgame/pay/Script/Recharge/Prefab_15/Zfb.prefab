@@ -5505,7 +5505,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 300,
-      "height": 81.5
+      "height": 85.19999999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5556,10 +5556,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！",
-    "_N$string": "开展中的活动：通过 '转账到银行卡' 充值方式，单笔充值10000以上，即可获得额外多赠送1%！",
-    "_fontSize": 15,
-    "_lineHeight": 25,
+    "_string": "温馨提醒：\n该充值渠道只能使用专属充值方式，若使用其他支付方式支付，会影响即时到帐上分",
+    "_N$string": "温馨提醒：\n该充值渠道只能使用专属充值方式，若使用其他支付方式支付，会影响即时到帐上分",
+    "_fontSize": 18,
+    "_lineHeight": 20,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
