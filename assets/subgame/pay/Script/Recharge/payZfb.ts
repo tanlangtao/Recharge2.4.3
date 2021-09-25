@@ -15,25 +15,6 @@ export default class NewClass extends cc.Component {
     selectContent: cc.Node =null;
 
     @property(cc.Label)
-    gold1: cc.Label =null;
-
-    @property(cc.Label)
-    gold2: cc.Label =null;
-
-    @property(cc.Label)
-    gold3: cc.Label =null;
-
-    @property(cc.Label)
-    gold4: cc.Label =null;
-
-    @property(cc.Label)
-    gold5: cc.Label =null;
-
-    @property(cc.Label)
-    gold6: cc.Label =null;
-
-
-    @property(cc.Label)
     czArea: cc.Label = null;
 
     @property(cc.Node)
@@ -59,6 +40,13 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     BindBankAccountTipAlert : cc.Prefab = null;
+
+    @property(cc.Node)
+    neikuagn : cc.Node = null;
+
+    @property(cc.Prefab)
+    btnNum : cc.Prefab = null;
+
     @property()
     public app  = null;
     public results : any = {};
@@ -259,14 +247,21 @@ export default class NewClass extends cc.Component {
         }
     }
     public initRender(){
+        var arr = []
         var span_amount = this.current.span_amount.split(',');
         this.czArea.string = `${Language_pay.Lg.ChangeByText('充值范围')}:(${this.current.min_amount}-${this.current.max_amount})`
-        this.gold1.string = span_amount[0]?span_amount[0]:'10';
-        this.gold2.string = span_amount[1]?span_amount[1]:'50';
-        this.gold3.string = span_amount[2]?span_amount[2]:'100';
-        this.gold4.string = span_amount[3]?span_amount[3]:'500';
-        this.gold5.string = span_amount[4]?span_amount[4]:'1000';
-        this.gold6.string = span_amount[5]?span_amount[5]:'5000';
+        span_amount.forEach(e=>{
+            if(arr.indexOf(e)=== -1){
+                arr.push(e)
+            }
+        })
+        //删除旧的选项
+        this.neikuagn.removeAllChildren()
+        arr.forEach((e)=>{
+            var node = cc.instantiate(this.btnNum)
+            node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
+            this.neikuagn.addChild(node)
+        })
         if(this.current.name == this.handling_feeName && this.handling_fee !=0){
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             blinkNodeLabel.string = "温馨提示：此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
@@ -278,32 +273,46 @@ export default class NewClass extends cc.Component {
             handling_feeLabel.getComponent(cc.Label).string = `前${this.free_num}笔免费`
             handling_feeLabel.getComponent(cc.Label).fontSize = 35
             this.blinkFun(handling_feeLabel)
-
             //请求获取当前的免费次数
             let callBack = (is_first)=>{
                 //0 代表二次  1 代表 首次
+                arr = []
                 if(is_first == 1 && this.first_min > 0 ){
-                    this.gold1.string = `${this.first_min}`
-                    this.gold2.string = `${this.first_min}`
-                    this.gold3.string = `${this.first_min}`
-                    this.gold4.string = `${this.first_min}`
-                    this.gold5.string = `${this.first_min}`
-                    this.gold6.string = `${this.first_min}`
+                    span_amount.forEach((e)=>{
+                        if(e>= this.first_min && arr.indexOf(e)=== -1){
+                            arr.push(e)
+                        }
+                    })
+                    //删除旧的选项
+                    this.neikuagn.removeAllChildren()
+                    arr.forEach((e)=>{
+                        var node = cc.instantiate(this.btnNum)
+                        node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
+                        this.neikuagn.addChild(node)
+                    })
                 }else if(this.second_min > 0){
-                    this.gold1.string = `${this.second_min}`
-                    this.gold2.string = `${this.second_min}`
-                    this.gold3.string = `${this.second_min}`
-                    this.gold4.string = `${this.second_min}`
-                    this.gold5.string = `${this.second_min}`
-                    this.gold6.string = `${this.second_min}`
+                    span_amount.forEach((e)=>{
+                        if(e>= this.second_min && arr.indexOf(e)=== -1){
+                            arr.push(e)
+                        }
+                    })
+                    //删除旧的选项
+                    this.neikuagn.removeAllChildren()
+                    arr.forEach((e)=>{
+                        var node = cc.instantiate(this.btnNum)
+                        node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
+                        this.neikuagn.addChild(node)
+                    })
                 }
-            }
-            this.getPayFlagbyPayType(callBack)
 
+            }
+            
+            this.getPayFlagbyPayType(callBack)
         }else if(this.channel != 'bankcard_transfer' && this.channel != 'bank_pay'){
             this.blinkNode.active = false
             this.iconFont.children[1].active = false
         }
+        
     }
 
     public deleteAmount(){
@@ -408,8 +417,6 @@ export default class NewClass extends cc.Component {
             }
         }
     }
-
-
     addGold(e){
         //按键音效
         this.app.loadMusic(1);
