@@ -290,7 +290,7 @@ export default class NewClass extends cc.Component {
                         node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
                         this.neikuagn.addChild(node)
                     })
-                }else if(this.second_min > 0){
+                }else if(is_first == 0 && this.second_min > 0){
                     span_amount.forEach((e)=>{
                         if(e>= this.second_min && arr.indexOf(e)=== -1){
                             arr.push(e)
