@@ -99,18 +99,10 @@ export default class NewClass extends cc.Component {
         var data = this.data.data;
         for(let i = 0 ;i < data.list.length ;i++){
             let item = data.list[i];
-            if (item.type == 4){
+            if (item.type == 4 || item.type == 5){
                 this.UsdtData.push(item)
             }
         }
-        if(this.UsdtData.length>0){
-            let Info =JSON.parse(this.UsdtData[0].info)
-            for (var k in Info) {
-                this.info[k] = Info[k]
-            }
-            this.itemID = this.UsdtData[0].id;
-        }
-        console.log(this.UsdtData,this.info)
         //最小金额也需要根据package_id判断
         let withdraw_min_amount = JSON.parse(this.data.data.withdraw_min_amount)
         withdraw_min_amount['usdt'].forEach(item => {
@@ -118,12 +110,37 @@ export default class NewClass extends cc.Component {
                 this.current.min_amount = item.min_amount
             }
         });
-        console.log(this.data)
+        
         this.goldLabel.string = this.app.config.toDecimal(this.data.data.game_gold);
         this.dhArea.string = `${Language_pay.Lg.ChangeByText('兑换范围')}:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
-        this.walletAddressLabel.string = JSON.stringify(this.info)!= '{}' ? this.app.config.testAdressNum(this.info.wallet_addr) :Language_pay.Lg.ChangeByText('未绑定');
-        this.chanTypeLabel.string =JSON.stringify(this.info)!= '{}' ? this.info.protocol:Language_pay.Lg.ChangeByText('未绑定');
-
+        
+        if(this.UsdtData.length>0){
+            if(this.current.channel_type == 10 ){
+                this.UsdtData.forEach((e)=>{
+                    let Info =JSON.parse(e.info)
+                    if(Info.protocol == "TRC20"){
+                        this.walletAddressLabel.string = this.app.config.testAdressNum(Info.wallet_addr)
+                        this.chanTypeLabel.string = Info.protocol
+                        this.itemID = e.id
+                    }
+                })
+            }else if(this.current.channel_type == 9){
+                this.UsdtData.forEach((e)=>{
+                    let Info =JSON.parse(e.info)
+                    if(Info.protocol == "ERC20"){
+                        this.walletAddressLabel.string = this.app.config.testAdressNum(Info.wallet_addr)
+                        this.chanTypeLabel.string = Info.protocol
+                        this.itemID = e.id
+                    }
+                })
+            }else{
+                this.walletAddressLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+                this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+            }
+        }else{
+            this.walletAddressLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+            this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+        }
         if(this.walletAddressLabel.string == Language_pay.Lg.ChangeByText('未绑定')){
             this.bindBtn.active = true;
         }else{

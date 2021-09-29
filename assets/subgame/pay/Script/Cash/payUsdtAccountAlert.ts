@@ -43,8 +43,8 @@ export default class NewClass extends cc.Component {
         }
     }
     selectClick(){
-        // 需求修改 20210204_充提模块， 绑定USDT钱包 链类型 写死为  ERC20
-        // this.selectContent.active = !this.selectContent.active
+        // 需求修改 202109127 新增 USDT-TRC20 渠道
+        this.selectContent.active = !this.selectContent.active
     }
     selectItemClick(event){
         let eventlabel = event.target.getChildByName('label').getComponent(cc.Label).string
@@ -59,7 +59,7 @@ export default class NewClass extends cc.Component {
             protocol:this.chanTypeLabel.string,
         };
         let info = JSON.stringify(obj);
-        let dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=4&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
+        let dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=${this.chanTypeLabel.string=="TRC20"?5:4}&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
@@ -124,7 +124,7 @@ export default class NewClass extends cc.Component {
         }
 
         this.walletAddressInput.placeholder = Language_pay.Lg.ChangeByText('请输入钱包地址')
-        // this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('请选择链类型')
+        this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('请选择链类型')
         tishi.string = Language_pay.Lg.ChangeByText('温馨提示：绑定钱包地址后无法自行修改！请仔细填写您的钱包地址信息，如有错误将会导致您无法收到货币。')
     }
 }
