@@ -158,7 +158,7 @@ export default class NewClass extends cc.Component {
         }else if(this.channel =='digiccy'){
             this.app.loadIcon(`recharge/flag_usdt`,this.icon,100,100)
             
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.默认链类型为ERC20')}。2.${Language_pay.Lg.ChangeByText(`参考汇率：1USDT`)} ≈ ${this.conf_val}${Language_pay.Lg.ChangeByText(`金币`)}。`;
+            this.wxtsLabel.string = `1. 请依照选择的渠道链类型进行支付。2.${Language_pay.Lg.ChangeByText(`参考汇率：1USDT`)} ≈ ${this.conf_val}${Language_pay.Lg.ChangeByText(`金币`)}。`;
             this.app.loadIcon(`recharge/subbg_usdt`,this.shuiyin,368,270)
             if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('USDT充值')
