@@ -14,7 +14,7 @@ export default class NewClass extends cc.Component {
 
     app = null
     action = 'add'
-    itemId = null
+    itemId = ""
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -35,8 +35,10 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(Language_pay.Lg.ChangeByText('钱包地址不能为空!'))
         }else if(this.chanTypeLabel.string == ''|| this.chanTypeLabel.string == Language_pay.Lg.ChangeByText('请选择链类型')){
             this.app.showAlert(Language_pay.Lg.ChangeByText('请选择链类型'))
-        }else if(this.charCodeAddress(this.walletAddressInput.string)){
+        }else if(this.chanTypeLabel.string == "ERC20" && this.charCodeAddress(this.walletAddressInput.string)){
             this.app.showAlert(Language_pay.Lg.ChangeByText('钱包地址不符合要求(42位16进制组合, 开头为0x), 请重新输入。'))
+        }else if(this.chanTypeLabel.string == "TRC20" && this.charCodeTrc20(this.walletAddressInput.string)){
+            this.app.showAlert(Language_pay.Lg.ChangeByText('无效钱包地址'))
         } else{
             this.fetchBindAccountPay();
             this.node.removeFromParent();
@@ -93,6 +95,11 @@ export default class NewClass extends cc.Component {
             ret = true
         }
         return ret
+    }
+    charCodeTrc20(s){
+        var str = /^(T)?[a-zA-Z\d]{33}$/
+        console.log("!str.test(s)",!str.test(s))
+        return !str.test(s)
     }
      //设置语言相关的资源和字
      setLanguageResource(){
