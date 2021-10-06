@@ -122,6 +122,9 @@ export default class NewClass extends cc.Component {
                         this.walletAddressLabel.string = this.app.config.testAdressNum(Info.wallet_addr)
                         this.chanTypeLabel.string = Info.protocol
                         this.itemID = e.id
+                    }else{
+                        this.walletAddressLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+                        this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('未绑定')
                     }
                 })
             }else if(this.current.channel_type == 9){
@@ -131,6 +134,9 @@ export default class NewClass extends cc.Component {
                         this.walletAddressLabel.string = this.app.config.testAdressNum(Info.wallet_addr)
                         this.chanTypeLabel.string = Info.protocol
                         this.itemID = e.id
+                    }else{
+                        this.walletAddressLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+                        this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('未绑定')
                     }
                 })
             }else{
