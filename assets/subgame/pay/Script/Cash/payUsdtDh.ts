@@ -187,7 +187,8 @@ export default class NewClass extends cc.Component {
     }
     //显示弹窗
     showAccountAlert(){
-        this.app.showUsdtAccountAlert(this.itemID);
+        let type = this.current.channel_type == 10 ? "TRC20":"ERC20"
+        this.app.showUsdtAccountAlert(this.itemID,type);
     }
     //兑换
     public fetchwithDrawApply(){

@@ -22,8 +22,9 @@ export default class NewClass extends cc.Component {
         this.setLanguageResource()
     }
 
-    public init(itemId){
+    public init(itemId,type){
         this.itemId = itemId;
+        this.chanTypeLabel.string = type
     }
     onClick() {
         //按键音效
@@ -46,7 +47,7 @@ export default class NewClass extends cc.Component {
     }
     selectClick(){
         // 需求修改 202109127 新增 USDT-TRC20 渠道
-        this.selectContent.active = !this.selectContent.active
+        // this.selectContent.active = !this.selectContent.active
     }
     selectItemClick(event){
         let eventlabel = event.target.getChildByName('label').getComponent(cc.Label).string

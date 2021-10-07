@@ -340,7 +340,7 @@ export default class NewClass extends cc.Component {
             BankAccountAlert.changeContent(data.changeData);
         }
     }
-    public showUsdtAccountAlert(itemId){
+    public showUsdtAccountAlert(itemId,type){
         var canvas = cc.find('Canvas');
         var node = null
         if(this.UrlData.package_id == 8 || this.UrlData.package_id == 12){
@@ -356,9 +356,7 @@ export default class NewClass extends cc.Component {
         }
         canvas.addChild(node);
         let payUsdtAccountAlert = node.getComponent('payUsdtAccountAlert');
-        payUsdtAccountAlert.init({
-            itemId
-        })
+        payUsdtAccountAlert.init(itemId,type)
     }
     /**
      * 添加银行卡类型弹窗
