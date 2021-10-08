@@ -115,33 +115,30 @@ export default class NewClass extends cc.Component {
         this.dhArea.string = `${Language_pay.Lg.ChangeByText('兑换范围')}:(${this.current? this.current.min_amount:100} - ${this.current?this.current.max_amount:10000})`;
         
         if(this.UsdtData.length>0){
+            let CurrentItem :any= null
             if(this.current.channel_type == 10 ){
                 this.UsdtData.forEach((e)=>{
                     let Info =JSON.parse(e.info)
                     if(Info.protocol == "TRC20"){
-                        this.walletAddressLabel.string = this.app.config.testAdressNum(Info.wallet_addr)
-                        this.chanTypeLabel.string = Info.protocol
-                        this.itemID = e.id
-                    }else{
-                        this.walletAddressLabel.string = Language_pay.Lg.ChangeByText('未绑定')
-                        this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+                        CurrentItem = e
                     }
                 })
             }else if(this.current.channel_type == 9){
                 this.UsdtData.forEach((e)=>{
                     let Info =JSON.parse(e.info)
                     if(Info.protocol == "ERC20"){
-                        this.walletAddressLabel.string = this.app.config.testAdressNum(Info.wallet_addr)
-                        this.chanTypeLabel.string = Info.protocol
-                        this.itemID = e.id
-                    }else{
-                        this.walletAddressLabel.string = Language_pay.Lg.ChangeByText('未绑定')
-                        this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+                        CurrentItem = e
                     }
                 })
-            }else{
+            }
+            if (CurrentItem == null){
                 this.walletAddressLabel.string = Language_pay.Lg.ChangeByText('未绑定')
                 this.chanTypeLabel.string = Language_pay.Lg.ChangeByText('未绑定')
+            }else{
+                let Info =JSON.parse(CurrentItem.info)
+                this.walletAddressLabel.string = this.app.config.testAdressNum(Info.wallet_addr)
+                this.chanTypeLabel.string = Info.protocol
+                this.itemID = CurrentItem.id
             }
         }else{
             this.walletAddressLabel.string = Language_pay.Lg.ChangeByText('未绑定')

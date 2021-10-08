@@ -135,7 +135,16 @@ export default class NewClass extends cc.Component {
                      //新增渠道判断
                      if(this.zfbResults.data.alipay.length  === 1){
                         let results = this.zfbResults.data.alipay[0]
-                        if(results.rate != "" && results.rate !="0.0000"){
+                        //先看大渠道是否显示
+                        let arr = results.package_ids.split(",")
+                        let show = false
+                        arr.forEach(e=>{
+                            if(Number(e) == this.app.UrlData.package_id){
+                                show = true
+                            }
+                        })
+
+                        if(show && results.rate != "" && results.rate !="0.0000"){
                             let rate = JSON.parse(results.rate)
                             //当rate不为空时要根据渠道id判断是否需要显示
                             let packageArr= []
@@ -147,30 +156,87 @@ export default class NewClass extends cc.Component {
                             }
                         }
                     }else if(this.zfbResults.data.alipay.length >1){
-                        arr.push('支付宝')
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.alipay.forEach(e=>{
+                            let arr = e.package_ids.split(",")
+                            arr.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('支付宝')
+                        }
                     }
                     break
                 case "bankcard_transfer":
                     if (this.zfbResults.data.bankcard_transfer.length > 0 ) {
-                        arr.push('转账到银行卡')
+                         //先看大渠道是否显示
+                         let show = false
+                         this.zfbResults.data.bankcard_transfer.forEach(e=>{
+                             let arr = e.package_ids.split(",")
+                             arr.forEach(e=>{
+                                 if(Number(e) == this.app.UrlData.package_id){
+                                     show = true
+                                 }
+                             })
+                         })
+                         if(show){
+                             arr.push('转账到银行卡')
+                         }
                     }
                     break
                 case "quick_pay" :
                     if (this.zfbResults.data.quick_pay.length > 0 ) {
-                        arr.push('快捷支付')
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.quick_pay.forEach(e=>{
+                            let arr = e.package_ids.split(",")
+                            arr.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('快捷支付')
+                        }
                     }
                     break
                 case "bank_pay" :
                     if (this.zfbResults.data.bank_pay.length > 0  ) {
-                        arr.push('网银支付')
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.bank_pay.forEach(e=>{
+                            let arr = e.package_ids.split(",")
+                            arr.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('网银支付')
+                        }
                     }
                     break
                 case "wechat_pay" :
                     //新增渠道判断
                     if(this.zfbResults.data.wechat_pay.length  === 1){
                         let results = this.zfbResults.data.wechat_pay[0]
+                        //先看大渠道是否显示
+                        let arr = results.package_ids.split(",")
+                        let show = false
+                        arr.forEach(e=>{
+                            if(Number(e) == this.app.UrlData.package_id){
+                                show = true
+                            }
+                        })
+
                         let rate = JSON.parse(results.rate)
-                        if(rate != "" && rate !="0.0000"){
+                        if(show && rate != "" && rate !="0.0000"){
                             //当rate不为空时要根据渠道id判断是否需要显示
                             let packageArr= []
                             for(let k in rate){
@@ -181,18 +247,54 @@ export default class NewClass extends cc.Component {
                             }
                         }
                     }else if(this.zfbResults.data.wechat_pay.length >1){
-                        arr.push('微信')
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.wechat_pay.forEach(e=>{
+                            let arr = e.package_ids.split(",")
+                            arr.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('微信')
+                        }
                     }
                     console.log(arr)
                     break
                 case "union_pay" :
                     if (this.zfbResults.data.union_pay.length > 0 ) {
-                        arr.push('银联扫码')
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.union_pay.forEach(e=>{
+                            let arr = e.package_ids.split(",")
+                            arr.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('银联扫码')
+                        }
                     }
                     break
                 case "im_pay" :
                     if ( this.zfbResults.data.im_pay.length > 0  ) {
-                        arr.push('IM充值')
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.im_pay.forEach(e=>{
+                            let arr = e.package_ids.split(",")
+                            arr.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('IM充值')
+                        }
                     }
                     break
                 case "daichong" :
@@ -200,11 +302,24 @@ export default class NewClass extends cc.Component {
                     if(this.app.UrlData.package_id == 15){
                         break
                     }
-                    arr.push('人工代充值')
+                    //人工代充不显示 10.8
+                    // arr.push('人工代充值')
                     break 
                 case "digiccy" :
                     if ( this.zfbResults.data.digiccy.length > 0  ) {
-                        arr.push('USDT')
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.digiccy.forEach(e=>{
+                            let arr = e.package_ids.split(",")
+                            arr.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('USDT')
+                        }
                     }
                     break
             }

@@ -99,7 +99,14 @@ export default class NewClass extends cc.Component {
         }
         if(this.results.data.withDraw_info.bankcard){
             if(this.results.data.withDraw_info.bankcard.is_close > 0){
-                arr.push('银行卡兑换')
+                //分渠道开关
+                let package_ids = this.results.data.withDraw_info.bankcard.package_ids
+                let package_idsArr = package_ids.split(",")
+                package_idsArr.forEach(e=>{
+                   if( Number(e) == this.app.UrlData.package_id){
+                        arr.push('银行卡兑换')
+                   }
+                })
             }
         }
         if(this.results.data.withDraw_info.alipay){
@@ -109,10 +116,20 @@ export default class NewClass extends cc.Component {
         }
         if(this.results.data.withDraw_info.usdt){
             if(this.results.data.withDraw_info.usdt.is_close > 0){
-                arr.push('USDT兑换')
+                //分渠道开关
+                let package_ids = this.results.data.withDraw_info.usdt.package_ids
+                let package_idsArr = package_ids.split(",")
+                package_idsArr.forEach(e=>{
+                   if( Number(e) == this.app.UrlData.package_id){
+                    arr.push('USDT兑换')
+                   }
+                })
             }
         }
-        arr.push('兑换记录')
+        if(arr.length>0){
+            //有兑换渠道时才显示兑换记录
+            arr.push('兑换记录')
+        }
         for(let i:number = 0; i< arr.length; i++){
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);
@@ -123,10 +140,14 @@ export default class NewClass extends cc.Component {
         //首次加载，顺序第一的显示
         if(arr[0]=='人工兑换'){
             this.ToggleContainer.children[0].getComponent('payDhToggle').addContent('RgDh')
-        }else if(this.results.data.withDraw_info.bankcard.channel.length > 0){
+        }else if(arr[0] == "银行卡兑换"){
             this.ToggleContainer.children[0].getComponent('payDhToggle').addContent('BankDh')
-        }else if(this.results.data.withDraw_info.alipay.channel.length > 0){
+        }else if(arr[0] == "支付宝兑换"){
             this.ToggleContainer.children[0].getComponent('payDhToggle').addContent('Dh')
+        }else if(arr[0] == "USDT兑换"){
+            this.ToggleContainer.children[0].getComponent('payDhToggle').addContent('USDT')
+        }else if(arr[0] == "兑换记录"){
+            this.ToggleContainer.children[0].getComponent('payDhToggle').addContent('DhHistory')
         }
     }
     onDestroy(){
