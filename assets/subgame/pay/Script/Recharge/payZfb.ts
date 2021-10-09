@@ -268,11 +268,12 @@ export default class NewClass extends cc.Component {
             blinkNodeLabel.fontSize = 23
             blinkNodeLabel.lineHeight = 28
             this.blinkFun(this.blinkNode)
-
             let handling_feeLabel = this.iconFont.children[1]
-            handling_feeLabel.getComponent(cc.Label).string = `前${this.free_num}笔免费，手续费率${this.app.config.toDecimal(this.handling_fee*100)}%`
-            handling_feeLabel.getComponent(cc.Label).fontSize = 30
-            this.blinkFun(handling_feeLabel)
+            if(this.app.UrlData.package_id != 11){
+                handling_feeLabel.getComponent(cc.Label).string = `前${this.free_num}笔免费，手续费率${this.app.config.toDecimal(this.handling_fee*100)}%`
+                handling_feeLabel.getComponent(cc.Label).fontSize = 30
+                this.blinkFun(handling_feeLabel)
+            }
             //请求获取当前的免费次数
             let callBack = (is_first)=>{
                 //0 代表二次  1 代表 首次
