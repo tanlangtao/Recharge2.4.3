@@ -221,7 +221,7 @@ export default class NewClass extends cc.Component {
                 self.current = self.results[0];
                 self.handling_feeName = self.results[0]
                 self.radioList();
-                self.initRender();
+                self.initRender(0);
             }else{
                 self.app.hideLoading()
                 self.app.showAlert(response.msg)
@@ -246,7 +246,23 @@ export default class NewClass extends cc.Component {
             this.wxtsLabel.string = `${this.wxtsLabel.string}${Language_pay.Lg.ChangeByText("充值优惠")}: ${Language_pay.Lg.ChangeByText('充值')}${minAmount}-${maxAmount},${Language_pay.Lg.ChangeByText('赠送')} ${percent*100}%,`
         }
     }
-    public initRender(){
+    public initRender(index){
+        //根据选择的index不同，选择对应的渠道
+        if(this.results[index].rate != "" && this.results[index].rate !="0.0000"){
+            let rate = JSON.parse(this.results[index].rate)
+            //当rate不为空时要根据渠道id判断是否需要显示
+            let packageArr= []
+            for(let k in rate){
+                packageArr.push(Number(k))
+            }
+            if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
+                this.free_num = rate[this.app.UrlData.package_id].free_num
+                this.handling_fee = rate[this.app.UrlData.package_id].handling_fee
+                this.first_min = rate[this.app.UrlData.package_id].first_min
+                this.second_min = rate[this.app.UrlData.package_id].second_min
+                this.handling_feeName = this.results[index].name
+            }
+        }
         var arr = []
         var span_amount = this.current.span_amount.split(',');
         this.czArea.string = `${Language_pay.Lg.ChangeByText('充值范围')}:(${this.current.min_amount}-${this.current.max_amount})`
@@ -269,7 +285,7 @@ export default class NewClass extends cc.Component {
             blinkNodeLabel.lineHeight = 28
             this.blinkFun(this.blinkNode)
             let handling_feeLabel = this.iconFont.children[1]
-            if(this.app.UrlData.package_id != 11){
+            if( this.handling_fee!=0){
                 handling_feeLabel.getComponent(cc.Label).string = `前${this.free_num}笔免费，手续费率${this.app.config.toDecimal(this.handling_fee*100)}%`
                 handling_feeLabel.getComponent(cc.Label).fontSize = 30
                 this.blinkFun(handling_feeLabel)
@@ -381,7 +397,6 @@ export default class NewClass extends cc.Component {
     }
 
     radioList(){
-        
         this.selectContent.removeAllChildren();
         for( var i = 0 ; i < this.results.length ; i++){
             if(this.results[i].rate != "" && this.results[i].rate !="0.0000"){
@@ -400,11 +415,6 @@ export default class NewClass extends cc.Component {
                         index:i,
                         channel:this.channel
                     })
-                    this.free_num = rate[this.app.UrlData.package_id].free_num
-                    this.handling_fee = rate[this.app.UrlData.package_id].handling_fee
-                    this.first_min = rate[this.app.UrlData.package_id].first_min
-                    this.second_min = rate[this.app.UrlData.package_id].second_min
-                    this.handling_feeName = this.results[i].name
                 }
             }else{
                 var node = cc.instantiate(this.SelectItem);

@@ -133,42 +133,30 @@ export default class NewClass extends cc.Component {
             switch (e){
                 case "alipay" :
                      //新增渠道判断
-                     if(this.zfbResults.data.alipay.length  === 1){
-                        let results = this.zfbResults.data.alipay[0]
-                        //先看大渠道是否显示
-                        let package_ids = results.package_ids.split(",")
-                        let show = false
-                        package_ids.forEach(e=>{
-                            if(Number(e) == this.app.UrlData.package_id){
-                                show = true
-                            }
-                        })
-
-                        if(show && results.rate != "" && results.rate !="0.0000"){
-                            let rate = JSON.parse(results.rate)
-                            //当rate不为空时要根据渠道id判断是否需要显示
-                            let packageArr= []
-                            for(let k in rate){
-                                packageArr.push(Number(k))
-                            }
-                            if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
-                                arr.push('支付宝')
-                            }
-                        }
-                    }else if(this.zfbResults.data.alipay.length >1){
-                        //先看大渠道是否显示
-                        let show = false
+                     if(this.zfbResults.data.alipay.length  >= 1){
                         this.zfbResults.data.alipay.forEach(e=>{
-                            let package_ids = e.package_ids.split(",")
+                            let results = e
+                            //先看大渠道是否显示
+                            let package_ids = results.package_ids.split(",")
+                            let show = false
                             package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
                             })
+                            if(show && results.rate != "" && results.rate !="0.0000"){
+                                let rate = JSON.parse(results.rate)
+                                //当rate不为空时要根据渠道id判断是否需要显示
+                                let packageArr= []
+                                for(let k in rate){
+                                    packageArr.push(Number(k))
+                                }
+                                if(packageArr.indexOf(this.app.UrlData.package_id)>-1 && arr.indexOf("支付宝")== -1){
+                                    arr.push('支付宝')
+                                }
+                            }
                         })
-                        if(show){
-                            arr.push('支付宝')
-                        }
+                        
                     }
                     break
                 case "bankcard_transfer":
@@ -224,43 +212,31 @@ export default class NewClass extends cc.Component {
                     break
                 case "wechat_pay" :
                     //新增渠道判断
-                    if(this.zfbResults.data.wechat_pay.length  === 1){
-                        let results = this.zfbResults.data.wechat_pay[0]
-                        //先看大渠道是否显示
-                        let package_ids = results.package_ids.split(",")
-                        let show = false
-                        package_ids.forEach(e=>{
-                            if(Number(e) == this.app.UrlData.package_id){
-                                show = true
-                            }
-                        })
-
-                        let rate = JSON.parse(results.rate)
-                        if(show && rate != "" && rate !="0.0000"){
-                            //当rate不为空时要根据渠道id判断是否需要显示
-                            let packageArr= []
-                            for(let k in rate){
-                                packageArr.push(Number(k))
-                            }
-                            
-                            if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
-                                arr.push('微信')
-                            }
-                        }
-                    }else if(this.zfbResults.data.wechat_pay.length >1){
-                        //先看大渠道是否显示
-                        let show = false
+                    if(this.zfbResults.data.wechat_pay.length  >= 1){
                         this.zfbResults.data.wechat_pay.forEach(e=>{
-                            let package_ids = e.package_ids.split(",")
+                            let results = e
+                            //先看大渠道是否显示
+                            let package_ids = results.package_ids.split(",")
+                            let show = false
                             package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
                             })
+
+                            let rate = JSON.parse(results.rate)
+                            if(show && rate != "" && rate !="0.0000"){
+                                //当rate不为空时要根据渠道id判断是否需要显示
+                                let packageArr= []
+                                for(let k in rate){
+                                    packageArr.push(Number(k))
+                                }
+                                
+                                if(packageArr.indexOf(this.app.UrlData.package_id)>-1&& arr.indexOf("微信")== -1 ){
+                                    arr.push('微信')
+                                }
+                            }
                         })
-                        if(show){
-                            arr.push('微信')
-                        }
                     }
                     break
                 case "union_pay" :
