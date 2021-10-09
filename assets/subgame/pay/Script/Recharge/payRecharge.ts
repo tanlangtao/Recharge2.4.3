@@ -136,9 +136,9 @@ export default class NewClass extends cc.Component {
                      if(this.zfbResults.data.alipay.length  === 1){
                         let results = this.zfbResults.data.alipay[0]
                         //先看大渠道是否显示
-                        let arr = results.package_ids.split(",")
+                        let package_ids = results.package_ids.split(",")
                         let show = false
-                        arr.forEach(e=>{
+                        package_ids.forEach(e=>{
                             if(Number(e) == this.app.UrlData.package_id){
                                 show = true
                             }
@@ -159,8 +159,8 @@ export default class NewClass extends cc.Component {
                         //先看大渠道是否显示
                         let show = false
                         this.zfbResults.data.alipay.forEach(e=>{
-                            let arr = e.package_ids.split(",")
-                            arr.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
@@ -176,8 +176,8 @@ export default class NewClass extends cc.Component {
                          //先看大渠道是否显示
                          let show = false
                          this.zfbResults.data.bankcard_transfer.forEach(e=>{
-                             let arr = e.package_ids.split(",")
-                             arr.forEach(e=>{
+                             let package_ids = e.package_ids.split(",")
+                             package_ids.forEach(e=>{
                                  if(Number(e) == this.app.UrlData.package_id){
                                      show = true
                                  }
@@ -193,8 +193,8 @@ export default class NewClass extends cc.Component {
                         //先看大渠道是否显示
                         let show = false
                         this.zfbResults.data.quick_pay.forEach(e=>{
-                            let arr = e.package_ids.split(",")
-                            arr.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
@@ -210,8 +210,8 @@ export default class NewClass extends cc.Component {
                         //先看大渠道是否显示
                         let show = false
                         this.zfbResults.data.bank_pay.forEach(e=>{
-                            let arr = e.package_ids.split(",")
-                            arr.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
@@ -227,9 +227,9 @@ export default class NewClass extends cc.Component {
                     if(this.zfbResults.data.wechat_pay.length  === 1){
                         let results = this.zfbResults.data.wechat_pay[0]
                         //先看大渠道是否显示
-                        let arr = results.package_ids.split(",")
+                        let package_ids = results.package_ids.split(",")
                         let show = false
-                        arr.forEach(e=>{
+                        package_ids.forEach(e=>{
                             if(Number(e) == this.app.UrlData.package_id){
                                 show = true
                             }
@@ -242,6 +242,7 @@ export default class NewClass extends cc.Component {
                             for(let k in rate){
                                 packageArr.push(Number(k))
                             }
+                            
                             if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
                                 arr.push('微信')
                             }
@@ -250,8 +251,8 @@ export default class NewClass extends cc.Component {
                         //先看大渠道是否显示
                         let show = false
                         this.zfbResults.data.wechat_pay.forEach(e=>{
-                            let arr = e.package_ids.split(",")
-                            arr.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
@@ -261,15 +262,14 @@ export default class NewClass extends cc.Component {
                             arr.push('微信')
                         }
                     }
-                    console.log(arr)
                     break
                 case "union_pay" :
                     if (this.zfbResults.data.union_pay.length > 0 ) {
                         //先看大渠道是否显示
                         let show = false
                         this.zfbResults.data.union_pay.forEach(e=>{
-                            let arr = e.package_ids.split(",")
-                            arr.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
@@ -285,8 +285,8 @@ export default class NewClass extends cc.Component {
                         //先看大渠道是否显示
                         let show = false
                         this.zfbResults.data.im_pay.forEach(e=>{
-                            let arr = e.package_ids.split(",")
-                            arr.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
@@ -310,8 +310,8 @@ export default class NewClass extends cc.Component {
                         //先看大渠道是否显示
                         let show = false
                         this.zfbResults.data.digiccy.forEach(e=>{
-                            let arr = e.package_ids.split(",")
-                            arr.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
                                 if(Number(e) == this.app.UrlData.package_id){
                                     show = true
                                 }
