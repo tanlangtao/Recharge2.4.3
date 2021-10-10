@@ -399,14 +399,32 @@ export default class NewClass extends cc.Component {
     radioList(){
         this.selectContent.removeAllChildren();
         for( var i = 0 ; i < this.results.length ; i++){
-            if(this.results[i].rate != "" && this.results[i].rate !="0.0000"){
-                let rate = JSON.parse(this.results[i].rate)
-                //当rate不为空时要根据渠道id判断是否需要显示
-                let packageArr= []
-                for(let k in rate){
-                    packageArr.push(Number(k))
+            let show = false
+            let package_ids = this.results[i].package_ids.split(",")
+            package_ids.forEach(e=>{
+                if(Number(e) == this.app.UrlData.package_id){
+                    show = true
                 }
-                if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
+            })
+            if(show){
+                if(this.results[i].rate != "" && this.results[i].rate !="0.0000"){
+                    let rate = JSON.parse(this.results[i].rate)
+                    //当rate不为空时要根据渠道id判断是否需要显示
+                    let packageArr= []
+                    for(let k in rate){
+                        packageArr.push(Number(k))
+                    }
+                    if(packageArr.indexOf(this.app.UrlData.package_id)>-1){
+                        var node = cc.instantiate(this.SelectItem);
+                        this.selectContent.addChild(node);
+                        node.getComponent('paySelectItem').init({
+                            text:this.results[i].name,
+                            parentComponent:this,
+                            index:i,
+                            channel:this.channel
+                        })
+                    }
+                }else{
                     var node = cc.instantiate(this.SelectItem);
                     this.selectContent.addChild(node);
                     node.getComponent('paySelectItem').init({
@@ -416,15 +434,6 @@ export default class NewClass extends cc.Component {
                         channel:this.channel
                     })
                 }
-            }else{
-                var node = cc.instantiate(this.SelectItem);
-                this.selectContent.addChild(node);
-                node.getComponent('paySelectItem').init({
-                    text:this.results[i].name,
-                    parentComponent:this,
-                    index:i,
-                    channel:this.channel
-                })
             }
         }
     }
