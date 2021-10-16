@@ -78,6 +78,24 @@ export default class NewClass extends cc.Component {
                 this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT钱包");
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT钱包");
             }
+        }else if(this.app.UrlData.package_id == 16){
+            if(this.text == '银行卡兑换'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "提现到银行卡");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "提现到银行卡");
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/tixiandaoyinhj2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/tixiandaoyinhj`,currentIcon,44,44);
+            }else if(this.text == '银行卡管理'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡管理");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡管理");
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/yinhangkaguanli2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/yinhangkaguanli`,currentIcon,44,44);
+            }else{
+                this.node.removeFromParent()
+            }
         }else{
             if(this.text == '支付宝兑换'){
                 this.app.loadIcon(`${src}/menu/menu_ali_1`,this.normalIcon,242,86)

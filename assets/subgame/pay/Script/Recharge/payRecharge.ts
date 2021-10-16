@@ -23,6 +23,7 @@ export default class NewClass extends cc.Component {
     public app  = null;
     timer = null;
     canExit = false;
+    indexData = {}
     onLoad() {
         var Global = cc.find('payGlobal');
         cc.game.addPersistRootNode(Global); 
@@ -51,6 +52,9 @@ export default class NewClass extends cc.Component {
         }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
         this.setLanguageResource()
+        if(this.app.UrlData.package_id == 16){
+            this.fetchIndex()
+        }
     }
     //返回大厅
     public exitBtnClick() {
@@ -105,7 +109,22 @@ export default class NewClass extends cc.Component {
             self.app.showAlert(`网络错误${errstatus}`)
         })
     }
-
+    public fetchIndex(){
+        var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            self.app.hideLoading();
+            if(response.status == 0){
+                let goldlabel = this.node.getChildByName("header").getChildByName("zyd").getChildByName("label").getComponent(cc.Label)
+                goldlabel.string = this.app.config.toDecimal(response.data.game_gold);
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+            self.app.hideLoading()
+        })
+    }
     public addNavToggle() {
         let  payment_mode_sort = {}
         if (this.zfbResults.data.payment_mode_sort){
@@ -145,7 +164,12 @@ export default class NewClass extends cc.Component {
                                 }
                             })
                             if(show && results.rate != "" && results.rate !="0.0000"){
-                                let rate = JSON.parse(results.rate)
+                                let rate = {}
+                                try{
+                                    rate = JSON.parse(results.rate)
+                                }catch(err){
+                                    console.log("err",err)
+                                }
                                 //当rate不为空时要根据渠道id判断是否需要显示
                                 let packageArr= []
                                 for(let k in rate){
@@ -223,9 +247,13 @@ export default class NewClass extends cc.Component {
                                     show = true
                                 }
                             })
-
-                            let rate = JSON.parse(results.rate)
-                            if(show && rate != "" && rate !="0.0000"){
+                            if(show && results.rate != "" && results.rate !="0.0000"){
+                                let rate = {}
+                                try{
+                                    rate = JSON.parse(results.rate)
+                                }catch(err){
+                                    console.log("err",err)
+                                }
                                 //当rate不为空时要根据渠道id判断是否需要显示
                                 let packageArr= []
                                 for(let k in rate){
@@ -338,18 +366,22 @@ export default class NewClass extends cc.Component {
         cc.sys.openURL(encodeURI(url))
         cc.log(encodeURI(url))
     }
+    reFreshGold(){
+        this.fetchIndex()
+    }
+
     //设置语言相关的资源和字
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
 
         let title= cc.find('Canvas/Recharge/header/title')
         let chongzhilishi= cc.find('Canvas/Recharge/chongzhilishi')
-        
+        console.log("this.app.UrlData.package_id",this.app.UrlData.package_id)
         this.app.loadIconLg(`${src}/font/9`,title);
         if(this.app.UrlData.package_id == 9)
         {
             chongzhilishi.getComponent(cc.Widget).target = cc.find('Canvas');
-        }else if(this.app.UrlData.package_id == 15){
+        }else if(this.app.UrlData.package_id == 15||this.app.UrlData.package_id == 16){
 
         }else{
             this.app.loadIconLg(`${src}/btn/chongzhilishi`,chongzhilishi);

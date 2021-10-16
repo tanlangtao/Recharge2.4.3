@@ -38,6 +38,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "支付宝充值");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "支付宝充值");  
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "支付宝充值");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "支付宝充值"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/zfbzf2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/zfbzf1`,currentIcon,44,44);
             }else{
                 this.app.loadIcon(`${src}/menu/menu_alipay_1`,this.normalIcon,207,39);
                 this.app.loadIcon(`${src}/menu/menu_alipay_2`,this.currentIcon,249,86);
@@ -55,6 +62,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "转账到银行卡");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "转账到银行卡");  
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "转账到银行卡");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "转账到银行卡"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/yhkzz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/yhkzz1`,currentIcon,44,44);
             }else if(this.app.UrlData.package_id == 10){
                 this.app.loadIcon(`${src}/menu/menu_tobank_1`,this.normalIcon,151,33);
                 this.app.loadIcon(`${src}/menu/menu_tobank_2`,this.currentIcon,191,33);
@@ -76,6 +90,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "银联扫码");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "银联扫码");  
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "银联扫码");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "银联扫码"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/yhkzz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/yhkzz1`,currentIcon,44,44);
             }else{
                 this.app.loadIcon(`${src}/menu/menu_ylsm_1`,this.normalIcon,207,39);
                 this.app.loadIcon(`${src}/menu/menu_ylsm_2`,this.currentIcon,249,86);
@@ -94,6 +115,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "微信支付");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "微信支付");  
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "微信支付");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "微信支付"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/wxzf2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/wxzf1`,currentIcon,44,44);
             }else{
                 this.app.loadIcon(`${src}/menu/menu_wxpay_1`,this.normalIcon,207,39);
                 this.app.loadIcon(`${src}/menu/menu_wxpay_2`,this.currentIcon,249,86);
@@ -112,6 +140,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "快捷支付");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "快捷支付");  
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "快捷支付");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "快捷支付"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/yhkzz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/yhkzz1`,currentIcon,44,44);
             }else{
                 this.app.loadIcon(`${src}/menu/menu_kuaijie_1`,this.normalIcon,207,39);
                 this.app.loadIcon(`${src}/menu/menu_kuaijie_2`,this.currentIcon,249,86);
@@ -130,6 +165,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "网银支付");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "网银支付");  
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "网银支付");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "网银支付"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/wyzz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/wyzz1`,currentIcon,44,44);
             }else{
                 this.app.loadIcon(`${src}/menu/menu_unionpay_1`,this.normalIcon,207,39);
                 this.app.loadIcon(`${src}/menu/menu_unionpay_2`,this.currentIcon,249,86);
@@ -148,6 +190,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "人工代充值");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "人工代充值"); 
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "人工代充值");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "人工代充值"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/wyzz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/wyzz1`,currentIcon,44,44);
             }else{
                 this.app.loadIcon(`${src}/menu/menu_VIPpay_1`,this.normalIcon,207,39);
                 this.app.loadIcon(`${src}/menu/menu_VIPpay_2`,this.currentIcon,249,86);
@@ -168,6 +217,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "IM充值");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "IM充值");  
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "IM充值");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "IM充值"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/wyzz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/wyzz1`,currentIcon,44,44);
             }else{
                 this.app.loadIcon(`${src}/menu/menu_IMpay_1`,this.normalIcon,207,39);
                 this.app.loadIcon(`${src}/menu/menu_IMpay_2`,this.currentIcon,249,86);
@@ -186,6 +242,13 @@ export default class NewClass extends cc.Component {
             }else if(this.app.UrlData.package_id == 15){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "USDT钱包");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "USDT钱包");  
+            }else if(this.app.UrlData.package_id == 16){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "USDT钱包");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "USDT钱包"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/usdtcz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/usdtcz1`,currentIcon,44,44);
             }else
             {
                 this.app.loadIcon(`${src}/menu/menu_usdt_1`,this.normalIcon,207,39);

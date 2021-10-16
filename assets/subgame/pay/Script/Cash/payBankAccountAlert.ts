@@ -352,7 +352,12 @@ export default class NewClass extends cc.Component {
          this.app.loadMusic(1)
          this.bankNameInput.string = '';
     }
-
+    shangyibu(){
+        if(this.app.UrlData.package_id == 16){
+            this.node.getChildByName("bindBankAccount").active = false
+            this.node.getChildByName("Bank").active = true
+        }
+    }
     removeSelf() {
          //按键音效
          this.app.loadMusic(1)
@@ -395,12 +400,16 @@ export default class NewClass extends cc.Component {
             bankcard_form.getChildByName('label').getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('*温馨提示：绑定银行卡后无法自行修改! 请仔细填写您的银行卡信息!')
         }else if(this.app.UrlData.package_id == 15){
 
+        }else if(this.app.UrlData.package_id == 16){
+
         }else{
             this.app.loadIconLg(`${src}/form/bankcard_form`,bankcard_form)
             this.app.loadIconLg(`${src}/btn/surecg`,btn1)
         }
-        this.nameInput.placeholder = Language_pay.Lg.ChangeByText('请输入姓名')
-        this.accountInput.placeholder = Language_pay.Lg.ChangeByText('请输入银行卡号')
-        this.bankNameInput.placeholder = Language_pay.Lg.ChangeByText('请输入开户支行')
+        if(this.app.UrlData.package_id != 16){
+            this.nameInput.placeholder = Language_pay.Lg.ChangeByText('请输入姓名')
+            this.accountInput.placeholder = Language_pay.Lg.ChangeByText('请输入银行卡号')
+            this.bankNameInput.placeholder = Language_pay.Lg.ChangeByText('请输入开户支行')
+        }
     }
 }

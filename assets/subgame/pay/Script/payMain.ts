@@ -29,6 +29,9 @@ export default class NewClass extends cc.Component {
     keyBoardAlert : cc.Prefab = null;
 
     @property(cc.Prefab)
+    keyBoardAlert2 : cc.Prefab = null;
+
+    @property(cc.Prefab)
     WriteMoneyAlert : cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -127,6 +130,22 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BankTipAlert_15 :cc.Prefab = null;
 
+    @property(cc.Prefab)
+    BankAccountAlert_16:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    UsdtAccountAlert_16:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    PublicOrderAlert_16:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert_16:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BankTipAlert_16:cc.Prefab = null;
+    
+
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -146,7 +165,7 @@ export default class NewClass extends cc.Component {
             user_name:gHandler.gameGlobal.pay.user_name,
             client:gHandler.gameGlobal.pay.client,
             host:gHandler.gameGlobal.pay.pay_host,
-            // host:"https://pay1.whjfxly66.com", //online
+            // host:"http://pay.whjfxly88.com", //online
             proxy_user_id:gHandler.gameGlobal.pay.proxy_user_id,
             proxy_name:gHandler.gameGlobal.pay.proxy_name,
             package_id:gHandler.gameGlobal.pay.package_id,
@@ -351,6 +370,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.UsdtAccountAlert_10);
         }else if(this.UrlData.package_id == 15){
             node = cc.instantiate(this.UsdtAccountAlert_15);
+        }else if(this.UrlData.package_id == 16){
+            node = cc.instantiate(this.UsdtAccountAlert_16);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }
@@ -367,6 +388,8 @@ export default class NewClass extends cc.Component {
         var node = cc.instantiate(this.BankTipAlert);
         if(this.UrlData.package_id == 15){
             node = cc.instantiate(this.BankTipAlert_15);
+        }else if(this.UrlData.package_id == 16){
+            node = cc.instantiate(this.BankTipAlert_16);
         }
         node.getComponent('payBankTipAlert').init(component)
         canvas.addChild(node);
@@ -377,7 +400,23 @@ export default class NewClass extends cc.Component {
      * @param type 
      */
     public showKeyBoard(label,type){
-        var node = cc.instantiate(this.keyBoardAlert);
+        var node = null
+        if(this.UrlData.package_id == 16){
+            node = cc.instantiate(this.keyBoardAlert2);
+        }else{
+            node = cc.instantiate(this.keyBoardAlert);
+        }
+        let canvas = cc.find('Canvas');
+        canvas.addChild(node);
+        node.getComponent('payKeyBoardAlert').init(label,type)
+    }
+    /**
+     * 小键盘 
+     * @param label 
+     * @param type 
+     */
+    public showKeyBoard2(label,type){
+        var node = cc.instantiate(this.keyBoardAlert2);
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
         node.getComponent('payKeyBoardAlert').init(label,type)
@@ -393,7 +432,10 @@ export default class NewClass extends cc.Component {
         if(this.UrlData.package_id == 15){
              color1 = new cc.Color(133, 147, 186);
              color2 = new cc.Color(133, 147, 186);
-        }
+        }else if(this.UrlData.package_id == 16){
+            color1 = new cc.Color(224, 190, 138);
+            color2 = new cc.Color(127, 122, 123);
+       }
         //设置字的颜色
         msg == '' ? input.node.color = color2:input.node.color = color1;
     }

@@ -191,7 +191,6 @@ export default class NewClass extends cc.Component {
     }
     //显示弹窗
     showAccountAlert(){
-        console.log(this.Info)
         this.app.showBankAccountAlert({
             text:this.bankData.length != 0  ?'修改银行卡' : '设置银行卡',
             action:this.action,

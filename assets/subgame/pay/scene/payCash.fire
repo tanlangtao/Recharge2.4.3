@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        257.2010662338107,
+        358.5229425761983,
         0,
         0,
         0,
@@ -390,6 +390,9 @@
     "keyBoardAlert": {
       "__uuid__": "57122303-497b-41f8-935b-3ffc361db177"
     },
+    "keyBoardAlert2": {
+      "__uuid__": "52ec3860-f7c4-4ddd-9862-20134c1ce649"
+    },
     "WriteMoneyAlert": {
       "__uuid__": "46d7f7bc-f728-41b1-beb8-d9f92c7a1572"
     },
@@ -467,6 +470,11 @@
     "BankTipAlert_15": {
       "__uuid__": "ff52d4b1-f38b-4b82-a1dd-b69e49c7704c"
     },
+    "BankAccountAlert_16": null,
+    "UsdtAccountAlert_16": null,
+    "PublicOrderAlert_16": null,
+    "BeforePayOrderAlert_16": null,
+    "BankTipAlert_16": null,
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"
   },
@@ -1273,6 +1281,9 @@
     },
     "Cash_15": {
       "__uuid__": "43594e4d-7940-4580-a110-9c323678c006"
+    },
+    "Cash_16": {
+      "__uuid__": "888e1ce9-3234-4fa6-b097-2c4b17b358d1"
     },
     "_id": "fbtBFN0DZIkpWfgg4ozZVt"
   },

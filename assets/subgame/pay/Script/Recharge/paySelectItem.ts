@@ -31,7 +31,22 @@ export default class NewClass extends cc.Component {
         this.index = data.index;
         this.channel = data.channel;
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        
+        if(this.app.UrlData.package_id == 16){
+            if(data["handling_fee"]){
+                let tip2 = this.node.getChildByName("tip2")
+                tip2.active = true
+                tip2.children[0].getComponent(cc.Label).string = `手续费${this.app.config.toDecimal1(data.handling_fee*100)}%`
+                this.node.getChildByName("tip1").active = false
+                this.node.getChildByName("area").getComponent(cc.Label).string = `小额 ${data.min_amount}-${data.max_amount}`
+            }else if(data["min_amount"]){
+                this.node.getChildByName("tip2").active = false
+                this.node.getChildByName("tip1").active = true
+                this.node.getChildByName("area").getComponent(cc.Label).string = `${data.min_amount}-${data.max_amount}`
+            }else{
+                this.node.getChildByName("tip2").active = false
+                this.node.getChildByName("tip1").active = true
+            }
+        }
         if(this.channel == 'alipay' ){
             this.app.loadIcon('recharge/icon_alipay2',this.normalIcon,30,30)
             this.app.loadIcon('recharge/icon_alipay1',this.currentIcon,30,30)

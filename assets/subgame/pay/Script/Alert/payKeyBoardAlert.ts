@@ -112,8 +112,9 @@ export default class NewClass extends cc.Component {
         this.node.removeFromParent();
     }
     setLanguageResource(){
-        let wancheng_label= this.node.getChildByName('Content').getChildByName('input').getChildByName('wancheng').getChildByName('label').getComponent(cc.Label)
-
-        wancheng_label.string = Language_pay.Lg.ChangeByText('完成')
+        if(this.app.UrlData.package_id != 16){
+            let wancheng_label= this.node.getChildByName('Content').getChildByName('input').getChildByName('wancheng').getChildByName('label').getComponent(cc.Label)
+            wancheng_label.string = Language_pay.Lg.ChangeByText('完成')
+        }
     }
 }

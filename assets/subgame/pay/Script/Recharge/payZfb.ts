@@ -50,7 +50,10 @@ export default class NewClass extends cc.Component {
     @property()
     public app  = null;
     public results : any = {};
-    public current : any = {};
+    public current : any = {
+        min_amount:0,
+        max_amount:0
+    };
     public channel  = 'alipay';
     conf_val = 0 // usdt充值汇率
     login_ip = ''
@@ -81,9 +84,13 @@ export default class NewClass extends cc.Component {
         let p_id = this.app.UrlData.package_id;
         if(this.channel == 'alipay' ){
             this.app.loadIcon(`recharge/flag_alipay`,this.icon,100,100)
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装支付宝')}。`
+            if(p_id == 16){
+                this.wxtsLabel.string = `此通道只能选择固定金额，需2分钟内完成支付，超时请重新发起，若超时支付、保存手机号重复支付、修改金额而无法到账，需自行承担`
+            }else{
+                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装支付宝')}。`
+            }
             this.app.loadIcon(`recharge/subbg_alipay`,this.shuiyin,368,270)
-            if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9 ||p_id ==12){
+            if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9 ||p_id ==12||p_id ==16){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('支付宝')
             }else{
                 this.app.loadIcon(`${src}/font/flagname_alipay`,this.iconFont.children[0],126,45)
@@ -91,25 +98,37 @@ export default class NewClass extends cc.Component {
         }
         else if(this.channel == 'union_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8|| p_id == 10 || p_id == 15 || p_id == 9||p_id ==12){
+            if(p_id == 16){
+                this.wxtsLabel.string = `充值金额需在${this.current.min_amount}元到${this.current.max_amount}元之间，亲！用支付宝或微信转卡，会不到账喔！`
+            }else{
+                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
+            }
+            if(p_id == 8|| p_id == 10 || p_id == 15 || p_id == 9||p_id ==12||p_id ==16){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('银联扫码')
             }else{
                 this.app.loadIcon(`${src}/font/flagname_scan_code_unionpay`,this.iconFont.children[0],168,45)
             }
         }else if(this.channel == 'wechat_pay'){
             this.app.loadIcon(`recharge/flag_wxpay`,this.icon,100,100)
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装微信')}。`;
+            if(p_id == 16){
+                this.wxtsLabel.string = `此通道只能选择固定金额，需2分钟内完成支付，超时请重新发起，若超时支付、保存手机号重复支付、修改金额而无法到账，需自行承担`
+            }else{
+                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装微信')}。`;
+            }
             this.app.loadIcon(`recharge/subbg_wxpay`,this.shuiyin,368,270)
-            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
+            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('微信')
             }else{
                 this.app.loadIcon(`${src}/font/flagname_wxpay`,this.iconFont.children[0],84,45)
             }
         }else if(this.channel == 'bankcard_transfer'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
+            if(p_id == 16){
+                this.wxtsLabel.string = `充值金额需在${this.current.min_amount}元到${this.current.max_amount}元之间，亲！用支付宝或微信转卡，会不到账喔！`
+            }else{
+                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
+            }
+            if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('转账到银行卡')
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay3`,this.iconFont.children[0],252,45) 
@@ -122,17 +141,24 @@ export default class NewClass extends cc.Component {
         }
         else if(this.channel == 'quick_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
+            if(p_id == 16){
+                this.wxtsLabel.string = `充值金额需在${this.current.min_amount}元到${this.current.max_amount}元之间，亲！用支付宝或微信转卡，会不到账喔！`
+            }else{
+                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
+            }
+            if(p_id == 8 || p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('快捷支付')
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay2`,this.iconFont.children[0],168,45)
             }
         }else if(this.channel == 'bank_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
-            
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
+            if(p_id == 16){
+                this.wxtsLabel.string = `充值金额需在${this.current.min_amount}元到${this.current.max_amount}元之间，亲！用支付宝或微信转卡，会不到账喔！`
+            }else{
+                this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
+            }
+            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('网银充值')
             }else{
                 this.app.loadIcon(`${src}/font/flagname_unionpay`,this.iconFont.children[0],168,45)
@@ -146,7 +172,7 @@ export default class NewClass extends cc.Component {
             
             this.app.loadIcon(`recharge/icon_im`,this.icon,100,100)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
-            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
+            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('IM充值')
             }else{
                 if(p_id == 2){
@@ -160,7 +186,7 @@ export default class NewClass extends cc.Component {
             
             this.wxtsLabel.string = `1. 请依照选择的渠道链类型进行支付。2.${Language_pay.Lg.ChangeByText(`参考汇率：1USDT`)} ≈ ${this.conf_val}${Language_pay.Lg.ChangeByText(`金币`)}。`;
             this.app.loadIcon(`recharge/subbg_usdt`,this.shuiyin,368,270)
-            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12){
+            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('USDT充值')
             }else{
                 this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont.children[0],200,45)
@@ -170,12 +196,11 @@ export default class NewClass extends cc.Component {
     setAmount() {
         if(this.current.name == this.handling_feeName && this.handling_fee !=0 ){
             //如果是小额充值方式，则禁用输入
-            this.app.showAlert("请点选下方充值金额")
+            this.app.showAlert("请点选充值金额")
         }else{
             this.app.showKeyBoard(this.amountLabel,1);
         }
     }
-
     public fetchZfb(){
         var url = `${this.app.UrlData.host}/api/payment/aliPayPaymentIndex?user_id=${this.app.UrlData.user_id}`;
         let index = `0`;
@@ -220,6 +245,7 @@ export default class NewClass extends cc.Component {
                 }
                 self.current = self.results[0];
                 self.handling_feeName = self.results[0]
+                self.init(this.channel)
                 self.radioList();
                 self.initRender(0);
             }else{
@@ -249,7 +275,12 @@ export default class NewClass extends cc.Component {
     public initRender(index){
         //根据选择的index不同，选择对应的渠道
         if(this.results[index].rate != "" && this.results[index].rate !="0.0000"){
-            let rate = JSON.parse(this.results[index].rate)
+            let rate = {}
+            try{
+                rate = JSON.parse(this.results[index].rate)
+            }catch(err){
+                console.log("err",err,"rate",this.results[index])
+            }
             //当rate不为空时要根据渠道id判断是否需要显示
             let packageArr= []
             for(let k in rate){
@@ -408,7 +439,12 @@ export default class NewClass extends cc.Component {
             })
             if(show){
                 if(this.results[i].rate != "" && this.results[i].rate !="0.0000"){
-                    let rate = JSON.parse(this.results[i].rate)
+                    let rate = {}
+                    try{
+                        rate = JSON.parse(this.results[i].rate)
+                    }catch(err){
+                        console.log("err",err,"rate",this.results[i])
+                    }
                     //当rate不为空时要根据渠道id判断是否需要显示
                     let packageArr= []
                     for(let k in rate){
@@ -421,7 +457,10 @@ export default class NewClass extends cc.Component {
                             text:this.results[i].name,
                             parentComponent:this,
                             index:i,
-                            channel:this.channel
+                            channel:this.channel,
+                            min_amount:this.current.min_amount,
+                            max_amount:this.current.max_amount,
+                            handling_fee:rate[this.app.UrlData.package_id].handling_fee,
                         })
                     }
                 }else{
@@ -431,7 +470,9 @@ export default class NewClass extends cc.Component {
                         text:this.results[i].name,
                         parentComponent:this,
                         index:i,
-                        channel:this.channel
+                        channel:this.channel,
+                        min_amount:this.current.min_amount,
+                        max_amount:this.current.max_amount,
                     })
                 }
             }
@@ -574,7 +615,7 @@ export default class NewClass extends cc.Component {
         }else if(this.app.UrlData.package_id == 10){
             this.app.loadIconLg(`${src}/font/ljcz`,czgoldbt1.children[0])
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
-        }else if(this.app.UrlData.package_id == 15){
+        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 16){
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/czgoldbt1`,czgoldbt1)

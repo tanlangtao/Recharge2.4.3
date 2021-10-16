@@ -24,12 +24,17 @@ export default class NewClass extends cc.Component {
     public order_status = 0;
     public page = 1;
     public app = null;
+    public page_set = 6;
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-        this.addNavToggle()
-
+        if(this.app.UrlData.package_id != 16){
+            this.addNavToggle()
+            this.page_set = 8
+        }else{
+            this.page_set = 6
+        }
         this.fetchIndex();
         let scalex = cc.winSize.width / 1334;
         var content = cc.find('Canvas/Recharge/RechargeHistory/Content');
@@ -52,7 +57,7 @@ export default class NewClass extends cc.Component {
     }
 
     public fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/payment/payHistory?user_id=${this.app.UrlData.user_id}&order_status=${this.order_status}&page=${this.page}&page_set=8`;
+        var url = `${this.app.UrlData.host}/api/payment/payHistory?user_id=${this.app.UrlData.user_id}&order_status=${this.order_status}&page=${this.page}&page_set=${this.page_set}`;
 
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
@@ -62,6 +67,10 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 self.results = response;
                 self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`;
+                if(this.app.UrlData.package_id == 16){
+                    let pageLabel2 = this.node.getChildByName("Content").getChildByName("pageLabel").getComponent(cc.Label)
+                    pageLabel2.string = `每页6条 共${response.data.total_page}页`
+                }
                 var listArr = response.data.list;
                 for(var i = 0; i < listArr.length; i++){
                     var data = listArr[i];
@@ -128,6 +137,14 @@ export default class NewClass extends cc.Component {
             this.fetchIndex();
         }
     }
+    pageFirst(){
+        this.page = 1
+        this.fetchIndex();
+    }
+    pageLast(){
+        this.page = this.results.data.total_page
+        this.fetchIndex();
+    }
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
 
@@ -143,6 +160,8 @@ export default class NewClass extends cc.Component {
             titlebg.children[4].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('下单时间')
             titlebg.children[5].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('到账时间')
             titlebg.children[6].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('操作')
+        }else if(this.app.UrlData.package_id == 16){
+
         }else{
             this.app.loadIconLg(`${src}/form/cz_title_kuang`,titlebg)
         }

@@ -26,7 +26,7 @@ export default class NewClass extends cc.Component {
     orderBtn: cc.Node = null;
 
     @property
-    public results = {};
+    public results :any= {};
     public app = null;
 
     onLoad () {
@@ -37,8 +37,10 @@ export default class NewClass extends cc.Component {
     public init(data){
         this.amountLabel.string = this.app.config.toDecimal(data.amount);
         this.arrival_amount.string = this.app.config.toDecimal(data.arrival_amount);
-        this.statusLabel.string = data.status ==6 ?`${Language_pay.Lg.ChangeByText('已完成')}` :(data.status == 4 ? `${Language_pay.Lg.ChangeByText('已撤销')}` : `${Language_pay.Lg.ChangeByText('未完成')}` );
-        this.typeLabel.string = data.type == 1 ? `${Language_pay.Lg.ChangeByText('支付宝充值')}`  :
+        this.statusLabel.string = data.status == 6 ?`${Language_pay.Lg.ChangeByText('已完成')}` :(data.status == 4 ? `${Language_pay.Lg.ChangeByText('已撤销')}` : `${Language_pay.Lg.ChangeByText('未完成')}` );
+        if(this.app.UrlData.package_id != 16){
+            this.lastTimeLabel.string = data.lastTime == 0 ? `${Language_pay.Lg.ChangeByText('无')}` : this.app.config.getTime(data.lastTime);
+            this.typeLabel.string = data.type == 1 ? `${Language_pay.Lg.ChangeByText('支付宝充值')}`  :
             (data.type == 2 ? `${Language_pay.Lg.ChangeByText('转账到银行卡')}` :
                 (data.type == 3?`${Language_pay.Lg.ChangeByText('交易所')}`:
                     (data.type == 5?`${Language_pay.Lg.ChangeByText('赠送')}`:
@@ -59,14 +61,16 @@ export default class NewClass extends cc.Component {
                         )
                     )
                 )
-            );
+            )
+        }
         this.firstTimeLabel.string = data.firstTime == 0 ?`${Language_pay.Lg.ChangeByText('无')}`  : this.app.config.getTime(data.firstTime);
-        this.lastTimeLabel.string = data.lastTime == 0 ? `${Language_pay.Lg.ChangeByText('无')}` : this.app.config.getTime(data.lastTime);
         this.results = data.results;
         if(data.status != 6 && data.type == 2){
 
-        }else{
-            this.orderBtn.removeFromParent()
+        }else {
+            if(this.app.UrlData.package_id != 16){
+                this.orderBtn.removeFromParent()
+            }
         }
     }
 
@@ -80,13 +84,22 @@ export default class NewClass extends cc.Component {
         var data = {
             data : this.results
         }
-        this.app.showOrderAlert(2,data,false);
+        if(this.app.UrlData.package_id == 16){
+            if (this.app.gHandler.reflect) {
+                if (this.app.gHandler.reflect.setClipboard(this.results.order_id)) {
+                    this.app.showAlert(`复制成功!:${this.results.order_id}`)
+                } else {
+                    this.app.showAlert(`复制失败!请升级系统版本`)
+                }
+            }
+        }else{
+            this.app.showOrderAlert(2,data,false);
+        }
     }
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
-
         let btn_dingdan1= this.node.getChildByName('5').getChildByName('btn_dingdan1')
-        if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 9 || this.app.UrlData.package_id == 15){
+        if(this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 9 || this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 16){
             btn_dingdan1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('订 单')
         }else{
             this.app.loadIconLg(`${src}/btn/btn_dingdan1`,btn_dingdan1)
