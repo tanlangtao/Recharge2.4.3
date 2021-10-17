@@ -1530,7 +1530,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "a82e1FbJRdJKajj39AwsVC3",
+    "_componentId": "8dc3b2QYLpHe6xlsXzafg8p",
     "handler": "historyBtnClick",
     "customEventData": ""
   },
@@ -1747,6 +1747,9 @@
     },
     "Content": {
       "__id__": 15
+    },
+    "CashHistory": {
+      "__uuid__": "40313590-dd89-4a9d-b0f7-ffb855d259f3"
     },
     "results": {},
     "_id": ""

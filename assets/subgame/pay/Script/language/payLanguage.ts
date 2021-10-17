@@ -437,7 +437,7 @@ export namespace Language_pay {
         }
         getLgSrc(){
             let src = ''
-            // gHandler.gameGlobal.pay.package_id  = 16 // 测试
+            // gHandler.gameGlobal.pay.package_id  = 18 // 测试
             switch(this.Language){
                 case "Chinese": 
                         if(gHandler.gameGlobal.pay.package_id == 8||gHandler.gameGlobal.pay.package_id == 12){
@@ -450,6 +450,8 @@ export namespace Language_pay {
                             src = `language/Chinese/package_15`
                         }else if(gHandler.gameGlobal.pay.package_id == 16){
                             src = `language/Chinese/package_16`
+                        }else if(gHandler.gameGlobal.pay.package_id == 18){
+                            src = `language/Chinese/package_18`
                         }else{
                             src = `language/Chinese/package_1_7`
                         }
@@ -465,6 +467,8 @@ export namespace Language_pay {
                         src = `language/English/package_15`
                     }else if(gHandler.gameGlobal.pay.package_id == 16){
                         src = `language/English/package_16`
+                    }else if(gHandler.gameGlobal.pay.package_id == 18){
+                        src = `language/English/package_18`
                     }else{
                         src = `language/English/package_1_7`
                     }
@@ -480,6 +484,8 @@ export namespace Language_pay {
                         src = `language/Thai/package_15`
                     }else if(gHandler.gameGlobal.pay.package_id == 16){
                         src = `language/Thai/package_16`
+                    }else if(gHandler.gameGlobal.pay.package_id == 18){
+                        src = `language/Thai/package_18`
                     }else{
                         src = `language/Thai/package_1_7`
                     }
@@ -495,6 +501,8 @@ export namespace Language_pay {
                         src = `language/Vietnamese/package_15`
                     }else if(gHandler.gameGlobal.pay.package_id == 16){
                         src = `language/Vietnamese/package_16`
+                    }else if(gHandler.gameGlobal.pay.package_id == 18){
+                        src = `language/Vietnamese/package_18`
                     }else{
                         src = `language/Vietnamese/package_1_7`
                     }

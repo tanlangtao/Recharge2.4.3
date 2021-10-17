@@ -35,7 +35,7 @@ export default class NewClass extends cc.Component {
         if(this.text == '支付宝'){
             if(this.app.UrlData.package_id == 9 ){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝充值");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "支付宝充值");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "支付宝充值");  
             }else if(this.app.UrlData.package_id == 16){
@@ -59,7 +59,7 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '转账到银行卡'){
             if(this.app.UrlData.package_id == 9 ){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账到银行卡");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "转账到银行卡");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "转账到银行卡");  
             }else if(this.app.UrlData.package_id == 16){
@@ -87,7 +87,7 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '银联扫码'){
             if(this.app.UrlData.package_id == 9 || this.app.UrlData.package_id == 15){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银联扫码");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "银联扫码");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "银联扫码");  
             }else if(this.app.UrlData.package_id == 16){
@@ -112,7 +112,7 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '微信'){
             if(this.app.UrlData.package_id == 9 ){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "微信支付");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "微信支付");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "微信支付");  
             }else if(this.app.UrlData.package_id == 16){
@@ -137,7 +137,7 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '快捷支付'){
             if(this.app.UrlData.package_id == 9 ){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "快捷支付");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "快捷支付");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "快捷支付");  
             }else if(this.app.UrlData.package_id == 16){
@@ -162,7 +162,7 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '网银支付'){
             if(this.app.UrlData.package_id == 9 ){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "网银支付");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "网银支付");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "网银支付");  
             }else if(this.app.UrlData.package_id == 16){
@@ -187,7 +187,7 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '人工代充值'){
             if(this.app.UrlData.package_id == 9 ){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "专享快付");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "人工代充值");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "人工代充值"); 
             }else if(this.app.UrlData.package_id == 16){
@@ -214,7 +214,7 @@ export default class NewClass extends cc.Component {
                 this.app.loadIcon(`${src}/menu/menu_rgpay_2`,this.currentIcon,249,86);
             }else if(this.app.UrlData.package_id == 9 ){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "IM充值");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "IM充值");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "IM充值");  
             }else if(this.app.UrlData.package_id == 16){
@@ -239,7 +239,7 @@ export default class NewClass extends cc.Component {
             let percent = 0
             if(this.app.UrlData.package_id == 9){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT钱包");  
-            }else if(this.app.UrlData.package_id == 15){
+            }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "USDT钱包");  
                 this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "USDT钱包");  
             }else if(this.app.UrlData.package_id == 16){

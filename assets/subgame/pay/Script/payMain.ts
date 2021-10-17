@@ -144,7 +144,18 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     BankTipAlert_16:cc.Prefab = null;
-    
+
+    @property(cc.Prefab)
+    BankAccountAlert_18:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    UsdtAccountAlert_18:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    PublicOrderAlert_18:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert_18:cc.Prefab = null;
 
     @property()
     public UrlData : any = [];
@@ -285,6 +296,9 @@ export default class NewClass extends cc.Component {
         }else if( this.UrlData.package_id == 15){
             node = cc.instantiate(this.PublicOrderAlert_15);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_15);
+        }else if( this.UrlData.package_id == 18){
+            node = cc.instantiate(this.PublicOrderAlert_18);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_18);
         }else{
             node = cc.instantiate(this.PublicOrderAlert);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert);
@@ -344,6 +358,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankAccountAlert_10);
         }else if(this.UrlData.package_id == 15){
             node = cc.instantiate(this.BankAccountAlert_15);
+        }else if(this.UrlData.package_id == 18){
+            node = cc.instantiate(this.BankAccountAlert_18);
         }else{
             node = cc.instantiate(this.BankAccountAlert);
         }
@@ -372,6 +388,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.UsdtAccountAlert_15);
         }else if(this.UrlData.package_id == 16){
             node = cc.instantiate(this.UsdtAccountAlert_16);
+        }else if(this.UrlData.package_id == 18){
+            node = cc.instantiate(this.UsdtAccountAlert_18);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }

@@ -15,6 +15,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     Content:cc.Node = null;
 
+    @property(cc.Prefab)
+    CashHistory:cc.Prefab = null;
+
     @property()
     public results : any = {};
     public zfbResults : any = {};
@@ -64,6 +67,14 @@ export default class NewClass extends cc.Component {
         })
     }
 
+    public historyBtnClick() {
+        //按键音效
+        this.app.loadMusic(1);
+        this.app.showLoading();
+        var node = cc.instantiate(this.CashHistory);
+        var Cash = cc.find('Canvas/Cash');
+        Cash.addChild(node);
+    }
     public fetchIndex(){
         // 20210508_支付系统, 正式环境富鑫II游戏(package_id=10)屏蔽充值界面和收益界面信息
         // if(this.app.UrlData.package_id == 10 && appGlobal.huanjin == 'online') {
@@ -71,17 +82,16 @@ export default class NewClass extends cc.Component {
         //     return
         // }
         var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}`;
-        let self = this;
         this.app.ajax('GET',url,'',(response)=>{
-            self.app.hideLoading()
+            this.app.hideLoading()
             if(response.status == 0){
-                self.results = response;
-                self.addNavToggle()
+                this.results = response;
+                this.addNavToggle()
             }else{
-                self.app.showAlert(response.msg)
+                this.app.showAlert(response.msg)
             }
         },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
+            this.app.showAlert(`网络错误${errstatus}`)
         })
     }
 

@@ -32,6 +32,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     tishiLabel : cc.Label =null;
 
+    @property(cc.Prefab)
+    BankCardManage :cc.Prefab = null;
+
     @property
     app= null;
     text = null;
@@ -147,6 +150,8 @@ export default class NewClass extends cc.Component {
             this.addContent('DhHistory');
         }else if(this.text == 'USDT兑换'){
             this.addContent('USDT');
+        }else if(this.text == "银行卡管理"){
+            this.addContent("BankCardManage")
         }
     }
 
@@ -162,6 +167,8 @@ export default class NewClass extends cc.Component {
             var node = cc.instantiate(this.DhHistory);
         }else if(data == 'USDT'){
             var node = cc.instantiate(this.UsdtDh);
+        }else if(data == 'BankCardManage'){
+            var node = cc.instantiate(this.BankCardManage);
         }
         content.removeAllChildren();
         content.addChild(node);

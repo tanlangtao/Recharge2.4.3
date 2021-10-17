@@ -213,18 +213,28 @@ export default class NewClass extends cc.Component {
         }else if(this.accountInput.string.slice(0,1)=='0'){
             this.app.showAlert(Language_pay.Lg.ChangeByText('无效卡号'))
         }
-        else if(this.bankNameInput.string == ''){
+        else if(this.app.UrlData.package_id != 16 && this.bankNameInput.string == ''){
             this.app.showAlert(Language_pay.Lg.ChangeByText('开户支行不能为空'))
         }
         else if(!this.isChinese(this.nameInput.string )){
             this.app.showAlert(Language_pay.Lg.ChangeByText('姓名不能含有特殊字符'))
         }
-        else if(!this.isChinese(this.bankNameInput.string )){
+        else if(this.app.UrlData.package_id != 16 && !this.isChinese(this.bankNameInput.string)){
             this.app.showAlert(Language_pay.Lg.ChangeByText('开户支行不能含有特殊字符'))
         }
         else{
             this.fetchBindAccountPay();
-            this.node.removeFromParent();
+            if(this.app.UrlData.package_id != 16){
+                this.node.removeFromParent();
+            }else{
+                this.node.getChildByName("bindBankAccount").active = false
+                this.node.getChildByName("Bank").active = true
+                this.accountInput.string = "";
+                this.selectBankLabel.string = "";
+                this.nameInput.string = "";
+                this.selectProvinceLabel.string = "";
+                this.selectCityLabel.string = "";
+            }
         }
     }
     isChinese(s){
@@ -237,14 +247,25 @@ export default class NewClass extends cc.Component {
     fetchBindAccountPay() {
         var url = `${this.app.UrlData.host}/api/payment_account/saveAccount`;
         let obj = {};
-        obj = {
-            card_num:this.accountInput.string,
-            card_name:this.nameInput.string,
-            bank_name:this.selectBankLabel.string,
-            branch_name:this.bankNameInput.string,
-            bank_province:this.selectProvinceLabel.string,
-            bank_city:this.selectCityLabel.string,
-        };
+        if(this.app.UrlData.package_id != 16){
+            obj = {
+                card_num:this.accountInput.string,
+                card_name:this.nameInput.string,
+                bank_name:this.selectBankLabel.string,
+                branch_name:this.bankNameInput.string,
+                bank_province:this.selectProvinceLabel.string,
+                bank_city:this.selectCityLabel.string,
+            };
+        }else{
+            obj = {
+                card_num:this.accountInput.string,
+                card_name:this.nameInput.string,
+                bank_name:this.selectBankLabel.string,
+                branch_name:"",
+                bank_province:this.selectProvinceLabel.string,
+                bank_city:this.selectCityLabel.string,
+            };
+        }
         let info = JSON.stringify(obj);
         let dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=3&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
         let self = this;

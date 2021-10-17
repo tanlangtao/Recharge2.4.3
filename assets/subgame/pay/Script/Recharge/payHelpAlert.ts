@@ -19,6 +19,8 @@ export default class NewClass extends cc.Component {
 
         if(this.app.UrlData.package_id == 10){
             title_cztutor.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('充值指引')
+        }else if(this.app.UrlData.package_id == 18){
+            title_cztutor.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('【充值指引】')
         }else{
             this.app.loadIconLg(`${src}/font/title_cztutor`,title_cztutor)
         }

@@ -158,9 +158,6 @@ export default class NewClass extends cc.Component {
             this.wdb.active = false
             this.bankInfo.active = true
         }
-        this.accountBtn.active = true;
-        this.wdb.active = true
-        this.bankInfo.active = false
     }
 
     deleteAmount(){
@@ -190,6 +187,14 @@ export default class NewClass extends cc.Component {
     showAccountAlert(){
         this.node.getChildByName("bindBankAccount").active = true
         this.node.getChildByName("Bank").active = false
+        this.node.getComponent("payBankAccountAlert").init({
+            text:'设置银行卡',
+            action:this.action,
+            itemId:this.bankId,
+            parentComponent:this,
+            //修改界面初始数据
+            changeData:this.Info
+        })
     }
     //兑换
     public fetchwithDrawApply(){
@@ -243,6 +248,7 @@ export default class NewClass extends cc.Component {
         this.showAccountAlert()
         
     }
+    
     //更换银行卡
     changeBankAccount(){
         if(this.bankIndex+1 < this.bankData.length){
