@@ -1868,7 +1868,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -342.598,
+        -355,
         0,
         0,
         0,
@@ -4121,9 +4121,6 @@
     },
     "publicAlert": {
       "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "BankAccountAlert": {
-      "__uuid__": "6c7b42fa-1e5a-4f92-9d02-7338e2589514"
     },
     "SelectItem": {
       "__uuid__": "d89a250d-9a12-4d36-8445-caadafb2ddd7"

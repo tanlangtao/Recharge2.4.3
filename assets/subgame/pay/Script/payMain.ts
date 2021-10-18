@@ -453,7 +453,7 @@ export default class NewClass extends cc.Component {
         }else if(this.UrlData.package_id == 16){
             color1 = new cc.Color(224, 190, 138);
             color2 = new cc.Color(127, 122, 123);
-       }
+        }
         //设置字的颜色
         msg == '' ? input.node.color = color2:input.node.color = color1;
     }

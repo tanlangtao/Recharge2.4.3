@@ -12,7 +12,7 @@ export default class NewClass extends cc.Component {
 
     // LIFE-CYCLE CALLBACKS:
     public init(data){
-        this.label.string = data.substring(0,40)
+        this.label.string = data.substring(0,80)
     }
 
     onLoad () {

@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        358.5229425761983,
+        358.80515010544025,
         0,
         0,
         0,
@@ -472,9 +472,27 @@
     },
     "BankAccountAlert_16": null,
     "UsdtAccountAlert_16": null,
-    "PublicOrderAlert_16": null,
-    "BeforePayOrderAlert_16": null,
-    "BankTipAlert_16": null,
+    "PublicOrderAlert_16": {
+      "__uuid__": "6dfce860-28e6-4ab0-8cb7-2789f07e3efd"
+    },
+    "BeforePayOrderAlert_16": {
+      "__uuid__": "c21bb1d0-2c49-4b94-a6d1-051ca6e2ffd1"
+    },
+    "BankTipAlert_16": {
+      "__uuid__": "08b5443e-8efe-44d7-99d8-d607540d5da6"
+    },
+    "BankAccountAlert_18": {
+      "__uuid__": "10639996-b697-4588-9c98-d44c10b2f0af"
+    },
+    "UsdtAccountAlert_18": {
+      "__uuid__": "559dd0b1-9641-4f0d-91f6-1e311114356c"
+    },
+    "PublicOrderAlert_18": {
+      "__uuid__": "1fe8c9db-fa66-4dac-9875-6822daa77b9a"
+    },
+    "BeforePayOrderAlert_18": {
+      "__uuid__": "0ed5983d-88e4-4dc1-8cb1-23e2111eadb9"
+    },
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"
   },
@@ -1284,6 +1302,9 @@
     },
     "Cash_16": {
       "__uuid__": "888e1ce9-3234-4fa6-b097-2c4b17b358d1"
+    },
+    "Cash_18": {
+      "__uuid__": "6f082be8-31dd-410e-b7ab-6cdcf6f33463"
     },
     "_id": "fbtBFN0DZIkpWfgg4ozZVt"
   },

@@ -2832,7 +2832,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 820,
+      "width": 853,
       "height": 160
     },
     "_anchorPoint": {
@@ -2909,7 +2909,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 820,
+      "width": 853,
       "height": 160
     },
     "_resize": 0,
@@ -2924,7 +2924,7 @@
     "_N$paddingRight": 0,
     "_N$paddingTop": 0,
     "_N$paddingBottom": 0,
-    "_N$spacingX": 22,
+    "_N$spacingX": 18,
     "_N$spacingY": 10,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
@@ -2942,8 +2942,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": 100,
-    "_right": 100,
+    "_left": 83.5,
+    "_right": 83.5,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,

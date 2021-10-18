@@ -2,7 +2,7 @@
 //充值子界面
 const {ccclass, property} = cc._decorator;
 import { Language_pay } from "../language/payLanguage";
-
+import appGlobal = require("../../../../base/app/appGlobal");
 @ccclass
 export default class NewClass extends cc.Component {
     @property(cc.Label)
@@ -63,17 +63,24 @@ export default class NewClass extends cc.Component {
     first_min = 0//小额渠道显示的充值金额第一次
     second_min = 0//小额渠道显示的充值金额第二次
     handling_feeName = ""//需要显示手续费的渠道名
+    game_gold = 0 // 余额
+    showBaopeiTip = false
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         //请求支付宝
         this.fetchZfb()
         this.setLanguageResource()
         this.getLocalConf()
+        
         if(this.app.gHandler.gameGlobal.ipList) {
             this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
         }else{
             console.log("获取登陆ip失败!")
             this.app.showAlert("获取登陆ip失败!")
+        }
+        //聚鼎娱乐 新用户包赔活动判断
+        if(this.app.UrlData.package_id == 15){
+            this.fetchgetApplyReimburseInfo()
         }
     }
     init(data){
@@ -257,6 +264,31 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading()
         })
     }
+    public fetchgetApplyReimburseInfo(){
+        //          PRE环境 活动ID=140
+        //          OL环境  活动ID=115
+        let activity_id= 140
+        if (appGlobal.huanjin == 'online'){
+            activity_id = 115
+        }
+        console.log("appGlobal.huanjin",appGlobal.huanjin)
+        var url = `${this.app.UrlData.host}/api/activity/getApplyReimburseInfo?user_id=${this.app.UrlData.user_id}&activity_id=${activity_id}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                //申请了，未领取 ,余额大于限制金额
+                if(response.data.is_apply && !response.data.is_received && this.game_gold >= response.data.max_withdraw_amount){
+                    this.showBaopeiTip = true
+                }else{
+                    this.showBaopeiTip = false
+                }
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+        })
+    }
     setInterval(discount_rate_item) {
         let percent = 0
         let minAmount = 0
@@ -375,6 +407,10 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
         this.DelayBtn()
+        if(this.showBaopeiTip){
+            this.app.showAlert("您正在参加新用户包赔活动, 为了避免造成不必要的损失, 请您完成新用户包赔活动再进行充值（领取包赔金或兑换过即视为完成活动）！") 
+            return
+        }
         if((this.channel == 'bankcard_transfer' || this.channel =="bank_pay" )&& !this.IsBindBankAccount){
             this.showBindBankAccountTip()
             return
@@ -552,6 +588,7 @@ export default class NewClass extends cc.Component {
                     this.IsBindBankAccount =true
                 }
                 this.app.hideLoading();
+                this.game_gold = response.data.game_gold
             }else{
                 this.app.showAlert(response.msg)
             }

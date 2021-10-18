@@ -118,7 +118,7 @@ export default class NewClass extends cc.Component {
         
         let titlebg= cc.find("Canvas/Cash/Content/DhHistory/Content/titlebg")
 
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id==9 ||this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 12) {
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id==9 ||this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 18) {
             titlebg.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('类型')
             titlebg.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('兑换金额')
             titlebg.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('费率')
