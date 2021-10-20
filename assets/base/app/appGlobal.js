@@ -13,10 +13,11 @@ let appGlobal = {
     // account_name: "361267714", // 账号,  pre
     // account_name: "887927706", // 账号,  新贵 pre
     // account_name: "748558578", // 账号,  pre
-    account_name: "851771869", // 账号,  pre
+    // account_name: "851771869", // 账号,  pre
     // account_name: "320560580", // 账号,  
+    account_name: "955130619", // 账号,  
 
-    // account_pass: "123456", //密码, 
+    account_pass: "123456", //密码, 
 
     deviceID: "",
     os: "android", // 平台 android ios

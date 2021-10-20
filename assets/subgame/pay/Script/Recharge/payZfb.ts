@@ -277,7 +277,8 @@ export default class NewClass extends cc.Component {
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
                 //申请了，未领取 ,余额大于限制金额
-                if(response.data.is_apply && !response.data.is_received && this.game_gold >= response.data.max_withdraw_amount){
+                let data = response.data
+                if(data.config.is_close == "2" && !data.is_received && data.is_withdraw == 0 && data.is_apply && data.first_pay_amount > 100 && (this.game_gold < 10 || this.game_gold >= data.max_withdraw_amount  )){
                     this.showBaopeiTip = true
                 }else{
                     this.showBaopeiTip = false

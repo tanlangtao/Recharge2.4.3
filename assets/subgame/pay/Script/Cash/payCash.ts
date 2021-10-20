@@ -75,6 +75,10 @@ export default class NewClass extends cc.Component {
         var Cash = cc.find('Canvas/Cash');
         Cash.addChild(node);
     }
+    //受限详情
+    sxxqClick(){
+        this.fetchgetLimitDetailData()
+    }
     public fetchIndex(){
         // 20210508_支付系统, 正式环境富鑫II游戏(package_id=10)屏蔽充值界面和收益界面信息
         // if(this.app.UrlData.package_id == 10 && appGlobal.huanjin == 'online') {
@@ -94,7 +98,19 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(`网络错误${errstatus}`)
         })
     }
-
+    public fetchgetLimitDetailData(){
+        var url = `${this.app.UrlData.host}/api/activity/getLimitDetailData?user_id=${this.app.UrlData.user_id}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                console.log(response)
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+        })
+    }
     public addNavToggle(){
         var arr = [];
         if(!this.results.data.withDraw_info) return;
