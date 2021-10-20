@@ -157,6 +157,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BeforePayOrderAlert_18:cc.Prefab = null;
 
+    @property(cc.Prefab)
+    BankTipAlert_18:cc.Prefab = null;
+
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -408,6 +411,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankTipAlert_15);
         }else if(this.UrlData.package_id == 16){
             node = cc.instantiate(this.BankTipAlert_16);
+        }else if(this.UrlData.package_id == 18){
+            node = cc.instantiate(this.BankTipAlert_18);
         }
         node.getComponent('payBankTipAlert').init(component)
         canvas.addChild(node);

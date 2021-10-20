@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        358.80515010544025,
+        357.6684917629732,
         0,
         0,
         0,
@@ -510,6 +510,9 @@
     },
     "BeforePayOrderAlert_18": {
       "__uuid__": "0ed5983d-88e4-4dc1-8cb1-23e2111eadb9"
+    },
+    "BankTipAlert_18": {
+      "__uuid__": "69fc33da-fb04-492a-9f9a-5e5801ac87ac"
     },
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"
