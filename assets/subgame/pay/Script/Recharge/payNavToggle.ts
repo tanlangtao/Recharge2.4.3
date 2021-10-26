@@ -275,13 +275,27 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-
+        this.showAnimate()
     }
-
+    showAnimate(){
+        if(this.app.UrlData.package_id == 16){
+            this.node.parent.children.forEach(e=>{
+                let isChecked = e.getComponent(cc.Toggle).isChecked
+                if (isChecked){
+                    e.getChildByName("checkmark").active = true
+                    e.getChildByName("Background").active = false
+                }else{
+                    e.getChildByName("checkmark").active = false
+                    e.getChildByName("Background").active = true
+                }
+            })
+        }
+    }
     onClick(){
         //按键音效
         this.app.loadMusic(1);
         this.app.showLoading();
+        this.showAnimate()
         if(this.text == '支付宝'){
             this.addContent('alipay')
 

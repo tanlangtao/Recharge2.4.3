@@ -20,9 +20,12 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
         //payBankDh
-        this.parentComponent.showAccountAlert();
-
-        this.node.removeFromParent();
+        if(this.app.UrlData.package_id == 16){
+            cc.director.loadScene("payCash");
+        }else{
+            this.parentComponent.showAccountAlert();
+            this.node.removeFromParent();
+        }
     }
 
     removeSelf(){
@@ -49,7 +52,7 @@ export default class NewClass extends cc.Component {
             title_tip.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('提示')
         }else if(this.app.UrlData.package_id == 9){
             btn1.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('绑  定')
-        }else if(this.app.UrlData.package_id == 18){
+        }else if(this.app.UrlData.package_id == 18 || this.app.UrlData.package_id == 16){
             
         }else{
             this.app.loadIconLg(`${src}/btn/bindbt`,btn1)

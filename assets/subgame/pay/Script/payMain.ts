@@ -131,12 +131,6 @@ export default class NewClass extends cc.Component {
     BankTipAlert_15 :cc.Prefab = null;
 
     @property(cc.Prefab)
-    BankAccountAlert_16:cc.Prefab = null;
-
-    @property(cc.Prefab)
-    UsdtAccountAlert_16:cc.Prefab = null;
-
-    @property(cc.Prefab)
     PublicOrderAlert_16:cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -144,6 +138,9 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Prefab)
     BankTipAlert_16:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    UsdtAccountAlert_16:cc.Prefab = null;
 
     @property(cc.Prefab)
     BankAccountAlert_18:cc.Prefab = null;
@@ -299,6 +296,9 @@ export default class NewClass extends cc.Component {
         }else if( this.UrlData.package_id == 15){
             node = cc.instantiate(this.PublicOrderAlert_15);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_15);
+        }else if( this.UrlData.package_id == 16){
+            node = cc.instantiate(this.PublicOrderAlert_16);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_16);
         }else if( this.UrlData.package_id == 18){
             node = cc.instantiate(this.PublicOrderAlert_18);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_18);
@@ -389,10 +389,10 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.UsdtAccountAlert_10);
         }else if(this.UrlData.package_id == 15){
             node = cc.instantiate(this.UsdtAccountAlert_15);
-        }else if(this.UrlData.package_id == 16){
-            node = cc.instantiate(this.UsdtAccountAlert_16);
         }else if(this.UrlData.package_id == 18){
             node = cc.instantiate(this.UsdtAccountAlert_18);
+        }else if(this.UrlData.package_id == 16){
+            node = cc.instantiate(this.UsdtAccountAlert_16);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }
@@ -456,7 +456,7 @@ export default class NewClass extends cc.Component {
              color1 = new cc.Color(133, 147, 186);
              color2 = new cc.Color(133, 147, 186);
         }else if(this.UrlData.package_id == 16){
-            color1 = new cc.Color(224, 190, 138);
+            color1 = new cc.Color(255, 255, 255);
             color2 = new cc.Color(127, 122, 123);
         }
         //设置字的颜色

@@ -42,7 +42,6 @@ export default class NewClass extends cc.Component {
             //超出此缩放比例，则缩小node
             this.Content.scaleY = 1.1/scalex;
         }
-        // this.node.scaleY = scalex;
         this.node.scaleX = scalex;
         if(this.app.UrlData.package_id == 9)
         {  

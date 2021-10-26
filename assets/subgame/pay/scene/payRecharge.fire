@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        357.6684917629732,
+        359.4005425705421,
         0,
         0,
         0,
@@ -485,10 +485,6 @@
     },
     "BankTipAlert_15": {
       "__uuid__": "ff52d4b1-f38b-4b82-a1dd-b69e49c7704c"
-    },
-    "BankAccountAlert_16": null,
-    "UsdtAccountAlert_16": {
-      "__uuid__": "f56710be-6ff4-4a9a-9a2e-6f93d00c78ce"
     },
     "PublicOrderAlert_16": {
       "__uuid__": "6dfce860-28e6-4ab0-8cb7-2789f07e3efd"

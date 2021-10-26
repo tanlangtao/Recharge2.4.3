@@ -94,8 +94,15 @@ export default class NewClass extends cc.Component {
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡管理");
                 let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
                 let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
-                this.app.loadIcon(`${src}/menu/yinhangkaguanli2`,normalIcon,44,44);
-                this.app.loadIcon(`${src}/menu/yinhangkaguanli`,currentIcon,44,44);
+                this.app.loadIcon(`${src}/menu/yinhangkaguanli`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/yinhangkaguanli2`,currentIcon,44,44);
+            }else if(this.text == 'USDT兑换'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT兑换");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT兑换");
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/usdtcz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/usdtcz1`,currentIcon,44,44);
             }else{
                 this.node.removeFromParent()
             }
@@ -133,13 +140,27 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+        this.showAnimate()
     }
-
+    showAnimate(){
+        if(this.app.UrlData.package_id == 16){
+            this.node.parent.children.forEach(e=>{
+                let isChecked = e.getComponent(cc.Toggle).isChecked
+                if (isChecked){
+                    e.getChildByName("checkmark").active = true
+                    e.getChildByName("Background").active = false
+                }else{
+                    e.getChildByName("checkmark").active = false
+                    e.getChildByName("Background").active = true
+                }
+            })
+        }
+    }
     onClick(){
         //按键音效
         this.app.loadMusic(1);
         this.app.showLoading();
-
+        this.showAnimate()
         if(this.text == '支付宝兑换'){
             this.addContent('Dh');
         }else if(this.text == '银行卡兑换'){

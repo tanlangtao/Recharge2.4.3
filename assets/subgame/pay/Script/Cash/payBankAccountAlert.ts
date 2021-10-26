@@ -144,6 +144,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     bankMask: cc.Node = null;
 
+    @property(cc.Label)
+    AqmLabel: cc.Label = null; // 安全码
+
     @property()
 
     action = 'add';
@@ -223,10 +226,15 @@ export default class NewClass extends cc.Component {
             this.app.showAlert(Language_pay.Lg.ChangeByText('开户支行不能含有特殊字符'))
         }
         else{
-            this.fetchBindAccountPay();
             if(this.app.UrlData.package_id != 16){
+                this.fetchBindAccountPay();
                 this.node.removeFromParent();
             }else{
+                if(this.AqmLabel.string == "点击输入"){
+                    this.app.showAlert("请输入安全码")
+                    return
+                }
+                this.fetchBindAccountPay();
                 this.node.getChildByName("bindBankAccount").active = false
                 this.node.getChildByName("Bank").active = true
                 this.accountInput.string = "";
@@ -264,6 +272,7 @@ export default class NewClass extends cc.Component {
                 branch_name:"",
                 bank_province:this.selectProvinceLabel.string,
                 bank_city:this.selectCityLabel.string,
+                password:this.AqmLabel.string
             };
         }
         let info = JSON.stringify(obj);
@@ -354,7 +363,9 @@ export default class NewClass extends cc.Component {
             this.selectBankContent.active = false;
         }
     }
-
+    setAqm() {
+        this.app.showKeyBoard(this.AqmLabel,1);
+    }
     deleteName() {
          //按键音效
          this.app.loadMusic(1)

@@ -1310,7 +1310,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 178,
+      "width": 178.21,
       "height": 52
     },
     "_anchorPoint": {
@@ -1549,7 +1549,7 @@
     "_target": null,
     "_alignFlags": 33,
     "_left": 0,
-    "_right": 234.413,
+    "_right": 234.308,
     "_top": 21.586,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1565,7 +1565,7 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "sp.Skeleton",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1574,26 +1574,36 @@
     "_enabled": true,
     "_materials": [
       {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+        "__uuid__": "7afd064b-113f-480e-b793-8817d19f63c3"
       }
     ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "6c69aadf-5ca7-46fe-a1eb-158805fc6a54"
+    "paused": false,
+    "defaultSkin": "default",
+    "defaultAnimation": "animation",
+    "_preCacheMode": 0,
+    "_cacheMode": 0,
+    "loop": true,
+    "premultipliedAlpha": false,
+    "timeScale": 1,
+    "_accTime": 0,
+    "_playCount": 0,
+    "_frameCache": null,
+    "_curFrame": null,
+    "_skeletonCache": null,
+    "_animationName": "animation",
+    "_animationQueue": [],
+    "_headAniInfo": null,
+    "_playTimes": 0,
+    "_isAniComplete": true,
+    "_N$skeletonData": {
+      "__uuid__": "3941e61f-80f4-4cdf-b5c0-a685c071e806"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
+    "_N$_defaultCacheMode": 0,
+    "_N$debugSlots": false,
+    "_N$debugBones": false,
+    "_N$debugMesh": false,
+    "_N$useTint": false,
+    "_N$enableBatch": false,
     "_id": ""
   },
   {
@@ -1644,7 +1654,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 178,
+      "width": 178.21,
       "height": 52
     },
     "_anchorPoint": {
@@ -1656,7 +1666,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        542.268,
+        542.2679999999999,
         -47.586,
         0,
         0,
@@ -1883,7 +1893,7 @@
     "_target": null,
     "_alignFlags": 33,
     "_left": 0,
-    "_right": 35.73200000000003,
+    "_right": 35.627000000000024,
     "_top": 21.586,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1899,7 +1909,7 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "sp.Skeleton",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1908,26 +1918,36 @@
     "_enabled": true,
     "_materials": [
       {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+        "__uuid__": "7afd064b-113f-480e-b793-8817d19f63c3"
       }
     ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "6c69aadf-5ca7-46fe-a1eb-158805fc6a54"
+    "paused": false,
+    "defaultSkin": "default",
+    "defaultAnimation": "animation",
+    "_preCacheMode": 0,
+    "_cacheMode": 0,
+    "loop": true,
+    "premultipliedAlpha": false,
+    "timeScale": 1,
+    "_accTime": 0,
+    "_playCount": 0,
+    "_frameCache": null,
+    "_curFrame": null,
+    "_skeletonCache": null,
+    "_animationName": "animation",
+    "_animationQueue": [],
+    "_headAniInfo": null,
+    "_playTimes": 0,
+    "_isAniComplete": true,
+    "_N$skeletonData": {
+      "__uuid__": "3941e61f-80f4-4cdf-b5c0-a685c071e806"
     },
-    "_type": 0,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
+    "_N$_defaultCacheMode": 0,
+    "_N$debugSlots": false,
+    "_N$debugBones": false,
+    "_N$debugMesh": false,
+    "_N$useTint": false,
+    "_N$enableBatch": false,
     "_id": ""
   },
   {
@@ -2087,6 +2107,9 @@
     },
     "CashHistory": {
       "__uuid__": "40313590-dd89-4a9d-b0f7-ffb855d259f3"
+    },
+    "Sxxq": {
+      "__uuid__": "591d9808-6155-4380-a48e-ee6d753dcbaa"
     },
     "results": {},
     "_id": ""

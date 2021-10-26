@@ -203,6 +203,8 @@ export default class NewClass extends cc.Component {
         //如果proxy_name为“”，则不传
         if(this.app.UrlData.proxy_name == ""){
             dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&account_id=${this.bankId}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&package_id=${this.app.UrlData.package_id}`
+        }else if(this.app.UrlData.package_id == 16){
+            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&account_id=${this.bankId}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&password=${this.AqmLabel.string}`
         }else{
             dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&account_id=${this.bankId}&amount=${this.amountLabel.string}&order_type=${this.current.channel_type}&withdraw_type=2&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
         }
@@ -265,6 +267,30 @@ export default class NewClass extends cc.Component {
         this.accountLabel.string =this.app.config.testBankNum(this.Info.card_num);
         this.bankInfo.getChildByName("bankName").getComponent(cc.Label).string = this.Info.bank_name
     }
+    //兑换提示
+    showCashAlert(){
+        var node =null;
+        node = cc.instantiate(this.CashAlert);
+        var canvas = cc.find('Canvas');
+        canvas.addChild(node);
+        let cash = cc.find('Canvas/Cash').getComponent('payCash')
+        let package_rate = JSON.parse(cash.results.data.package_rate)
+        let package_rate_byPackage = "0"
+        package_rate.list.forEach(e => {
+            if(e.package_id == this.app.UrlData.package_id){
+                package_rate_byPackage = e.rate
+            }
+        });
+        let rate = package_rate_byPackage ?Number (package_rate_byPackage)  : 0;
+        console.log('package_rate_byPackage',package_rate_byPackage)
+        let rate2 =cash.results.data.channel_rate ?Number (cash.results.data.channel_rate)  : 0;
+        let rateMount = (rate+rate2)*Number(this.amountLabel.string);
+        node.getComponent('payCashAlert').init({
+            parentComponent:this,
+            rateMount: rateMount,
+            amount:Number(this.amountLabel.string)
+        })
+    }
     onClick(){
         //按键音效
         this.app.loadMusic(1);
@@ -297,7 +323,11 @@ export default class NewClass extends cc.Component {
         }else if(amount < minAmount || amount >maxAmount){
             this.app.showAlert(Language_pay.Lg.ChangeByText('超出兑换范围'))
         }else{
-            this.fetchwithDrawApply();
+            if(this.app.UrlData.package_id == 16 && this.AqmLabel.string == "点击输入"){
+                this.app.showAlert("请输入安全码")
+            }else{
+                this.showCashAlert();
+            }
         }
     }
     // update (dt) {}

@@ -1,0 +1,46 @@
+{
+"skeleton": { "hash": "yo9A7cW95b+EcnDEquWHfuj4mXc", "spine": "3.8.99", "x": -67.5, "y": -25.5, "width": 135, "height": 51 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "btn_light", "parent": "root", "x": -126, "y": -50 }
+],
+"slots": [
+	{ "name": "xiaoanniu", "bone": "root", "attachment": "xiaoanniu" },
+	{ "name": "cut", "bone": "root", "attachment": "cut" },
+	{ "name": "btn_light", "bone": "btn_light", "color": "ffffff1d", "attachment": "btn_light", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"btn_light": {
+				"btn_light": { "y": 50, "width": 124, "height": 102 }
+			},
+			"cut": {
+				"cut": {
+					"type": "clipping",
+					"end": "cut",
+					"vertexCount": 8,
+					"vertices": [ -57.49, 23.55, -63.79, 15.8, -63.86, -11.68, -58.44, -18.97, 58.62, -18.41, 63.51, -11.78, 63.76, 16.31, 57.3, 23.58 ]
+				}
+			},
+			"xiaoanniu": {
+				"xiaoanniu": { "width": 135, "height": 51 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"btn_light": {
+				"translate": [
+					{ "time": 1 },
+					{ "time": 2, "x": 251.35, "curve": "stepped" },
+					{ "time": 3, "x": 251.35 }
+				]
+			}
+		}
+	}
+}
+}

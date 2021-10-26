@@ -18,12 +18,16 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     CashHistory:cc.Prefab = null;
 
+    @property(cc.Prefab)
+    Sxxq:cc.Prefab = null 
+
     @property()
     public results : any = {};
     public zfbResults : any = {};
     public app : any = {};
     timer = null;
     canExit= null;
+    sxAmount = 0 //受限金额
     onLoad () {
 
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -48,6 +52,9 @@ export default class NewClass extends cc.Component {
             let fanhui = cc.find("header/fanhui",this.node);
             fanhui.scaleY/=this.node.scaleY;
             fanhui.scaleX/=this.node.scaleX;
+        }else if(this.app.UrlData.package_id == 16){
+            //渠道16才显示受限金额 
+            this.fetchgetLimitDetailData()
         }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
         this.setLanguageResource()
@@ -70,14 +77,16 @@ export default class NewClass extends cc.Component {
     public historyBtnClick() {
         //按键音效
         this.app.loadMusic(1);
-        this.app.showLoading();
         var node = cc.instantiate(this.CashHistory);
         var Cash = cc.find('Canvas/Cash');
         Cash.addChild(node);
     }
     //受限详情
     sxxqClick(){
-        this.fetchgetLimitDetailData()
+        //按键音效
+        this.app.loadMusic(1);
+        var node = cc.instantiate(this.Sxxq)
+        cc.find("Canvas/Cash").addChild(node)
     }
     public fetchIndex(){
         // 20210508_支付系统, 正式环境富鑫II游戏(package_id=10)屏蔽充值界面和收益界面信息
@@ -103,12 +112,16 @@ export default class NewClass extends cc.Component {
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
-                console.log(response)
+                var data = response.data;
+                this.sxAmount = 0
+                for(var i = 0; i < data.length; i++){
+                    this.sxAmount += data[i].amount
+                }
             }else{
-                self.app.showAlert(response.msg)
+                self.app.showAlert(data.msg);
             }
         },(errstatus)=>{
-            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+            self.app.showAlert(`网络错误${errstatus}`)
         })
     }
     public addNavToggle(){
@@ -188,7 +201,6 @@ export default class NewClass extends cc.Component {
         let src = Language_pay.Lg.getLgSrc()
 
         let title= cc.find('Canvas/Cash/header/title')
-        
         this.app.loadIconLg(`${src}/font/title_shouyi`,title)
         
         let loadSP = cc.find('Loading/loadSP')

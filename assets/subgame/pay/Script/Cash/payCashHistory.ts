@@ -27,6 +27,7 @@ export default class NewClass extends cc.Component {
     public results : any = {};
     public order_status = 0;
     public page = 1;
+    public page_set = 8;
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
@@ -34,9 +35,21 @@ export default class NewClass extends cc.Component {
 
         this.fetchIndex();
         this.setLanguageResource()
+        if(this.app.UrlData.package_id == 16){
+            this.page_set = 6
+            let scalex = cc.winSize.width / 1334;
+            console.log("scalex",scalex)
+            if(scalex >1.1){
+                //超出此缩放比例，则缩小node
+                this.node.getChildByName("Content").scaleY = 1.1/scalex;
+            }
+            this.node.scaleX = scalex;
+        }else{
+            this.page_set = 8
+        }
     }
     public fetchIndex(){
-        var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&order_status=${this.order_status}&page=${this.page}&page_set=8`;
+        var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&order_status=${this.order_status}&page=${this.page}&page_set=${this.page_set}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading();
@@ -44,6 +57,10 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 self.results = response;
                 self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`
+                if(this.app.UrlData.package_id == 16){
+                    let pageLabel2 = this.node.getChildByName("Content").getChildByName("pageLabel").getComponent(cc.Label)
+                    pageLabel2.string = `每页6条 共${response.data.total_page}页`
+                }
                 var listArr = response.data.list;
                 for(var i = 0; i < listArr.length; i++){
                     var data = listArr[i];
@@ -112,13 +129,21 @@ export default class NewClass extends cc.Component {
         }
 
     }
+    pageFirst(){
+        this.page = 1
+        this.fetchIndex();
+    }
+    pageLast(){
+        this.page = this.results.data.total_page
+        this.fetchIndex();
+    }
      //设置语言相关的资源和字
      setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()
         
-        let titlebg= cc.find("Canvas/Cash/Content/DhHistory/Content/titlebg")
+        let titlebg= this.node.getChildByName("Content").getChildByName("titlebg")
 
-        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id==9 ||this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 18) {
+        if(this.app.UrlData.package_id == 8 || this.app.UrlData.package_id==9 ||this.app.UrlData.package_id == 10 || this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 18 || this.app.UrlData.package_id == 16) {
             titlebg.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('类型')
             titlebg.children[1].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('兑换金额')
             titlebg.children[2].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('费率')

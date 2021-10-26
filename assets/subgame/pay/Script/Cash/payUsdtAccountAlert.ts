@@ -12,6 +12,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     selectContent: cc.Node = null;
 
+    @property(cc.Label)
+    AqmLabel: cc.Label = null;
+
     app = null
     action = 'add'
     itemId = ""
@@ -25,6 +28,9 @@ export default class NewClass extends cc.Component {
     public init(itemId,type){
         this.itemId = itemId;
         this.chanTypeLabel.string = type
+    }
+    setAqm() {
+        this.app.showKeyBoard(this.AqmLabel,1);
     }
     onClick() {
         //按键音效
@@ -41,8 +47,12 @@ export default class NewClass extends cc.Component {
         }else if(this.chanTypeLabel.string == "TRC20" && this.charCodeTrc20(this.walletAddressInput.string)){
             this.app.showAlert(Language_pay.Lg.ChangeByText('无效钱包地址'))
         } else{
-            this.fetchBindAccountPay();
-            this.node.removeFromParent();
+            if(this.app.UrlData.package_id == 16 && this.AqmLabel.string == "点击输入"){
+                this.app.showAlert("请输入安全码")
+            }else{
+                this.fetchBindAccountPay();
+                this.node.removeFromParent();
+            }
         }
     }
     selectClick(){
@@ -57,12 +67,25 @@ export default class NewClass extends cc.Component {
     fetchBindAccountPay() {
         var url = `${this.app.UrlData.host}/api/payment_account/saveAccount`;
         let obj = {};
-        obj = {
-            wallet_addr:this.walletAddressInput.string,
-            protocol:this.chanTypeLabel.string,
-        };
+        if(this.app.UrlData.package_id == 16){
+            obj = {
+                wallet_addr:this.walletAddressInput.string,
+                protocol:this.chanTypeLabel.string,
+                password:this.AqmLabel.string
+            };
+        }else{
+            obj = {
+                wallet_addr:this.walletAddressInput.string,
+                protocol:this.chanTypeLabel.string,
+            };
+        }
         let info = JSON.stringify(obj);
-        let dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=${this.chanTypeLabel.string=="TRC20"?5:4}&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
+        let dataStr = ""
+        if(this.app.UrlData.package_id == 16){
+            dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=${this.chanTypeLabel.string=="TRC20"?5:4}&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&password=${this.AqmLabel.string}`
+        }else{
+            dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=${this.chanTypeLabel.string=="TRC20"?5:4}&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
+        }
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
@@ -121,7 +144,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/font/title_usdt`,titleIcon)
             this.app.loadIconLg(`${src}/font/txt_qbdz`,popup_usdt_frame.children[0])
             this.app.loadIconLg(`${src}/font/txt_llx`,popup_usdt_frame.children[1])
-        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
+        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18 || this.app.UrlData.package_id == 16){
            
         }else{
             this.app.loadIconLg(`${src}/form/popup_usdt_frame`,popup_usdt_frame)

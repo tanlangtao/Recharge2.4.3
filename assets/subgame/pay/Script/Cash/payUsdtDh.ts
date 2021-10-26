@@ -40,6 +40,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     SelectItem :cc.Prefab = null
 
+    @property(cc.Label)
+    AqmLabel :cc.Label = null;
+
     @property
     public data : any = {};
     public results= null ;
@@ -61,7 +64,9 @@ export default class NewClass extends cc.Component {
         this.app.showKeyBoard(this.amountLabel,1);
     }
     
-
+    setAqm() {
+        this.app.showKeyBoard(this.AqmLabel,1);
+    }
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}`;
         let self = this;
@@ -194,6 +199,8 @@ export default class NewClass extends cc.Component {
         //如果proxy_name为“”，则不传
         if(this.app.UrlData.proxy_name == ""){
             dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&package_id=${this.app.UrlData.package_id}`
+        }else if(this.app.UrlData.package_id == 16){
+            dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&password=${this.AqmLabel.string}`
         }else{
             dataStr = `user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&amount=${this.amountLabel.string}&account_id=${this.itemID}&order_type=${this.current.channel_type}&withdraw_type=6&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
         }
@@ -270,7 +277,12 @@ export default class NewClass extends cc.Component {
         }else if(amount < minAmount || amount >maxAmount){
             this.app.showAlert(Language_pay.Lg.ChangeByText('超出兑换范围'))
         }else{
-            this.showCashAlert(this.conf_val);
+            //渠道16需判断安全码
+            if(this.app.UrlData.package_id == 16 && this.AqmLabel.string == "点击输入"){
+                this.app.showAlert("请输入安全码")
+            }else{
+                this.showCashAlert(this.conf_val);
+            }
         }
     }
     getLocalConf(){
@@ -354,7 +366,7 @@ export default class NewClass extends cc.Component {
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/font/jiesuan`,btn.children[0])
-        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
+        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18  || this.app.UrlData.package_id == 16){
 
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
