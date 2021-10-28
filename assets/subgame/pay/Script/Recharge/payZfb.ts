@@ -342,7 +342,8 @@ export default class NewClass extends cc.Component {
             node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
             this.neikuagn.addChild(node)
         })
-        if(this.current.name == this.handling_feeName && this.handling_fee !=0){
+        console.log("this.current.name ",this.current.name ,"this.handling_feeName",this.handling_feeName,"this.handling_fee",this.handling_fee)
+        if(this.current.name == this.handling_feeName ){
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             blinkNodeLabel.string = "温馨提示：此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
             blinkNodeLabel.fontSize = 23
