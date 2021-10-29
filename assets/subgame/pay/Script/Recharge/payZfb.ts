@@ -142,8 +142,8 @@ export default class NewClass extends cc.Component {
             }
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             blinkNodeLabel.string = "请使用与绑定银行卡相同账户名的账户进行支付"
-            blinkNodeLabel.fontSize = 30
-            blinkNodeLabel.lineHeight = 35
+            blinkNodeLabel.fontSize = 23
+            blinkNodeLabel.lineHeight = 27
             this.blinkFun(this.blinkNode)
         }
         else if(this.channel == 'quick_pay'){
@@ -172,11 +172,10 @@ export default class NewClass extends cc.Component {
             }
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             blinkNodeLabel.string = "请使用与绑定银行卡相同账户名的账户进行支付"
-            blinkNodeLabel.fontSize = 30
-            blinkNodeLabel.lineHeight = 35
+            blinkNodeLabel.fontSize = 23
+            blinkNodeLabel.lineHeight = 27
             this.blinkFun(this.blinkNode)
         }else if(this.channel =='im_pay'){
-            
             this.app.loadIcon(`recharge/icon_im`,this.icon,100,100)
             this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
             if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16 ||p_id ==18){
@@ -198,6 +197,11 @@ export default class NewClass extends cc.Component {
             }else{
                 this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont.children[0],200,45)
             }
+        }
+        if(this.app.UrlData.package_id  == 18 && this.channel =='digiccy'){
+            this.wxtsLabel.node.active = true
+        }else if(this.app.UrlData.package_id == 18){
+            this.wxtsLabel.node.active = false
         }
     }
     setAmount() {
@@ -342,10 +346,14 @@ export default class NewClass extends cc.Component {
             node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
             this.neikuagn.addChild(node)
         })
-        console.log("this.current.name ",this.current.name ,"this.handling_feeName",this.handling_feeName,"this.handling_fee",this.handling_fee)
-        if(this.current.name == this.handling_feeName ){
+        if(this.current.name == this.handling_feeName && this.handling_fee !=0 ){
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
-            blinkNodeLabel.string = "温馨提示：此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
+            if(this.app.UrlData.package_id == 18){
+                blinkNodeLabel.string = "此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
+            }else{
+                blinkNodeLabel.string = "温馨提示：此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
+            }
+            
             blinkNodeLabel.fontSize = 23
             blinkNodeLabel.lineHeight = 28
             this.blinkFun(this.blinkNode)
@@ -353,6 +361,9 @@ export default class NewClass extends cc.Component {
             if( this.handling_fee!=0){
                 handling_feeLabel.getComponent(cc.Label).string = `前${this.free_num}笔免费，手续费率${this.app.config.toDecimal(this.handling_fee*100)}%`
                 handling_feeLabel.getComponent(cc.Label).fontSize = 30
+                if(this.app.UrlData.package_id == 18){
+                    handling_feeLabel.getComponent(cc.Label).fontSize = 23 
+                }
                 this.blinkFun(handling_feeLabel)
             }
             //请求获取当前的免费次数
@@ -663,6 +674,11 @@ export default class NewClass extends cc.Component {
         blinkLabel.string =Language_pay.Lg.ChangeByText("请使用与绑定银行卡相同账户名的账户进行支付")
     }
     blinkFun(blinkNode){
+        if(this.app.UrlData.package_id == 18){
+            //18不闪烁
+            blinkNode.active = true
+            return
+        }
         blinkNode.stopAllActions()
         blinkNode.active = true
         var action1 = cc.tintTo(0.2, 255, 212, 105);
