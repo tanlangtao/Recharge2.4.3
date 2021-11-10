@@ -360,8 +360,15 @@ export default class NewClass extends cc.Component {
             node.getComponent('payNavToggle').addContent('digiccy')
         }
     }
+    //银商
     webLinkClick(){
         let url = "https://www.vfanglife.com/"
+        cc.sys.openURL(encodeURI(url))
+        cc.log(encodeURI(url))
+    }
+    //金鼎
+    webLinkJinDingClick(){
+        let url = "https://www.jdcfwealth.com/"
         cc.sys.openURL(encodeURI(url))
         cc.log(encodeURI(url))
     }
