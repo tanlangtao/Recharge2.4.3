@@ -304,16 +304,34 @@ export default class NewClass extends cc.Component {
         }
     }
     addBankItem(){
-        var results = ['中国农业银行', '交通银行', '中国建设银行', '兴业银行', '民生银行', '中信银行', '中国工商银行', '浦发银行', '招商银行', '中国银行', '光大银行', '广发银行', '平安银行', '中国邮政']
-        for (var i = 0; i < results.length; i++) {
-            var node = cc.instantiate(this.BankSelectItem);
-            this.selectBankContent.addChild(node);
-            node.getComponent('payBankSelectItem').init({
-                text: results[i],
-                Content:this.selectBankContent,
-                Label:this.selectBankLabel
-            })
-        }
+        this.fetchgetbankName()
+    }
+    public fetchgetbankName(){
+        var url = `${this.app.UrlData.host}/api/payment_account/getbankName?package_id=${this.app.UrlData.package_id}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            self.app.hideLoading();
+            if(response.status == 0){
+                let results = []
+                for(var k in response.data){
+                    results.push(response.data[k])
+                }
+                for (var i = 0; i < results.length; i++) {
+                    var node = cc.instantiate(self.BankSelectItem);
+                    self.selectBankContent.addChild(node);
+                    node.getComponent('payBankSelectItem').init({
+                        text: results[i],
+                        Content:self.selectBankContent,
+                        Label:self.selectBankLabel
+                    })
+                }
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+            self.app.hideLoading();
+        })
     }
     selectProvinceClick() {
         if (!this.selectProvinceContent.active) {
