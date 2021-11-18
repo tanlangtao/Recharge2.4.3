@@ -38,11 +38,12 @@ export default class NewClass extends cc.Component {
         }, 1000);
         let scalex = cc.winSize.width / 1334;
         console.log("scalex",scalex)
-        if(scalex >1.1){
-            //超出此缩放比例，则缩小node
-            this.Content.scaleY = 1.1/scalex;
+        if(this.app.UrlData.package_id != 16){
+            if(scalex >1.1){
+                this.Content.scaleY = scalex/1.1;
+            }
+            this.node.scaleX = scalex;
         }
-        this.node.scaleX = scalex;
         if(this.app.UrlData.package_id == 9)
         {  
             let fanhui = cc.find("header/fanhui",this.node);

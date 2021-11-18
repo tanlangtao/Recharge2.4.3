@@ -37,13 +37,6 @@ export default class NewClass extends cc.Component {
         this.setLanguageResource()
         if(this.app.UrlData.package_id == 16){
             this.page_set = 6
-            let scalex = cc.winSize.width / 1334;
-            console.log("scalex",scalex)
-            if(scalex >1.1){
-                //超出此缩放比例，则缩小node
-                this.node.getChildByName("Content").scaleY = 1.1/scalex;
-            }
-            this.node.scaleX = scalex;
         }else{
             this.page_set = 8
         }

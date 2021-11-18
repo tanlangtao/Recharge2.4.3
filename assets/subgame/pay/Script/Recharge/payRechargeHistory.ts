@@ -50,7 +50,7 @@ export default class NewClass extends cc.Component {
         }
         else
         {
-            content.scaleY = 1/scalex;
+            
         }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
         this.setLanguageResource()
