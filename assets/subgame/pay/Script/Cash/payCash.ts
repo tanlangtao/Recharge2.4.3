@@ -168,7 +168,7 @@ export default class NewClass extends cc.Component {
         if(arr.length>0){
             //有兑换渠道时才显示兑换记录
             if(this.app.UrlData.package_id == 16){
-                arr.push('银行卡管理')
+                // arr.push('银行卡管理')
             }else{
                 arr.push('兑换记录')
             }

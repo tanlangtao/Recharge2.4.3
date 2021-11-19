@@ -89,11 +89,9 @@ export default class NewClass extends cc.Component {
             this.isCap = true;
         }
     }
-
     onClick(){
         //按键音效
         this.app.loadMusic(1);
-
         let string = this.app.labelType(this.inputlabel.string,this.type);
         if(string == ''){
             string = '点击输入'

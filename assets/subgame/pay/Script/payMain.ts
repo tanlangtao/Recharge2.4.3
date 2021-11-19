@@ -157,6 +157,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BankTipAlert_18:cc.Prefab = null;
 
+    @property(cc.Node)
+    Loading16:cc.Node = null;
+
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -180,7 +183,6 @@ export default class NewClass extends cc.Component {
             proxy_user_id:gHandler.gameGlobal.pay.proxy_user_id,
             proxy_name:gHandler.gameGlobal.pay.proxy_name,
             package_id:gHandler.gameGlobal.pay.package_id,
-            // package_id:16,
             imHost:gHandler.gameGlobal.im_host
         };
         this.gHandler = gHandler
@@ -573,10 +575,18 @@ export default class NewClass extends cc.Component {
     }
     //显示加载动画
     showLoading(){
-        this.Loading.active = true;
+        if(this.UrlData.package_id == 16){
+            this.Loading16.active = true;
+            this.Loading.active = false;
+        }else{
+            this.Loading.active = true;
+            this.Loading16.active = false;
+        }
+        
     }
     //隐藏加载动画
     hideLoading(){
+        this.Loading16.active = false;
         this.Loading.active = false;
     }
     loadMusic(num :number):void{

@@ -218,7 +218,7 @@ export default class NewClass extends cc.Component {
                     self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'));
                 }
             }else{
-                self.app.showAlert(response.msg)
+                self.app.showAlert(response.msg == "密码错误！"?"安全码错误！":response.msg)
             }
             self.DhBtn.getComponent(cc.Button).interactable  = true;
         },(errstatus)=>{

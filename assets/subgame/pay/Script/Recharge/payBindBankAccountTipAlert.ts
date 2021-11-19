@@ -21,7 +21,8 @@ export default class NewClass extends cc.Component {
         this.app.loadMusic(1);
         //payBankDh
         if(this.app.UrlData.package_id == 16){
-            cc.director.loadScene("payCash");
+            this.parentComponent.showAccountAlert_16();
+            this.node.removeFromParent();
         }else{
             this.parentComponent.showAccountAlert();
             this.node.removeFromParent();

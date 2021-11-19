@@ -80,7 +80,7 @@ export default class NewClass extends cc.Component {
     }
 
     setAqm() {
-        this.app.showKeyBoard(this.AqmLabel,1);
+        this.app.showKeyBoard(this.AqmLabel,5);
     }
 
     public fetchIndex(){
@@ -219,7 +219,7 @@ export default class NewClass extends cc.Component {
                 }
                 self.fetchIndex();
             }else{
-                self.app.showAlert(response.msg)
+                self.app.showAlert(response.msg == "密码错误！"?"安全码错误！":response.msg)
             }
             self.DhBtn.getComponent(cc.Button).interactable  = true;
         },(errstatus)=>{

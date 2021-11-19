@@ -255,6 +255,7 @@ export default class NewClass extends cc.Component {
     fetchBindAccountPay() {
         var url = `${this.app.UrlData.host}/api/payment_account/saveAccount`;
         let obj = {};
+        let dataStr = ''
         if(this.app.UrlData.package_id != 16){
             obj = {
                 card_num:this.accountInput.string,
@@ -264,6 +265,8 @@ export default class NewClass extends cc.Component {
                 bank_province:this.selectProvinceLabel.string,
                 bank_city:this.selectCityLabel.string,
             };
+            let info = JSON.stringify(obj);
+            dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=3&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
         }else{
             obj = {
                 card_num:this.accountInput.string,
@@ -274,16 +277,16 @@ export default class NewClass extends cc.Component {
                 bank_city:this.selectCityLabel.string,
                 password:this.AqmLabel.string
             };
+            let info = JSON.stringify(obj);
+            dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=3&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&password=${this.AqmLabel.string}`
         }
-        let info = JSON.stringify(obj);
-        let dataStr = `user_id=${this.app.UrlData.user_id}&id=${this.itemId}&user_name=${decodeURI(this.app.UrlData.user_name)}&action=${this.action}&type=3&info=${info}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}`
         let self = this;
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 this.parentComponent.fetchIndex();
                 self.app.showAlert(Language_pay.Lg.ChangeByText('操作成功!'))
             }else{
-                self.app.showAlert(response.msg)
+                self.app.showAlert(response.msg == "密码错误！"?"安全码错误！":response.msg)
             }
         },(errstatus)=>{
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
@@ -382,7 +385,7 @@ export default class NewClass extends cc.Component {
         }
     }
     setAqm() {
-        this.app.showKeyBoard(this.AqmLabel,1);
+        this.app.showKeyBoard(this.AqmLabel,5);
     }
     deleteName() {
          //按键音效

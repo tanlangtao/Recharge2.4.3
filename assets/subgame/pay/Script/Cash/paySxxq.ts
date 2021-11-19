@@ -26,6 +26,7 @@ export default class NewClass extends cc.Component {
         let scalex = cc.winSize.width / 1334;
         var content = cc.find('Canvas/Cash/Sxxq/Content');
         content.scaleY = 1/scalex;
+        this.node.getChildByName("Content").getChildByName("titlebg").children[0].getComponent(cc.Label).fontFamily = "Microsoft YaHei"
     }
     public fetchgetLimitDetailData(){
         var url = `${this.app.UrlData.host}/api/activity/getLimitDetailData?user_id=${this.app.UrlData.user_id}&page=${this.page}&page_set=${this.page_set}`;
@@ -49,6 +50,12 @@ export default class NewClass extends cc.Component {
                         created_at : Item.created_at,
                         remark : Item.remark,
                     })
+                }
+                let zwsj = this.node.getChildByName("Content").getChildByName("zwsj")
+                if(response.data.list.length == 0 ){
+                    zwsj.active = true
+                }else{
+                    zwsj.active = false
                 }
             }else{
                 self.app.showAlert(data.msg);

@@ -30,7 +30,7 @@ export default class NewClass extends cc.Component {
         this.chanTypeLabel.string = type
     }
     setAqm() {
-        this.app.showKeyBoard(this.AqmLabel,1);
+        this.app.showKeyBoard(this.AqmLabel,5);
     }
     onClick() {
         //按键音效
@@ -93,7 +93,7 @@ export default class NewClass extends cc.Component {
                 bankCom.fetchIndex();
                 self.app.showAlert(Language_pay.Lg.ChangeByText('操作成功!'))
             }else{
-                self.app.showAlert(response.msg)
+                self.app.showAlert(response.msg == "密码错误！"?"安全码错误！":response.msg)
             }
         },(errstatus)=>{
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)

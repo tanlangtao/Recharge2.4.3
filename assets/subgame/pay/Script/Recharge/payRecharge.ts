@@ -373,10 +373,16 @@ export default class NewClass extends cc.Component {
         cc.sys.openURL(encodeURI(url))
         cc.log(encodeURI(url))
     }
+    //刷新金额
     reFreshGold(){
         this.fetchIndex()
+        let node = this.node.getChildByName("header").getChildByName("zyd").getChildByName("sx")
+        let action = cc.rotateBy(1,720)
+        node.stopAllActions()
+        node.runAction(action)
+        let goldlabel = this.node.getChildByName("header").getChildByName("zyd").getChildByName("label").getComponent(cc.Label)
+        goldlabel.string = "刷新中...";
     }
-
     //设置语言相关的资源和字
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()

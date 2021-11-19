@@ -32,14 +32,13 @@ export default class NewClass extends cc.Component {
 
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
-
-        this.fetchIndex();
         this.setLanguageResource()
         if(this.app.UrlData.package_id == 16){
             this.page_set = 6
         }else{
             this.page_set = 8
         }
+        this.fetchIndex();
     }
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&order_status=${this.order_status}&page=${this.page}&page_set=${this.page_set}`;
@@ -53,6 +52,12 @@ export default class NewClass extends cc.Component {
                 if(this.app.UrlData.package_id == 16){
                     let pageLabel2 = this.node.getChildByName("Content").getChildByName("pageLabel").getComponent(cc.Label)
                     pageLabel2.string = `每页6条 共${response.data.total_page}页`
+                    let zwsj = this.node.getChildByName("Content").getChildByName("zwsj")
+                    if(response.data.list.length == 0 ){
+                        zwsj.active = true
+                    }else{
+                        zwsj.active = false
+                    }
                 }
                 var listArr = response.data.list;
                 for(var i = 0; i < listArr.length; i++){

@@ -237,7 +237,6 @@ export default class NewClass extends cc.Component {
 
                     this.setInterval(discount_rate.bankcard_transfer)
                     //验证有没有绑卡
-                    this.app.showLoading();
                     this.fetchIndex()
                 }else if(self.channel == 'quick_pay'){
                     self.results = response.data.quick_pay;
@@ -246,7 +245,6 @@ export default class NewClass extends cc.Component {
                     self.results = response.data.bank_pay;
                     this.setInterval(discount_rate.bank_pay)
                     //验证有没有绑卡
-                    this.app.showLoading();
                     this.fetchIndex()
                 }else if(self.channel =='im_pay'){
                     self.results = response.data.im_pay;
@@ -600,7 +598,6 @@ export default class NewClass extends cc.Component {
                 }else{
                     this.IsBindBankAccount =true
                 }
-                this.app.hideLoading();
                 this.game_gold = response.data.game_gold
             }else{
                 this.app.showAlert(response.msg)
@@ -640,6 +637,19 @@ export default class NewClass extends cc.Component {
             parentComponent:this,
             changeData:false
         });
+    }
+    //渠道16显示绑卡
+    showAccountAlert_16(){
+        this.node.getChildByName("bindBankAccount").active = true
+        this.node.getChildByName("Bank").active = false
+        this.node.getComponent("payBankAccountAlert").init({
+            text:'设置银行卡',
+            action:"add",
+            itemId:null,
+            parentComponent:this,
+            //修改界面初始数据
+            changeData:false
+        })
     }
     //设置语言相关的资源和字
     setLanguageResource(){
