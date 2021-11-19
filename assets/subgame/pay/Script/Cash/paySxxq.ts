@@ -29,7 +29,7 @@ export default class NewClass extends cc.Component {
         this.node.getChildByName("Content").getChildByName("titlebg").children[0].getComponent(cc.Label).fontFamily = "Microsoft YaHei"
     }
     public fetchgetLimitDetailData(){
-        var url = `${this.app.UrlData.host}/api/activity/getLimitDetailData?user_id=${this.app.UrlData.user_id}&page=${this.page}&page_set=${this.page_set}`;
+        var url = `${this.app.UrlData.host}/api/activity/getLimitDetailData?user_id=${this.app.UrlData.user_id}&page=${this.page}&pageset=${this.page_set}`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading();
@@ -40,9 +40,9 @@ export default class NewClass extends cc.Component {
                 self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`;
                 let pageLabel2 = this.node.getChildByName("Content").getChildByName("pageLabel").getComponent(cc.Label)
                 pageLabel2.string = `每页6条 共${response.data.total_page}页`
-                var data = response.data;
-                for(var i = 0; i < data.length; i++){
-                    var Item = data[i];
+                var dataList = response.data.list;
+                for(var i = 0; i < dataList.length; i++){
+                    var Item = dataList[i];
                     var node = cc.instantiate(self.ListItem);
                     self.List.addChild(node);
                     node.getComponent('paySxxqItem').init({
@@ -58,7 +58,7 @@ export default class NewClass extends cc.Component {
                     zwsj.active = false
                 }
             }else{
-                self.app.showAlert(data.msg);
+                self.app.showAlert(response.msg);
             }
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)

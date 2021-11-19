@@ -54,7 +54,6 @@ export default class NewClass extends cc.Component {
             fanhui.scaleX/=this.node.scaleX;
         }else if(this.app.UrlData.package_id == 16){
             //渠道16才显示受限金额 
-            this.fetchgetLimitDetailData()
         }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
         this.setLanguageResource()
@@ -107,23 +106,6 @@ export default class NewClass extends cc.Component {
             }
         },(errstatus)=>{
             this.app.showAlert(`网络错误${errstatus}`)
-        })
-    }
-    public fetchgetLimitDetailData(){
-        var url = `${this.app.UrlData.host}/api/activity/getLimitDetailData?user_id=${this.app.UrlData.user_id}`;
-        let self = this;
-        this.app.ajax('GET',url,'',(response)=>{
-            if(response.status == 0){
-                var data = response.data;
-                this.sxAmount = 0
-                for(var i = 0; i < data.length; i++){
-                    this.sxAmount += data[i].amount
-                }
-            }else{
-                self.app.showAlert(data.msg);
-            }
-        },(errstatus)=>{
-            self.app.showAlert(`网络错误${errstatus}`)
         })
     }
     public addNavToggle(){
