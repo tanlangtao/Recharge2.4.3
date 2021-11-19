@@ -592,13 +592,12 @@ export default class NewClass extends cc.Component {
                         bankData.push(data)
                     }
                 }
-                // if(bankData.length == 0){
-                //     //提示绑卡
-                //     this.showBindBankAccountTip()
-                // }else{
-                //     this.IsBindBankAccount =true
-                // }
-                this.showBindBankAccountTip()
+                if(bankData.length == 0){
+                    //提示绑卡
+                    this.showBindBankAccountTip()
+                }else{
+                    this.IsBindBankAccount =true
+                }
                 this.game_gold = response.data.game_gold
             }else{
                 this.app.showAlert(response.msg)
