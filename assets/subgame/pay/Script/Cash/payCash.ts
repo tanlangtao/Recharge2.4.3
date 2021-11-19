@@ -77,6 +77,7 @@ export default class NewClass extends cc.Component {
     public historyBtnClick() {
         //按键音效
         this.app.loadMusic(1);
+        this.app.showLoading()
         var node = cc.instantiate(this.CashHistory);
         var Cash = cc.find('Canvas/Cash');
         Cash.addChild(node);
@@ -85,6 +86,7 @@ export default class NewClass extends cc.Component {
     sxxqClick(){
         //按键音效
         this.app.loadMusic(1);
+        this.app.showLoading()
         var node = cc.instantiate(this.Sxxq)
         cc.find("Canvas/Cash").addChild(node)
     }

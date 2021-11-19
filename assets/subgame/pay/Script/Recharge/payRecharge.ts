@@ -50,7 +50,7 @@ export default class NewClass extends cc.Component {
             // fanhui.scaleY/=this.node.scaleY;
             fanhui.scaleX/=this.node.scaleX;
         }
-        this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
+        this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)*cc.winSize.height/750
         this.setLanguageResource()
         if(this.app.UrlData.package_id == 16){
             this.fetchIndex()

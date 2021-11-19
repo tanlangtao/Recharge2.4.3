@@ -592,12 +592,13 @@ export default class NewClass extends cc.Component {
                         bankData.push(data)
                     }
                 }
-                if(bankData.length == 0){
-                    //提示绑卡
-                    this.showBindBankAccountTip()
-                }else{
-                    this.IsBindBankAccount =true
-                }
+                // if(bankData.length == 0){
+                //     //提示绑卡
+                //     this.showBindBankAccountTip()
+                // }else{
+                //     this.IsBindBankAccount =true
+                // }
+                this.showBindBankAccountTip()
                 this.game_gold = response.data.game_gold
             }else{
                 this.app.showAlert(response.msg)
@@ -659,7 +660,12 @@ export default class NewClass extends cc.Component {
         let txt_czje= cc.find("Canvas/Recharge/Content/Zfb/titlebg/group3/txt_czje")
         let btn_75= cc.find("Canvas/Recharge/Content/Zfb/titlebg/group3/group2/75")
         let czgoldbt1= cc.find("Canvas/Recharge/Content/Zfb/czgoldbt1")
-        let label= this.node.getChildByName('label').getComponent(cc.Label)
+        let label = null
+        if(this.app.UrlData.package_id == 16){
+            label= this.node.getChildByName('Bank').getChildByName('labelTip').getComponent(cc.Label)
+        }else{
+            label= this.node.getChildByName('label').getComponent(cc.Label)
+        }
         let blinkLabel = this.blinkNode.getComponent(cc.Label)
 
         if(this.app.UrlData.package_id != 15 && this.app.UrlData.package_id != 16 && this.app.UrlData.package_id != 18){
@@ -684,7 +690,7 @@ export default class NewClass extends cc.Component {
         blinkLabel.string =Language_pay.Lg.ChangeByText("请使用与绑定银行卡相同账户名的账户进行支付")
     }
     blinkFun(blinkNode){
-        if(this.app.UrlData.package_id == 18){
+        if(this.app.UrlData.package_id == 18 || this.app.UrlData.package_id == 16){
             //18不闪烁
             blinkNode.active = true
             return
