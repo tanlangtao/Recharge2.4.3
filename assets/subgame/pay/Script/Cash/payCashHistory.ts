@@ -51,7 +51,7 @@ export default class NewClass extends cc.Component {
                 self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`
                 if(this.app.UrlData.package_id == 16){
                     let pageLabel2 = this.node.getChildByName("Content").getChildByName("pageLabel").getComponent(cc.Label)
-                    pageLabel2.string = `每页6条 共${response.data.total_page}页`
+                    pageLabel2.string = `每页6条 共${response.data.total_page == 0 ? '1' : response.data.total_page}页`
                     let zwsj = this.node.getChildByName("Content").getChildByName("zwsj")
                     if(response.data.list.length == 0 ){
                         zwsj.active = true

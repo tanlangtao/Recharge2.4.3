@@ -238,10 +238,11 @@ export default class NewClass extends cc.Component {
                 this.node.getChildByName("bindBankAccount").active = false
                 this.node.getChildByName("Bank").active = true
                 this.accountInput.string = "";
-                this.selectBankLabel.string = "";
+                this.selectBankLabel.string = "请选择开户行";
                 this.nameInput.string = "";
-                this.selectProvinceLabel.string = "";
-                this.selectCityLabel.string = "";
+                this.selectProvinceLabel.string = "请选择开户省";
+                this.selectCityLabel.string = "请选择开户市";
+                this.AqmLabel.string = "";
             }
         }
     }
@@ -385,7 +386,7 @@ export default class NewClass extends cc.Component {
         }
     }
     setAqm() {
-        this.app.showKeyBoard(this.AqmLabel,5);
+        this.app.showKeyBoard(this.AqmLabel,4);
     }
     deleteName() {
          //按键音效

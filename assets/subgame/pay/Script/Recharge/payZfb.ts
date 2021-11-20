@@ -92,7 +92,7 @@ export default class NewClass extends cc.Component {
         if(this.channel == 'alipay' ){
             this.app.loadIcon(`recharge/flag_alipay`,this.icon,100,100)
             if(p_id == 16){
-                this.wxtsLabel.string = `此通道只能选择固定金额，需2分钟内完成支付，超时请重新发起，若超时支付、保存手机号重复支付、修改金额而无法到账，需自行承担`
+                this.wxtsLabel.string = `1.充值比例1元=1金币`
             }else{
                 this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装支付宝')}。`
             }
@@ -106,7 +106,7 @@ export default class NewClass extends cc.Component {
         else if(this.channel == 'union_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             if(p_id == 16){
-                this.wxtsLabel.string = `充值金额需在${this.current.min_amount}元到${this.current.max_amount}元之间，亲！用支付宝或微信转卡，会不到账喔！`
+                this.wxtsLabel.string = `1.充值比例1元=1金币`
             }else{
                 this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
             }
@@ -118,7 +118,7 @@ export default class NewClass extends cc.Component {
         }else if(this.channel == 'wechat_pay'){
             this.app.loadIcon(`recharge/flag_wxpay`,this.icon,100,100)
             if(p_id == 16){
-                this.wxtsLabel.string = `此通道只能选择固定金额，需2分钟内完成支付，超时请重新发起，若超时支付、保存手机号重复支付、修改金额而无法到账，需自行承担`
+                this.wxtsLabel.string = `1.充值比例1元=1金币`
             }else{
                 this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}。2.${Language_pay.Lg.ChangeByText('需要安装微信')}。`;
             }
@@ -131,7 +131,7 @@ export default class NewClass extends cc.Component {
         }else if(this.channel == 'bankcard_transfer'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             if(p_id == 16){
-                this.wxtsLabel.string = `充值金额需在${this.current.min_amount}元到${this.current.max_amount}元之间，亲！用支付宝或微信转卡，会不到账喔！`
+                this.wxtsLabel.string = `1.充值比例1元=1金币`
             }else{
                 this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
             }
@@ -149,7 +149,7 @@ export default class NewClass extends cc.Component {
         else if(this.channel == 'quick_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             if(p_id == 16){
-                this.wxtsLabel.string = `充值金额需在${this.current.min_amount}元到${this.current.max_amount}元之间，亲！用支付宝或微信转卡，会不到账喔！`
+                this.wxtsLabel.string = `1.充值比例1元=1金币`
             }else{
                 this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
             }
@@ -161,7 +161,7 @@ export default class NewClass extends cc.Component {
         }else if(this.channel == 'bank_pay'){
             this.app.loadIcon(`recharge/flag_scan_code_unionpay`,this.icon,127,86)
             if(p_id == 16){
-                this.wxtsLabel.string = `充值金额需在${this.current.min_amount}元到${this.current.max_amount}元之间，亲！用支付宝或微信转卡，会不到账喔！`
+                this.wxtsLabel.string = `1.充值比例1元=1金币`
             }else{
                 this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
             }
@@ -177,7 +177,7 @@ export default class NewClass extends cc.Component {
             this.blinkFun(this.blinkNode)
         }else if(this.channel =='im_pay'){
             this.app.loadIcon(`recharge/icon_im`,this.icon,100,100)
-            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('温馨提示: 1.充值比例1元=1金币')}`
+            this.wxtsLabel.string = `${Language_pay.Lg.ChangeByText('1.充值比例1元=1金币')}`
             if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16 ||p_id ==18){
                 this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('IM充值')
             }else{

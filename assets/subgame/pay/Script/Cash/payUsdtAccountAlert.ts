@@ -30,7 +30,7 @@ export default class NewClass extends cc.Component {
         this.chanTypeLabel.string = type
     }
     setAqm() {
-        this.app.showKeyBoard(this.AqmLabel,5);
+        this.app.showKeyBoard(this.AqmLabel,4);
     }
     onClick() {
         //按键音效

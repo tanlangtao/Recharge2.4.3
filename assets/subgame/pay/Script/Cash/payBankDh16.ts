@@ -80,7 +80,7 @@ export default class NewClass extends cc.Component {
     }
 
     setAqm() {
-        this.app.showKeyBoard(this.AqmLabel,5);
+        this.app.showKeyBoard(this.AqmLabel,4);
     }
 
     public fetchIndex(){

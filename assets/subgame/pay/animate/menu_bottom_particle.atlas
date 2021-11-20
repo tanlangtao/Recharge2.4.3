@@ -1,0 +1,20 @@
+
+menu_bottom_particle.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+g1
+  rotate: false
+  xy: 250, 7
+  size: 248, 149
+  orig: 248, 151
+  offset: 0, 2
+  index: -1
+g2
+  rotate: false
+  xy: 1, 1
+  size: 248, 155
+  orig: 248, 155
+  offset: 0, 0
+  index: -1

@@ -65,7 +65,7 @@ export default class NewClass extends cc.Component {
     }
     
     setAqm() {
-        this.app.showKeyBoard(this.AqmLabel,5);
+        this.app.showKeyBoard(this.AqmLabel,4);
     }
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}`;
