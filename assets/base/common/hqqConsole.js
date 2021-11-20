@@ -28,8 +28,6 @@ cc.Class({
         }
         cc.game.addPersistRootNode(this.node);
         this.node.zIndex = cc.macro.MAX_ZINDEX;
-        // this.btn.x = -cc.winSize.width / 2 + 50
-        // this.btn.y = -25
         this.btnpos = this.btn.getPosition()
         this.btn.on(cc.Node.EventType.TOUCH_MOVE, this.onClickMove, this);
         this.btn.on(cc.Node.EventType.TOUCH_END, this.onClickEnd, this);
@@ -159,4 +157,4 @@ cc.Class({
     onClickBtn() {
         this.window.active = !this.window.active;
     },
-}); 
+});

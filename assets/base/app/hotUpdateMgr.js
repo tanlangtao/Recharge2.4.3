@@ -27,13 +27,13 @@ let hotUpdateMgr = {
         if (!cc.sys.isBrowser) {
             this._storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'subGame/');
             this._tempStoragePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'subGame_temp/');
-            this._subStoragePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'subGame/assets/');
-            this._subTepStoragePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'subGame_temp/assets/');
+            // this._subStoragePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'subGame/');
+            // this._subTepStoragePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'subGame_temp/');
         } else {
             this._storagePath = 'subGame/';
             this._tempStoragePath = 'subGame_temp/';
-            this._subStoragePath = 'subGame/assets/';
-            this._subTepStoragePath = 'subGame_temp/assets/';
+            // this._subStoragePath = 'subGame/';
+            // this._subTepStoragePath = 'subGame_temp/';
         }
         this.manifestData = data
     },
@@ -206,9 +206,6 @@ let hotUpdateMgr = {
             this.log('remove preupdata temp file:' + jsb.fileUtils.removeFile(file))
         }
         let remoteManifest = this._storagePath + '/project.manifest'
-        if (this.data.subname != "hall") {
-            remoteManifest = this._subStoragePath + '/project.manifest'
-        }
         if (jsb.fileUtils.isFileExist(remoteManifest)) {
             this.log("本地project.manifest文件未删除")
             this.log('remove project file:' + jsb.fileUtils.removeFile(remoteManifest))
@@ -252,7 +249,7 @@ let hotUpdateMgr = {
             let needRetry = false
             let retryassets = {}
             for (let k in assets) {
-                let assetpath = this._subStoragePath + k
+                let assetpath = this._storagePath + k
                 if (!jsb.fileUtils.isFileExist(assetpath)) {
                     this.log("本地丢失文件", assetpath)
                     needRetry = true
@@ -313,9 +310,6 @@ let hotUpdateMgr = {
         this._getVersionTry = 0;
         hqq.eventMgr.dispatch(hqq.eventMgr.hotCheck, this.data.subname)
         let storagePath = this._storagePath
-        if (this.data.subname != "hall") {
-            storagePath = this._subStoragePath
-        }
         let checkManifest = storagePath + '/project.manifest'
         let check = this.checkFile(checkManifest)
         this.log("check.bool", check.bool)
@@ -329,7 +323,7 @@ let hotUpdateMgr = {
             if (!this._am.getLocalManifest() || !this._am.getLocalManifest().isLoaded()) {
                 this.log('加载重新尝试的manifest文件失败 ...');
                 hqq.eventMgr.dispatch(hqq.eventMgr.hotUp, this.data.subname)
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "更新文件出错，重新下载失败")
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip14"))
                 return
             }
             this._am.setEventCallback(this._checkCb.bind(this));
@@ -345,9 +339,6 @@ let hotUpdateMgr = {
     m_renameManifest() {
         this._log = ""
         let storagePath = this._storagePath
-        if (this.data.subname != "hall") {
-            storagePath = this._subStoragePath
-        }
         let file = storagePath + '/version.manifest'
         let newfile = storagePath + '/' + this.manifestPre + 'version.manifest'
         if (jsb.fileUtils.isFileExist(file)) {
@@ -378,6 +369,7 @@ let hotUpdateMgr = {
         file = storagePath + '/project.manifest'
         newfile = storagePath + '/' + this.manifestPre + 'project.manifest'
         if (jsb.fileUtils.isFileExist(file)) {
+            this.log('project file exist')
             let str = jsb.fileUtils.getStringFromFile(file)
             let mstr = JSON.parse(str)
             let mod = mstr.module
@@ -394,7 +386,11 @@ let hotUpdateMgr = {
                     if (!jsb.fileUtils.renameFile(file, newfile)) {
                         if (!hqq.reflect.renameTo(file, newfile)) {
                             this.log('remove project file:' + jsb.fileUtils.removeFile(file))
+                        } else {
+                            this.log("renameTo success")
                         }
+                    } else {
+                        this.log("renameFile success")
                     }
                 }
             } else {
@@ -434,9 +430,6 @@ let hotUpdateMgr = {
      */
     getLocalManifestPath: function (subname) {
         let storagePath = this._storagePath
-        if (this.data.subname != "hall") {
-            storagePath = this._subStoragePath
-        }
         return storagePath + subname + "_project.manifest"
     },
 
@@ -471,9 +464,6 @@ let hotUpdateMgr = {
                     "searchPaths": []
                 });
                 let storagePath = this._storagePath
-                if (this.data.subname != "hall") {
-                    storagePath = this._subStoragePath
-                }
                 var manifest = new jsb.Manifest(customManifestStr, storagePath);
                 this._am.loadLocalManifest(manifest, storagePath);
                 this.log('使用构建的manifest文件：', manifest);
@@ -519,9 +509,6 @@ let hotUpdateMgr = {
             }
         };
         let storagePath = this._storagePath
-        if (this.data.subname != "hall") {
-            storagePath = this._subStoragePath
-        }
         this._am = new jsb.AssetsManager('', storagePath, this.versionCompareHandle);
         this._am.setVerifyCallback((storagePath, asset) => { // 资源检查
             let localmd5 = this.calculateMD5(storagePath)
@@ -584,7 +571,6 @@ let hotUpdateMgr = {
      * @Description: 获取version成功
      */
     vcallback(responseText) {
-        // hqq.localStorage.globalSet(hqq.app.versionKey, "1.0.0")
         if (this.versionCompareHandle(this.data.version, responseText.version) == -1) { // 需要更新
             this.startUpdate(this._packageUrl)
         } else { // 已经是最新的版本，不需要更新
@@ -606,7 +592,7 @@ let hotUpdateMgr = {
         if (this._am) {
             let insert = true;
             if (data.subname == this.data.subname) {
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "正在下载中")
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip15"))
                 return false
             }
             for (let i = 0; i < this.updataList.length; i++) {
@@ -645,9 +631,9 @@ let hotUpdateMgr = {
         this._am.setEventCallback(this._updateCb.bind(this));
 
         this._packageUrl = hqq.app.canHotServer + "/" + hqq.app.hotupdatePath + "/" + verstr
-        if (this.data.subname != "hall") {
-            this._packageUrl = hqq.app.canHotServer + "/" + hqq.app.hotupdatePath + "/" + verstr + "assets/"
-        }
+        // if (this.data.subname != "hall") {
+        //     this._packageUrl = hqq.app.canHotServer + "/" + hqq.app.hotupdatePath + "/" + verstr + "remote/"
+        // }
         this.log('热更请求地址', this._packageUrl)
         hqq.http.sendXMLHttpRequest({
             method: 'GET',
@@ -673,8 +659,9 @@ let hotUpdateMgr = {
             this.log('loadRemoteManifest', this._am.loadRemoteManifest(manifest))
         }
         let falicallback = (status, forcejump, url, err) => {
+            this._getProjectTry += 1
             this.log('热更project失败', status, forcejump, url, err, this._getProjectTry, this._getProjectMaxTry)
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "热更project第" + ++this._getProjectTry + "次失败,错误:" + err + ",状态:" + status)
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip16") + this._getProjectTry + "," + err + "," + status)
             if (this._getProjectTry < this._getProjectMaxTry) {
                 this.startUpdate(packageUrl)
             } else {
@@ -715,7 +702,7 @@ let hotUpdateMgr = {
      */
     downfail(task, errorCode, errorCodeInternal, errorStr) {
         this.log(task, errorCode, errorCodeInternal, errorStr)
-        hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, "apk更新错误 errorCode" + errorCode + "," + errorStr)
+        hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, "apk" + hqq.getTip("showtip67") + " errorCode" + errorCode + "," + errorStr)
         hqq.eventMgr.dispatch(hqq.eventMgr.hotFail, "apk")
     },
     /**

@@ -10,8 +10,6 @@ cc.Class({
 
     onLoad() {
         this.data = null
-        // this.node.x = cc.winSize.width / 2
-        // this.node.y = cc.winSize.height / 2
     },
 
     start() {

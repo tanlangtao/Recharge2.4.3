@@ -20,104 +20,175 @@ cc.Class({
     },
 
     onLoad() {
-        this.cities = {
-            '北京': ['北京'],
-            '天津': ['天津'],
-            '河北': [
-                '石家庄', '唐山', '秦皇岛', '邢台', '保定', '张家口', '承德', '沧州', '廊坊', '衡水'
-            ],
-            '山西': [
-                '太原', '大同', '阳泉', '长治', '晋城', '朔州', '晋中', '运城', '忻州', '临汾', '吕梁'
-            ],
-            '内蒙古': [
-                '呼和浩特', '包头', '乌海', '赤峰', '通辽', '鄂尔多斯', '呼伦贝尔', '巴彦淖尔', '乌兰察布', '兴安', '锡林郭勒', '阿拉善'
-            ],
-            '辽宁': [
-                '沈阳', '大连', '鞍山', '抚顺', '本溪', '丹东', '锦州', '营口', '阜新', '辽阳', '盘锦', '铁岭', '朝阳', '葫芦岛'
-            ],
-            '吉林': [
-                '长春', '吉林', '四平', '辽源', '通化', '白山', '松原', '白城', '延边'
-            ],
-            '黑龙江': [
-                '哈尔滨', '齐齐哈尔', '鸡西', '鹤岗', '双鸭山', '大庆', '伊春', '佳木斯', '七台河', '牡丹江', '黑河', '绥化', '大兴安岭'
-            ],
-            '上海': [
-                '上海'
-            ],
-            '江苏': [
-                '南京', '无锡', '徐州', '常州', '苏州', '南通', '连云港', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁'
-            ],
-            '浙江': [
-                '杭州', '宁波', '温州', '嘉兴', '湖州', '绍兴', '金华', '衢州', '舟山', '台州', '丽水',
-            ],
-            '安徽': [
-                '合肥', '芜湖', '蚌埠', '淮南', '马鞍山', '淮北', '铜陵', '安庆', '黄山', '滁州', '阜阳', '宿州', '巢湖', '六安', '亳州', '池州', '宣城',
-            ],
-            '福建': [
-                '福州', '厦门', '莆田', '三明', '泉州', '漳州', '南平', '龙岩', '宁德',
-            ],
-            '江西': [
-                '南昌', '景德镇', '萍乡', '九江', '新余', '鹰潭', '赣州', '吉安', '宜春', '抚州', '上饶',
-            ],
-            '山东': [
-                '济南', '青岛', '淄博', '枣庄', '东营', '烟台', '潍坊', '济宁', '泰安', '威海', '日照', '莱芜', '临沂', '德州', '聊城', '滨州', '菏泽'
-            ],
-            '河南': [
-                '郑州', '开封', '洛阳', '平顶山', '安阳', '鹤壁', '新乡', '焦作', '濮阳', '许昌', '漯河', '三门峡', '南阳', '商丘', '信阳', '周口', '驻马店', '济源'
-            ],
-            '湖北': [
-                '武汉', '黄石', '十堰', '宜昌', '襄樊', '鄂州', '荆门', '孝感', '荆州', '黄冈', '咸宁', '随州', '恩施', '仙桃', '潜江', '天门', '神农架'
-            ],
-            '湖南': [
-                '长沙', '株洲', '湘潭', '衡阳', '邵阳', '岳阳', '常德', '张家界', '益阳', '郴州', '永州', '怀化', '娄底', '湘西',
-            ],
-            '广东': [
-                '广州', '韶关', '深圳', '珠海', '汕头', '佛山', '江门', '湛江', '茂名', '肇庆', '惠州', '梅州', '汕尾', '河源', '阳江', '清远', '东莞', '中山', '潮州', '揭阳', '云浮'
-            ],
-            '广西': [
-                '南宁', '柳州', '桂林', '梧州', '北海', '防城港', '钦州', '贵港', '玉林', '百色', '贺州', '河池', '来宾', '崇左',
-            ],
-            '海南': [
-                '海口', '三亚', '三沙', '五指山', '琼海', '儋州', '文昌', '万宁', '东方', '定安', '屯昌', '澄迈', '临高', '白沙', '昌江', '乐东', '陵水', '保亭', '琼中',
-            ],
-            '重庆': [
-                '重庆'
-            ],
-            '四川': [
-                '成都', '自贡', '攀枝花', '泸州', '德阳', '绵阳', '广元', '遂宁', '内江', '乐山', '南充', '眉山', '宜宾', '广安', '达川', '雅安', '巴中', '资阳', '阿坝', '甘孜', '凉山',
-            ],
-            '贵州': [
-                '贵阳', '六盘水', '遵义', '安顺', '铜仁', '黔西南', '毕节', '黔东南', '黔南'
-            ],
-            '云南': [
-                '昆明', '曲靖', '玉溪', '保山', '昭通', '丽江', '普洱', '临沧', '楚雄', '红河', '文山', '西双版纳', '大理', '德宏', '怒江', '迪庆',
-            ],
-            '西藏': [
-                '拉萨', '昌都', '山南', '日喀则', '那曲', '阿里', '林芝',
-            ],
-            '陕西': [
-                '西安', '铜川', '宝鸡', '咸阳', '渭南', '延安', '汉中', '榆林', '安康', '商洛',
-            ],
-            '甘肃': [
-                '兰州', '嘉峪关', '金昌', '白银', '天水', '武威', '张掖', '平凉', '酒泉', '庆阳', '定西', '陇南', '临夏', '甘南',
-            ],
-            '青海': [
-                '西宁', '海东', '海北', '黄南', '海南', '果洛', '玉树', '梅西',
-            ],
-            '宁夏': [
-                '银川', '石嘴山', '吴忠', '固原', '中卫',
-            ],
-            '新疆': [
-                '乌鲁木齐', '克拉玛依', '吐鲁番', '哈密', '昌吉', '博尔塔拉', '巴音郭楞', '阿克苏', '克孜勒苏', '喀什', '和田', '伊犁', '塔城', '阿勒泰', '石河子', '阿拉尔', '图木舒克', '五家渠',
-            ],
-            '香港': ['香港'],
-            '澳门': ['澳门'],
-            '台湾': ['台湾']
-        }
+        this.cities = hqq.getTip("cities")
+        this.UILoad()
     },
 
     start() {
         // console.log("hqq.gameGlobal.pay.pay_host: ", hqq.gameGlobal.pay.pay_host);
+    },
+    // UI动态加载
+    UILoad() {
+        if(!cc.isValid(this.node)){
+            console.log("hallPSubbLayer UILoad 节点不存在")
+            return;
+        }
+        this.back = cc.find("bigsublayer/p_bandalibg2")
+        let closebtn = cc.find("bigsublayer/p_close")
+        let surecg = cc.find("bigsublayer/surecg")
+
+        let getcodebtn = cc.find("bigsublayer/resetpass/getcodebtn")
+        this.btnlabel = cc.find("bigsublayer/resetpass/getcodebtn/btnlabel")
+        this.btnlabel.getComponent(cc.Label).string = hqq.getTip("getcode")
+        let phoneeditboxnode = cc.find("bigsublayer/resetpass/phoneeditbox")
+        hqq.editboxTipLoad(phoneeditboxnode, "enterphone")
+        let yanzheneditboxnode = cc.find("bigsublayer/resetpass/yanzheneditbox")
+        hqq.editboxTipLoad(yanzheneditboxnode, "entercode")
+        let capchaeditboxnode = cc.find("bigsublayer/resetpass/capchaeditbox")
+        hqq.editboxTipLoad(capchaeditboxnode, "capchaed")
+        let passeditboxnode = cc.find("bigsublayer/resetpass/passeditbox")
+        hqq.editboxTipLoad(passeditboxnode, "enterlongpass")
+
+        let kahaoeditbox = cc.find("bigsublayer/bindyinhangka/kahaoeditbox")
+        hqq.editboxTipLoad(kahaoeditbox, "kahaoeditbox")
+        let nameediftox = cc.find("bigsublayer/bindyinhangka/nameediftox")
+        hqq.editboxTipLoad(nameediftox, "nameediftox")
+        let kaihusheng = cc.find("bigsublayer/bindyinhangka/kaihusheng/kaihushenglabel")
+        kaihusheng.getComponent(cc.Label).string = hqq.getTip("kaihusheng")
+        let kaihushi = cc.find("bigsublayer/bindyinhangka/kaihushi/kaihushilabel")
+        kaihushi.getComponent(cc.Label).string = hqq.getTip("kaihushi")
+        let yinhangname = cc.find("bigsublayer/bindyinhangka/yinhangname/yinhanglabel")
+        yinhangname.getComponent(cc.Label).string = hqq.getTip("yinhangname")
+        let zhihang = cc.find("bigsublayer/bindyinhangka/zhihang")
+        hqq.editboxTipLoad(zhihang, "zhihang")
+
+        let getcodebtn2 = cc.find("bigsublayer/officelogin/getcodebtn")
+        this.btnlabel2 = cc.find("bigsublayer/officelogin/getcodebtn/btnlabel")
+        this.btnlabel2.getComponent(cc.Label).string = hqq.getTip("getcode")
+        let phoneeditbox = cc.find("bigsublayer/officelogin/phoneeditbox")
+        hqq.editboxTipLoad(phoneeditbox, "enterphone")
+        let yanzheneditbox = cc.find("bigsublayer/officelogin/yanzheneditbox")
+        hqq.editboxTipLoad(yanzheneditbox, "entercode")
+        let capchaeditbox = cc.find("bigsublayer/officelogin/capchaeditbox")
+        hqq.editboxTipLoad(capchaeditbox, "capchaed")
+        let passeditbox = cc.find("bigsublayer/officelogin/passeditbox")
+        hqq.editboxTipLoad(passeditbox, "enterlongpass")
+        let tiplabel = cc.find("bigsublayer/officelogin/tiplabel")
+        tiplabel.getComponent(cc.Label).string = hqq.getTip("officelogintiplabel")
+
+        this.kaihushengbtn = cc.find("bigsublayer/bindyinhangka/kaihusheng/kaihushengxiala")
+        this.kaihushibtn = cc.find("bigsublayer/bindyinhangka/kaihushi/kaihushixiala")
+        this.yinhangnamebtn = cc.find("bigsublayer/bindyinhangka/yinhangname/yinghangnamexiala")
+        this.title_resetpwd = cc.find("bigsublayer/resetpass/title_resetpwd")
+        let bankcard_form = cc.find("bigsublayer/bindyinhangka/bankcard_form")
+        this.title_bdbankcard = cc.find("bigsublayer/bindyinhangka/title_bdbankcard")
+        let title_signup = cc.find("bigsublayer/officelogin/title_signup")
+        if (hqq.app.pinpai == "fuxin" ) {
+            let bpath = "base/fuxin/img/"
+            let blpath = "base/language/" + hqq.language + "/fuxin/"
+            let hpath = "hall/fuxin/img/"
+            let hlpath = "hall/language/" + hqq.language + "/fuxin/"
+            hqq.addNode(this.back, { path: bpath + "tck", y: -10, width: 420, height: 640, anchorX: 1, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(this.back, { path: bpath + "tck", y: -10, width: 420, height: 640, anchorX: 1, scaleX: -1, type: cc.Sprite.Type.SLICED })
+            hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 390, y: 260 })
+            hqq.setBtn(surecg, { path: bpath + "anniu4" })
+            hqq.addNode(surecg, { path: blpath + "qr" })
+            hqq.setBtn(getcodebtn, { path: bpath + "anniu3" })
+            hqq.setBtn(getcodebtn2, { path: bpath + "anniu3" })
+
+            hqq.setSprite(title_signup, { path: hlpath + "zczszh", y: 260 })
+        } else if (hqq.app.pinpai == "juding" ) {
+            let bpath = "base/juding/img/"
+            let blpath = "base/language/" + hqq.language + "/juding/"
+            let hpath = "hall/juding/img/"
+            let hlpath = "hall/language/" + hqq.language + "/juding/"
+            hqq.setSprite(this.back, { path: hpath + "jd_p_bandalibg_2", width: 897, height: 609 })
+            // hqq.addNode(this.back, { path: bpath + "tck", y: -10, width: 420, height: 640, anchorX: 1, scaleX: -1, type: cc.Sprite.Type.SLICED })
+            hqq.setBtn(closebtn, { path: hpath + "jd_popup_btn_close", x: 385, y: 248 , width:119, height:70 })
+            hqq.setBtn(surecg, { path: hpath + "jd_p_btn_1_3" })
+            hqq.addNode(surecg, { string: "qr",fontSize:32,color:cc.color("#94510A"),y:-10,bold:true })
+            hqq.setBtn(getcodebtn, { path: hpath + "jd_p_btn_1_1" })
+            hqq.setBtn(getcodebtn2, { path: hpath + "jd_p_btn_1_1" })
+
+            hqq.setSprite(title_signup, { path: hlpath + "zhucezhengshizhanghao", x:-300,y: 255 })
+        } else if (hqq.app.pinpai == "xingui") {
+            let bpath = "base/xingui/img/"
+            let blpath = "base/language/" + hqq.language + "/xingui/"
+            let hpath = "hall/xingui/img/"
+            let hlpath = "hall/language/" + hqq.language + "/xingui/"
+            hqq.setSprite(this.back, { path: bpath + "d_tc" })
+            hqq.setBtn(closebtn, { path: bpath + "btn_x" })
+            hqq.setBtn(surecg, { path: bpath + "btn_1" })
+            hqq.addNode(surecg, { path: blpath + "qued" })
+            hqq.setBtn(getcodebtn, { path: hpath + "btn_4" })
+            hqq.setBtn(getcodebtn2, { path: hpath + "btn_4" })
+            hqq.setSprite(title_signup, { path: hlpath + "zhuczszh", y: 240 })
+        } else if (hqq.app.pinpai == "xinsheng" || hqq.app.pinpai == "xinlong") {
+            let xpath = "base/xinsheng/img/"
+            let xlpath = "base/language/" + hqq.language + "/xinsheng/"
+            let hlpath = "hall/language/" + hqq.language + "/img/"
+            hqq.setSprite(this.back, { path: xpath + "back1" })
+            hqq.setBtn(closebtn, { path: xpath + "exit" })
+            hqq.setBtn(getcodebtn, { path: xpath + "btnback1", pressed: xpath + "btnback2", transition: cc.Button.Transition.SPRITE })
+            hqq.setBtn(getcodebtn2, { path: xpath + "btnback1", pressed: xpath + "btnback2", transition: cc.Button.Transition.SPRITE })
+            hqq.setBtn(surecg, { path: xpath + "btnback" })
+            let node = new cc.Node();
+            hqq.setSprite(node, { path: xlpath + "queding" })
+            surecg.addChild(node)
+
+            hqq.setSprite(bankcard_form, { path: hlpath + "bankcard_form" })
+            hqq.setSprite(title_signup, { path: xlpath + "zczszh", position: { x: -200, y: 250 } })
+        } else if (hqq.app.pinpai == "huaxing" ) {
+            let bpath = "base/huaxing/img/"
+            let blpath = "base/language/" + hqq.language + "/huaxing/"
+            let hpath = "hall/huaxing/img/"
+            let hlpath = "hall/language/" + hqq.language + "/huaxing/"
+            hqq.setSprite(this.back, { path: hpath + "d_ggtc", width: 897, height: 609 , type: cc.Sprite.Type.SLICED})
+            hqq.addNode(this.back, { path: hpath + "d_tit" , y:300})
+            hqq.setBtn(closebtn, { path: hpath + "btn_x", x: 445, y: 290 , width:78, height:78 })
+            hqq.setBtn(surecg, { path: hpath + "btn_2" })
+            hqq.addNode(surecg, { string: "qr",fontSize:32,y:-10,bold:true })
+            hqq.setBtn(getcodebtn, { path: hpath + "btn_3" ,pressed: hpath + "btn_4", transition: cc.Button.Transition.SPRITE})
+            hqq.setBtn(getcodebtn2, { path: hpath + "btn_3" ,pressed: hpath + "btn_4", transition: cc.Button.Transition.SPRITE})
+
+            hqq.setSprite(title_signup, { path: hlpath + "6", x:0,y: 285 })
+        } else if (hqq.app.pinpai == "ninetwo" ) {
+            let bpath = "base/ninetwo/img/"
+            let blpath = "base/language/" + hqq.language + "/ninetwo/"
+            let hpath = "hall/ninetwo/img/"
+            let hlpath = "hall/language/" + hqq.language + "/ninetwo/img/"
+            hqq.setSprite(this.back, { path: hpath + "d", width: 672, height: 469 , type: cc.Sprite.Type.SLICED})
+            // hqq.addNode(this.back, { path: hpath + "d_tit" , y:300})
+            hqq.setBtn(closebtn, { path: hpath + "guanbi", x: 330, y: 220 , width:60, height:60 })
+            hqq.setBtn(surecg, { path: hpath + "settinganiu" ,x:0,y:-200})
+            hqq.setBtn(getcodebtn, { path: hpath + "anniu1" ,pressed: hpath + "anniu2", transition: cc.Button.Transition.SPRITE, type: cc.Sprite.Type.SLICED,width:124,height:40})
+            hqq.setBtn(getcodebtn2, { path: hpath + "anniu1" ,pressed: hpath + "anniu2", transition: cc.Button.Transition.SPRITE, type: cc.Sprite.Type.SLICED,width:124,height:40})
+
+            this.title_resetpwd.setPosition(0,180);
+            hqq.addNode(this.title_resetpwd, { string: "resetpwd",fontSize:40,lineHeight:45,bold:true ,color:cc.color(190,168,111)})
+            hqq.setSprite(title_signup, { path: hlpath + "titlezczszh", x:0,y:  190 })
+
+            hqq.setNode(tiplabel,{x:242,y:-200,color:cc.color("#DB614A")});
+        } else {
+            let bpath = "base/img/"
+            let hppath = "hall/test/personal/"
+            let blpath = "base/language/" + hqq.language + "/img/"
+            let hlpath = "hall/language/" + hqq.language + "/img/"
+            hqq.setSprite(this.back, { path: hppath + "p_bandalibg2" })
+            hqq.setBtn(closebtn, { path: "base/img/p_close" })
+            hqq.setBtn(surecg, { path: blpath + "surecg" })
+            hqq.setBtn(getcodebtn, { path: bpath + "getcodebtn", pressed: hppath + "getcodehui", transition: cc.Button.Transition.SPRITE })
+            hqq.setBtn(getcodebtn2, { path: bpath + "getcodebtn", pressed: hppath + "getcodehui", transition: cc.Button.Transition.SPRITE })
+
+            hqq.setSprite(this.title_resetpwd, { path: hlpath + "title_resetpwd" })
+            hqq.setSprite(bankcard_form, { path: hlpath + "bankcard_form" })
+            hqq.setSprite(this.title_bdbankcard, { path: hlpath + "title_bdbankcard" })
+            hqq.setSprite(title_signup, { path: hlpath + "title_signup" })
+
+            hqq.setBtn(this.kaihushengbtn, { path: hppath + "1" })
+            hqq.setBtn(this.kaihushibtn, { path: hppath + "1" })
+            hqq.setBtn(this.yinhangnamebtn, { path: hppath + "1" })
+        }
     },
 
     init(subtype) {
@@ -139,15 +210,361 @@ cc.Class({
                 this.officelogin.active = false
                 this.panelInit(1)
                 this.ensurefunc = this.resetpassEnsure
+                if (hqq.app.pinpai == "fuxin" ) {
+                    let bpath = "base/fuxin/img/"
+                    let hpath = "hall/fuxin/img/"
+                    let hlpath = "hall/language/" + hqq.language + "/fuxin/"
+                    let info_form = cc.find("bigsublayer/resetpass/info_form")
+                    info_form.active = false
+                    let resetpass = cc.find("bigsublayer/resetpass")
+                    hqq.addNode(resetpass, { path: bpath + "srk", zIndex: -2, width: 630, x: 30, y: 145, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: bpath + "srk", zIndex: -2, width: 420, x: -75, y: 48, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: bpath + "srk", zIndex: -2, width: 420, x: -75, y: -48, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: bpath + "srk", zIndex: -2, width: 630, x: 30, y: -150, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "phone", zIndex: -1, x: -250, y: 145 })
+                    hqq.addNode(resetpass, { path: hpath + "aq", zIndex: -1, x: -250, y: 48 })
+                    hqq.addNode(resetpass, { path: hpath + "yj", zIndex: -1, x: -250, y: -48 })
+                    hqq.addNode(resetpass, { path: hpath + "lock", zIndex: -1, x: -250, y: -150 })
+                    this.btnlabel.color = new cc.Color(255, 255, 255)
+                    let lao = this.btnlabel.getComponent(cc.LabelOutline)
+                    lao.color = new cc.Color(67, 0, 0)
+                    lao.width = 2
+                    hqq.setSprite(this.title_resetpwd, { path: hlpath + "czmm", y: 260 })
+                } else if (hqq.app.pinpai == "juding" ) {
+                    let bpath = "base/juding/img/"
+                    let hpath = "hall/juding/img/"
+                    let hlpath = "hall/language/" + hqq.language + "/juding/"
+                    let info_form = cc.find("bigsublayer/resetpass/info_form")
+                    info_form.active = false
+                    let resetpass = cc.find("bigsublayer/resetpass")
+                    hqq.addNode(resetpass, { path: hpath + "jd_p_inputBox_1", zIndex: -2, width: 630, x: 30, y: 145, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "jd_p_inputBox_1", zIndex: -2, width: 420, x: -75, y: 48, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "jd_p_inputBox_1", zIndex: -2, width: 420, x: -75, y: -48, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "jd_p_inputBox_1", zIndex: -2, width: 630, x: 30, y: -150, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "shoujid", zIndex: -1, x: -250, y: 145 })
+                    hqq.addNode(resetpass, { path: hpath + "fang", zIndex: -1, x: -250, y: 48 })
+                    hqq.addNode(resetpass, { path: hpath + "duanxin", zIndex: -1, x: -250, y: -48 })
+                    hqq.addNode(resetpass, { path: hpath + "suotou", zIndex: -1, x: -250, y: -150 })
+                    this.btnlabel.color = new cc.Color(255, 255, 255)
+                    let lao = this.btnlabel.getComponent(cc.LabelOutline)
+                    lao.color = new cc.Color(67, 0, 0)
+                    lao.width = 2
+                    hqq.setSprite(this.title_resetpwd, { path: hlpath + "chongzhimuma", x:-300,y: 260 })
+
+                    cc.find("bigsublayer/resetpass/phoneeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/phoneeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/resetpass/phoneeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/phoneeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+
+                    cc.find("bigsublayer/resetpass/yanzheneditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/yanzheneditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/resetpass/yanzheneditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/yanzheneditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+
+                    cc.find("bigsublayer/resetpass/capchaeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/capchaeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/resetpass/capchaeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/capchaeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+
+                    cc.find("bigsublayer/resetpass/passeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/passeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/resetpass/passeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/passeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+
+                } else if (hqq.app.pinpai == "xingui") {
+                    let hlpath = "hall/language/" + hqq.language + "/xingui/"
+                    hqq.setSprite(this.title_resetpwd, { path: hlpath + "cz", y: 240 })
+                    this.btnlabel.color = new cc.Color(255, 255, 255)
+                    let lao = this.btnlabel.getComponent(cc.LabelOutline)
+                    lao.color = new cc.Color(255, 255, 255)
+                    this.btnlabel2.color = new cc.Color(255, 255, 255)
+                    let lao2 = this.btnlabel2.getComponent(cc.LabelOutline)
+                    lao2.color = new cc.Color(255, 255, 255)
+                    this.exitbtn.x = 415
+                    this.exitbtn.y = 235
+                } else if (hqq.app.pinpai == "xinsheng" || hqq.app.pinpai == "xinlong") {
+                    this.exitbtn.x = 430
+                    this.exitbtn.y = 260
+                    let xlpath = "base/language/" + hqq.language + "/xinsheng/"
+                    hqq.setSprite(this.title_resetpwd, { path: xlpath + "czmm", position: { x: -245, y: 250 } })
+                } else if (hqq.app.pinpai == "huaxing" ) {
+                    let bpath = "base/huaxing/img/"
+                    let hpath = "hall/huaxing/img/"
+                    let hlpath = "hall/language/" + hqq.language + "/huaxing/"
+                    let info_form = cc.find("bigsublayer/resetpass/info_form")
+                    info_form.active = false
+                    let resetpass = cc.find("bigsublayer/resetpass")
+                    hqq.addNode(resetpass, { path: hpath + "4", zIndex: -2, width: 630, x: 30, y: 145, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "4", zIndex: -2, width: 420, x: -75, y: 48, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "4", zIndex: -2, width: 420, x: -75, y: -48, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "4", zIndex: -2, width: 630, x: 30, y: -150, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(resetpass, { path: hpath + "19", zIndex: -1, x: -250, y: 145 })
+                    hqq.addNode(resetpass, { path: hpath + "21", zIndex: -1, x: -250, y: 48 })
+                    hqq.addNode(resetpass, { path: hpath + "20", zIndex: -1, x: -250, y: -48 })
+                    hqq.addNode(resetpass, { path: hpath + "18", zIndex: -1, x: -250, y: -150 })
+                    hqq.setSprite(this.title_resetpwd, { path: hlpath + "5", x:0,y: 285 })
+
+                    // cc.find("bigsublayer/resetpass/phoneeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/phoneeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    // cc.find("bigsublayer/resetpass/phoneeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/phoneeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+
+                    // cc.find("bigsublayer/resetpass/yanzheneditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/yanzheneditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    // cc.find("bigsublayer/resetpass/yanzheneditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/yanzheneditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+
+                    // cc.find("bigsublayer/resetpass/capchaeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/capchaeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    // cc.find("bigsublayer/resetpass/capchaeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/capchaeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+
+                    // cc.find("bigsublayer/resetpass/passeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/passeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    // cc.find("bigsublayer/resetpass/passeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/resetpass/passeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+
+                } else if (hqq.app.pinpai == "ninetwo" ) {
+                    let bpath = "base/ninetwo/img/"
+                    let hpath = "hall/ninetwo/img/"
+                    let resetpass = cc.find("bigsublayer/resetpass")
+                    hqq.addNode(resetpass, { path: hpath + "kuangti1", zIndex: -2, width: 576,height:273, x: 0, y: -10, type: cc.Sprite.Type.SLICED })
+                    let input1 = hqq.addNode(resetpass, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: 90, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(input1,{path:hpath + "shouji",x:-240})
+                    let input2 = hqq.addNode(resetpass, { path: hpath + "yjks", zIndex: -2, width: 290, height: 36,x:-112, y: 30, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(input2,{path:hpath + "34w",x:-127})
+                    let input3 = hqq.addNode(resetpass, { path: hpath + "yjks", zIndex: -2, width: 390,height:36, x: -62, y: -40, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(input3,{path:hpath + "twtrew",x:-176})
+                    let input4 = hqq.addNode(resetpass, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: -100, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(input4,{path:hpath + "gfdsg",x:-240})
+
+                    let phoneeditbox = cc.find("bigsublayer/resetpass/phoneeditbox");
+                    hqq.setNode(phoneeditbox,{width:480,height:36,x:17,y:90});
+                    hqq.setNode(phoneeditbox.getChildByName("BACKGROUND_SPRITE"),{width:480,height:36});
+                    hqq.setNode(phoneeditbox.getChildByName("TEXT_LABEL"),{width:480,height:36});
+                    hqq.setNode(phoneeditbox.getChildByName("PLACEHOLDER_LABEL"),{width:480,height:36,color:cc.color("#81817e")});
+                    
+                    let yanzheneditbox = cc.find("bigsublayer/resetpass/yanzheneditbox");
+                    hqq.setNode(yanzheneditbox,{width:355,height:36,x:-46,y:30});
+                    hqq.setNode(yanzheneditbox.getChildByName("BACKGROUND_SPRITE"),{width:355,height:36});
+                    hqq.setNode(yanzheneditbox.getChildByName("TEXT_LABEL"),{width:355,height:36});
+                    hqq.setNode(yanzheneditbox.getChildByName("PLACEHOLDER_LABEL"),{width:355,height:36,color:cc.color("#81817e")});
+
+                    let capchaeditbox = cc.find("bigsublayer/resetpass/capchaeditbox");
+                    hqq.setNode(capchaeditbox,{width:355,height:36,x:-46,y:-41});
+                    hqq.setNode(capchaeditbox.getChildByName("BACKGROUND_SPRITE"),{width:355,height:36});
+                    hqq.setNode(capchaeditbox.getChildByName("TEXT_LABEL"),{width:355,height:36});
+                    hqq.setNode(capchaeditbox.getChildByName("PLACEHOLDER_LABEL"),{width:355,height:36,color:cc.color("#81817e")});
+
+                    let passeditbox = cc.find("bigsublayer/resetpass/passeditbox");
+                    hqq.setNode(passeditbox,{width:480,height:36,x:17,y:-101});
+                    hqq.setNode(passeditbox.getChildByName("BACKGROUND_SPRITE"),{width:480,height:36});
+                    hqq.setNode(passeditbox.getChildByName("TEXT_LABEL"),{width:480,height:36});
+                    hqq.setNode(passeditbox.getChildByName("PLACEHOLDER_LABEL"),{width:480,height:36,color:cc.color("#81817e")});
+                    
+                    let surecg = cc.find("bigsublayer/surecg")
+                    hqq.addNode(surecg, { string: "qr",fontSize:22,lineHeight:25,y:10,bold:true,color:cc.color(72,47,7) })
+                    hqq.addNode(surecg, { string: "OK",fontSize:10,lineHeight:12,y:-10,bold:true,color:cc.color(72,47,7) })
+
+                    let imageback = cc.find("bigsublayer/resetpass/imgback");
+                    imageback.setPosition(150,25);
+                    // hqq.setNode(imageback,{width:106,height:42,x:200,y:33})
+                    // hqq.setNode(imageback.getChildByName("captchaimg"),{width:106,height:42,x:0,y:0})
+                    this.btnlabel.parent.setPosition(200,-43);
+                    this.btnlabel.getComponent(cc.Label).fontSize = 18;
+                    let info_form = cc.find("bigsublayer/resetpass/info_form")
+                    info_form.active = false
+                }
                 break;
             case 2: // 绑定银行卡
                 this.resetpass.active = false
                 this.bindyinhangka.active = true
                 this.officelogin.active = false
                 this.ensurebtn.node.y = -300
-                this.exitbtn.y = 300
                 this.back.height = 665
                 this.ensurefunc = this.bindyinhangkaEnsure
+                if (hqq.app.pinpai == "fuxin" ) {
+                    let bpath = "base/fuxin/img/"
+                    let hpath = "hall/fuxin/img/"
+                    let hlpath = "hall/language/" + hqq.language + "/fuxin/"
+                    let bindyinhangka = cc.find("bigsublayer/bindyinhangka")
+                    hqq.setNode(bindyinhangka, { y: -10 })
+                    hqq.addNode(bindyinhangka, { path: bpath + "srk", zIndex: -2, x: 150, y: 188, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: bpath + "srk", zIndex: -2, x: 150, y: 120, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: bpath + "srk", zIndex: -2, x: 150, y: 52, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: bpath + "srk", zIndex: -2, x: 150, y: -12, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: bpath + "srk", zIndex: -2, x: 150, y: -82, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: bpath + "srk", zIndex: -2, x: 150, y: -150, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hlpath + "yhkkh", zIndex: -1, x: -225, y: 188, })
+                    hqq.addNode(bindyinhangka, { path: hlpath + "skrxm", zIndex: -1, x: -225, y: 120, })
+                    hqq.addNode(bindyinhangka, { path: hlpath + "kfs", zIndex: -1, x: -250, y: 52, })
+                    hqq.addNode(bindyinhangka, { path: hlpath + "kfshi", zIndex: -1, x: -250, y: -12, })
+                    hqq.addNode(bindyinhangka, { path: hlpath + "khyh", zIndex: -1, x: -240, y: -82, })
+                    hqq.addNode(bindyinhangka, { path: hlpath + "khhzh", zIndex: -1, x: -225, y: -150, })
+                    hqq.setSprite(this.title_bdbankcard, { path: hlpath + "bdyhkbiaoti" })
+                    hqq.setBtn(this.kaihushengbtn, { path: hpath + "anniu6" })
+                    hqq.setBtn(this.kaihushibtn, { path: hpath + "anniu6" })
+                    hqq.setBtn(this.yinhangnamebtn, { path: hpath + "anniu6" })
+                    hqq.addNode(bindyinhangka, { path: hlpath + "ts", zIndex: -1, y: -190, })
+                } else if (hqq.app.pinpai == "juding" ) {
+                    let bpath = "base/juding/img/"
+                    let hpath = "hall/juding/img/"
+                    let hlpath = "hall/language/" + hqq.language + "/juding/"
+                    let bindyinhangka = cc.find("bigsublayer/bindyinhangka")
+                    hqq.setNode(bindyinhangka, { y: -10 })
+                    hqq.addNode(bindyinhangka, { path: hpath + "jd_p_inputBox_1", zIndex: -2, x: 100, y: 188, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "jd_p_inputBox_1", zIndex: -2, x: 100, y: 120, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "jd_p_inputBox_1", zIndex: -2, x: 100, y: 52, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "jd_p_inputBox_1", zIndex: -2, x: 100, y: -12, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "jd_p_inputBox_1", zIndex: -2, x: 100, y: -82, width: 500, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "jd_p_inputBox_1", zIndex: -2, x: 100, y: -150, width: 500, type: cc.Sprite.Type.SLICED })
+                    cc.find("bigsublayer/bindyinhangka/kaihusheng").x = 105;
+                    cc.find("bigsublayer/bindyinhangka/kaihushi").x = 105;
+                    cc.find("bigsublayer/bindyinhangka/yinhangname").x = 105;
+                    hqq.addNode(bindyinhangka, { string: "yhkkh", zIndex: -1, x: -275, y: 188,fontSize:32,color:cc.color("#485E9A"),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "skrxm", zIndex: -1, x: -275, y: 120,fontSize:32,color:cc.color("#485E9A"),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "kfs", zIndex: -1, x: -300, y: 52,fontSize:32,color:cc.color("#485E9A"),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "kfshi", zIndex: -1, x: -300, y: -12,fontSize:32,color:cc.color("#485E9A"),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "khyh", zIndex: -1, x: -290, y: -82,fontSize:32,color:cc.color("#485E9A"),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "khhzh", zIndex: -1, x: -275, y: -150,fontSize:32,color:cc.color("#485E9A"),bold:true })
+                    hqq.setSprite(this.title_bdbankcard, { path: hlpath + "bangding3", x:-320,y: 265})
+                    hqq.setBtn(this.kaihushengbtn, { path: hpath + "anniu6" })
+                    hqq.setBtn(this.kaihushibtn, { path: hpath + "anniu6" })
+                    hqq.setBtn(this.yinhangnamebtn, { path: hpath + "anniu6" })
+                    hqq.addNode(bindyinhangka, { path: hlpath + "ts", zIndex: -1, y: -210, })
+                    this.ensurebtn.node.y = -280;
+
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox").x = 105;
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/PLACEHOLDER_LABEL").color = cc.color("#8593BA");
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+
+                    cc.find("bigsublayer/bindyinhangka/nameediftox").x = 105;
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/PLACEHOLDER_LABEL").color = cc.color("#8593BA");
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+
+                    cc.find("bigsublayer/bindyinhangka/zhihang").x = 105;
+                    cc.find("bigsublayer/bindyinhangka/zhihang/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/bindyinhangka/zhihang/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/zhihang/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+                    cc.find("bigsublayer/bindyinhangka/zhihang/PLACEHOLDER_LABEL").color = cc.color("#8593BA");
+                    cc.find("bigsublayer/bindyinhangka/zhihang/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/zhihang/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+
+                    cc.find("bigsublayer/bindyinhangka/kaihusheng/kaihushenglabel").color = cc.color("#8593BA");
+                    cc.find("bigsublayer/bindyinhangka/kaihushi/kaihushilabel").color = cc.color("#8593BA");
+                    cc.find("bigsublayer/bindyinhangka/yinhangname/yinhanglabel").color = cc.color("#8593BA");
+                } else if (hqq.app.pinpai == "xingui") {
+                    this.exitbtn.x = 415
+                    this.exitbtn.y = 255
+                    let hpath = "hall/xingui/img/"
+                    let hlpath = "hall/language/" + hqq.language + "/xingui/"
+                    hqq.setSprite(this.title_bdbankcard, { path: hlpath + "bdyhk" })
+                    hqq.setBtn(this.kaihushengbtn, { path: hpath + "btn_0" })
+                    hqq.addNode(this.kaihushengbtn, { path: hpath + "jiant" })
+                    hqq.setBtn(this.kaihushibtn, { path: hpath + "btn_0" })
+                    hqq.addNode(this.kaihushibtn, { path: hpath + "jiant" })
+                    hqq.setBtn(this.yinhangnamebtn, { path: hpath + "btn_0" })
+                    hqq.addNode(this.yinhangnamebtn, { path: hpath + "jiant" })
+                    hqq.addNode(this.back, { path: hpath + "srk_2", x: 150, y: 198, width: 500 })
+                    hqq.addNode(this.back, { path: hpath + "srk_2", x: 150, y: 130, width: 500 })
+                    hqq.addNode(this.back, { path: hpath + "srk_2", x: 150, y: 62, width: 500 })
+                    hqq.addNode(this.back, { path: hpath + "srk_2", x: 150, y: -2, width: 500 })
+                    hqq.addNode(this.back, { path: hpath + "srk_2", x: 150, y: -72, width: 500 })
+                    hqq.addNode(this.back, { path: hpath + "srk_2", x: 150, y: -140, width: 500 })
+                    hqq.addNode(this.back, { path: hlpath + "yhkkh", x: -200, y: 198 })
+                    hqq.addNode(this.back, { path: hlpath + "skrxm", x: -200, y: 130 })
+                    hqq.addNode(this.back, { path: hlpath + "khs", x: -200, y: 62 })
+                    hqq.addNode(this.back, { path: hlpath + "khsh", x: -200, y: -2 })
+                    hqq.addNode(this.back, { path: hlpath + "khyh", x: -200, y: -72 })
+                    hqq.addNode(this.back, { path: hlpath + "khhzh", x: -200, y: -140 })
+                    this.ensurebtn.node.y = -255
+                    hqq.addNode(this.back, { string: "wxts", fontSize: 23, x: 50, y: -200, color: new cc.Color(255, 0, 0) })
+                } else if (hqq.app.pinpai == "xinsheng" || hqq.app.pinpai == "xinlong") {
+                    this.exitbtn.x = 450
+                    this.exitbtn.y = 280
+                    let xpath = "base/xinsheng/img/"
+                    let xlpath = "base/language/" + hqq.language + "/xinsheng/"
+                    hqq.setBtn(this.kaihushengbtn, { path: xpath + "xiabtn" })
+                    hqq.setBtn(this.kaihushibtn, { path: xpath + "xiabtn" })
+                    hqq.setBtn(this.yinhangnamebtn, { path: xpath + "xiabtn" })
+                    hqq.setSprite(this.title_bdbankcard, { path: xlpath + "bdyhk", position: { x: -230, y: 269 } })
+                }  else if (hqq.app.pinpai == "huaxing" ) {
+                    let bpath = "base/huaxing/img/"
+                    let hpath = "hall/huaxing/img/"
+                    let hlpath = "hall/language/" + hqq.language + "/huaxing/"
+                    let bindyinhangka = cc.find("bigsublayer/bindyinhangka")
+                    hqq.setNode(bindyinhangka, { y: -10 })
+                    hqq.addNode(bindyinhangka, { path: hpath + "4", zIndex: -2, x: 100, y: 198, width: 523,height:64, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "4", zIndex: -2, x: 100, y: 130, width: 523,height:64, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "4", zIndex: -2, x: 100, y: 60, width: 523,height:64, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "4", zIndex: -2, x: 100, y: -12, width: 523,height:64, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "4", zIndex: -2, x: 100, y: -82, width: 523,height:64, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(bindyinhangka, { path: hpath + "4", zIndex: -2, x: 100, y: -150, width: 523,height:64, type: cc.Sprite.Type.SLICED })
+                    cc.find("bigsublayer/bindyinhangka/kaihushengscrorll").x = 110;
+                    let kaihusheng = cc.find("bigsublayer/bindyinhangka/kaihusheng");
+                    kaihusheng.x = 120;
+                    kaihusheng.y = 60;
+                    kaihusheng.width = 523;
+                    cc.find("bigsublayer/bindyinhangka/kaihushiscrorll").x = 110;
+                    let kaihushi = cc.find("bigsublayer/bindyinhangka/kaihushi");
+                    kaihushi.x = 120;
+                    kaihushi.y = -12;
+                    kaihushi.width = 523;
+                    cc.find("bigsublayer/bindyinhangka/yinghangnamescrorll").x = 110;
+                    let yinhangname = cc.find("bigsublayer/bindyinhangka/yinhangname");
+                    yinhangname.x = 120;
+                    yinhangname.width = 523;
+                    hqq.addNode(bindyinhangka, { string: "yhkkh", zIndex: -1, x: -275, y: 198,fontSize:32,color:cc.color(232,169,98),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "skrxm", zIndex: -1, x: -275, y: 130,fontSize:32,color:cc.color(232,169,98),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "kfs", zIndex: -1, x: -300, y: 60,fontSize:32,color:cc.color(232,169,98),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "kfshi", zIndex: -1, x: -300, y: -12,fontSize:32,color:cc.color(232,169,98),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "khyh", zIndex: -1, x: -290, y: -82,fontSize:32,color:cc.color(232,169,98),bold:true })
+                    hqq.addNode(bindyinhangka, { string: "khhzh", zIndex: -1, x: -275, y: -150,fontSize:32,color:cc.color(232,169,98),bold:true })
+                    hqq.setSprite(this.title_bdbankcard, { path: hlpath + "14", x:0,y: 295})
+                    hqq.setBtn(this.kaihushengbtn, { path: hpath + "8" })
+                    hqq.setBtn(this.kaihushibtn, { path: hpath + "8" })
+                    hqq.setBtn(this.yinhangnamebtn, { path: hpath + "8" })
+                    hqq.addNode(bindyinhangka, { string: "wxts2", zIndex: -1, fontSize:23,lineHeight:30,y: -210, color:cc.color(239,216,143)})
+                    this.ensurebtn.node.y = -280;
+
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox").x = 105;
+                    // cc.find("bigsublayer/bindyinhangka/kahaoeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+                    // cc.find("bigsublayer/bindyinhangka/kahaoeditbox/PLACEHOLDER_LABEL").color = cc.color("#8593BA");
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/kahaoeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+
+                    cc.find("bigsublayer/bindyinhangka/nameediftox").x = 105;
+                    // cc.find("bigsublayer/bindyinhangka/nameediftox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+                    // cc.find("bigsublayer/bindyinhangka/nameediftox/PLACEHOLDER_LABEL").color = cc.color("#8593BA");
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/nameediftox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+
+                    cc.find("bigsublayer/bindyinhangka/zhihang").x = 105;
+                    // cc.find("bigsublayer/bindyinhangka/zhihang/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/bindyinhangka/zhihang/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/zhihang/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+                    // cc.find("bigsublayer/bindyinhangka/zhihang/PLACEHOLDER_LABEL").color = cc.color("#8593BA");
+                    cc.find("bigsublayer/bindyinhangka/zhihang/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+                    cc.find("bigsublayer/bindyinhangka/zhihang/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT
+
+                    // cc.find("bigsublayer/bindyinhangka/kaihusheng/kaihushenglabel").color = cc.color("#8593BA");
+                    // cc.find("bigsublayer/bindyinhangka/kaihushi/kaihushilabel").color = cc.color("#8593BA");
+                    // cc.find("bigsublayer/bindyinhangka/yinhangname/yinhanglabel").color = cc.color("#8593BA");
+                } else {
+                    this.exitbtn.y = 300
+                }
                 break;
             case 3: // 注册正式账号
                 this.resetpass.active = false
@@ -155,18 +572,186 @@ cc.Class({
                 this.officelogin.active = true
                 this.panelInit(2)
                 this.ensurefunc = this.officeloginEnsure
+                if (hqq.app.pinpai == "fuxin" ) {
+                    let bpath = "base/fuxin/img/"
+                    let hpath = "hall/fuxin/img/"
+                    let officelogin = cc.find("bigsublayer/officelogin")
+                    hqq.addNode(officelogin, { path: bpath + "srk", zIndex: -2, width: 630, x: 30, y: 145, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: bpath + "srk", zIndex: -2, width: 420, x: -75, y: 45, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: bpath + "srk", zIndex: -2, width: 420, x: -75, y: -55, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: bpath + "srk", zIndex: -2, width: 630, x: 30, y: -150, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "phone", zIndex: -1, x: -250, y: 145 })
+                    hqq.addNode(officelogin, { path: hpath + "aq", zIndex: -1, x: -250, y: 45 })
+                    hqq.addNode(officelogin, { path: hpath + "yj", zIndex: -1, x: -250, y: -55 })
+                    hqq.addNode(officelogin, { path: hpath + "lock", zIndex: -1, x: -250, y: -150 })
+                    let info_form = cc.find("bigsublayer/officelogin/info_form")
+                    info_form.active = false
+                    this.btnlabel2.color = new cc.Color(255, 255, 255)
+                    let lao2 = this.btnlabel2.getComponent(cc.LabelOutline)
+                    lao2.color = new cc.Color(67, 0, 0)
+                    lao2.width = 2
+                } else if (hqq.app.pinpai == "juding" ) {
+                    let bpath = "base/juding/img/"
+                    let hpath = "hall/juding/img/"
+                    let officelogin = cc.find("bigsublayer/officelogin")
+                    hqq.addNode(officelogin, { path: hpath + "jd_p_inputBox_1", zIndex: -2, width: 630, x: 30, y: 170, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "jd_p_inputBox_1", zIndex: -2, width: 420, x: -75, y: 60, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "jd_p_inputBox_1", zIndex: -2, width: 420, x: -75, y: -50, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "jd_p_inputBox_1", zIndex: -2, width: 630, x: 30, y: -160, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "shoujid", zIndex: -1, x: -250, y: 170 })
+                    hqq.addNode(officelogin, { path: hpath + "fang", zIndex: -1, x: -250, y: 60 })
+                    hqq.addNode(officelogin, { path: hpath + "duanxin", zIndex: -1, x: -250, y: -50 })
+                    hqq.addNode(officelogin, { path: hpath + "suotou", zIndex: -1, x: -250, y: -160 })
+
+                    hqq.addNode(officelogin, { path: hpath + "jd_lisp_line", zIndex: -1, width:620 , x: 30, y: 110 })
+                    hqq.addNode(officelogin, { path: hpath + "jd_lisp_line", zIndex: -1, width:620 , x: 30, y: 0 })
+                    hqq.addNode(officelogin, { path: hpath + "jd_lisp_line", zIndex: -1, width:620 , x: 30, y: -110 })
+
+                    cc.find("bigsublayer/officelogin/phoneeditbox").y = 170;
+                    cc.find("bigsublayer/officelogin/phoneeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/officelogin/phoneeditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+                    cc.find("bigsublayer/officelogin/phoneeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/officelogin/phoneeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+                    
+                    cc.find("bigsublayer/officelogin/yanzheneditbox").y = 60;
+                    cc.find("bigsublayer/officelogin/yanzheneditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/officelogin/yanzheneditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+                    cc.find("bigsublayer/officelogin/yanzheneditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/officelogin/yanzheneditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+
+                    cc.find("bigsublayer/officelogin/capchaeditbox").y = -50;
+                    cc.find("bigsublayer/officelogin/capchaeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/officelogin/capchaeditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+                    cc.find("bigsublayer/officelogin/capchaeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/officelogin/capchaeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+
+                    cc.find("bigsublayer/officelogin/passeditbox").y = -160;
+                    cc.find("bigsublayer/officelogin/passeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/officelogin/passeditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT;
+                    cc.find("bigsublayer/officelogin/passeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    cc.find("bigsublayer/officelogin/passeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT;
+
+                    let info_form = cc.find("bigsublayer/officelogin/info_form")
+                    info_form.active = false
+                    this.btnlabel2.color = new cc.Color(255, 255, 255)
+                    let lao2 = this.btnlabel2.getComponent(cc.LabelOutline)
+                    lao2.color = new cc.Color(67, 0, 0)
+                    lao2.width = 2
+                } else if (hqq.app.pinpai == "xingui") {
+                    this.exitbtn.x = 415
+                    this.exitbtn.y = 230
+                } else if (hqq.app.pinpai == "xinsheng" || hqq.app.pinpai == "xinlong") {
+                    this.exitbtn.x = 440
+                    this.exitbtn.y = 255
+                } else if (hqq.app.pinpai == "huaxing" ) {
+                    let bpath = "base/huaxing/img/"
+                    let hpath = "hall/huaxing/img/"
+                    let officelogin = cc.find("bigsublayer/officelogin")
+                    hqq.addNode(officelogin, { path: hpath + "4", zIndex: -2, width: 630, x: 30, y: 170, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "4", zIndex: -2, width: 420, x: -75, y: 60, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "4", zIndex: -2, width: 420, x: -75, y: -50, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "4", zIndex: -2, width: 630, x: 30, y: -160, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(officelogin, { path: hpath + "19", zIndex: -1, x: -250, y: 170 })
+                    hqq.addNode(officelogin, { path: hpath + "21", zIndex: -1, x: -250, y: 60 })
+                    hqq.addNode(officelogin, { path: hpath + "20", zIndex: -1, x: -250, y: -50 })
+                    hqq.addNode(officelogin, { path: hpath + "18", zIndex: -1, x: -250, y: -160 })
+
+                    // hqq.addNode(officelogin, { path: hpath + "jd_lisp_line", zIndex: -1, width:620 , x: 30, y: 110 })
+                    // hqq.addNode(officelogin, { path: hpath + "jd_lisp_line", zIndex: -1, width:620 , x: 30, y: 0 })
+                    // hqq.addNode(officelogin, { path: hpath + "jd_lisp_line", zIndex: -1, width:620 , x: 30, y: -110 })
+
+                    cc.find("bigsublayer/officelogin/phoneeditbox").y = 170;
+                    // cc.find("bigsublayer/officelogin/phoneeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    // cc.find("bigsublayer/officelogin/phoneeditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+                    // cc.find("bigsublayer/officelogin/phoneeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    // cc.find("bigsublayer/officelogin/phoneeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+                    
+                    cc.find("bigsublayer/officelogin/yanzheneditbox").y = 60;
+                    // cc.find("bigsublayer/officelogin/yanzheneditbox/TEXT_LABEL").color = cc.color("#546277");
+                    // cc.find("bigsublayer/officelogin/yanzheneditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+                    // cc.find("bigsublayer/officelogin/yanzheneditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    // cc.find("bigsublayer/officelogin/yanzheneditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+
+                    cc.find("bigsublayer/officelogin/capchaeditbox").y = -50;
+                    // cc.find("bigsublayer/officelogin/capchaeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    // cc.find("bigsublayer/officelogin/capchaeditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+                    // cc.find("bigsublayer/officelogin/capchaeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    // cc.find("bigsublayer/officelogin/capchaeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.CENTER;
+
+                    cc.find("bigsublayer/officelogin/passeditbox").y = -160;
+                    // cc.find("bigsublayer/officelogin/passeditbox/TEXT_LABEL").color = cc.color("#546277");
+                    // cc.find("bigsublayer/officelogin/passeditbox/TEXT_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT;
+                    // cc.find("bigsublayer/officelogin/passeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+                    // cc.find("bigsublayer/officelogin/passeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).horizontalAlign = cc.Label.HorizontalAlign.LEFT;
+
+                    let info_form = cc.find("bigsublayer/officelogin/info_form")
+                    info_form.active = false
+                } else if (hqq.app.pinpai == "ninetwo" ) {
+                    let bpath = "base/ninetwo/img/"
+                    let hpath = "hall/ninetwo/img/"
+                    let officelogin = cc.find("bigsublayer/officelogin")
+                    hqq.addNode(officelogin, { path: hpath + "kuangti1", zIndex: -2, width: 576,height:273, x: 0, y: -10, type: cc.Sprite.Type.SLICED })
+                    let input1 = hqq.addNode(officelogin, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: 90, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(input1,{path:hpath + "shouji",x:-240})
+                    let input2 = hqq.addNode(officelogin, { path: hpath + "yjks", zIndex: -2, width: 290, height: 36,x:-112, y: 30, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(input2,{path:hpath + "34w",x:-127})
+                    let input3 = hqq.addNode(officelogin, { path: hpath + "yjks", zIndex: -2, width: 390,height:36, x: -62, y: -40, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(input3,{path:hpath + "twtrew",x:-176})
+                    let input4 = hqq.addNode(officelogin, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: -100, type: cc.Sprite.Type.SLICED })
+                    hqq.addNode(input4,{path:hpath + "gfdsg",x:-240})
+
+                    let phoneeditbox = cc.find("bigsublayer/officelogin/phoneeditbox");
+                    hqq.setNode(phoneeditbox,{width:480,height:36,x:17,y:90});
+                    hqq.setNode(phoneeditbox.getChildByName("BACKGROUND_SPRITE"),{width:480,height:36});
+                    hqq.setNode(phoneeditbox.getChildByName("TEXT_LABEL"),{width:480,height:36});
+                    hqq.setNode(phoneeditbox.getChildByName("PLACEHOLDER_LABEL"),{width:480,height:36,color:cc.color("#81817e")});
+                    
+                    let yanzheneditbox = cc.find("bigsublayer/officelogin/yanzheneditbox");
+                    hqq.setNode(yanzheneditbox,{width:355,height:36,x:-46,y:30});
+                    hqq.setNode(yanzheneditbox.getChildByName("BACKGROUND_SPRITE"),{width:355,height:36});
+                    hqq.setNode(yanzheneditbox.getChildByName("TEXT_LABEL"),{width:355,height:36});
+                    hqq.setNode(yanzheneditbox.getChildByName("PLACEHOLDER_LABEL"),{width:355,height:36,color:cc.color("#81817e")});
+
+                    let capchaeditbox = cc.find("bigsublayer/officelogin/capchaeditbox");
+                    hqq.setNode(capchaeditbox,{width:355,height:36,x:-46,y:-41});
+                    hqq.setNode(capchaeditbox.getChildByName("BACKGROUND_SPRITE"),{width:355,height:36});
+                    hqq.setNode(capchaeditbox.getChildByName("TEXT_LABEL"),{width:355,height:36});
+                    hqq.setNode(capchaeditbox.getChildByName("PLACEHOLDER_LABEL"),{width:355,height:36,color:cc.color("#81817e")});
+
+                    let passeditbox = cc.find("bigsublayer/officelogin/passeditbox");
+                    hqq.setNode(passeditbox,{width:480,height:36,x:17,y:-101});
+                    hqq.setNode(passeditbox.getChildByName("BACKGROUND_SPRITE"),{width:480,height:36});
+                    hqq.setNode(passeditbox.getChildByName("TEXT_LABEL"),{width:480,height:36});
+                    hqq.setNode(passeditbox.getChildByName("PLACEHOLDER_LABEL"),{width:480,height:36,color:cc.color("#81817e")});
+                    
+                    let surecg = cc.find("bigsublayer/surecg")
+                    hqq.addNode(surecg, { string: "bindphone",fontSize:22,lineHeight:25,y:10,bold:true,color:cc.color(72,47,7) })
+                    hqq.addNode(surecg, { string: "REGISTER",fontSize:10,lineHeight:12,y:-10,bold:true,color:cc.color(72,47,7) })
+
+                    let imageback = cc.find("bigsublayer/officelogin/imgback");
+                    imageback.setPosition(150,25);
+                    // hqq.setNode(imageback,{width:106,height:42,x:200,y:33})
+                    // hqq.setNode(imageback.getChildByName("captchaimg"),{width:106,height:42,x:0,y:0})
+                    this.btnlabel2.parent.setPosition(200,-43);
+                    this.btnlabel2.getComponent(cc.Label).fontSize = 18;
+                    let info_form = cc.find("bigsublayer/officelogin/info_form")
+                    info_form.active = false
+                }
                 break;
         }
     },
 
     onClickKaihushengXiala() {
-        var results = ['北京', '天津', '上海', '重庆', '河北', '山西', '辽宁', '吉林', '黑龙江', '江苏', '浙江', '安徽', '福建',
-            '江西', '山东', '河南', '湖北', '湖南', '广东', '海南', '四川', '贵州', '云南', '陕西', '甘肃', '青海', '内蒙古',
-            '广西', '西藏', '宁夏', '新疆', '香港', '澳门', '台湾']
+        var results = hqq.getTip("results")
         if (!this.kaihushengSelect) {
             for (var i = 0; i < results.length; i++) {
                 for (var i = 0; i < results.length; i++) {
                     var node = cc.instantiate(this.BankSelectItem);
+                    if (hqq.app.pinpai == "fuxin" ) {
+                        hqq.setSprite(node, { path: "base/fuxin/img/srk", width: 500, type: cc.Sprite.Type.SLICED })
+                    } else if (hqq.app.pinpai == "juding" ) {
+                        hqq.setSprite(node, { path: "hall/juding/img/kuang", width: 500, type: cc.Sprite.Type.SLICED , color:cc.color("#546277") })
+                    }
                     this.selectKaihushengContent.addChild(node);
                     node.getChildByName('label').getComponent(cc.Label).string = results[i];
                     var clickEventHandler = new cc.Component.EventHandler();
@@ -181,8 +766,10 @@ cc.Class({
             this.kaihushengSelect = true;
         } else {
             let templabel = this.bindyinhangka.getChildByName("kaihushi").getChildByName('kaihushilabel')
-            templabel.getComponent(cc.Label).string = "选择开户市"
-            templabel.color = new cc.Color(187, 187, 187)
+            templabel.getComponent(cc.Label).string = hqq.getTip("kaihushi")
+            if(hqq.app.pinpai!="juding"){
+                templabel.color = new cc.Color(187, 187, 187)
+            }
             this.selectKaihushengContent.removeAllChildren();
             this.kaihushengSelect = false;
         }
@@ -190,19 +777,26 @@ cc.Class({
     onClickKaihushengItem(event, custom) {
         let templabel = this.bindyinhangka.getChildByName("kaihusheng").getChildByName('kaihushenglabel')
         templabel.getComponent(cc.Label).string = custom
-        templabel.color = new cc.Color(255, 255, 255)
+        if(hqq.app.pinpai!="juding"){
+            templabel.color = new cc.Color(255, 255, 255)
+        }
         this.onClickKaihushengXiala()
     },
     onClickKaihushiXiala() {
         let sheng = this.bindyinhangka.getChildByName("kaihusheng").getChildByName('kaihushenglabel').getComponent(cc.Label).string
-        if (!sheng || sheng == "选择开户省") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请先选择开户省!")
+        if (!sheng || sheng == hqq.getTip("kaihusheng")) {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip22"))
             return
         }
         var results = this.cities[sheng]
         if (!this.kaihuhangSelect) {
             for (var i = 0; i < results.length; i++) {
                 var node = cc.instantiate(this.BankSelectItem);
+                if (hqq.app.pinpai == "fuxin" ) {
+                    hqq.setSprite(node, { path: "base/fuxin/img/srk", width: 500, type: cc.Sprite.Type.SLICED })
+                } else if (hqq.app.pinpai == "juding" ) {
+                    hqq.setSprite(node, { path: "hall/juding/img/kuang", width: 500, type: cc.Sprite.Type.SLICED , color:cc.color("#546277") })
+                }
                 this.selectKaihushiContent.addChild(node);
                 node.getChildByName('label').getComponent(cc.Label).string = results[i];
                 var clickEventHandler = new cc.Component.EventHandler();
@@ -222,29 +816,89 @@ cc.Class({
     onClickKaihushiItem(event, custom) {
         let templabel = this.bindyinhangka.getChildByName("kaihushi").getChildByName('kaihushilabel')
         templabel.getComponent(cc.Label).string = custom
-        templabel.color = new cc.Color(255, 255, 255)
+        if(hqq.app.pinpai!="juding"){
+            templabel.color = new cc.Color(255, 255, 255)
+        }
         this.onClickKaihushiXiala()
     },
 
     onClickKaihuhangXiala() {
-        var results = ['中国农业银行', '交通银行', '中国建设银行', '兴业银行', '民生银行', '中信银行', '华夏银行',
-            '中国工商银行', '浦发银行', '招商银行', '中国银行', '光大银行', '广发银行', '北京银行', '杭州银行', '宁波银行',
-            '平安银行', '中国邮政']
-        if (!this.kaihuhangSelect) {
-            for (var i = 0; i < results.length; i++) {
-                var node = cc.instantiate(this.BankSelectItem);
-                this.selectKaihuhangContent.addChild(node);
-                node.getChildByName('label').getComponent(cc.Label).string = results[i];
-                var clickEventHandler = new cc.Component.EventHandler();
-                clickEventHandler.target = this.node;
-                clickEventHandler.component = "hallPSubbLayer";
-                clickEventHandler.customEventData = results[i];
-                clickEventHandler.handler = "onClickKaihuhangItem";
-                let button = node.getComponent(cc.Button);
-                button.clickEvents.push(clickEventHandler);
+        if(!this.kaihuhangSelect){
+            let url = hqq.gameGlobal.pay.pay_host + "/api/payment_account/getbankName"
+            let dataStr = "?token=e40f01afbb1b9ae3dd6747ced5bca532"
+            let callback = (response) => {
+                if (response.status == 0) {
+                    var results = Object.values(response.data);
+                    for (var i = 0; i < results.length; i++) {
+                        var node = cc.instantiate(this.BankSelectItem);
+                        if (hqq.app.pinpai == "fuxin" ) {
+                            hqq.setSprite(node, { path: "base/fuxin/img/srk", width: 500, type: cc.Sprite.Type.SLICED })
+                        } else if (hqq.app.pinpai == "juding" ) {
+                            hqq.setSprite(node, { path: "hall/juding/img/kuang", width: 500, type: cc.Sprite.Type.SLICED , color:cc.color("#546277") })
+                        }
+                        this.selectKaihuhangContent.addChild(node);
+                        node.getChildByName('label').getComponent(cc.Label).string = results[i];
+                        var clickEventHandler = new cc.Component.EventHandler();
+                        clickEventHandler.target = this.node;
+                        clickEventHandler.component = "hallPSubbLayer";
+                        clickEventHandler.customEventData = results[i];
+                        clickEventHandler.handler = "onClickKaihuhangItem";
+                        let button = node.getComponent(cc.Button);
+                        button.clickEvents.push(clickEventHandler);
+                    }
+                    this.kaihuhangSelect = true;
+                } else {
+                    var results = hqq.getTip("kaihuhang")
+                    for (var i = 0; i < results.length; i++) {
+                        var node = cc.instantiate(this.BankSelectItem);
+                        if (hqq.app.pinpai == "fuxin" ) {
+                            hqq.setSprite(node, { path: "base/fuxin/img/srk", width: 500, type: cc.Sprite.Type.SLICED })
+                        } else if (hqq.app.pinpai == "juding" ) {
+                            hqq.setSprite(node, { path: "hall/juding/img/kuang", width: 500, type: cc.Sprite.Type.SLICED , color:cc.color("#546277") })
+                        }
+                        this.selectKaihuhangContent.addChild(node);
+                        node.getChildByName('label').getComponent(cc.Label).string = results[i];
+                        var clickEventHandler = new cc.Component.EventHandler();
+                        clickEventHandler.target = this.node;
+                        clickEventHandler.component = "hallPSubbLayer";
+                        clickEventHandler.customEventData = results[i];
+                        clickEventHandler.handler = "onClickKaihuhangItem";
+                        let button = node.getComponent(cc.Button);
+                        button.clickEvents.push(clickEventHandler);
+                    }
+                    this.kaihuhangSelect = true;
+                }
             }
-            this.kaihuhangSelect = true;
-        } else {
+            let failcallback = (status, forcejump, url, err, readyState) => {
+                var results = hqq.getTip("kaihuhang")
+                for (var i = 0; i < results.length; i++) {
+                    var node = cc.instantiate(this.BankSelectItem);
+                    if (hqq.app.pinpai == "fuxin" ) {
+                        hqq.setSprite(node, { path: "base/fuxin/img/srk", width: 500, type: cc.Sprite.Type.SLICED })
+                    } else if (hqq.app.pinpai == "juding" ) {
+                        hqq.setSprite(node, { path: "hall/juding/img/kuang", width: 500, type: cc.Sprite.Type.SLICED , color:cc.color("#546277") })
+                    }
+                    this.selectKaihuhangContent.addChild(node);
+                    node.getChildByName('label').getComponent(cc.Label).string = results[i];
+                    var clickEventHandler = new cc.Component.EventHandler();
+                    clickEventHandler.target = this.node;
+                    clickEventHandler.component = "hallPSubbLayer";
+                    clickEventHandler.customEventData = results[i];
+                    clickEventHandler.handler = "onClickKaihuhangItem";
+                    let button = node.getComponent(cc.Button);
+                    button.clickEvents.push(clickEventHandler);
+                }
+                this.kaihuhangSelect = true;
+            }
+            hqq.http.sendXMLHttpRequest({
+                method: 'GET',
+                urlto: url,
+                endurl: dataStr,
+                callback: callback,
+                needJsonParse: true,
+                failcallback: failcallback,
+            })
+        } else{
             this.selectKaihuhangContent.removeAllChildren();
             this.kaihuhangSelect = false;
         }
@@ -252,7 +906,9 @@ cc.Class({
     onClickKaihuhangItem(event, custom) {
         let templabel = this.bindyinhangka.getChildByName("yinhangname").getChildByName('yinhanglabel')
         templabel.getComponent(cc.Label).string = custom
-        templabel.color = new cc.Color(255, 255, 255)
+        if(hqq.app.pinpai!="juding"){
+            templabel.color = new cc.Color(255, 255, 255)
+        }
         this.onClickKaihuhangXiala()
     },
     yinhangkaChange(event) { // 银行卡号输入后忽略空格符
@@ -262,7 +918,7 @@ cc.Class({
     isChinese(s) {
         var ret = true;
         for (var i = 0; i < s.length; i++) {//遍历每一个文本字符bai
-            ret = ret && (s.charCodeAt(i) >= 10000);//判断文本字符的unicode值
+            ret = ret && (s.charCodeAt(i) >= 10000 || s.charCodeAt(i) == 183); //判断文本字符的unicode值 ,183 为 ·
         }
         return ret
     },
@@ -272,42 +928,42 @@ cc.Class({
         let card_num = this.bindyinhangka.getChildByName("kahaoeditbox").getComponent(cc.EditBox).string
         if (card_num.length == 0) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "银行卡卡号不能为空！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip23"))
         }
         if (card_num.length < 15 || card_num.length > 19) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "无效卡号！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip24"))
         }
         let card_name = this.bindyinhangka.getChildByName("nameediftox").getComponent(cc.EditBox).string
         if (card_name.length == 0) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "银行卡收款人姓名不能为空！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip25"))
         } else if (!this.isChinese(card_name)) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "姓名不能含有特殊字符！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip26"))
         }
         let sheng = this.bindyinhangka.getChildByName("kaihusheng").getChildByName('kaihushenglabel').getComponent(cc.Label).string
-        if (sheng == '选择开户省' || sheng.length == 0) {
+        if (sheng == hqq.getTip("kaihusheng") || sheng.length == 0) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "开户省不能为空！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip27"))
         }
         let shi = this.bindyinhangka.getChildByName("kaihushi").getChildByName('kaihushilabel').getComponent(cc.Label).string
-        if (shi == '选择开户市' || shi.length == 0) {
+        if (shi == hqq.getTip("kaihushi") || shi.length == 0) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "开户市不能为空！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip28"))
         }
         let bank_name = this.bindyinhangka.getChildByName("yinhangname").getChildByName('yinhanglabel').getComponent(cc.Label).string
-        if (bank_name == '选择开户银行' || bank_name.length == 0) {
+        if (bank_name == hqq.getTip("yinhangname") || bank_name.length == 0) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "开户行不能为空！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip29"))
         }
         let branch_name = this.bindyinhangka.getChildByName("zhihang").getComponent(cc.EditBox).string
         if (branch_name.length == 0) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "开户支行不能为空！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip30"))
         } else if (!this.isChinese(branch_name)) {
             this.ensurebtn.interactable = true
-            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "开户支行不能含有特殊字符！")
+            return hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip31"))
         }
 
         let obj = {};
@@ -329,11 +985,12 @@ cc.Class({
         dataStr += "&package_id=" + hqq.gameGlobal.pay.package_id
         dataStr += "&token=e40f01afbb1b9ae3dd6747ced5bca532"
         dataStr += "&version=1"
+        dataStr += "&center_auth=" + hqq.gameGlobal.token
         let callback = (response) => {
             this.ensurebtn.interactable = true
             if (response.status == 0) {
                 hqq.eventMgr.dispatch(hqq.eventMgr.getPayInfo)
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "操作成功")
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("actsuccess"))
                 this.onClickExit()
             } else {
                 hqq.eventMgr.dispatch(hqq.eventMgr.showTip, response.msg)
@@ -342,7 +999,7 @@ cc.Class({
         let failcallback = (status, forcejump, url, err, readyState) => {
             hqq.logMgr.log("bindyinhangkaEnsure failcallback", status, forcejump, url, err, readyState)
             this.ensurebtn.interactable = true
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请求失败：" + status + ",err:" + err)
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("requestfail") + status + ",err:" + err)
         }
         let url = hqq.gameGlobal.pay.pay_host + "/api/payment_account/saveAccount"
         hqq.http.sendXMLHttpRequest({
@@ -369,13 +1026,17 @@ cc.Class({
             }
         }
 
+        if (!hqq.app.gameUser) {
+            console.log("没有中心服数据")
+            return
+        }
         let imgurl = ''
         if (hqq.app.server.indexOf("http:") == -1 && hqq.app.server.indexOf("https:") == -1) {
             imgurl = "http://" + hqq.app.server + "/Game/Verify/createCaptcha?"
         } else {
             imgurl = hqq.app.server + "/Game/Verify/createCaptcha?"
         }
-        imgurl += "id=" + hqq.app.gameuser.id;
+        imgurl += "id=" + hqq.app.gameUser.id;
         imgurl += "&token=" + hqq.gameGlobal.token;
         let self = this;
         var xhr = new XMLHttpRequest();
@@ -395,6 +1056,7 @@ cc.Class({
                                 if (err) {
                                     cc.error(err);
                                 } else {
+                                    if(!cc.isValid(self.captchaimg1)||!cc.isValid(self.captchaimg2))return;
                                     self.temptex = tex
                                     let mspriteFrame = new cc.SpriteFrame(tex);
                                     if (mspriteFrame) {
@@ -415,6 +1077,7 @@ cc.Class({
                                 if (err) {
                                     cc.error(err);
                                 } else {
+                                    if(!cc.isValid(self.captchaimg1)||!cc.isValid(self.captchaimg2))return;
                                     self.temptex = tex
                                     let mspriteFrame = new cc.SpriteFrame(tex);
                                     if (mspriteFrame) {
@@ -438,6 +1101,7 @@ cc.Class({
                         var img = new Image();
                         img.src = base64;
                         img.onload = function () {
+                            if(!cc.isValid(self.captchaimg1)||!cc.isValid(self.captchaimg2))return;
                             var texture = new cc.Texture2D();
                             texture.initWithElement(img);
                             var newframe = new cc.SpriteFrame();
@@ -474,15 +1138,15 @@ cc.Class({
             yanzhenmanum = this.officelogin.getChildByName("yanzheneditbox").getComponent(cc.EditBox).string
         }
         if (phonenum == "") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入手机号")
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip32"))
             return
         }
         if (phonenum[0] != "1") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入正确的手机号")
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip33"))
             return
         }
         if (yanzhenmanum == "") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入图形验证码")
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("entercode"))
             return
         }
         let self = this
@@ -497,34 +1161,46 @@ cc.Class({
                 btn.interactable = false
                 let btnlabel = btn.node.getChildByName('btnlabel')
                 let la = btnlabel.getComponent(cc.Label)
-                la.string = "重发（60）"
-                btnlabel.color = new cc.Color(67, 67, 67)
+                la.string = hqq.getTip("str0") + "（60）"
                 let lao = btnlabel.getComponent(cc.LabelOutline)
-                lao.color = new cc.Color(67, 67, 67)
+                if (hqq.app.pinpai == "xingui") {
+                    btnlabel.color = new cc.Color(255, 0, 0)
+                    lao.color = new cc.Color(255, 0, 0)
+                } else {
+                    btnlabel.color = new cc.Color(67, 67, 67)
+                    lao.color = new cc.Color(67, 67, 67)
+                }
                 let time2 = 0
-                let timer = setInterval(() => {
+                this.timer = setInterval(() => {
                     time2++
                     let t = 60 - time2
-                    la.string = "重发（" + t + "）"
+                    la.string = hqq.getTip("str0") + "（" + t + "）"
                     if (time2 >= 60) {
-                        clearInterval(timer);
+                        clearInterval(this.timer);
                         btn.interactable = true
-                        la.string = '获取验证码'
-                        btnlabel.color = new cc.Color(67, 0, 0)
-                        lao.color = new cc.Color(67, 0, 0)
+                        la.string = hqq.getTip("getcode")
+                        if (hqq.app.pinpai == "xingui") {
+                            btnlabel.color = new cc.Color(255, 255, 255)
+                            lao.color = new cc.Color(255, 255, 255)
+                        } else {
+                            btnlabel.color = new cc.Color(67, 0, 0)
+                            lao.color = new cc.Color(67, 0, 0)
+                        }
                     }
                 }, 1000)
             } else {
                 if (data.code == 203 && data.msg == "图片验证码错误") {
-                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "输入正确的图形验证码")
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip34"))
+                } else if( data.msg == "can only be sent once in 60s"){
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip35") + hqq.getTip("smstoomany"))
                 } else {
-                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "获取失败:" + data.msg)
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip35") + data.msg)
                 }
             }
         }
         let failcallback = (status, forcejump, url, err, readyState) => {
             hqq.logMgr.log("onClickGetCaptcha failcallback", status, forcejump, url, err, readyState)
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请求失败：" + status + ",err:" + err)
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("requestfail") + status + ",err:" + err)
         }
         let endurl = hqq.app.getIpPostEndUrl(7);
         let data = {
@@ -542,6 +1218,12 @@ cc.Class({
             needJsonParse: true,
         })
     },
+    passJudge(str) {
+        if (str.length < 6 || str.length > 12 || !str.match(/[0-9]/g) || !str.match(/[a-zA-Z]/g)) {
+            return true
+        }
+        return false
+    },
     // 注册正式账号 确定
     officeloginEnsure() {
         let phonenum = this.officelogin.getChildByName("phoneeditbox").getComponent(cc.EditBox).string
@@ -549,35 +1231,43 @@ cc.Class({
         let capchanum = this.officelogin.getChildByName("capchaeditbox").getComponent(cc.EditBox).string
         let passnum = this.officelogin.getChildByName("passeditbox").getComponent(cc.EditBox).string
         if (phonenum == "") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入手机号")
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip32"))
             return
         }
         if (capchanum == "") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入短信验证码")
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("capchaed"))
             return
         }
-        if (passnum == "" || passnum.length < 6) {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入有效密码")
+        if (passnum == "" || this.passJudge(passnum)) {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip36"))
             return
         }
         this.ensurebtn.interactable = false
         let callback = (responsedata) => {
+            console.log("responsedata", responsedata)
+            if (this.timer) {
+                clearInterval(this.timer);
+            }
             if (responsedata.status != 0) {
                 this.ensurebtn.interactable = true
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "手机号绑定失败，请联系客服！");
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip37"));
             } else {
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "成功获取免费金币");
-                hqq.setPlayerinfo({ phone_number: responsedata.msg });
+                if (hqq.app.pinpai == 'debi') {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip38"));
+                } else {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip39"));
+                }
+                hqq.app.setPlayerinfo({ phone_number: phonenum });
                 this.onClickExit();
             }
         }
         let failcallback = (status, forcejump, url, err, readyState) => {
             hqq.logMgr.log("officeloginEnsure failcallback", status, forcejump, url, err, readyState)
             this.ensurebtn.interactable = true
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "获取免费金币网络连接失败" + status);
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip40") + status);
         }
         let payUrl = hqq.gameGlobal.pay.pay_host + "/api/activity/bindPhone";
-        let dataStr = "id=" + hqq.gameGlobal.pay.user_id;
+        let dataStr = "user_id=" + hqq.gameGlobal.pay.user_id;
         if (hqq.gameGlobal.pay.user_name) {
             dataStr = dataStr + "&user_name=" + hqq.gameGlobal.pay.user_name;
         } else {
@@ -590,6 +1280,8 @@ cc.Class({
         dataStr = dataStr + "&code=" + capchanum;
         dataStr = dataStr + "&password=" + passnum;
         dataStr = dataStr + "&center_token=" + hqq.gameGlobal.token;
+        dataStr = dataStr + "&center_auth=" + hqq.gameGlobal.token
+        console.log("dataStr", dataStr)
         hqq.http.sendXMLHttpRequest({
             method: 'POST',
             urlto: payUrl,
@@ -607,35 +1299,35 @@ cc.Class({
         let capchanum = this.resetpass.getChildByName("capchaeditbox").getComponent(cc.EditBox).string
         let passnum = this.resetpass.getChildByName("passeditbox").getComponent(cc.EditBox).string
         if (phonenum == "") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入手机号")
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip32"))
             return
         }
         if (yanzhenmanum == "") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入图形验证码")
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("entercode"))
             return
         }
         if (capchanum == "") {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入短信验证码")
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("capchaed"))
             return
         }
-        if (passnum == "" || passnum.length < 6) {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请输入有效密码")
+        if (passnum == "" || this.passJudge(passnum)) {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip36"))
             return
         }
 
         let callback = (data) => {
             if (data.code == 200) {
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "重置账号密码成功")
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip41"))
                 this.onClickExit()
             } else {
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "重置失败：" + data.msg)
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip42") + data.msg)
             }
         }
 
         let failcallback = (status, forcejump, url, err, readyState) => {
             hqq.logMgr.log("officeloginEnsure failcallback", status, forcejump, url, err, readyState)
             this.ensurebtn.interactable = true
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "请求失败：" + status + ",err:" + err)
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("requestfail") + status + ",err:" + err)
         }
 
         let endurl = hqq.app.getIpPostEndUrl(4)

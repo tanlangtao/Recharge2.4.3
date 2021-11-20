@@ -40,10 +40,16 @@ hqqWebSocket.prototype = {
     sendPing() {
         // cc.log("发送心跳")
         this.pingTime = 0;
-        this.ws && this.ws.send('');
+        this.ws && this.ws.readyState == WebSocket.OPEN && this.ws.send('');
     },
     connect(param) {
         this.registerAll()
+        if(this.ws)
+        {
+            this.ws.close();
+            this.ws.onopen = this.ws.onmessage = this.ws.onclose = this.ws.onerror = null;
+            this.ws = null;
+        }
         let url = hqq.app.server;
         if (url.indexOf("://") == -1) {
             url = "ws://" + url;
@@ -80,7 +86,12 @@ hqqWebSocket.prototype = {
     },
     close() {
         // cc.log("大厅websocket主动断开")
-        this.ws && this.ws.close();
+        if(this.ws)
+        {
+            this.ws.close();
+            this.ws.onopen = this.ws.onmessage = this.ws.onclose = this.ws.onerror = null;
+            this.ws = null;
+        }
         this.needRecon = false;
     },
     register(event, className, callback) {
@@ -222,7 +233,7 @@ hqqWebSocket.prototype = {
         if (this.isReconnect) {
             this.isReconnect = false
             if (cc.director.getScene().name == "hall") {
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "连接成功")
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip45"))
             }
         }
         if (!hqq.isDebug) {
@@ -238,19 +249,23 @@ hqqWebSocket.prototype = {
         }
     },
     m_onmessage(msg) {
-        let data = JSON.parse(msg.data)
-        if (!CC_DEBUG) {
-            console.log("data --- ", JSON.stringify(data))
+        try{
+            let data = JSON.parse(msg.data)
+            if (!CC_DEBUG) {
+                console.log("data --- ", msg)
+            }
+            let datamsg = null
+            if (data.data && data.data.msg) {
+                datamsg = data.data.msg
+            }
+            this.m_EmitMsg(data.event, datamsg, data)
+        } catch(err){
+            console.log(err);
         }
-        let datamsg = null
-        if (data.data && data.data.msg) {
-            datamsg = data.data.msg
-        }
-        this.m_EmitMsg(data.event, datamsg, data)
     },
     m_EmitMsg(event, data, msg) {
         if (!CC_DEBUG) {
-            console.log("--------大厅收到消息--------", event)
+            console.log("--------大厅收到消息--------", data)
         }
         if (this.handlers[event]) {
             for (let className in this.handlers[event]) {
@@ -270,19 +285,21 @@ hqqWebSocket.prototype = {
         this.m_stopPingPong();
         if (this.needRecon) {
             this.isReconnect = true
-            if (cc.director.getScene().name == "hall" && this.reConnectTime == 0) {
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "网络断开，正在努力连接中")
+            if (cc.director.getScene().name == "hall") {
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip46"))
             }
             setTimeout(() => {
-                this.reConnectTime++;
-                if (this.reConnectTime <= 30) {
-                    this.connect();
-                } else {
-                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "抱歉，网络无法连接成功，请检查网络后重新进入")
-                }
+                // this.reConnectTime++;
+                // if (this.reConnectTime <= 60) {
+                this.connect();
+                //     console.log("大厅重连")
+                // } else {
+                //     console.log("大厅重连超过60次，停止重连")
+                //     hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip47"))
+                // }
             }, 1000)
         } else {
-            // hqq.eventMgr.dispatch(hqq.eventMgr.showTip, "网络断开")
+            // hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip48")) 
         }
     },
     m_stopPingPong() {

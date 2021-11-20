@@ -30,14 +30,19 @@ cc.Class({
         hqq.eventMgr.register(hqq.eventMgr.addSliderNotice, className, this.addSliderNotice.bind(this))
     },
     addSliderNotice(msg) {
-        // cc.log("addSliderNotice", this.isRoll, msg.length, msg)
-        for (let i = 0; i < msg.length; i++) {
-            this.addNotice(msg[i])
-        }
-        if (!this.isRoll) {
-            this.isRoll = true;
-            this.noticeStartRoll();
-        }
+        cc.log("addSliderNotice", this.isRoll, msg)
+        setTimeout(() => {
+            if (!cc.isValid(this.node) || !cc.isValid(this.label)) {
+                return
+            }
+            for (let i = 0; i < msg.length; i++) {
+                this.addNotice(msg[i])
+            }
+            if (!this.isRoll) {
+                this.isRoll = true;
+                this.noticeStartRoll();
+            }
+        }, 30000);
     },
     /**
      * 添加滚动公告

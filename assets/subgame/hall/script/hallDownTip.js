@@ -40,7 +40,6 @@ cc.Class({
         }
         this.label.string = str
 
-        // this.node.setPosition(cc.winSize.width / 2, cc.winSize.height / 2 + this.node.height / 2)
         let m0 = cc.moveBy(this.flytime, cc.v2(0, -this.movedis))
         let d0 = cc.delayTime(this.delaytime)
         let m1 = cc.moveBy(this.flytime, cc.v2(0, +this.movedis))

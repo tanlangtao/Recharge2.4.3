@@ -1,6 +1,7 @@
 
 let hqqViewCtr = {
     parentNode: null,
+    personalcenterIndex:cc.macro.MAX_ZINDEX - 18,
     netpanelIndex: cc.macro.MAX_ZINDEX - 17,
     noticelayerIndex: cc.macro.MAX_ZINDEX - 16,
     registerlayerIndex: cc.macro.MAX_ZINDEX - 15,
@@ -10,6 +11,7 @@ let hqqViewCtr = {
     congratulationIndex: cc.macro.MAX_ZINDEX - 11, // 恭喜获得金币层级
     consoleIndex: cc.macro.MAX_ZINDEX - 10,
     tipPanelIndex: cc.macro.MAX_ZINDEX - 1,
+    publicalertIndex: cc.macro.MAX_ZINDEX - 1,
 
     config: {
         smallsublayer: { path: "base/prefab/smallsublayer", scriptName: "hallPSubsLayer" },
@@ -26,6 +28,12 @@ let hqqViewCtr = {
         netpanel: { path: "base/prefab/netpanel", scriptName: "hqqNetPanel" },
         netnode: { path: "base/prefab/netnode", scriptName: "hqqNetNode" },
         hby: { path: "hall/prefab/hbylayer", scriptName: "hallHBY" },
+        aga: { path: "hall/prefab/agalayer", scriptName: "hallAgaLayer" },
+        payactivityweb: { path: "hall/prefab/PayActivityWeb", scriptName: "" },
+        zhibopanel: { path: "base/prefab/zhibopanel", scriptName: "" },
+        publicalert: { path: "base/prefab/publicalert", scriptName: "hallPublicAlert" },
+        kefulayer: { path: "hall/prefab/kefulayer", scriptName: "" },
+        personalcenter: { path: "hall/prefab/personalcenter", scriptName: "" },
     },
     setParentNode(node) {
         this.parentNode = node;
@@ -34,8 +42,14 @@ let hqqViewCtr = {
     showLayer(path, script, data, zindex, ispersist) {
         zindex = zindex || 1000
         let nodename = path.substring(path.lastIndexOf('/') + 1)
-        if (cc.director.getScene().getChildByName(nodename)) {
-            if (nodename == "tippanel" || nodename == "downtip") {
+        if (data && cc.isValid( data.parent ) && data.parent.getChildByName(nodename)){
+            if (nodename == "tippanel" || nodename == "downtip" || nodename == "publicalert") {
+                let child = cc.director.getScene().getChildByName(nodename)
+                child.getComponent(script).init(data)
+            }
+        }else if (cc.director.getScene() && cc.director.getScene().getChildByName(nodename)) {
+            // console.log("已经存在节点", nodename)
+            if (nodename == "tippanel" || nodename == "downtip" || nodename == "publicalert") {
                 let child = cc.director.getScene().getChildByName(nodename)
                 child.getComponent(script).init(data)
             }
@@ -58,16 +72,33 @@ let hqqViewCtr = {
                     node.scaleX = scale
                     node.scaleY = scale
                 }
-                if (data && data.parent) {
+                if (data && cc.isValid( data.parent ) ) {
                     data.parent.addChild(node, zindex)
-                } else if (this.parentNode) {
+                } else if ( cc.isValid( this.parentNode ) ) {
                     this.parentNode.addChild(node, zindex)
-                } else {
+                } else if (cc.isValid( cc.director.getScene() )) {
                     cc.director.getScene().addChild(node, zindex)
+                }
+                else
+                {
+                    node.destroy();
+                    return;
                 }
                 node.getComponent(script).init(data)
                 if (ispersist) {
                     cc.game.addPersistRootNode(node);
+                }
+
+                if(cc.director.getScene()){
+                    let Noticelayer = cc.director.getScene().getChildByName("noticelayer");
+                    let PayActivityWeb = cc.director.getScene().getChildByName("PayActivityWeb");
+                    if( cc.isValid(Noticelayer) && cc.isValid(PayActivityWeb) ){
+                        if(Noticelayer.zIndex > PayActivityWeb.zIndex ){
+                            let zIndex = Noticelayer.zIndex;
+                            Noticelayer.zIndex = PayActivityWeb.zIndex;
+                            PayActivityWeb.zIndex = zIndex;
+                        }
+                    }
                 }
             })
         }
@@ -88,6 +119,13 @@ let hqqViewCtr = {
         hqq.eventMgr.register(hqq.eventMgr.showLineChoiceLayer, "hqqViewCtr", this.showLineChoiceLayer.bind(this))
         hqq.eventMgr.register(hqq.eventMgr.showNetStateNode, "hqqViewCtr", this.showNetStateNode.bind(this))
         hqq.eventMgr.register(hqq.eventMgr.showHBYLayer, "hqqViewCtr", this.showHBYLayer.bind(this))
+        hqq.eventMgr.register(hqq.eventMgr.showAgaLayer, "hqqViewCtr", this.showAgaLayer.bind(this))
+        hqq.eventMgr.register(hqq.eventMgr.showPayActivityWeb, "hqqViewCtr", this.showPayActivityWeb.bind(this))
+        hqq.eventMgr.register(hqq.eventMgr.showJumpScene, "hqqViewCtr", this.showJumpScene.bind(this))
+        hqq.eventMgr.register(hqq.eventMgr.openZhiBoPanel, "hqqViewCtr", this.openZhiBoPanel.bind(this))
+        hqq.eventMgr.register(hqq.eventMgr.showPublicAlert, "hqqViewCtr", this.showPublicAlert.bind(this))
+        hqq.eventMgr.register(hqq.eventMgr.showKeFuPanel, "hqqViewCtr", this.showKeFuPanel.bind(this))
+        hqq.eventMgr.register(hqq.eventMgr.showPersonalCenter, "hqqViewCtr", this.showPersonalCenter.bind(this))
         return this
     },
     showSmallsublayer(data) {
@@ -118,9 +156,16 @@ let hqqViewCtr = {
     showNoticelayer(data) {
         let path = this.config.noticelayer.path
         let scriptname = this.config.noticelayer.scriptName
-        this.showLayer(path, scriptname, data, this.noticelayerIndex)
+        this.showLayer(path, scriptname, data, this.noticelayerIndex);
     },
     showCongratulation(data) {
+        let payactivitywebpath = this.config.payactivityweb.path
+        let payactivitywebnodename = payactivitywebpath.substring(payactivitywebpath.lastIndexOf('/') + 1)
+        if (cc.director.getScene() && cc.director.getScene().getChildByName(payactivitywebnodename))
+        {
+            //活动网页开启时不显示恭喜获得金币
+            return;
+        }
         let path = this.config.congratulation.path
         let scriptname = this.config.congratulation.scriptName
         this.showLayer(path, scriptname, data, this.congratulationIndex)
@@ -133,7 +178,12 @@ let hqqViewCtr = {
                 hqq.gameGlobal.pay.pay_host = url;
                 if (hqq.subModel.pay.lanchscene != "") {
                     hqq.gameGlobal.pay.from_scene = data
-                    cc.director.preloadScene(hqq.subModel.pay.lanchscene, () => {
+                    cc.director.preloadScene(hqq.subModel.pay.lanchscene, (err, scene) => {
+                        if (err) {
+                            console.log(err)
+                            hqq.logMgr.logerror(err)
+                            return
+                        }
                         cc.director.loadScene(hqq.subModel.pay.lanchscene);
                     })
                 } else {
@@ -149,7 +199,12 @@ let hqqViewCtr = {
         } else {
             if (hqq.subModel.pay.lanchscene != "") {
                 hqq.gameGlobal.pay.from_scene = data
-                cc.director.preloadScene(hqq.subModel.pay.lanchscene, () => {
+                cc.director.preloadScene(hqq.subModel.pay.lanchscene, (err, scene) => {
+                    if (err) {
+                        console.log(err)
+                        hqq.logMgr.logerror(err)
+                        return
+                    }
                     cc.director.loadScene(hqq.subModel.pay.lanchscene);
                 })
             } else {
@@ -192,6 +247,324 @@ let hqqViewCtr = {
         let path = this.config.hby.path
         let scriptname = this.config.hby.scriptName
         this.showLayer(path, scriptname, data, this.netpanelIndex)
+    },
+    showAgaLayer(data) {
+        let path = this.config.aga.path
+        let scriptname = this.config.aga.scriptName
+        this.showLayer(path, scriptname, data, this.netpanelIndex)
+    },
+    showPayActivityWeb(data){
+        let path = this.config.payactivityweb.path
+        let nodename = path.substring(path.lastIndexOf('/') + 1)
+        let payactivityweb = null;
+        if (cc.director.getScene() && cc.director.getScene().getChildByName(nodename)) {
+            payactivityweb = cc.director.getScene().getChildByName(nodename)
+        }
+        if( !data ){
+            if(cc.isValid(payactivityweb)){
+                payactivityweb.active = false;
+                // payactivityweb.destroy();
+            }
+        } else{
+            let setpayactivityweb = ( node )=>{
+                let tempurl = "";
+                if(hqq.app.huanjin=="pre"){
+                    tempurl = hqq.app.canHotServer+"/com.test.pre.android/events/index.html";
+                }else if(hqq.app.huanjin=="online"){
+                    tempurl = hqq.app.canHotServer+"/com.test.online.android/events/index.html";
+                }
+                
+                let dataStr = "?host="+hqq.gameGlobal.pay.pay_host;
+                // dataStr += "&imHost=" +  hqq.gameGlobal.im_host;
+                dataStr += "&user_id=" + hqq.gameGlobal.pay.user_id;
+                dataStr += "&user_name=" + decodeURI(hqq.gameGlobal.pay.user_name);
+                dataStr += "&package_id=" + hqq.gameGlobal.pay.package_id;
+                dataStr += "&token=e40f01afbb1b9ae3dd6747ced5bca532";
+                dataStr += "&center_auth=" + hqq.gameGlobal.token;
+                dataStr += hqq.gameGlobal.ipList[0]?"&login_ip=" + hqq.gameGlobal.ipList[0]:"&login_ip=" + hqq.gameGlobal.regin_ip;
+                dataStr += "&regin_ip=" + hqq.gameGlobal.regin_ip;
+                dataStr += "&device_id=" + hqq.app.deviceID;
+                let webview = node.getChildByName("web").getComponent(cc.WebView);
+                webview.url = encodeURI(tempurl+dataStr);
+                webview = null;
+                if(cc.director.getScene()){
+                    let Noticelayer = cc.director.getScene().getChildByName("noticelayer");
+                    let PayActivityWeb = node;
+                    if( cc.isValid(Noticelayer) && cc.isValid(PayActivityWeb) ){
+                        if(Noticelayer.zIndex > PayActivityWeb.zIndex ){
+                            let zIndex = Noticelayer.zIndex;
+                            Noticelayer.zIndex = PayActivityWeb.zIndex;
+                            PayActivityWeb.zIndex = zIndex;
+                        }
+                    }
+                }
+            }
+            if(cc.isValid(payactivityweb)){
+                payactivityweb.active = true;
+                setpayactivityweb(payactivityweb);
+            } else{
+                cc.resources.load(path, cc.Prefab, (err, prefab) => {
+                    if (err) {
+                        console.log(err)
+                        hqq.logMgr.logerror(err)
+                        return
+                    }
+                    let node = cc.instantiate(prefab)
+                    if (cc.isValid( cc.director.getScene() )) {
+                        cc.director.getScene().addChild(node);
+                    }else{
+                        node.destroy();
+                        return;
+                    }
+                    setpayactivityweb(node);
+                })
+            }
+        }
+        payactivityweb = null;
+    },
+    showJumpScene(data){
+        let GameCode = hqq.gameGlobal.zhibo.GameCode
+        if(data)
+        {
+            GameCode = data;
+        }
+        if( hqq.subGameList[ GameCode ] ){
+            if(hqq.hotUpdateMgr.getSubGameIsOnUp(GameCode)){
+                hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, {
+                    type: 10,
+                    msg: hqq.getTip("str9"),
+                })
+            } else{
+                if (!hqq.app || !hqq.app.remoteGamelist) {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, {
+                        type: 10,
+                        msg: hqq.getTip("str9"),
+                    })
+                    return
+                }
+                let subdata = null;
+                for (let i = 0; i < hqq.app.remoteGamelist.length; i++) {
+                    if (hqq.subGameList[GameCode].game_id === hqq.app.remoteGamelist[i].game_id) {
+                        subdata = hqq.app.remoteGamelist[i];
+                        break;
+                    }
+                }
+
+                if (subdata && subdata.open == 0) {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, {
+                        type: 10,
+                        msg: hqq.getTip("str9"),
+                    })
+                } else {
+                    let subgamev;
+                    let localsubv = hqq.localStorage.get(GameCode, "versionKey");
+                    if (GameCode == 'zrsx1' || GameCode == 'zrsx2') {
+                        localsubv = hqq.localStorage.get('zrsx', "versionKey");
+                        subgamev = hqq.app.subGameVersion['zrsx'];
+                    } else if (GameCode == 'sbty1' || GameCode == 'sbty2') {
+                        localsubv = hqq.localStorage.get('sbty', "versionKey");
+                        subgamev = hqq.app.subGameVersion['sbty'];
+                    } else {
+                        subgamev = hqq.app.subGameVersion[GameCode];
+                    }
+                    // let txt = "local version: " + localsubv + " | remote version:" + subgamev;
+                    let needup = hqq.commonTools.versionCompare(localsubv, subgamev);
+                    if (needup && !cc.sys.isBrowser && GameCode != "aga") { // && cc.sys.os != "Windows"
+                        hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, {
+                            type: 10,
+                            msg: cc.js.formatStr(hqq.getTip("str10"),hqq.subGameList[ GameCode ].zhname),
+                        })
+                    } else {
+                        let nowd = new Date().getTime()
+                        let deletenum = 0
+                        let loginHistory = hqq.localStorage.get(GameCode, "loginHistory");
+                        if (loginHistory) {
+                            for (let i = 0; i < loginHistory.length; i++) {
+                                let jumptime = nowd - loginHistory[i]
+                                let days = Math.floor(jumptime / (24 * 3600 * 1000))
+                                if (days > 7) {
+                                    deletenum++
+                                }
+                            }
+                            if (deletenum > 0) {
+                                loginHistory.splice(0, deletenum)
+                            }
+                        } else{
+                            loginHistory = [];
+                        }
+                        loginHistory.push(new Date().getTime())
+                        hqq.localStorage.set(GameCode, "loginHistory", loginHistory)
+                        if(subdata.hasAccount){
+                            this.jumpToSubGame( GameCode );
+                        } else{
+                            hqq.loginMgr.createSubAccount(GameCode, this.jumpToSubGame.bind(this))
+                        }
+                    }
+                }
+            }
+        } else{
+            hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, {
+                type: 10,
+                msg: hqq.getTip("str9"),
+            })
+        }
+    },
+    // 跳转至子游戏场景
+    jumpToSubGame(subgamern) {
+        let key = subgamern
+        if (subgamern == "sbty1" || subgamern == "sbty2") {
+            key = "sbty"
+        } else if (subgamern == "zrsx1" || subgamern == "zrsx2") {
+            key = "zrsx"
+        }
+        cc.assetManager.loadBundle(subgamern, (err)=>{
+            if(err)
+            {
+                console.log(err);
+                return;
+            }
+            cc.assetManager.loadBundle(subgamern+"Res", (err2)=>{
+                if(err2)
+                {
+                    console.log(err2);
+                }
+                hqq[subgamern + 'Res'] = cc.assetManager.getBundle(subgamern + "Res");
+                if (hqq.app.pinpai == "fuxin"||hqq.app.pinpai=="juding") {
+                    cc.director.preloadScene(hqq.subGameList[key].fuxin_lanchscene, (err, scene) => {
+                        if (err) {
+                            hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, {
+                                type: 10,
+                                msg: hqq.getTip("str9"),
+                            })
+                            hqq.logMgr.logerror(err)
+                            return
+                        }
+                        cc.director.loadScene(hqq.subGameList[key].fuxin_lanchscene);
+                    })
+                } else {
+                    cc.director.preloadScene(hqq.subGameList[key].lanchscene, (err, scene) => {
+                        if (err) {
+                            hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, {
+                                type: 10,
+                                msg: hqq.getTip("str9"),
+                            })
+                            hqq.logMgr.logerror(err)
+                            return
+                        }
+                        cc.director.loadScene(hqq.subGameList[key].lanchscene);
+                    })
+                }
+            })
+        })
+    },
+    openZhiBoPanel(data){
+        let path = this.config.zhibopanel.path;
+        let nodename = path.substring(path.lastIndexOf('/') + 1)
+        let zhibopanel = null;
+        if(cc.director.getScene()){
+            zhibopanel = cc.director.getScene().getChildByName(nodename)
+        }
+        if(data){
+            if ( cc.isValid( zhibopanel ) ) {
+                
+            } else {
+                cc.resources.load(path, cc.Prefab, (err, prefab) => {
+                    if (err) {
+                        console.log(err)
+                        hqq.logMgr.logerror(err)
+                        return
+                    }
+                    let node = cc.instantiate(prefab)
+                    if (cc.isValid( cc.director.getScene() )) {
+                        cc.director.getScene().addChild(node,cc.macro.MAX_ZINDEX)
+                    }else{
+                        node.destroy();
+                        return;
+                    }
+                    cc.game.addPersistRootNode(node);
+                })
+            }
+        } else{
+            if ( cc.isValid( zhibopanel )){
+                cc.game.removePersistRootNode(zhibopanel);
+                zhibopanel.destroy();
+            }
+        }
+       
+        zhibopanel = null;
+    },
+    showPublicAlert(data){
+        let path = this.config.publicalert.path
+        let scriptname = this.config.publicalert.scriptName
+        this.showLayer(path, scriptname, data, this.publicalertIndex)
+    },
+    showKeFuPanel(data){
+        let path = this.config.kefulayer.path;
+        let nodename = path.substring(path.lastIndexOf('/') + 1)
+        let kefulayer = null;
+        if(cc.director.getScene()){
+            kefulayer = cc.director.getScene().getChildByName(nodename)
+        }
+        if(data){
+            if ( cc.isValid( kefulayer ) ) {
+                kefulayer.active = true;
+            } else {
+                cc.resources.load(path, cc.Prefab, (err, prefab) => {
+                    if (err) {
+                        console.log(err)
+                        hqq.logMgr.logerror(err)
+                        return
+                    }
+                    let node = cc.instantiate(prefab)
+                    if (cc.isValid( cc.director.getScene() )) {
+                        cc.director.getScene().addChild(node,cc.macro.MAX_ZINDEX)
+                    }else{
+                        node.destroy();
+                        return;
+                    }
+                })
+            }
+        } else{
+            if ( cc.isValid( kefulayer )){
+                kefulayer.active = false;
+            }
+        }
+       
+        kefulayer = null;
+    },
+    showPersonalCenter(data){
+        let path = this.config.personalcenter.path;
+        let nodename = path.substring(path.lastIndexOf('/') + 1)
+        let personalcenter = null;
+        if(cc.director.getScene()){
+            personalcenter = cc.director.getScene().getChildByName(nodename)
+        }
+        if(data){
+            if ( cc.isValid( personalcenter ) ) {
+                personalcenter.active = true;
+            } else {
+                cc.resources.load(path, cc.Prefab, (err, prefab) => {
+                    if (err) {
+                        console.log(err)
+                        hqq.logMgr.logerror(err)
+                        return
+                    }
+                    let node = cc.instantiate(prefab)
+                    if (cc.isValid( cc.director.getScene() )) {
+                        cc.director.getScene().addChild(node,this.personalcenterIndex)
+                    }else{
+                        node.destroy();
+                        return;
+                    }
+                })
+            }
+        } else{
+            if ( cc.isValid( personalcenter )){
+                personalcenter.active = false;
+            }
+        }
+       
+        personalcenter = null;
     },
 }
 module.exports = hqqViewCtr
