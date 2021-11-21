@@ -1174,7 +1174,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        143.24400000000003,
+        132,
         -426,
         0,
         0,
@@ -1242,8 +1242,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 45,
-    "_left": 285.744,
-    "_right": -0.7440000000001419,
+    "_left": 274.5,
+    "_right": 10.499999999999943,
     "_top": 97,
     "_bottom": -5,
     "_verticalCenter": 0,
@@ -1321,7 +1321,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -391.778,
+        -392.778,
         -375,
         0,
         0,
@@ -1798,7 +1798,7 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 13,
-    "_left": 274.222,
+    "_left": 273.222,
     "_right": -16.244000000000142,
     "_top": 0,
     "_bottom": 0,
@@ -1868,7 +1868,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 275,
+      "width": 287,
       "height": 650
     },
     "_anchorPoint": {
@@ -1939,7 +1939,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 275,
+      "width": 290,
       "height": 550
     },
     "_anchorPoint": {
@@ -2010,7 +2010,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 275,
+      "width": 290,
       "height": 550
     },
     "_anchorPoint": {
@@ -2077,7 +2077,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 256,
+      "width": 275,
       "height": 0
     },
     "_anchorPoint": {
@@ -2136,7 +2136,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 256,
+      "width": 275,
       "height": 0
     },
     "_resize": 1,
@@ -2805,7 +2805,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 275,
+      "width": 287,
       "height": 650
     },
     "_resize": 0,
@@ -3277,7 +3277,7 @@
     },
     "_enabled": true,
     "NavToggle": {
-      "__uuid__": "47fa8867-4fce-45ab-b7fb-0ed1403bcc18"
+      "__uuid__": "b9ac93bb-f204-44f3-8a81-743d33197a11"
     },
     "RechargeHistory": {
       "__uuid__": "322eb0b5-c073-42a7-836c-b310f8d29ef1"

@@ -264,7 +264,7 @@ export default class NewClass extends cc.Component {
 
             //验证input,密码
             // msg  = e.replace(/[^\d]/g, '');
-            msg = msg.substring(0,4)
+            msg = msg.substring(0,10)
         }else if(type == 5){
             //验证input type = 5 不能输入特殊字符,保留20位
             var patrn = /[`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]/im;
