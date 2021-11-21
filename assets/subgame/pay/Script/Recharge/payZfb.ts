@@ -47,6 +47,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     btnNum : cc.Prefab = null;
 
+    @property(cc.Prefab)
+    cyjeItem : cc.Prefab = null;
+
     @property()
     public app  = null;
     public results : any = {};
@@ -207,7 +210,11 @@ export default class NewClass extends cc.Component {
     setAmount() {
         if(this.current.name == this.handling_feeName && this.handling_fee !=0 ){
             //如果是小额充值方式，则禁用输入
-            this.app.showAlert("请点选充值金额")
+            if(this.app.UrlData.package_id == 16){
+                this.node.getChildByName("cyje").active = true
+            }else{
+                this.app.showAlert("请点选充值金额")
+            }
         }else{
             this.app.showKeyBoard(this.amountLabel,1);
         }
@@ -344,6 +351,14 @@ export default class NewClass extends cc.Component {
             node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
             this.neikuagn.addChild(node)
         })
+        //渠道16常用金额添加
+        if(this.app.UrlData.package_id  == 16){
+            arr.forEach((e)=>{
+                var node = cc.instantiate(this.cyjeItem)
+                node.getComponent("payCyjeItem").init(e,this.addGold.bind(this))
+                this.node.getChildByName("cyje").addChild(node)
+            })
+        }
         if(this.current.name == this.handling_feeName && this.handling_fee !=0 ){
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             if(this.app.UrlData.package_id == 18){
@@ -381,6 +396,15 @@ export default class NewClass extends cc.Component {
                         node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
                         this.neikuagn.addChild(node)
                     })
+                    //渠道16常用金额添加
+                    if(this.app.UrlData.package_id  == 16){
+                        this.node.getChildByName("cyje").removeAllChildren()
+                        arr.forEach((e)=>{
+                            var node = cc.instantiate(this.cyjeItem)
+                            node.getComponent("payCyjeItem").init(e,this.addGold.bind(this))
+                            this.node.getChildByName("cyje").addChild(node)
+                        })
+                    }
                 }else if(is_first == 0 && this.second_min > 0){
                     span_amount.forEach((e)=>{
                         if(e>= this.second_min && arr.indexOf(e)=== -1){
@@ -394,8 +418,16 @@ export default class NewClass extends cc.Component {
                         node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
                         this.neikuagn.addChild(node)
                     })
+                    //渠道16常用金额添加
+                    if(this.app.UrlData.package_id  == 16){
+                        this.node.getChildByName("cyje").removeAllChildren()
+                        arr.forEach((e)=>{
+                            var node = cc.instantiate(this.cyjeItem)
+                            node.getComponent("payCyjeItem").init(e,this.addGold.bind(this))
+                            this.node.getChildByName("cyje").addChild(node)
+                        })
+                    }
                 }
-
             }
             
             this.getPayFlagbyPayType(callBack)
@@ -531,7 +563,12 @@ export default class NewClass extends cc.Component {
         var string = e.currentTarget.children[1].getComponent(cc.Label).string;
         let amount = this.amountLabel.string == Language_pay.Lg.ChangeByText('点击输入') ? '0': this.amountLabel.string;
         var sum = Number(amount)+Number(string);
-        this.amountLabel.string = `${sum}`;
+        if(this.app.UrlData.package_id == 16){
+            //渠道16点击金额不累加
+            this.amountLabel.string = string;
+        }else{
+            this.amountLabel.string = `${sum}`;
+        }
         this.app.setInputColor(sum,this.amountLabel);
     }
     getLocalConf(){
