@@ -661,7 +661,7 @@ export default class NewClass extends cc.Component {
         let czgoldbt1= cc.find("Canvas/Recharge/Content/Zfb/czgoldbt1")
         let label = null
         if(this.app.UrlData.package_id == 16){
-            label= this.node.getChildByName('Bank').getChildByName('labelTip').getComponent(cc.Label)
+            label= this.node.getChildByName('zi').getChildByName('labelTip').getComponent(cc.Label)
         }else{
             label= this.node.getChildByName('label').getComponent(cc.Label)
         }
