@@ -679,6 +679,9 @@ export default class NewClass extends cc.Component {
     showAccountAlert_16(){
         this.node.getChildByName("bindBankAccount").active = true
         this.node.getChildByName("Bank").active = false
+        if(this.node.name == "Zfb"){
+            this.node.getChildByName("zi").active = false
+        }
         this.node.getComponent("payBankAccountAlert").init({
             text:'设置银行卡',
             action:"add",
