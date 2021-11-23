@@ -344,21 +344,7 @@ export default class NewClass extends cc.Component {
                 arr.push(e)
             }
         })
-        //删除旧的选项
-        this.neikuagn.removeAllChildren()
-        arr.forEach((e)=>{
-            var node = cc.instantiate(this.btnNum)
-            node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
-            this.neikuagn.addChild(node)
-        })
-        //渠道16常用金额添加
-        if(this.app.UrlData.package_id  == 16){
-            arr.forEach((e)=>{
-                var node = cc.instantiate(this.cyjeItem)
-                node.getComponent("payCyjeItem").init(e,this.addGold.bind(this))
-                this.node.getChildByName("cyje").addChild(node)
-            })
-        }
+        console.log("out arr",arr)
         if(this.current.name == this.handling_feeName && this.handling_fee !=0 ){
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             if(this.app.UrlData.package_id == 18){
@@ -382,13 +368,8 @@ export default class NewClass extends cc.Component {
             //请求获取当前的免费次数
             let callBack = (is_first)=>{
                 //0 代表二次  1 代表 首次
-                arr = []
-                if(is_first == 1 && this.first_min > 0 ){
-                    span_amount.forEach((e)=>{
-                        if(e>= this.first_min && arr.indexOf(e)=== -1){
-                            arr.push(e)
-                        }
-                    })
+                if(this.first_min <=0) {
+                    //first_min 配置小于等于0，则沿用外面arr值
                     //删除旧的选项
                     this.neikuagn.removeAllChildren()
                     arr.forEach((e)=>{
@@ -405,35 +386,76 @@ export default class NewClass extends cc.Component {
                             this.node.getChildByName("cyje").addChild(node)
                         })
                     }
-                }else if(is_first == 0 && this.second_min > 0){
-                    span_amount.forEach((e)=>{
-                        if(e>= this.second_min && arr.indexOf(e)=== -1){
-                            arr.push(e)
-                        }
-                    })
-                    //删除旧的选项
-                    this.neikuagn.removeAllChildren()
-                    arr.forEach((e)=>{
-                        var node = cc.instantiate(this.btnNum)
-                        node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
-                        this.neikuagn.addChild(node)
-                    })
-                    //渠道16常用金额添加
-                    if(this.app.UrlData.package_id  == 16){
-                        this.node.getChildByName("cyje").removeAllChildren()
-                        arr.forEach((e)=>{
-                            var node = cc.instantiate(this.cyjeItem)
-                            node.getComponent("payCyjeItem").init(e,this.addGold.bind(this))
-                            this.node.getChildByName("cyje").addChild(node)
+                }else{
+                    arr = []
+                    if(is_first == 1){
+                        span_amount.forEach((e)=>{
+                            if(Number(e)>= this.first_min && arr.indexOf(e)=== -1){
+                                arr.push(e)
+                            }
                         })
+                        //删除旧的选项
+                        this.neikuagn.removeAllChildren()
+                        arr.forEach((e)=>{
+                            var node = cc.instantiate(this.btnNum)
+                            node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
+                            this.neikuagn.addChild(node)
+                        })
+                        //渠道16常用金额添加
+                        if(this.app.UrlData.package_id  == 16){
+                            this.node.getChildByName("cyje").removeAllChildren()
+                            arr.forEach((e)=>{
+                                var node = cc.instantiate(this.cyjeItem)
+                                node.getComponent("payCyjeItem").init(e,this.addGold.bind(this))
+                                this.node.getChildByName("cyje").addChild(node)
+                            })
+                        }
+                    }else if(is_first == 0){
+                        span_amount.forEach((e)=>{
+                            if(Number(e)>= this.second_min && arr.indexOf(e)=== -1){
+                                arr.push(e)
+                            }
+                        })
+                        //删除旧的选项
+                        this.neikuagn.removeAllChildren()
+                        arr.forEach((e)=>{
+                            var node = cc.instantiate(this.btnNum)
+                            node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
+                            this.neikuagn.addChild(node)
+                        })
+                        //渠道16常用金额添加
+                        if(this.app.UrlData.package_id  == 16){
+                            this.node.getChildByName("cyje").removeAllChildren()
+                            arr.forEach((e)=>{
+                                var node = cc.instantiate(this.cyjeItem)
+                                node.getComponent("payCyjeItem").init(e,this.addGold.bind(this))
+                                this.node.getChildByName("cyje").addChild(node)
+                            })
+                        }
                     }
                 }
             }
-            
             this.getPayFlagbyPayType(callBack)
-        }else if(this.channel != 'bankcard_transfer' && this.channel != 'bank_pay'){
-            this.blinkNode.active = false
-            this.iconFont.children[1].active = false
+        }else {
+            //删除旧的选项
+            this.neikuagn.removeAllChildren()
+            arr.forEach((e)=>{
+                var node = cc.instantiate(this.btnNum)
+                node.getComponent("payBtnNum").init(e,this.addGold.bind(this))
+                this.neikuagn.addChild(node)
+            })
+            //渠道16常用金额添加
+            if(this.app.UrlData.package_id  == 16){
+                arr.forEach((e)=>{
+                    var node = cc.instantiate(this.cyjeItem)
+                    node.getComponent("payCyjeItem").init(e,this.addGold.bind(this))
+                    this.node.getChildByName("cyje").addChild(node)
+                })
+            }
+            if(this.channel != 'bankcard_transfer' && this.channel != 'bank_pay'){
+                this.blinkNode.active = false
+                this.iconFont.children[1].active = false
+            }
         }
         
     }
