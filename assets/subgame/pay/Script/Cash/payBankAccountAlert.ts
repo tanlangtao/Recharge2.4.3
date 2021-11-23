@@ -243,7 +243,7 @@ export default class NewClass extends cc.Component {
                 this.nameInput.string = "";
                 this.selectProvinceLabel.string = "请选择开户省";
                 this.selectCityLabel.string = "请选择开户市";
-                this.AqmLabel.string = "";
+                this.AqmLabel.string = "点击输入";
                 //如果是充值打开隐藏按钮旁边的文字
                 if(this.app.UrlData.package_id == 16 && this.node.name == "Zfb"){
                     this.node.getChildByName("zi").active  = true
