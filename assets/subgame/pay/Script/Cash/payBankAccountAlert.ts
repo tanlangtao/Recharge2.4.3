@@ -233,6 +233,9 @@ export default class NewClass extends cc.Component {
                 if(this.AqmLabel.string == "点击输入"){
                     this.app.showAlert("请输入安全码")
                     return
+                }else if(this.AqmLabel.string.length < 4){
+                    this.app.showAlert("请输入4位安全码")
+                    return
                 }
                 this.fetchBindAccountPay();
                 this.node.getChildByName("bindBankAccount").active = false
