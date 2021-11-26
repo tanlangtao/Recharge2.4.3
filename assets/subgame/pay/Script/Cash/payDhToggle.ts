@@ -83,8 +83,8 @@ export default class NewClass extends cc.Component {
             }
         }else if(this.app.UrlData.package_id == 16){
             if(this.text == '银行卡兑换'){
-                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "提现到银行卡");
-                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "提现到银行卡");
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡");
                 let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
                 let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
                 this.app.loadIcon(`${src}/menu/tixiandaoyinhj2`,normalIcon,44,44);
