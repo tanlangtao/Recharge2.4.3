@@ -46,6 +46,7 @@ export default class NewClass extends cc.Component {
                 this.node.getChildByName("tip2").active = false
                 this.node.getChildByName("tip1").active = true
             }
+            
         }
         if(this.channel == 'alipay' ){
             this.app.loadIcon('recharge/icon_alipay2',this.normalIcon,30,30)
@@ -75,6 +76,7 @@ export default class NewClass extends cc.Component {
     }
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
+        this.taggleAnimate()
     }
 
     start () {
@@ -86,6 +88,18 @@ export default class NewClass extends cc.Component {
         this.app.loadMusic(1);
         this.parentComponent.current = this.parentComponent.results[this.index];
         this.parentComponent.initRender(this.index);
+        this.taggleAnimate()
+    }
+    taggleAnimate(){
+        if(this.node.parent.parent.parent.name == "UsdtDh"){
+            this.node.parent.children.forEach(e=>{
+                e.getChildByName("checkmark").active = false
+                if(e.getComponent(cc.Toggle).isChecked){
+                    e.getChildByName("checkmark").active = true
+                }
+            })
+           
+        }
     }
     // update (dt) {}
 }
