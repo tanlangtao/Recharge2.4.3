@@ -180,7 +180,7 @@
       "array": [
         0,
         0,
-        258.1161652685651,
+        258.0755703277627,
         0,
         0,
         0,
@@ -498,7 +498,9 @@
     "BankTipAlert_16": {
       "__uuid__": "08b5443e-8efe-44d7-99d8-d607540d5da6"
     },
-    "UsdtAccountAlert_16": null,
+    "UsdtAccountAlert_16": {
+      "__uuid__": "f56710be-6ff4-4a9a-9a2e-6f93d00c78ce"
+    },
     "BankAccountAlert_18": {
       "__uuid__": "10639996-b697-4588-9c98-d44c10b2f0af"
     },
@@ -516,6 +518,9 @@
     },
     "Loading16": {
       "__id__": 23
+    },
+    "publicAlert16": {
+      "__uuid__": "801f69f7-746d-4fae-8f15-6438426ae984"
     },
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"

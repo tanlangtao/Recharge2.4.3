@@ -160,6 +160,10 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     Loading16:cc.Node = null;
 
+    @property(cc.Prefab)
+    publicAlert16:cc.Prefab = null;
+    
+
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -196,6 +200,9 @@ export default class NewClass extends cc.Component {
      */
     public showAlert(text:string){
         var node = cc.instantiate(this.publicAlert);
+        if(this.UrlData.package_id == 16){
+            node = cc.instantiate(this.publicAlert16)
+        }
         var canvas = cc.find('Canvas');
         canvas.addChild(node);
         node.getComponent('payPublicAlert').init(text)
