@@ -91,15 +91,12 @@ export default class NewClass extends cc.Component {
         this.taggleAnimate()
     }
     taggleAnimate(){
-        if(this.node.parent.parent.parent.name == "UsdtDh"){
-            this.node.parent.children.forEach(e=>{
-                e.getChildByName("checkmark").active = false
-                if(e.getComponent(cc.Toggle).isChecked){
-                    e.getChildByName("checkmark").active = true
-                }
-            })
-           
-        }
+        this.node.parent.children.forEach(e=>{
+            e.getChildByName("checkmark").active = false
+            if(e.getComponent(cc.Toggle).isChecked){
+                e.getChildByName("checkmark").active = true
+            }
+        })
     }
     // update (dt) {}
 }

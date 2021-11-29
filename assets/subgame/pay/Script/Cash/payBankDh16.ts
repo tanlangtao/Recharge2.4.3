@@ -133,7 +133,7 @@ export default class NewClass extends cc.Component {
             }
             this.bankId = this.bankData[0].id;
         }
-        this.action = 'add';
+        this.action = this.bankData.length != 0 ? 'edit' :'add';
         this.goldLabel.string = this.app.config.toDecimal(data.game_gold);
 
         //最小金额也需要根据package_id判断

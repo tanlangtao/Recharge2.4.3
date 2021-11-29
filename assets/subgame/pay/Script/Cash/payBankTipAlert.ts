@@ -20,13 +20,8 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
         //payBankDh
-        if(this.app.UrlData.package_id == 16){
-            this.parentComponent.showAccountAlert_16();
-            this.node.removeFromParent();
-        }else{
-            this.parentComponent.showAccountAlert();
-            this.node.removeFromParent();
-        }
+        this.parentComponent.showAccountAlert();
+        this.node.removeFromParent();
     }
 
     removeSelf(){
