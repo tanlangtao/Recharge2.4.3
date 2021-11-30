@@ -541,7 +541,7 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
+    "_isTrimmedMode": false,
     "_atlas": null,
     "_id": ""
   },
@@ -2310,9 +2310,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 179,
-      "g": 179,
-      "b": 179,
+      "r": 120,
+      "g": 120,
+      "b": 120,
       "a": 255
     },
     "_contentSize": {

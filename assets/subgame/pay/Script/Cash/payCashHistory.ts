@@ -132,7 +132,7 @@ export default class NewClass extends cc.Component {
         this.fetchIndex();
     }
     pageLast(){
-        this.page = this.results.data.total_page
+        this.page = this.results.data.total_page == 0 ? 1:this.results.data.total_page
         this.fetchIndex();
     }
      //设置语言相关的资源和字
