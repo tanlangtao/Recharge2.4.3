@@ -60,6 +60,9 @@ export default class NewClass extends cc.Component {
 
         let font  = e.target.children[0].getComponent(cc.Label).string;
         this.inputlabel.string = this.inputlabel.string+font;
+        if(this.type == 4){
+            this.inputlabel.string = this.inputlabel.string.substring(0,4)
+        }
     }
     deleteString(){
         //按键音效

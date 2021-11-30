@@ -16,9 +16,12 @@ export default class NewClass extends cc.Component {
     }
 
     onLoad () {
-        // this.timer = setTimeout(() => {
-        //     this.node.destroy()
-        // }, 3000)
+        let app = cc.find('Canvas/Main').getComponent('payMain');
+        if(app.UrlData.package_id == 16){
+            this.timer = setTimeout(() => {
+                this.node.destroy()
+            }, 3000)
+        }
     }
 
     removeSelf(){
