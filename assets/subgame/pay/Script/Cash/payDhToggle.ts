@@ -63,7 +63,7 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "USDT钱包");
                 }
             }
-        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
+        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18|| this.app.UrlData.package_id == 20){
             if(this.text == '支付宝兑换'){
                 this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");

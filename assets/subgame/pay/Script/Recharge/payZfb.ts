@@ -743,7 +743,7 @@ export default class NewClass extends cc.Component {
         }else if(this.app.UrlData.package_id == 10){
             this.app.loadIconLg(`${src}/font/ljcz`,czgoldbt1.children[0])
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
-        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 16 || this.app.UrlData.package_id == 18){
+        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 16 || this.app.UrlData.package_id == 18||this.app.UrlData.package_id == 20){
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/btn/czgoldbt1`,czgoldbt1)

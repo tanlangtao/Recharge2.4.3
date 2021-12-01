@@ -522,6 +522,15 @@
     "publicAlert16": {
       "__uuid__": "801f69f7-746d-4fae-8f15-6438426ae984"
     },
+    "BankAccountAlert_20": null,
+    "UsdtAccountAlert_20": null,
+    "PublicOrderAlert_20": {
+      "__uuid__": "32594eec-bcae-4f8b-a2f0-2d190fd8f95a"
+    },
+    "BeforePayOrderAlert_20": {
+      "__uuid__": "9c4b23d8-794b-437b-9faa-6ce582c4a696"
+    },
+    "BankTipAlert_20": null,
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"
   },
@@ -1800,6 +1809,9 @@
     },
     "Recharge_18": {
       "__uuid__": "9404cc88-ed5b-4dc4-9c70-3e1a5526a637"
+    },
+    "Recharge_20": {
+      "__uuid__": "b8dc368f-451c-49d0-b3f4-304307c158e6"
     },
     "_id": "e6WBw7PHFG4JRYQ64OK84P"
   },

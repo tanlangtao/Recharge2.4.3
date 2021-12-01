@@ -394,7 +394,7 @@ export default class NewClass extends cc.Component {
         if(this.app.UrlData.package_id == 9)
         {
             chongzhilishi.getComponent(cc.Widget).target = cc.find('Canvas');
-        }else if(this.app.UrlData.package_id == 15||this.app.UrlData.package_id == 16 || this.app.UrlData.package_id == 18){
+        }else if(this.app.UrlData.package_id == 15||this.app.UrlData.package_id == 16 || this.app.UrlData.package_id == 18||this.app.UrlData.package_id == 20){
 
         }else{
             this.app.loadIconLg(`${src}/btn/chongzhilishi`,chongzhilishi);

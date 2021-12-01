@@ -451,6 +451,8 @@ export namespace Language_pay {
                             src = `language/Chinese/package_16`
                         }else if(gHandler.gameGlobal.pay.package_id == 18){
                             src = `language/Chinese/package_18`
+                        }else if(gHandler.gameGlobal.pay.package_id == 20){
+                            src = `language/Chinese/package_20`
                         }else{
                             src = `language/Chinese/package_1_7`
                         }

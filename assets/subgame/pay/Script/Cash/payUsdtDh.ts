@@ -366,7 +366,7 @@ export default class NewClass extends cc.Component {
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑 定")
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             this.app.loadIconLg(`${src}/font/jiesuan`,btn.children[0])
-        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18  || this.app.UrlData.package_id == 16){
+        }else if(this.app.UrlData.package_id == 15||this.app.UrlData.package_id == 20 || this.app.UrlData.package_id == 18  || this.app.UrlData.package_id == 16){
 
         }else{
             this.app.loadIconLg(`${src}/btn/75`,btn_75)

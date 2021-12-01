@@ -320,7 +320,7 @@ export default class NewClass extends cc.Component {
             txt_dhje.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换金额")
             bankbt.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("银行卡")
             txt_dhqd.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("兑换渠道")
-        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
+        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18 || this.app.UrlData.package_id == 20){
 
         }else{
             this.app.loadIconLg(`${src}/font/txt_zhye`,txt_zhye)
@@ -344,7 +344,7 @@ export default class NewClass extends cc.Component {
             this.app.loadIconLg(`${src}/btn/75`,btn_75)
             accountBtn.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText("绑定银行卡")
             this.app.loadIconLg(`${src}/font/jiesuan`,btn_dh.children[0])
-        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18){
+        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18|| this.app.UrlData.package_id == 20){
 
         }else{
             this.app.loadIconLg(`${src}/btn/btn_max`,btn_max)

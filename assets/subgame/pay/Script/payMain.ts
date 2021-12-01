@@ -163,6 +163,20 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     publicAlert16:cc.Prefab = null;
     
+    @property(cc.Prefab)
+    BankAccountAlert_20:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    UsdtAccountAlert_20:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    PublicOrderAlert_20:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert_20:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BankTipAlert_20:cc.Prefab = null;
 
     @property()
     public UrlData : any = [];
@@ -312,6 +326,9 @@ export default class NewClass extends cc.Component {
         }else if( this.UrlData.package_id == 18){
             node = cc.instantiate(this.PublicOrderAlert_18);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_18);
+        }else if( this.UrlData.package_id == 20){
+            node = cc.instantiate(this.PublicOrderAlert_20);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_20);
         }else{
             node = cc.instantiate(this.PublicOrderAlert);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert);
@@ -373,6 +390,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankAccountAlert_15);
         }else if(this.UrlData.package_id == 18){
             node = cc.instantiate(this.BankAccountAlert_18);
+        }else if(this.UrlData.package_id == 20){
+            node = cc.instantiate(this.BankAccountAlert_20);
         }else{
             node = cc.instantiate(this.BankAccountAlert);
         }
@@ -403,6 +422,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.UsdtAccountAlert_18);
         }else if(this.UrlData.package_id == 16){
             node = cc.instantiate(this.UsdtAccountAlert_16);
+        }else if(this.UrlData.package_id == 20){
+            node = cc.instantiate(this.UsdtAccountAlert_20);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }
@@ -423,6 +444,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankTipAlert_16);
         }else if(this.UrlData.package_id == 18){
             node = cc.instantiate(this.BankTipAlert_18);
+        }else if(this.UrlData.package_id == 20){
+            node = cc.instantiate(this.BankTipAlert_20);
         }
         node.getComponent('payBankTipAlert').init(component)
         canvas.addChild(node);

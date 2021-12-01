@@ -114,7 +114,7 @@ export default class NewClass extends cc.Component {
         if(this.results.data.withDraw_info.artificial){
             if(this.results.data.withDraw_info.artificial.is_close > 0){
                 //15不开放人工兑换
-                if(this.app.UrlData.package_id == 15){
+                if(this.app.UrlData.package_id == 15|| this.app.UrlData.package_id == 16|| this.app.UrlData.package_id == 20){
                     return
                 }
                 arr.push('人工兑换')
