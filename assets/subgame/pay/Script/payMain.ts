@@ -485,7 +485,7 @@ export default class NewClass extends cc.Component {
     setInputColor(msg,input){
         let color1 = new cc.Color(255, 255, 255);
         let color2 = new cc.Color(187, 187, 187);
-        if(this.UrlData.package_id == 15){
+        if(this.UrlData.package_id == 15 || this.UrlData.package_id == 20){
              color1 = new cc.Color(133, 147, 186);
              color2 = new cc.Color(133, 147, 186);
         }else if(this.UrlData.package_id == 16){

@@ -85,7 +85,7 @@ export default class NewClass extends cc.Component {
             });
             this.setTishiLabel(percent)
         }else if(this.text == '银联扫码'){
-            if(this.app.UrlData.package_id == 9 || this.app.UrlData.package_id == 15||this.app.UrlData.package_id == 20){
+            if(this.app.UrlData.package_id == 9){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银联扫码");  
             }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18||this.app.UrlData.package_id == 20){
                 this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "银联扫码");  

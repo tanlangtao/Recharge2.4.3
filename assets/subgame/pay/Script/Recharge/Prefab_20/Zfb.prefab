@@ -2614,12 +2614,12 @@
       "height": 40
     },
     "_N$startAxis": 0,
-    "_N$paddingLeft": 95,
+    "_N$paddingLeft": 10,
     "_N$paddingRight": 0,
-    "_N$paddingTop": 0,
+    "_N$paddingTop": 5,
     "_N$paddingBottom": 0,
-    "_N$spacingX": 15,
-    "_N$spacingY": 10,
+    "_N$spacingX": 5,
+    "_N$spacingY": 5,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
     "_N$affectedByScale": false,
@@ -2994,8 +2994,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 700,
-      "height": 45.199999999999996
+      "width": 960,
+      "height": 63.279999999999994
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3048,8 +3048,8 @@
     "_dstBlendFactor": 771,
     "_string": "温馨提醒：\n该充值渠道只能使用专属充值方式，若使用其他支付方式支付，会影响即时到帐上分",
     "_N$string": "温馨提醒：\n该充值渠道只能使用专属充值方式，若使用其他支付方式支付，会影响即时到帐上分",
-    "_fontSize": 18,
-    "_lineHeight": 20,
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
