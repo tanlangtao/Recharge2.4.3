@@ -23,9 +23,6 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchgetLimitDetailData();
-        let scalex = cc.winSize.width / 1334;
-        var content = cc.find('Canvas/Cash/Sxxq/Content');
-        content.scaleY = 1/scalex;
         this.node.getChildByName("Content").getChildByName("titlebg").children[0].getComponent(cc.Label).fontFamily = "Microsoft YaHei"
     }
     public fetchgetLimitDetailData(){
