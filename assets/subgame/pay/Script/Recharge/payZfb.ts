@@ -685,7 +685,10 @@ export default class NewClass extends cc.Component {
         let node = null
         node = cc.instantiate(this.BindBankAccountTipAlert)
         node.getComponent("payBindBankAccountTipAlert").init(this)
-        canvas.addChild(node)
+        //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/BindBankAccountTipAlert")){
+            canvas.addChild(node);
+        }
     }
     //显示弹窗
     showAccountAlert(){

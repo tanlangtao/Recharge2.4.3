@@ -218,7 +218,9 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.publicAlert16)
         }
         var canvas = cc.find('Canvas');
-        canvas.addChild(node);
+        if(!cc.find('Canvas/PublicAlert')){
+            canvas.addChild(node);
+        }
         node.getComponent('payPublicAlert').init(text)
     }
     /**
@@ -334,10 +336,16 @@ export default class NewClass extends cc.Component {
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert);
         }
         var canvas = cc.find('Canvas');
-        canvas.addChild(node);
+        //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/PublicOrderAlert")){
+            canvas.addChild(node);
+        }
         //弹出提示确认框
         if(beforePay){
-            canvas.addChild(beforePayOrder);
+             //检测是否已存在弹窗，避免重复显示
+            if(!cc.find("Canvas/BeforePayOrderAlert")){
+                canvas.addChild(beforePayOrder);
+            }
         }
         node.getComponent('payPublicOrderAlert').init(type,data)
     }
@@ -395,7 +403,10 @@ export default class NewClass extends cc.Component {
         }else{
             node = cc.instantiate(this.BankAccountAlert);
         }
-        canvas.addChild(node);
+        //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/BankAccountAlert")){
+            canvas.addChild(node);
+        }
         let BankAccountAlert = node.getComponent('payBankAccountAlert');
         BankAccountAlert.init({
             text:data.text,
@@ -427,7 +438,10 @@ export default class NewClass extends cc.Component {
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }
-        canvas.addChild(node);
+        //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/UsdtAccountAlert")){
+            canvas.addChild(node);
+        }
         let payUsdtAccountAlert = node.getComponent('payUsdtAccountAlert');
         payUsdtAccountAlert.init(itemId,type)
     }
@@ -448,7 +462,10 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankTipAlert_20);
         }
         node.getComponent('payBankTipAlert').init(component)
-        canvas.addChild(node);
+        //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/BankTipAlert")){
+            canvas.addChild(node);
+        }
     }
     /**
      * 小键盘 

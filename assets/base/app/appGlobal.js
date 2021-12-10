@@ -7,8 +7,8 @@ let appGlobal = {
     huanjin: "pre", // pre online
     // huanjin: "online", // pre online
 
-    account_name: "886998339", // 账号,  
-    account_pass: "123456", //密码, 
+    // account_name: "886998339", // 账号,  
+    // account_pass: "123456", //密码, 
 
     deviceID: "",
     os: "android", // 平台 android ios

@@ -272,7 +272,10 @@ export default class NewClass extends cc.Component {
         var node =null;
         node = cc.instantiate(this.CashAlert);
         var canvas = cc.find('Canvas');
-        canvas.addChild(node);
+         //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/CashAlert")){
+            canvas.addChild(node);
+        }
         let cash = cc.find('Canvas/Cash').getComponent('payCash')
         let package_rate = JSON.parse(cash.results.data.package_rate)
         let package_rate_byPackage = "0"

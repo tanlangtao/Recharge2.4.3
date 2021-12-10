@@ -84,7 +84,10 @@ export default class NewClass extends cc.Component {
         this.app.showLoading();
         var node = cc.instantiate(this.RechargeHistory);
         var Recharge = cc.find('Canvas/Recharge');
-        Recharge.addChild(node);
+        //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/Recharge/RechargeHistory")){
+            Recharge.addChild(node);
+        }
     }
 
     public fetchZfb() {
