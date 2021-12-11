@@ -29,7 +29,7 @@ export default class NewClass extends cc.Component {
     public page = 1;
     public page_set = 8;
     // LIFE-CYCLE CALLBACKS:
-
+    ReturnToHall = false
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setLanguageResource()
@@ -43,8 +43,11 @@ export default class NewClass extends cc.Component {
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&order_status=${this.order_status}&page=${this.page}&page_set=${this.page_set}`;
         let self = this;
+        this.app.showLoading()
+        this.ReturnToHall = false
         this.app.ajax('GET',url,'',(response)=>{
             self.app.hideLoading();
+            self.ReturnToHall = true
             self.List.removeAllChildren();
             if(response.status == 0){
                 self.results = response;
@@ -84,6 +87,7 @@ export default class NewClass extends cc.Component {
         },(errstatus)=>{
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
             self.app.hideLoading();
+            this.ReturnToHall = true
         })
     }
     /**
@@ -105,8 +109,9 @@ export default class NewClass extends cc.Component {
     removeSelf(){
         //按键音效
         this.app.loadMusic(1)
-
-        this.node.destroy();
+        if(this.ReturnToHall){
+            this.node.destroy();
+        }
     }
 
     pageUp(){

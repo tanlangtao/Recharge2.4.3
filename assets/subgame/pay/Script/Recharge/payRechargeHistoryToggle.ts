@@ -93,6 +93,7 @@ export default class NewClass extends cc.Component {
         }
         this.parentComponet.page = 1;
         this.parentComponet.fetchIndex();
+        
     }
     // update (dt) {}
 }

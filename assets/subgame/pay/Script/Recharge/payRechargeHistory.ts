@@ -26,7 +26,7 @@ export default class NewClass extends cc.Component {
     public app = null;
     public page_set = 6;
     // LIFE-CYCLE CALLBACKS:
-
+    public ReturnToHall = false
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         if(this.app.UrlData.package_id != 16){
@@ -58,12 +58,14 @@ export default class NewClass extends cc.Component {
 
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/payment/payHistory?user_id=${this.app.UrlData.user_id}&order_status=${this.order_status}&page=${this.page}&page_set=${this.page_set}`;
-
         let self = this;
+        this.app.showLoading()
+        this.ReturnToHall = false
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading();
+            this.ReturnToHall = true
             //结果返回之前先清空列表
-            self.List.removeAllChildren();
+            this.List.removeAllChildren();
             if(response.status == 0){
                 self.results = response;
                 self.pageLabel.string = `${self.page} / ${response.data.total_page == 0 ? '1' : response.data.total_page}`;
@@ -98,6 +100,7 @@ export default class NewClass extends cc.Component {
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)
             self.app.hideLoading()
+            this.ReturnToHall = true
         })
     }
 
@@ -117,11 +120,9 @@ export default class NewClass extends cc.Component {
     removeSelf(){
         //按键音效
         this.app.loadMusic(1)
-        this.node.destroy();
-        //刷新Dc的数据
-        let Dc = cc.find('Canvas/Recharge/Content/Dc');
-        if(Dc){
-            Dc.getComponent('payDc').fetchIndex()
+        //接口有返回结果后才能返回大厅
+        if(this.ReturnToHall){
+            this.node.destroy();
         }
     }
 

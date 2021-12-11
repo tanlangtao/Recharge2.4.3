@@ -19,7 +19,7 @@ export default class NewClass extends cc.Component {
     public app = null;
     public page_set = 6;
     // LIFE-CYCLE CALLBACKS:
-
+    ReturnToHall = false
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchgetLimitDetailData();
@@ -28,8 +28,11 @@ export default class NewClass extends cc.Component {
     public fetchgetLimitDetailData(){
         var url = `${this.app.UrlData.host}/api/activity/getLimitDetailData?user_id=${this.app.UrlData.user_id}&page=${this.page}&pageset=${this.page_set}`;
         let self = this;
+        this.app.showLoading()
+        this.ReturnToHall = false
         this.app.ajax('GET',url,'',(response)=>{
             this.app.hideLoading();
+            this.ReturnToHall = true;
             //结果返回之前先清空列表
             self.List.removeAllChildren();
             if(response.status == 0){
@@ -60,17 +63,16 @@ export default class NewClass extends cc.Component {
         },(errstatus)=>{
             self.app.showAlert(`网络错误${errstatus}`)
             self.app.hideLoading()
+            this.ReturnToHall = true
         })
     }
 
     removeSelf(){
         //按键音效
         this.app.loadMusic(1)
-        this.node.destroy();
-        //刷新Dc的数据
-        let Dc = cc.find('Canvas/Recharge/Content/Dc');
-        if(Dc){
-            Dc.getComponent('payDc').fetchIndex()
+        //接口有返回结果后才能返回大厅
+        if(this.ReturnToHall){
+            this.node.destroy();
         }
     }
 
