@@ -2,12 +2,12 @@
 let appGlobal = {
     isRelease: true, // 是否是版本发布状态
     /* ------------------------------------------------------------------- */
-    pinpai: "fuxin", // 渠道 test （特斯特） fuxin(富鑫) xingui (新贵) debi （德比） qibao （七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）nineone （91游戏） xinsheng （新盛更名为大喜发） xinhao (新豪) xinlong(新隆) huangshi(皇室游戏) juding(聚鼎娱乐) huaxing(华兴娱乐) ninetwo(92游戏)
+    pinpai: "ninetwo", // 渠道 test （特斯特） fuxin(富鑫) xingui (新贵) debi （德比） qibao （七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）nineone （91游戏） xinsheng （新盛更名为大喜发） xinhao (新豪) xinlong(新隆) huangshi(皇室游戏) juding(聚鼎娱乐) huaxing(华兴娱乐) ninetwo(92游戏)
     // huanjin: "dev", // dev pre online
-    huanjin: "online", // pre online
+    huanjin: "pre", // pre online
     // huanjin: "online", // pre online
 
-    account_name: "336083702", // 账号,  
+    account_name: "915284135", // 账号,  
     account_pass: "123456", //密码, 
 
     deviceID: "",

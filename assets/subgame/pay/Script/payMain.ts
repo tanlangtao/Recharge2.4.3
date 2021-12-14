@@ -143,6 +143,9 @@ export default class NewClass extends cc.Component {
     UsdtAccountAlert_16:cc.Prefab = null;
 
     @property(cc.Prefab)
+    ZfbWxAlert:cc.Prefab = null;
+
+    @property(cc.Prefab)
     BankAccountAlert_18:cc.Prefab = null;
 
     @property(cc.Prefab)
@@ -683,5 +686,14 @@ export default class NewClass extends cc.Component {
         let canvas = cc.find('Canvas');
         node.getComponent('payFruitHistory').init(group)
         canvas.addChild(node);
+    }
+    showZfbWxAlert(url){
+        var node = cc.instantiate(this.ZfbWxAlert)
+        var canvas = cc.find('Canvas');
+        //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/ZfbWxAlert")){
+            canvas.addChild(node);
+        }
+        node.getComponent('payZfbWxAlert').init(url)
     }
 }

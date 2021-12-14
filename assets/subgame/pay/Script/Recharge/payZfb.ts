@@ -348,9 +348,11 @@ export default class NewClass extends cc.Component {
         if(this.current.name == this.handling_feeName && this.handling_fee !=0 ){
             let blinkNodeLabel = this.blinkNode.getComponent(cc.Label)
             if(this.app.UrlData.package_id == 18){
-                blinkNodeLabel.string = "此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
+                blinkNodeLabel.string = "此通道只能选择固定金额，必须1分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
+            }else if(this.app.UrlData.package_id == 16){
+                blinkNodeLabel.string = ""
             }else{
-                blinkNodeLabel.string = "温馨提示：此通道只能选择固定金额，必须2分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
+                blinkNodeLabel.string = "温馨提示：此通道只能选择固定金额，必须1分钟内支付完成，若超时需要重新发起订单，切勿保存手机号重复支付，不然无法到账，损失自行承担。"
             }
             
             blinkNodeLabel.fontSize = 23
@@ -491,9 +493,11 @@ export default class NewClass extends cc.Component {
             if(this.channel == 'bankcard_transfer'){
                 this.fetchOrder();
             }
-            // else if(this.channel == 'im_pay'){
-            //     this.showPayIM()
-            // }
+            else if(this.app.UrlData.package_id == 16 && this.current.name == this.handling_feeName && this.handling_fee !=0){
+                //小额渠道提示
+                let url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&order_ip=${this.login_ip ? this.login_ip:"127.0.0.1"}&device_id=${this.app.gHandler.app.deviceID}&token=${this.app.token}&center_auth=${this.app.login_token}`
+                this.app.showZfbWxAlert(url);
+            }
             else{
                 var url = `${this.app.UrlData.host}/api/payment/payment?user_id=${this.app.UrlData.user_id}&user_name=${decodeURI(this.app.UrlData.user_name)}&payment_amount=${this.amountLabel.string}&channel_type=${this.current.channel_id}&channel_name=${this.current.name}&pay_name=${this.current.nick_name}&pay_type=${this.current.pay_type}&client=${this.app.UrlData.client}&proxy_user_id=${this.app.UrlData.proxy_user_id}&proxy_name=${decodeURI(this.app.UrlData.proxy_name)}&package_id=${this.app.UrlData.package_id}&order_ip=${this.login_ip ? this.login_ip:"127.0.0.1"}&device_id=${this.app.gHandler.app.deviceID}&token=${this.app.token}&center_auth=${this.app.login_token}`;
                 cc.sys.openURL(encodeURI(url))
@@ -501,6 +505,7 @@ export default class NewClass extends cc.Component {
             }
         }
     }
+    
     DelayBtn(){
         let czgoldbt1= cc.find("Canvas/Recharge/Content/Zfb/czgoldbt1").getComponent(cc.Button)
         czgoldbt1.interactable = false
