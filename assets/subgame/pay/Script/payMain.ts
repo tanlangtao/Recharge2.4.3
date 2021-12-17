@@ -181,6 +181,21 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     BankTipAlert_20:cc.Prefab = null;
 
+    @property(cc.Prefab)
+    BankAccountAlert_21:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    UsdtAccountAlert_21:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    PublicOrderAlert_21:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BeforePayOrderAlert_21:cc.Prefab = null;
+
+    @property(cc.Prefab)
+    BankTipAlert_21:cc.Prefab = null;
+
     @property()
     public UrlData : any = [];
     public config :Config = null;
@@ -334,6 +349,9 @@ export default class NewClass extends cc.Component {
         }else if( this.UrlData.package_id == 20){
             node = cc.instantiate(this.PublicOrderAlert_20);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_20);
+        }else if( this.UrlData.package_id == 21){
+            node = cc.instantiate(this.PublicOrderAlert_21);
+            beforePayOrder = cc.instantiate(this.BeforePayOrderAlert_21);
         }else{
             node = cc.instantiate(this.PublicOrderAlert);
             beforePayOrder = cc.instantiate(this.BeforePayOrderAlert);
@@ -403,6 +421,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankAccountAlert_18);
         }else if(this.UrlData.package_id == 20){
             node = cc.instantiate(this.BankAccountAlert_20);
+        }else if(this.UrlData.package_id == 21){
+            node = cc.instantiate(this.BankAccountAlert_21);
         }else{
             node = cc.instantiate(this.BankAccountAlert);
         }
@@ -438,6 +458,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.UsdtAccountAlert_16);
         }else if(this.UrlData.package_id == 20){
             node = cc.instantiate(this.UsdtAccountAlert_20);
+        }else if(this.UrlData.package_id == 21){
+            node = cc.instantiate(this.UsdtAccountAlert_21);
         }else{
             node = cc.instantiate(this.UsdtAccountAlert);
         }
@@ -463,6 +485,8 @@ export default class NewClass extends cc.Component {
             node = cc.instantiate(this.BankTipAlert_18);
         }else if(this.UrlData.package_id == 20){
             node = cc.instantiate(this.BankTipAlert_20);
+        }else if(this.UrlData.package_id == 21){
+            node = cc.instantiate(this.BankTipAlert_21);
         }
         node.getComponent('payBankTipAlert').init(component)
         //检测是否已存在弹窗，避免重复显示

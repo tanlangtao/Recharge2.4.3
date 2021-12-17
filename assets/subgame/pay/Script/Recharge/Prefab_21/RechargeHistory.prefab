@@ -2102,7 +2102,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "1e7f8f09-9e27-44fe-9d2b-b620f6c08cef"
+      "__uuid__": "4d610881-cbb5-4670-8dfa-5e47907be83d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2154,13 +2154,13 @@
     },
     "_enabled": true,
     "NavToggle": {
-      "__uuid__": "a071a198-5444-4d1c-aaa2-ebc22617fc60"
+      "__uuid__": "b993aa08-9bd5-4312-9faa-bf4a28d286d1"
     },
     "ToggleContainer": {
       "__id__": 50
     },
     "ListItem": {
-      "__uuid__": "fe7d4217-a8b6-442e-81d2-f54ed164263e"
+      "__uuid__": "2f9462a0-5a19-46f6-a60b-a1750aaeb117"
     },
     "List": {
       "__id__": 23

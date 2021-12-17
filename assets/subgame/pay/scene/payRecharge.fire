@@ -180,7 +180,7 @@
       "array": [
         0,
         0,
-        258.0755703277627,
+        257.2095449239783,
         0,
         0,
         0,
@@ -539,6 +539,21 @@
     },
     "BankTipAlert_20": {
       "__uuid__": "722e7f69-1565-4fb9-a36a-deaeda2e9d33"
+    },
+    "BankAccountAlert_21": {
+      "__uuid__": "c2adbc6f-0cc8-4f75-9978-598c2ba2302a"
+    },
+    "UsdtAccountAlert_21": {
+      "__uuid__": "ed095d97-c4ef-4ddc-b2b1-257a46eb6d72"
+    },
+    "PublicOrderAlert_21": {
+      "__uuid__": "b8d43d59-09b4-44b4-afda-ad74ce2034e9"
+    },
+    "BeforePayOrderAlert_21": {
+      "__uuid__": "f5aea7ef-f0d2-412b-b104-4de56624f6ea"
+    },
+    "BankTipAlert_21": {
+      "__uuid__": "18bcd9bf-412a-4ad8-809e-c6886492ebf2"
     },
     "UrlData": [],
     "_id": "adzv3Io5tPQKlumf9cchjh"
