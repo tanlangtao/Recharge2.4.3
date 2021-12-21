@@ -287,6 +287,7 @@ let hqqViewCtr = {
                 let webview = node.getChildByName("web").getComponent(cc.WebView);
                 webview.url = encodeURI(tempurl+dataStr);
                 webview = null;
+                cc.log("webview.url",tempurl+dataStr)
                 if(cc.director.getScene()){
                     let Noticelayer = cc.director.getScene().getChildByName("noticelayer");
                     let PayActivityWeb = node;
