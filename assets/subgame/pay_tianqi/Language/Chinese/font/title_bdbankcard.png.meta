@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "883b0a73-69e1-48f2-ad1e-76df3d74dec0",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 277,
+  "height": 51,
+  "platformSettings": {},
+  "subMetas": {
+    "title_bdbankcard": {
+      "ver": "1.0.4",
+      "uuid": "f2531f2d-14db-4857-960d-9a84f261057e",
+      "rawTextureUuid": "883b0a73-69e1-48f2-ad1e-76df3d74dec0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 277,
+      "height": 51,
+      "rawWidth": 277,
+      "rawHeight": 51,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
