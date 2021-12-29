@@ -73,9 +73,11 @@ export default class NewClass extends cc.Component {
                 this.app.gHandler.reflect && this.app.gHandler.reflect.setOrientation("portrait")
             }
         }
-        cc.director.preloadScene(scree,()=>{
-            cc.director.loadScene(scree);
-        })
+        //修改返回大厅代码
+        this.app.gHandler.eventMgr.dispatch(this.app.gHandler.eventMgr.showJumpScene,"hall")
+        // cc.director.preloadScene(scree,()=>{
+        //     cc.director.loadScene(scree);
+        // })
     }
     //充值历史
     public historyBtnClick() {

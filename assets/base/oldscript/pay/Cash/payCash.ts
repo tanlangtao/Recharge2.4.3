@@ -67,10 +67,11 @@ export default class NewClass extends cc.Component {
         if (scree == ""){
             scree = "hall"
         }
-        
-        cc.director.preloadScene(scree,()=>{
-            cc.director.loadScene(scree);
-        })
+        //修改返回大厅代码
+        this.app.gHandler.eventMgr.dispatch(this.app.gHandler.eventMgr.showJumpScene,"hall")
+        // cc.director.preloadScene(scree,()=>{
+        //     cc.director.loadScene(scree);
+        // })
     }
 
     public historyBtnClick() {
