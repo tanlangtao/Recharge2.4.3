@@ -26,10 +26,10 @@ cc.Class({
 
     },
     onClickClose() {
-        this.node.removeFromParent(true)
+        this.node.destroy()
     },
     onCickSure() {
-        console.log('onCickSure')
+        cc.log('onCickSure')
         let endurl = '?token=' + hqq.gameGlobal.token + '&deviceid=' + hqq.app.deviceID + '&acconunt=' + hqq.gameGlobal.player.account_name
         if (cc.sys.os === cc.sys.OS_ANDROID) {
             if (hqq.reflect.setClipboard('http://game.539316.com/' + endurl)) {

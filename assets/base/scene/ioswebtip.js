@@ -19,7 +19,7 @@ cc.Class({
     },
     init(data) { },
     onClickClose() {
-        this.node.removeFromParent(true)
+        this.node.destroy()
         hqq.localStorage.globalSet("noShowIosWebTip", true)
     },
     // update (dt) {},

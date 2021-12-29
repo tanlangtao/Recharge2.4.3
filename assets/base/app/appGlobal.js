@@ -2,22 +2,22 @@
 let appGlobal = {
     isRelease: true, // 是否是版本发布状态
     /* ------------------------------------------------------------------- */
-    pinpai: "nineone", // 渠道 test （特斯特） fuxin(富鑫) xingui (新贵) debi （德比） qibao （七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏）nineone （91游戏） xinsheng （新盛更名为大喜发） xinhao (新豪) xinlong(新隆) huangshi(皇室游戏) juding(聚鼎娱乐) huaxing(华兴娱乐) ninetwo(92游戏)
+    pinpai: "test", // 渠道 test （特斯特） fuxin(富鑫) xingui (新贵) debi （德比） qibao （七宝） xingba （杏吧娱乐） yuyu （渔鱼游戏） nineone （91游戏） xinsheng （新盛更名为大喜发） xinhao (新豪) xinlong(新隆) huangshi(皇室游戏) juding(聚鼎娱乐) huaxing(华兴娱乐) ninetwo(92游戏) tianqi(天启) chaofan(超凡娱乐) wansheng(万盛娱乐)
     // huanjin: "dev", // dev pre online
-    huanjin: "online", // pre online
+    huanjin: "pre", // pre online
     // huanjin: "online", // pre online
 
-    account_name: "724692133", // 账号,  
-    account_pass: "123456", //密码, 
+    // account_name: "341499998", // 账号,  
+    // account_pass: "123456", //密码, 
 
     deviceID: "",
     os: "android", // 平台 android ios
 
     secretlist: [ // 密码本
         "https://upgrade.whjfxly66.com/data_q.json",
-        "https://upgrade.0posi.club/data_q.json",
+        "https://upgrade.xiaoxiaozhileng.com/data_q.json",
         "https://upgrade.shuibajiameng.com/data_q.json",
-        "https://upgrade.qpola.club/data_q.json",
+        "https://upgrade.andychenyun.com/data_q.json",
         "https://upgrade.sdyz86.com/data_q.json",
         "https://upgrade.shuyahome.com/data_q.json",
         "https://code.aliyun.com/purchasing04/qcode/raw/master/data_q.json",
@@ -26,6 +26,7 @@ let appGlobal = {
         "https://lgroup000.gitlab.io/meta/data_q.json",
         "https://vvv56789.github.io/lobbygame/data_q.json",
         "https://bitbucket.org/lgroup110/qcode/raw/master/data_q.json",
+        // "https://bitbucket.org/lgroup110/qcode/raw/0055477a86b0249c06757b92c3e485dadeeda298/data_q.json", //不能用这种方式，更新后内容不改变
     ],
 
     apkVersionKey: "apkVersionKey",
@@ -35,7 +36,7 @@ let appGlobal = {
     version: "1.0.0",
 
     // hallVersionKey: "hallVersionKey",
-    // hallVersion: "1.0.0",
+    hallVersion: "2.0.37",
 
     secretBookKey: "secretBookKey", // 密码本
     secretBook: "", // 密码本
@@ -172,8 +173,8 @@ let appGlobal = {
         },
         huangshi:{
             dev: 936509381,
-            pre: 310933275,
-            online: 195201705
+            pre: 372584699,
+            online: 409277743
         },
         juding:{
             dev: 702585103,
@@ -189,6 +190,21 @@ let appGlobal = {
             dev: 498917599,
             pre: 841667955,
             online: 186959995
+        },
+        tianqi:{
+            dev: 455263995,
+            pre: 372584699,
+            online: 552856005
+        },
+        chaofan:{
+            dev: 351527366,
+            pre: 239796950,
+            online: 201340147
+        },
+        wansheng:{
+            dev: 968702313,
+            pre: 162354480,
+            online: 712529050
         },
     },
     versionJson: {}, // version.json
@@ -291,6 +307,12 @@ let appGlobal = {
             this.packageID = 18
         } else if (this.pinpai == "ninetwo") {
             this.packageID = 16
+        } else if (this.pinpai == "tianqi") {
+            this.packageID = 21
+        } else if (this.pinpai == "chaofan") {
+            this.packageID = 19
+        } else if (this.pinpai == "wansheng") {
+            this.packageID = 20
         }
         if (hqq.isDebug) {
             if (!this.deviceID) {
@@ -306,7 +328,7 @@ let appGlobal = {
         }
         else if (CC_DEBUG) {
             // this.isRelease = false
-            this.deviceID = "123456789" // burt
+            this.deviceID = "bbg2345" // burt
         }
         return this;
     },
@@ -425,7 +447,6 @@ let appGlobal = {
         }
         if (url.includes("center")) {
             hqq.gameGlobal.proxy.proxy_host = url.replace("center", "proxy")
-            cc.log("checkSubServer hqq.gameGlobal.proxy.proxy_host=",hqq.gameGlobal.proxy.proxy_host)
         }
         for (let k in hqq.subGameList) {
             let url = this.server

@@ -27,16 +27,16 @@ let commonTools = {
         }
         
         headid = parseInt(headid) % 10
-        if (hqq.app.pinpai != "xingui" && cc.isValid(  this.headRes )) {
+        if (hqq.app.pinpai != "xingui"&&hqq.app.pinpai != "ninetwo" && cc.isValid(  this.headRes )) {
             var spriteFrame = this.headRes.getSpriteFrame(`Avatar` + headid)
             if (spriteFrame) {
                 headsprite.spriteFrame = spriteFrame;
             } else {
-                headsprite.spriteFrame = t.getSpriteFrame(`Avatar0`);
+                headsprite.spriteFrame = this.headRes.getSpriteFrame(`Avatar0`);
             }
         } else {
             if (hqq.app.pinpai == "xingui") {
-                cc.resources.load(`/head/xingui/tx` + (headid + 1), cc.SpriteFrame, (err, t) => {
+                hqq["hall_xingui"].load(`/xingui/head/tx` + (headid + 1), cc.SpriteFrame, (err, t) => {
                     if (t) {
                         if( cc.isValid( headsprite ) )
                         {
@@ -54,7 +54,7 @@ let commonTools = {
                     headstr = "d"
                 }
                 let headconverid = [ 0,0,0,1,1,1,2,2,3,3]
-                cc.resources.load(`/hall/ninetwo/head/`+headstr+headconverid[headid], cc.SpriteFrame, (err, t) => {
+                hqq["hall_ninetwo"].load(`ninetwo/head/`+headstr+headconverid[headid], cc.SpriteFrame, (err, t) => {
                     if( cc.isValid( headsprite ) )
                     {
                         cc.log("loadHeadRes headid=",headid," headconverid[i]=",headconverid[headid])
@@ -377,6 +377,7 @@ let commonTools = {
      */
     fixedFloat(num, len = 2) {
         // return ~~(num * 100) / 100;
+        if(num === 0 )return 0;
         return num.toFixed(len);
     },
     formatGold(num) {
@@ -390,6 +391,20 @@ let commonTools = {
             return str
         }
     },
+    formatGold2(num , len = 4 ) {
+        let str = num.toString()
+        if (str.includes(".")) {
+            str = str.substring(0, str.indexOf(".") + len )
+            while( str.length - 1 > str.indexOf(".") && str[str.length-1] === '0' ){
+                str = str.substring(0,str.length-1);
+            }
+            if(str.length -1 === str.indexOf(".")){
+                str = str.substring(0,str.length-1);
+            }
+        }
+        return str;
+    },
+    
     /**
      * 填充数字，对于长度不足的，自动补零
      * @param num 需要填充的数字
@@ -450,6 +465,7 @@ let commonTools = {
                 }
             }
             cc.Button.prototype.hqqDelay = function (event) {
+                if(!cc.isValid(event.target))return;
                 if (this.interactable && this.enabledInHierarchy && this._hqqDelay) {
                     this.enabledInHierarchy = false // enabledInHierarchy 表示该组件是否被启用并且所在的节点也处于激活状态。
                     setTimeout(() => {
@@ -458,6 +474,7 @@ let commonTools = {
                 }
             }
             cc.Button.prototype._onTouchEnded = function (event) {
+                if(!cc.isValid(event.target))return;
                 if (this._hqqSoundon) {
                     this.hqqEffect()
                 }

@@ -36,10 +36,10 @@ let localStorage = {
             cc.sys.localStorage.setItem("bgIsOpenKey", true);
             cc.sys.localStorage.setItem("effectIsOpenKey", true);
         }
-        // console.log("log", JSON.parse(cc.sys.localStorage.getItem('log')))
-        // console.log("elog", JSON.parse(cc.sys.localStorage.getItem('elog')))
-        // console.log("global", JSON.parse(cc.sys.localStorage.getItem('globalKey')))
-        // console.log("subgame", JSON.parse(cc.sys.localStorage.getItem('subgameKey')))
+        // cc.log("log", JSON.parse(cc.sys.localStorage.getItem('log')))
+        // cc.log("elog", JSON.parse(cc.sys.localStorage.getItem('elog')))
+        // cc.log("global", JSON.parse(cc.sys.localStorage.getItem('globalKey')))
+        // cc.log("subgame", JSON.parse(cc.sys.localStorage.getItem('subgameKey')))
         return this;
     },
     set(subgame, key, data) {

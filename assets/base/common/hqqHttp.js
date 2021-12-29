@@ -139,8 +139,6 @@ let hqqHttp = {
         } else {
             xhr.setRequestHeader("Content-Type", 'application/x-www-form-urlencoded');
         }
-        // xhr.setRequestHeader("User-Agent","join-ns-hqq-"+hqq.app.pinapi);
-        // xhr.setRequestHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.81 Safari/537.36");
         var str = ''
         if (typeof mydata.param == 'object') {
             for (const key in mydata.param) {
@@ -214,7 +212,7 @@ let hqqHttp = {
      */
     requestFastestUrlLine(data) {
         if (!data.urllist) {
-            return console.log("请配置http列表地址")
+            return cc.log("请配置http列表地址")
         }
         let checknum = 0;
         let hasreceive = false;
@@ -226,7 +224,7 @@ let hqqHttp = {
         }
         let needJsonParse = data.needJsonParse
         let errcallback = (status, forcejump, url, err) => {
-            // console.log("请求失败", checknum, data.urllist.length, data.urllist[checknum])
+            // cc.log("请求失败", checknum, data.urllist.length, data.urllist[checknum])
             checknum++
             if (data.tipcallback) {
                 data.tipcallback(checknum)
@@ -435,7 +433,7 @@ let hqqHttp = {
                 callback(url, testindex, spendtime)
             })
             .catch(error => {
-                // console.log("error", error);
+                // cc.log("error", error);
                 callback(url, testindex, maxTime, error)
             });
     },

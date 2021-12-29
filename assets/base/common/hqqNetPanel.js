@@ -35,7 +35,7 @@ cc.Class({
         this.testEnd = false
         this.exitFunc = () => {
             hqq.app.hasLineChoiceLayer = false
-            this.node.removeFromParent(true)
+            this.node.destroy();
             hqq.http.stopTestLint();
             hqq.app.checkSubServer();
         }
@@ -152,29 +152,27 @@ cc.Class({
         } else if (hqq.app.pinpai == "juding" ) {
             let xpath = "base/juding/img/";
             let xlpath = "base/language/" + hqq.language + "/juding/";
-            let hpath = "hall/juding/img/";
-            let hlpath = "hall/language/" + hqq.language + "/juding/";
-            hqq.setSprite(background, { path: hpath + "jd_p_bandalibg_2",width:897,height:609 })
-            hqq.addNode(background, { path: hpath + "jd_lisp_bg_1" })
+            hqq.setSprite(background, { path: xpath + "jd_p_bandalibg_2",width:897,height:609 })
+            hqq.addNode(background, { path: xpath + "jd_lisp_bg_1" })
             // hqq.addNode(background, { path: xlpath + "ts", y: -175 })
-            hqq.setSprite(title_lt, { path: hlpath + "jd_popup_title_lineInspect", x: -300, y: 260, })
-            hqq.setBtn(exitbtn, { normal: hpath + "jd_popup_btn_close", x: 385, y: 258, callback: "onClickExit", script: this })
-            hqq.setBtn(btn_quickPick, { normal: hpath + "jd_p_btn_1_2", x: 330, y: -250, callback: "onClickQuikLogin", script: this })
+            hqq.setSprite(title_lt, { path: xlpath + "jd_popup_title_lineInspect", x: -300, y: 260, })
+            hqq.setBtn(exitbtn, { normal: xpath + "jd_popup_btn_close", x: 385, y: 258, callback: "onClickExit", script: this })
+            hqq.setBtn(btn_quickPick, { path: xpath + "jd_p_btn_1_2", x: 330, y: -250, callback: "onClickQuikLogin", script: this })
             hqq.addNode(btn_quickPick, { string:"ksxz", fontSize:24,color:cc.color("#94510A"),y:-10,bold:true })
-            hqq.setBtn(btn_refresh, { normal: hpath + "jd_btn_refresh", x: -140, y: 258, callback: "onClickRefreshTest", script: this })
+            hqq.setBtn(btn_refresh, { normal: xpath + "jd_btn_refresh", x: -140, y: 258, callback: "onClickRefreshTest", script: this })
 
             if (this.data.choicetype ) {
-                hqq.setSprite(up, { path: hpath + "jd_lisp_bg_2", x: 0, y: -5, width: 399, height: 397 })
+                hqq.setSprite(up, { path: xpath + "jd_lisp_bg_2", x: 0, y: -5, width: 399, height: 397 })
             } else {
-                hqq.setSprite(up, { path: hpath + "jd_lisp_bg_2", x: -210, y: -5, width: 399, height: 397 })
+                hqq.setSprite(up, { path: xpath + "jd_lisp_bg_2", x: -210, y: -5, width: 399, height: 397 })
             }
-            hqq.setSprite(center, { path: hpath + "jd_lisp_bg_2", x: 210, y: -5, width: 399, height: 397 })
+            hqq.setSprite(center, { path: xpath + "jd_lisp_bg_2", x: 210, y: -5, width: 399, height: 397 })
             hqq.setSprite(txt_t1, { path: xlpath + "gx", y: 160 })
             hqq.setSprite(txt_t2, { path: xlpath + "yx", y: 160 })
             let upcurline = up.getChildByName("curline")
-            hqq.setSprite(upcurline, { path: hpath + "jd_lisp_bg_3", width: 399,height:47, y: 113, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(upcurline, { path: xpath + "jd_lisp_bg_3", width: 399,height:47, y: 113, type: cc.Sprite.Type.SLICED })
             let centercurline = center.getChildByName("curline")
-            hqq.setSprite(centercurline, { path: hpath + "jd_lisp_bg_3", width: 399,height:47, y: 113, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(centercurline, { path: xpath + "jd_lisp_bg_3", width: 399,height:47, y: 113, type: cc.Sprite.Type.SLICED })
 
             hqq.setNode(upinto, { x: -110 })
             hqq.setNode(centerinfo, { x: -110 })
@@ -206,24 +204,22 @@ cc.Class({
 
         } else if (hqq.app.pinpai == "huaxing" ) {
             let xpath = "base/huaxing/img/";
+            let xbpath = "bigimg/huaxing/";
             let xlpath = "base/language/" + hqq.language + "/huaxing/";
-            let hpath = "hall/huaxing/img/";
-            let hbpath = "hall/huaxing/bigimg/";
-            let hlpath = "hall/language/" + hqq.language + "/huaxing/";
-            hqq.setSprite(background, { path: hbpath + "dauang",width:1037,height:626 })
-            hqq.addNode(background, { path: hpath + "d_tit" , y:300})
+            hqq.setSprite(background, { path: xbpath + "dauang",width:1037,height:626 })
+            hqq.addNode(background, { path: xpath + "d_tit" , y:300})
             // hqq.addNode(background, { path: hpath + "jd_lisp_bg_1" })
             // hqq.addNode(background, { path: xlpath + "ts", y: -175 })
-            hqq.setSprite(title_lt, { path: hlpath + "xiankujiance", x: 0, y: 295, })
-            hqq.setBtn(exitbtn, { normal: hpath + "btn_x", x: 515, y: 300, callback: "onClickExit", script: this })
-            hqq.setBtn(btn_quickPick, { normal: hpath + "btn_2", x: 360, y: 270, callback: "onClickQuikLogin", script: this,width:159,height:52 })
+            hqq.setSprite(title_lt, { path: xlpath + "xiankujiance", x: 0, y: 295, })
+            hqq.setBtn(exitbtn, { normal: xpath + "btn_x", x: 515, y: 300, callback: "onClickExit", script: this })
+            hqq.setBtn(btn_quickPick, { normal: xpath + "btn_2", x: 360, y: 270, callback: "onClickQuikLogin", script: this,width:159,height:52 })
             hqq.addNode(btn_quickPick, { string:"ksxz", fontSize:24,y:-10,bold:true })
             
             hqq.addNode(btn_refresh,{string:"str12",fontSize:24,color:cc.color(100,36,16),bold:true,y:-13})
 
-            hqq.setSprite(center, { path: hpath + "xiaokuang", x: 250, y: -40, width: 486, height: 425 , type: cc.Sprite.Type.SLICED})
+            hqq.setSprite(center, { path: xpath + "xiaokuang", x: 250, y: -40, width: 486, height: 425 , type: cc.Sprite.Type.SLICED})
             
-            hqq.setSprite(txt_t2, { path: hlpath + "yxfwxxl", y: 240 })
+            hqq.setSprite(txt_t2, { path: xlpath + "yxfwxxl", y: 240 })
            
             hqq.setNode(upinto, { x: -110 })
             hqq.setNode(centerinfo, { x: -110 })
@@ -238,12 +234,12 @@ cc.Class({
 
             if (this.data.choicetype ) {
                 let upcurline = up.getChildByName("curline")
-                hqq.setSprite(upcurline, { path: hpath + "taitoukuang", width: 630,height:46, y: 180, type: cc.Sprite.Type.SLICED })
-                hqq.setSprite(up.getChildByName("frame_1"),{path:hpath+"shurukuang"})
+                hqq.setSprite(upcurline, { path: xpath + "taitoukuang", width: 630,height:46, y: 180, type: cc.Sprite.Type.SLICED })
+                hqq.setSprite(up.getChildByName("frame_1"),{path:xpath+"shurukuang"})
 
-                hqq.setBtn(btn_refresh, { normal: hpath + "btn_3", x: 180, y: 200, callback: "onClickRefreshTest", script: this })
-                hqq.setSprite(up, { path: hpath + "xiaokuang", x: 0, y: -40, width: 648, height: 425 , type: cc.Sprite.Type.SLICED})
-                hqq.setSprite(txt_t1, { path: hlpath + "gxfwxxl", x:-40,y: 240 })
+                hqq.setBtn(btn_refresh, { normal: xpath + "btn_3", x: 180, y: 200, callback: "onClickRefreshTest", script: this })
+                hqq.setSprite(up, { path: xpath + "xiaokuang", x: 0, y: -40, width: 648, height: 425 , type: cc.Sprite.Type.SLICED})
+                hqq.setSprite(txt_t1, { path: xlpath + "gxfwxxl", x:-40,y: 240 })
 
                 this.upScrollview.node.y = -20
                 this.upScrollview.node.width = 620
@@ -255,15 +251,15 @@ cc.Class({
                 this.item.width = 620;
             } else {
                 let upcurline = up.getChildByName("curline")
-                hqq.setSprite(upcurline, { path: hpath + "taitoukuang", width: 466,height:46, y: 180, type: cc.Sprite.Type.SLICED })
-                hqq.setSprite(up.getChildByName("frame_1"),{path:hpath+"shurukuang"})
+                hqq.setSprite(upcurline, { path: xpath + "taitoukuang", width: 466,height:46, y: 180, type: cc.Sprite.Type.SLICED })
+                hqq.setSprite(up.getChildByName("frame_1"),{path:xpath+"shurukuang"})
                 let centercurline = center.getChildByName("curline")
-                hqq.setSprite(centercurline, { path: hpath + "taitoukuang", width: 466,height:46, y: 180, type: cc.Sprite.Type.SLICED })
-                hqq.setSprite(center.getChildByName("frame_1"),{path:hpath+"shurukuang"})
+                hqq.setSprite(centercurline, { path: xpath + "taitoukuang", width: 466,height:46, y: 180, type: cc.Sprite.Type.SLICED })
+                hqq.setSprite(center.getChildByName("frame_1"),{path:xpath+"shurukuang"})
 
-                hqq.setBtn(btn_refresh, { normal: hpath + "btn_3", x: 0, y: 200, callback: "onClickRefreshTest", script: this })
-                hqq.setSprite(up, { path: hpath + "xiaokuang", x: -250, y: -40, width: 486, height: 425 , type: cc.Sprite.Type.SLICED})
-                hqq.setSprite(txt_t1, { path: hlpath + "gxfwxxl", x:0,y: 240 })
+                hqq.setBtn(btn_refresh, { normal: xpath + "btn_3", x: 0, y: 200, callback: "onClickRefreshTest", script: this })
+                hqq.setSprite(up, { path: xpath + "xiaokuang", x: -250, y: -40, width: 486, height: 425 , type: cc.Sprite.Type.SLICED})
+                hqq.setSprite(txt_t1, { path: xlpath + "gxfwxxl", x:0,y: 240 })
 
                 this.upScrollview.node.y = -20
                 this.upScrollview.node.width = 460
@@ -286,22 +282,19 @@ cc.Class({
 
         } else if (hqq.app.pinpai == "ninetwo" ) {
             let xpath = "base/ninetwo/img/";
-            let xlpath = "base/language/" + hqq.language + "/huaxing/";
-            let hpath = "hall/ninetwo/img/";
-            let hbpath = "hall/ninetwo/bigimg/";
-            let hlpath = "hall/language/" + hqq.language + "/ninetwo/img/";
-            hqq.setSprite(background, { path: hpath + "daditu",width:773,height:464,x:0,y:0 })
-            hqq.setSprite(title_lt, { path: hlpath + "fds", x: 0, y: 210, })
-            hqq.addNode(title_lt,{path:hlpath+"hfhfg",y:-30})
-            hqq.setBtn(exitbtn, { normal: hpath + "guanbi", x: 380, y: 230, callback: "onClickExit", script: this })
-            hqq.setBtn(btn_quickPick, { normal: hpath + "daanniu", x: 250, y: 202, callback: "onClickQuikLogin", script: this,width:159,height:52 })
+            let xlpath = "base/language/" + hqq.language + "/ninetwo/img/";
+            hqq.setSprite(background, { path: xpath + "popup_win_bg3",width:813,height:562,x:0,y:0 })
+            hqq.setSprite(title_lt, { path: xlpath + "fds", x: 0, y: 240, })
+            hqq.setBtn(exitbtn, { normal: xpath + "guanbi", x: 400, y: 275, callback: "onClickExit", script: this })
+            btn_quickPick.active = false;
+            btn_quickPick = hqq.addNode(this.node, { normal: "base/ninetwo/dating_btn_orange_big",aniname:"animation",loop:true,timeScale:0.95, x: 250, y: 240, callback: "onClickQuikLogin", script: this })
             hqq.addNode(btn_quickPick, { string:"ksxz", fontSize:24,bold:true ,color:cc.color(59,31,11),y:-10})
-            hqq.setSprite(btn_refresh,{path:hpath+"xiaoanniu"})
-            hqq.addNode(btn_refresh,{string:"str12",fontSize:24,color:cc.color(100,36,16),bold:true,y:-13})
+            hqq.setBtn(btn_refresh,{path:"base/ninetwo/dating_btn_small",aniname:"animation",loop:true,timeScale:0.95, callback: "onClickRefreshTest", script: this})
+            hqq.addNode(btn_refresh,{string:"str12",fontSize:24,color:cc.color(100,36,16),bold:true,y:-10})
 
-            hqq.setSprite(center, { path: hpath + "xiaodifd", x: 190, y: -20, width: 366, height: 344 , type: cc.Sprite.Type.SLICED})
+            hqq.setSprite(center, { path: xpath + "xiaodifd", x: 190, y: -20, width: 366, height: 344 , type: cc.Sprite.Type.SLICED})
             
-            hqq.setSprite(txt_t2, { path: hlpath + "yryr", x:20,y: 153 })
+            hqq.setSprite(txt_t2, { path: xlpath + "yryr", x:20,y: 153 })
            
 
             if (this.data.choicetype ) {
@@ -309,11 +302,11 @@ cc.Class({
                 upcurline.getComponent(cc.Sprite).spriteFrame = null;
                 upcurline.width = 360;
                 upcurline.setPosition(50,110);
-                hqq.setSprite(up.getChildByName("frame_1"),{path:hpath+"shurukuang"})
+                hqq.setSprite(up.getChildByName("frame_1"),{path:xpath+"shurukuang"})
 
-                hqq.setBtn(btn_refresh, { normal: hpath + "xiaoanniu", x: 250, y: 130, callback: "onClickRefreshTest", script: this })
-                hqq.setSprite(up, { path: hpath + "xiaodifd", x: 0, y: -40, width: 366, height: 344 , type: cc.Sprite.Type.SLICED})
-                hqq.setSprite(txt_t1, { path: hlpath + "eqwq", x:0,y: 153 })
+                hqq.setNode(btn_refresh, { x: 250, y: 150 })
+                hqq.setSprite(up, { path: xpath + "xiaodifd", x: 0, y: -40, width: 366, height: 344 , type: cc.Sprite.Type.SLICED})
+                hqq.setSprite(txt_t1, { path: xlpath + "eqwq", x:0,y: 153 })
 
                 this.upScrollview.node.setPosition(0,-45);
                 this.upScrollview.node.width = 366
@@ -329,16 +322,16 @@ cc.Class({
                 upcurline.getComponent(cc.Sprite).spriteFrame = null;
                 upcurline.width = 360;
                 upcurline.setPosition(50,110);
-                hqq.setSprite(up.getChildByName("frame_1"),{path:hpath+"shurukuang"})
+                hqq.setSprite(up.getChildByName("frame_1"),{path:xpath+"shurukuang"})
                 let centercurline = center.getChildByName("curline")
                 centercurline.getComponent(cc.Sprite).spriteFrame = null;
                 centercurline.width = 360;
                 centercurline.setPosition(50,110);
-                hqq.setSprite(center.getChildByName("frame_1"),{path:hpath+"shurukuang"})
+                hqq.setSprite(center.getChildByName("frame_1"),{path:xpath+"shurukuang"})
 
-                hqq.setBtn(btn_refresh, { normal: hpath + "xiaoanniu", x: 0, y: 130, callback: "onClickRefreshTest", script: this })
-                hqq.setSprite(up, { path: hpath + "xiaodifd", x: -190, y: -20, width: 366, height: 344 , type: cc.Sprite.Type.SLICED})
-                hqq.setSprite(txt_t1, { path: hlpath + "eqwq", x:-20,y: 153 })
+                hqq.setNode(btn_refresh, { x: 0, y: 175 })
+                hqq.setSprite(up, { path: xpath + "xiaodifd", x: -190, y: -20, width: 366, height: 344 , type: cc.Sprite.Type.SLICED})
+                hqq.setSprite(txt_t1, { path: xlpath + "eqwq", x:-20,y: 153 })
 
                 this.upScrollview.node.setPosition(0,-45);
                 this.upScrollview.node.width = 366
@@ -361,6 +354,23 @@ cc.Class({
             
             hqq.setNode(this.item.getChildByName("curline"), { x: -125 })
             hqq.setNode(this.item.getChildByName("choicebtn"), { x: 105 })
+
+        } else if(hqq.app.pinpai == "tianqi" ) {
+            let tpath = "base/img/"
+            let tlpath = "base/language/" + hqq.language + "/img/"
+            hqq.setSprite(background, { path: "base/tianqi/img/p_bandalibg2" })
+            hqq.setSprite(title_lt, { path: tlpath + "title_lt" })
+            hqq.setBtn(exitbtn, { normal: "base/tianqi/img/p_close", callback: "onClickExit", script: this })
+            hqq.setBtn(btn_quickPick, { normal: tlpath + "btn_quickPick", callback: "onClickQuikLogin", script: this })
+            if ( this.data.choicetype ) {
+                hqq.setBtn(btn_refresh, { normal: tlpath + "btn_refresh", position: { x: 160, y: 185 }, callback: "onClickRefreshTest", script: this })
+            } else {
+                hqq.setBtn(btn_refresh, { normal: tlpath + "btn_refresh", position: { x: 0, y: 185 }, callback: "onClickRefreshTest", script: this })
+            }
+            hqq.setSprite(txt_t1, { path: tlpath + "txt_t1" })
+            hqq.setSprite(txt_t2, { path: tlpath + "txt_t2" })
+            hqq.setSprite(up, { path: tpath + "bg_white" })
+            hqq.setSprite(center, { path: tpath + "bg_white" })
 
         } else {
             let tpath = "base/img/"
@@ -389,8 +399,10 @@ cc.Class({
             hqq.setLabel(tiplabel, { string: "testtiplabel3", color: cc.color("#EC6941"), x:-30,y: -250 })
         } else if (hqq.app.pinpai == "xingui") {
             hqq.setLabel(tiplabel, { string: "testtiplabel2", color: cc.color(255, 0, 0,255), y: -270 })
-        }  else if (hqq.app.pinpai == "huaxing") {
+        } else if (hqq.app.pinpai == "huaxing") {
             hqq.setLabel(tiplabel, { string: "testtiplabel", color: cc.color(255, 255, 255,255) })
+        } else if(hqq.app.pinpai == "ninetwo"){
+            hqq.setLabel(tiplabel, { string: "testtiplabel" ,y:-250})
         } else {
             hqq.setLabel(tiplabel, { string: "testtiplabel" })
         }
@@ -402,7 +414,7 @@ cc.Class({
             if (data.restartGame) {
                 this.exitFunc = () => {
                     hqq.app.hasLineChoiceLayer = false
-                    this.node.removeFromParent(true)
+                    this.node.destroy()
                     data.exitFunc();
                     hqq.http.stopTestLint();
                     hqq.app.checkSubServer();
@@ -412,7 +424,7 @@ cc.Class({
             } else {
                 this.exitFunc = () => {
                     hqq.app.hasLineChoiceLayer = false
-                    this.node.removeFromParent(true)
+                    this.node.destroy()
                     data.exitFunc();
                     hqq.http.stopTestLint();
                     hqq.app.checkSubServer();
@@ -421,7 +433,7 @@ cc.Class({
         } else if (data.restartGame) {
             this.exitFunc = () => {
                 hqq.app.hasLineChoiceLayer = false
-                this.node.removeFromParent(true)
+                this.node.destroy()
                 hqq.http.stopTestLint();
                 hqq.app.checkSubServer();
                 cc.audioEngine.stopAll();
@@ -584,6 +596,8 @@ cc.Class({
     },
     refreshUpScrollView(list) {
         this.upScrollview.content.height = list.length * this.item.height
+        this.upScrollview.content.removeAllChildren();
+        this.upgradeItemList = [];
         for (let i = 0; i < list.length; i++) {
             if (this.upgradeItemList[i]) {
                 this.upgradeItemList[i].active = true
@@ -599,6 +613,9 @@ cc.Class({
                     hqq.btnLoad(choicebtn, "base/language/" + hqq.language + "/xinsheng/xzbtn")
                 } else if (hqq.app.pinpai == "juding" ) {
                     hqq.setBtn(choicebtn, { normal: "base/language/" + hqq.language + "/juding/xz", pressed: "base/language/" + hqq.language + "/juding/xz1", transition: cc.Button.Transition.SPRITE })
+                } else if (hqq.app.pinpai == "ninetwo" ) {
+                    hqq.setBtn(choicebtn, { normal: "base/ninetwo/dating_btn_small", aniname:"animation",loop:true,timeScale:0.95 })
+                    hqq.addNode(choicebtn, { string: "xz", fontSize: 22, y: -10 ,color:cc.color(59,31,11),bold:true})
                 } else {
                     hqq.btnLoad(choicebtn, "base/language/" + hqq.language + "/img/btn_c1", "base/language/" + hqq.language + "/img/btn_c2")
                 }
@@ -643,6 +660,8 @@ cc.Class({
     },
     refreshCenterScrollView(list) {
         this.centerScrollview.content.height = list.length * this.item.height
+        this.centerScrollview.content.removeAllChildren();
+        this.centerItemList = [];
         for (let i = 0; i < list.length; i++) {
             if (this.centerItemList[i]) {
                 this.centerItemList[i].active = true
@@ -658,6 +677,9 @@ cc.Class({
                     hqq.btnLoad(choicebtn, "base/language/" + hqq.language + "/xinsheng/xzbtn")
                 } else if (hqq.app.pinpai == "juding" ) {
                     hqq.setBtn(choicebtn, { normal: "base/language/" + hqq.language + "/juding/xz", pressed: "base/language/" + hqq.language + "/juding/xz1", transition: cc.Button.Transition.SPRITE })
+                } else if (hqq.app.pinpai == "ninetwo" ) {
+                    hqq.setBtn(choicebtn, { normal: "base/ninetwo/dating_btn_small", aniname:"animation",loop:true,timeScale:0.95 })
+                    hqq.addNode(choicebtn, { string: "xz", fontSize: 22, y: -10 ,color:cc.color(59,31,11),bold:true})
                 } else {
                     hqq.btnLoad(choicebtn, "base/language/" + hqq.language + "/img/btn_c1", "base/language/" + hqq.language + "/img/btn_c2")
                 }
@@ -714,6 +736,7 @@ cc.Class({
         }
     },
     onClickExit() {
+        hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, "closeChoiceLimeLayer");
         this.exitFunc()
     },
     onClickQuikLogin() {
@@ -760,7 +783,7 @@ cc.Class({
         hqq.app.hotServerIndex = index1;
         hqq.localStorage.globalSet(hqq.app.hotServerIndexKey, index1);
         this.refreshCurUpLine(this.upgradeList[index0].time, index1)
-        console.log("选择情况", this.upchoice, this.centerchoice)
+        cc.log("选择情况", this.upchoice, this.centerchoice)
         if ( this.data.choicetype || this.centerchoice) {
             this.onClickExit()
         }
@@ -784,7 +807,7 @@ cc.Class({
         hqq.app.serverIndex = index1;
         hqq.localStorage.globalSet(hqq.app.serverIndexKey, index1);
         this.refreshCurCenterLine(this.centerList[index0].time, index1)
-        console.log("选择情况", this.upchoice, this.centerchoice)
+        cc.log("选择情况", this.upchoice, this.centerchoice)
         if (this.upchoice) {
             this.onClickExit()
         }
@@ -813,9 +836,13 @@ cc.Class({
             return
         }
         hqq.hasLineChoiceLayer = false
-        this.node.removeFromParent(true)
+        let data = hqq.commonTools.jsonCopy(this.data);
+        data.exitFunc = this.data.exitFunc;
+        this.node.destroy()
         hqq.http.stopTestLint();
-        hqq.eventMgr.dispatch(hqq.eventMgr.showLineChoiceLayer, this.data)
+        setTimeout(() => {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLineChoiceLayer, data)
+        }, 500);
     }
     // update (dt) {},
 });

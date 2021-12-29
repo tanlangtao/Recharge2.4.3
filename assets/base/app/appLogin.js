@@ -18,6 +18,11 @@ let appLogin = {
             + ",osVersion:" + cc.sys.osVersion
             + ",osMainVersion:" + cc.sys.osMainVersion
             + ",Cocos Creator v" + cc.ENGINE_VERSION;
+
+        this.hallversionList = [ "test","debi","xingba","nineone","xinhao","huangshi","tianqi"];
+        this.proxyversionList = [ "test"];
+        this.IMversionList = [];
+        this.payversionList = [ "test","debi","xingba","nineone","xinhao","huangshi","chaofan"];
         if (CC_JSB) {
             if (cc.sys.platform === cc.sys.ANDROID || cc.sys.os === cc.sys.OS_ANDROID
                 || cc.sys.platform === cc.sys.IPHONE || cc.sys.platform === cc.sys.IPAD || cc.sys.os === cc.sys.OS_IOS) {
@@ -55,6 +60,11 @@ let appLogin = {
         this.tryIndex = 0
         this.serverinfoTryIndex = 0
         this.gamelistTryIndex = 0
+        this.videoplayering = false;
+        this.updatefininshed = false;
+        if(hqq.app.pinpai == "ninetwo" || CC_DEBUG ){
+            this.videoplayering = true;
+        }
         // if (hqq.isDebug) {
         //     cc.director.preloadScene("hall", this.onProgress.bind(this), () => {
         //         cc.director.loadScene("hall");
@@ -98,7 +108,7 @@ let appLogin = {
     },
     getLocalIp2(trynum, next) {
         let callback = (data) => {
-            // console.log("ipinfoData", data)
+            // cc.log("ipinfoData", data)
             hqq.gameGlobal.ipinfoData = data
             hqq.gameGlobal.ipList.push(data.ip)
             hqq.eventMgr.dispatch(hqq.eventMgr.refreshLoading, data.ip, data.region, "ipinfo")
@@ -227,7 +237,8 @@ let appLogin = {
     },
     requestUpgradeInfo() {
         let callback = (response, url) => {
-            console.log("response", response)
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, "closeChoiceLimeLayer");
+            cc.log("response", response)
             hqq.app.versionJson = response
             hqq.app.subGameVersion = response.version
             if (response[hqq.app.pinpai]) {
@@ -245,9 +256,11 @@ let appLogin = {
             hqq.logMgr.log("requestUpgradeInfo 请求热更服务器信息失败", status, forcejump, url, err, readyState)
             this.reStartAtSecret()
         }
+        let tempurlto = hqq.app.canHotServer + "/" + hqq.app.hotupdatePath + "/" + 'version.json?' + Math.floor(Math.random() * 1000000);
+        console.log("tempurlto=",tempurlto)
         hqq.http.sendXMLHttpRequest({
             method: 'GET',
-            urlto: hqq.app.canHotServer + "/" + hqq.app.hotupdatePath + "/" + 'version.json?' + Math.floor(Math.random() * 1000000),
+            urlto: tempurlto,
             callback: callback,
             failcallback: failcallback,
             needJsonParse: true,
@@ -261,6 +274,7 @@ let appLogin = {
             choicetype:1,
         }
         hqq.eventMgr.dispatch(hqq.eventMgr.showLineChoiceLayer, data)
+        hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, "showChoiceLimeLayer");
     },
     refreshServerList() {
         let urllist = hqq.localStorage.globalGet(hqq.app.codeBookKey)
@@ -273,7 +287,7 @@ let appLogin = {
             hqq.localStorage.globalSet(hqq.app.selectServerIndexKey, checknum);
             let responseurl = this.decodeServer(response);
             let murllist = responseurl.split(",");
-            // console.log("murllist", murllist)
+            // cc.log("murllist", murllist)
             if (!hasreceive) {
                 hasreceive = true;
                 hqq.app.serverList = []
@@ -355,6 +369,7 @@ let appLogin = {
                 hqq.localStorage.globalSet(hqq.app.serverListKey, hqq.app.serverList);
                 if (hqq.app.server && hqq.app.canHotServer && this.isfirst) {
                     this.requestGameSeverInfo();
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, "closeChoiceLimeLayer");
                 } else {
                     this.showChoiceLimeLayer();
                 }
@@ -483,7 +498,7 @@ let appLogin = {
                         delete hqq.subGameList["qznn"];
                         delete hqq.subGameList["shaibao"];
                         delete hqq.subGameList["sss"];
-                        // delete hqq.subGameList["ermj"];
+                        delete hqq.subGameList["ermj"];
                         // delete hqq.subGameList["pdk"];
                         // delete hqq.subGameList["21d"];
                         delete hqq.subGameList["bjl"];
@@ -519,7 +534,7 @@ let appLogin = {
                         delete hqq.subGameList["qznn2"];
                         delete hqq.subGameList["shaibao2"];
                         delete hqq.subGameList["sss2"];
-                        // delete hqq.subGameList["ermj2"];
+                        delete hqq.subGameList["ermj2"];
                         // delete hqq.subGameList["pdk2"];
                         // delete hqq.subGameList["21d2"];
                         delete hqq.subGameList["bjl2"];
@@ -542,11 +557,11 @@ let appLogin = {
                         delete hqq.subGameList["cyqp"]
                         hqq.setJudingHallIdType()
                     } else {
-                        if(hqq.app.pinpai!= "test" && hqq.app.pinpai != "ninetwo" ){
+                        if(hqq.app.pinpai!= "test" && hqq.app.pinpai != "ninetwo" && hqq.app.pinpai != "huangshi"  && hqq.app.pinpai != "chaofan" ){
                             delete hqq.subGameList["mg"];
                             delete hqq.subGameList["qt"];
                             delete hqq.subGameList["szffc"];
-                            // delete hqq.subGameList["sanshengtiyu"];
+                            delete hqq.subGameList["sanshengtiyu"];
                             delete hqq.subGameList["ppdz"];
                         }
                         
@@ -565,8 +580,7 @@ let appLogin = {
                             delete hqq.subGameList["sbty2"];
                             delete hqq.subGameList["zrsx1"];
                             delete hqq.subGameList["zrsx2"];
-                        } else if(hqq.app.pinpai == "nineone"||hqq.app.pinpai == "huangshi"||
-                                  hqq.app.pinpai == "huaxing" ){
+                        } else if(hqq.app.pinpai == "nineone"||hqq.app.pinpai == "huaxing" ){
                             // delete hqq.subGameList["hbsl"];
                             delete hqq.subGameList["cyqp"];
                         } else if( hqq.app.pinpai == "ninetwo" ){
@@ -574,7 +588,16 @@ let appLogin = {
                             delete hqq.subGameList["cyqp"];
                             delete hqq.subGameList["qt"];
                             delete hqq.subGameList["szffc"];
-                            // delete hqq.subGameList["sanshengtiyu"];
+                            delete hqq.subGameList["sanshengtiyu"];
+                        } else if( hqq.app.pinpai == "huangshi" ){
+                            // delete hqq.subGameList["hbsl"];
+                            delete hqq.subGameList["cyqp"];
+                            // delete hqq.subGameList["mg"];
+                            // delete hqq.subGameList["qt"];
+                            delete hqq.subGameList["szffc"];
+                            delete hqq.subGameList["sanshengtiyu"];
+                        } else if( hqq.app.pinpai == "tianqi" ) {
+                            delete hqq.subGameList["cyqp"];
                         }
                         let sortarray = []
                         for (let k in hqq.subGameList) {
@@ -696,6 +719,8 @@ let appLogin = {
         hqq.eventMgr.register(hqq.eventMgr.hotProgress, "appLogin", this.progressCallback.bind(this))
         hqq.eventMgr.register(hqq.eventMgr.hotFinish, "appLogin", this.finishCallback.bind(this))
         main_version = main_version == '1.0.0' ? '' : main_version
+        //第一步 hall更新(base的资源)
+        console.log("第一步 hall更新(base的资源)")
         hqq.hotUpdateMgr.checkUpdate({
             subname: "hall",
             version: hqq.app.version,
@@ -746,20 +771,170 @@ let appLogin = {
             hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip4"))
         }
     },
-    isupdataCallback(bool, subname) {
+    isupdataCallback(bool, subname,isfail=false) {
+        console.log("isupdataCallback bool=",bool , " subname",subname , " isfail=",isfail);
         if (bool) {
             hqq.logMgr.log(subname + "需要更新")
         } else {
             hqq.logMgr.log(subname + "不需要更新")
-            if (subname == "hall" || subname == "") {
-                hqq.localStorage.globalSet(hqq.app.versionKey, hqq.app.subGameVersion.hall)
+            
+            let hallStr = "hall_" + hqq.app.pinpai;
+            for(let i = 0; i < hqq.loginMgr.hallversionList.length;i++){
+                if(hqq.app.pinpai == hqq.loginMgr.hallversionList[i]){
+                    hallStr = "hall_test";
+                    break;
+                }
             }
-            this.requestGameSeverInfo()
+           
+            let proxyStr = "proxy_" + hqq.app.pinpai;
+            for(let i = 0; i < hqq.loginMgr.proxyversionList.length;i++){
+                if(hqq.app.pinpai == hqq.loginMgr.proxyversionList[i]){
+                    proxyStr = "proxy_test";
+                    break;
+                }
+            }
+            if(hqq.app.pinpai === "debi"){
+                proxyStr = "proxy_xingba";
+            }
+
+            let IMStr = "IM_test";
+            for(let i = 0; i < hqq.loginMgr.IMversionList.length;i++){
+                if(hqq.app.pinpai == hqq.loginMgr.IMversionList[i]){
+                    IMStr = "IM_" + hqq.app.pinpai;
+                    break;
+                }
+            }
+
+            let payStr = "pay_" + hqq.app.pinpai;
+            for(let i = 0; i < hqq.loginMgr.payversionList.length;i++){
+                if(hqq.app.pinpai == hqq.loginMgr.payversionList[i]){
+                    payStr = "pay_test";
+                    break;
+                }
+            }
+            if(hqq.app.pinpai === "xinlong"){
+                payStr = "pay_xinsheng";
+            }
+
+            //第二步 hall_品牌更新
+            if (subname == "hall" || subname == "") {
+                if(isfail){
+                   console.log("第二步 hall_品牌更新 失败")
+                   this.failCallback(subname);
+                   return;
+                }
+                console.log("第二步 hall_品牌更新")
+                hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip61"))
+                hqq.eventMgr.register(hqq.eventMgr.hotCheckup, "appLogin", this.isupdataCallback.bind(this))
+                hqq.eventMgr.register(hqq.eventMgr.hotFail, "appLogin", this.failCallback.bind(this))
+                hqq.eventMgr.register(hqq.eventMgr.hotProgress, "appLogin", this.progressCallback.bind(this))
+                hqq.eventMgr.register(hqq.eventMgr.hotFinish, "appLogin", this.finishCallback.bind(this))
+
+                hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip84"))
+
+                hqq.localStorage.globalSet(hqq.app.versionKey, hqq.app.subGameVersion.hall)
+                
+                let localsubv = hqq.localStorage.get(hallStr, "versionKey") || null;
+                
+                hqq.hotUpdateMgr.checkUpdate({
+                    subname: hallStr,
+                    version: localsubv || "1.0.0",
+                })
+            } else if( subname === hallStr ){
+                hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip87"))
+                let localsubv = hqq.localStorage.get(payStr, "versionKey") || null;
+                console.log("=================isupdataCallback payStr localsubv=",localsubv)
+                hqq.hotUpdateMgr.checkUpdate({
+                    subname: payStr,
+                    version: localsubv || "1.0.0",
+                })
+            } else if( subname === payStr ){
+                if(isfail){
+                    console.log("第二步 pay_品牌更新 失败")
+                    this.failCallback(subname);
+                    return;
+                }
+                hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip90"))
+                let localsubv = hqq.localStorage.get(proxyStr, "versionKey") || null;
+                console.log("=================isupdataCallback proxyStr localsubv=",localsubv)
+                hqq.hotUpdateMgr.checkUpdate({
+                    subname: proxyStr,
+                    version: localsubv || "1.0.0",
+                })
+            } else if( subname === proxyStr ){
+                if(isfail){
+                    console.log("第二步 proxy_品牌更新 失败")
+                    this.failCallback(subname);
+                    return;
+                }
+                hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip93"))
+                let localsubv = hqq.localStorage.get(IMStr, "versionKey") || null;
+                console.log("=================isupdataCallback IMStr localsubv=",localsubv)
+                hqq.hotUpdateMgr.checkUpdate({
+                    subname: IMStr,
+                    version: localsubv || "1.0.0",
+                })
+            } else if(subname === IMStr ){
+                if(isfail){
+                    console.log("第二步 IM_品牌更新 失败")
+                    this.failCallback(subname);
+                    return;
+                }
+                console.log("全部更新完毕进入大厅")
+                this.requestGameSeverInfo()
+            }
         }
     },
     failCallback(subname) {
+        console.log("failCallback subname",subname);
+        let hallStr = "hall_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.hallversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.hallversionList[i]){
+                hallStr = "hall_test";
+                break;
+            }
+        }
+        
+        let proxyStr = "proxy_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.proxyversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.proxyversionList[i]){
+                proxyStr = "proxy_test";
+                break;
+            }
+        }
+        if(hqq.app.pinpai === "debi"){
+            proxyStr = "proxy_xingba";
+        }
+
+        let IMStr = "IM_test";
+        for(let i = 0; i < hqq.loginMgr.IMversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.IMversionList[i]){
+                IMStr = "IM_" + hqq.app.pinpai;
+                break;
+            }
+        }
+
+        let payStr = "pay_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.payversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.payversionList[i]){
+                payStr = "pay_test";
+                break;
+            }
+        }
+        if(hqq.app.pinpai === "xinlong"){
+            payStr = "pay_xinsheng";
+        }
+
         if (subname == "hall") {
             hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip62"))
+        } else if(subname === hallStr ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip85"))
+        } else if(subname === payStr ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip88"))
+        } else if(subname === proxyStr ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip91"))
+        } else if(subname === IMStr ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip94"))
         } else {
             hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, subname + hqq.getTip("showtip63"))
         }
@@ -769,7 +944,73 @@ let appLogin = {
     progressCallback(progress) {
     },
     finishCallback(subname) {
+        let hallStr = "hall_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.hallversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.hallversionList[i]){
+                hallStr = "hall_test";
+                break;
+            }
+        }
 
+        let proxyStr = "proxy_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.proxyversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.proxyversionList[i]){
+                proxyStr = "proxy_test";
+                break;
+            }
+        }
+        if(hqq.app.pinpai === "debi"){
+            proxyStr = "proxy_xingba";
+        }
+
+        let IMStr = "IM_test";
+        for(let i = 0; i < hqq.loginMgr.IMversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.IMversionList[i]){
+                IMStr = "IM_" + hqq.app.pinpai;
+                break;
+            }
+        }
+
+        let payStr = "pay_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.payversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.payversionList[i]){
+                payStr = "pay_test";
+                break;
+            }
+        }
+        if(hqq.app.pinpai === "xinlong"){
+            payStr = "pay_xinsheng";
+        }
+
+        //第二步
+        if( subname === hallStr ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip87"))
+            let localsubv = hqq.localStorage.get(payStr, "versionKey") || null;
+            console.log("=================finishCallback payStr localsubv=",localsubv)
+            hqq.hotUpdateMgr.checkUpdate({
+                subname: payStr,
+                version: localsubv || "1.0.0",
+            })
+        } else if( subname === payStr ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip90"))
+            let localsubv = hqq.localStorage.get(proxyStr, "versionKey") || null;
+            console.log("=================finishCallback proxyStr localsubv=",localsubv)
+            hqq.hotUpdateMgr.checkUpdate({
+                subname: proxyStr,
+                version: localsubv || "1.0.0",
+            })
+        } else if( subname === proxyStr ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip93"))
+            let localsubv = hqq.localStorage.get(IMStr, "versionKey") || null;
+            console.log("=================finishCallback IMStr localsubv=",localsubv)
+            hqq.hotUpdateMgr.checkUpdate({
+                subname: IMStr,
+                version: localsubv || "1.0.0",
+            })
+        } else if(subname === IMStr ){
+            console.log("全部更新完毕进入大厅")
+            this.requestGameSeverInfo()
+        }
     },
     /** 登录服务器 */
     login() {
@@ -780,7 +1021,7 @@ let appLogin = {
                 hqq.gameGlobal.player.account_pass = hqq.app.account_pass
                 this.officialLogin()
             } else {
-                console.log("请在appGlobal文件中配置自己的账号密码进行登录")
+                cc.log("请在appGlobal文件中配置自己的账号密码进行登录")
                 this.loginWithUUID();
             }
         } else {
@@ -790,7 +1031,7 @@ let appLogin = {
     // 登陆前检测，选择登陆方式
     login2() {
         this.log('login2', hqq.app.server)
-        hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip64"))
+        hqq.eventMgr.dispatch(hqq.eventMgr.showLoadingInfo, hqq.getTip("showtip64"));
         if (hqq.webUpAgent && hqq.webAcconunt && hqq.webDeviceid) { // 网页版
             hqq.gameGlobal.player.account_name = hqq.webAcconunt
             hqq.gameGlobal.player.account_pass = hqq.webAcconuntPass
@@ -920,7 +1161,7 @@ let appLogin = {
                     } else {
                         hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip5") + data.code + data.msg)
                     }
-                    if( hqq.app.pinpai == "fuxin" || hqq.app.pinpai == "xingui" || hqq.app.pinpai == "juding" || hqq.app.pinpai == "nineone" || hqq.app.pinpai == "huaxing" || hqq.app.pinpai == "ninetwo")
+                    if( hqq.app.pinpai == "fuxin" || hqq.app.pinpai == "xingui" || hqq.app.pinpai == "juding" || hqq.app.pinpai == "nineone" || hqq.app.pinpai == "huaxing" || hqq.app.pinpai == "ninetwo" || hqq.app.pinpai == "huangshi")
                     {
                         if(hqq.app.getGeneralAgency() == hqq.app.proxyUserID){
                             hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, {
@@ -974,8 +1215,10 @@ let appLogin = {
                 hideexitbtn: true,
                 ensurefunc: () => {
                     let mynode = cc.director.getScene().getChildByName('smallsublayer')
-                    mynode.removeFromParent()
-                    hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, { type: 12, hideexitbtn: true })
+                    mynode.destroy()
+                    setTimeout(() => {
+                        hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, { type: 12, hideexitbtn: true })
+                    }, 200); 
                 }
             })
             return false
@@ -1007,7 +1250,7 @@ let appLogin = {
                     hqq.gameGlobal.player.code + ",", hqq.app.deviceID + "," + hqq.app.clipboard)
                 if(hqq.app.getGeneralAgency() == hqq.app.proxyUserID){
                     let hideexitbtn= false;
-                    if(hqq.app.pinpai == "fuxin" || hqq.app.pinpai == "xingui" || hqq.app.pinpai == "juding" || hqq.app.pinpai == "nineone" || hqq.app.pinpai == "huaxing" || hqq.app.pinpai == "ninetwo")
+                    if(hqq.app.pinpai == "fuxin" || hqq.app.pinpai == "xingui" || hqq.app.pinpai == "juding" || hqq.app.pinpai == "nineone" || hqq.app.pinpai == "huaxing" || hqq.app.pinpai == "ninetwo" || hqq.app.pinpai == "huangshi")
                     {
                         hideexitbtn = true;
                     }
@@ -1190,6 +1433,25 @@ let appLogin = {
                 this.jumpToNextScene();
             }
         }
+        let callback = (response, url) => {
+            cc.log("/Proxy/User/login返回:", response);
+            if (response.code === 200){
+                hqq.gameGlobal.proxy.token = response.msg.token;
+            }
+        }
+        let failcallback = (status, forcejump, url, err, readyState) => {
+            cc.log("/Proxy/User/login failcallback:", status, forcejump, url, err, readyState);
+        }
+        let url = hqq.gameGlobal.proxy.proxy_host+"/Proxy/User/login";
+        
+        hqq.http.sendXMLHttpRequest({
+            method: 'POST',
+            urlto: url,
+            param: `account_name=${hqq.gameGlobal.player.account_name}&token=${hqq.gameGlobal.token}`,
+            callback: callback,
+            failcallback: failcallback,
+            needJsonParse: true,
+        })
     },
     getReginIp(trynum) {
         // if (CC_DEBUG) {
@@ -1281,7 +1543,7 @@ let appLogin = {
     getHavePay(trynum) {
         trynum = trynum || 2
         let callback = (data) => {
-            console.log("data", JSON.stringify(data))
+            cc.log("data", JSON.stringify(data))
             if (data.status != 0) {
                 hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip7") + data.msg)
             }
@@ -1311,6 +1573,7 @@ let appLogin = {
     },
     // 跳转至下一个场景
     jumpToNextScene() {
+        this.updatefininshed = true;
         if (hqq.webGameID) {
             let mcallback = (subdata) => {
                 if (subdata == "hbsl" || subdata == 'zrsx1' || subdata == 'zrsx2'
@@ -1333,42 +1596,55 @@ let appLogin = {
                 } else if (subdata == "zrsx1" || subdata == "zrsx2") {
                     key = "zrsx"
                 }
-                let self = this
-                cc.assetManager.loadBundle(key, function (err) {
-                    if (err) {
-                        return console.error(err);
-                    }
-                    console.log('load subpackage script successfully.', subdata);
-                    if (hqq.subGameList[subdata] && hqq.subGameList[subdata].hasRes) {
-                        if (!cc.assetManager.getBundle(key + "Res")) {
-                            cc.assetManager.loadBundle(key + "Res", function (err) {
+                let self = this;
+                //有分皮肤加载的子游戏资源
+                let subGamePinPaiResList = { 
+                    // "fuxin":["bjl","lhd"]
+                };
+                
+                if(subGamePinPaiResList[hqq.app.pinpai] ){
+                    let key2 = null;
+                    for( key2 in subGamePinPaiResList[hqq.app.pinpai] ){
+                        if( key2 == subdata ){
+                            cc.assetManager.loadBundle(subdata + "_" + hqq.app.pinpai, (err) => {
                                 if (err) {
-                                    return console.error(err);
+                                    return cc.log('load subpackage script fail.', subdata + "_" + hqq.app.pinpai);
                                 }
-                                hqq[key + 'Res'] = cc.assetManager.getBundle(key + "Res");
-                                console.log('load subpackage script successfully.', key + 'Res', key + "Res");
-                                cc.director.preloadScene(hqq.subGameList[subdata].lanchscene, self.onProgress, (err, scene) => {
-                                    if (err) {
-                                        console.log(err)
-                                        hqq.logMgr.logerror(err)
-                                        return
-                                    }
-                                    cc.director.loadScene(hqq.subGameList[subdata].lanchscene);
-                                })
+                                hqq[subdata + "_" + hqq.app.pinpai] = cc.assetManager.getBundle(subdata + "_" + hqq.app.pinpai );
+                                cc.log('load subpackage script successfully.', subdata + "_" + hqq.app.pinpai );
+                                this.loadNextScene(subdata);
                             });
+                            return;
                         }
-                    } else {
-                        console.log('load subpackage script successfully.', subdata);
-                        cc.director.preloadScene(hqq.subGameList[subdata].lanchscene, self.onProgress, (err, scene) => {
-                            if (err) {
-                                console.log(err)
-                                hqq.logMgr.logerror(err)
-                                return
-                            }
-                            cc.director.loadScene(hqq.subGameList[subdata].lanchscene);
-                        })
                     }
-                });
+                }
+                if (hqq.subGameList[subdata] && hqq.subGameList[subdata].hasRes) {
+                    cc.assetManager.loadBundle( subdata + "Res" , (err2)=>{
+                        if(err2){
+                            cc.assetManager.loadBundle(subdata , (err) => {
+                                if (err) {
+                                    return cc.log('load subpackage script fail.', subdata + "Res" );
+                                }
+                                hqq[subdata] = cc.assetManager.getBundle(subdata  );
+                                cc.log('load subpackage script successfully.', subdata );
+                                this.loadNextScene(subdata);
+                            });
+                            return;
+                        }
+                        hqq[subdata + "Res"] = cc.assetManager.getBundle(subdata + "Res"  );
+                        cc.assetManager.loadBundle(subdata , (err3) => {
+                            if (err3) {
+                                return cc.log('load subpackage script fail.', subdata );
+                            }
+                            hqq[subdata] = cc.assetManager.getBundle(subdata  );
+                            cc.log('load subpackage script successfully.', subdata );
+                            this.loadNextScene(subdata);
+                        });
+                    })
+                } else {
+                    cc.log('load subpackage script successfully.', subdata);
+                    this.loadNextScene(subdata);
+                }
             }
             for (let k in hqq.subGameList) {
                 if (hqq.subGameList[k].game_id == hqq.webGameID) {
@@ -1381,13 +1657,27 @@ let appLogin = {
                 }
             }
         } else {
-            cc.director.preloadScene("hall", this.onProgress.bind(this), (err, scene) => {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showJumpScene,"hall");
+        }
+    },
+    loadNextScene(enname) {
+        if (hqq.app.pinpai == "fuxin" ) {
+            cc.director.preloadScene(this.subGameList[enname].fuxin_lanchscene, this.preloadSceneOnProgress, (err, scene) => {
                 if (err) {
-                    console.log(err)
+                    cc.log(err)
                     hqq.logMgr.logerror(err)
                     return
                 }
-                cc.director.loadScene("hall");
+                cc.director.loadScene(this.subGameList[enname].fuxin_lanchscene);
+            })
+        } else {
+            cc.director.preloadScene(this.subGameList[enname].lanchscene, this.preloadSceneOnProgress, (err, scene) => {
+                if (err) {
+                    cc.log(err)
+                    hqq.logMgr.logerror(err)
+                    return
+                }
+                cc.director.loadScene(this.subGameList[enname].lanchscene);
             })
         }
     },
@@ -1409,7 +1699,7 @@ let appLogin = {
             }
         }
         let callback = (data) => {
-            console.log("创建子游戏账号 callback", data)
+            cc.log("创建子游戏账号 callback", data)
             if (data.code == 200 || data.code == 203 || (data.code == 404 && data.msg == "account already exists")) {
                 for (let gname in hqq.agaSubGameList) {
                     if (hqq.agaSubGameList[gname].game_id == subdata.game_id) {
@@ -1469,7 +1759,7 @@ let appLogin = {
             }
         }
         let callback = (data) => {
-            console.log("创建子游戏账号 callback", data)
+            cc.log("创建子游戏账号 callback", data)
             if (data.code == 200 || data.code == 203 || (data.code == 404 && data.msg == "account already exists")) {
                 for (let gname in hqq.subGameList) {
                     if (hqq.subGameList[gname].game_id == subdata.game_id) {
@@ -1623,7 +1913,7 @@ let appLogin = {
         this.testCurLine()
     },
     log() {
-        this.isRealTimeLog && console.log("__appLogin__", ...arguments)
+        this.isRealTimeLog && cc.log("__appLogin__", ...arguments)
     },
     stableRestartAtSecret() {
         setTimeout(() => {
@@ -1823,7 +2113,7 @@ let appLogin = {
     getBrandRes() {
         let reslist = hqq.app.versionJson[hqq.app.pinpai].brandRes;
         if (!reslist && !hqq.isDebug) {
-            console.log("云端未配置品牌资源信息")
+            cc.log("云端未配置品牌资源信息")
             return
         }
         // let index = 0;
@@ -1839,7 +2129,7 @@ let appLogin = {
         // if (!jsb.fileUtils.isFileExist(localpath)) {
         //     jsb.fileUtils.createDirectory(storagepath)
         //     let callback = (response) => {
-        //         console.log("getBrandRes callback")
+        //         cc.log("getBrandRes callback")
         //         if (!jsb.fileUtils.writeDataToFile(new Uint8Array(response), localpath)) {
         //             cc.log('Remote write file failed.');
         //         }
@@ -1865,7 +2155,7 @@ let appLogin = {
         if (cc.director.getScene().name == "loading") {
             let reslist = hqq.app.versionJson[hqq.app.pinpai].brandRes;
             if (!reslist && !hqq.isDebug) {
-                console.log("云端未配置品牌资源信息")
+                cc.log("云端未配置品牌资源信息")
                 return
             }
             // let storagepath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'brand\\');
@@ -1917,13 +2207,13 @@ let appLogin = {
                 //     cc.assetManager.loadRemote(storagepath + reslist[1], (err, loadatlas) => {
                 //         if (err) {
                 //             cc.error(err);
-                //             console.log("加载logo动画资源报错：", err)
+                //             cc.log("加载logo动画资源报错：", err)
                 //             return
                 //         }
                 //         cc.assetManager.loadRemote(storagepath + reslist[2], (err, loadjson) => {
                 //             if (err) {
                 //                 cc.error(err);
-                //                 console.log("加载logo动画资源报错：", err)
+                //                 cc.log("加载logo动画资源报错：", err)
                 //                 return
                 //             }
                 //             let ani = cc.find("Canvas/Main Camera/brandnode/ani")

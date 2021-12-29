@@ -25,6 +25,8 @@ cc.Class({
 
         weblogin:cc.Node,
         setting:cc.Node,
+        login2:cc.Node,
+        loading:cc.Node,
     },
 
     onLoad() {
@@ -134,7 +136,7 @@ cc.Class({
             hqq.addNode(this.back, { path: bpath + "tck", width: 420, anchorX: 1, type: cc.Sprite.Type.SLICED })
             hqq.addNode(this.back, { path: bpath + "tck", width: 420, anchorX: 1, scaleX: -1, type: cc.Sprite.Type.SLICED })
 
-            hqq.setBtn(surecg, { path: bpath + "anniu4" })
+            hqq.setBtn(surecg, { path: bpath + "anniu4" ,x:0})
             hqq.addNode(surecg, { path: blpath + "qr" })
             hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 400, y: 250 })
              
@@ -155,7 +157,9 @@ cc.Class({
             hqq.setBtn(txt_forgetpwd, { path: blpath + "wjmm" })
 
             hqq.setBtn(copybtn, { path: bpath + "anniu4" })
-            hqq.setNode(btnlabel, { color: cc.color(187, 187, 187) })
+            btnlabel.active = false;
+            hqq.addNode(copybtn, { path: blpath + "fuxinqr" })
+            // hqq.setNode(btnlabel, { color: cc.color(187, 187, 187) })
 
             hqq.setSprite(title, { path: blpath + "kefubiaoti", y: 245 })
             hqq.setBtn(webbtn, { path: bpath + "anniu3" })
@@ -181,7 +185,7 @@ cc.Class({
             let bindusdt = cc.find("smallsublayer/bindusdt")
             hqq.addNode(bindusdt, { path: bpath + "srk", zIndex: -1, width: 570, x: 80, y: 105, type: cc.Sprite.Type.SLICED })
             hqq.addNode(bindusdt, { path: bpath + "srk", zIndex: -1, width: 460, x: 25, y: -15, type: cc.Sprite.Type.SLICED })
-            hqq.setSprite(usdttitle, { path: blpath + "usdtbiaoti", x:50 , y: 250 })
+            hqq.setSprite(usdttitle, { path: blpath + "usdtbiaoti", x:0 , y: 250 })
             hqq.addNode(bindusdt, { path: blpath + "llx", x: -250, y: -15 })
             hqq.addNode(bindusdt, { path: blpath + "qbdz", x: -260, y: 105 })
 
@@ -191,15 +195,17 @@ cc.Class({
             let bpath = "base/xingui/img/"
             let blpath = "base/language/" + hqq.language + "/xingui/"
             hqq.setSprite(this.back, { path: "base/xingui/img/d_tc", size: { width: 880 } })
-            hqq.setBtn(surecg, { path: "base/xingui/img/btn_1" })
+            hqq.setBtn(surecg, { path: "base/xingui/img/btn_1" ,x:0})
             hqq.addNode(surecg, { path: blpath + "qued" })
-            hqq.setBtn(closebtn, { path: bpath + "btn_x", position: { x: 395, y: 200 } })
+            hqq.setBtn(closebtn, { path: bpath + "btn_x", position: { x: 395, y: 215 } })
 
-            hqq.setBtn(copybtn, { path: "base/xingui/img/btn_1" })
+            hqq.setBtn(copybtn, { path: "base/xingui/img/btn_1" });
+            btnlabel.active = false;
+            hqq.addNode(copybtn, { path: blpath + "xinguiqr" });
 
-            hqq.setSprite(title_changehead, { path: blpath + "txxg", position: { x: 0, y: 205 } })
+            hqq.setSprite(title_changehead, { path: blpath + "txxg", position: { x: 0, y: 220 } })
 
-            hqq.setSprite(title_login, { path: blpath + "dengl", position: { x: 0, y: 205 } })
+            hqq.setSprite(title_login, { path: blpath + "dengl", position: { x: 0, y: 220 } })
             hqq.setBtn(txt_forgetpwd, { path: "base/language/" + hqq.language + "/img/txt_forgetpwd" })
 
             hqq.setBtn(webbtn, { path: "base/xingui/img/btn_1" })
@@ -207,7 +213,7 @@ cc.Class({
             weblabel.color = new cc.Color(255, 255, 255)
             applabel.color = new cc.Color(255, 255, 255)
 
-            hqq.setSprite(usdttitle, { path: blpath + "bd", y: 200 })
+            hqq.setSprite(usdttitle, { path: blpath + "bd", y: 220 })
             hqq.setSprite(usdteditboxback, { path: blpath + "z1" })
 
             weblabel.getComponent(cc.Label).string = hqq.getTip("weblabel")
@@ -216,12 +222,21 @@ cc.Class({
             let xpath = "base/xinsheng/img/"
             let xlpath = "base/language/" + hqq.language + "/xinsheng/"
             hqq.setSprite(this.back, { path: xpath + "back1", size: { width: 880 } })
-            hqq.setBtn(surecg, { path: xpath + "btnback" })
+            // hqq.setBtn(surecg, { path: xpath + "btnback" })
             hqq.setBtn(closebtn, { path: xpath + "exit", position: { x: 395, y: 225 } })
             let node = new cc.Node();
-            hqq.setSprite(node, { path: xlpath + "queding" })
+            node.color = cc.color(0,0,0);
+            hqq.setLabel(node, { string:"qr",y:10 , fontSize:45,lineHeight:40})
+            let tempshadow = node.addComponent(cc.LabelShadow);
+            tempshadow.offset = cc.v2(1,1);
+            tempshadow.blur = 2;
+            tempshadow.color = cc.color("#291A1A");
             surecg.addChild(node)
-            hqq.setBtn(surecg, { path: xpath + "btnback", position: { x: 0, y: -210 } })
+            if( this.data.type === 8 ){
+                hqq.setBtn(surecg, { path: xpath + "btnback", position: { x: 0, y: -10 } })
+            } else{
+                hqq.setBtn(surecg, { path: xpath + "btnback", position: { x: 0, y: -210 } })
+            }
 
             hqq.setSprite(title_changehead, { path: xlpath + "txxg", position: { x: -250, y: 216 } })
 
@@ -230,19 +245,23 @@ cc.Class({
 
             // hqq.setSprite(titile_tip, { path: blpath + "titile_tip" })
             // hqq.setSprite(inputurnickname, { path: blpath + "inputurnickname" })
-            hqq.setBtn(copybtn, { path: xpath + "btnback" })
+            hqq.setBtn(copybtn, { path: xpath + "btnback" });
+            btnlabel.y = 10;
 
-            hqq.setSprite(title_login, { path: xlpath + "denglu", position: { x: -300, y: 220 } })
+            hqq.setSprite(title_login, { path: xlpath + "denglu", position: { x: -300, y: 235 } })
             hqq.setBtn(txt_forgetpwd, { path: xlpath + "wjmm" })
 
             hqq.setBtn(webbtn, { path: xpath + "btnback" })
             hqq.setBtn(appbtn, { path: xpath + "btnback" })
 
-            hqq.setSprite(usdttitle, { path: xlpath + "title_usdt" })
+            hqq.setSprite(usdttitle, { path: xlpath + "title_usdt" ,x:-160,y:235})
             hqq.setSprite(usdteditboxback, { path: xlpath + "popup_usdt_frame" })
 
+            title.y = 235;
             title.getComponent(cc.Label).string = hqq.getTip("imchoice")
+            weblabel.y = 10;
             weblabel.getComponent(cc.Label).string = hqq.getTip("weblabel")
+            applabel.y = 10;
             applabel.getComponent(cc.Label).string = hqq.getTip("applabel")
         } else if (hqq.app.pinpai == "juding" ) {
             tip0.getComponent(cc.Label).fontSize = 28
@@ -251,27 +270,27 @@ cc.Class({
             tip1.getComponent(cc.Label).lineHeight = 28
             let bpath = "base/juding/img/"
             let blpath = "base/language/" + hqq.language + "/juding/"
-            let hpath = "hall/juding/img/"
-            let hlpath = "hall/language/" + hqq.language + "/juding/"
-            hqq.setSprite(this.back, { path: hpath + "jd_p_bandalibg_1", width: 857, height: 529 })
-            hqq.setBtn(surecg, { path: hpath + "jd_p_btn_1_3" })
-            hqq.addNode(surecg, { string: "qr",fontSize:32,color:cc.color("#94510A"),y:-10,bold:true })
-            hqq.setBtn(closebtn, { path: hpath + "jd_popup_btn_close", x: 365, y: 221 , width:119, height:70})
+            let hpath = "juding/img/"
+            let hlpath = "language/" + hqq.language + "/juding/"
+            hqq.setSprite(this.back, { path: bpath + "jd_p_bandalibg_1", width: 857, height: 529 })
+            hqq.setBtn(surecg, { path: bpath + "jd_p_btn_1_3" , x:0})
+            hqq.addNode(surecg, { string: "qr",fontSize:32,lineHeight:35,color:cc.color("#94510A"),y:0,bold:true })
+            hqq.setBtn(closebtn, { path: bpath + "jd_popup_btn_close", x: 365, y: 221 , width:119, height:70})
              
-            hqq.setSprite(title_changehead, { path: hlpath + "jd_popup_title_profile", x:-315,y: 225 })
+            hqq.setSprite(title_changehead, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "jd_popup_title_profile", x:-315,y: 225 })
             let changehead_di = cc.find("smallsublayer/changehead/changehead_di")
             changehead_di.active = false
 
-            hqq.setSprite(titile_tip, { path: hlpath + "jd_popup_title_changeNickname", x:-315,y: 225 })
-            hqq.setSprite(inputurnickname, { path: hpath + "jd_p_inputBox_1", y: 20, width: 600, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(titile_tip, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "jd_popup_title_changeNickname", x:-315,y: 225 })
+            hqq.setSprite(inputurnickname, { path: bpath + "jd_p_inputBox_1", y: 20, width: 600, type: cc.Sprite.Type.SLICED })
 
-            hqq.setSprite(title_login, { path: hlpath + "denglu", x:-320,y: 230 })
+            hqq.setSprite(title_login, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "denglu", x:-320,y: 230 })
             login_form.active = false
             let login = cc.find("smallsublayer/login")
-            hqq.addNode(login, { path: hpath + "jd_p_inputBox_1", zIndex: -1, width: 560, y: 100, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(login, { path: hpath + "jd_p_inputBox_1", zIndex: -1, width: 560, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(login, { path: hpath + "shoujid", x: -250, y: 100, })
-            hqq.addNode(login, { path: hpath + "suotou", x: -250, y: 0, })
+            hqq.addNode(login, { path: bpath + "jd_p_inputBox_1", zIndex: -1, width: 560, y: 100, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(login, { path: bpath + "jd_p_inputBox_1", zIndex: -1, width: 560, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(login, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "shoujid", x: -250, y: 100, })
+            hqq.addNode(login, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "suotou", x: -250, y: 0, })
             hqq.setBtn(txt_forgetpwd, { path: blpath + "wjmm" })
             login.getChildByName("phoneeditbox").getChildByName("TEXT_LABEL").color = cc.color("#546277");
             login.getChildByName("phoneeditbox").getChildByName("TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
@@ -284,12 +303,12 @@ cc.Class({
             login.getChildByName("passeditbox").getChildByName("PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
 
 
-            hqq.setBtn(copybtn, { path: hpath + "jd_p_btn_1_3" })
-            hqq.setNode(btnlabel, { color: cc.color(187, 187, 187) })
+            hqq.setBtn(copybtn, { path: bpath + "jd_p_btn_1_3" })
+            hqq.setLabel(btnlabel, { fontSize:32,lineHeight:35,color:cc.color("#94510A"),y:0,bold:true })
 
-            hqq.addNode(this.imnode, { path: hlpath + "kffkxz", x:-280,y: 230 })
-            hqq.setBtn(webbtn, { path: hpath + "jd_p_btn_1_1" })
-            hqq.setBtn(appbtn, { path: hpath + "jd_p_btn_1_1", active: false })
+            hqq.addNode(this.imnode, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "kffkxz", x:-280,y: 230 })
+            hqq.setBtn(webbtn, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "jd_p_btn_1_1" })
+            hqq.setBtn(appbtn, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "jd_p_btn_1_1", active: false })
             weblabel.color = new cc.Color(255, 255, 255)
             applabel.color = new cc.Color(255, 255, 255)
             weblabel.getComponent(cc.Label).string = hqq.getTip("weblabel")
@@ -300,8 +319,8 @@ cc.Class({
             let login_form1 = cc.find("smallsublayer/register/login_form1")
             login_form1.active = false
             let register = cc.find("smallsublayer/register")
-            hqq.addNode(register,{path:hlpath+"jd_popup_form_signUp"});
-            hqq.addNode(register,{path:hlpath+"jd_popup_title_signUp",x:-350,y:225});
+            hqq.addNode(register,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"jd_popup_form_signUp"});
+            hqq.addNode(register,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"jd_popup_title_signUp",x:-350,y:225});
             registertitle.active = false;
             title0.active = false;
             title1.active = false;
@@ -332,16 +351,16 @@ cc.Class({
             tip1.getComponent(cc.Label).string = hqq.getTip("tip3")
 
             let proxycodechangehead_di = cc.find("smallsublayer/proxycode/changehead_di")
-            hqq.setSprite(proxycodechangehead_di, { path: hpath + "jd_p_inputBox_1", width: 550, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(proxycodechangehead_di, { path: bpath + "jd_p_inputBox_1", width: 550, type: cc.Sprite.Type.SLICED })
             cc.find("smallsublayer/proxycode/codeeditbox/TEXT_LABEL").color = cc.color("#546277");
             cc.find("smallsublayer/proxycode/codeeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
             cc.find("smallsublayer/proxycode/codeeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
             cc.find("smallsublayer/proxycode/codeeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
 
             let bindusdt = cc.find("smallsublayer/bindusdt")
-            hqq.addNode(bindusdt, { path: hpath + "jd_p_inputBox_1", zIndex: -1, width: 570, x: 80, y: 105, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(bindusdt, { path: hpath + "jd_p_inputBox_1", zIndex: -1, width: 460, x: 25, y: -15, type: cc.Sprite.Type.SLICED })
-            hqq.setSprite(usdttitle, { path: hlpath + "UST", x:-270,y: 225 })
+            hqq.addNode(bindusdt, { path: bpath + "jd_p_inputBox_1", zIndex: -1, width: 570, x: 80, y: 105, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(bindusdt, { path: bpath + "jd_p_inputBox_1", zIndex: -1, width: 460, x: 25, y: -15, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(usdttitle, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "UST", x:-270,y: 225 })
             hqq.addNode(bindusdt, { string: "usdtllx", x: -260, y: -15 ,fontSize:32,color:cc.color("#485E9A"),bold:true})
             hqq.addNode(bindusdt, { string: "usdtqbdz", x: -270, y: 105 ,fontSize:32,color:cc.color("#485E9A"),bold:true})
             bindusdt.getChildByName("type").color = cc.color("#546277");
@@ -363,29 +382,29 @@ cc.Class({
             tip1.getComponent(cc.Label).lineHeight = 28
             let bpath = "base/huaxing/img/"
             let blpath = "base/language/" + hqq.language + "/huaxing/"
-            let hpath = "hall/huaxing/img/"
-            let hlpath = "hall/language/" + hqq.language + "/huaxing/"
-            hqq.setSprite(this.back, { path: hpath + "d_ggtc", width: 857, height: 529 , type: cc.Sprite.Type.SLICED})
-            hqq.setBtn(surecg, { path: hpath + "btn_2" })
-            hqq.addNode(surecg, { string: "qr",fontSize:32,color:cc.color(255,255,255),y:-10,bold:true })
-            hqq.setBtn(closebtn, { path: hpath + "btn_x", x: 420, y: 260 , width:78, height:78})
-            hqq.setSprite(title_changehead, { path: hlpath + "17", x:0,y: 260 })
+            let hpath = "huaxing/img/"
+            let hlpath = "language/" + hqq.language + "/huaxing/"
+            hqq.setSprite(this.back, { path: bpath + "d_ggtc", width: 857, height: 529 , type: cc.Sprite.Type.SLICED})
+            hqq.setBtn(surecg, { path: bpath + "btn_2" ,x:0})
+            hqq.addNode(surecg, { string: "qr",fontSize:32,lineHeight:35,color:cc.color(255,255,255),y:0,bold:true })
+            hqq.setBtn(closebtn, { path: bpath + "btn_x", x: 420, y: 260 , width:78, height:78})
+            hqq.setSprite(title_changehead, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "17", x:0,y: 260 })
             let changehead_di = cc.find("smallsublayer/changehead/changehead_di")
             changehead_di.active = false
 
             // hqq.setSprite(titile_tip, { path: hlpath + "jd_popup_title_changeNickname", x:-315,y: 225 })
             titile_tip.active = false;
             hqq.addNode(cc.find("smallsublayer/nickchange"),{string:"nickchangetitle",x:0,y:255,bold:true,fontSize:45,lineHeight:50,color:cc.color(242,222,149)})
-            hqq.setSprite(inputurnickname, { path: hpath + "4", y: 20, width: 600, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(inputurnickname, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "4", y: 20, width: 600, type: cc.Sprite.Type.SLICED })
 
-            hqq.setSprite(title_login, { path: hlpath + "15", x:0,y: 260 })
+            hqq.setSprite(title_login, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "15", x:0,y: 260 })
             login_form.active = false
             let login = cc.find("smallsublayer/login")
-            hqq.addNode(login, { path: hpath + "4", zIndex: -1, width: 560, y: 100, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(login, { path: hpath + "4", zIndex: -1, width: 560, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(login, { path: hpath + "19", x: -250, y: 100, })
-            hqq.addNode(login, { path: hpath + "18", x: -250, y: 0, })
-            hqq.setBtn(txt_forgetpwd, { path: hlpath + "25" })
+            hqq.addNode(login, { path: bpath + "4", zIndex: -1, width: 560, y: 100, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(login, { path: bpath + "4", zIndex: -1, width: 560, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(login, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "19", x: -250, y: 100, })
+            hqq.addNode(login, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "18", x: -250, y: 0, })
+            hqq.setBtn(txt_forgetpwd, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "25" })
             // login.getChildByName("phoneeditbox").getChildByName("TEXT_LABEL").color = cc.color("#546277");
             login.getChildByName("phoneeditbox").getChildByName("TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
             // login.getChildByName("phoneeditbox").getChildByName("PLACEHOLDER_LABEL").color = cc.color("#546277");
@@ -397,12 +416,13 @@ cc.Class({
             login.getChildByName("passeditbox").getChildByName("PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
 
 
-            hqq.setBtn(copybtn, { path: hlpath + "12" })
+            hqq.setBtn(copybtn, { path: bpath + "btn_2" ,x:0})
+            hqq.setLabel(copybtn.getChildByName("btnlabel"), { string: "copy",fontSize:32,lineHeight:35,color:cc.color(255,255,255),y:0,bold:true })
             // hqq.setNode(btnlabel, { color: cc.color(187, 187, 187) })
 
-            hqq.addNode(this.imnode, { path: hlpath + "tit_kffk", x:0,y: 260 })
-            hqq.setBtn(webbtn, { path: hpath + "btn_2" })
-            hqq.setBtn(appbtn, { path: hpath + "btn_2", active: false })
+            hqq.addNode(this.imnode, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "tit_kffk", x:0,y: 260 })
+            hqq.setBtn(webbtn, { path: bpath + "btn_2" })
+            hqq.setBtn(appbtn, { path: bpath + "btn_2", active: false })
             weblabel.color = new cc.Color(255, 255, 255)
             applabel.color = new cc.Color(255, 255, 255)
             weblabel.getComponent(cc.Label).string = hqq.getTip("weblabel")
@@ -414,13 +434,13 @@ cc.Class({
             login_form1.active = false
             let register = cc.find("smallsublayer/register")
             // hqq.addNode(register,{path:hlpath+"jd_popup_form_signUp"});
-            hqq.addNode(register,{path:hlpath+"6",x:0,y:260});
-            hqq.addNode(register, { path: hpath + "4", zIndex: -2, width: 630, x: 30, y: 150, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(register, { path: hpath + "4", zIndex: -2, width: 420, x: -75, y: 40, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(register, { path: hpath + "4", zIndex: -2, width: 420, x: -75, y: -70, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(register, { path: hpath + "19", zIndex: -1, x: -250, y: 150 })
-            hqq.addNode(register, { path: hpath + "21", zIndex: -1, x: -250, y: 40 })
-            hqq.addNode(register, { path: hpath + "18", zIndex: -1, x: -250, y: -70 })
+            hqq.addNode(register,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"6",x:0,y:260});
+            hqq.addNode(register, { path: bpath + "4", zIndex: -2, width: 630, x: 30, y: 150, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(register, { path: bpath + "4", zIndex: -2, width: 420, x: -75, y: 40, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(register, { path: bpath + "4", zIndex: -2, width: 420, x: -75, y: -70, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(register, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "19", zIndex: -1, x: -250, y: 150 })
+            hqq.addNode(register, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "21", zIndex: -1, x: -250, y: 40 })
+            hqq.addNode(register, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "18", zIndex: -1, x: -250, y: -70 })
 
             registertitle.active = false;
             title0.active = false;
@@ -454,16 +474,16 @@ cc.Class({
             tip1.y = -15
 
             let proxycodechangehead_di = cc.find("smallsublayer/proxycode/changehead_di")
-            hqq.setSprite(proxycodechangehead_di, { path: hpath + "4", width: 550, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(proxycodechangehead_di, { path: bpath + "4", width: 550, type: cc.Sprite.Type.SLICED })
             // cc.find("smallsublayer/proxycode/codeeditbox/TEXT_LABEL").color = cc.color("#546277");
             cc.find("smallsublayer/proxycode/codeeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
             // cc.find("smallsublayer/proxycode/codeeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
             cc.find("smallsublayer/proxycode/codeeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
 
             let bindusdt = cc.find("smallsublayer/bindusdt")
-            hqq.addNode(bindusdt, { path: hpath + "4", zIndex: -1, width: 570, x: 90, y: 95, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(bindusdt, { path: hpath + "4", zIndex: -1, width: 460, x: 35, y: -25, type: cc.Sprite.Type.SLICED })
-            hqq.setSprite(usdttitle, { path: hlpath + "13", x:0,y: 260 })
+            hqq.addNode(bindusdt, { path: bpath + "4", zIndex: -1, width: 570, x: 90, y: 95, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(bindusdt, { path: bpath + "4", zIndex: -1, width: 460, x: 35, y: -25, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(usdttitle, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "13", x:0,y: 260 })
             hqq.addNode(bindusdt, { string: "usdtllx", x: -280, y: -25 ,fontSize:32,color:cc.color(232,169,98),bold:true})
             hqq.addNode(bindusdt, { string: "usdtqbdz", x: -290, y: 95 ,fontSize:32,color:cc.color(232,169,98),bold:true})
             // bindusdt.getChildByName("type").color = cc.color("#546277");
@@ -485,53 +505,102 @@ cc.Class({
             tip1.getComponent(cc.Label).fontSize = 28
             tip1.getComponent(cc.Label).lineHeight = 28
             let bpath = "base/ninetwo/img/"
-            let blpath = "base/language/" + hqq.language + "/ninetwo/"
-            let hpath = "hall/ninetwo/img/"
-            let hlpath = "hall/language/" + hqq.language + "/ninetwo/img/"
-            if( this.data.type == 10 || this.data.type == 4  || this.data.type == 5){
-                hqq.setSprite(this.back, { path: hpath + "kuangti3", width: 835, height: 296})
-                hqq.setBtn(closebtn, { path: hpath + "guanbi", x: 410, y: 145 , width:60, height:60})
-                hqq.setBtn(surecg, { path: hpath + "settinganiu" , x:0,y:-120})
-                hqq.addNode(surecg, { string: "qr",fontSize:30,lineHeight:35,color:cc.color(59,31,11),y:-5,bold:true })
+            let blpath = "base/language/" + hqq.language + "/ninetwo/img/"
+            let blpath2 = "base/language/" + hqq.language + "/ninetwo/"
+            let hpath = "ninetwo/img/"
+            let hlpath = "language/" + hqq.language + "/ninetwo/img/"
+            let hlpath2 = "language/" + hqq.language + "/ninetwo/"
+            if( this.data.type == 10 ){
+                if(this.data.msg.length>50){
+                    hqq.setSprite(this.back, { path: bpath + "kuangti3", width: 835, height: 400,type: cc.Sprite.Type.SLICED})
+                    this.surecg = hqq.addNode(this.node, { Res:hqq["hall_"+hqq.app.pinpai],normal: blpath2 + "setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95 , x:0,y:-150 , callback:"onClickSure" , script:this})
+                    hqq.addNode(this.tiplayer,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"title_tips",y:115});
+                } else{
+                    hqq.setSprite(this.back, { path: bpath + "kuangti3", width: 835, height: 296})
+                    this.surecg = hqq.addNode(this.node, { Res:hqq["hall_"+hqq.app.pinpai],normal: blpath2 + "setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95 , x:0,y:-120 , callback:"onClickSure" , script:this})
+                    hqq.addNode(this.tiplayer,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"title_tips",y:115});
+                }
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 410, y: 145 , width:71, height:72})
+                surecg.active = false;
+                
+            } else if( this.data.type == 4  || this.data.type == 5){
+                hqq.setSprite(this.back, { path: bpath + "kuangti3", width: 835, height: 296})
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 410, y: 145 , width:71, height:72})
+                surecg.active = false;
+                this.surecg = hqq.addNode(this.node, { Res:hqq["hall_"+hqq.app.pinpai],normal: blpath2 + "setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95 , x:0,y:-120 , callback:"onClickSure" , script:this})
+                hqq.addNode(this.tiplayer,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"title_tips",y:115});
             } else if( this.data.type == 16 ){
-                hqq.setSprite(this.back, { path: hpath + "d5", width: 923, height: 466})
-                hqq.setBtn(closebtn, { path: hpath + "guanbi", x: 458, y: 230 , width:60, height:60})
-            } else if( this.data.type == 8 || this.data.type == 12 ){
-                hqq.setSprite(this.back, { path: hpath + "d", width: 814, height: 563})
-                hqq.setBtn(closebtn, { path: hpath + "guanbi", x: 400, y: 280 , width:60, height:60})
-                hqq.setBtn(surecg, { path: hpath + "settinganiu" , x:0,y:-200})
-                hqq.addNode(surecg, { string: "qr",fontSize:30,lineHeight:35,color:cc.color(59,31,11),y:-5,bold:true })
+                hqq.setSprite(this.back, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "popup_win_setUp_bg", width: 942, height: 577})
+                hqq.addNode(this.setting, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "titlesetup", y:245});
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 470, y: 280 , width:71, height:72})
+                this.captchaimg = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/mmxg/imgback/captchaimg").getComponent(cc.Sprite);
+                this.captchaimg2 = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark/yjks/mmxg/imgback/captchaimg").getComponent(cc.Sprite);
+                surecg.active = false;
+                this.dlmmtabindex = 1;
+            } else if( this.data.type == 8 ){
+                hqq.setSprite(this.back, { path: bpath + "d", width: 814, height: 563})
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 400, y: 280 , width:71, height:72})
+                this.surecg = hqq.addNode(this.node, { normal: blpath2 + "dating_btn_confirm/",aniname:"animation",loop:true,timeScale:0.95 , x:0,y:-10 , callback:"onClickSure" , script:this})
+            } else if( this.data.type == 12 ){
+                hqq.setSprite(this.back, { path: bpath + "d", width: 814, height: 563})
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 400, y: 280 , width:71, height:72})
+                this.surecg = hqq.addNode(this.node, { normal: blpath2 + "setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95 , x:0,y:-180 , callback:"onClickSure" , script:this})
+            } else if( this.data.type == 13 ){
+                hqq.setSprite(this.back, { path: bpath + "kuangti5", width: 673, height: 464})
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 400, y: 280 , width:71, height:72})
+                hqq.setBtn(surecg, { path: blpath + "quedingbangding" , x:0,y:-195})
+                hqq.addNode(this.back,{path:blpath+"titlebindagent",y:200})
+            } else if( this.data.type === 17 ) {
+                hqq.setSprite(this.back, { path: bpath + "popup_win_bg3", width: 813, height: 562})
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 400, y: 275 , width:71, height:72})
+                cc.find("smallsublayer/login2/account").x = 40;
+                cc.find("smallsublayer/login2/pass").x = 40;
+                surecg.active = false;
+            } else if ( this.data.type === 9 ) {
+                hqq.setSprite(this.back, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "kuangti2", width: 673, height: 464})
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 335, y: 225 , width:71, height:72})
+                surecg.active = false;
+                this.surecg = hqq.addNode(this.node, { normal: blpath2 + "setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95 , x:0,y:-180 , callback:"onClickSure" , script:this})
+                hqq.addNode(this.tiplayer,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"title_tips",y:200});
+            } else if ( this.data.type === 1 ) {
+                hqq.setSprite(this.back, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "popup_win_bg1", width: 812, height: 445})
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 400, y: 215 , width:71, height:72})
+                surecg.active = false;
+                this.surecg = hqq.addNode(this.node, { normal: blpath2 + "setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95 , x:0,y:-190 , callback:"onClickSure" , script:this})
+            } else if( this.data.type === 18){
+
             } else {
-                hqq.setSprite(this.back, { path: hpath + "kuangti2", width: 673, height: 464})
-                hqq.setBtn(closebtn, { path: hpath + "guanbi", x: 330, y: 230 , width:60, height:60})
-                hqq.setBtn(surecg, { path: hpath + "settinganiu" , x:0,y:-180})
-                hqq.addNode(surecg, { string: "qr",fontSize:30,lineHeight:35,color:cc.color(59,31,11),y:-5,bold:true })
+                // surecg.active = true;
+                hqq.setSprite(this.back, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "kuangti2", width: 673, height: 464})
+                hqq.setBtn(closebtn, { path: bpath + "guanbi", x: 335, y: 225 , width:71, height:72})
+                surecg.active = false;
+                this.surecg = hqq.addNode(this.node, { normal: blpath2 + "setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95 , x:0,y:-180 , callback:"onClickSure" , script:this })
             }
             // hqq.addNode(surecg, { string: "login",fontSize:10,color:cc.color(59,31,11),y:-10,bold:true })
             
-            hqq.setSprite(title_changehead, { path: hlpath + "titleggtx", x:0,y: 198 })
+            hqq.setSprite(title_changehead, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "titleggtx", x:0,y: 180 })
             let changehead_di = cc.find("smallsublayer/changehead/changehead_di")
-            hqq.setSprite(changehead_di,{path:hpath+"kuangti1",width:576,height:273,x:0,y:5});
+            hqq.setSprite(changehead_di,{path:bpath+"kuangti1",width:576,height:273,x:0,y:-10});
             let headscroll = cc.find("smallsublayer/changehead/headscroll");
             hqq.setNode(headscroll,{width:576,height:273,x:0,y:5});
             hqq.setNode(headscroll.getComponent(cc.ScrollView)._view,{width:576,height:273});
             hqq.setNode(headscroll.getComponent(cc.ScrollView).content,{width:576,height:273,x:0,y:136});
-            hqq.setSprite(this.headitem,{path:hpath+"dtxk",width:105,height:159})
+            hqq.setSprite(this.headitem,{Res:hqq["hall_"+hqq.app.pinpai],path:hpath+"dtxk",width:105,height:159})
             hqq.setNode(this.headitem.getChildByName("masknode"),{width:101,height:155});
             // hqq.setSprite(this.headitem.getChildByName("selectsp"),{path:hpath+"dtxk2",width:105,height:159,x:0,y:0})
             // hqq.setSprite(titile_tip, { path: hlpath + "jd_popup_title_changeNickname", x:-315,y: 225 })
             titile_tip.active = false;
             hqq.addNode(cc.find("smallsublayer/nickchange"),{string:"nickchangetitle",x:0,y:190,bold:true,fontSize:45,lineHeight:50,color:cc.color(242,222,149)})
-            hqq.setSprite(inputurnickname, { path: hpath + "yjks", y: 20, width: 600, type: cc.Sprite.Type.SLICED })
+            hqq.setSprite(inputurnickname, {path: bpath + "yjks", y: 20, width: 600, type: cc.Sprite.Type.SLICED })
 
-            hqq.setSprite(title_login, { path: hlpath + "titledl", x:0,y: 110 })
+            hqq.setSprite(title_login, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "titledl", x:0,y: 110 })
             login_form.active = false
             let login = cc.find("smallsublayer/login")
-            hqq.addNode(login, { path: hpath + "kuangti1", zIndex: -2, width: 576,height:150, x: 0, y: -10, type: cc.Sprite.Type.SLICED })
-            let input1 = hqq.addNode(login, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: 20, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(input1,{path:hpath + "shouji",x:-240})
-            let input4 = hqq.addNode(login, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: -40, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(input4,{path:hpath + "gfdsg",x:-240})
+            hqq.addNode(login, {path: bpath + "kuangti1", zIndex: -2, width: 576,height:150, x: 0, y: -10, type: cc.Sprite.Type.SLICED })
+            let input1 = hqq.addNode(login, {path: bpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: 20, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(input1,{path:bpath + "shouji",x:-240})
+            let input4 = hqq.addNode(login, {path: bpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: -40, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(input4,{path:bpath + "gfdsg",x:-240})
 
             let phoneeditbox = cc.find("smallsublayer/login/phoneeditbox");
             hqq.setNode(phoneeditbox,{width:480,height:36,x:17,y:20});
@@ -546,12 +615,13 @@ cc.Class({
             hqq.setNode(passeditbox.getChildByName("PLACEHOLDER_LABEL"),{width:480,height:36,color:cc.color("#81817e")});
 
 
-            hqq.setBtn(copybtn, { path: hpath + "daanniu1" })
-            hqq.setNode(btnlabel, { color: cc.color(59,31,11) })
+            hqq.addNode(this.download,{normal: blpath2 + "ani_dating_btn_copy/",aniname:"animation",loop:true,timeScale:0.95,x:0,y:-203,callback:"onClickCopyDownurl",script:this})
+            copybtn.active = false;
+            // hqq.setNode(btnlabel, { color: cc.color(59,31,11) })
 
-            hqq.addNode(this.imnode, { path: hlpath + "tit_kffk", x:0,y: 260 })
-            hqq.setBtn(webbtn, { path: hpath + "btn_2" })
-            hqq.setBtn(appbtn, { path: hpath + "btn_2", active: false })
+            // hqq.addNode(this.imnode, { path: hlpath + "tit_kffk", x:0,y: 260 })
+            // hqq.setBtn(webbtn, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "btn_2" })
+            // hqq.setBtn(appbtn, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "btn_2", active: false })
             weblabel.color = new cc.Color(255, 255, 255)
             applabel.color = new cc.Color(255, 255, 255)
             weblabel.getComponent(cc.Label).string = hqq.getTip("weblabel")
@@ -562,13 +632,13 @@ cc.Class({
             let login_form1 = cc.find("smallsublayer/register/login_form1")
             login_form1.active = false
             let register = cc.find("smallsublayer/register")
-            hqq.addNode(register, { path: hpath + "kuangti1", zIndex: -2, width: 750,height:300, x: 0, y: 20, type: cc.Sprite.Type.SLICED })
-            let registerinput1 = hqq.addNode(register, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: 135, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(registerinput1,{path:hpath + "shouji",x:-240})
-            let registerinput2 = hqq.addNode(register, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: 30, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(registerinput2,{path:hpath + "gfdsg",x:-240})
-            let registerinput3 = hqq.addNode(register, { path: hpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: -60, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(registerinput3,{path:hpath + "gfdsg",x:-240})
+            hqq.addNode(register, {path: bpath + "kuangti1", zIndex: -2, width: 750,height:300, x: 0, y: 20, type: cc.Sprite.Type.SLICED })
+            let registerinput1 = hqq.addNode(register, { path: bpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: 135, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(registerinput1,{path:bpath + "shouji",x:-240})
+            let registerinput2 = hqq.addNode(register, { path: bpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: 30, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(registerinput2,{path:bpath + "gfdsg",x:-240})
+            let registerinput3 = hqq.addNode(register, { path: bpath + "yjks", zIndex: -2, width: 513,height:36, x: 0, y: -60, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(registerinput3,{path:bpath + "gfdsg",x:-240})
 
             hqq.setNode(accountnode,{width:480,height:36,x:17,y:135});
             hqq.setNode(accountnode.getChildByName("BACKGROUND_SPRITE"),{width:480,height:36});
@@ -587,7 +657,7 @@ cc.Class({
 
             registertitle.getComponent(cc.Label).string = "";
             registertitle.setPosition(0,240);
-            hqq.addNode(registertitle,{path:hlpath+"titlezczszh"});
+            hqq.addNode(registertitle,{path:blpath+"titlezczszh"});
             title0.active = false;
             title1.active = false;
             title2.active = false;
@@ -602,16 +672,20 @@ cc.Class({
             tip1.y = -15
 
             let proxycodechangehead_di = cc.find("smallsublayer/proxycode/changehead_di")
-            hqq.setSprite(proxycodechangehead_di, { path: hpath + "4", width: 550, type: cc.Sprite.Type.SLICED })
-            // cc.find("smallsublayer/proxycode/codeeditbox/TEXT_LABEL").color = cc.color("#546277");
+            hqq.setSprite(proxycodechangehead_di, { path: bpath + "shurukuang", width: 251,height:36,x:90,y:-10, type: cc.Sprite.Type.SLICED })
+            let codeeditbox = cc.find("smallsublayer/proxycode/codeeditbox");
+            hqq.setNode(codeeditbox,{width:251,height:36,x:90,y:-10})
+            cc.find("smallsublayer/proxycode/codeeditbox/TEXT_LABEL").color = cc.color("#81817e");
             cc.find("smallsublayer/proxycode/codeeditbox/TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
-            // cc.find("smallsublayer/proxycode/codeeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
+            cc.find("smallsublayer/proxycode/codeeditbox/PLACEHOLDER_LABEL").color = cc.color("#81817e");
             cc.find("smallsublayer/proxycode/codeeditbox/PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
+            cc.find("smallsublayer/proxycode/headfram").active = false;
+            hqq.setLabel(info,{string:hqq.getTip("enterproxy"),x:-133.007,y:-9.275,fontSize:27,color:cc.color("#d9c282")})
 
             let bindusdt = cc.find("smallsublayer/bindusdt")
-            hqq.addNode(bindusdt, { path: hpath + "4", zIndex: -1, width: 570, x: 90, y: 95, type: cc.Sprite.Type.SLICED })
-            hqq.addNode(bindusdt, { path: hpath + "4", zIndex: -1, width: 460, x: 35, y: -25, type: cc.Sprite.Type.SLICED })
-            hqq.setSprite(usdttitle, { path: hlpath + "13", x:0,y: 260 })
+            hqq.addNode(bindusdt, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "4", zIndex: -1, width: 570, x: 90, y: 95, type: cc.Sprite.Type.SLICED })
+            hqq.addNode(bindusdt, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "4", zIndex: -1, width: 460, x: 35, y: -25, type: cc.Sprite.Type.SLICED })
+            // hqq.setSprite(usdttitle, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "13", x:0,y: 260 })
             hqq.addNode(bindusdt, { string: "usdtllx", x: -280, y: -25 ,fontSize:32,color:cc.color(232,169,98),bold:true})
             hqq.addNode(bindusdt, { string: "usdtqbdz", x: -290, y: 95 ,fontSize:32,color:cc.color(232,169,98),bold:true})
             // bindusdt.getChildByName("type").color = cc.color("#546277");
@@ -620,20 +694,68 @@ cc.Class({
             bindusdt.getChildByName("adress").getChildByName("TEXT_LABEL").getComponent(cc.Label).fontSize = 28;
             // bindusdt.getChildByName("adress").getChildByName("PLACEHOLDER_LABEL").color = cc.color("#546277");
             bindusdt.getChildByName("adress").getChildByName("PLACEHOLDER_LABEL").getComponent(cc.Label).fontSize = 28;
-            // info.color = cc.color("#0B3460")
-            info.getComponent(cc.Label).string = hqq.getTip("proxy2")
             // this.tiplayerinfo.node.color = cc.color("#0B3460")
-            this.tiplayerinfo.node.y -= 30;
+            this.tiplayerinfo.node.y -= 40;
+            hqq.addNode(this.nologin,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"title_tips",y:200});
+            hqq.addNode(this.download,{Res:hqq["hall_"+hqq.app.pinpai],path:hlpath+"title_tips",y:240});
 
-            // downlabel.color = cc.color("#546277");
-            // downlabel2.color = cc.color("#546277");
+            this.num0 = 0;
+            this.num1 = 0;
+            this.versionlabel = cc.find("smallsublayer/setting/btncontainer/ylsz/checkmark/yjks/versionlabel").getComponent(cc.Label);
+
+            hqq.setSprite(cc.find("login2/titledl",this.node),{path:"base/language/"+hqq.language+"/ninetwo/img/titledl"});
+
+            hqq.setSkeleton(cc.find("login2/tabToggleContainer/toggle1/Background",this.node),{path:"base/ninetwo/setting_tabunselect/",aniname:"animation",loop:true,timeScale:0.95});
+            hqq.setSkeleton(cc.find("login2/tabToggleContainer/toggle1/checkmark/setting_menu_btn_selected",this.node),{path:"base/ninetwo/setting_tabselect/",aniname:"animation",loop:true,timeScale:0.95});
+
+            hqq.setSprite(cc.find("login2/tabToggleContainer/toggle1/txt_accountLogin",this.node),{path:"base/language/"+hqq.language+"/ninetwo/img/txt_accountLogin"});
+
+            hqq.setSkeleton(cc.find("login2/tabToggleContainer/toggle2/Background",this.node),{path:"base/ninetwo/setting_tabunselect/",aniname:"animation",loop:true,timeScale:0.95});
+            hqq.setSkeleton(cc.find("login2/tabToggleContainer/toggle2/checkmark/setting_tabselect",this.node),{path:"base/ninetwo/setting_tabselect/",aniname:"animation",loop:true,timeScale:0.95});
+
+            hqq.setSprite(cc.find("login2/tabToggleContainer/toggle2/txt_mobileLogin",this.node),{path:"base/language/"+hqq.language+"/ninetwo/img/txt_mobileLogin"});
+            hqq.setSprite(cc.find("login2/txt_account",this.node),{path:"base/language/"+hqq.language+"/ninetwo/img/txt_account"});
+            hqq.setSprite(cc.find("login2/txt_pwd",this.node),{path:"base/language/"+hqq.language+"/ninetwo/img/txt_pwd"});
+
+            hqq.setSkeleton(cc.find("login2/settinganiu",this.node),{path:"base/language/"+hqq.language+"/ninetwo/setting_btn_login/",aniname:"animation",loop:true,timeScale:0.95});
+            hqq.setSprite(cc.find("setting/btncontainer/appgx/checkmark/setting_divLine",this.node),{path:"base/ninetwo/img/setting_divLine2"});
+
+            hqq.setSprite(cc.find("loginform",this.login2),{path:"base/language/"+hqq.language+"/ninetwo/img/login_frame2"})
+        } else if(hqq.app.pinpai == "tianqi") {
+            let blpath = "base/language/" + hqq.language + "/img/"
+            hqq.setSprite(this.back, { path: "base/tianqi/img/p_bandalibg2" })
+            hqq.setBtn(closebtn, { path: "base/tianqi/img/p_close" , y:270})
+            hqq.setBtn(surecg, { path: blpath + "surecg" ,x:0})
+
+            hqq.setSprite(title_changehead, { path: blpath + "title_changehead", y:235})
+
+            // hqq.setSprite(title_bdali, { path: blpath + "title_bdali" })
+            // hqq.setSprite(bdali_form, { path: blpath + "bdali_form" })
+            title.y = 235;
+            hqq.setSprite(titile_tip, { path: blpath + "titile_tip" })
+            hqq.setSprite(inputurnickname, { path: blpath + "inputurnickname" })
+
+            hqq.setBtn(copybtn, { path: "base/img/getcodebtn" })
+
+            hqq.setSprite(title_login, { path: blpath + "title_login" , y:235})
+            hqq.setBtn(txt_forgetpwd, { path: blpath + "txt_forgetpwd" })
+
+            hqq.setBtn(webbtn, { path: "base/img/getcodebtn" })
+            hqq.setBtn(appbtn, { path: "base/img/getcodebtn", active: false })
+
+            hqq.setSprite(usdttitle, { path: blpath + "title_usdt" ,y:235})
+            hqq.setSprite(usdteditboxback, { path: blpath + "popup_usdt_frame" })
+
+            title.getComponent(cc.Label).string = hqq.getTip("imchoice")
+            weblabel.getComponent(cc.Label).string = hqq.getTip("weblabel")
+            applabel.getComponent(cc.Label).string = hqq.getTip("applabel")
         } else {
             let blpath = "base/language/" + hqq.language + "/img/"
             hqq.setSprite(this.back, { path: "base/img/p_bandalibg" })
-            hqq.setBtn(closebtn, { path: "base/img/p_close" })
-            hqq.setBtn(surecg, { path: blpath + "surecg" })
+            hqq.setBtn(closebtn, { path: "base/img/p_close" , y:270})
+            hqq.setBtn(surecg, { path: blpath + "surecg" ,x:0})
 
-            hqq.setSprite(title_changehead, { path: blpath + "title_changehead" })
+            hqq.setSprite(title_changehead, { path: blpath + "title_changehead",y:230 })
 
             // hqq.setSprite(title_bdali, { path: blpath + "title_bdali" })
             // hqq.setSprite(bdali_form, { path: blpath + "bdali_form" })
@@ -643,15 +765,16 @@ cc.Class({
 
             hqq.setBtn(copybtn, { path: "base/img/getcodebtn" })
 
-            hqq.setSprite(title_login, { path: blpath + "title_login" })
+            hqq.setSprite(title_login, { path: blpath + "title_login" , y:230})
             hqq.setBtn(txt_forgetpwd, { path: blpath + "txt_forgetpwd" })
 
             hqq.setBtn(webbtn, { path: "base/img/getcodebtn" })
             hqq.setBtn(appbtn, { path: "base/img/getcodebtn", active: false })
 
-            hqq.setSprite(usdttitle, { path: blpath + "title_usdt" })
+            hqq.setSprite(usdttitle, { path: blpath + "title_usdt" ,y:230})
             hqq.setSprite(usdteditboxback, { path: blpath + "popup_usdt_frame" })
 
+            title.y = 235;
             title.getComponent(cc.Label).string = hqq.getTip("imchoice")
             weblabel.getComponent(cc.Label).string = hqq.getTip("weblabel")
             applabel.getComponent(cc.Label).string = hqq.getTip("applabel")
@@ -668,7 +791,15 @@ cc.Class({
         this.tiplayer.active = false
         this.download.active = false
         this.weblogin.active = false;
-        this.data = data
+        this.imnode.active = false;
+        this.register.active = false;
+        this.proxycode.active = false;
+        this.usdtnode.active = false;
+        this.setting.active = false;
+        this.login2.active = false;
+        this.data = data;
+        this.onMusicChangeTimer = null;
+        this.onSoundChangeTimer = null;
 
         this.UILoad();
 
@@ -680,11 +811,13 @@ cc.Class({
                     this.changeheadInit()
                 }
                 if(hqq.app.pinpai == "juding"){
-                    let hpath = "hall/juding/img/"
-                    hqq.addNode(this.back,{path: hpath + "jd_popup_inBg"});
+                    let hpath = "juding/img/"
+                    hqq.addNode(this.back,{Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "jd_popup_inBg"});
                 } else if(hqq.app.pinpai == "huaxing" ){
-                    hqq.addNode(this.back, { path: "hall/huaxing/img/d_tit" , y:260})
-                }
+                    hqq.addNode(this.back, { path: "base/huaxing/img/d_tit" , y:260})
+                } /* else if(hqq.app.pinpai == "test"){
+                    this.exitbtn.y = 270;
+                } */
                 break;
             case 2: // 绑定支付宝
                 this.bindalipay.active = true
@@ -702,14 +835,16 @@ cc.Class({
                     cc.find("smallsublayer/nickchange/nickeditbox/TEXT_LABEL").color = cc.color("#546277");
                     cc.find("smallsublayer/nickchange/nickeditbox/PLACEHOLDER_LABEL").color = cc.color("#546277");
                 }  else if(hqq.app.pinpai == "huaxing" ){
-                    hqq.addNode(this.back, { path:"hall/huaxing/img/d_tit" , y:260})
+                    hqq.addNode(this.back, { path:"base/huaxing/img/d_tit" , y:260})
                 }
                 break;
             case 4: // 切换账号
                 this.login.active = true
                 if( hqq.app.pinpai == "huaxing" ){
-                    hqq.addNode(this.back, { path: "hall/huaxing/img/d_tit" , y:260})
-                }
+                    hqq.addNode(this.back, { path: "base/huaxing/img/d_tit" , y:260})
+                } /* else{
+                    this.exitbtn.y = 260;
+                } */
                 break;
             case 5: // 切换账号 自动加 id 
                 this.login.active = true
@@ -717,8 +852,10 @@ cc.Class({
                     this.login.getChildByName("phoneeditbox").getComponent(cc.EditBox).string = hqq.gameGlobal.player.id
                 }
                 if( hqq.app.pinpai == "huaxing" ){
-                    hqq.addNode(this.back, { path: "hall/huaxing/img/d_tit" , y:260})
-                }
+                    hqq.addNode(this.back, { path: "base/huaxing/img/d_tit" , y:260})
+                } /* else if(hqq.app.pinpai == "test"){
+                    this.exitbtn.y = 240;
+                } */
                 break;
             case 6: // 账号掉线
                 this.nologin.active = true
@@ -728,11 +865,9 @@ cc.Class({
                 } else {
                     this.surecg.y = -140
                 }
-                if (cc.director.getScene().name != "hall"){
-                    this.node.removeFromParent(true)
-                    hqq.eventMgr.dispatch(hqq.eventMgr.refreshHallChongFuDenLu, null)
-                    this.scheduleOnce(()=>{hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("accontloginother"))},0.5);
-                }
+                /* if(hqq.app.pinpai == "test"){
+                    this.exitbtn.y = 240;
+                } */
                 break;
             case 7: // 账号掉线 加自动登录
                 this.login.active = true
@@ -745,6 +880,9 @@ cc.Class({
                 if (hqq.gameGlobal.player.id) {
                     this.login.getChildByName("phoneeditbox").getComponent(cc.EditBox).string = hqq.gameGlobal.player.id
                 }
+               /*  if(hqq.app.pinpai == "test"){
+                    this.exitbtn.y = 240;
+                } */
                 break;
             case 8: // 安装包跳转下载
                 this.download.active = true
@@ -754,7 +892,7 @@ cc.Class({
                 }
                 this.exitbtn.active = false
                 this.surecg.y = -10
-                this.clearLocalData()
+                // this.clearLocalData()
                 break;
             case 9: // 跳转浏览器网页客户端
                 this.tiplayerinfo.string = data.msg || hqq.getTip("jumptoweb")
@@ -763,6 +901,9 @@ cc.Class({
                     this.surecg.y = -220
                 } else {
                     this.surecg.y = -140
+                    /* if(hqq.app.pinpai == "test"){
+                        this.exitbtn.y = 240;
+                    } */
                 }
                 break;
             case 10: // 任意提示信息
@@ -780,51 +921,63 @@ cc.Class({
                     hqq.addNode(this.tiplayerinfo.node, { path: blpath + "gonggaobiaoti2", y: 200, type: cc.Sprite.Type.SLICED })
                     this.surecg.y = -220
                 } else if(hqq.app.pinpai == "juding"){
-                    let hlpath = "hall/language/" + hqq.language + "/juding/";
-                    hqq.addNode(this.tiplayerinfo.node, { path: hlpath + "gg", x:-350,y: 205, type: cc.Sprite.Type.SLICED })
+                    let hlpath = "language/" + hqq.language + "/juding/";
+                    hqq.addNode(this.tiplayerinfo.node, { Res:hqq["hall_"+hqq.app.pinpai],path: hlpath + "gg", x:-350,y: 205, type: cc.Sprite.Type.SLICED })
                     this.surecg.y = -205
-                    let hpath = "hall/juding/img/"
-                    hqq.addNode(this.back,{path: hpath + "jd_popup_inBg"});
+                    let hpath = "juding/img/"
+                    hqq.addNode(this.back,{Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "jd_popup_inBg"});
                 }  else if(hqq.app.pinpai == "huaxing" ){
-                    hqq.addNode(this.back, { path: "hall/huaxing/img/d_tit" , y:260})
+                    hqq.addNode(this.back, { path: "base/huaxing/img/d_tit" , y:260})
                     hqq.addNode(this.back,{string:"gg",y:255,bold:true,fontSize:45,lineHeight:50,color:cc.color(242,222,149)})
                 } else {
                     this.surecg.y = -140
+                    /* if(hqq.app.pinpai == "test"){
+                        this.exitbtn.y = 240;
+                    } */
                 }
                 break;
             case 11: // im选择
                 this.imnode.active = true
                 this.surecg.active = false
                 if (hqq.app.pinpai == "xingui") {
-                    hqq.addNode(this.back, { path: "base/language/" + hqq.language + "/xingui/kffk", y: 200 })
+                    hqq.addNode(this.back, { path: "base/language/" + hqq.language + "/xingui/kffk", y: 220 })
                 } else if( hqq.app.pinpai == "huaxing" ){
-                    hqq.addNode(this.back, { path: "hall/huaxing/img/d_tit" , y:260})
+                    hqq.addNode(this.back, { path: "base/huaxing/img/d_tit" , y:260})
                 }
                 this.initImNode()
+                /* if(hqq.app.pinpai == "test"){
+                    this.exitbtn.y = 240;
+                } */
                 break;
             case 12: // 注册
                 this.register.active = true
                 if( hqq.app.pinpai == "huaxing" ){
                     this.back.width = 897;
                     this.back.height = 609;
-                    hqq.addNode(this.back, { path: "hall/huaxing/img/d_tit" , y:260})
-                }
+                    hqq.addNode(this.back, { path: "base/huaxing/img/d_tit" , y:260})
+                } /* else if(hqq.app.pinpai == "test"){
+                    this.exitbtn.y = 240;
+                } */
                 break;
             case 13: // 输入上级ID
                 this.proxycode.active = true
                 if(hqq.app.pinpai == "juding "){
-                    let hpath = "hall/juding/img/"
-                    hqq.addNode(this.back,{path: hpath + "jd_popup_inBg"});
+                    let hpath = "juding/img/"
+                    hqq.addNode(this.back,{Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "jd_popup_inBg"});
                 } else if( hqq.app.pinpai == "huaxing" ){
-                    hqq.addNode(this.back, { path: "hall/huaxing/img/d_tit" , y:260})
+                    hqq.addNode(this.back, { path: "base/huaxing/img/d_tit" , y:260})
                     hqq.addNode(this.back,{string:"proxytitle",y:255,bold:true,fontSize:45,lineHeight:50,color:cc.color(242,222,149)})
-                }
+                } /* else if(hqq.app.pinpai == "test"){
+                    this.exitbtn.y = 240;
+                } */
                 break;
             case 14: // usdt
                 this.usdtnode.active = true
                 if(hqq.app.pinpai == "huaxing" ){
-                    hqq.addNode(this.back, { path: "hall/huaxing/img/d_tit" , y:260})
-                }
+                    hqq.addNode(this.back, { path: "base/huaxing/img/d_tit" , y:260})
+                } /* else if(hqq.app.pinpai == "test"){
+                    this.exitbtn.y = 240;
+                } */
                 break;
             case 15: // web登入
                 this.back.active = false;
@@ -846,7 +999,18 @@ cc.Class({
             case 16: // 设置
                 cc.find("smallsublayer/p_close").setPosition(458,230)
                 this.setting.active = true;
-                this.onSettingMenuClick(null,1);
+                this.onSettingMenuClick(cc.find("smallsublayer/setting/btncontainer/ylsz").getComponent(cc.Toggle),1);
+                this.panelInit(1)
+                break;
+            case 17:
+                this.login2.active = true;
+                break;
+            case 18:
+                if(data.closeloading){
+                    this.onClickExit();
+                } else{
+                    this.loading.active = true;
+                }
                 break;
         }
         if (data.hideexitbtn) {
@@ -854,7 +1018,7 @@ cc.Class({
         }
         if (data.exitfunc) {
             this.onClickExit = () => {
-                this.node.removeFromParent(true)
+                this.node.destroy()
                 data.exitfunc()
             }
         }
@@ -1005,7 +1169,7 @@ cc.Class({
             hqq.reflect && hqq.reflect.setOrientation("portrait")
             cc.director.loadScene(hqq.subModel.im.lanchscene)
         } else {
-            console.log("请配置im场景")
+            cc.log("请配置im场景")
         }
     },
 
@@ -1029,42 +1193,102 @@ cc.Class({
         if (hqq.app.downloadUrl) {
             cc.sys.openURL(hqq.app.downloadUrl)
         } else {
-            if (hqq.app.pinpai == "test") {
-                cc.sys.openURL("https://temp.wepic666.com?p=1&u=442619406")
-            } else if (hqq.app.pinpai == "debi") {
-                cc.sys.openURL("https://temp.wepic666.com?p=2&u=770256905")
-            } else if (hqq.app.pinpai == "xingba") {
-                cc.sys.openURL("https://temp.wepic666.com?p=3&u=811425071")
-            } else if (hqq.app.pinpai == "xinsheng") {
-                cc.sys.openURL("https://temp.wepic666.com?p=8&u=779681851")
-            } else if (hqq.app.pinpai == "xingui") {
-                cc.sys.openURL("https://temp.wepic666.com?p=9&u=800242589")
-            } else if (hqq.app.pinpai == "fuxin" ) {
-                cc.sys.openURL("https://temp.wepic666.com?p=10&u=250188151")
-            } else if (hqq.app.pinpai == "xinhao") {
-                cc.sys.openURL("https://temp.wepic666.com?p=11&u=341292395")
-            }  else if (hqq.app.pinpai == "xinlong") {
-                cc.sys.openURL("https://temp.wepic666.com?p=12&u=736282263")
-            } else if (hqq.app.pinpai == "nineone"){
-                cc.sys.openURL("https://temp.wepic666.com?p=6&u=541999022")
-            } else if (hqq.app.pinpai == "huangshi"){
-                cc.sys.openURL("https://temp.wepic666.com?p=13&u=195201705")
-            } else if (hqq.app.pinpai == "juding"){
-                cc.sys.openURL("https://temp.wepic666.com?p=15&u=855395847")
-            } else if (hqq.app.pinpai == "huaxing"){
-                cc.sys.openURL("https://temp.wepic666.com?p=18&u=657592379")
-            } else if (hqq.app.pinpai == "ninetwo"){
-                cc.sys.openURL("https://temp.wepic666.com?p=16&u=186959995")
-            } else {
-                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("downloadurlerr"))
+            if( hqq.app.huanjin === "pre" ){
+                if (hqq.app.pinpai == "test") {
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=1&u=319010216&m=pre")
+                } else if (hqq.app.pinpai == "debi") {
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=2&u=218638346&m=pre")
+                } else if (hqq.app.pinpai == "xingba") {
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=3&u=491187717&m=pre")
+                } else if (hqq.app.pinpai == "xinsheng") {
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=8&u=799197169&m=pre")
+                } else if (hqq.app.pinpai == "xingui") {
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=9&u=887927706&m=pre")
+                } else if (hqq.app.pinpai == "fuxin" ) {
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=10&u=818123207&m=pre")
+                } else if (hqq.app.pinpai == "xinhao") {
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=11&u=927284006&m=pre")
+                }  else if (hqq.app.pinpai == "xinlong") {
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=12&u=405485074&m=pre")
+                } else if (hqq.app.pinpai == "nineone"){
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=6&u=671627403&m=pre")
+                } else if (hqq.app.pinpai == "huangshi"){
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=13&u=372584699&m=pre")
+                } else if (hqq.app.pinpai == "juding"){
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=15&u=649506476&m=pre")
+                } else if (hqq.app.pinpai == "huaxing"){
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=18&u=401194253&m=pre")
+                } else if (hqq.app.pinpai == "ninetwo"){
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=16&u=841667955&m=pre")
+                } else if (hqq.app.pinpai == "tianqi"){
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=21&u=372584699&m=pre")
+                } else if (hqq.app.pinpai == "chaofan"){
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=19&u=239796950&m=pre")
+                } else if (hqq.app.pinpai == "wansheng"){
+                    cc.sys.openURL("https://www.lymrmfyp.com?p=20&u=162354480&m=pre")
+                } else {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("downloadurlerr"))
+                }
+            } else{
+                if (hqq.app.pinpai == "test") {
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=1&u=442619406")
+                } else if (hqq.app.pinpai == "debi") {
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=2&u=770256905")
+                } else if (hqq.app.pinpai == "xingba") {
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=3&u=811425071")
+                } else if (hqq.app.pinpai == "xinsheng") {
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=8&u=779681851")
+                } else if (hqq.app.pinpai == "xingui") {
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=9&u=800242589")
+                } else if (hqq.app.pinpai == "fuxin" ) {
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=10&u=250188151")
+                } else if (hqq.app.pinpai == "xinhao") {
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=11&u=341292395")
+                }  else if (hqq.app.pinpai == "xinlong") {
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=12&u=736282263")
+                } else if (hqq.app.pinpai == "nineone"){
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=6&u=541999022")
+                } else if (hqq.app.pinpai == "huangshi"){
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=13&u=195201705")
+                } else if (hqq.app.pinpai == "juding"){
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=15&u=855395847")
+                } else if (hqq.app.pinpai == "huaxing"){
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=18&u=657592379")
+                } else if (hqq.app.pinpai == "ninetwo"){
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=16&u=186959995")
+                } else if (hqq.app.pinpai == "tianqi"){
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=21&u=552856005")
+                } else if (hqq.app.pinpai == "chaofan"){
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=19&u=201340147")
+                } else if (hqq.app.pinpai == "wansheng"){
+                    cc.sys.openURL("https://temp.whjfxly66.com?p=20&u=712529050")
+                } else {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("downloadurlerr"))
+                }
             }
         }
     },
     nologinCallback() {
-        this.node.removeFromParent(true)
-        if (cc.director.getScene().name == "hall"){
-            hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, { type: 7 })
-        }         
+        if(hqq.app.pinpai === "ninetwo" ){
+            this.node.destroy()
+            if (cc.director.getScene().name == "hall" || cc.director.getScene().name == "New Node" ){
+                setTimeout(() => {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, { type: 17 , hideexitbtn:true})
+                }, 500);
+            } else{
+                hqq.eventMgr.dispatch(hqq.eventMgr.refreshHallChongFuDenLu, null)
+            }
+        }else{
+            this.node.destroy()
+            if (cc.director.getScene().name == "hall" || cc.director.getScene().name == "New Node" ){
+                setTimeout(() => {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, { type: 7 })
+                }, 500);
+            } else{
+                hqq.eventMgr.dispatch(hqq.eventMgr.refreshHallChongFuDenLu, null)
+            }  
+        }
+             
         // this.exitbtn.active = true
         // this.nologin.active = false
         // this.surecg.y = this.surecg.y - 61
@@ -1256,6 +1480,10 @@ cc.Class({
         headid = headid % 10
         for (let i = 0; i < headlen; i++) {
             let headitem = cc.instantiate(this.headitem)
+            let tempbool = headitem.active;
+            if(!tempbool){
+                headitem.active = true;
+            }
             if (hqq.app.pinpai == "fuxin" ) {
                 let select = headitem.getChildByName("selectsp")
                 hqq.setSprite(select, { path: "base/fuxin/img/xz" })
@@ -1264,22 +1492,24 @@ cc.Class({
                 hqq.setSprite(select, { path: "base/xingui/img/gou" })
             } else if (hqq.app.pinpai == "juding" ) {
                 let select = headitem.getChildByName("selectsp")
-                hqq.setSprite(select, { path: "hall/juding/img/jd_personal_select" })
+                hqq.setSprite(select, { Res:hqq["hall_"+hqq.app.pinpai],path: "juding/img/jd_personal_select" })
             } else if (hqq.app.pinpai == "huaxing" ) {
                 let select = headitem.getChildByName("selectsp")
-                hqq.setSprite(select, { path: "hall/huaxing/img/9" })
+                hqq.setSprite(select, { Res:hqq["hall_"+hqq.app.pinpai],path: "huaxing/img/9" })
             } else if (hqq.app.pinpai == "ninetwo" ) {
                 let select = headitem.getChildByName("selectsp")
-                hqq.setSprite(select, { path: "hall/ninetwo/img/dtxk2",x:0,y:0 })
+                hqq.setSprite(select, { Res:hqq["hall_"+hqq.app.pinpai],path: "ninetwo/img/dtxk2",x:0,y:0 })
+            }
+            if(!tempbool){
+                headitem.active = false;
             }
             let head = headitem.getChildByName("masknode").getChildByName("head").getComponent(cc.Sprite)
             
             let x = i % 5
             let y = Math.floor(i / 5)
             
+            let headconver = [0,3,6,8];
             if(hqq.app.pinpai == "ninetwo" ){
-                let headconver = [0,3,6,8];
-                cc.log("changeheadInit i=",i," headconver[i]=",headconver[i])
                 hqq.commonTools.loadHeadRes(headconver[i], head,101)
                 headitem.setPosition( 140 * (i - 1.5) , -130 )
             } else{
@@ -1288,7 +1518,7 @@ cc.Class({
             }
             headitem.active = true
             this.itemlist.push(headitem)
-            var clickEventHandler = new cc.Component.EventHandler();
+            let clickEventHandler = new cc.Component.EventHandler();
             clickEventHandler.target = this.node;
             clickEventHandler.component = "hallPSubsLayer";
             clickEventHandler.customEventData = i;
@@ -1297,14 +1527,24 @@ cc.Class({
             button.clickEvents.push(clickEventHandler);
 
             this.headscroll.content.addChild(headitem)
-            if (headid == i) {
-                this.onClickHeadItem({ target: headitem }, headid)
+            if(hqq.app.pinpai == "ninetwo" ){
+                if (headid == headconver[i]) {
+                    this.onClickHeadItem({ target: headitem }, i)
+                }
+            }else{
+                if (headid == i) {
+                    this.onClickHeadItem({ target: headitem }, headid)
+                }
             }
         }
     },
 
     onClickHeadItem(event, custom) {
-        this.headindex = custom + ""
+        this.headindex = custom + "";
+        if(hqq.app.pinpai == "ninetwo" ){
+            let headconver = [0,3,6,8];
+            this.headindex = headconver[Number(custom)] + "";
+        }
         event.target.getChildByName("selectsp").active = true
         for (let i = 0; i < this.itemlist.length; i++) {
             if (custom == i) {
@@ -1334,7 +1574,7 @@ cc.Class({
     },
 
     onClickExit() {
-        this.node.removeFromParent(true)
+        this.node.destroy();
     },
     charCodeAddress(s) {
         var ret = false;
@@ -1452,7 +1692,7 @@ cc.Class({
                     hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("onlynumber"))
                     return
                 }
-                this.node.removeFromParent()
+                this.node.destroy()
                 if (this.data.ensurefunc) {
                     this.data.ensurefunc(code)
                 } else {
@@ -1469,7 +1709,7 @@ cc.Class({
         }
     },
     weblogin_login(){
-        hqq.setSprite(cc.find("form",this.weblogin),{path:"base/language/CN/img/web_signIn_form"});
+        hqq.setSprite(cc.find("form",this.weblogin),{path:"base/language/"+hqq.language+"/img/web_signIn_form"});
         let account = cc.find("account",this.weblogin);
         account.setPosition(35,25);
         let url = window.location.search;
@@ -1505,10 +1745,10 @@ cc.Class({
             pass0.getComponent(cc.EditBox).string = passstr;
         }
         cc.find("pass1",this.weblogin).active = false;
-        hqq.setBtn(this.surecg, { path: "base/language/CN/img/web_signIn" ,active:true})
+        hqq.setBtn(this.surecg, { path: "base/language/"+hqq.language+"/img/web_signIn" ,active:true})
     },
     weblogin_register(){
-        hqq.setSprite(cc.find("form",this.weblogin),{path:"base/language/CN/img/web_signUp_form"});
+        hqq.setSprite(cc.find("form",this.weblogin),{path:"base/language/"+hqq.language+"/img/web_signUp_form"});
         let account = cc.find("account",this.weblogin);
         account.setPosition(35,39);
         account.getComponent(cc.EditBox).string = "";
@@ -1517,7 +1757,7 @@ cc.Class({
         pass0.getComponent(cc.EditBox).string = "";
         let pass1 = cc.find("pass1",this.weblogin);
         pass1.active = true;
-        hqq.setBtn(this.surecg, { path: "base/language/CN/img/web_signUp" , active:true})
+        hqq.setBtn(this.surecg, { path: "base/language/"+hqq.language+"/img/web_signUp" , active:true})
     },
 
     weblogin_click() {
@@ -1657,18 +1897,77 @@ cc.Class({
     },
     onMusicChange(value)
     {
-        hqq.audioMgr.setBgVolume(value);
+        if(this.onMusicChangeTimer){
+            clearTimeout(this.onMusicChangeTimer)
+        }
+        this.onMusicChangeTimer = setTimeout(() => {
+            hqq.audioMgr.setBgVolume(value);
+        }, 100);
     },
 
     onSoundChange(value)
     {
-        hqq.audioMgr.setEffectVolume(value);
+        if(this.onSoundChangeTimer){
+            clearTimeout(this.onSoundChangeTimer)
+        }
+        this.onSoundChangeTimer = setTimeout(() => {
+            hqq.audioMgr.setEffectVolume(value);
+        }, 100);
     },
 
     onPlayBG(event,customEventData){
         hqq.audioMgr.playBg( "hallbg" , null , Number(customEventData) );
     },
-    onSettingMenuClick( event , customEventData ){
+    onSettingMenuClick( toggle , customEventData ){
+        
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/d_menu"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/Background/zi",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/img/ylsz1"});
+        
+        hqq.setSkeleton(cc.find("setting/btncontainer/ylsz/checkmark/dating_menu_btn_selected",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/setting_menu_btn_selected/",aniname:"animation",loop:true,timeScale:0.95});
+        
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/zi",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/img/ylsz2"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks",this.node),{path:"base/ninetwo/img/yjks",width:630,height:380, type: cc.Sprite.Type.SLICED});
+        
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/sliderBGM/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/19"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/sliderBGM/progressBar",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/19"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/sliderBGM/progressBar/bar",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/18"})
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/sliderBGM/Handle",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/11"});
+
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/sliderSound/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/19"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/sliderSound/progressBar",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/19"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/sliderSound/progressBar/bar",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/18"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/sliderSound/Handle",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/11"});
+
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/setting_divLine",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/setting_divLine"});
+
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/yylxradio/toggle1/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/15"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/yylxradio/toggle1/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/14"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/yylxradio/toggle2/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/15"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/yylxradio/toggle2/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/14"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/yylxradio/toggle3/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/15"});
+        hqq.setSprite(cc.find("setting/btncontainer/ylsz/checkmark/yjks/yylxradio/toggle3/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/14"});
+
+        hqq.setSkeleton(cc.find("setting/btncontainer/ylsz/checkmark/yjks/settinganiu",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/setting_btn_quitAccount/",aniname:"animation",loop:true,timeScale:0.95});
+
+        hqq.setSprite(cc.find("setting/btncontainer/dlmm/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/d_menu"});
+        hqq.setSprite(cc.find("setting/btncontainer/dlmm/Background/zi",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/img/dlmm1"});
+
+        // cc.find("setting/btncontainer/dlmm/checkmark",this.node).active = true;
+        hqq.setSkeleton(cc.find("setting/btncontainer/dlmm/checkmark/dating_menu_btn_selected",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/setting_menu_btn_selected/",aniname:"animation",loop:true,timeScale:0.95});
+        
+        hqq.setSprite(cc.find("setting/btncontainer/dlmm/checkmark/zi",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/img/dlmm2"});
+        
+        hqq.setSprite(cc.find("setting/btncontainer/appgx/Background",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/d_menu"});
+        hqq.setSprite(cc.find("setting/btncontainer/appgx/Background/zi",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/img/appgx1"});
+
+        // cc.find("setting/btncontainer/appgx/checkmark",this.node).active = true;
+        hqq.setSkeleton(cc.find("setting/btncontainer/appgx/checkmark/dating_menu_btn_selected",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/setting_menu_btn_selected/",aniname:"animation",loop:true,timeScale:0.95});
+
+        hqq.setSprite(cc.find("setting/btncontainer/appgx/checkmark/zi",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/img/appgx2"});
+        hqq.setSprite(cc.find("setting/btncontainer/appgx/checkmark/setting_divLine",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/setting_divLine"});
+
+        // cc.find("setting/btncontainer/appgx/checkmark",this.node).active = false;
+
         if( Number( customEventData) === 1 ){
             this.sliderBGM = cc.find("smallsublayer/setting/btncontainer/ylsz/checkmark/yjks/sliderBGM").getComponent("hqqSlider");
             this.sliderSound = cc.find("smallsublayer/setting/btncontainer/ylsz/checkmark/yjks/sliderSound").getComponent("hqqSlider");
@@ -1678,16 +1977,10 @@ cc.Class({
             this.sliderSound.setProgress(hqq.audioMgr.getEffectVolume());
             let musicindex = hqq.localStorage.globalGet( "musiceIndexKey" );
             cc.find("smallsublayer/setting/btncontainer/ylsz/checkmark/yjks/yylxradio/toggle" + musicindex ).getComponent(cc.Toggle).check();
-        } else if( Number( customEventData) === 2 ){
-            let checkbox = cc.find("btncontainer/dlmm/checkmark/20/17",this.setting );
-            checkbox.active = hqq.localStorage.globalGet("SettingSaveAccount");
-            if(checkbox.active){
-                let accountNode = cc.find("btncontainer/dlmm/checkmark/account",this.setting);
-                let account = hqq.localStorage.globalGet("SettingAccount");
-                if( account ){
-                    accountNode.getComponent(cc.EditBox).string = hqq.localStorage.globalGet("SettingAccount")
-                }
-            }
+        } else if( Number( customEventData ) === 2){
+            cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/mmxg/getcodebtn/btnlabel").getComponent(cc.Label).string = hqq.getTip("sendcode");
+            cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark/yjks/mmxg/getcodebtn/btnlabel").getComponent(cc.Label).string = hqq.getTip("sendcode");
+            this.onSettingLoginTabCallback(cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1").getComponent(cc.Toggle),1);
         } else if( Number( customEventData) === 4 ){
             let appversion = cc.find("btncontainer/appgx/checkmark/appbbhvalue",this.setting);
             appversion.getComponent(cc.Label).string = hqq.app.apkVersion;
@@ -1696,17 +1989,19 @@ cc.Class({
             let hcdxvalue = cc.find("btncontainer/appgx/checkmark/hcdxvalue",this.setting);
             hcdxvalue.getComponent(cc.Label).string = hqq.localStorage.getSize();
         }
+        if(cc.isValid(toggle)){
+            toggle.check();
+        }
     },
     onSettingLoginSaveAccountCallback() {
-        let checkbox = cc.find("btncontainer/dlmm/checkmark/20/17",this.setting );
+        let checkbox = cc.find("20/17",this.login2 );
         checkbox.active = !checkbox.active;
-        cc.log("onSettingLoginSaveAccountCallback checkbox.active=",checkbox.active)
         hqq.localStorage.globalSet("SettingSaveAccount",checkbox.active)
     },
 
     onSettingLoginCallback() {
-        let account = cc.find("btncontainer/dlmm/checkmark/account",this.setting).getComponent(cc.EditBox).string
-        let pass = cc.find("btncontainer/dlmm/checkmark/pass",this.setting).getComponent(cc.EditBox).string
+        let account = cc.find("account",this.login2).getComponent(cc.EditBox).string
+        let pass = cc.find("pass",this.login2).getComponent(cc.EditBox).string
         hqq.loginMgr.accountChange(account, pass, (issucess) => {
             if (issucess) {
                 this.onClickExit()
@@ -1716,46 +2011,116 @@ cc.Class({
         })
     },
 
-    onSettingAQMCallback() {
-        let ysaqm = cc.find("btncontainer/aqm/checkmark/yjks/ysaqmedit",this.setting).getComponent(cc.EditBox).string || "";
-        let xaqm = cc.find("btncontainer/aqm/checkmark/yjks/xaqmedit",this.setting).getComponent(cc.EditBox).string || "";
-        let qraqm = cc.find("btncontainer/aqm/checkmark/yjks/qraqmedit",this.setting).getComponent(cc.EditBox).string || "";
+    onSettingLoginTabCallback(toggle,customEventData) {
+        hqq.setSkeleton(cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/Background",this.node),{path:"base/ninetwo/setting_tabunselect/",aniname:"animation",loop:true,timeScale:0.95});
         
-        if( !ysaqm ){
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("changeaqmfail"))
-            return;
-        }
-        if (ysaqm.match(/[0-9]/g).length != ysaqm.length) {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("aqmnotcontain"))
-            return
-        }
+        // cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark",this.node).active = true;
+        
+        hqq.setSkeleton(cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/setting_menu_btn_selected",this.node),{path:"base/ninetwo/setting_tabselect/",aniname:"animation",loop:true,timeScale:0.95});
+        
+        hqq.setSprite(cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks",this.node),{path:"base/ninetwo/img/yjks",width:630,height:380, type: cc.Sprite.Type.SLICED});
+        hqq.setSprite(cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/mmxg",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/mmxg",width:607.68,height:276,y:33.637});
 
-        if ( xaqm != qraqm ) {
-            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("aqmdiff"))
+        hqq.setSkeleton(cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/mmxg/getcodebtn",this.node),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/setting_btn_sendCode/",aniname:"animation",loop:true,timeScale:0.95});
+        hqq.setSkeleton(cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/settinganiu",this.node),{path:"base/language/"+hqq.language+"/ninetwo/setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95});
+
+        // cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark",this.node).active = false;
+
+        hqq.setSkeleton(cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/Background",this.node),{path:"base/ninetwo/setting_tabunselect/",aniname:"animation",loop:true,timeScale:0.95});
+        hqq.setSkeleton(cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark/setting_tabselect",this.node),{path:"base/ninetwo/setting_tabselect/",aniname:"animation",loop:true,timeScale:0.95});
+        
+        let toggle2checkmark =cc.find("setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark",this.node);
+        let tempbool = toggle2checkmark.active;
+        if(!tempbool){
+            toggle2checkmark.active = true
+        }
+        hqq.setSprite(cc.find("yjks",toggle2checkmark),{path:"base/ninetwo/img/yjks",width:630,height:380, type: cc.Sprite.Type.SLICED});
+        hqq.setSprite(cc.find("yjks/mmxg",toggle2checkmark),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/img/mmxg",width:607.68,height:276,y:33.637});
+
+        hqq.setSkeleton(cc.find("yjks/mmxg/getcodebtn",toggle2checkmark),{Res:hqq["hall_"+hqq.app.pinpai],path:"ninetwo/setting_btn_sendCode/",aniname:"animation",loop:true,timeScale:0.95});
+        hqq.setSkeleton(cc.find("yjks/settinganiu",toggle2checkmark),{path:"base/language/"+hqq.language+"/ninetwo/setting_btn_ok/",aniname:"animation",loop:true,timeScale:0.95});
+        
+        // if(!tempbool){
+        //     toggle2checkmark.active = false
+        // }
+
+        let tabIndex = Number(customEventData);
+        if(tabIndex === 1 ){
+            // hqq.setSprite(cc.find("loginform",this.login2),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/img/loginform"})
+            cc.find("account/PLACEHOLDER_LABEL",this.login2).getComponent(cc.Label).string = hqq.getTip("enteraccount");
+        } else if( tabIndex === 2 ){
+            // hqq.setSprite(cc.find("loginform",this.login2),{Res:hqq["hall_"+hqq.app.pinpai],path:"language/"+hqq.language+"/ninetwo/img/loginform2"})
+            cc.find("account/PLACEHOLDER_LABEL",this.login2).getComponent(cc.Label).string = hqq.getTip("showtip32");
+        }
+        if(cc.isValid(toggle)){
+            toggle.check();
+        }
+    },
+
+    onSettingChangeAccountCallback() {
+        this.onClickExit();
+        setTimeout(() => {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showSamlllayer, { type: 17 }); 
+        }, 500);
+    },
+
+    onSettingAQMCallback() {
+        let resetsurebtn = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark/yjks/settinganiu").getComponent(cc.Button);
+        let phonenum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark/yjks/mmxg/account").getComponent(cc.EditBox).string
+        let yanzhenmanum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark/yjks/mmxg/captcha").getComponent(cc.EditBox).string
+        let capchanum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark/yjks/mmxg/phone").getComponent(cc.EditBox).string
+        let passnum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle2/checkmark/yjks/mmxg/password").getComponent(cc.EditBox).string
+        if (phonenum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip32"))
             return
         }
-        if (xaqm.match(/[0-9]/g).length != xaqm.length) {
+        if( hqq.gameGlobal.player.phonenum == "" ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip71"))
+            return
+        }
+        if( hqq.gameGlobal.player.phonenum != phonenum ){
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip33"))
+            return
+        }
+        if (yanzhenmanum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("entercode"))
+            return
+        }
+        if (capchanum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("capchaed"))
+            return
+        }
+        
+        if(passnum.length != 4 ){
             hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("aqmnotcontain"))
             return
         }
+        resetsurebtn.interactable = false
         let url = hqq.gameGlobal.pay.pay_host + "/api/user_funds_password/updatePassword";
         let callback = (response) => {
             cc.log("onSettingAQMCallback callback response=",response)
             if (response.status == 0) {
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("xgaqmsucess"))
                 this.onClickExit();
             } else{
                 hqq.eventMgr.dispatch(hqq.eventMgr.showTip, response.msg)
+                if(cc.isValid(resetsurebtn)){
+                    resetsurebtn.interactable = true
+                }
             }
         }
         let failcallback = (status, forcejump, url, err, readyState) => {
             cc.log("status=",status," forcejump=",forcejump," url=",url," err=",err," readyState=",readyState)
+            if(cc.isValid(resetsurebtn)){
+                resetsurebtn.interactable = true
+            }
         }
         let dataStr = "user_id=" + hqq.gameGlobal.pay.user_id
         dataStr += "&package_id=" + hqq.gameGlobal.pay.package_id
         dataStr += "&token=e40f01afbb1b9ae3dd6747ced5bca532"
         dataStr += "&center_auth=" + hqq.gameGlobal.token
-        dataStr += "&old_password=" + hqq.gameGlobal.token
-        dataStr += "&password=" + hqq.gameGlobal.token
+        dataStr += "&code=" + capchanum;
+        dataStr += "&password=" + passnum
         hqq.http.sendXMLHttpRequest({
             method: 'POST',
             urlto: url,
@@ -1771,6 +2136,386 @@ cc.Class({
         }
         let hcdxvalue = cc.find("btncontainer/appgx/checkmark/hcdxvalue",this.setting);
         hcdxvalue.getComponent(cc.Label).string = hqq.localStorage.getSize();
+    },
+
+    onSettingDLMMTabCallback(toggle,customEventData) {
+        cc.log("onSettingDLMMTabCallback this.dlmmtabindex=",this.dlmmtabindex," customEventData=",customEventData)
+        if(this.dlmmtabindex === Number(customEventData))return;
+        this.dlmmtabindex = Number(customEventData);
+        this.panelInit()
+    },
+
+    onClickCaptcha() {
+        this.panelInit()
+    },
+
+    // 注册正式账号初始化
+    panelInit(mtype) {
+        if (CC_JSB) {
+            let fullPath = jsb.fileUtils.getWritablePath() + "yanzhenma.png";
+            jsb.fileUtils.isFileExist(fullPath) && jsb.fileUtils.removeFile(fullPath);
+            if (this.temptex) {
+                cc.assetManager.releaseAsset(this.temptex);
+            }
+        }
+
+        if (!hqq.app.gameUser) {
+            console.log("没有中心服数据")
+            return
+        }
+        let imgurl = ''
+        if (hqq.app.server.indexOf("http:") == -1 && hqq.app.server.indexOf("https:") == -1) {
+            imgurl = "http://" + hqq.app.server + "/Game/Verify/createCaptcha?"
+        } else {
+            imgurl = hqq.app.server + "/Game/Verify/createCaptcha?"
+        }
+        imgurl += "id=" + hqq.app.gameUser.id;
+        imgurl += "&token=" + hqq.gameGlobal.token;
+        let self = this;
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", imgurl, true);
+        if (CC_JSB) {
+            xhr.responseType = "arraybuffer";
+        } else {
+            xhr.responseType = "blob";
+        }
+        xhr.onload = function () {
+            if (this.status == 200) {
+                if (CC_JSB) {
+                    var fullPath = jsb.fileUtils.getWritablePath() + "yanzhenma.png";
+                    if (jsb.fileUtils.isFileExist(fullPath) && jsb.fileUtils.removeFile(fullPath)) {
+                        if (jsb.fileUtils.writeDataToFile(new Uint8Array(this.response), fullPath)) {
+                            cc.assetManager.loadRemote(fullPath, function (err, tex) {
+                                if (err) {
+                                    cc.error(err);
+                                } else {
+                                    if(!cc.isValid(self.captchaimg)&&!cc.isValid(self.captchaimg2))return;
+                                    self.temptex = tex
+                                    let mspriteFrame = new cc.SpriteFrame(tex);
+                                    if (mspriteFrame) {
+                                        self.captchaimg.spriteFrame = mspriteFrame;
+                                        self.captchaimg2.spriteFrame = mspriteFrame;
+                                    }
+                                }
+                            });
+                        } else {
+                            cc.log('Remote write file failed.');
+                        }
+                    } else {
+                        if (jsb.fileUtils.writeDataToFile(new Uint8Array(this.response), fullPath)) {
+                            cc.assetManager.loadRemote(fullPath, function (err, tex) {
+                                if (err) {
+                                    cc.error(err);
+                                } else {
+                                    if(!cc.isValid(self.captchaimg)&&!cc.isValid(self.captchaimg2))return;
+                                    self.temptex = tex
+                                    let mspriteFrame = new cc.SpriteFrame(tex);
+                                    if (mspriteFrame) {
+                                        self.captchaimg.spriteFrame = mspriteFrame;
+                                        self.captchaimg2.spriteFrame = mspriteFrame;
+                                    }
+                                }
+                            });
+                        } else {
+                            cc.log('Remote write file failed.');
+                        }
+                    }
+                } else {
+                    var blob = this.response;
+                    let oFileReader = new FileReader();
+                    oFileReader.onloadend = function (e) {
+                        let base64 = e.target.result;
+                        var img = new Image();
+                        img.src = base64;
+                        img.onload = function () {
+                            if(!cc.isValid(self.captchaimg)&&!cc.isValid(self.captchaimg2))return;
+                            var texture = new cc.Texture2D();
+                            texture.initWithElement(img);
+                            var newframe = new cc.SpriteFrame();
+                            newframe.setTexture(texture);
+                            self.captchaimg.spriteFrame = newframe;
+                            self.captchaimg2.spriteFrame = newframe;
+                        }
+                    };
+                    oFileReader.readAsDataURL(blob);
+                }
+                xhr.abort()
+            }
+        }
+        xhr.ontimeout = () => {
+            xhr.abort()
+        }
+        xhr.onerror = () => {
+            xhr.abort()
+        }
+        xhr.send();
+    },
+    // 获取手机短信验证码
+    onClickGetCaptcha(event, custom) {
+        let phonenum
+        let yanzhenmanum
+        phonenum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle"+custom+"/checkmark/yjks/mmxg/account").getComponent(cc.EditBox).string
+        yanzhenmanum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle"+custom+"/checkmark/yjks/mmxg/captcha").getComponent(cc.EditBox).string
+        if (phonenum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip32"))
+            return
+        }
+        if (phonenum[0] != "1") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip33"))
+            return
+        }
+        if (yanzhenmanum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("entercode"))
+            return
+        }
+        let self = this
+        let callback = (data) => {
+            if (data.code == 200) {
+                let btn = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle"+custom+"/checkmark/yjks/mmxg/getcodebtn").getComponent(cc.Button)
+                
+                btn.interactable = false
+                let btnlabel = btn.node.getChildByName('btnlabel')
+                let la = btnlabel.getComponent(cc.Label)
+                la.string = hqq.getTip("str0") + "（60）"
+                let lao = btnlabel.getComponent(cc.LabelOutline)
+                btnlabel.color = new cc.Color(67, 67, 67)
+                lao.color = new cc.Color(67, 67, 67)
+                let time2 = 0
+                this.timer = setInterval(() => {
+                    if(!cc.isValid(this.node))return;
+                    if(!cc.isValid(la))return;
+                    time2++
+                    let t = 60 - time2
+                    la.string = hqq.getTip("str0") + "（" + t + "）"
+                    if (time2 >= 60) {
+                        clearInterval(this.timer);
+                        btn.interactable = true
+                        la.string = hqq.getTip("sendcode")
+                        btnlabel.color = new cc.Color(67, 0, 0)
+                        lao.color = new cc.Color(67, 0, 0)
+                    }
+                }, 1000)
+            } else {
+                if (data.code == 203 && data.msg == "图片验证码错误") {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip34"))
+                } else if( data.msg == "can only be sent once in 60s"){
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip35") + hqq.getTip("smstoomany"))
+                } else {
+                    hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip35") + data.msg)
+                }
+            }
+        }
+        let failcallback = (status, forcejump, url, err, readyState) => {
+            hqq.logMgr.log("onClickGetCaptcha failcallback", status, forcejump, url, err, readyState)
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("requestfail") + status + ",err:" + err)
+        }
+        let endurl = hqq.app.getIpPostEndUrl(7);
+        let data = {
+            id: hqq.gameGlobal.player.id,
+            token: hqq.gameGlobal.token,
+            phone_number: phonenum,
+            captcha: yanzhenmanum,
+        }
+        hqq.http.sendXMLHttpRequest({
+            method: 'POST',
+            urlto: hqq.app.server + endurl,
+            param: data,
+            callback: callback,
+            failcallback: failcallback,
+            needJsonParse: true,
+        })
+    },
+
+    // 获取手机短信验证码
+    onClickGetCaptcha2(event, custom) {
+        let phonenum
+        let yanzhenmanum
+        phonenum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle"+custom+"/checkmark/yjks/mmxg/account").getComponent(cc.EditBox).string
+        yanzhenmanum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle"+custom+"/checkmark/yjks/mmxg/captcha").getComponent(cc.EditBox).string
+        if (phonenum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip32"))
+            return
+        }
+        if (phonenum[0] != "1") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip33"))
+            return
+        }
+        if (yanzhenmanum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("entercode"))
+            return
+        }
+        let self = this
+        let callback = (data) => {
+            if (data.status === 0) {
+                let btn = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle"+custom+"/checkmark/yjks/mmxg/getcodebtn").getComponent(cc.Button)
+                
+                btn.interactable = false
+                let btnlabel = btn.node.getChildByName('btnlabel')
+                let la = btnlabel.getComponent(cc.Label)
+                la.string = hqq.getTip("str0") + "（60）"
+                let lao = btnlabel.getComponent(cc.LabelOutline)
+                btnlabel.color = new cc.Color(67, 67, 67)
+                lao.color = new cc.Color(67, 67, 67)
+                let time2 = 0
+                this.timer = setInterval(() => {
+                    if(!cc.isValid(this.node))return;
+                    if(!cc.isValid(la))return;
+                    time2++
+                    let t = 60 - time2
+                    la.string = hqq.getTip("str0") + "（" + t + "）"
+                    if (time2 >= 60) {
+                        clearInterval(this.timer);
+                        btn.interactable = true
+                        la.string = hqq.getTip("sendcode")
+                        btnlabel.color = new cc.Color(67, 0, 0)
+                        lao.color = new cc.Color(67, 0, 0)
+                    }
+                }, 1000)
+            } else {
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip35") + data.msg)
+            }
+        }
+        let failcallback = (status, forcejump, url, err, readyState) => {
+            hqq.logMgr.log("onClickGetCaptcha failcallback", status, forcejump, url, err, readyState)
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("requestfail") + status + ",err:" + err)
+        }
+        let data = {
+            user_id: hqq.gameGlobal.player.id,
+            token:"e40f01afbb1b9ae3dd6747ced5bca532",
+        }
+        hqq.http.sendXMLHttpRequest({
+            method: 'POST',
+            urlto: hqq.gameGlobal.pay.pay_host + "/api/user_funds_password/sendPhoneMessage",
+            param: data,
+            callback: callback,
+            failcallback: failcallback,
+            needJsonParse: true,
+        })
+    },
+
+    passJudge(str) {
+        if (str.length < 6 || str.length > 12 || !str.match(/[0-9]/g) || !str.match(/[a-zA-Z]/g)) {
+            return true
+        }
+        return false
+    },
+    // 重置账号密码 确定
+    resetpassEnsure() {
+        let resetsurebtn = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/settinganiu").getComponent(cc.Button);
+        let phonenum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/mmxg/account").getComponent(cc.EditBox).string
+        let yanzhenmanum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/mmxg/captcha").getComponent(cc.EditBox).string
+        let capchanum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/mmxg/phone").getComponent(cc.EditBox).string
+        let passnum = cc.find("smallsublayer/setting/btncontainer/dlmm/checkmark/tabToggleContainer/toggle1/checkmark/yjks/mmxg/password").getComponent(cc.EditBox).string
+        if (phonenum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip32"))
+            return
+        }
+        if (yanzhenmanum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("entercode"))
+            return
+        }
+        if (capchanum == "") {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("capchaed"))
+            return
+        }
+        if (passnum == "" || this.passJudge(passnum)) {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip36"))
+            return
+        }
+        resetsurebtn.interactable = false
+        let callback = (data) => {
+            if (data.code == 200) {
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip41"))
+                this.onClickExit()
+            } else {
+                hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip42") + data.msg)
+                if(cc.isValid(resetsurebtn)){
+                    resetsurebtn.interactable = true
+                }
+            }
+        }
+
+        let failcallback = (status, forcejump, url, err, readyState) => {
+            hqq.logMgr.log("officeloginEnsure failcallback", status, forcejump, url, err, readyState)
+            if(cc.isValid(resetsurebtn)){
+                resetsurebtn.interactable = true
+            }
+            hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("requestfail") + status + ",err:" + err)
+        }
+
+        let endurl = hqq.app.getIpPostEndUrl(4)
+        let data = {
+            phone_number: phonenum,
+            id: hqq.gameGlobal.player.id,
+            code: capchanum,
+            password: passnum,
+            captcha: yanzhenmanum,
+            token: hqq.gameGlobal.token,
+        }
+        hqq.http.sendXMLHttpRequest({
+            method: 'POST',
+            urlto: hqq.app.server + endurl,
+            param: data,
+            callback: callback,
+            failcallback: failcallback,
+            needJsonParse: true,
+        })
+    },
+    onClicktxt_se() {
+        this.num0++
+        if (this.num0 > 10 && this.num1 > 10) {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showConsole, null)
+        }
+
+        if( this.num0 > 15 && this.num1 > 15 )
+        {
+            let str = ""
+            if (cc.sys.isNative && cc.sys.os != "Windows" && hqq.reflect.getClipboard()) {
+                str += "\n剪切板：" + hqq.reflect.getClipboard()
+            }
+            if (hqq.app.reginIpData) {
+                str += "\n注册ip-api:" + hqq.app.reginIpData.query + ",地址:" + hqq.app.reginIpData.regionName
+            }
+            if (hqq.app.reginIpData2) {
+                str += "\n注册ipinfo:" + hqq.app.reginIpData2.ip + "地址:" + hqq.app.reginIpData2.region
+            }
+            if (hqq.gameGlobal.ipapiData) {
+                str += "\n登陆ip-api:" + hqq.gameGlobal.ipapiData.query + ",地址" + hqq.gameGlobal.ipapiData.regionName
+            }
+            if (hqq.gameGlobal.ipinfoData) {
+                str += "\n登陆ipinfo:" + hqq.gameGlobal.ipinfoData.ip + ",地址" + hqq.gameGlobal.ipinfoData.region
+            }
+            str += "\n大厅版号:" + hqq.app.hallVersion;
+            this.versionlabel.string = str
+        }
+    },
+    onClicktxt_bgm() {
+        this.num1++
+        if (this.num0 > 10 && this.num1 > 10) {
+            hqq.eventMgr.dispatch(hqq.eventMgr.showConsole, null)
+        }
+
+        if( this.num0 > 15 && this.num1 > 15 )
+        {
+            let str = ""
+            if (cc.sys.isNative && cc.sys.os != "Windows" && hqq.reflect.getClipboard()) {
+                str += "\n剪切板：" + hqq.reflect.getClipboard()
+            }
+            if (hqq.app.reginIpData) {
+                str += "\n注册ip-api:" + hqq.app.reginIpData.query + ",地址:" + hqq.app.reginIpData.regionName
+            }
+            if (hqq.app.reginIpData2) {
+                str += "\n注册ipinfo:" + hqq.app.reginIpData2.ip + "地址:" + hqq.app.reginIpData2.region
+            }
+            if (hqq.gameGlobal.ipapiData) {
+                str += "\n登陆ip-api:" + hqq.gameGlobal.ipapiData.query + ",地址" + hqq.gameGlobal.ipapiData.regionName
+            }
+            if (hqq.gameGlobal.ipinfoData) {
+                str += "\n登陆ipinfo:" + hqq.gameGlobal.ipinfoData.ip + ",地址" + hqq.gameGlobal.ipinfoData.region
+            }
+            str += "\n大厅版号:" + hqq.app.hallVersion;
+            this.versionlabel.string = str
+        }
     },
     // update (dt) {},
 

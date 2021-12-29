@@ -82,9 +82,9 @@ let myReflect = {
             }
             width = width || this.framesise.width;
             height = height || this.framesise.height;
-            console.log("设置屏幕横竖切换", JSON.stringify(this.framesise))
+            cc.log("设置屏幕横竖切换", JSON.stringify(this.framesise))
             if (orientation == "portrait") {
-                console.log("设置屏幕横竖切换 portrait", width, height)
+                cc.log("设置屏幕横竖切换 portrait", width, height)
                 cc.view.setOrientation(cc.macro.ORIENTATION_PORTRAIT)
                 // cc.view.setFrameSize(750 / 1334 * height, height);
             } else {

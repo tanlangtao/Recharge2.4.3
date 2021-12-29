@@ -44,20 +44,20 @@ let hotUpdateMgr = {
         switch (event.getEventCode()) {
             case jsb.EventAssetsManager.ERROR_NO_LOCAL_MANIFEST:  // 0
                 this.log("没有本地manifest文件," + event.getAssetId() + "," + event.getMessage())
-                hqq.eventMgr.dispatch(hqq.eventMgr.hotFail, this.data.subname)
+                // hqq.eventMgr.dispatch(hqq.eventMgr.hotFail, this.data.subname)
                 failed = true
                 retry = true
                 break;
             case jsb.EventAssetsManager.ERROR_DOWNLOAD_MANIFEST:  // 1
                 this.log("下载manifest文件错误," + event.getAssetId() + "," + event.getMessage())
                 this.log(this._am.getLocalManifest().getManifestFileUrl())
-                hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname)
+                // hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname)
                 failed = true
                 retry = true
                 break;
             case jsb.EventAssetsManager.ERROR_PARSE_MANIFEST:  // 2
                 this.log("解析manifest文件错误," + event.getAssetId() + "," + event.getMessage())
-                hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname)
+                // hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname)
                 failed = true
                 retry = true
                 break;
@@ -124,7 +124,7 @@ let hotUpdateMgr = {
                 break;
             case jsb.EventAssetsManager.ERROR_PARSE_MANIFEST:  // 2
                 this.log("up解析manifest文件错误," + event.getAssetId() + "," + event.getMessage())
-                hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname)
+                // hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname)
                 failed = true;
                 retry = true
                 break;
@@ -410,6 +410,7 @@ let hotUpdateMgr = {
             let data = this.updataList.shift();
             this.checkUpdate(data);
         }
+        
         if (this.data.subname == 'hall') {
             cc.audioEngine.stopAll();
             cc.game.restart();
@@ -517,8 +518,8 @@ let hotUpdateMgr = {
             if (localmd5 == asset.md5) {
                 return true;
             }
-            // console.log("localmd5, asset.md5,", localmd5, asset.md5)
-            // console.log("storagePath", storagePath)
+            // cc.log("localmd5, asset.md5,", localmd5, asset.md5)
+            // cc.log("storagePath", storagePath)
             return false
         });
         this._am.setMaxConcurrentTask(2); // 并发
@@ -557,7 +558,7 @@ let hotUpdateMgr = {
             })
             return
         }
-        hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname)
+        hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname,true)
         this._am.setEventCallback(null);
         this._am = null;
         this._getProjectTry = 0;
@@ -595,6 +596,12 @@ let hotUpdateMgr = {
                 hqq.eventMgr.dispatch(hqq.eventMgr.showTip, hqq.getTip("showtip15"))
                 return false
             }
+            if( (this.data.subname === "pg" && data.subname === "pg2") ||
+                (this.data.subname === "pg2" && data.subname === "pg")){
+                    this.updataList.push(data)
+                    return true;
+            }
+            
             for (let i = 0; i < this.updataList.length; i++) {
                 if (this.updataList[i].subname == data.subname) {
                     insert = false;
@@ -665,7 +672,7 @@ let hotUpdateMgr = {
             if (this._getProjectTry < this._getProjectMaxTry) {
                 this.startUpdate(packageUrl)
             } else {
-                hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname)
+                hqq.eventMgr.dispatch(hqq.eventMgr.hotCheckup, false, this.data.subname,true)
                 this._am.setEventCallback(null);
                 this._am = null;
                 this._getProjectTry = 0;

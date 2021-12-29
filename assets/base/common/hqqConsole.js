@@ -56,12 +56,12 @@ cc.Class({
             self.check(self)
         };
 
-        console.log = function () {
+        cc.log = function () {
             let data = ""
             for (let i = 0; i < arguments.length; i++) {
                 data += arguments[i] + " "
             }
-            self.contentlist[self.num].getComponent(cc.Label).string = 'console.log:' + data;
+            self.contentlist[self.num].getComponent(cc.Label).string = 'cc.log:' + data;
             self.contentlist[self.num].color = new cc.Color(0, 0, 0)
             self.check(self)
         };

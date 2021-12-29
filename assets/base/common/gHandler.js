@@ -3,7 +3,7 @@ let gHandler = {
     needShowNotice: false, // 是否需要显示公告界面
     needShowBubble: false, // 是否显示公告泡泡提示讯息
     language: "CN", // 语言种类   汉语 CN 英语 EN 越南语 VI 泰语 TH
-    isDebug: false, // 是否是子游戏开发调试状态
+    isDebug: true, // 是否是子游戏开发调试状态
     gameGlobal: {
         gameNow: "hall", // 当前游戏的名字
         iconPath: "", // 头像地址前缀
@@ -35,6 +35,7 @@ let gHandler = {
             balance: null, // number类型
             temp_host: "", // string类型
             proxy_host: "", // proxy_host
+            token:null, // 全民代理通信TOKEN
         },
         pay: { // 充提数据结构
             from_scene: "", // 跳转过来的场景名
@@ -68,6 +69,8 @@ let gHandler = {
             MType:null,//JDB子游戏ID
         },
         showPayActivityWeb:true,// 是否开启活动页面用网页显示功能
+        pgwinrate:0,
+        pg2winrate:0,
     },
     agaGame: {
         zhname: "aga游戏", // 中文游戏名
@@ -79,7 +82,7 @@ let gHandler = {
         hasAccount: false, // 是否已创建子游戏账号
         remoteData: null, // 服务端发送过来的游戏数据
         hallid: 30,
-        resPath: "/hall/btnanimation/aga",
+        resPath: "/btnanimation/aga",
         isDown: false,
         gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
         loginHistory: [], // 子游戏最近一周登陆历史
@@ -97,7 +100,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 0,
-            resPath: "/hall/btnanimation/duofuduocai",
+            resPath: "/btnanimation/duofuduocai",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -114,7 +117,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号 
             remoteData: null, // 服务端发送过来的游戏数据 
             hallid: 1,
-            resPath: "/hall/btnanimation/icon_castleCrush",
+            resPath: "/btnanimation/icon_castleCrush",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4 
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -131,7 +134,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号 
             remoteData: null, // 服务端发送过来的游戏数据 
             hallid: 2,
-            resPath: "/hall/btnanimation/ygxb_datingicon2",
+            resPath: "/btnanimation/ygxb_datingicon2",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4 
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -148,7 +151,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 3,
-            resPath: "/hall/btnanimation/datingicon_fkxw",
+            resPath: "/btnanimation/datingicon_fkxw",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -169,7 +172,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 0,
-            resPath: "/hall/btnanimation/2rmj",
+            resPath: "/btnanimation/2rmj",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -187,14 +190,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 1,
-            resPath: "/hall/btnanimation/21dian",
+            resPath: "/btnanimation/21dian",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "ebg": {
-            zhname: "新二八杠", // 中文游戏名
+            zhname: "二八杠", // 中文游戏名
             enname: "ebg", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "ebg", // 跳转场景名
             fuxin_lanchscene: "ebg", // 跳转场景名
@@ -205,7 +208,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 2,
-            resPath: "/hall/btnanimation/28gang",
+            resPath: "/btnanimation/28gang",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -223,7 +226,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 3,
-            resPath: "/hall/btnanimation/bcbm",
+            resPath: "/btnanimation/bcbm",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -242,14 +245,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 4,
-            resPath: "/hall/btnanimation/bjl",
+            resPath: "/btnanimation/bjl",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "brnn": {
-            zhname: "新百人牛牛", // 中文游戏名
+            zhname: "百人牛牛", // 中文游戏名
             enname: "brnn", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "brnn", // 跳转场景名
             fuxin_lanchscene: "brnn", // 跳转场景名
@@ -260,7 +263,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 5,
-            resPath: "/hall/btnanimation/brnn",
+            resPath: "/btnanimation/brnn",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -278,7 +281,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 6,
-            resPath: "/hall/btnanimation/buyu",
+            resPath: "/btnanimation/buyu",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -296,7 +299,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号 
             remoteData: null, // 服务端发送过来的游戏数据 
             hallid: 7,
-            resPath: "/hall/btnanimation/cyqp",
+            resPath: "/btnanimation/cyqp",
             isDown: false,
             gameType: 3, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4 
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -314,7 +317,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 8,
-            resPath: "/hall/btnanimation/doudizhu",
+            resPath: "/btnanimation/doudizhu",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -332,7 +335,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 9,
-            resPath: "/hall/btnanimation/dzpk",
+            resPath: "/btnanimation/dzpk",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -350,7 +353,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 10,
-            resPath: "/hall/btnanimation/hbld",
+            resPath: "/btnanimation/hbld",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -368,14 +371,14 @@ let gHandler = {
         //     hasAccount: false, // 是否已创建子游戏账号
         //     remoteData: null, // 服务端发送过来的游戏数据
         //     hallid: 11,
-        //     resPath: "/hall/btnanimation/hbsl",
+        //     resPath: "/btnanimation/hbsl",
         //     isDown: false,
         //     gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
         //     loginHistory: [], // 子游戏最近一周登陆历史
         //     hasRes: true,
         // },
         "hh": {
-            zhname: "新红黑大战", // 中文游戏名
+            zhname: "红黑大战", // 中文游戏名
             enname: "hh", // 英文游戏名 （子游戏文件路径，更新子路径）ssss
             lanchscene: "hhlobby", // 跳转场景名
             fuxin_lanchscene: "hhlobby", // 跳转场景名
@@ -386,7 +389,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 12,
-            resPath: "/hall/btnanimation/honhei",
+            resPath: "/btnanimation/honhei",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -404,7 +407,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号 
             remoteData: null, // 服务端发送过来的游戏数据 
             hallid: 13,
-            resPath: "/hall/btnanimation/icon_castleCrush",
+            resPath: "/btnanimation/icon_castleCrush",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4 
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -422,7 +425,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 14,
-            resPath: "/hall/btnanimation/jbp",
+            resPath: "/btnanimation/jbp",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -440,7 +443,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 15,
-            resPath: "/hall/btnanimation/lionKingdom",
+            resPath: "/btnanimation/lionKingdom",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -450,6 +453,7 @@ let gHandler = {
             zhname: "龙虎斗", // 中文游戏名 彩源龙虎斗
             enname: "lhd", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "lhd", // 跳转场景名
+            // fuxin_lanchscene: "lhd_fuxin", // 跳转场景名
             fuxin_lanchscene: "lhd", // 跳转场景名
             xingui_lanchscene: "lhd", // 跳转场景名
             game_id: "5b1f3a3cb76a591e7f251717",
@@ -458,7 +462,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 16,
-            resPath: "/hall/btnanimation/longhudou",
+            resPath: "/btnanimation/longhudou",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -476,7 +480,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 17,
-            resPath: "/hall/btnanimation/luanpan",
+            resPath: "/btnanimation/luanpan",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -494,7 +498,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 18,
-            resPath: "/hall/btnanimation/paicai",
+            resPath: "/btnanimation/paicai",
             isDown: false,
             gameType: 3, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -512,7 +516,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 19,
-            resPath: "/hall/btnanimation/paodekuai",
+            resPath: "/btnanimation/paodekuai",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -530,7 +534,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 20,
-            resPath: "/hall/btnanimation/qznn",
+            resPath: "/btnanimation/qznn",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -548,14 +552,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号 
             remoteData: null, // 服务端发送过来的游戏数据 
             hallid: 21,
-            resPath: "/hall/btnanimation/sbty_icon",
+            resPath: "/btnanimation/sbty_icon",
             isDown: false,
             gameType: 3, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4 
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: false,
         },
         "sbty2": {
-            zhname: "沙巴体育", // 中文游戏名  电竞
+            zhname: "电竞", // 中文游戏名  电竞
             enname: "sbty2", // 英文游戏名 （子游戏文件路径，更新子路径） 
             lanchscene: "ShaBaGame", // 跳转场景名 
             fuxin_lanchscene: "ShaBaGame", // 跳转场景名 
@@ -566,7 +570,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号 
             remoteData: null, // 服务端发送过来的游戏数据 
             hallid: 22,
-            resPath: "/hall/btnanimation/tycp_esports",
+            resPath: "/btnanimation/tycp_esports",
             isDown: false,
             gameType: 3, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4 
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -584,7 +588,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 23,
-            resPath: "/hall/btnanimation/sgj",
+            resPath: "/btnanimation/sgj",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -602,7 +606,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 24,
-            resPath: "/hall/btnanimation/shisanshui",
+            resPath: "/btnanimation/shisanshui",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -620,7 +624,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 25,
-            resPath: "/hall/btnanimation/sicbo",
+            resPath: "/btnanimation/sicbo",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -638,7 +642,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 26,
-            resPath: "/hall/btnanimation/sxbjl",
+            resPath: "/btnanimation/sxbjl",
             isDown: false,
             gameType: 2, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -656,7 +660,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 27,
-            resPath: "/hall/btnanimation/zrsx",
+            resPath: "/btnanimation/zrsx",
             isDown: false,
             gameType: 2, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -674,7 +678,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号 
             remoteData: null, // 服务端发送过来的游戏数据 
             hallid: 28,
-            resPath: "/hall/btnanimation/ygxb_datingicon2",
+            resPath: "/btnanimation/ygxb_datingicon2",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4 
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -692,7 +696,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 29,
-            resPath: "/hall/btnanimation/zhajinhua",
+            resPath: "/btnanimation/zhajinhua",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -710,7 +714,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 30,
-            resPath: "/hall/btnanimation/csd_dating",
+            resPath: "/btnanimation/csd_dating",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -728,7 +732,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 31,
-            resPath: "/hall/btnanimation/suoha_datingicon",
+            resPath: "/btnanimation/suoha_datingicon",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -746,7 +750,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 32,
-            resPath: "/hall/btnanimation/duofuduocai",
+            resPath: "/btnanimation/duofuduocai",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -764,7 +768,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 33,
-            resPath: "/hall/btnanimation/tylhd",
+            resPath: "/btnanimation/tylhd",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -782,7 +786,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 34,
-            resPath: "/hall/btnanimation/tycdx",
+            resPath: "/btnanimation/tycdx",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -800,14 +804,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 35,
-            resPath: "/hall/btnanimation/datingicon_fkxw",
+            resPath: "/btnanimation/datingicon_fkxw",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "ag": {
-            zhname: "ag", // 中文游戏名
+            zhname: "AG", // 中文游戏名
             enname: "ag", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "ag_main", // 跳转场景名
             fuxin_lanchscene: "ag_main", // 跳转场景名
@@ -818,14 +822,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 36,
-            resPath: "/hall/btnanimation/ag",
+            resPath: "/btnanimation/ag",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "cq9": {
-            zhname: "cq9", // 中文游戏名
+            zhname: "CQ9", // 中文游戏名
             enname: "cq9", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "cq9Scene", // 跳转场景名
             fuxin_lanchscene: "cq9Scene", // 跳转场景名
@@ -836,14 +840,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 37,
-            resPath: "/hall/btnanimation/cq9",
+            resPath: "/btnanimation/cq9",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "pt": {
-            zhname: "pt", // 中文游戏名
+            zhname: "PT", // 中文游戏名
             enname: "pt", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "pt_main", // 跳转场景名
             fuxin_lanchscene: "pt_main", // 跳转场景名
@@ -854,14 +858,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 38,
-            resPath: "/hall/btnanimation/pt",
+            resPath: "/btnanimation/pt",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "jdb": {
-            zhname: "jdb", // 中文游戏名
+            zhname: "JDB", // 中文游戏名
             enname: "jdb", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "jdb_main", // 跳转场景名
             fuxin_lanchscene: "jdb_main", // 跳转场景名
@@ -872,14 +876,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 39,
-            resPath: "/hall/btnanimation/jdb",
+            resPath: "/btnanimation/jdb",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "pg": {
-            zhname: "pg", // 中文游戏名
+            zhname: "PG", // 中文游戏名
             enname: "pg", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "pg_main", // 跳转场景名
             fuxin_lanchscene: "pg_main", // 跳转场景名
@@ -890,14 +894,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 40,
-            resPath: "/hall/btnanimation/datingicon_pg",
+            resPath: "/btnanimation/datingicon_pg",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "pg2": {
-            zhname: "pg2", // 中文游戏名
+            zhname: "PG2", // 中文游戏名
             enname: "pg2", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "pg2_main", // 跳转场景名
             fuxin_lanchscene: "pg2_main", // 跳转场景名
@@ -908,7 +912,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 41,
-            resPath: "/hall/btnanimation/datingicon_pg2",
+            resPath: "/btnanimation/datingicon_pg2",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -926,7 +930,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 42,
-            resPath: "/hall/btnanimation/fctbj",
+            resPath: "/btnanimation/fctbj",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -944,7 +948,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 43,
-            resPath: "/hall/btnanimation/zhibo",
+            resPath: "/btnanimation/zhibo",
             isDown: false,
             gameType: 2, // 游戏类型：棋牌游戏：0，电子游戏：1，真人视讯：2，彩票投注：3，体育赛事：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -962,14 +966,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 44,
-            resPath: "/hall/btnanimation/szffc",
+            resPath: "/btnanimation/szffc",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌游戏：0，电子游戏：1，真人视讯：2，彩票投注：3，体育赛事：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "mg": {
-            zhname: "mg", // 中文游戏名
+            zhname: "MG", // 中文游戏名
             enname: "mg", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "mg_main", // 跳转场景名
             fuxin_lanchscene: "mg_main", // 跳转场景名
@@ -980,14 +984,14 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 45,
-            resPath: "/hall/btnanimation/mg",
+            resPath: "/btnanimation/mg",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌游戏：0，电子游戏：1，真人视讯：2，彩票投注：3，体育赛事：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
         "qt": {
-            zhname: "qt", // 中文游戏名
+            zhname: "QT", // 中文游戏名
             enname: "qt", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "qt_main", // 跳转场景名
             fuxin_lanchscene: "qt_main", // 跳转场景名
@@ -998,7 +1002,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 46,
-            resPath: "/hall/btnanimation/qt",
+            resPath: "/btnanimation/qt",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌游戏：0，电子游戏：1，真人视讯：2，彩票投注：3，体育赛事：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1016,7 +1020,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 16,
-            resPath: "/hall/btnanimation/longhudou",
+            resPath: "/btnanimation/longhudou",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1034,7 +1038,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 2,
-            resPath: "/hall/btnanimation/28gang",
+            resPath: "/btnanimation/28gang",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1052,7 +1056,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 29,
-            resPath: "/hall/btnanimation/zhajinhua",
+            resPath: "/btnanimation/zhajinhua",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1070,7 +1074,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 10,
-            resPath: "/hall/btnanimation/hbld",
+            resPath: "/btnanimation/hbld",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1088,7 +1092,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 31,
-            resPath: "/hall/btnanimation/suoha_datingicon",
+            resPath: "/btnanimation/suoha_datingicon",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1106,7 +1110,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 15,
-            resPath: "/hall/btnanimation/lionKingdom",
+            resPath: "/btnanimation/lionKingdom",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1124,7 +1128,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 5,
-            resPath: "/hall/btnanimation/brnn",
+            resPath: "/btnanimation/brnn",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1142,7 +1146,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 8,
-            resPath: "/hall/btnanimation/doudizhu",
+            resPath: "/btnanimation/doudizhu",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1160,7 +1164,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 3,
-            resPath: "/hall/btnanimation/bcbm",
+            resPath: "/btnanimation/bcbm",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1178,7 +1182,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 12,
-            resPath: "/hall/btnanimation/honhei",
+            resPath: "/btnanimation/honhei",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1196,7 +1200,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 9,
-            resPath: "/hall/btnanimation/dzpk",
+            resPath: "/btnanimation/dzpk",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1214,7 +1218,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 25,
-            resPath: "/hall/btnanimation/sicbo",
+            resPath: "/btnanimation/sicbo",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1232,30 +1236,30 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 24,
-            resPath: "/hall/btnanimation/shisanshui",
+            resPath: "/btnanimation/shisanshui",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
-        // "ermj2": {
-        //     zhname: "二人麻将", // 中文游戏名
-        //     enname: "ermj2", // 英文游戏名 （子游戏文件路径，更新子路径）
-        //     lanchscene: "ERMJHallScene", // 跳转场景名
-        //     fuxin_lanchscene: "ERMJHallScene", // 跳转场景名
-        //     xingui_lanchscene: "ERMJHallScene", // 跳转场景名
-        //     game_id: "5b1f3a3cb76a451e210923",
-        //     serverUrl: "/ermj2", // 游戏服务器地址
-        //     endUrl: "/ermj2", // 游戏服务器地址
-        //     hasAccount: false, // 是否已创建子游戏账号
-        //     remoteData: null, // 服务端发送过来的游戏数据
-        //     hallid: 0,
-        //     resPath: "/hall/btnanimation/2rmj",
-        //     isDown: false,
-        //     gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
-        //     loginHistory: [], // 子游戏最近一周登陆历史
-        //     hasRes: true,
-        // },
+        "ermj2": {
+            zhname: "二人麻将", // 中文游戏名
+            enname: "ermj2", // 英文游戏名 （子游戏文件路径，更新子路径）
+            lanchscene: "ERMJHallScene", // 跳转场景名
+            fuxin_lanchscene: "ERMJHallScene", // 跳转场景名
+            xingui_lanchscene: "ERMJHallScene", // 跳转场景名
+            game_id: "5b1f3a3cb76a451e210923",
+            serverUrl: "/ermj2", // 游戏服务器地址
+            endUrl: "/ermj2", // 游戏服务器地址
+            hasAccount: false, // 是否已创建子游戏账号
+            remoteData: null, // 服务端发送过来的游戏数据
+            hallid: 0,
+            resPath: "/btnanimation/2rmj",
+            isDown: false,
+            gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
+            loginHistory: [], // 子游戏最近一周登陆历史
+            hasRes: true,
+        },
         // "pdk2": {
         //     zhname: "跑得快", // 中文游戏名
         //     enname: "pdk2", // 英文游戏名 （子游戏文件路径，更新子路径）
@@ -1268,7 +1272,7 @@ let gHandler = {
         //     hasAccount: false, // 是否已创建子游戏账号
         //     remoteData: null, // 服务端发送过来的游戏数据
         //     hallid: 19,
-        //     resPath: "/hall/btnanimation/paodekuai",
+        //     resPath: "/btnanimation/paodekuai",
         //     isDown: false,
         //     gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
         //     loginHistory: [], // 子游戏最近一周登陆历史
@@ -1286,7 +1290,7 @@ let gHandler = {
         //     hasAccount: false, // 是否已创建子游戏账号
         //     remoteData: null, // 服务端发送过来的游戏数据
         //     hallid: 1,
-        //     resPath: "/hall/btnanimation/21dian",
+        //     resPath: "/btnanimation/21dian",
         //     isDown: false,
         //     gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
         //     loginHistory: [], // 子游戏最近一周登陆历史
@@ -1305,7 +1309,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 4,
-            resPath: "/hall/btnanimation/bjl",
+            resPath: "/btnanimation/bjl",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1323,7 +1327,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 17,
-            resPath: "/hall/btnanimation/luanpan",
+            resPath: "/btnanimation/luanpan",
             isDown: false,
             gameType: 1, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1341,7 +1345,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 20,
-            resPath: "/hall/btnanimation/qznn",
+            resPath: "/btnanimation/qznn",
             isDown: false,
             gameType: 0, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1359,7 +1363,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 47,
-            resPath: "/hall/btnanimation/wlby",
+            resPath: "/btnanimation/wlby",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1377,32 +1381,32 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 48,
-            resPath: "/hall/btnanimation/csby",
+            resPath: "/btnanimation/csby",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌对战：0，刺激投注：1，真人视讯：2，彩票足球：3，街机电玩：4
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
-        // "sanshengtiyu": {
-        //     zhname: "三昇体育", // 中文游戏名
-        //     enname: "sanshengtiyu", // 英文游戏名 （子游戏文件路径，更新子路径）
-        //     lanchscene: "sanshengtiyu_main", // 跳转场景名
-        //     fuxin_lanchscene: "sanshengtiyu_main", // 跳转场景名
-        //     xingui_lanchscene: "sanshengtiyu_main", // 跳转场景名
-        //     game_id: "5b1f3a3cb76a451e211109",
-        //     serverUrl: "/sanshengtiyu", // 游戏服务器地址
-        //     endUrl: "/sanshengtiyu", // 游戏服务器地址
-        //     hasAccount: false, // 是否已创建子游戏账号
-        //     remoteData: null, // 服务端发送过来的游戏数据
-        //     hallid: 49,
-        //     resPath: "/hall/btnanimation/sanshengtiyu",
-        //     isDown: false,
-        //     gameType: 3, // 游戏类型：棋牌游戏：0，电子游戏：1，真人视讯：2，彩票投注：3，体育赛事：4
-        //     loginHistory: [], // 子游戏最近一周登陆历史
-        //     hasRes: true,
-        // },
+        "sanshengtiyu": {
+            zhname: "三昇体育", // 中文游戏名
+            enname: "sanshengtiyu", // 英文游戏名 （子游戏文件路径，更新子路径）
+            lanchscene: "sanshengtiyu_main", // 跳转场景名
+            fuxin_lanchscene: "sanshengtiyu_main", // 跳转场景名
+            xingui_lanchscene: "sanshengtiyu_main", // 跳转场景名
+            game_id: "5b1f3a3cb76a451e211109",
+            serverUrl: "/sanshengtiyu", // 游戏服务器地址
+            endUrl: "/sanshengtiyu", // 游戏服务器地址
+            hasAccount: false, // 是否已创建子游戏账号
+            remoteData: null, // 服务端发送过来的游戏数据
+            hallid: 49,
+            resPath: "/btnanimation/sanshengtiyu",
+            isDown: false,
+            gameType: 4, // 游戏类型：棋牌游戏：0，电子游戏：1，真人视讯：2，彩票投注：3，体育赛事：4
+            loginHistory: [], // 子游戏最近一周登陆历史
+            hasRes: true,
+        },
         "ppdz": {
-            zhname: "PP游戏", // 中文游戏名
+            zhname: "PP", // 中文游戏名
             enname: "ppdz", // 英文游戏名 （子游戏文件路径，更新子路径）
             lanchscene: "ppdz_main", // 跳转场景名
             fuxin_lanchscene: "ppdz_main", // 跳转场景名
@@ -1413,7 +1417,7 @@ let gHandler = {
             hasAccount: false, // 是否已创建子游戏账号
             remoteData: null, // 服务端发送过来的游戏数据
             hallid: 46,
-            resPath: "/hall/btnanimation/ppdz",
+            resPath: "/btnanimation/ppdz",
             isDown: false,
             gameType: 4, // 游戏类型：棋牌游戏：0，电子游戏：1，真人视讯：2，彩票投注：3，体育赛事：4
             loginHistory: [], // 子游戏最近一周登陆历史
@@ -1520,6 +1524,12 @@ let gHandler = {
         sbty: "5b1f3a3cb76a591e7f25179", // sbty1 sbty2
         mg: "5b1f3a3cb76a451e210821",
         qt: "5b1f3a3cb76a451e210822",
+        sanshengtiyu:"5b1f3a3cb76a451e211109",
+        ppdz:"5b1f3a3cb76a451e211110",
+    },
+	//有分皮肤加载的子游戏
+    pinpaiSubGameList:{
+        "fuxin":["lhd","bjl"]
     },
     // 禁用字
     unusestrlist:[
@@ -2465,7 +2475,7 @@ let gHandler = {
         "dzpk2":"dzpk",
         "shaibao2":"shaibao",
         "sss2":"sss",
-        // "ermj2":"ermj",
+        "ermj2":"ermj",
         // "pdk2":"pdk",
         // "21d2":"21d",
         "bjl2":"bjl",
@@ -2487,13 +2497,14 @@ let gHandler = {
         "dzpk":"dzpk2",
         "shaibo":"shaibao2",
         "sss":"sss2",
-        // "ermj":"ermj2",
+        "ermj":"ermj2",
         // "pdk":"pdk2",
         // "21d":"21d2",
         "bjl":"bjl2",
         "lp":"lp2",
         "qznn":"qznn2",
     },
+    resetNineTwoSort:false,
     setFuxinHallIdType() {
         // this.menuBtnInfoList = ["all", "duizhan", "touzhu", "shixun", "zuqiu", "jieji", "remen"]
         let alllist = {
@@ -2778,32 +2789,37 @@ let gHandler = {
         }
     },
     // 加载图片 SpriteFrame
-    getSpriteFrame(path) {
+    getSpriteFrame(path,Res=null) {
         if (!path) {
-            console.log("getSpriteFrame 传入的资源路径为空")
+            cc.log("getSpriteFrame 传入的资源路径为空")
             return
         }
-        cc.resources.load(path, cc.SpriteFrame, (err, frame) => {
+        let tempRes = cc.resources;
+        if(Res)
+        {
+            tempRes = Res;
+        }
+        tempRes.load(path, cc.SpriteFrame, (err, frame) => {
             if (err) {
-                console.log("加载图片失败", err)
+                cc.log("getSpriteFrame 加载图片失败", err)
                 return;
             }
             return frame;
         })
     },
     // UI图片动态加载
-    imgLoad(node, path) {
-        if (!cc.isValid(node)) {
-            console.log("imgLoad 传入的节点是空")
+    imgLoad(node, path,Res = null) {
+        if (!node) {
+            cc.log("imgLoad 传入的节点是空")
             return
         }
         if (!path) {
-            console.log("imgLoad 传入的资源路径为空")
+            cc.log("imgLoad 传入的资源路径为空")
             return
         }
         if (node instanceof cc.Node) {
         } else {
-            console.log("imgLoad 传入的节点不是cc.node")
+            cc.log("imgLoad 传入的节点不是cc.node")
             return
         }
         let widget
@@ -2823,9 +2839,14 @@ let gHandler = {
             sprite = node.addComponent(cc.Sprite)
         }
         widget && this.setWidget(node, widget)
-        cc.resources.load(path, cc.SpriteFrame, (err, frame) => {
+        let tempRes = cc.resources;
+        if(Res)
+        {
+            tempRes = Res;
+        }
+        tempRes.load(path, cc.SpriteFrame, (err, frame) => {
             if (err) {
-                console.log("imgLoad 加载图片失败", err)
+                cc.log("imgLoad 加载图片失败", err)
                 return;
             }
             if (!cc.isValid(node)) {
@@ -2845,23 +2866,23 @@ let gHandler = {
             return
         }
         if (!this.languageTip) {
-            console.log("没有加载语言提示模块")
+            cc.log("没有加载语言提示模块")
             return ""
         }
         if (!this.languageTip[this.language]) {
-            console.log("没有此语言的提示信息")
+            cc.log("没有此语言的提示信息")
             return ""
         }
         if (!this.languageTip[this.language][tipname]) {
-            console.log("没有此条提示的配置", tipname)
+            cc.log("没有此条提示的配置", tipname)
             return ""
         }
         return this.languageTip[this.language][tipname]
     },
     // 多语言按钮图片加载
-    btnLoad(node, normal, pressed, interactable) { //, hover, disabled 只做两个图片
+    btnLoad(node, normal, pressed, interactable,Res = null ) { //, hover, disabled 只做两个图片
         if(!cc.isValid(node)){
-            console.log("btnLoad 节点不存在");
+            cc.log("btnLoad 节点不存在");
             return;
         }
         let btn = node.getComponent(cc.Button)
@@ -2889,9 +2910,14 @@ let gHandler = {
             }
             normal = normal.normal
         }
-        cc.resources.load(normal, cc.SpriteFrame, (err, frame) => {
+        let tempRes = cc.resources;
+        if(Res)
+        {
+            tempRes = Res;
+        }
+        tempRes.load(normal, cc.SpriteFrame, (err, frame) => {
             if (err) {
-                console.log("加载图片失败", err)
+                cc.log("加载图片失败", err)
                 return;
             }
             if (!cc.isValid(node)) {
@@ -2904,9 +2930,9 @@ let gHandler = {
             }
             pressed = pressed ? pressed : normal
             widget && this.setWidget(node, widget)
-            cc.resources.load(pressed, cc.SpriteFrame, (err, frame) => {
+            tempRes.load(pressed, cc.SpriteFrame, (err, frame) => {
                 if (err) {
-                    console.log("加载图片失败", err)
+                    cc.log("加载图片失败", err)
                     return;
                 }
                 if (!cc.isValid(node)) {
@@ -2928,21 +2954,21 @@ let gHandler = {
     // editbox 提示语设置
     editboxTipLoad(node, tipname) {
         if(!cc.isValid(node)){
-            console.log("editboxTipLoad 节点不存在")
+            cc.log("editboxTipLoad 节点不存在")
             return;
         }
         let editbox = node.getComponent(cc.EditBox)
         if (!editbox) {
-            console.log("节点下不存在editbox组件")
+            cc.log("节点下不存在editbox组件")
             return
         }
         editbox.placeholder = hqq.getTip(tipname)
     },
     // 骨骼动画设置
-    skeletonLoad(node, path, aniname, loop) {
+    skeletonLoad(node, path, aniname, loop,Res=null) {
         if (node instanceof cc.Node) {
         } else {
-            console.log("传入的节点不是cc.node")
+            cc.log("传入的节点不是cc.node")
             return
         }
         let children
@@ -2964,15 +2990,20 @@ let gHandler = {
             ani = node.addComponent(sp.Skeleton)
             ani.premultipliedAlpha = false
         }
-        cc.resources.loadDir(path, sp.SkeletonData, (err, Data) => {
+        let tempRes = cc.resources;
+        if(Res)
+        {
+            tempRes = Res;
+        }
+        tempRes.loadDir(path, sp.SkeletonData, (err, Data) => {
             if (err) {
-                console.log("加载骨骼动画失败", err)
+                cc.log("加载骨骼动画失败", err)
                 return;
             }
 
             if(!Data)
             {
-                console.log("路径下没有加载到资源")
+                cc.log("路径下没有加载到资源")
                 return
             }
             if (!cc.isValid(node)) {
@@ -2992,18 +3023,18 @@ let gHandler = {
     // 为节点设置停靠
     setWidget(node, config) { //  top, left, bottom, right, horizontalCenter, verticalCenter
         if (!node) {
-            console.log("nodeSetWidget 传入的节点为空")
+            cc.log("nodeSetWidget 传入的节点为空")
             return
         }
         if (node instanceof cc.Node) {
         } else {
-            console.log("nodeSetWidget 传入的节点不是cc.Node")
+            cc.log("nodeSetWidget 传入的节点不是cc.Node")
             return
         }
         let widget = node.getComponent(cc.Widget)
         if (!widget) {
             widget = node.addComponent(cc.Widget)
-            // console.log("!widget", widget)
+            // cc.log("!widget", widget)
         }
         if(config.alignMode){
             widget.alignMode = config.alignMode
@@ -3072,10 +3103,10 @@ let gHandler = {
     // 添加节点
     addNode(node, cfg) { // name,
         if(!cc.isValid(node)){
-            console.log("addNode 节点不存在");
+            cc.log("addNode 节点不存在");
             return;
         }
-        // console.log("cfg", cfg)
+        // cc.log("cfg", cfg)
         let newnode
         if (typeof cfg.name == "string") {
             newnode = new cc.Node(cfg.name)
@@ -3098,7 +3129,7 @@ let gHandler = {
         } else if (typeof cfg.string == "string") {
             this.setLabel(newnode, cfg)
         } else if (cfg.ScrollView) { // ScrollView content
-            console.log("if (cfg.ScrollView)")
+            cc.log("if (cfg.ScrollView)")
             this.setScrollView(newnode, cfg)
         } else if ( typeof cfg.videopath == "string" ) {
             this.setVideoPlayer(newnode, cfg)
@@ -3109,9 +3140,9 @@ let gHandler = {
     },
     setSprite(node, cfg) { // path
         if (!this.checkNode(node)) {
-            console.log("setSprite 节点错误")
+            cc.log("setSprite 节点错误")
             // for (let k in cfg) {
-            //     console.log(k, cfg[k])
+            //     cc.log(k, cfg[k])
             // }
             return
         }
@@ -3122,20 +3153,25 @@ let gHandler = {
             cfg.path = cfg.normal
         }
         if (!cfg.normal && !cfg.path) {
-            console.log("setSprite 传入的资源路径为空")
+            cc.log("setSprite 传入的资源路径为空")
             return
         }
         let sprite = node.getComponent(cc.Sprite)
         if (!sprite) {
-            sprite = node.addComponent(cc.Sprite);
+            sprite = node.addComponent(cc.Sprite)
         }
-        cc.resources.load(cfg.path, cc.SpriteFrame, (err, frame) => {
+        let self = this
+        let tempRes = cc.resources;
+        if(cfg.Res )
+        {
+            tempRes = cfg.Res;
+        }
+        tempRes.load(cfg.path, cc.SpriteFrame, (err, frame) => {
             if (err) {
-                console.log("setSprite 加载图片失败", err)
+                cc.log("setSprite 加载图片失败", err , cfg.Res , tempRes)
                 return;
             }
             if (!cc.isValid(node)) {
-                console.log("setSprite 节点不存在", cfg.path)
                 return
             }
             sprite.spriteFrame = frame;
@@ -3146,8 +3182,8 @@ let gHandler = {
         })
     },
     setBtn(node, cfg) { // normal == path, pressed, interactable, callback，widget
-        if (!cc.isValid(node)) {
-            console.log("setBtn 传入的节点是空", cfg)
+        if (!node) {
+            cc.log("setBtn 传入的节点是空", cfg)
             return
         }
         if (!cfg.normal) {
@@ -3157,7 +3193,7 @@ let gHandler = {
             cfg.path = cfg.normal
         }
         // if (!cfg.normal && !cfg.path) {
-        //     console.log("setBtn 传入的资源路径为空")
+        //     cc.log("setBtn 传入的资源路径为空")
         //     return
         // }
         if (node instanceof cc.Node) {
@@ -3169,7 +3205,7 @@ let gHandler = {
             }
 
         } else {
-            console.log("setBtn 传入的节点不是cc.node")
+            cc.log("setBtn 传入的节点不是cc.node")
             return
         }
         let btn = node.getComponent(cc.Button)
@@ -3196,21 +3232,26 @@ let gHandler = {
             }
         } else if (cfg.transition == cc.Button.Transition.SPRITE) {
             if (!cfg.pressed) {
-                console.log("setBtn 缺少点击时图片路径")
+                cc.log("setBtn 缺少点击时图片路径")
             }
-            cc.resources.load(cfg.normal, cc.SpriteFrame, (err, frame) => {
+            let tempRes = cc.resources;
+            if(cfg.Res )
+            {
+                tempRes = cfg.Res;
+            }
+            tempRes.load(cfg.normal, cc.SpriteFrame, (err, frame) => {
                 if (err) {
-                    console.log("setBtn 加载图片失败", err)
+                    cc.log("setBtn 加载图片失败", err)
                     return;
                 }
                 btn.normalSprite = frame;
                 btn.hoverSprite = frame;
                 cfg.pressed = cfg.pressed ? cfg.pressed : cfg.normal
-                // cfg.widget && this.setWidget(node, cfg.widget)
+                //cfg.widget && this.setWidget(node, cfg.widget)
                 this.setNode(node,cfg);
-                cc.resources.load(cfg.pressed, cc.SpriteFrame, (err, frame) => {
+				tempRes.load(cfg.pressed, cc.SpriteFrame, (err, frame) => {
                     if (err) {
-                        console.log("setBtn 加载图片失败", err)
+                        cc.log("setBtn 加载图片失败", err)
                         return;
                     }
                     if (!cc.isValid(node)) {
@@ -3226,9 +3267,9 @@ let gHandler = {
         }
     },
     setLabel(node, cfg) {
-        // console.log("setLabel", cfg)
+        // cc.log("setLabel", cfg)
         if (!this.checkNode(node)) {
-            console.log("setLabel 节点错误")
+            cc.log("setLabel 节点错误")
             return
         }
         this.setNode(node, cfg)
@@ -3261,7 +3302,7 @@ let gHandler = {
             if(cfg.fontFamily){
                 label.fontFamily = cfg.fontFamily;
             } else{
-                label.fontFamily = "微软雅黑";
+                label.fontFamily = "Microsoft YaHei";
             }
             if (typeof cfg.string == "string") {
                 if (this.getTip(cfg.string)) {
@@ -3274,7 +3315,7 @@ let gHandler = {
         } else if (typeof cfg == "string") {
             label.string = this.getTip(cfg)
         } else {
-            console.log("无法解析传入的参数")
+            cc.log("无法解析传入的参数")
         }
         if (cc.ENGINE_VERSION == "2.1.3") {
             label._updateRenderData(true) // 2.1.3
@@ -3288,7 +3329,7 @@ let gHandler = {
         }
         if (!cfg.path) {
             if(!cfg.skeleton){
-                console.log("setSkeleton 传入的资源路径为空")
+                cc.log("setSkeleton 传入的资源路径为空")
                 return
             }
             cfg.path = cfg.skeleton;
@@ -3301,7 +3342,7 @@ let gHandler = {
                 node.y = cfg.y
             }
         } else {
-            console.log("setSkeleton 传入的节点不是cc.node")
+            cc.log("setSkeleton 传入的节点不是cc.node")
             return
         }
         let tempbool = node.active;
@@ -3325,16 +3366,24 @@ let gHandler = {
         }
         ani.setAnimationCacheMode(sp.Skeleton.AnimationCacheMode.PRIVATE_CACHE);
         ani.enableBatch = true;
+        if(cfg.timeScale){
+            ani.timeScale = cfg.timeScale;
+        }
         if( !tempbool ){
             node.active = false;
         }
-        cc.resources.loadDir(cfg.path, sp.SkeletonData, (err, Data) => {
+        let tempRes = cc.resources;
+        if(cfg.Res )
+        {
+            tempRes = cfg.Res;
+        }
+        tempRes.loadDir(cfg.path, sp.SkeletonData, (err, Data) => {
             if (err) {
-                console.log("加载骨骼动画失败", err)
+                cc.log("加载骨骼动画失败", err)
                 return;
             }
             if (!Data) {
-                console.log("路径下没有加载到资源")
+                cc.log("路径下没有加载到资源")
                 return
             }
             if (!cc.isValid(node)) {
@@ -3363,7 +3412,7 @@ let gHandler = {
     },
     setScrollView(node, cfg) {
         if (!this.checkNode(node)) {
-            console.log("setScrollView 节点错误")
+            cc.log("setScrollView 节点错误")
             return
         }
         let component = node.getComponent(cc.ScrollView)
@@ -3384,17 +3433,17 @@ let gHandler = {
     // 检查节点
     checkNode(node) {
         if (!node) {
-            console.log("传入的节点是空")
+            cc.log("传入的节点是空")
             return false
         }
         if (node instanceof cc.Node) {
         } else {
-            console.log("传入的节点不是cc.node")
+            cc.log("传入的节点不是cc.node")
             return false
         }
         if( !cc.isValid( node ) )
         {
-            console.log("传入的节点已经被销毁")
+            cc.log("传入的节点已经被销毁")
             return false;
         }
         return true
@@ -3402,7 +3451,7 @@ let gHandler = {
     // 设置节点属性
     setNode(node, cfg) {
         if (!this.checkNode(node)) {
-            console.log("setNode 节点错误")
+            cc.log("setNode 节点错误")
             return
         }
 
@@ -3475,6 +3524,10 @@ let gHandler = {
             video = node.addComponent(cc.VideoPlayer)
         }
 
+        let tempbool = node.active;
+        if(!tempbool){
+            node.active = true;
+        }
         if (cfg.callback) {
             let videoEventHandler = new cc.Component.EventHandler();
             videoEventHandler.target = cfg.script.node;
@@ -3488,7 +3541,16 @@ let gHandler = {
         if( cfg.isFullscreen ){
             video.isFullscreen = true;
         }
-        cc.resources.load(cfg.videopath, cc.Asset, (err, asset) => {
+        video.keepAspectRatio = false;
+        if(!tempbool){
+            node.active = false;
+        }
+        let tempRes = cc.resources;
+        if(cfg.Res )
+        {
+            tempRes = cfg.Res;
+        }
+        tempRes.load(cfg.videopath, cc.Asset, (err, asset) => {
             if (err) {
                 console.log("setVideoPlayer 加载影片失败", err)
                 return;
@@ -3497,11 +3559,17 @@ let gHandler = {
                 console.log("setVideoPlayer 节点不存在", cfg.videopath)
                 return
             }
+            if(!tempbool){
+                node.active = true;
+            }
             video.resourceType = cc.VideoPlayer.ResourceType.LOCAL;
             video.clip = asset;
             // video._impl.setURL(asset.nativeUrl, this._mute || this._volume === 0);
-            video.play();
+            // video.play();
             this.setNode(node, cfg)
+            if(!tempbool){
+                node.active = false;
+            }
         })
     },
 
@@ -3530,7 +3598,7 @@ let gHandler = {
         r = Math.abs(r);
         dp = Math.abs(dp)
         init = Math.abs(init)
-        // console.log(dp, init)
+        // cc.log(dp, init)
         if (angle < 0) {
             for (let i = init; i > (init - dp); i--) {
                 ary.push(cc.v2(Math.cos(dpr * i * rad) * r + dot.x, Math.sin(dpr * i * rad) * r + dot.y));

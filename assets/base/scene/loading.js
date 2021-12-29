@@ -45,11 +45,11 @@ cc.Class({
         //     // hqq.subGameList = {
         //     // }
         // }
-        if(hqq.app.pinpai == "ninetwo"){
-            this.setPinpaiRes()
-            this.layer.active = false;
-            return;
-        }
+        // if(hqq.app.pinpai == "ninetwo"){
+        //     this.setPinpaiRes()
+        //     this.layer.active = false;
+        //     return;
+        // }
         if (cc.sys.platform == cc.sys.MOBILE_BROWSER || cc.sys.platform == cc.sys.DESKTOP_BROWSER) { // 浏览器
             this.cocosWebOrientationChange()
             this.layer.active = true;
@@ -69,7 +69,7 @@ cc.Class({
                         } else if (strs[i].split("=")[0] == "token") {
                             hqq.webToken = temp;
                         }
-                        console.log(temp)
+                        cc.log(temp)
                     }
                     if (!hqq.localStorage.globalGet("noShowIosWebTip")) {
                         hqq.eventMgr.dispatch(hqq.eventMgr.showIosWebTip, null) // ios 网页提示添加桌面
@@ -151,62 +151,102 @@ cc.Class({
         this.bg = cc.find("Canvas/brandnode/bg")
         this.ani = cc.find("Canvas/brandnode/ani").getComponent(sp.Skeleton)
         if (hqq.app.pinpai == "xinhao") {
-            hqq.setSprite(background, { path: "base/xinhao/logo_hj" })
+            hqq.setSprite(background, { path: "bigimg/xinhao/logo_hj" })
             hqq.setSprite(this.progressnode, { path: "base/img/jiazbg", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/img/jiaz" })
         } else if (hqq.app.pinpai == "fuxin" ) {
-            hqq.setSprite(background, { path: "base/fuxin/bg" })
+            hqq.setSprite(background, { path: "bigimg/fuxin/bg" })
             hqq.setSprite(this.progressnode, { path: "base/fuxin/img/jd1", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/fuxin/img/jd2" })
         } else if (hqq.app.pinpai == "xingui") {
-            hqq.setSprite(background, { path: "base/xingui/back" })
+            hqq.setSprite(background, { path: "bigimg/xingui/back" })
             hqq.addNode(background, { path: "base/language/" + hqq.language + "/xingui/logo", widget: { top: 70, left: 10 } })
             hqq.setSprite(this.progressnode, { path: "base/xingui/img/progressback", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/xingui/img/progress" })
         } else if (hqq.app.pinpai == "xinsheng") {
-            hqq.setSprite(background, { path: "base/xinsheng/bigimg/back" })
+            hqq.setSprite(background, { path: "bigimg/xinsheng/back" })
             hqq.setSprite(this.progressnode, { path: "base/xinsheng/img/panel1", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/xinsheng/img/panel" })
         } else if (hqq.app.pinpai == "xinlong") {
-            hqq.setSprite(background, { path: "base/xinlong/bigimg/xl_loading3" })
+            hqq.setSprite(background, { path: "bigimg/xinlong/xl_loading3" })
             hqq.setSprite(this.progressnode, { path: "base/xinsheng/img/panel1", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/xinsheng/img/panel" })
         } else if (hqq.app.pinpai == "huangshi") {
-            hqq.setSprite(background, { path: "base/huangshi/bg" })
+            hqq.setSprite(background, { path: "bigimg/huangshi/bg" })
             hqq.setSprite(this.progressnode, { path: "base/img/jiazbg", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/img/jiaz" })
         } else if (hqq.app.pinpai == "juding") {
-            hqq.setSprite(background, { path: "base/juding/loading" })
+            hqq.setSprite(background, { path: "bigimg/juding/loading" })
             hqq.setSprite(this.progressnode, { path: "base/juding/img/jd1", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/juding/img/jd2" })
         } else if (hqq.app.pinpai == "huaxing") {
-            hqq.setSprite(background, { path: "base/huaxing/bg" })
+            hqq.setSprite(background, { path: "bigimg/huaxing/bg" })
             hqq.setSprite(this.progressnode, { path: "base/img/jiazbg", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/img/jiaz" })
         } else if (hqq.app.pinpai == "ninetwo") {
-            hqq.setSprite(background, { path: "base/ninetwo/beijingtu" })
-            hqq.setSprite(this.progressnode, { path: "base/img/jiazbg", active: false })
-            hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/img/jiaz" })
-            // this.video = cc.find("Canvas/ninetwovideo");
-            // this.video.active = true;
+            hqq.setSprite(background, { path: "bigimg/ninetwo/beijingtu" })
+            hqq.setSprite(this.progressnode, { path: "base/ninetwo/img/loading_bar", active: false , y:-343})
+            hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/ninetwo/img/shang" })
+            this.progressicon = hqq.addNode(this.progressnode, { path: "base/ninetwo/img/touzi", x:-385.5 })
+            
             let canvas = cc.find("Canvas");
             let scalex = cc.view.getVisibleSize().width / 1334;
             let scaley = cc.view.getVisibleSize().height / 690;
             if(scalex < scaley ){
                 scalex = scaley;
             }
+            // this.ninetwovideo = cc.find("Canvas/92video").getComponent(cc.WebView);
+            // this.ninetwovideo.node.active = true;
+            // let webviewEventHandler = new cc.Component.EventHandler();
+            // webviewEventHandler.target = this.node;
+            // webviewEventHandler.component = "loading";
+            // webviewEventHandler.handler = "onWebviewEvent";
+            // cc.log("this.ninetwovideo=",this.ninetwovideo)
+            // this.ninetwovideo.webviewEvents.push(webviewEventHandler);
+            // this.ninetwovideo.url = "https://web_static.539316.com/";
             this.video = hqq.addNode(canvas,{videopath:"base/ninetwo/92mv",width:1334*scalex,height:690*scalex,callback: "videocompleteListener", script: this})
-            this.videotimeout = setTimeout(() => {
-                this.videocompleteListener( this.video , cc.VideoPlayer.EventType.CLICKED );
-            }, 16 * 1000 );
+            this.video.active = false;
+            // this.videotimeout = setTimeout(() => {
+            //     this.videocompleteListener( this.video , cc.VideoPlayer.EventType.CLICKED );
+            // }, 16 * 1000 );
+        } else if (hqq.app.pinpai == "chaofan") {
+            hqq.setSprite(background, { path: "bigimg/chaofan/jiaz" })
+            hqq.setSprite(this.progressnode, { path: "base/img/jiazbg", active: false })
+            hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/img/jiaz" })
+        } else if(hqq.app.pinpai == "tianqi") {
+            hqq.setSprite(background, { path: "bigimg/tianqi/loading" })
+            hqq.setSprite(this.progressnode, { path: "base/tianqi/img/ditiao", active: false })
+            hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/tianqi/img/shangitap" })
+            let barEff = new cc.Node();
+            barEff.name = "tianqi_barEff";
+            let barEff_widget = barEff.addComponent(cc.Widget);
+            this.progressnode.getChildByName('bar').addChild(barEff);
+            hqq.setSprite(barEff, { path: "base/tianqi/img/loading_light"});
+            barEff_widget.target = barEff_widget.node.parent;
+            barEff_widget.isAlignTop = true; 
+            barEff_widget.isAlignRight  = true; 
+            barEff_widget.right = 0;
+            barEff_widget.top = -26;
+            barEff.scalex = 1;
+            barEff.scaley = 0.8;
+            barEff.setPosition(0, 0);
+            barEff.active = false;
         } else {
             hqq.setSprite(this.progressnode, { path: "base/img/jiazbg", active: false })
             hqq.setSprite(this.progressnode.getChildByName('bar'), { path: "base/img/jiaz" })
             if (hqq.app.pinpai != "debi") {
-                hqq.setSprite(background, { path: "base/language/" + hqq.language + "/web_loading" })
+                hqq.setSprite(background, { path: "bigimg/language/" + hqq.language + "/web_loading" })
             }
         }
     },
+
+    onWebviewEvent(webview, eventType) {
+        // if (eventType === cc.WebView.EventType.LOADED) {
+        //     console.log("=======尝试播放影片")
+        //     this.ninetwovideo.evaluateJS(`javascript:(function() { var videos = document.getElementsByTagName(‘video’); for(var i=0;i<videos.length;i ){videos[i].play();}})()`);
+        // }
+    },
+
     // 注册事件
     register() {
         hqq.eventMgr.register(hqq.eventMgr.hotCheckup, "loading", this.hotCheckup.bind(this))
@@ -244,21 +284,21 @@ cc.Class({
             } else if (hqq.app.pinpai == "xinsheng") {
                 // hqq.setSprite(this.background, { path: "base/xinsheng/bigimg/back" })
             } else if (hqq.app.pinpai == 'xingba') {
-                // hqq.setSprite(this.background, { path: "base/language/" + hqq.language + "/web_loading" })
-                hqq.setSprite(this.bg, { path: "/base/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai + "/xb_loading_bg" })
+                // hqq.setSprite(this.background, { path: "bigimg/language/" + hqq.language + "/web_loading" })
+                hqq.setSprite(this.bg, { path: "bigimg/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai + "/xb_loading_bg" })
                 // cc.resources.load("/base/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai + "/xb_loading_bg", cc.SpriteFrame, (err, frame) => {
                 //     if (err) {
-                //         console.log(" 加载图片失败", err)
+                //         cc.log(" 加载图片失败", err)
                 //         return;
                 //     }
                 //     this.bg.spriteFrame = frame;
                 // })
             } else {
-                // hqq.setSprite(this.background, { path: "base/language/" + hqq.language + "/web_loading" })
-                hqq.setSprite(this.bg, { path: "/base/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai + "/test_loading_bg" })
+                // hqq.setSprite(this.background, { path: "bigimg/language/" + hqq.language + "/web_loading" })
+                hqq.setSprite(this.bg, { path: "bigimg/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai + "/test_loading_bg" })
                 // cc.resources.load("/base/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai + "/test_loading_bg", cc.SpriteFrame, (err, frame) => {
                 //     if (err) {
-                //         console.log(" 加载图片失败", err)
+                //         cc.log(" 加载图片失败", err)
                 //         return;
                 //     }
                 //     this.bg.spriteFrame = frame;
@@ -270,7 +310,7 @@ cc.Class({
             let sprite = node.addComponent(cc.Sprite)
             cc.resources.load("base/language/" + hqq.language + "/fuxin/logo", cc.SpriteFrame, (err, frame) => {
                 if (err) {
-                    console.log(" 加载图片失败", err)
+                    cc.log(" 加载图片失败", err)
                     return;
                 }
                 if(cc.isValid(sprite))
@@ -298,7 +338,7 @@ cc.Class({
             let sprite = node.addComponent(cc.Sprite)
             cc.resources.load("base/language/" + hqq.language + "/juding/judinglogo", cc.SpriteFrame, (err, frame) => {
                 if (err) {
-                    console.log(" 加载图片失败", err)
+                    cc.log(" 加载图片失败", err)
                     return;
                 }
                 if(cc.isValid(sprite))
@@ -308,11 +348,30 @@ cc.Class({
             })
             this.bg.addChild(node)
         } else if (hqq.app.pinpai == "ninetwo"){
+            hqq.addNode(this.bg,{path:"base/ninetwo/img/yuan"})
+        } else if (hqq.app.pinpai == "chaofan"){
+            hqq.addNode(this.bg,{path:"base/chaofan/img/1"})
+        } else if(hqq.app.pinpai == "tianqi") {
+            cc.resources.loadDir("bigimg/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai, sp.SkeletonData, (err, Data) => {
+                if (err) {
+                    cc.log("加载骨骼动画失败", err)
+                    return;
+                }
+                for (let i = 0; i < Data.length; i++) {
+                    if (Data[i].__classname__ == "sp.SkeletonData") {
+                        this.ani.skeletonData = Data[i];
+                        this.ani.setAnimation(0, "ani_enter", false);
+                        this.ani.setCompleteListener(function() {
+                            this.ani.setAnimation(0, "ani_loop", true);
+                        }.bind(this));
+                    }
+                }
+            });
 
         } else {
-            cc.resources.loadDir("/base/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai, sp.SkeletonData, (err, Data) => {
+            cc.resources.loadDir("bigimg/language/" + hqq.language + "/pinpai/" + hqq.app.pinpai, sp.SkeletonData, (err, Data) => {
                 if (err) {
-                    console.log("加载骨骼动画失败", err)
+                    cc.log("加载骨骼动画失败", err)
                     return;
                 }
                 for (let i = 0; i < Data.length; i++) {
@@ -339,37 +398,26 @@ cc.Class({
         }
     },
     videocompleteListener(videoplayer, eventType, customEventData) {
+        if(!cc.isValid(this.node))return;
         if(eventType == cc.VideoPlayer.EventType.COMPLETED){
-            if(this.videotimeout){
-                clearTimeout(this.videotimeout);
-                this.videotimeout = null;
+            if(cc.isValid(this.video)){
+                this.video.destroy();
             }
-            this.layer.active = true;
-            if(cc.isValid( this.video ) ){
-                this.video.active = false;
-            }
-            if (hqq.isDebug) {
-                cc.director.loadScene('hall')
-            } else {
-                this.runApplogin()
+            hqq.loginMgr.videoplayering = false;
+            if(hqq.loginMgr.updatefininshed){
+                hqq.loginMgr.jumpToNextScene();
             }
         } else if(eventType == cc.VideoPlayer.EventType.READY_TO_PLAY){
             if(cc.isValid( this.video ) ){
                 this.video.getComponent(cc.VideoPlayer).play();
             }
         } else if(eventType == cc.VideoPlayer.EventType.CLICKED){
-            if(this.videotimeout){
-                clearTimeout(this.videotimeout);
-                this.videotimeout = null;
-            }
-            this.layer.active = true;
-            if(cc.isValid( this.video ) ){
+            if(cc.isValid(this.video)){
                 this.video.destroy();
             }
-            if (hqq.isDebug) {
-                cc.director.loadScene('hall')
-            } else {
-                this.runApplogin()
+            hqq.loginMgr.videoplayering = false;
+            if(hqq.loginMgr.updatefininshed){
+                hqq.loginMgr.jumpToNextScene();
             }
         }
     },
@@ -580,18 +628,18 @@ cc.Class({
     getAccess(privateKey) {
         let callback = (data) => {
             if (data.code != 200) {
-                console.log('getAccess error', data)
+                cc.log('getAccess error', data)
                 return
             }
             var decrypt = new JSEncrypt();
             decrypt.setPrivateKey(privateKey);
             var uncrypted = decrypt.decrypt(data.data.split('=')[1]);
-            console.log("uncrypted", uncrypted)
+            cc.log("uncrypted", uncrypted)
             uncrypted = JSON.parse(uncrypted)
-            console.log("uncrypted.account", uncrypted.account)
-            console.log("uncrypted.password", uncrypted.password)
-            console.log("uncrypted.device_id", uncrypted.device_id)
-            console.log("uncrypted.superior_agent", uncrypted.superior_agent)
+            cc.log("uncrypted.account", uncrypted.account)
+            cc.log("uncrypted.password", uncrypted.password)
+            cc.log("uncrypted.device_id", uncrypted.device_id)
+            cc.log("uncrypted.superior_agent", uncrypted.superior_agent)
             hqq.webAcconunt = uncrypted.account
             hqq.webAcconuntPass = uncrypted.password
             hqq.webDeviceid = uncrypted.device_id
@@ -601,7 +649,7 @@ cc.Class({
             }
         }
         let failcallback = (status, forcejump, url, err, readyState) => {
-            console.log("getAccess failcallback", status)
+            cc.log("getAccess failcallback", status)
         }
         hqq.http.sendXMLHttpRequest({
             method: "POST",
@@ -630,7 +678,7 @@ cc.Class({
             this.browserDeal(data)
         }
         let failcallback = (status, forcejump, url, err, readyState) => {
-            console.log("getPrivateKey failcallback", status)
+            cc.log("getPrivateKey failcallback", status)
         }
         let urllist = ["http://agpe.539316.com"]
         if (hqq.app.huanjin == 'dev') {
@@ -664,10 +712,10 @@ cc.Class({
     // 获取公钥
     getPublicKey() {
         let callback = (data) => {
-            // console.log("getPubliceKey", data)
+            // cc.log("getPubliceKey", data)
         }
         let failcallback = (status, forcejump, url, err, readyState) => {
-            console.log("getPublicKey failcallback", status)
+            cc.log("getPublicKey failcallback", status)
         }
         let url = "http://agpe.539316.com//b2b/api/agent/getEncryptionKey?token=1001&platform_id=1001"
         if (hqq.app.huanjin == 'dev') {
@@ -695,11 +743,11 @@ cc.Class({
         decrypt.setPrivateKey(privateKey);
         var uncrypted = decrypt.decrypt(url.split('=')[1]);
         uncrypted = JSON.parse(uncrypted)
-        console.log("uncrypted.account", uncrypted.account)
-        console.log("uncrypted.password", uncrypted.password)
-        console.log("uncrypted.device_id", uncrypted.device_id)
-        console.log("uncrypted.superior_agent", uncrypted.superior_agent)
-        console.log("uncrypted.game_id", uncrypted.game_id)
+        cc.log("uncrypted.account", uncrypted.account)
+        cc.log("uncrypted.password", uncrypted.password)
+        cc.log("uncrypted.device_id", uncrypted.device_id)
+        cc.log("uncrypted.superior_agent", uncrypted.superior_agent)
+        cc.log("uncrypted.game_id", uncrypted.game_id)
         hqq.webAcconunt = uncrypted.account
         hqq.webAcconuntPass = uncrypted.password
         hqq.webDeviceid = uncrypted.device_id
@@ -711,7 +759,7 @@ cc.Class({
         this.runApplogin()
     },
     // 更新检查
-    hotCheckup(bool, enname) {
+    hotCheckup(bool, enname,isfail=false) {
         if (bool) { // 需要更新
             this.progressnode.active = true
             if (enname == "hall") {
@@ -758,16 +806,83 @@ cc.Class({
         }
         progress += "%"
         this.progress = progress
+
+        let hallStr = "hall_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.hallversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.hallversionList[i]){
+                hallStr = "hall_test";
+                break;
+            }
+        }
+
+        let proxyStr = "proxy_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.proxyversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.proxyversionList[i]){
+                proxyStr = "proxy_test";
+                break;
+            }
+        }
+        if(hqq.app.pinpai === "debi"){
+            proxyStr = "proxy_xingba";
+        }
+
+        let IMStr = "IM_test";
+        for(let i = 0; i < hqq.loginMgr.IMversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.IMversionList[i]){
+                IMStr = "IM_" + hqq.app.pinpai;
+                break;
+            }
+        }
+
+        let payStr = "pay_" + hqq.app.pinpai;
+        for(let i = 0; i < hqq.loginMgr.payversionList.length;i++){
+            if(hqq.app.pinpai == hqq.loginMgr.payversionList[i]){
+                payStr = "pay_test";
+                break;
+            }
+        }
+        if(hqq.app.pinpai === "xinlong"){
+            payStr = "pay_xinsheng";
+        }
+
         if (enname == "hall") {
             this.info = hqq.getTip("showtip77")
         } else if (enname == "apk") {
             this.info = hqq.getTip("showtip60")
         } else if (enname == "jiazai") {
             this.info = hqq.getTip("showtip78")
+        } else if(enname === hallStr ){
+            this.info = hqq.getTip("showtip86")
+        } else if(enname === payStr ){
+            this.info = hqq.getTip("showtip89")
+        } else if(enname === proxyStr ){
+            this.info = hqq.getTip("showtip92")
+        } else if(enname === IMStr ){
+            this.info = hqq.getTip("showtip95")
         } else {
             this.info = enname + hqq.getTip("showtip79")
         }
         this.label.string = this.info + " " + this.progress;
+
+        if(hqq.app.pinpai === "ninetwo" ){
+            // console.log("this.progressBar.progress=",this.progressBar.progress)
+            // this.ninetwovideo.evaluateJS(`setProgressBar(${JSON.stringify(this.progressBar.progress)})`);
+            if(cc.isValid(this.progressicon)){
+                this.progressicon.x = -385.5 + (this.progressBar.progress * this.progressnode.width);
+            }
+        }
+
+        if(hqq.app.pinpai === "tianqi") {
+            if(this.progressnode.getChildByName('bar').getChildByName('tianqi_barEff')) {
+                let barEff_widget = this.progressnode.getChildByName('bar').getChildByName('tianqi_barEff').getComponent(cc.Widget);
+                barEff_widget.updateAlignment();
+                if(progress == 0 || progress == 1) {
+                    barEff_widget.node.active = false;
+                } else {
+                    barEff_widget.node.active = true;
+                }
+            }
+        }
     },
     // 更新结束
     hotFinish(enname) {
@@ -781,6 +896,26 @@ cc.Class({
     },
     // 显示加载信息
     showLoadingInfo(info) {
+        if(info === "showChoiceLimeLayer" ){
+            if(cc.isValid(this.video)){
+                this.video.setPosition(5000,5000);
+                this.video.getComponent(cc.VideoPlayer).mute = true;
+                this.video.getComponent(cc.VideoPlayer).pause();
+            }
+            return;
+        }else if(info === "closeChoiceLimeLayer" ){
+            if(cc.isValid(this.video)){
+                this.video.active = true;
+                this.video.setPosition(0,0);
+                this.video.getComponent(cc.VideoPlayer).mute = false;
+                if(this.video.getComponent(cc.VideoPlayer).isPlaying()){
+                    this.video.getComponent(cc.VideoPlayer).resume();
+                } else{
+                    this.video.getComponent(cc.VideoPlayer).play();
+                }
+            }
+            return;
+        }
         this.info = info
         this.label.string = this.info;
     },
