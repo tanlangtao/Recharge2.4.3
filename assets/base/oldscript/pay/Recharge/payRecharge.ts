@@ -364,7 +364,7 @@ export default class NewClass extends cc.Component {
     }
     //银商
     webLinkClick(){
-        let url = "https://www.vfanglife.com/"
+        let url = "https://www.xiniugongzuoshi.vip/"
         cc.sys.openURL(encodeURI(url))
         cc.log(encodeURI(url))
     }
