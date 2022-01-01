@@ -1,0 +1,20 @@
+
+dating_title.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+biaoti
+  rotate: false
+  xy: 1, 1
+  size: 274, 101
+  orig: 344, 101
+  offset: 25, 0
+  index: -1
+btn_light
+  rotate: true
+  xy: 276, 4
+  size: 98, 92
+  orig: 112, 92
+  offset: 9, 0
+  index: -1

@@ -1,0 +1,20 @@
+
+setting_btn_confirm.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+btn_confirm
+  rotate: false
+  xy: 1, 94
+  size: 164, 50
+  orig: 164, 50
+  offset: 0, 0
+  index: -1
+btn_light
+  rotate: false
+  xy: 1, 1
+  size: 98, 92
+  orig: 112, 92
+  offset: 9, 0
+  index: -1

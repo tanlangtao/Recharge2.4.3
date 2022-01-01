@@ -1,0 +1,125 @@
+
+dating_icon_setting.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 148, 1
+  size: 14, 26
+  orig: 14, 26
+  offset: 0, 0
+  index: -1
+10
+  rotate: false
+  xy: 96, 78
+  size: 40, 49
+  orig: 41, 49
+  offset: 1, 0
+  index: -1
+11
+  rotate: false
+  xy: 137, 83
+  size: 33, 44
+  orig: 34, 45
+  offset: 1, 0
+  index: -1
+12
+  rotate: false
+  xy: 174, 38
+  size: 30, 44
+  orig: 30, 44
+  offset: 0, 0
+  index: -1
+13
+  rotate: true
+  xy: 1, 1
+  size: 25, 43
+  orig: 26, 44
+  offset: 1, 0
+  index: -1
+14
+  rotate: true
+  xy: 119, 11
+  size: 16, 28
+  orig: 17, 28
+  offset: 1, 0
+  index: -1
+15
+  rotate: false
+  xy: 163, 2
+  size: 12, 25
+  orig: 13, 25
+  offset: 1, 0
+  index: -1
+2
+  rotate: true
+  xy: 45, 4
+  size: 22, 41
+  orig: 23, 42
+  offset: 0, 1
+  index: -1
+3
+  rotate: true
+  xy: 176, 9
+  size: 28, 44
+  orig: 29, 44
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 171, 83
+  size: 32, 44
+  orig: 32, 44
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 136, 28
+  size: 37, 49
+  orig: 38, 49
+  offset: 0, 0
+  index: -1
+6
+  rotate: false
+  xy: 93, 28
+  size: 42, 49
+  orig: 43, 49
+  offset: 0, 0
+  index: -1
+7
+  rotate: false
+  xy: 48, 27
+  size: 44, 49
+  orig: 45, 49
+  offset: 0, 0
+  index: -1
+8
+  rotate: false
+  xy: 1, 27
+  size: 46, 49
+  orig: 47, 49
+  offset: 1, 0
+  index: -1
+9
+  rotate: false
+  xy: 51, 78
+  size: 44, 49
+  orig: 44, 49
+  offset: 0, 0
+  index: -1
+set
+  rotate: false
+  xy: 1, 77
+  size: 49, 50
+  orig: 49, 50
+  offset: 0, 0
+  index: -1
+set_txt
+  rotate: false
+  xy: 87, 8
+  size: 31, 18
+  orig: 31, 18
+  offset: 0, 0
+  index: -1

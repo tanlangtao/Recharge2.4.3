@@ -7,11 +7,11 @@ android {
     buildToolsVersion PROP_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId 'org.dev.AG'
+        applicationId 'com.test.dev.android'
 		minSdkVersion PROP_MIN_SDK_VERSION
         targetSdkVersion PROP_TARGET_SDK_VERSION
-        versionCode 9
-        versionName "1.0.9"
+        versionCode 20
+        versionName "1.0.20"
 
         externalNativeBuild {
             ndkBuild {
@@ -20,9 +20,9 @@ android {
                     targets 'cocos2djs'
                     arguments 'NDK_TOOLCHAIN_VERSION=clang'
                     
-                    def module_paths = [project.file("D:/CocosDashboard/resources/.editors/Creator/2.4.3/resources/cocos2d-x"),
-                                        project.file("D:/CocosDashboard/resources/.editors/Creator/2.4.3/resources/cocos2d-x/cocos"),
-                                        project.file("D:/CocosDashboard/resources/.editors/Creator/2.4.3/resources/cocos2d-x/external")]
+                    def module_paths = [project.file("C:/CocosDashboard_1.0.11/resources/.editors/Creator/2.4.3/resources/cocos2d-x"),
+                                        project.file("C:/CocosDashboard_1.0.11/resources/.editors/Creator/2.4.3/resources/cocos2d-x/cocos"),
+                                        project.file("C:/CocosDashboard_1.0.11/resources/.editors/Creator/2.4.3/resources/cocos2d-x/external")]
                     if (Os.isFamily(Os.FAMILY_WINDOWS)) {
                         arguments 'NDK_MODULE_PATH=' + module_paths.join(";")
                     }
@@ -130,7 +130,7 @@ android.applicationVariants.all { variant ->
 dependencies {
     implementation fileTree(dir: '../libs', include: ['*.jar','*.aar'])
     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
-    implementation fileTree(dir: "D:/CocosDashboard/resources/.editors/Creator/2.4.3/resources/cocos2d-x/cocos/platform/android/java/libs", include: ['*.jar'])
+    implementation fileTree(dir: "C:/CocosDashboard_1.0.11/resources/.editors/Creator/2.4.3/resources/cocos2d-x/cocos/platform/android/java/libs", include: ['*.jar'])
     implementation project(':libcocos2dx')
     implementation 'com.android.support:support-v4:26.0.0-alpha1'
     implementation 'com.hjq:xxpermissions:6.0'

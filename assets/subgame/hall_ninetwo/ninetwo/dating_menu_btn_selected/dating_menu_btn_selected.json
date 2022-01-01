@@ -1,0 +1,46 @@
+{
+"skeleton": { "hash": "1CbGQ3f1sGbvY7P6LU4leFlapaw", "spine": "3.8.99", "x": -143.5, "y": -51, "width": 287, "height": 102 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "btn_light", "parent": "root", "x": -210, "y": -50 }
+],
+"slots": [
+	{ "name": "youcexuanzhong", "bone": "root", "attachment": "youcexuanzhong" },
+	{ "name": "cut", "bone": "root", "attachment": "cut" },
+	{ "name": "btn_light", "bone": "btn_light", "color": "ffffff1d", "attachment": "btn_light", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"btn_light": {
+				"btn_light": { "y": 50, "width": 124, "height": 102 }
+			},
+			"cut": {
+				"cut": {
+					"type": "clipping",
+					"end": "cut",
+					"vertexCount": 6,
+					"vertices": [ -143.61, 51.02, -143.61, -51.16, 132.59, -51.05, 143.6, -2, 143.44, 5.62, 132.36, 51.05 ]
+				}
+			},
+			"youcexuanzhong": {
+				"youcexuanzhong": { "width": 287, "height": 102 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"btn_light": {
+				"translate": [
+					{ "time": 1 },
+					{ "time": 2, "x": 420.35, "curve": "stepped" },
+					{ "time": 3, "x": 420.35 }
+				]
+			}
+		}
+	}
+}
+}

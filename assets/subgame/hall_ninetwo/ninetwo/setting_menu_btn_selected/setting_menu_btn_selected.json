@@ -1,0 +1,46 @@
+{
+"skeleton": { "hash": "3oXVWviYIgpkDl10Z6Sz2FfPA7c", "spine": "3.8.99", "x": -122.5, "y": -48, "width": 245, "height": 96 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "btn_light", "parent": "root", "x": -185, "y": -50 }
+],
+"slots": [
+	{ "name": "setting_menu_btn", "bone": "root", "attachment": "setting_menu_btn3" },
+	{ "name": "cut", "bone": "root", "attachment": "cut" },
+	{ "name": "btn_light", "bone": "btn_light", "color": "ffffff1d", "attachment": "btn_light", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"btn_light": {
+				"btn_light": { "y": 50, "width": 124, "height": 102 }
+			},
+			"cut": {
+				"cut": {
+					"type": "clipping",
+					"end": "cut",
+					"vertexCount": 5,
+					"vertices": [ -122.29, 47.86, -122.29, -47.85, 111.14, -47.93, 123.05, 0.78, 111.37, 47.89 ]
+				}
+			},
+			"setting_menu_btn": {
+				"setting_menu_btn3": { "width": 245, "height": 96 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"btn_light": {
+				"translate": [
+					{ "time": 1 },
+					{ "time": 2, "x": 372.35, "curve": "stepped" },
+					{ "time": 3, "x": 372.35 }
+				]
+			}
+		}
+	}
+}
+}

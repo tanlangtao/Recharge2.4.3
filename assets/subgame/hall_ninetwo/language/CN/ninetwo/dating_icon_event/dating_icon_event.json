@@ -1,0 +1,71 @@
+{
+"skeleton": { "hash": "Tr28Ic0c0JoX05a1aDZcR4bFir4", "spine": "3.8.99", "x": -52.5, "y": -1, "width": 105, "height": 62 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "icon_event", "parent": "root", "y": -25 }
+],
+"slots": [
+	{ "name": "icon_event", "bone": "icon_event", "attachment": "icon_event" },
+	{ "name": "1", "bone": "icon_event", "attachment": "1", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"1": {
+				"1": { "x": -44, "y": 42.5, "width": 17, "height": 37 },
+				"2": { "x": -41, "y": 33, "width": 23, "height": 56 },
+				"3": { "x": -38.5, "y": 31, "width": 28, "height": 60 },
+				"4": { "x": -33.5, "y": 31, "width": 38, "height": 60 },
+				"5": { "x": -30.5, "y": 31, "width": 44, "height": 60 },
+				"6": { "x": -28.5, "y": 31, "width": 48, "height": 60 },
+				"7": { "x": -27, "y": 31, "width": 51, "height": 60 },
+				"8": { "x": -26, "y": 31, "width": 49, "height": 60 },
+				"9": { "x": -26, "y": 31, "width": 49, "height": 60 },
+				"10": { "x": -23, "y": 31, "width": 43, "height": 60 },
+				"11": { "x": -19.5, "y": 31, "width": 36, "height": 60 },
+				"12": { "x": -13.5, "y": 30, "width": 24, "height": 58 },
+				"13": { "x": -12.5, "y": 23.5, "width": 22, "height": 45 },
+				"14": { "x": -9, "y": 19, "width": 15, "height": 36 },
+				"15": { "x": -6.5, "y": 7, "width": 6, "height": 12 }
+			},
+			"icon_event": {
+				"icon_event": { "y": 30, "width": 105, "height": 62 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"1": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.9333, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 1.9333, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00", "curve": "stepped" },
+					{ "time": 3, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 1.0667, "name": "2" },
+					{ "time": 1.1333, "name": "3" },
+					{ "time": 1.2, "name": "4" },
+					{ "time": 1.2667, "name": "5" },
+					{ "time": 1.3333, "name": "6" },
+					{ "time": 1.4, "name": "7" },
+					{ "time": 1.4667, "name": "8" },
+					{ "time": 1.5333, "name": "9" },
+					{ "time": 1.6, "name": "10" },
+					{ "time": 1.6667, "name": "11" },
+					{ "time": 1.7333, "name": "12" },
+					{ "time": 1.8, "name": "13" },
+					{ "time": 1.8667, "name": "14" },
+					{ "time": 1.9333, "name": "15" },
+					{ "time": 2, "name": null }
+				]
+			}
+		}
+	}
+}
+}

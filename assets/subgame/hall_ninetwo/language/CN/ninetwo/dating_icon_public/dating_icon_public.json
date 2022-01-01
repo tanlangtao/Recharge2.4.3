@@ -1,0 +1,71 @@
+{
+"skeleton": { "hash": "DczV5CsObFWyBBYuihuX/jAqqCs", "spine": "3.8.99", "x": -54, "y": 5, "width": 106, "height": 44 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "public", "parent": "root", "x": -1, "y": -20 }
+],
+"slots": [
+	{ "name": "public", "bone": "public", "attachment": "public" },
+	{ "name": "1", "bone": "public", "attachment": "1" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"1": {
+				"1": { "x": -45.5, "y": 25, "width": 15, "height": 36 },
+				"2": { "x": -42, "y": 22, "width": 22, "height": 42 },
+				"3": { "x": -39, "y": 22, "width": 28, "height": 42 },
+				"4": { "x": -35.5, "y": 22, "width": 35, "height": 42 },
+				"5": { "x": -32, "y": 22, "width": 42, "height": 42 },
+				"6": { "x": -28.5, "y": 22, "width": 49, "height": 42 },
+				"7": { "x": -26.5, "y": 22, "width": 53, "height": 42 },
+				"8": { "x": -26.5, "y": 22, "width": 53, "height": 42 },
+				"9": { "x": -24, "y": 22, "width": 48, "height": 42 },
+				"10": { "x": -20.5, "y": 22, "width": 41, "height": 42 },
+				"11": { "x": -17, "y": 22, "width": 34, "height": 42 },
+				"12": { "x": -13.5, "y": 22, "width": 27, "height": 42 },
+				"13": { "x": -10, "y": 22, "width": 20, "height": 42 },
+				"14": { "x": -7, "y": 18.5, "width": 14, "height": 35 },
+				"15": { "x": -3.5, "y": 8.5, "width": 7, "height": 15 }
+			},
+			"public": {
+				"public": { "y": 21, "width": 106, "height": 44 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"1": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.9333, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 1.9333, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00", "curve": "stepped" },
+					{ "time": 3, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 1.0667, "name": "2" },
+					{ "time": 1.1333, "name": "3" },
+					{ "time": 1.2, "name": "4" },
+					{ "time": 1.2667, "name": "5" },
+					{ "time": 1.3333, "name": "6" },
+					{ "time": 1.4, "name": "7" },
+					{ "time": 1.4667, "name": "8" },
+					{ "time": 1.5333, "name": "9" },
+					{ "time": 1.6, "name": "10" },
+					{ "time": 1.6667, "name": "11" },
+					{ "time": 1.7333, "name": "12" },
+					{ "time": 1.8, "name": "13" },
+					{ "time": 1.8667, "name": "14" },
+					{ "time": 1.9333, "name": "15" },
+					{ "time": 2, "name": null }
+				]
+			}
+		}
+	}
+}
+}

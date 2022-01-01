@@ -1,0 +1,77 @@
+{
+"skeleton": { "hash": "TUzQIyu9l3p5+9L+aIsnTHy8XpQ", "spine": "3.8.99", "x": -24, "y": 1, "width": 49, "height": 71 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root" }
+],
+"slots": [
+	{ "name": "sign_txt", "bone": "bone", "attachment": "sign_txt" },
+	{ "name": "sign", "bone": "bone", "attachment": "sign" },
+	{ "name": "sign_l", "bone": "bone", "attachment": "sign_1", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"sign": {
+				"sign": { "x": 0.5, "y": 46.5, "width": 49, "height": 51 }
+			},
+			"sign_l": {
+				"sign_1": { "x": -16.5, "y": 53, "width": 15, "height": 38 },
+				"sign_2": { "x": -14, "y": 47.5, "width": 20, "height": 49 },
+				"sign_3": { "x": -10, "y": 47.5, "width": 28, "height": 49 },
+				"sign_4": { "x": -8, "y": 47.5, "width": 32, "height": 49 },
+				"sign_5": { "x": -4, "y": 47.5, "width": 40, "height": 49 },
+				"sign_6": { "x": -1.5, "y": 47.5, "width": 45, "height": 49 },
+				"sign_7": { "x": 0.5, "y": 47.5, "width": 49, "height": 49 },
+				"sign_8": { "x": 0.5, "y": 47.5, "width": 49, "height": 49 },
+				"sign_9": { "x": 0.5, "y": 47.5, "width": 49, "height": 49 },
+				"sign_10": { "x": 3, "y": 47.5, "width": 44, "height": 49 },
+				"sign_11": { "x": 6, "y": 47.5, "width": 38, "height": 49 },
+				"sign_12": { "x": 9, "y": 47.5, "width": 32, "height": 49 },
+				"sign_13": { "x": 12, "y": 44.5, "width": 26, "height": 43 },
+				"sign_14": { "x": 15.5, "y": 44, "width": 19, "height": 42 },
+				"sign_15": { "x": 18.5, "y": 37.5, "width": 13, "height": 29 }
+			},
+			"sign_txt": {
+				"sign_txt": { "y": 11, "width": 34, "height": 20 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"sign_l": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.9333, "color": "ffffff00" },
+					{ "time": 1, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 1.9333, "color": "ffffffff" },
+					{ "time": 2, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.9333, "name": "sign_1" },
+					{ "time": 1.0667, "name": "sign_2" },
+					{ "time": 1.1333, "name": "sign_3" },
+					{ "time": 1.2, "name": "sign_4" },
+					{ "time": 1.2667, "name": "sign_5" },
+					{ "time": 1.3333, "name": "sign_6" },
+					{ "time": 1.4, "name": "sign_7" },
+					{ "time": 1.4667, "name": "sign_8" },
+					{ "time": 1.5333, "name": "sign_9" },
+					{ "time": 1.6, "name": "sign_10" },
+					{ "time": 1.6667, "name": "sign_11" },
+					{ "time": 1.7333, "name": "sign_12" },
+					{ "time": 1.8, "name": "sign_13" },
+					{ "time": 1.8667, "name": "sign_14" },
+					{ "time": 1.9333, "name": "sign_15" },
+					{ "time": 2, "name": null },
+					{ "time": 3, "name": null }
+				]
+			}
+		}
+	}
+}
+}

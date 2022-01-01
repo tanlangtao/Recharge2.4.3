@@ -95,6 +95,11 @@ cc.Class({
                 widget: { left: 300, top: 50 }
             })
             hqq.eventMgr.dispatch(hqq.eventMgr.showNetStateNode, { parent: pn, position: { x: 0, y: 0 } })
+        } else if(hqq.app.pinpai == "tianqi") {
+            let pn = hqq.addNode(this.node, {
+                widget: { left: 400, top: 50 }
+            })
+            hqq.eventMgr.dispatch(hqq.eventMgr.showNetStateNode, { parent: pn, position: { x: 0, y: 0 } })
         } else {
             let pn = hqq.addNode(this.node, {
                 widget: { left: 400, top: 40 }
@@ -199,10 +204,10 @@ cc.Class({
                 hqq.setSprite(this.kefupoint, { path: "base/img/redpoint", position: { x: -5, y: 20 }, active: false })
                 hqq.setSprite(background, { Res:hqq["hall_"+hqq.app.pinpai],path: "fuxin/bg" })
 
-                hqq.setLabel(this.namelabel, { string: "", widget: { left: -70 }, fontSize: 30 })
+                hqq.setLabel(this.namelabel, { string: "", widget: { closeleft:true},x:-80 })
                 hqq.setLabel(this.coinlabel, { string: "", fontSize: 35, widget: { horizontalCenter: -6 } })
                 hqq.setBtn(touxiang, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "touxiangkuang", size: { height: 90, width: 90 }, widget: { top: 20, left: 20 }, callback: "onClickPlayerBtn", script: this })
-                hqq.setSprite(namebg, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "di2", widget: { left: 180, top: 30 }, size: { height: 40, width: 200 } })
+                hqq.setSprite(namebg, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "di2", widget: { left: 180, top: 30 ,target:background.parent}, size: { height: 40, width: 200 } })
                 hqq.setSprite(goldback, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "di2", widget: { horizontalCenter: 0, top: 18 }, size: { width: 300 } })
                 hqq.addNode(goldback, { normal: "base/img/refresh", callback: "onClickGetGold", script: this, x: 190, size: { width: 35, height: 35 } })
                 hqq.setSprite(jinbi, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "ziyuantubiao", widget: { horizontalCenter: -125 } })
@@ -311,11 +316,11 @@ cc.Class({
                 hqq.setSprite(this.kefupoint, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/dian0", position: { x: -5, y: 20 }, active: false })
                 hqq.setSprite(background, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "bg" })
 
-                hqq.setLabel(this.namelabel, { string: "", widget: { left: -65 }, fontSize: 30 })
+                hqq.setLabel(this.namelabel, { string: "", widget: { closeleft: true , fontSize:30},x:-80 })
                 hqq.setLabel(this.coinlabel, { string: "", fontSize: 35, widget: { horizontalCenter: -6 } })
                 hqq.setBtn(touxiang, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/tx", widget: { top: 0, left: 5 }, callback: "onClickPlayerBtn", script: this })
 
-                hqq.setSprite(namebg, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/zyd", widget: { left: 70, top: 23 }, size: { height: 40, width: 200 } })
+                hqq.setSprite(namebg, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/zyd", widget: { left: 75, top: 23,target:background.parent }, size: { height: 35, width: 212 } })
                 hqq.setSprite(goldback, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/d_jb", widget: { top: 18 ,left:(350 * (cc.winSize.width / 1334) )}, size: { width: 300, height: 70 } })
                 
                 hqq.setSprite(jinbi, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/icon_jb", widget: { horizontalCenter: -125 } })
@@ -360,12 +365,12 @@ cc.Class({
                 hqq.setSprite(background, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "bigimg/hallback" })
                 background.getChildByName("xinsheng").active = true
                 hqq.setWidget(subgameview, { left: 250, top: 100, bottom: 100 })
-                hqq.setLabel(this.namelabel, { string: "", widget: { left: -55 }, fontSize: 25 })
+                hqq.setLabel(this.namelabel, { string: "", widget: { closeleft: true },fontSize: 25,x:-65 })
                 hqq.setLabel(this.coinlabel, { string: "", fontSize: 25 })
                 hqq.setBtn(touxiang, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/touxiang", widget: { top: 10, left: 5 }, callback: "onClickPlayerBtn", script: this })
                 mask.getComponent(cc.Mask).spriteFrame = hqq.getSpriteFrame(hpath + "img/headmask",hqq["hall_"+hqq.app.pinpai])
-                hqq.setSprite(namebg, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/frameback", widget: { left: 75, top: 20 } })
-                hqq.setSprite(goldback, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/frameback", widget: { left: 310, top: 20 }, size: { width: 200 } })
+                hqq.setSprite(namebg, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/frameback", widget: { left: 75, top: 20 } ,width:161,height:45})
+                hqq.setSprite(goldback, {Res:hqq["hall_"+hqq.app.pinpai], path: hpath + "img/frameback", widget: { left: 320, top: 20 }, size: { width: 200 } })
                 hqq.setSprite(jinbi, { path: "base/img/sp_coin2", widget: { horizontalCenter: -100 } })
                 //hqq.setBtn(btncopy, { Res:hqq["hall_"+hqq.app.pinpai],normal: hpath + "img/btncopy", widget: { horizontalCenter: 81 }, callback: "onClickPlayerBtn", script: this })
                 hqq.setBtn(btnplus, { normal: "base/img/btn_refresh2", widget: { horizontalCenter: 95 }, callback: "onClickGetGold", script: this ,size: { height: 61, width: 61 } })
@@ -488,16 +493,16 @@ cc.Class({
                 hqq.setSprite(this.jchdRedPoint, { path: "base/img/redpoint", position: { x: 30, y: 20 }, active: false })
                 hqq.setSprite(this.shouyipoint, { path: "base/img/redpoint", position: { x: 0, y: 20 }, active: false })
                 hqq.setSprite(this.kefupoint, { path: "base/img/redpoint", position: { x: -5, y: 20 }, active: false })
-                hqq.setLabel(this.namelabel, { string: "", widget: { left: -53 } })
+                hqq.setLabel(this.namelabel, { string: "", widget: { closeleft: true},x:-80 })
                 hqq.setLabel(this.coinlabel, { string: "" })
                 hqq.setSprite(background, { Res:hqq["hall_test"],path: hpath + "bigimg/roombgmin" })
                 hqq.setBtn(touxiang, { Res:hqq["hall_test"],path: hpath + "img/headfram2", widget: { top: 8, left: 10 }, callback: "onClickPlayerBtn", script: this })
                 mask.getComponent(cc.Mask).spriteFrame = hqq.getSpriteFrame("test/img/p_head_mask",hqq["hall_test"])
-                hqq.setSprite(namebg, { Res:hqq["hall_test"],path: hpath + "img/namebg", widget: { left: 50, top: 25 },width:175 })
-                hqq.setSprite(goldback, { Res:hqq["hall_test"],path: hpath + "img/sp_num_bg", widget: { left: 270, top: 20 } , width:260})
-                hqq.setSprite(jinbi, { path: "base/img/sp_coin2", widget: { horizontalCenter: -110 } })
+                hqq.setSprite(namebg, { Res:hqq["hall_test"],path: hpath + "img/namebg", widget: { left: 90, top: 25 ,target:background.parent},width:175 })
+                hqq.setSprite(goldback, { Res:hqq["hall_test"],path: hpath + "img/sp_num_bg", widget: { left: 280, top: 20 } , width:260})
+                hqq.setSprite(jinbi, { path: "base/img/sp_coin2", widget: { horizontalCenter: false },x:-110 })
                 // hqq.setBtn(btncopy, { normal: hpath + "img/copyname", widget: { horizontalCenter: 107 }, callback: "onClickPlayerBtn", script: this })
-                hqq.setBtn(btnplus, { normal: "base/img/btn_refresh2", widget: { horizontalCenter: 115 }, callback: "onClickGetGold", script: this ,size: { height: 61, width: 61 }})
+                hqq.setBtn(btnplus, { normal: "base/img/btn_refresh2", widget: { horizontalCenter: false },x:110, callback: "onClickGetGold", script: this ,size: { height: 61, width: 61 }})
 
                 // hqq.setBtn(this.btnhby, { path: hrpath + "dating_hby", aniname: "animation", loop: true, widget: { top: 36, right: 450 }, active: false, callback: "onClickHBY", script: this })
                 // hqq.setBtn(this.btnjfcj, { path: hrpath + "dating_jfcj", aniname: "animation", loop: true, widget: { top: 45, right: 350 }, callback: "onClickJFCJ", script: this })
@@ -555,14 +560,14 @@ cc.Class({
                 hqq.setSprite(this.kefupoint, { path: "base/img/redpoint", position: { x: -5, y: 20 }, active: false })
                 hqq.setSprite(background, { path: "bigimg/juding/plaza_bg" })
 
-                hqq.setLabel(this.namelabel, { string: "", widget: { left: -70 }, fontSize: 30 })
+                hqq.setLabel(this.namelabel, { string: "", widget: { closeleft: true}, fontSize: 30 ,x:-90})
                 hqq.setLabel(this.coinlabel, { string: "", fontSize: 35, widget: { horizontalCenter: -6 } })
                 hqq.setBtn(touxiang, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "headframe", size: { height: 90, width: 90 }, widget: { top: 10, left: 10 }, callback: "onClickPlayerBtn", script: this })
                 hqq.setSprite(namebg, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "namebg", widget: { left: 100, top: 20 }, size: { height: 40, width: 200 } })
                 hqq.setSprite(goldback, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "namebg", widget: { horizontalCenter: 0, top: 18 }, size: { width: 300 } })
                 hqq.setSprite(jinbi, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "sp_coin", widget: { horizontalCenter: -125 } })
 
-                hqq.setBtn(btncopy, { Res:hqq["hall_"+hqq.app.pinpai],normal: hpath + "profile_edit", widget: { horizontalCenter: 80 }, callback: "onClickPlayerBtn", script: this })
+                hqq.setBtn(btncopy, { Res:hqq["hall_"+hqq.app.pinpai],normal: hpath + "profile_edit", widget: { horizontalCenter: false },x:100, callback: "onClickPlayerBtn", script: this })
                 hqq.setBtn(btnplus, { Res:hqq["hall_"+hqq.app.pinpai],normal: hpath + "btn_refresh", widget: { horizontalCenter: 120 }, callback: "onClickGetGold", script: this ,size: { height: 47, width: 46 }})
 
                 hqq.setBtn(btnqmdl, { Res:hqq["hall_"+hqq.app.pinpai],normal: hlpath + "icon_daili", widget: { top: 15, right: 120 }, callback: "onClickQMDL", script: this })
@@ -625,7 +630,7 @@ cc.Class({
                 hqq.setSprite(this.kefupoint, { path: "base/img/redpoint", position: { x: -5, y: 20 }, active: false })
                 hqq.setSprite(background, { path: "bigimg/huaxing/bg" })
 
-                hqq.setLabel(this.namelabel, { string: "", widget: { left: -70 }, fontSize: 30 })
+                hqq.setLabel(this.namelabel, { string: "", widget: { closeleft: true }, fontSize: 30 ,x:-95})
                 hqq.setLabel(this.coinlabel, { string: "", fontSize: 35, widget: { horizontalCenter: -6 } })
                 hqq.setBtn(touxiang, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "txk", height: 90, width: 90, widget: { top: 10, left: 10 }, callback: "onClickPlayerBtn", script: this })
                 hqq.setNode(touxiang.getChildByName("mask"),{height: 80, width: 80})
@@ -636,7 +641,7 @@ cc.Class({
                 hqq.setSprite(goldback, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "d3", widget: { left:400, top: 18 }, size: { width: 300 } })
                 hqq.setSprite(jinbi, { path: "base/img/sp_coin2", widget: { horizontalCenter: -125 } })
 
-                hqq.setBtn(btncopy, { Res:hqq["hall_"+hqq.app.pinpai],normal: hpath + "xg", widget: { horizontalCenter: 80 }, callback: "onClickPlayerBtn", script: this })
+                hqq.setBtn(btncopy, { Res:hqq["hall_"+hqq.app.pinpai],normal: hpath + "xg", widget: { horizontalCenter: false },x:85, callback: "onClickPlayerBtn", script: this })
                 hqq.setBtn(btnplus, { Res:hqq["hall_"+hqq.app.pinpai],normal: hpath + "sx", widget: { horizontalCenter: 120 }, callback: "onClickGetGold", script: this ,size: { height: 47, width: 46 }})
 
                 hqq.setBtn(btnqmdl, { Res:hqq["hall_"+hqq.app.pinpai],normal: hlpath + "qmdl", widget: { top: 15, right: 10 }, callback: "onClickQMDL", script: this })
@@ -707,7 +712,7 @@ cc.Class({
                 hqq.setSprite(this.kefupoint, { path: "base/img/redpoint", position: { x: -5, y: 20 }, active: false })
                 hqq.setSprite(background, { path: "bigimg/ninetwo/beijingtu" })
 
-                hqq.setLabel(this.namelabel, { string: "", widget: { left: -70 }, fontSize: 30 })
+                hqq.setLabel(this.namelabel, { string: "", widget: { closeleft: true },x:-90, fontSize: 30 })
                 hqq.setLabel(this.coinlabel, { string: "", fontSize: 35, widget: { horizontalCenter: -6 },fontFamily:"Arial" })
                 hqq.setNode(touxiang,{width:76,height:76,widget:{left:10,top:5}});
                 this.head = hqq.addNode(touxiang,{height: 74, width: 74,x:-2,y:4,zIndex:-2});
@@ -803,12 +808,12 @@ cc.Class({
             hqq.setSprite(this.jchdRedPoint, { path: "base/img/redpoint", position: { x: 30, y: 20 }, active: false })
             hqq.setSprite(this.shouyipoint, { path: "base/img/redpoint", position: { x: 0, y: 20 }, active: false })
             hqq.setSprite(this.kefupoint, { path: "base/img/redpoint", position: { x: -5, y: 20 }, active: false })
-            hqq.setLabel(this.namelabel, { string: "", widget: { left: -85 } })
+            hqq.setLabel(this.namelabel, { string: "", widget:{closeleft: true},x:-90});
             hqq.setLabel(this.coinlabel, { string: "" })
             hqq.setSprite(background, { Res:hqq["hall_test"],path: hpath + "bigimg/roombgmin" })
             hqq.setBtn(touxiang, { Res:hqq["hall_test"],path: hpath + "img/headfram2", widget: { top: 8, left: 20 }, callback: "onClickPlayerBtn", script: this })
             mask.getComponent(cc.Mask).spriteFrame = hqq.getSpriteFrame("base/img/p_head_mask")
-            hqq.setSprite(namebg, { Res:hqq["hall_test"],path: hpath + "img/namebg", widget: { left: 100, top: 25 } })
+            hqq.setSprite(namebg, { Res:hqq["hall_test"],path: hpath + "img/namebg", widget: { left: 100, top: 25 ,target:background.parent} })
             hqq.setSprite(goldback, { Res:hqq["hall_test"],path: hpath + "img/sp_num_bg", widget: { horizontalCenter: 0, top: 20 } })
             hqq.setSprite(jinbi, { path: "base/img/sp_coin2", widget: { horizontalCenter: -140 } })
             hqq.setBtn(btncopy, { Res:hqq["hall_test"],normal: hpath + "img/copyname", widget: { horizontalCenter: 107 }, callback: "onClickPlayerBtn", script: this })
@@ -915,7 +920,8 @@ cc.Class({
                     // hqq.setSprite(this.jchdRedPoint, { Res:hqq["hall_"+hqq.app.pinpai],path: "tianqi/img/redpoint", position: { x: 30, y: 20 }, active: false })
                     // hqq.setSprite(this.shouyipoint, { Res:hqq["hall_"+hqq.app.pinpai],path: "tianqi/img/redpoint", position: { x: 0, y: 20 }, active: false })
                     // hqq.setSprite(this.kefupoint, { Res:hqq["hall_"+hqq.app.pinpai],path: "tianqi/img/redpoint", position: { x: -5, y: 20 }, active: false })
-                    hqq.setLabel(this.namelabel, { string: "" })
+                    this.namelabel.getComponent(cc.Widget).target = background.parent;
+                    hqq.setLabel(this.namelabel, { string: "", widget:{left: 127 }});
                     hqq.setLabel(this.coinlabel, { string: "" })
                     // hqq.setSprite(background, { Res:hqq["hall_test"],path: hpath + "bigimg/roombgmin" })
                     // hqq.setBtn(touxiang, { Res:hqq["hall_"+hqq.app.pinpai],path: hpath + "img/headfram2", widget: { top: 8, left: 20 }, callback: "onClickPlayerBtn", script: this })

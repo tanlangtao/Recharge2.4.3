@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "0d915b52-ad3e-43c8-a253-8228239918b7",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 302,
+  "height": 65,
+  "platformSettings": {},
+  "subMetas": {
+    "btn_hotgames2": {
+      "ver": "1.0.4",
+      "uuid": "56324d01-02de-45a3-828f-1858778c1cbc",
+      "rawTextureUuid": "0d915b52-ad3e-43c8-a253-8228239918b7",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 302,
+      "height": 65,
+      "rawWidth": 302,
+      "rawHeight": 65,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

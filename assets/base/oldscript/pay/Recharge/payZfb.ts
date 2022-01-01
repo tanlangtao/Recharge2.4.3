@@ -200,6 +200,14 @@ export default class NewClass extends cc.Component {
             }else{
                 this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont.children[0],200,45)
             }
+        }else if(this.channel =='jisu'){
+            this.app.loadPublicIcon(`recharge/flag_usdt`,this.icon,100,100)
+            this.wxtsLabel.string = `1.充值比例1元=1金币`;
+            if(p_id == 8|| p_id == 10 || p_id == 15|| p_id == 9||p_id ==12||p_id ==16 ||p_id ==18|| p_id ==20||p_id ==22){
+                this.iconFont.children[0].getComponent(cc.Label).string = Language_pay.Lg.ChangeByText('极速充值')
+            }else{
+                this.app.loadIcon(`${src}/font/flagname_usdt`,this.iconFont.children[0],200,45)
+            }
         }
         if(this.app.UrlData.package_id  == 18 && this.channel =='digiccy'){
             this.wxtsLabel.node.active = true

@@ -360,6 +360,8 @@ export default class NewClass extends cc.Component {
             node.getComponent('payNavToggle').addContent('im_pay')
         }else if(arr[0]=='USDT' && this.zfbResults.data.digiccy.length > 0  ){
             node.getComponent('payNavToggle').addContent('digiccy')
+        }else if(arr[0]=='极速充值' && this.zfbResults.data.digiccy.length > 0  ){
+            node.getComponent('payNavToggle').addContent('jisu')
         }
     }
     //银商

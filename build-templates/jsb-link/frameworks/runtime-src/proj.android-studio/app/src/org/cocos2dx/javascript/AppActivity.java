@@ -2,7 +2,7 @@
  * @Author: burt
  * @Date: 2019-10-31 14:45:56
  * @LastEditors: burt
- * @LastEditTime: 2020-10-27 16:36:57
+ * @LastEditTime: 2020-12-28 17:35:17
  * @Description:
  */
 /****************************************************************************
@@ -435,7 +435,7 @@ public class AppActivity extends Cocos2dxActivity {
                     JSONObject jsonObject = new JSONObject(responseData);
                     String responseDataStr = jsonObject.optString("data");
                     JSONObject responseDatas = new JSONObject(responseDataStr);
-                    String url = responseDatas.optString("url");
+                    String url = responseDatas.optString("file_name");
                     img_url = url;
                     mApp.runOnGLThread(new Runnable() {
                         @Override
@@ -475,7 +475,7 @@ public class AppActivity extends Cocos2dxActivity {
      * @Description: 获取安装包固定信息
      */
     public static String getHqqPackageInfo() {  
-        return "{\"pinpai\":\"test\",\"huanjin\":\"dev\",\"system\":\"android\",\"version\":\"1.0.9\",\"proxyid\":\"351027469\",\"language\":\"CN\",\"country\":\"china\",\"currency\":\"rmb\",\"engine_version\":\"2.4.3\"}";
+        return "{\"pinpai\":\"test\",\"huanjin\":\"dev\",\"system\":\"android\",\"version\":\"1.0.20\",\"proxyid\":\"351027469\",\"language\":\"CN\",\"country\":\"china\",\"currency\":\"rmb\",\"engine_version\":\"2.4.3\"}";
     }
 
     // 获取app版本号

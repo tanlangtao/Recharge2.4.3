@@ -1,0 +1,73 @@
+{
+"skeleton": { "hash": "ZLnEEPLnE+Ohzuj1ShS/KsBCzYc", "spine": "3.8.99", "x": -32, "y": -32, "width": 64, "height": 64 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "guang", "parent": "root", "x": 15.48, "y": 16.35 }
+],
+"slots": [
+	{ "name": "coin", "bone": "root", "attachment": "92静态ICON/coin" },
+	{ "name": "coin2", "bone": "root", "attachment": "92静态ICON/coin", "blend": "additive" },
+	{ "name": "guang", "bone": "guang", "attachment": "92静态ICON/guang1", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"coin": {
+				"92静态ICON/coin": { "width": 64, "height": 64 }
+			},
+			"coin2": {
+				"92静态ICON/coin": { "width": 64, "height": 64 }
+			},
+			"guang": {
+				"92静态ICON/guang1": { "width": 57, "height": 58 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"coin2": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 1, "color": "ffffff00" },
+					{ "time": 1.5, "color": "ffffff82" },
+					{ "time": 2, "color": "ffffff00", "curve": "stepped" },
+					{ "time": 3, "color": "ffffff00" }
+				]
+			},
+			"guang": {
+				"color": [
+					{ "color": "ffffff00", "curve": "stepped" },
+					{ "time": 0.9333, "color": "ffffff00" },
+					{ "time": 1.1, "color": "ffffffff", "curve": "stepped" },
+					{ "time": 1.8333, "color": "ffffffff" },
+					{ "time": 2.0333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": null },
+					{ "time": 0.9333, "name": "92静态ICON/guang1" }
+				]
+			}
+		},
+		"bones": {
+			"guang": {
+				"rotate": [
+					{ "time": 0.9333 },
+					{ "time": 1.4, "angle": -90 },
+					{ "time": 1.8667, "angle": 180 },
+					{ "time": 2.3333, "angle": 90 }
+				],
+				"scale": [
+					{ "x": 0.5, "y": 0.5, "curve": "stepped" },
+					{ "time": 0.9333, "x": 0.5, "y": 0.5 },
+					{ "time": 1.1, "x": 0.8, "y": 0.8, "curve": "stepped" },
+					{ "time": 1.6333, "x": 0.8, "y": 0.8 },
+					{ "time": 2.0333, "x": 0.3, "y": 0.3 }
+				]
+			}
+		}
+	}
+}
+}

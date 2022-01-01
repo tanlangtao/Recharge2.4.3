@@ -1,0 +1,20 @@
+
+dating_menu_btn_selected.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+btn_light
+  rotate: false
+  xy: 260, 1
+  size: 98, 92
+  orig: 112, 92
+  offset: 9, 0
+  index: -1
+youcexuanzhong
+  rotate: false
+  xy: 1, 1
+  size: 258, 92
+  orig: 258, 92
+  offset: 0, 0
+  index: -1

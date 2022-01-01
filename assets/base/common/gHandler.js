@@ -3,7 +3,7 @@ let gHandler = {
     needShowNotice: false, // 是否需要显示公告界面
     needShowBubble: false, // 是否显示公告泡泡提示讯息
     language: "CN", // 语言种类   汉语 CN 英语 EN 越南语 VI 泰语 TH
-    isDebug: true, // 是否是子游戏开发调试状态
+    isDebug: false, // 是否是子游戏开发调试状态
     gameGlobal: {
         gameNow: "hall", // 当前游戏的名字
         iconPath: "", // 头像地址前缀
@@ -1423,6 +1423,24 @@ let gHandler = {
             loginHistory: [], // 子游戏最近一周登陆历史
             hasRes: true,
         },
+        // "pq": {
+        //     zhname: "PQ", // 中文游戏名
+        //     enname: "pq", // 英文游戏名 （子游戏文件路径，更新子路径）
+        //     lanchscene: "pq_main", // 跳转场景名
+        //     fuxin_lanchscene: "pq_main", // 跳转场景名
+        //     xingui_lanchscene: "pq_main", // 跳转场景名
+        //     game_id: "5b1f3a3cb76a451e211229",
+        //     serverUrl: "/pq", // 游戏服务器地址
+        //     endUrl: "/pq", // 游戏服务器地址
+        //     hasAccount: false, // 是否已创建子游戏账号
+        //     remoteData: null, // 服务端发送过来的游戏数据
+        //     hallid: 46,
+        //     resPath: "/btnanimation/pq",
+        //     isDown: false,
+        //     gameType: 4, // 游戏类型：棋牌游戏：0，电子游戏：1，真人视讯：2，彩票投注：3，体育赛事：4
+        //     loginHistory: [], // 子游戏最近一周登陆历史
+        //     hasRes: true,
+        // },
     },
     // 大厅配置
     hallConfig: {
@@ -2505,6 +2523,7 @@ let gHandler = {
         "qznn":"qznn2",
     },
     resetNineTwoSort:false,
+    spriteResMap: {}, //记录载过的图  减少重复加载
     setFuxinHallIdType() {
         // this.menuBtnInfoList = ["all", "duizhan", "touzhu", "shixun", "zuqiu", "jieji", "remen"]
         let alllist = {
@@ -3039,7 +3058,7 @@ let gHandler = {
         if(config.alignMode){
             widget.alignMode = config.alignMode
         } else{
-            widget.alignMode = cc.Widget.AlignMode.ONCE
+            widget.alignMode = cc.Widget.AlignMode.ON_WINDOW_RESIZE
         }
 
         if (config.closetop) {
@@ -3166,20 +3185,33 @@ let gHandler = {
         {
             tempRes = cfg.Res;
         }
-        tempRes.load(cfg.path, cc.SpriteFrame, (err, frame) => {
-            if (err) {
-                cc.log("setSprite 加载图片失败", err , cfg.Res , tempRes)
-                return;
-            }
+        if(this.spriteResMap[cfg.path]) {
             if (!cc.isValid(node)) {
                 return
             }
-            sprite.spriteFrame = frame;
+            sprite.spriteFrame = this.spriteResMap[cfg.path];
             this.setNode(node, cfg);
             if (cfg.type) {
                 sprite.type = cfg.type
             }
-        })
+        } else {
+            tempRes.load(cfg.path, cc.SpriteFrame, (err, frame) => {
+                if (err) {
+                    cc.log("setSprite 加载图片失败", err , cfg.Res , tempRes)
+                    return;
+                }
+                if (!cc.isValid(node)) {
+                    return
+                }
+                this.spriteResMap[cfg.path] = frame;
+                sprite.spriteFrame = frame;
+                this.setNode(node, cfg);
+                if (cfg.type) {
+                    sprite.type = cfg.type
+                }
+            })
+        }
+        
     },
     setBtn(node, cfg) { // normal == path, pressed, interactable, callback，widget
         if (!node) {
@@ -3507,6 +3539,9 @@ let gHandler = {
         }
         if (cfg.opacity || 0 == cfg.opacity) {
             node.opacity = cfg.opacity
+        }
+        if (cfg.widget) {
+            this.setWidget(node, cfg.widget)
         }
     },
 

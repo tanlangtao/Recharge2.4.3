@@ -7,12 +7,12 @@
     "upsideDown": false
   },
   "packageName": "org.cocos2d.helloworld",
-  "startScene": "cde9ef7f-c993-4fd1-b7a0-fa5b4d7019b4",
-  "title": "Test_dev",
-  "webOrientation": "auto",
+  "startScene": "e37ae7d4-b6f8-4a63-871e-1bce0cbe56f0",
+  "title": "Test",
+  "webOrientation": "landscape",
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": false,
-  "mainCompressionType": "default",
+  "mainCompressionType": "merge_all_json",
   "mainIsRemote": false,
   "optimizeHotUpdate": true,
   "md5Cache": true,
@@ -23,7 +23,7 @@
   "fb-instant-games": {},
   "android": {
     "REMOTE_SERVER_ROOT": "",
-    "packageName": "org.dev.AG"
+    "packageName": "com.test.dev.android"
   },
   "ios": {
     "REMOTE_SERVER_ROOT": "",

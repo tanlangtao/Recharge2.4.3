@@ -1,0 +1,20 @@
+
+CS_btn_web1.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+btn_cs1
+  rotate: false
+  xy: 1, 27
+  size: 197, 66
+  orig: 197, 66
+  offset: 0, 0
+  index: -1
+btn_light
+  rotate: false
+  xy: 199, 1
+  size: 98, 92
+  orig: 112, 92
+  offset: 9, 0
+  index: -1

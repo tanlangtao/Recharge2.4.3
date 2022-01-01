@@ -1,0 +1,47 @@
+{
+"skeleton": { "hash": "7Gh/D4CURpeAZU85thCxWcbYtHI", "spine": "3.8.99", "x": -8.56, "y": -59.5, "width": 74, "height": 119 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "92静态ICON/arrow_left", "parent": "root" }
+],
+"slots": [
+	{ "name": "92静态ICON/arrow_left", "bone": "92静态ICON/arrow_left", "attachment": "92静态ICON/arrow_left" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"92静态ICON/arrow_left": {
+				"92静态ICON/arrow_left": { "width": 74, "height": 119 }
+			}
+		}
+	}
+],
+"animations": {
+	"left": {
+		"bones": {
+			"92静态ICON/arrow_left": {
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5, "x": -30, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1 }
+				]
+			}
+		}
+	},
+	"right": {
+		"bones": {
+			"92静态ICON/arrow_left": {
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5, "x": 30, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1 }
+				],
+				"scale": [
+					{ "x": -1 }
+				]
+			}
+		}
+	}
+}
+}

@@ -1,0 +1,34 @@
+
+dating_trumpet.png
+size: 64,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tp
+  rotate: false
+  xy: 1, 8
+  size: 32, 36
+  orig: 32, 36
+  offset: 0, 0
+  index: -1
+tp1
+  rotate: true
+  xy: 1, 1
+  size: 6, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+tp2
+  rotate: false
+  xy: 17, 4
+  size: 6, 3
+  orig: 7, 5
+  offset: 1, 1
+  index: -1
+tp3
+  rotate: false
+  xy: 10, 2
+  size: 6, 5
+  orig: 6, 5
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,109 @@
+{
+"skeleton": { "hash": "Nz9NSJU0xJDyXLFbMbzUBvnB7As", "spine": "3.8.99", "x": -129.68, "y": -81.86, "width": 840, "height": 172 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "sp_trumpet", "parent": "root" },
+	{ "name": "sp_trumpet_r1", "parent": "sp_trumpet", "length": 16.98, "rotation": 28.26, "x": 11.36, "y": 12.15 },
+	{ "name": "sp_trumpet_r2", "parent": "sp_trumpet", "length": 23.71, "rotation": -6.26, "x": 8.86, "y": 4.35 },
+	{ "name": "sp_trumpet_r3", "parent": "sp_trumpet", "length": 25.34, "rotation": -26.69, "x": 9.48, "y": -3.13 }
+],
+"slots": [
+	{ "name": "sp_trumpet", "bone": "sp_trumpet", "attachment": "sp_trumpet" },
+	{ "name": "sp_trumpet_r1", "bone": "sp_trumpet_r1" },
+	{ "name": "sp_trumpet_r2", "bone": "sp_trumpet_r2" },
+	{ "name": "sp_trumpet_r3", "bone": "sp_trumpet_r3" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"sp_trumpet": {
+				"sp_trumpet": { "width": 53, "height": 56 }
+			},
+			"sp_trumpet_r1": {
+				"sp_trumpet_r1": { "x": 22.37, "y": 0.25, "rotation": -20.43, "width": 43, "height": 19 }
+			},
+			"sp_trumpet_r2": {
+				"sp_trumpet_r2": { "x": 24.8, "y": 3.26, "rotation": -0.75, "width": 52, "height": 12 }
+			},
+			"sp_trumpet_r3": {
+				"sp_trumpet_r3": { "x": 20.64, "y": 0.25, "rotation": 9.93, "width": 42, "height": 11 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"slots": {
+			"sp_trumpet_r1": {
+				"color": [
+					{ "time": 0.8667, "color": "ffffffff" },
+					{ "time": 1.2, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "sp_trumpet_r1" }
+				]
+			},
+			"sp_trumpet_r2": {
+				"color": [
+					{ "time": 0.9333, "color": "ffffffff" },
+					{ "time": 1.2667, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0.2667, "name": "sp_trumpet_r2" }
+				]
+			},
+			"sp_trumpet_r3": {
+				"color": [
+					{ "time": 1, "color": "ffffffff" },
+					{ "time": 1.3333, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0.4333, "name": "sp_trumpet_r3" }
+				]
+			}
+		},
+		"bones": {
+			"sp_trumpet": {
+				"rotate": [
+					{ "angle": 5.2, "curve": 0.375, "c2": 0.5, "c3": 0.75 },
+					{ "time": 0.1667, "angle": -7.27, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.4, "angle": 17.67, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6, "angle": -7.27, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.8, "angle": 17.67, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1, "angle": -7.27, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1.1667, "angle": 17.67, "curve": 0.25, "c3": 0.625, "c4": 0.5 },
+					{ "time": 1.3333, "angle": 5.2 }
+				]
+			},
+			"sp_trumpet_r1": {
+				"scale": [
+					{ "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.1, "x": 0, "y": 0 },
+					{ "time": 0.2333, "x": 1.1 },
+					{ "time": 0.3, "x": 0.95 },
+					{ "time": 0.3667 }
+				]
+			},
+			"sp_trumpet_r2": {
+				"scale": [
+					{ "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.2667, "x": 0, "y": 0 },
+					{ "time": 0.4, "x": 1.1 },
+					{ "time": 0.4667, "x": 0.95 },
+					{ "time": 0.5333 }
+				]
+			},
+			"sp_trumpet_r3": {
+				"scale": [
+					{ "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.4333, "x": 0, "y": 0 },
+					{ "time": 0.5667, "x": 1.1 },
+					{ "time": 0.6333, "x": 0.95 },
+					{ "time": 0.7 }
+				]
+			}
+		}
+	}
+}
+}

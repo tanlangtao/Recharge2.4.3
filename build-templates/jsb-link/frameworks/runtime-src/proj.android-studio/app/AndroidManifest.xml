@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package='org.dev.AG'
+    package='com.test.dev.android'
 	android:installLocation="auto">
 
     <uses-feature android:glEsVersion="0x00020000" />
@@ -11,10 +11,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="false"
@@ -44,7 +40,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities='org.dev.AG.fileProvider'
+            android:authorities='com.test.dev.android.fileProvider'
 			android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

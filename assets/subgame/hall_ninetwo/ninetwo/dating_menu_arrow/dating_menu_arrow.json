@@ -1,0 +1,47 @@
+{
+"skeleton": { "hash": "HG6rIY8QIZ7nbXVth1jmcwLcPIA", "spine": "3.8.99", "x": -20.5, "y": -23, "width": 41, "height": 46 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "92静态ICON/xiangxia", "parent": "root" }
+],
+"slots": [
+	{ "name": "92静态ICON/xiangxia", "bone": "92静态ICON/xiangxia", "attachment": "92静态ICON/xiangxia" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"92静态ICON/xiangxia": {
+				"92静态ICON/xiangxia": { "width": 41, "height": 46 }
+			}
+		}
+	}
+],
+"animations": {
+	"down": {
+		"bones": {
+			"root": {
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5, "y": -5, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1 }
+				]
+			}
+		}
+	},
+	"up": {
+		"bones": {
+			"root": {
+				"translate": [
+					{ "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5, "y": 5, "curve": 0.25, "c3": 0.75 },
+					{ "time": 1 }
+				],
+				"scale": [
+					{ "y": -1 }
+				]
+			}
+		}
+	}
+}
+}
