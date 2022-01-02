@@ -74,6 +74,7 @@ export default class NewClass extends cc.Component {
         this.hongliGroup.children.forEach((e,index)=>{
             e.getComponent(cc.Label).string = `加赠红利${arr[index]}%`
         })
+        this.fetchwithDrawHistory()
     }
 
     setAmount() {
@@ -96,6 +97,38 @@ export default class NewClass extends cc.Component {
         },(errstatus)=>{
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
             self.app.hideLoading();
+        })
+    }
+    public fetchwithDrawHistory(){
+        var arr = []
+        var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&order_status=1&page=20&page_set=20`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                var listArr = response.data.list;
+                listArr.forEach(e=>{
+                    if(e.type ===8 && e.status != 4 &&e.status != 5 && arr.length  === 0){
+                        var item = {
+                            order_id :e.order_id,
+                            created_at:e.created_at
+                        }
+                        arr.push(item)
+                    }
+                })
+                console.log(arr)
+                if(arr.length>0){
+                    let time = parseInt(`${new Date().getTime()/1000}`) // 现在的时间
+                    
+                    let daoqi = arr[0].created_at+900 // 到期时间
+                    console.log(time,"到期时间",daoqi)
+                    let daojishi = (daoqi - Number(time) )>0 ? (daoqi - Number(time)):0 //
+                    this.openJsQrAlert(daojishi)
+                }
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
     init(){
@@ -282,14 +315,21 @@ export default class NewClass extends cc.Component {
     //点击确认到账
     qrdzClick(){
         console.log("确认到账")
+        this.app.showAlert("确认到账成功！")
+        this.closeJsQrAlert()
     }
     closeJsQrAlert(){
         this.JsQrAlert.active = false
+        clearInterval(this.timer)
     }
     closeJsTimeOutAlert(){
         this.JsTimeOutAlert.active = false
     }
     openJsQrAlert(countdown){
+        if(countdown <=0){
+            this.openJsTimeOutAlert()
+            return
+        }
         this.JsQrAlert.active = true
         this.timer = setInterval(() => {
             this.timerLabel.string =this.app.config.getTime3(countdown) 
