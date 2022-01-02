@@ -808,7 +808,7 @@ cc.Class({
         let tempx = Math.abs(pos.x - (this.scrollviewcotentX - tempitembtnwidth));
         let tempx2 = tempx + this.suggameScrollView.node.getChildByName("view").width + (this.itembtn.width);
         let tempmenubtninfolist = this.menuBtnInfoList;
-        let temptype = 2;
+        let temptype = 1;
         for (let key in this.subGameList){
             let ani = this.suggameScrollView.content.getChildByName(key);
             if(cc.isValid(ani)){
@@ -826,7 +826,7 @@ cc.Class({
                         break;
                     }
                 }
-                // cc.log("key=",key," pos.x=",pos.x, " ani.x=",ani.x," tempx=",tempx," tempx2=",tempx2, " this.selectType=",this.selectType," type=",type)
+                cc.log("key=",key," pos.x=",pos.x, " ani.x=",ani.x," tempx=",tempx," tempx2=",tempx2, " this.selectType=",this.selectType," type=",type)
                 if( (ani.x < tempx || ani.x > tempx2)){
                     if(ani.active){
                         if(( pos.x > this.scrollviewcotentX && (ani.x == 158.5 || ani.x == 460.5 || ani.x == 762.5) )){
@@ -1101,7 +1101,7 @@ cc.Class({
         if (this.isSubBtnClicked) {
             this.scheduleOnce(function () {
                 this.isSubBtnClicked = false
-            }, 0.5)
+            }, 5)
             return
         }
         this.isSubBtnClicked = true
@@ -1928,49 +1928,89 @@ cc.Class({
         this.suggameScrollView.scrollToLeft(0.5)
         let btnnum = 0
         this.selectType = customEventData;
-        if (customEventData == 'remen') {
-            let i = 0;
-            let j = 0;
-            for (i = 0; i < this.subGameBtnArr.length; i++) {
-                if(cc.isValid(this.subGameBtnArr[i])){
-                    let isremen = false;
-                    for(j = 0; j < this.remenlist.length;j++){
-                        if( this.subGameBtnArr[i].tempdata.enname === this.remenlist[j]){
-                            isremen = true;
-                            break;
-                        }
-                    }
-                    if( isremen ){
-                        this.setSubBtnPos(this.subGameBtnArr[i], j)
-                        btnnum++
-                    } else{
-                        this.subGameBtnArr[i].active = false
+
+        let tempcomparelist = [];
+        if(customEventData === "remen"){
+            tempcomparelist = this.remenlist;
+        } else if(customEventData === "duizhan"){
+            tempcomparelist = [ "cylhd","caishendao","cdx","duofuduocai","lhd","hwby","ebg","fkxw","bjl","sgj",
+                                "hh","zjh","brnn","qznn","lp","ddz","bcbm","ermj","szwg","pdk","shaibao","sss",
+                                "hbld","suoha","21d","dzpk","cbzb","fctbj","jbpby"];
+        } else if(customEventData === "dianzi"){
+            tempcomparelist = [ "pg","pg2","ppdz","cq9","jdb","pt","qt","ag","mg"];
+        } else if(customEventData === "shixun"){
+            tempcomparelist = [ "zrsx1","zrsx2"];
+        } else if(customEventData === "touzu"){
+            tempcomparelist = [ "pccp"];
+        } else if(customEventData === "tiyu"){
+            tempcomparelist = [ "sbty1","sbty2","sanshengtiyu"];
+        }
+        let i = 0;
+        let j = 0;
+        for (i = 0; i < this.subGameBtnArr.length; i++) {
+            if(cc.isValid(this.subGameBtnArr[i])){
+                let isremen = false;
+                for(j = 0; j < tempcomparelist.length;j++){
+                    if( this.subGameBtnArr[i].tempdata.enname === tempcomparelist[j]){
+                        isremen = true;
+                        break;
                     }
                 }
-            }
-        } else {
-            let type = 0
-            for (let i = 0; i < this.menuBtnInfoList.length; i++) {
-                if (customEventData.match(this.menuBtnInfoList[i])) {
-                    type = i - 1;
-                    break
-                }
-            }
-            let index = 0
-            for (let i = 0; i < this.subGameBtnArr.length; i++) {
-                if(cc.isValid(this.subGameBtnArr[i])){
-                    let key = this.subGameBtnArr[i].tempdata.enname
-                    if (this.subGameList[key].gameType == type) {
-                        this.setSubBtnPos(this.subGameBtnMap[key], index)
-                        btnnum++
-                        index++
-                    } else {
-                        let itembtn = this.subGameBtnMap[key]
-                        itembtn && (itembtn.active = false)
-                    }
+                if( isremen ){
+                    this.setSubBtnPos(this.subGameBtnArr[i], j)
+                    btnnum++
+                } else{
+                    this.subGameBtnArr[i].active = false
                 }
             }
         }
+        // if (customEventData == 'remen') {
+        //     let i = 0;
+        //     let j = 0;
+        //     for (i = 0; i < this.subGameBtnArr.length; i++) {
+        //         if(cc.isValid(this.subGameBtnArr[i])){
+        //             let isremen = false;
+        //             for(j = 0; j < this.remenlist.length;j++){
+        //                 if( this.subGameBtnArr[i].tempdata.enname === this.remenlist[j]){
+        //                     isremen = true;
+        //                     break;
+        //                 }
+        //             }
+        //             if( isremen ){
+        //                 this.setSubBtnPos(this.subGameBtnArr[i], j)
+        //                 btnnum++
+        //             } else{
+        //                 this.subGameBtnArr[i].active = false
+        //             }
+        //         }
+        //     }
+        // } else {
+        //     let type = 0
+        //     for (let i = 0; i < this.menuBtnInfoList.length; i++) {
+        //         if (customEventData.match(this.menuBtnInfoList[i])) {
+        //             type = i - 1;
+        //             break
+        //         }
+        //     }
+        //     let index = 0
+        //     cc.log("=====================refreshSubGameBtn type=",type )
+        //     for (let j = 0; j < this.subGameBtnArr.length; j++) {
+        //         if(cc.isValid(this.subGameBtnArr[j])){
+        //             let key = this.subGameBtnArr[j].tempdata.enname
+        //             if (this.subGameList[key].gameType == type) {
+        //                 cc.log("refreshSubGameBtn key=",key , " this.subGameList[key].gameType=",this.subGameList[key].gameType)
+        //                 this.setSubBtnPos(this.subGameBtnArr[j], index)
+        //                 btnnum++
+        //                 index++
+        //             } else {
+        //                 cc.log("----------------------refreshSubGameBtn key=",key )
+        //                 let itembtn = this.subGameBtnArr[j]
+        //                 itembtn && (itembtn.active = false)
+        //             }
+        //         }
+        //     }
+        //     cc.log("refreshSubGameBtn end========================" )
+        // }
         // let width = (Math.ceil(Object.getOwnPropertyNames(this.subGameList).length / 2) * (this.itembtn.width + 15)) + 15;
         cc.log("refreshSubGameBtn customEventData=",customEventData," btnnum=",btnnum)
         let width = (Math.ceil(btnnum / 2) * (this.itembtn.width + 15)) + 15;
@@ -2503,36 +2543,87 @@ cc.Class({
     },
 
     resetSubGameList(){
-        delete hqq.subGameList["zhibo"];
-        delete hqq.subGameList["szffc"];
-        delete hqq.subGameList["ygxb"];
+        if(hqq.subGameList["zhibo"]){
+            delete hqq.subGameList["zhibo"];
+        }
+        if(hqq.subGameList["szffc"]){
+            delete hqq.subGameList["szffc"];
+        }
+        if(hqq.subGameList["ygxb"]){
+            delete hqq.subGameList["ygxb"];
+        }
         // delete hqq.subGameList["zhibo"];
-        this.subGameList = hqq.subGameList;
-        this.subGameList["sbty1"].gameType = 1;
-        this.subGameList["sbty2"].gameType = 1;
-        this.subGameList["sanshengtiyu"].gameType = 1;
+        this.subGameList = hqq.subGameList
+        if(this.subGameList["sbty1"]){
+            this.subGameList["sbty1"].gameType = 1;
+        }
+        if(this.subGameList["sbty2"]){
+            this.subGameList["sbty2"].gameType = 1;
+        }
 
-        this.subGameList["cylhd"].gameType = 0;
-        this.subGameList["lhd"].gameType = 0;
-        this.subGameList["cdx"].gameType = 0;
-        this.subGameList["lp"].gameType = 0;
-        this.subGameList["shaibao"].gameType = 0;
-        this.subGameList["duofuduocai"].gameType = 0;
-        this.subGameList["caishendao"].gameType = 0;
-        // this.subGameList["ygxb"].gameType = 0;
-        this.subGameList["fctbj"].gameType = 0;
-        this.subGameList["fkxw"].gameType = 0;
-        this.subGameList["sgj"].gameType = 0;
-        this.subGameList["jbpby"].gameType = 0;
-        this.subGameList["bcbm"].gameType = 0;
-        this.subGameList["hwby"].gameType = 0;
-        this.subGameList["szwg"].gameType = 0;
-        this.subGameList["cbzb"].gameType = 0;
-        this.subGameList["brnn"].gameType = 0;
-        this.subGameList["bjl"].gameType = 0;
-        this.subGameList["ebg"].gameType = 0;
-        this.subGameList["hbld"].gameType = 0;
-        this.subGameList["hh"].gameType = 0;
+        if( this.subGameList["cylhd"] ){
+            this.subGameList["cylhd"].gameType = 0;
+        }
+        if(this.subGameList["lhd"]){
+            this.subGameList["lhd"].gameType = 0;
+        }
+        if(this.subGameList["cdx"]){
+            this.subGameList["cdx"].gameType = 0;
+        }
+        if(this.subGameList["lp"]){
+            this.subGameList["lp"].gameType = 0;
+        }
+        if(this.subGameList["shaibao"]){
+            this.subGameList["shaibao"].gameType = 0;
+        }
+        if(this.subGameList["duofuduocai"]){
+            this.subGameList["duofuduocai"].gameType = 0;
+        }
+        if(this.subGameList["caishendao"]){
+            this.subGameList["caishendao"].gameType = 0;
+        }
+        if(this.subGameList["ygxb"]){
+            this.subGameList["ygxb"].gameType = 0;
+        }
+        if(this.subGameList["fctbj"]){
+            this.subGameList["fctbj"].gameType = 0;
+        }
+        if(this.subGameList["fkxw"]){
+            this.subGameList["fkxw"].gameType = 0;
+        }
+        if(this.subGameList["sgj"]){
+            this.subGameList["sgj"].gameType = 0;
+        }
+        if(this.subGameList["jbpby"]){
+            this.subGameList["jbpby"].gameType = 0;
+        }
+        if(this.subGameList["bcbm"]){
+            this.subGameList["bcbm"].gameType = 0;
+        }
+        if(this.subGameList["hwby"]){
+            this.subGameList["hwby"].gameType = 0;
+        }
+        if(this.subGameList["szwg"]){
+            this.subGameList["szwg"].gameType = 0;
+        }
+        if(this.subGameList["cbzb"]){
+            this.subGameList["cbzb"].gameType = 0;
+        }
+        if(this.subGameList["brnn"]){
+            this.subGameList["brnn"].gameType = 0;
+        }
+        if(this.subGameList["bjl"]){
+            this.subGameList["bjl"].gameType = 0;
+        }
+        if(this.subGameList["ebg"]){
+            this.subGameList["ebg"].gameType = 0;
+        }
+        if(this.subGameList["hbld"]){
+            this.subGameList["hbld"].gameType = 0;
+        }
+        if(this.subGameList["hh"]){
+            this.subGameList["hh"].gameType = 0;
+        }
 
         if( this.subGameList["cyqp"])
         {

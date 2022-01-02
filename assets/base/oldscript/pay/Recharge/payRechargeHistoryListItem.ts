@@ -25,16 +25,20 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     orderBtn: cc.Node = null;
 
+    @property(cc.Prefab)
+    JisuOrderAlert: cc.Prefab = null;
+
     @property
     public results :any= {};
     public app = null;
-
+    type = 0
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setLanguageResource()
     }
 
     public init(data){
+        this.type = data.type
         this.amountLabel.string = this.app.config.toDecimal(data.amount);
         this.arrival_amount.string = this.app.config.toDecimal(data.arrival_amount);
         this.statusLabel.string = data.status == 6 ?`${Language_pay.Lg.ChangeByText('已完成')}` :(data.status == 4 ? `${Language_pay.Lg.ChangeByText('已撤销')}` : `${Language_pay.Lg.ChangeByText('未完成')}` );
@@ -51,7 +55,9 @@ export default class NewClass extends cc.Component {
                                         (data.type == 14?`${Language_pay.Lg.ChangeByText('专享快付')}`:
                                             ((data.type == 18 ||data.type == 19 ||data.type == 20 || data.type ==21)? `${Language_pay.Lg.ChangeByText("IM充值")}` :
                                                 (data.type == 23?`ERC20`:
-                                                    (data.type == 24?`TRC20`:"")
+                                                    (data.type == 24?`TRC20`:
+                                                        (data.type == 26?`极速充值`: "")
+                                                    )
                                                 )
                                             )
                                         )
@@ -65,7 +71,7 @@ export default class NewClass extends cc.Component {
         }
         this.firstTimeLabel.string = data.firstTime == 0 ?`${Language_pay.Lg.ChangeByText('无')}`  : this.app.config.getTime(data.firstTime);
         this.results = data.results;
-        if(data.status != 6 && data.type == 2){
+        if(data.status != 6 && (data.type == 2 || data.type == 26)){
 
         }else {
             if(this.app.UrlData.package_id != 16){
@@ -93,8 +99,30 @@ export default class NewClass extends cc.Component {
                 }
             }
         }else{
-            this.app.showOrderAlert(2,data,false);
+            if(this.type == 26){
+                //极速充值
+                console.log("data",data)
+                this.showJisuOrderAlert(2,data);
+            }else{
+                this.app.showOrderAlert(2,data,false);
+            }
+            
         }
+    }
+    /**
+     * 显示订单弹窗
+     * @param type 
+     * @param data 
+     */
+    public showJisuOrderAlert(type,data){
+        var node = null
+        node = cc.instantiate(this.JisuOrderAlert);
+        var canvas = cc.find('Canvas');
+        //检测是否已存在弹窗，避免重复显示
+        if(!cc.find("Canvas/JisuOrderAlert")){
+            canvas.addChild(node);
+        }
+        node.getComponent('payJisuOrderAlert').init(type,data)
     }
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()

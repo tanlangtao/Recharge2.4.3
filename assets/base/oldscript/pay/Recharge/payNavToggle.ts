@@ -9,6 +9,9 @@ export default class NewClass extends cc.Component {
     Zfb : cc.Prefab = null;
 
     @property(cc.Prefab)
+    Jisu : cc.Prefab = null;
+
+    @property(cc.Prefab)
     RgDc : cc.Prefab = null;
     
     @property(cc.Node)
@@ -354,7 +357,7 @@ export default class NewClass extends cc.Component {
         }else if(this.text == 'USDT'){
             this.addContent('digiccy')
         }else if(this.text == '极速充值'){
-            this.addContent('jisu')
+            this.addJisu()
         }
     }
 
@@ -373,4 +376,10 @@ export default class NewClass extends cc.Component {
         content.addChild(node);
     }
 
+    addJisu(){
+        var content = cc.find('Canvas/Recharge/Content');
+        var node = cc.instantiate(this.Jisu);
+        content.removeAllChildren();
+        content.addChild(node);
+    }
 }
