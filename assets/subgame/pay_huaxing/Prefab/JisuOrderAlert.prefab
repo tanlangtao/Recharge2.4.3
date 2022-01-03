@@ -5666,7 +5666,9 @@
       "__id__": 145
     },
     "_enabled": true,
-    "_normalMaterial": null,
+    "_normalMaterial": {
+      "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+    },
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 0.9,
@@ -5676,7 +5678,7 @@
       }
     ],
     "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
+    "_N$enableAutoGrayEffect": true,
     "_N$transition": 3,
     "transition": 3,
     "_N$normalColor": {
@@ -5888,17 +5890,17 @@
       "__id__": 1
     },
     "_enabled": true,
-    "amountLabel": {
-      "__id__": 45
-    },
     "bank_nameLabel": {
       "__id__": 36
+    },
+    "card_numLabel": {
+      "__id__": 39
     },
     "card_nameLabel": {
       "__id__": 42
     },
-    "card_numLabel": {
-      "__id__": 39
+    "amountLabel": {
+      "__id__": 45
     },
     "nickNameLabel": {
       "__id__": 23
@@ -5911,6 +5913,9 @@
     },
     "popWindowBG": {
       "__id__": 8
+    },
+    "btn": {
+      "__id__": 150
     },
     "results": {},
     "_id": ""

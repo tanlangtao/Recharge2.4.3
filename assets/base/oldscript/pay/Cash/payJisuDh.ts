@@ -43,7 +43,13 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Node)
     hongliGroup:cc.Node = null;
-    
+
+    @property(cc.Label)
+    depostLabel:cc.Label = null;
+
+    @property(cc.Label)
+    boundsLabel:cc.Label = null;
+
     @property
     public data : any = {};
     public showSelect = false;
@@ -67,18 +73,22 @@ export default class NewClass extends cc.Component {
     public action = 'add';
     app = null;
     timer = null;
+    depostFee = 0.02 //保证金费率 
+    depost = 0 //保证金
+    order_id = ''//未完成的order_id
+    countdown = 0 //倒计时
+    withdraw_bonus = {}
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
-        var arr = [0.3,0.2,0.1]
-        this.hongliGroup.children.forEach((e,index)=>{
-            e.getComponent(cc.Label).string = `加赠红利${arr[index]}%`
-        })
-        this.fetchwithDrawHistory()
+        
+        this.fetchgetHighSpeedWithdrawOrder()
+        this.fetchgetHighSpeedWithdrawCountDown()
+        this.fetchgetHighSpeedWithdrawSecurityRate()
     }
 
     setAmount() {
-        this.app.showKeyBoard(this.amountLabel,1);
+        this.app.showKeyBoard(this.amountLabel,1,this.setDepostLabel.bind(this));
     }
 
     public fetchIndex(){
@@ -99,31 +109,76 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading();
         })
     }
-    public fetchwithDrawHistory(){
-        var arr = []
-        var url = `${this.app.UrlData.host}/api/with_draw/withDrawHistory?user_id=${this.app.UrlData.user_id}&order_status=1&page=20&page_set=20`;
+    // 取得兑换确认倒数时间+獎勵%數
+    public fetchgetHighSpeedWithdrawCountDown(){
+        var url = `${this.app.UrlData.host}/api/with_draw/getHighSpeedWithdrawCountDown?`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
+            self.app.hideLoading();
             if(response.status == 0){
-                var listArr = response.data.list;
-                listArr.forEach(e=>{
-                    if(e.type ===8 && e.status != 4 &&e.status != 5 && arr.length  === 0){
-                        var item = {
-                            order_id :e.order_id,
-                            created_at:e.created_at
-                        }
-                        arr.push(item)
-                    }
-                })
-                console.log(arr)
-                if(arr.length>0){
+                this.withdraw_bonus = response.data.withdraw_bonus
+                this.hongliGroup.children[0].getComponent(cc.Label).string  = `加赠红利${this.withdraw_bonus[5]*100}%`
+                this.hongliGroup.children[1].getComponent(cc.Label).string  = `加赠红利${this.withdraw_bonus[10]*100}%`
+                this.hongliGroup.children[2].getComponent(cc.Label).string  = `加赠红利${this.withdraw_bonus[15]*100}%`
+                this.boundsLabel.getComponent(cc.Label).string = `使用此渠道兑换成功加赠${this.withdraw_bonus[15]*100}%起`
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+            self.app.hideLoading();
+        })
+    }
+    //获取保证金费率
+    public fetchgetHighSpeedWithdrawSecurityRate(){
+        var url = `${this.app.UrlData.host}/api/with_draw/getHighSpeedWithdrawSecurityRate?`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            self.app.hideLoading();
+            if(response.status == 0){
+                this.depostFee = Number(response.data.security_rate)
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+            self.app.hideLoading();
+        })
+    }
+    //取得訂單
+    public fetchgetHighSpeedWithdrawOrder(){
+        var url = `${this.app.UrlData.host}/api/with_draw/getHighSpeedWithdrawOrder`;
+        let dataStr=`user_id=${this.app.UrlData.user_id}`
+        let self = this;
+        this.app.ajax('POST',url,dataStr,(response)=>{
+            if(response.status == 0){
+                if(response.data.order.length > 0){
                     let time = parseInt(`${new Date().getTime()/1000}`) // 现在的时间
-                    
-                    let daoqi = arr[0].created_at+900 // 到期时间
+                    let daoqi = response.data.order[0].created_at+900 // 到期时间
                     console.log(time,"到期时间",daoqi)
-                    let daojishi = (daoqi - Number(time) )>0 ? (daoqi - Number(time)):0 //
-                    this.openJsQrAlert(daojishi)
+                    this.countdown = (daoqi - Number(time) )>0 ? (daoqi - Number(time)):0 //
+                    this.openJsQrAlert()
+                    //如果有订单，显示订单的金额的保证金
+                    this.setDepostLabel(response.data.order[0].amount)
+                    this.order_id = response.data.order[0].order_id
                 }
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+        })
+    }
+    //确认到账
+    public fetchconfirmHighSpeedWithdraw(){
+        var url = `${this.app.UrlData.host}/api/with_draw/confirmHighSpeedWithdraw`;
+        let dataStr=`order_id=${this.order_id}`
+        let self = this;
+        this.app.ajax('POST',url,dataStr,(response)=>{
+            if(response.status == 0){
+                //确认到账后将order_id清空
+                this.order_id = ''
+                self.app.showAlert(response.msg)
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -189,6 +244,7 @@ export default class NewClass extends cc.Component {
 
         this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
         this.app.setInputColor('',this.amountLabel);
+        this.setDepostLabel(0)
     }
 
     //兑换提示
@@ -246,8 +302,8 @@ export default class NewClass extends cc.Component {
                 if(response.msg !="Success!"){
                     self.app.showAlert(response.msg.msg);
                 }else{
-                    self.openJsQrAlert(900)
-                    // self.app.showAlert(Language_pay.Lg.ChangeByText('申请成功!'));
+                    this.countdown = 900 //默认15分钟后超时
+                    self.openJsQrAlert()
                 }
                 self.fetchIndex();
             }else{
@@ -280,6 +336,10 @@ export default class NewClass extends cc.Component {
     }
     onClick(){
         //按键音效
+        if(this.order_id!= ""){
+            this.openJsQrAlert()
+            return
+        }
         this.app.loadMusic(1);
         var amount = Number(this.amountLabel.string);
 
@@ -294,7 +354,7 @@ export default class NewClass extends cc.Component {
                 multiple_amount = item.multiple_amount
             }
         });
-
+        
         if(this.results.length==0){
             this.app.showAlert(`${Language_pay.Lg.ChangeByText('渠道未开放，请选择其他兑换方式!')}`)
         }else if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
@@ -304,7 +364,7 @@ export default class NewClass extends cc.Component {
         }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){
             this.app.showAlert(`${Language_pay.Lg.ChangeByText('兑换金额必须为')}${multiple_amount}${Language_pay.Lg.ChangeByText('的倍数')}！`)
         }
-        else if(amount >Number(this.goldLabel.string)){
+        else if(amount + this.depost > Number(this.goldLabel.string)){
             this.app.showAlert(Language_pay.Lg.ChangeByText('余额不足'))
         }else if(amount < minAmount || amount >maxAmount){
             this.app.showAlert(Language_pay.Lg.ChangeByText('超出兑换范围'))
@@ -314,8 +374,12 @@ export default class NewClass extends cc.Component {
     }
     //点击确认到账
     qrdzClick(){
-        console.log("确认到账")
-        this.app.showAlert("确认到账成功！")
+        if(this.order_id == ''){
+            console.log("订单号为空，请等待订单号生成！")
+            this.app.showAlert("订单号为空，请等待订单号生成！")
+            return
+        }
+        this.fetchconfirmHighSpeedWithdraw()
         this.closeJsQrAlert()
     }
     closeJsQrAlert(){
@@ -325,16 +389,20 @@ export default class NewClass extends cc.Component {
     closeJsTimeOutAlert(){
         this.JsTimeOutAlert.active = false
     }
-    openJsQrAlert(countdown){
-        if(countdown <=0){
+    openJsQrAlert(){
+        if(this.order_id == ''){
+            this.fetchgetHighSpeedWithdrawOrder()
+        }
+        if(this.countdown <=0){
             this.openJsTimeOutAlert()
             return
         }
         this.JsQrAlert.active = true
+        clearInterval(this.timer )
         this.timer = setInterval(() => {
-            this.timerLabel.string =this.app.config.getTime3(countdown) 
-            countdown -- 
-            if(countdown < 0){
+            this.timerLabel.string =this.app.config.getTime3(this.countdown) 
+            this.countdown -- 
+            if(this.countdown < 0){
                 //倒计时结束
                 this.closeJsQrAlert()
                 this.openJsTimeOutAlert()
@@ -344,6 +412,10 @@ export default class NewClass extends cc.Component {
     }
     openJsTimeOutAlert(){
         this.JsTimeOutAlert.active = true
+    }
+    setDepostLabel(amount){
+        this.depost = this.depostFee * Number(amount)
+        this.depostLabel.string = `温馨提示：本次兑换保证金：${this.depost > 0 ? this.depost : 0} 元 \n您发起兑换后平台将会为您暂时冻结保证金，待兑换完成后保证金会返还您的账户，请您收到兑换后及时点击【确认到账】，否则保证金将暂时不会自动返还`
     }
     onDestroy(){
         clearInterval(this.timer)

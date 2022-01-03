@@ -40,13 +40,10 @@
       },
       {
         "__id__": 83
-      },
-      {
-        "__id__": 84
       }
     ],
     "_prefab": {
-      "__id__": 85
+      "__id__": 84
     },
     "_opacity": 255,
     "_color": {
@@ -331,7 +328,7 @@
         "__id__": 24
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": {
       "__id__": 27
@@ -1112,7 +1109,7 @@
       "ctor": "Float64Array",
       "array": [
         -203.143,
-        -20,
+        71.752,
         0,
         0,
         0,
@@ -1560,7 +1557,7 @@
       "ctor": "Float64Array",
       "array": [
         -203.143,
-        -83.4,
+        8.352,
         0,
         0,
         0,
@@ -2148,8 +2145,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "点击输入",
-    "_N$string": "点击输入",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 30,
     "_lineHeight": 60,
     "_enableWrapText": false,
@@ -2414,8 +2411,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 890,
-      "height": 160
+      "width": 870,
+      "height": 180
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2427,7 +2424,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -42.709,
+        48.222,
         0,
         0,
         0,
@@ -2491,8 +2488,8 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 890,
-      "height": 160
+      "width": 870,
+      "height": 180
     },
     "_resize": 0,
     "_N$layoutType": 3,
@@ -2502,11 +2499,11 @@
       "height": 40
     },
     "_N$startAxis": 0,
-    "_N$paddingLeft": 95,
+    "_N$paddingLeft": 10,
     "_N$paddingRight": 0,
-    "_N$paddingTop": 0,
+    "_N$paddingTop": 10,
     "_N$paddingBottom": 0,
-    "_N$spacingX": 15,
+    "_N$spacingX": 10,
     "_N$spacingY": 10,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
@@ -2524,8 +2521,8 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 40,
-    "_left": 100,
-    "_right": 100,
+    "_left": 110,
+    "_right": 110,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -2881,8 +2878,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
-      "height": 105.19999999999999
+      "width": 950,
+      "height": 91.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2894,7 +2891,7 @@
       "ctor": "Float64Array",
       "array": [
         -468,
-        -223.209,
+        -137.51,
         0,
         0,
         0,
@@ -2935,8 +2932,8 @@
     "_dstBlendFactor": 771,
     "_string": "温馨提示：\n请在10分钟内支付完毕，付款完成后请前往【充值记录】对应订单操作栏点击【我已付款】，逾期支付或不点击【我已付款】平台不予上分。",
     "_N$string": "温馨提示：\n请在10分钟内支付完毕，付款完成后请前往【充值记录】对应订单操作栏点击【我已付款】，逾期支付或不点击【我已付款】平台不予上分。",
-    "_fontSize": 18,
-    "_lineHeight": 20,
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -3028,58 +3025,6 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": null,
-    "_id": ""
-  },
-  {
-    "__type__": "dea7bRsy3FKj6PdF7ILWgOg",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "huodongLabel": {
-      "__id__": 79
-    },
-    "SelectItem": {
-      "__uuid__": "00608072-1a4c-440e-93e4-2eac5a6d561f"
-    },
-    "selectContent": {
-      "__id__": 32
-    },
-    "czArea": {
-      "__id__": 38
-    },
-    "icon": {
-      "__id__": 8
-    },
-    "iconFont": {
-      "__id__": 11
-    },
-    "wxtsLabel": {
-      "__id__": 22
-    },
-    "showSelect": false,
-    "amountLabel": {
-      "__id__": 55
-    },
-    "shuiyin": {
-      "__id__": 3
-    },
-    "blinkNode": {
-      "__id__": 24
-    },
-    "BindBankAccountTipAlert": {
-      "__uuid__": "4cdf56fa-d2bd-495c-a51c-a09bc38bc07c"
-    },
-    "neikuagn": {
-      "__id__": 65
-    },
-    "btnNum": {
-      "__uuid__": "7f702317-6e1d-43c5-8eb5-798ac5fcb419"
-    },
-    "cyjeItem": null,
-    "app": null,
     "_id": ""
   },
   {

@@ -9,16 +9,16 @@ export default class NewClass extends cc.Component {
     helpAlert: cc.Prefab = null;
 
     @property(cc.Label)
-    amountLabel: cc.Label = null;
+    bank_nameLabel: cc.Label = null;
 
     @property(cc.Label)
-    bank_nameLabel: cc.Label = null;
+    card_numLabel: cc.Label = null;
 
     @property(cc.Label)
     card_nameLabel: cc.Label = null;
 
     @property(cc.Label)
-    card_numLabel: cc.Label = null;
+    amountLabel: cc.Label = null;
 
     @property(cc.Label)
     nickNameLabel: cc.Label = null;

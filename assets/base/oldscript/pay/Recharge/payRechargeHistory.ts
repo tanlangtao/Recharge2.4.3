@@ -92,7 +92,7 @@ export default class NewClass extends cc.Component {
                         firstTime : data.created_at,
                         lastTime : data.arrival_at,
                         results:data
-                    })
+                    },this.fetchIndex.bind(this))
                 }
             }else{
                 self.app.showAlert(data.msg);

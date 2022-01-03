@@ -2835,8 +2835,12 @@
       "__uuid__": "4b8d1af5-1d35-43dc-ae5b-ac9761a1fba7"
     },
     "cyjeItem": null,
-    "JisuOrderAlert": null,
-    "BeforePayOrderAlert": null,
+    "JisuOrderAlert": {
+      "__uuid__": "535e9ea4-ad3f-4b9d-8a50-f4edfee49e46"
+    },
+    "BeforePayOrderAlert": {
+      "__uuid__": "edbf73ef-af80-4128-aed9-0574b8548e8b"
+    },
     "app": null,
     "_id": ""
   },

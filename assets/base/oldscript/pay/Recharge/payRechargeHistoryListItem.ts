@@ -28,17 +28,32 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     JisuOrderAlert: cc.Prefab = null;
 
+    @property(cc.Node)
+    wyfk: cc.Node = null;
+
     @property
     public results :any= {};
     public app = null;
     type = 0
+    callback = null; // 充值历史传入callback
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.setLanguageResource()
     }
 
-    public init(data){
+    public init(data,callback = ()=>{}){
+        this.callback = callback
         this.type = data.type
+        if(this.wyfk && data.type == 26){
+            this.wyfk.active = true
+            this.orderBtn.active = false
+            if(data.status == 6||data.status == 5 || data.status == 4){
+                this.wyfk.getComponent(cc.Button).interactable = false
+            }
+        }else{
+            this.wyfk.active = false
+            this.orderBtn.active = true
+        }
         this.amountLabel.string = this.app.config.toDecimal(data.amount);
         this.arrival_amount.string = this.app.config.toDecimal(data.arrival_amount);
         this.statusLabel.string = data.status == 6 ?`${Language_pay.Lg.ChangeByText('已完成')}` :(data.status == 4 ? `${Language_pay.Lg.ChangeByText('已撤销')}` : `${Language_pay.Lg.ChangeByText('未完成')}` );
@@ -91,11 +106,17 @@ export default class NewClass extends cc.Component {
             data : this.results
         }
         if(this.app.UrlData.package_id == 16){
-            if (this.app.gHandler.reflect) {
-                if (this.app.gHandler.reflect.setClipboard(this.results.order_id)) {
-                    this.app.showAlert(`复制成功!:${this.results.order_id}`)
-                } else {
-                    this.app.showAlert(`复制失败!请升级系统版本`)
+            if(this.type == 26){
+                //极速充值
+                console.log("data",data)
+                this.showJisuOrderAlert(2,data);
+            }else{
+                if (this.app.gHandler.reflect) {
+                    if (this.app.gHandler.reflect.setClipboard(this.results.order_id)) {
+                        this.app.showAlert(`复制成功!:${this.results.order_id}`)
+                    } else {
+                        this.app.showAlert(`复制失败!请升级系统版本`)
+                    }
                 }
             }
         }else{
@@ -122,7 +143,7 @@ export default class NewClass extends cc.Component {
         if(!cc.find("Canvas/JisuOrderAlert")){
             canvas.addChild(node);
         }
-        node.getComponent('payJisuOrderAlert').init(type,data)
+        node.getComponent('payJisuOrderAlert').init(type,data,this.callback)
     }
     setLanguageResource(){
         let src = Language_pay.Lg.getLgSrc()

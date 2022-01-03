@@ -291,8 +291,8 @@ export default class NewClass extends cc.Component {
                 this.app.loadIcon(`${src}/menu/jisu1`,currentIcon,44,44);
             }else
             {
-                this.app.loadIcon(`${src}/menu/menu_usdt_1`,this.normalIcon,207,39);
-                this.app.loadIcon(`${src}/menu/menu_usdt_2`,this.currentIcon,249,86);
+                this.app.loadIcon(`${src}/menu/menu_jscz_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_jscz_2`,this.currentIcon,249,86);
             }
             discount_rate.usdt.forEach( (e,i) => {
                 if(e.package_id == this.app.UrlData.package_id) {

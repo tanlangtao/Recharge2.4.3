@@ -49,8 +49,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 223,
-      "height": 74
+      "width": 133,
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -218,7 +218,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 97.27,
       "height": 40
     },
     "_anchorPoint": {
@@ -279,7 +279,7 @@
       "__uuid__": "8d34c7c7-bb26-4989-9373-92abb411ff60"
     },
     "_isSystemFontUsed": false,
-    "_spacingX": 0,
+    "_spacingX": -10,
     "_batchAsBitmap": false,
     "_styleFlags": 1,
     "_underlineHeight": 0,

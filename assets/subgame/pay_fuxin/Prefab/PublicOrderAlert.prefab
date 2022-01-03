@@ -6467,17 +6467,17 @@
     "helpAlert": {
       "__uuid__": "493b80c4-9eac-419f-ab79-0eb92b90b772"
     },
-    "amountLabel": {
-      "__id__": 76
-    },
     "bank_nameLabel": {
       "__id__": 67
+    },
+    "card_numLabel": {
+      "__id__": 70
     },
     "card_nameLabel": {
       "__id__": 73
     },
-    "card_numLabel": {
-      "__id__": 70
+    "amountLabel": {
+      "__id__": 76
     },
     "nickNameLabel": {
       "__id__": 93

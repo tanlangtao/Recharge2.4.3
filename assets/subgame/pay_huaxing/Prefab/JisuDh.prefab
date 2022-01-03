@@ -3232,7 +3232,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "label",
+    "_name": "boundsLabel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -3309,8 +3309,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "使用此渠道兑换成功加赠0.1%起",
-    "_N$string": "使用此渠道兑换成功加赠0.1%起",
+    "_string": "使用此渠道兑换成功加赠0%起",
+    "_N$string": "使用此渠道兑换成功加赠0%起",
     "_fontSize": 23,
     "_lineHeight": 28,
     "_enableWrapText": false,
@@ -3340,7 +3340,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "label2",
+    "_name": "depostLabel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -3366,7 +3366,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 900,
-      "height": 119.28
+      "height": 91.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3378,7 +3378,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -183.356,
+        -176.904,
         0,
         0,
         0,
@@ -3417,8 +3417,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "温馨提示：\n本次兑换保证金：0 元\n您发起兑换后平台将会为您暂时冻结保证金，待兑换完成后保证金会返还您的账户，请您收到兑换后及时点击【确认到账】，否则保证金将暂时不会自动返还",
-    "_N$string": "温馨提示：\n本次兑换保证金：0 元\n您发起兑换后平台将会为您暂时冻结保证金，待兑换完成后保证金会返还您的账户，请您收到兑换后及时点击【确认到账】，否则保证金将暂时不会自动返还",
+    "_string": "温馨提示：本次兑换保证金：0 元\n您发起兑换后平台将会为您暂时冻结保证金，待兑换完成后保证金会返还您的账户，请您收到兑换后及时点击【确认到账】，否则保证金将暂时不会自动返还",
+    "_N$string": "温馨提示：本次兑换保证金：0 元\n您发起兑换后平台将会为您暂时冻结保证金，待兑换完成后保证金会返还您的账户，请您收到兑换后及时点击【确认到账】，否则保证金将暂时不会自动返还",
     "_fontSize": 23,
     "_lineHeight": 28,
     "_enableWrapText": false,
@@ -6334,6 +6334,12 @@
     },
     "hongliGroup": {
       "__id__": 124
+    },
+    "depostLabel": {
+      "__id__": 91
+    },
+    "boundsLabel": {
+      "__id__": 88
     },
     "data": {},
     "_id": ""

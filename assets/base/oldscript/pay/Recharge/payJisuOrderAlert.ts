@@ -7,16 +7,16 @@ const {ccclass, property} = cc._decorator;
 export default class NewClass extends cc.Component {
 
     @property(cc.Label)
-    amountLabel: cc.Label = null;
+    bank_nameLabel: cc.Label = null;
 
     @property(cc.Label)
-    bank_nameLabel: cc.Label = null;
+    card_numLabel: cc.Label = null;
 
     @property(cc.Label)
     card_nameLabel: cc.Label = null;
 
     @property(cc.Label)
-    card_numLabel: cc.Label = null;
+    amountLabel: cc.Label = null;
 
     @property(cc.Label)
     nickNameLabel: cc.Label = null;
@@ -30,6 +30,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Node)
     popWindowBG : cc.Node = null;
 
+    @property(cc.Button)
+    btn : cc.Button = null;
+
     @property
     public results = {};
     public token = null;
@@ -38,7 +41,9 @@ export default class NewClass extends cc.Component {
     app : any= {};
     login_ip = '';
     order_id = ''//订单生成后返回的order_id
-    public init(type,data){
+    callback = null // 充值历史传入
+    public init(type,data,callback= ()=>{}){
+        this.callback = callback
         if(this.app.gHandler.gameGlobal.ipList) {
             this.login_ip = this.app.gHandler.gameGlobal.ipList[0]
         }else{
@@ -51,8 +56,12 @@ export default class NewClass extends cc.Component {
         }else{
             //充值历史里面打开订单，这时候已经有了订单号
             this.order_id = data.data.order_id
+            if(data.data.status == 5){
+                this.btn.interactable = false
+            }
             this.initRender(data)
         }
+        
     }
     
     fetchOrder(data){
@@ -159,6 +168,7 @@ export default class NewClass extends cc.Component {
         //按键音效
         this.app.loadMusic(1);
         //确认付款
+        this.btn.interactable = false;
         this.fetchconfirmHighSpeedTransferPay()
     }
     fetchconfirmHighSpeedTransferPay(){
@@ -168,6 +178,8 @@ export default class NewClass extends cc.Component {
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 self.app.showAlert("确认付款成功！");
+                //调用回调，更新充值历史数据
+                self.callback()
                 self.removeSelf();
             }else{
                 self.app.showAlert(response.msg);

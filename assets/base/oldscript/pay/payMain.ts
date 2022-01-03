@@ -734,7 +734,7 @@ export default class NewClass extends cc.Component {
      * @param label 
      * @param type 
      */
-    public showKeyBoard(label,type){
+    public showKeyBoard(label,type,callBack = ()=>{}){
         var node = null
         if(this.UrlData.package_id == 16){
             node = cc.instantiate(this.keyBoardAlert16);
@@ -743,7 +743,7 @@ export default class NewClass extends cc.Component {
         }
         let canvas = cc.find('Canvas');
         canvas.addChild(node);
-        node.getComponent('payKeyBoardAlert').init(label,type)
+        node.getComponent('payKeyBoardAlert').init(label,type,callBack)
     }
     /**
      * 小键盘 
