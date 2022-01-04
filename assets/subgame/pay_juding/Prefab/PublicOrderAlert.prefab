@@ -6058,17 +6058,17 @@
     "helpAlert": {
       "__uuid__": "a58eb5fb-6607-4944-99c9-f551fd490ca1"
     },
-    "amountLabel": {
-      "__id__": 42
-    },
     "bank_nameLabel": {
       "__id__": 33
+    },
+    "card_numLabel": {
+      "__id__": 36
     },
     "card_nameLabel": {
       "__id__": 39
     },
-    "card_numLabel": {
-      "__id__": 36
+    "amountLabel": {
+      "__id__": 42
     },
     "nickNameLabel": {
       "__id__": 20

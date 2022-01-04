@@ -63,7 +63,6 @@ export default class NewClass extends cc.Component {
     game_gold = 0 // 余额
     showBaopeiTip = false
     payment_id = 1 // 极速充值payment_id
-    timer = null
     amount_list = []//常用金额
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
@@ -392,6 +391,6 @@ export default class NewClass extends cc.Component {
         })
     }
     onDestroy(){
-        clearInterval(this.timer)
+        cc.systemEvent.off('closeRechargeHistory')
     }
 }
