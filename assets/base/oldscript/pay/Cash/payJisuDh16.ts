@@ -92,6 +92,7 @@ export default class NewClass extends cc.Component {
     order_id = ''//未完成的order_id
     countdown = 0 //倒计时
     withdraw_bonus = {}
+    withdraw_countdown_time = 15//订单过期的时间，分钟
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
@@ -143,6 +144,21 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading();
         })
     }
+    //倒计时新
+    public fetchgetHighSpeedWithdrawCountDownTime(){
+        var url = `${this.app.UrlData.host}/api/with_draw/getHighSpeedWithdrawCountDownTime?`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                this.withdraw_countdown_time = Number(response.data.withdraw_countdown_time)
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+            self.app.hideLoading();
+        })
+    }
     //获取保证金费率
     public fetchgetHighSpeedWithdrawSecurityRate(){
         var url = `${this.app.UrlData.host}/api/with_draw/getHighSpeedWithdrawSecurityRate?`;
@@ -168,7 +184,7 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 if(response.data.order.length > 0){
                     let time = parseInt(`${new Date().getTime()/1000}`) // 现在的时间
-                    let daoqi = response.data.order[0].created_at+900 // 到期时间
+                    let daoqi = response.data.order[0].created_at+this.withdraw_countdown_time*60  // 到期时间
                     console.log(time,"到期时间",daoqi)
                     this.countdown = (daoqi - Number(time) )>0 ? (daoqi - Number(time)):0 //
                     this.openJsQrAlert()
@@ -314,7 +330,7 @@ export default class NewClass extends cc.Component {
                 if(response.msg !="Success!"){
                     self.app.showAlert(response.msg.msg);
                 }else{
-                    this.countdown = 900 //默认15分钟后超时
+                    this.countdown = this.withdraw_countdown_time*60  //默认15分钟后超时
                     self.openJsQrAlert()
                 }
                 self.fetchIndex();
