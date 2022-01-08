@@ -1107,8 +1107,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 30
+      "width": 130,
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1119,7 +1119,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        373.6,
+        482.253,
         0,
         0,
         0,
@@ -1160,7 +1160,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "23a6949a-a394-4f51-909a-cc1c0fd0761a"
+      "__uuid__": "de37e32d-3ff9-43ea-adad-ca8727984347"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1292,14 +1292,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 187,
-      "g": 187,
-      "b": 187,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 310,
+      "width": 265,
       "height": 60
     },
     "_anchorPoint": {
@@ -1351,8 +1351,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "点击输入",
-    "_N$string": "点击输入",
+    "_string": "请点击【常用金额】选择面值",
+    "_N$string": "请点击【常用金额】选择面值",
     "_fontSize": 30,
     "_lineHeight": 60,
     "_enableWrapText": false,
@@ -1365,7 +1365,7 @@
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 1,
+    "_N$overflow": 2,
     "_N$cacheMode": 0,
     "_id": ""
   },
@@ -1513,7 +1513,7 @@
       "__id__": 18
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 39
@@ -6610,6 +6610,9 @@
     },
     "boundsLabel": {
       "__id__": 99
+    },
+    "JisuCyjeAlert": {
+      "__uuid__": "4937e19f-5a88-40c0-8f77-b067d56b528a"
     },
     "data": {},
     "_id": ""

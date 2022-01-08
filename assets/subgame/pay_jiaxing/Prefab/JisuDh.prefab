@@ -940,7 +940,7 @@
       "__id__": 20
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 22
@@ -1056,7 +1056,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "312afb3a-fc82-4e1a-8ca6-e7939118dd5e"
+      "__uuid__": "809f406a-01aa-43d7-a457-ad0be3021c01"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1195,7 +1195,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 350,
+      "width": 400,
       "height": 60
     },
     "_anchorPoint": {
@@ -1247,8 +1247,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "点击输入",
-    "_N$string": "点击输入",
+    "_string": "请点击【常用金额】选择面值",
+    "_N$string": "请点击【常用金额】选择面值",
     "_fontSize": 30,
     "_lineHeight": 60,
     "_enableWrapText": false,
@@ -1409,7 +1409,7 @@
       "__id__": 18
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 36
@@ -6342,6 +6342,9 @@
     },
     "boundsLabel": {
       "__id__": 88
+    },
+    "JisuCyjeAlert": {
+      "__uuid__": "d0cfa0e4-acd5-49e5-b1e7-f2324da43734"
     },
     "data": {},
     "_id": ""

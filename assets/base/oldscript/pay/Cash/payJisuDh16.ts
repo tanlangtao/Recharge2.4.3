@@ -63,6 +63,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     boundsLabel:cc.Label = null;
 
+    @property(cc.Prefab)
+    JisuCyjeAlert:cc.Prefab = null;
+
     @property
     public data : any = {};
     public showSelect = false;
@@ -101,7 +104,7 @@ export default class NewClass extends cc.Component {
         this.fetchgetHighSpeedWithdrawSecurityRate()
     }
     setAmount() {
-        this.app.showKeyBoard(this.amountLabel,1,this.setDepostLabel.bind(this));
+        this.app.showAlert("请点击【常用金额】选择面值")
     }
     setAqm() {
         this.app.showKeyBoard(this.AqmLabel,4);
@@ -278,9 +281,9 @@ export default class NewClass extends cc.Component {
     deleteAmount(){
         //按键音效
         this.app.loadMusic(1);
-
-        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
-        this.app.setInputColor('',this.amountLabel);
+        var node = cc.instantiate(this.JisuCyjeAlert)
+        node.getComponent("payJisuCyjeAlert").init(this.amountLabel,this.setDepostLabel.bind(this))
+        cc.find("Canvas").addChild(node)
     }
     
     getRate(){
@@ -435,15 +438,10 @@ export default class NewClass extends cc.Component {
         }else if(this.Info.bank_province == '' ||this.Info.bank_city =='' || this.Info.card_num == ''){
             this.app.showBankTipAlert(this)
 
-        }else if(this.amountLabel.string == Language_pay.Lg.ChangeByText('点击输入')){
+        }else if(this.amountLabel.string == "请点击【常用金额】选择面值"){
             this.app.showAlert(Language_pay.Lg.ChangeByText('兑换金额不能为空'))
-        }else if(Number(this.amountLabel.string)%multiple_amount != 0 && amount != minAmount ){
-            this.app.showAlert(`${Language_pay.Lg.ChangeByText('兑换金额必须为')}${multiple_amount}${Language_pay.Lg.ChangeByText('的倍数')}！`)
-        }
-        else if(amount + this.depost >Number(this.goldLabel.string)){
+        }else if(amount + this.depost >Number(this.goldLabel.string)){
             this.app.showAlert(Language_pay.Lg.ChangeByText('余额不足'))
-        }else if(amount < minAmount || amount >maxAmount){
-            this.app.showAlert(Language_pay.Lg.ChangeByText('超出兑换范围'))
         }else{
             if(this.app.UrlData.package_id == 16 && this.AqmLabel.string == "点击输入"){
                 this.app.showAlert("请输入安全码")

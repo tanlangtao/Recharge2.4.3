@@ -1411,7 +1411,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 41,
+      "width": 72,
       "height": 25.2
     },
     "_anchorPoint": {
@@ -1463,8 +1463,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "清 除",
-    "_N$string": "清 除",
+    "_string": "常用金额",
+    "_N$string": "常用金额",
     "_fontSize": 18,
     "_lineHeight": 20,
     "_enableWrapText": true,
@@ -1650,9 +1650,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 127,
-      "g": 122,
-      "b": 123,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -1709,8 +1709,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "点击输入",
-    "_N$string": "点击输入",
+    "_string": "请点击【常用金额】选择面值",
+    "_N$string": "请点击【常用金额】选择面值",
     "_fontSize": 30,
     "_lineHeight": 60,
     "_enableWrapText": false,
@@ -15436,6 +15436,9 @@
     },
     "boundsLabel": {
       "__id__": 335
+    },
+    "JisuCyjeAlert": {
+      "__uuid__": "8e70ce0d-616f-4361-a1b6-7edbd7be5941"
     },
     "data": {},
     "_id": ""
