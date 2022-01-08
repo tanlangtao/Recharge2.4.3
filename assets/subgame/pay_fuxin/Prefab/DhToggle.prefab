@@ -181,7 +181,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 159,
+      "width": 191,
       "height": 33
     },
     "_anchorPoint": {
@@ -193,7 +193,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        -10,
         0,
         0,
         0,
@@ -256,7 +256,7 @@
     "asset": {
       "__uuid__": "6b7efcd7-5adb-42d8-9d16-d6a1357d07b8"
     },
-    "fileId": "57xqr4yJRBFJZBmGYGwWHC",
+    "fileId": "dcb2zKFnpMI42wXIRbNihB",
     "sync": false
   },
   {
