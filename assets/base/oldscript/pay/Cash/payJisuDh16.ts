@@ -167,15 +167,13 @@ export default class NewClass extends cc.Component {
         var url = `${this.app.UrlData.host}/api/with_draw/getHighSpeedWithdrawSecurityRate?`;
         let self = this;
         this.app.ajax('GET',url,'',(response)=>{
-            self.app.hideLoading();
             if(response.status == 0){
-                
+                this.depostFee = Number(response.data.security_rate)
             }else{
                 self.app.showAlert(response.msg)
             }
         },(errstatus)=>{
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
-            self.app.hideLoading();
         })
     }
     //取得訂單
