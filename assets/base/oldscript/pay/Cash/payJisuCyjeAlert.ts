@@ -51,4 +51,7 @@ export default class NewClass extends cc.Component {
         this.parentcallBack(Number(this.label.string))
         this.node.removeFromParent();
     }
+    removeSelf(){
+        this.node.removeFromParent();
+    }
 }
