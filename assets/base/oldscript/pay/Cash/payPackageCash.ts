@@ -14,7 +14,7 @@ export default class NewClass extends cc.Component {
         //package_id = 9 (xingui)
         //package_id = 10 (fuxin)
         //package_id = 11 (xinhao)
-        //package_id = 12 (xinlong)
+        //package_id = 12 (xinlong)改为lepai
         //package_id = 13 (huangshi)
         //package_id = 15 (juding)
         //package_id = 16 (ninetwo)

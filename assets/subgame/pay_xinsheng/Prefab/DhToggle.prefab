@@ -320,7 +320,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 231,
-      "height": 146
+      "height": 145
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -726,6 +726,9 @@
     "BankCardManage": null,
     "JisuDh": {
       "__uuid__": "cf9c0845-36b7-4ee0-a591-5661a904030a"
+    },
+    "JisuDh2": {
+      "__uuid__": "15cc073d-ad26-4b30-9873-dcc768538e84"
     },
     "app": null,
     "_id": ""

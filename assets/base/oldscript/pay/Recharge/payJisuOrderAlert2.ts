@@ -92,7 +92,8 @@ export default class NewClass extends cc.Component {
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
                 this.jisu_payment_expired_time = Number(response.data.jisu_payment_expired_time)
-                this.attention.string = `温馨提示：\n1.请使用与绑定银行卡相同账户名的账户进行支付。\n2.转账的金额必须和订单上的收款金额完全一致，包括小数点。\n3.单笔订单有效时间为${this.jisu_payment_expired_time}分钟，未到账请联系客服。`
+                // this.attention.string = `温馨提示：\n1.请使用与绑定银行卡相同账户名的账户进行支付。\n2.转账的金额必须和订单上的收款金额完全一致，包括小数点。\n3.单笔订单有效时间为${this.jisu_payment_expired_time}分钟，请勿逾期支付，未到账请联系客服。`
+                this.attention.string = `温馨提示：\n1.请使用与绑定银行卡相同账户名的账户进行支付。\n2.转账的金额必须和订单上的收款金额完全一致，包括小数点。\n3.单笔订单有效时间为10分钟， 请勿逾期支付，未到账请联系客服。`
             }else{
                 self.app.showAlert(response.msg)
             }

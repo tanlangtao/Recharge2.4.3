@@ -647,7 +647,7 @@
         1,
         1,
         1,
-        1
+        0
       ]
     },
     "_eulerAngles": {
@@ -782,7 +782,7 @@
     "_normalMaterial": null,
     "_grayMaterial": null,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 0.9,
     "clickEvents": [
       {
         "__id__": 20
@@ -790,8 +790,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 0,
-    "transition": 0,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -958,7 +958,7 @@
         1,
         1,
         1,
-        1
+        0
       ]
     },
     "_eulerAngles": {
@@ -987,7 +987,7 @@
     },
     "_grayMaterial": null,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 0.9,
     "clickEvents": [
       {
         "__id__": 26
@@ -995,8 +995,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": true,
-    "_N$transition": 0,
-    "transition": 0,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1128,6 +1128,9 @@
     },
     "JisuOrderAlert": {
       "__uuid__": "34ee38f3-3520-4c66-9768-effb73d98571"
+    },
+    "JisuOrderAlert2": {
+      "__uuid__": "061f14af-d620-4d6d-bbe9-2ce13427a125"
     },
     "wyfk": {
       "__id__": 24

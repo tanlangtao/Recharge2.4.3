@@ -56,6 +56,10 @@ export default class NewClass extends cc.Component {
         }else{
             this.wyfk.active = false
             this.orderBtn.active = true
+            if(this.app.UrlData.package_id == 16){
+                let src = Language_pay.Lg.getLgSrc()
+                this.app.loadIconLg(`${src}/btn/btn_dingdan1`,this.orderBtn)
+            }
         }
         this.amountLabel.string = this.app.config.toDecimal(data.amount);
         this.arrival_amount.string = this.app.config.toDecimal(data.arrival_amount);

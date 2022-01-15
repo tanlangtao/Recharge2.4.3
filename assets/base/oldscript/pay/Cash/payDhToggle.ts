@@ -131,8 +131,8 @@ export default class NewClass extends cc.Component {
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
                 let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
                 let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
-                this.app.loadIcon(`${src}/menu/menu_pipeidh2`,normalIcon,44,44);
-                this.app.loadIcon(`${src}/menu/menu_pipeidh1`,currentIcon,44,44);
+                this.app.loadIcon(`${src}/menu/menu_pipei2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/menu_pipei1`,currentIcon,44,44);
             }else{
                 this.node.removeFromParent()
             }

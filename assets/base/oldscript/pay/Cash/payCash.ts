@@ -55,7 +55,7 @@ export default class NewClass extends cc.Component {
         }else if(this.app.UrlData.package_id == 16){
             //渠道16才显示受限金额 
         }
-        this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)-Number(this.ToggleContainer.parent.parent.height)*(scalex-1)
+        this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)*cc.winSize.height/750
         this.setLanguageResource()
     }
     public exitBtnClick(){

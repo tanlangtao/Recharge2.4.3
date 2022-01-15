@@ -1403,7 +1403,7 @@
       "__id__": 28
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 38
@@ -2145,8 +2145,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "",
-    "_N$string": "",
+    "_string": "请选择下方面值充值",
+    "_N$string": "请选择下方面值充值",
     "_fontSize": 30,
     "_lineHeight": 60,
     "_enableWrapText": false,
@@ -2930,8 +2930,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "温馨提示：\n请在10分钟内支付完毕，付款完成后请前往【充值记录】对应订单操作栏点击【我已付款】，逾期支付或不点击【我已付款】平台不予上分。",
-    "_N$string": "温馨提示：\n请在10分钟内支付完毕，付款完成后请前往【充值记录】对应订单操作栏点击【我已付款】，逾期支付或不点击【我已付款】平台不予上分。",
+    "_string": "温馨提示：\n请在10分钟内支付完毕，，逾期支付平台不予上分。\n单个玩家只能存在一笔未完成的匹配充值订单。",
+    "_N$string": "温馨提示：\n请在10分钟内支付完毕，，逾期支付平台不予上分。\n单个玩家只能存在一笔未完成的匹配充值订单。",
     "_fontSize": 25,
     "_lineHeight": 28,
     "_enableWrapText": false,

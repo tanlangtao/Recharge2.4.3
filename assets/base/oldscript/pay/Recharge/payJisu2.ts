@@ -81,6 +81,20 @@ export default class NewClass extends cc.Component {
     setAmount() {
         this.app.showAlert("请点选充值金额")
     }
+    //获取保证金费率,倒计时
+    // public fetchconfiglist(){
+    //     var url = `${this.app.UrlData.host}/api/jisu/config/list?`;
+    //     let self = this;
+    //     this.app.ajax('GET',url,'',(response)=>{
+    //         if(response.status == 0){
+    //             this.huodongLabel.string = `温馨提示：\n请在${response.data.jisu_payment_expired_time}分钟内支付完毕，逾期支付平台不予上分。\n单个玩家只能存在一笔未完成的匹配充值订单。`
+    //         }else{
+    //             self.app.showAlert(response.msg)
+    //         }
+    //     },(errstatus)=>{
+    //         self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+    //     })
+    // }
     public fetchZfb(){
         var url = `${this.app.UrlData.host}/api/payment/aliPayPaymentIndex?user_id=${this.app.UrlData.user_id}`;
         let index = `0`;
@@ -198,7 +212,7 @@ export default class NewClass extends cc.Component {
         this.czArea.string = `${Language_pay.Lg.ChangeByText('充值范围')}:(${this.current.min_amount}-${this.current.max_amount})`
     }
     public deleteAmount(){
-        this.amountLabel.string = '';
+        this.amountLabel.string = '请选择下方面值充值';
         this.app.setInputColor("sum",this.amountLabel);
     }
 
@@ -215,7 +229,7 @@ export default class NewClass extends cc.Component {
             this.showBindBankAccountTip()
             return
         }
-        if(this.amountLabel.string == ''){
+        if(this.amountLabel.string == '请选择下方面值充值'){
             this.app.showAlert('充值金额不能为空!')
         }else{
             this.fetchpaymentjisulist()

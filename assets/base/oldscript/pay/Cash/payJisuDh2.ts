@@ -47,9 +47,6 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     depostLabel:cc.Label = null;
 
-    @property(cc.Label)
-    boundsLabel:cc.Label = null;
-
     @property(cc.Prefab)
     JisuCyjeAlert:cc.Prefab = null;
 
@@ -86,8 +83,6 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
-        
-        this.fetchwith_drawjisulist()
         this.fetchconfiglist()
     }
 
@@ -121,6 +116,7 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 this.withdraw_countdown_time = Number(response.data.jisu_payment_expired_time)*2 //兑换超时时间是充值的2倍
                 this.depostFee = Number(response.data.jisu_withdraw_security_deposit)
+                this.fetchwith_drawjisulist()
             }else{
                 self.app.showAlert(response.msg)
             }
