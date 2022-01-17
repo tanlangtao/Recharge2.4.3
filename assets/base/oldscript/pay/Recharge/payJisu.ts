@@ -62,8 +62,14 @@ export default class NewClass extends cc.Component {
     handling_feeName = ""//需要显示手续费的渠道名
     game_gold = 0 // 余额
     showBaopeiTip = false
-    payment_id = 1 // 极速充值payment_id
+    payment_id = 0 // 极速充值payment_id
     amount_list = []//常用金额
+    amount_rule = []//极速充值2，输入金额充值范围
+    writeAmount  = false //极速充值2，判断是否是手动输入的
+    order_id = ""//订单号
+    init(channel){
+        this.channel = channel
+    }
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         //请求支付宝
@@ -78,11 +84,23 @@ export default class NewClass extends cc.Component {
         if(this.app.UrlData.package_id == 15){
             this.fetchgetApplyReimburseInfo()
         }
-        this.fetchgetHighSpeedTransferPayRange()
-        cc.systemEvent.on('closeRechargeHistory',this.fetchgetHighSpeedTransferPayRange.bind(this))
+        if(this.channel == "极速充值"){
+            this.fetchgetHighSpeedTransferPayRange()
+            cc.systemEvent.on('closeRechargeHistory',this.fetchgetHighSpeedTransferPayRange.bind(this))
+        }else if(this.channel == "极速充值2"){
+            this.fetchgetHighSpeedTransferPayRangeTwo()
+            cc.systemEvent.on('closeRechargeHistory',this.fetchgetHighSpeedTransferPayRangeTwo.bind(this))
+        }
     }
     setAmount() {
-        this.app.showAlert("请点选充值金额")
+        if(this.channel == "极速充值"){
+            this.app.showAlert("请点选充值金额")
+        }else{
+            this.app.showKeyBoard(this.amountLabel,1,()=>{
+                this.writeAmount = true
+                this.payment_id = 0
+            });
+        }
     }
     public fetchZfb(){
         var url = `${this.app.UrlData.host}/api/payment/aliPayPaymentIndex?user_id=${this.app.UrlData.user_id}`;
@@ -92,8 +110,13 @@ export default class NewClass extends cc.Component {
             self.app.hideLoading()
             if(response.status == 0){
                 let discount_rate = response.data.discount_rate
-                self.results = response.data.pq_pay;
-                this.setDiscount_rate(discount_rate.jisu_recharge)
+                if(this.channel == "极速充值2"){
+                    self.results = response.data.pq_pay2;
+                    this.setDiscount_rate(discount_rate.jisu_recharge2)
+                }else{
+                    self.results = response.data.pq_pay;
+                    this.setDiscount_rate(discount_rate.jisu_recharge)
+                }
                 //验证有没有绑卡
                 this.fetchIndex()
                 self.current = self.results[0];
@@ -127,6 +150,44 @@ export default class NewClass extends cc.Component {
                     this.neikuagn.addChild(node)
                 })
                 
+            }else{
+                self.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
+        })
+    }
+    //极速充值2 取得充值可用面額(不用帶值)
+    public fetchgetHighSpeedTransferPayRangeTwo(){
+        var url = `${this.app.UrlData.host}/api/payment/getHighSpeedTransferPayRangeTwo?user_id=${this.app.UrlData.user_id}`;
+        let self = this;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                //删除旧的选项
+                this.neikuagn.removeAllChildren()
+                let arr = []
+                //优先选择10个有id的常用金额，
+                if(response.data.available_list.length > 10){
+                    arr = response.data.available_list.slice(0,10)
+                }else{
+                    arr = response.data.available_list
+                }
+                //剩下的从固定金额里面取
+                response.data.fixed_list.forEach(e=>{
+                    if(arr.length <18){
+                        arr.push({
+                            id:0,
+                            amount:Number(e)
+                        })
+                    }
+                })
+                this.amount_list = arr
+                arr.forEach((e)=>{
+                    var node = cc.instantiate(this.btnNum)
+                    node.getComponent("payBtnNum").init(e.amount,this.addGold.bind(this),e.id)
+                    this.neikuagn.addChild(node)
+                })
+                this.amount_rule = response.data.amount_rule
             }else{
                 self.app.showAlert(response.msg)
             }
@@ -202,6 +263,7 @@ export default class NewClass extends cc.Component {
     public deleteAmount(){
         this.amountLabel.string = '';
         this.app.setInputColor("sum",this.amountLabel);
+        this.writeAmount = false
     }
 
     //确认充值按钮回调
@@ -217,8 +279,23 @@ export default class NewClass extends cc.Component {
             this.showBindBankAccountTip()
             return
         }
-        if(this.amountLabel.string == ''){
+        if(this.amountLabel.string == ''||this.amountLabel.string == '点击输入'){
             this.app.showAlert('充值金额不能为空!')
+        }else if(this.writeAmount){
+            let amount = Number(this.amountLabel.string)
+            let index = 0
+            this.amount_rule.forEach((e,i)=>{
+                if(amount>=Number(e.min) && amount<= Number(e.max)){
+                    index = i
+                    console.log(index)
+                }
+            })
+            let range = this.amount_rule[index].range
+            if(amount%range == 0){
+                this.fetchOrder();
+            }else{
+                this.app.showAlert(`充值金额必须是${range}的倍数`)
+            }
         }else{
             this.fetchOrder();
         }
@@ -263,7 +340,7 @@ export default class NewClass extends cc.Component {
                 canvas.addChild(beforePayOrder);
             }
         }
-        node.getComponent('payJisuOrderAlert').init(type,data)
+        node.getComponent('payJisuOrderAlert').init(type,data,()=>{},this.channel)
     }
     radioList(){
         this.selectContent.removeAllChildren();

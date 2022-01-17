@@ -180,6 +180,18 @@ export default class NewClass extends cc.Component {
                 })
             }
         }
+        if(this.results.data.withDraw_info.jisu_withdraw2){
+            if(this.results.data.withDraw_info.jisu_withdraw2.is_close > 0){
+                //分渠道开关
+                let package_ids = this.results.data.withDraw_info.jisu_withdraw2.package_ids
+                let package_idsArr = package_ids.split(",")
+                package_idsArr.forEach(e=>{
+                   if( Number(e) == this.app.UrlData.package_id){
+                    arr.push('极速兑换2')
+                   }
+                })
+            }
+        }
         if(arr.length>0){
             //有兑换渠道时才显示兑换记录
             if(this.app.UrlData.package_id == 16){

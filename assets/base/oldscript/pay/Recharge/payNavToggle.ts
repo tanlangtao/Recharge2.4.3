@@ -275,7 +275,7 @@ export default class NewClass extends cc.Component {
                 }
             });
             this.setTishiLabel(percent)
-        }else if(this.text == '极速充值'){
+        }else if(this.text == '极速充值' || this.text == "极速充值2"){
             let percent = 0
             if(this.app.UrlData.package_id == 9){
                 zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "极速充值");  
@@ -388,7 +388,9 @@ export default class NewClass extends cc.Component {
         }else if(this.text == 'USDT'){
             this.addContent('digiccy')
         }else if(this.text == '极速充值'){
-            this.addJisu()
+            this.addJisu("极速充值")
+        }else if(this.text == '极速充值2'){
+            this.addJisu("极速充值2")
         }else if(this.text == '匹配充值'){
             this.addJisu2()
         }
@@ -409,10 +411,11 @@ export default class NewClass extends cc.Component {
         content.addChild(node);
     }
 
-    addJisu(){
+    addJisu(channel = "极速充值"){
         var content = cc.find('Canvas/Recharge/Content');
         var node = cc.instantiate(this.Jisu);
         content.removeAllChildren();
+        node.getComponent("payJisu").init(channel);
         content.addChild(node);
     }
     addJisu2(){

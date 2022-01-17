@@ -47,10 +47,10 @@ export default class NewClass extends cc.Component {
     public init(data,callback = ()=>{}){
         this.callback = callback
         this.type = data.type
-        if(this.wyfk && data.type == 26){
+        if(this.wyfk && data.type == 26|| data.type == 28){
             this.wyfk.active = true
             this.orderBtn.active = false
-            if(data.status == 6||data.status == 5 || data.status == 4){
+            if(data.status == 6||data.status == 5 || data.status == 4|| data.status == 2 ){
                 this.wyfk.getComponent(cc.Button).interactable = false
             }
         }else{
@@ -68,7 +68,7 @@ export default class NewClass extends cc.Component {
         }else if(data.status == 4){
             this.statusLabel.string = "已撤销"
         }else if(data.status == 2){
-            this.statusLabel.string = "已过期"
+            this.statusLabel.string = "已取消"
         }else{
             this.statusLabel.string = "未完成"
         }
@@ -87,7 +87,9 @@ export default class NewClass extends cc.Component {
                                                 (data.type == 23?`ERC20`:
                                                     (data.type == 24?`TRC20`:
                                                         (data.type == 26?`极速充值`: 
-                                                            (data.type == 27?`匹配充值`: "")
+                                                            (data.type == 27?`匹配充值`: 
+                                                                (data.type == 28?`极速充值2`: "")
+                                                            )
                                                         )
                                                     )
                                                 )
@@ -123,12 +125,12 @@ export default class NewClass extends cc.Component {
             data : this.results
         }
         if(this.app.UrlData.package_id == 16){
-            if(this.type == 26){
+            if(this.type == 26||this.type == 28){
                 //极速充值
                 console.log("data",data)
                 this.showJisuOrderAlert(2,data);
             }else if(this.type == 27){
-                //极速充值
+                //匹配充值
                 console.log("data",data)
                 this.showJisuOrderAlert2(2,data);
             }else{
@@ -141,7 +143,7 @@ export default class NewClass extends cc.Component {
                 }
             }
         }else{
-            if(this.type == 26){
+            if(this.type == 26||this.type == 28){
                 //极速充值
                 console.log("data",data)
                 this.showJisuOrderAlert(2,data);

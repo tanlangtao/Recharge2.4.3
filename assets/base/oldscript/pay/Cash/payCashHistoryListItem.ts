@@ -44,7 +44,9 @@ export default class NewClass extends cc.Component {
                         :(data.type == 3 ? "人工兑换"
                             :( data.type == 6 ?"USDT兑换":
                                 ( data.type == 8 ?"极速兑换":
-                                    ( data.type == 9 ?"匹配兑换":''
+                                    ( data.type == 9 ?"匹配兑换":
+                                        ( data.type == 10 ?"极速兑换":''
+                                    )
                                 ) ))))));
         this.amountLabel.string = this.app.config.toDecimal(data.amount);
         // 类型=兑换渠道
@@ -56,7 +58,7 @@ export default class NewClass extends cc.Component {
             this.exchangeLabel.string  = `${this.app.config.toDecimal1(data.handling_fee*100)}%`;
         }else if(data.type == 4 || data.type == 5){
             this.exchangeLabel.string  = '0.0%';
-        }else if(data.type == 1 || data.type == 2 || data.type ==8) {
+        }else if(data.type == 1 || data.type == 2 || data.type ==8 || data.type ==10) {
             //平台费率➕渠道费率
             var sum = Number(data.results.platform_rate) + Number(data.results.channel_rate);
             this.exchangeLabel.string  = `${this.app.config.toDecimal1(sum*100)}%`;

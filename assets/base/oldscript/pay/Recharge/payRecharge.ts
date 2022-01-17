@@ -344,6 +344,8 @@ export default class NewClass extends cc.Component {
                             arr.push('极速充值')
                         }
                     }
+                    break
+                case "pipei_recharge":{
                     if ( this.zfbResults.data.pipei_pay.length > 0  ) {
                         //先看大渠道是否显示
                         let show = false
@@ -360,7 +362,26 @@ export default class NewClass extends cc.Component {
                         }
                     }
                     break
-            }
+                }
+                case "jisu_recharge2":{
+                    if ( this.zfbResults.data.pq_pay2.length > 0  ) {
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.pq_pay2.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('极速充值2')
+                        }
+                    }
+                    break
+                }
+            }   
         });
         for (let i: number = 0; i < arr.length; i++) {
             var node = cc.instantiate(this.NavToggle);
