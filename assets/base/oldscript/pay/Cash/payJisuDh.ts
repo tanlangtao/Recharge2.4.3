@@ -104,14 +104,15 @@ export default class NewClass extends cc.Component {
     }
 
     setAmount() {
-        if(this.channel == "极速兑换"){
-            this.app.showAlert("请点击【常用金额】选择面值")
-        }else{
-            this.app.showKeyBoard(this.amountLabel,1,()=>{
-                this.writeAmount = true
-                this.setDepostLabel(this.amountLabel.string,0)
-            });
-        }
+        this.app.showAlert("请点击【常用金额】选择面值")
+        // if(this.channel == "极速兑换"){
+        //     this.app.showAlert("请点击【常用金额】选择面值")
+        // }else{
+        //     this.app.showKeyBoard(this.amountLabel,1,()=>{
+        //         this.writeAmount = true
+        //         this.setDepostLabel(this.amountLabel.string,0)
+        //     });
+        // }
     }
     public fetchIndex(){
         var url = `${this.app.UrlData.host}/api/with_draw/index?user_id=${this.app.UrlData.user_id}&package_id=${this.app.UrlData.package_id}`;
