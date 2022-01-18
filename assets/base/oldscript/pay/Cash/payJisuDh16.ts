@@ -107,7 +107,7 @@ export default class NewClass extends cc.Component {
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.fetchIndex();
-        this.fetchgetHighSpeedWithdrawOrder()
+        
         this.fetchgetHighSpeedWithdrawCountDown()
         this.fetchgetHighSpeedWithdrawSecurityRate()
         if(this.channel == "极速兑换2"){
@@ -178,6 +178,7 @@ export default class NewClass extends cc.Component {
         this.app.ajax('GET',url,'',(response)=>{
             if(response.status == 0){
                 this.withdraw_countdown_time = Number(response.data.withdraw_countdown_time)
+                this.fetchgetHighSpeedWithdrawOrder()
             }else{
                 self.app.showAlert(response.msg)
             }
