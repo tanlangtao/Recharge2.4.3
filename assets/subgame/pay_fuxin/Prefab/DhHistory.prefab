@@ -1445,7 +1445,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "57762160-bd27-4eeb-9b75-06584a19e468"
+      "__uuid__": "5b6e9bf8-340a-48d3-b6b4-ab57665aa411"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1539,7 +1539,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "393ebdzZ7RKY5iKgory0NH2",
+    "_componentId": "dae95iUm89E94xHru7/wbh1",
     "handler": "pageUp",
     "customEventData": ""
   },
@@ -1637,7 +1637,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "2591cf75-5246-40b6-ae12-515ce975afca"
+      "__uuid__": "8c791633-619b-4202-a0bb-40d9289e4839"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1731,7 +1731,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "393ebdzZ7RKY5iKgory0NH2",
+    "_componentId": "dae95iUm89E94xHru7/wbh1",
     "handler": "pageDown",
     "customEventData": ""
   },
@@ -1955,33 +1955,6 @@
     "_id": ""
   },
   {
-    "__type__": "393ebdzZ7RKY5iKgory0NH2",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "NavToggle": {
-      "__uuid__": "5bcea26e-27dd-4eb2-a777-2829add65c03"
-    },
-    "ToggleContainer": null,
-    "ListItem": {
-      "__uuid__": "58f8a010-1496-4c59-b5a0-df77b4463466"
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "List": {
-      "__id__": 3
-    },
-    "pageLabel": {
-      "__id__": 47
-    },
-    "app": null,
-    "_id": ""
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -2047,6 +2020,26 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": null,
+    "_id": ""
+  },
+  {
+    "__type__": "dae95iUm89E94xHru7/wbh1",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "ListItem": {
+      "__uuid__": "58f8a010-1496-4c59-b5a0-df77b4463466"
+    },
+    "List": {
+      "__id__": 3
+    },
+    "pageLabel": {
+      "__id__": 47
+    },
+    "app": null,
     "_id": ""
   },
   {

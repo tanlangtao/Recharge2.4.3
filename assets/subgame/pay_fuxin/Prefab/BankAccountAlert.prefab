@@ -889,7 +889,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "9628eDt8FtHoI4USCt/NNgV",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -3983,7 +3983,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "9628eDt8FtHoI4USCt/NNgV",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -4480,7 +4480,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "9628eDt8FtHoI4USCt/NNgV",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -4977,7 +4977,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "9628eDt8FtHoI4USCt/NNgV",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -6333,7 +6333,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "9628eDt8FtHoI4USCt/NNgV",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -7752,30 +7752,21 @@
     "_id": ""
   },
   {
-    "__type__": "d376d7LVBBMi76fa1ZoLNun",
+    "__type__": "9628eDt8FtHoI4USCt/NNgV",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
-    },
     "BankSelectItem": {
       "__uuid__": "cd972043-f642-46c2-9e4f-ab35d4cdca87"
     },
-    "titleIcon": {
-      "__id__": 13
+    "accountInput": {
+      "__id__": 77
     },
     "nameInput": {
       "__id__": 92
-    },
-    "accountInput": {
-      "__id__": 77
     },
     "bankNameInput": {
       "__id__": 146
@@ -7783,17 +7774,17 @@
     "selectProvinceLabel": {
       "__id__": 98
     },
-    "selectProvinceContent": {
-      "__id__": 171
-    },
     "selectCityLabel": {
       "__id__": 111
     },
-    "selectCityContent": {
-      "__id__": 183
-    },
     "selectBankLabel": {
       "__id__": 124
+    },
+    "selectProvinceContent": {
+      "__id__": 171
+    },
+    "selectCityContent": {
+      "__id__": 183
     },
     "selectBankContent": {
       "__id__": 194
@@ -7804,6 +7795,7 @@
     "bankMask": {
       "__id__": 153
     },
+    "AqmLabel": null,
     "action": "add",
     "_id": ""
   },

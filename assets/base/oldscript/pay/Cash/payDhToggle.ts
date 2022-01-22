@@ -41,6 +41,13 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     JisuDh2 : cc.Prefab = null;
 
+    @property(cc.Prefab)
+    GiveDh : cc.Prefab = null;
+
+    @property(cc.Prefab)
+    GiveDhHistory : cc.Prefab = null;
+    
+
     @property
     app= null;
     text = null;
@@ -71,6 +78,8 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "极速兑换");
                 }else if(this.text == '匹配兑换'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
+                }else if(this.text == '赠送'){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
                 }
             }
         }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18|| this.app.UrlData.package_id == 20 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 22){
@@ -96,6 +105,12 @@ export default class NewClass extends cc.Component {
             }else if(this.text == '匹配兑换'){
                 this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
+            }else if(this.text == '赠送'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送");
+            }else if(this.text == '赠送记录'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送记录");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送记录");
             }
         }else if(this.app.UrlData.package_id == 16){
             if(this.text == '银行卡兑换'){
@@ -133,6 +148,20 @@ export default class NewClass extends cc.Component {
                 let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
                 this.app.loadIcon(`${src}/menu/menu_pipei2`,normalIcon,44,44);
                 this.app.loadIcon(`${src}/menu/menu_pipei1`,currentIcon,44,44);
+            }else if(this.text == '赠送'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送");
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/menu_pipei2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/menu_pipei1`,currentIcon,44,44);
+            }else if(this.text == '赠送记录'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送记录");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送记录");
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/menu_pipei2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/menu_pipei1`,currentIcon,44,44);
             }else{
                 this.node.removeFromParent()
             }
@@ -158,10 +187,15 @@ export default class NewClass extends cc.Component {
             }else if(this.text == '匹配兑换'){
                 this.app.loadIcon(`${src}/menu/menu_pipeidh1`,this.normalIcon,242,86)
                 this.app.loadIcon(`${src}/menu/menu_pipeidh2`,this.currentIcon,249,86)
+            }else if(this.text == '赠送'){
+                this.app.loadIcon(`${src}/menu/menu_pipeidh1`,this.normalIcon,242,86)
+                this.app.loadIcon(`${src}/menu/menu_pipeidh2`,this.currentIcon,249,86)
+            }else if(this.text == '赠送记录'){
+                this.app.loadIcon(`${src}/menu/menu_pipeidh1`,this.normalIcon,242,86)
+                this.app.loadIcon(`${src}/menu/menu_pipeidh2`,this.currentIcon,249,86)
             }
         }
     }
-
     setTishiLabel(percent) {
         cc.log("payDhToggle" , this.text , ' percent=',percent);
         this.tishiLabel.string = `${percent * 100} %`;
@@ -171,9 +205,7 @@ export default class NewClass extends cc.Component {
             this.tishi.active = true
         }
     }
-
     // LIFE-CYCLE CALLBACKS:
-
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.showAnimate()
@@ -215,6 +247,10 @@ export default class NewClass extends cc.Component {
             this.addContent("极速兑换2")
         }else if(this.text == "匹配兑换"){
             this.addContent("匹配兑换")
+        }else if(this.text == "赠送"){
+            this.addContent("赠送")
+        }else if(this.text == "赠送记录"){
+            this.addContent("赠送记录")
         }
     }
 
@@ -248,6 +284,10 @@ export default class NewClass extends cc.Component {
             }
         }else if(data == '匹配兑换'){
             var node = cc.instantiate(this.JisuDh2);
+        }else if(data == '赠送'){
+            var node = cc.instantiate(this.GiveDh);
+        }else if(data == '赠送记录'){
+            var node = cc.instantiate(this.GiveDhHistory);
         }
         content.removeAllChildren();
         content.addChild(node);

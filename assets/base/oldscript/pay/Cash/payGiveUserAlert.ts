@@ -13,7 +13,7 @@ export default class NewClass extends cc.Component {
 
     public init(data){
         this.parentComponent = data.parentComponent;
-        this.label.string = `您确认赠送${this.app.config.toDecimal(data.gold)}金币，给玩家（ID:${data.data.id},昵称:${data.data.game_nick}）吗？`
+        this.label.string = `您确认赠送${this.app.config.toDecimal(data.gold)}金币，给玩家（ID:${data.id})吗？`
     }
     // LIFE-CYCLE CALLBACKS:
 
@@ -24,15 +24,13 @@ export default class NewClass extends cc.Component {
     onClick(){
         //按键音效
         this.app.loadMusic(1);
-
-        this.parentComponent.showTestPassword(6);
+        this.parentComponent.fetchsendMoney();
         this.node.removeFromParent();
     }
 
     removeSelf(){
         //按键音效
         this.app.loadMusic(1);
-        
         this.node.destroy();
     }
     // update (dt) {}

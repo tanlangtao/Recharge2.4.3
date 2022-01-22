@@ -510,7 +510,7 @@ export default class NewClass extends cc.Component {
         let msg = e;
         if(type == 1){
             //验证input type = 1 不能以0开头的整数
-            msg  = e.replace(/[^\d]/g, '').replace(/^0{1,}/g, '').substring(0,6);
+            msg  = e.replace(/[^\d]/g, '').replace(/^0{1,}/g, '').substring(0,10);
         }else if(type == 2){
             //验证input type = 2 不能输入特殊字符，保留5位
             var patrn = /[`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]/im;

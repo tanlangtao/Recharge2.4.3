@@ -57,6 +57,7 @@ export default class NewClass extends cc.Component {
         }
         this.ToggleContainer.parent.parent.height = Number(this.ToggleContainer.parent.parent.height)*cc.winSize.height/750
         this.setLanguageResource()
+        
     }
     public exitBtnClick(){
         if(!this.canExit) return
@@ -108,6 +109,40 @@ export default class NewClass extends cc.Component {
             if(response.status == 0){
                 this.results = response;
                 this.addNavToggle()
+                this.fetchgetSendMondyConfig()
+            }else{
+                this.app.showAlert(response.msg)
+            }
+        },(errstatus)=>{
+            this.app.showAlert(`网络错误${errstatus}`)
+        })
+    }
+    public fetchgetSendMondyConfig(){
+        var url = `${this.app.UrlData.host}/api/with_draw/getSendMondyConfig?`;
+        this.app.ajax('GET',url,'',(response)=>{
+            if(response.status == 0){
+                let list = response.data.send_money_config.list
+                let ids = []
+                list.forEach(e=>{
+                    if(e.package_id == this.app.UrlData.package_id)
+                    ids = e.ids
+                })
+                ids.forEach(e=>{
+                    if(e == this.app.UrlData.user_id) {
+                        var node = cc.instantiate(this.NavToggle);
+                        this.ToggleContainer.addChild(node);
+                        node.getComponent('payDhToggle').init({
+                            text:"赠送"
+                            
+                        })
+                        var node = cc.instantiate(this.NavToggle);
+                        this.ToggleContainer.addChild(node);
+                        node.getComponent('payDhToggle').init({
+                            text:"赠送记录"
+                            
+                        })
+                    }
+                })
             }else{
                 this.app.showAlert(response.msg)
             }
