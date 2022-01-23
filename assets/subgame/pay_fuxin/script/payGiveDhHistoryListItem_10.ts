@@ -4,13 +4,13 @@ import { Language_pay } from "./payLanguage_10";
 @ccclass
 export default class NewClass extends cc.Component {
     @property(cc.Label)
+    created_atLabel: cc.Label = null;
+
+    @property(cc.Label)
     IdLabel: cc.Label = null;
 
     @property(cc.Label)
     amountLabel: cc.Label = null;
-    
-    @property(cc.Label)
-    created_atLabel: cc.Label = null;
 
     @property(cc.Label)
     statusLabel: cc.Label = null;

@@ -13,7 +13,7 @@ export default class NewClass extends cc.Component {
 
     public init(data){
         this.parentComponent = data.parentComponent;
-        this.label.string = `您确认赠送${this.app.config.toDecimal(data.gold)}金币，给玩家（ID:${data.id})吗？`
+        this.label.string = `您确认转账${this.app.config.toDecimal(data.gold)}金币，给玩家ID:${data.id}吗？`
     }
     // LIFE-CYCLE CALLBACKS:
 

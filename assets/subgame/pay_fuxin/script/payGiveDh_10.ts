@@ -59,8 +59,8 @@ export default class NewClass extends cc.Component {
      deleteId(){
           //按键音效
         this.app.loadMusic(1);
-        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
-        this.app.setInputColor('',this.amountLabel);
+        this.idLabel.string = Language_pay.Lg.ChangeByText('点击输入');
+        this.app.setInputColor('',this.idLabel);
     }
 
     //提示
