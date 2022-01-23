@@ -27,14 +27,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 157
+        "__id__": 156
       },
       {
-        "__id__": 158
+        "__id__": 157
       }
     ],
     "_prefab": {
-      "__id__": 159
+      "__id__": 158
     },
     "_opacity": 255,
     "_color": {
@@ -353,17 +353,17 @@
     "_active": true,
     "_components": [
       {
+        "__id__": 152
+      },
+      {
         "__id__": 153
       },
       {
         "__id__": 154
-      },
-      {
-        "__id__": 155
       }
     ],
     "_prefab": {
-      "__id__": 156
+      "__id__": 155
     },
     "_opacity": 255,
     "_color": {
@@ -836,7 +836,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "4779dD7rhtOVJOk524aA5du",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -3900,7 +3900,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "4779dD7rhtOVJOk524aA5du",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -4234,7 +4234,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "4779dD7rhtOVJOk524aA5du",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -4568,7 +4568,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "4779dD7rhtOVJOk524aA5du",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -4902,7 +4902,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "4779dD7rhtOVJOk524aA5du",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -5170,9 +5170,7 @@
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 0.9,
-    "clickEvents": [
-      null
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 3,
@@ -5469,7 +5467,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 152
+      "__id__": 151
     },
     "_opacity": 255,
     "_color": {
@@ -5672,11 +5670,7 @@
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 0.9,
-    "clickEvents": [
-      {
-        "__id__": 151
-      }
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": true,
     "_N$transition": 3,
@@ -5731,16 +5725,6 @@
     "_N$disabledSprite": null,
     "_N$target": null,
     "_id": ""
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 1
-    },
-    "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
-    "handler": "onClick",
-    "customEventData": ""
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5883,13 +5867,16 @@
     "_id": ""
   },
   {
-    "__type__": "bb7f8nT0zNNcofA/PLysT9o",
+    "__type__": "4779dD7rhtOVJOk524aA5du",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
+    "popWindowBG": {
+      "__id__": 8
+    },
     "bank_nameLabel": {
       "__id__": 36
     },
@@ -5904,18 +5891,6 @@
     },
     "nickNameLabel": {
       "__id__": 23
-    },
-    "remarkLabel": {
-      "__id__": 52
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "popWindowBG": {
-      "__id__": 8
-    },
-    "btn": {
-      "__id__": 150
     },
     "attention": {
       "__id__": 143

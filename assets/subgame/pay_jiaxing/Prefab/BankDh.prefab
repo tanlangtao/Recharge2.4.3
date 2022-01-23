@@ -1141,7 +1141,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "b1bc8KCZxtMY6epmRK43ihy",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -1334,7 +1334,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "b1bc8KCZxtMY6epmRK43ihy",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2521,7 +2521,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "b1bc8KCZxtMY6epmRK43ihy",
     "handler": "allGoldClick",
     "customEventData": ""
   },
@@ -3654,7 +3654,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "b1bc8KCZxtMY6epmRK43ihy",
     "handler": "btn1Click",
     "customEventData": ""
   },
@@ -4220,56 +4220,6 @@
     "_id": ""
   },
   {
-    "__type__": "8e34ehc7PND9pYrjRo9oO0p",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "SelectItem": {
-      "__uuid__": "aff8008d-c406-41de-ac32-0343c1a17f28"
-    },
-    "amountLabel": {
-      "__id__": 29
-    },
-    "czArea": {
-      "__id__": 36
-    },
-    "accountLabel": {
-      "__id__": 84
-    },
-    "accountBtn": {
-      "__id__": 90
-    },
-    "selectContent": {
-      "__id__": 71
-    },
-    "goldLabel": {
-      "__id__": 12
-    },
-    "CashAlert": {
-      "__uuid__": "ea82c645-3c16-4dae-a93f-6eb267846cb8"
-    },
-    "DhBtn": {
-      "__id__": 103
-    },
-    "slider": {
-      "__id__": 52
-    },
-    "progressBar": {
-      "__id__": 54
-    },
-    "data": {},
-    "_id": ""
-  },
-  {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
@@ -4297,6 +4247,50 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "b1bc8KCZxtMY6epmRK43ihy",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "SelectItem": {
+      "__uuid__": "aff8008d-c406-41de-ac32-0343c1a17f28"
+    },
+    "CashAlert": {
+      "__uuid__": "ea82c645-3c16-4dae-a93f-6eb267846cb8"
+    },
+    "goldLabel": {
+      "__id__": 12
+    },
+    "amountLabel": {
+      "__id__": 29
+    },
+    "czArea": {
+      "__id__": 36
+    },
+    "slider": {
+      "__id__": 52
+    },
+    "progressBar": {
+      "__id__": 54
+    },
+    "selectContent": {
+      "__id__": 71
+    },
+    "accountLabel": {
+      "__id__": 84
+    },
+    "accountBtn": {
+      "__id__": 90
+    },
+    "DhBtn": {
+      "__id__": 103
+    },
+    "data": {},
     "_id": ""
   },
   {

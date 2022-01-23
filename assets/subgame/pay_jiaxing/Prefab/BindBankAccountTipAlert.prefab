@@ -819,7 +819,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "a6a5fmTHzNDmbMVOx11d2LU",
+    "_componentId": "3d980PhNVhPZ7NxPuxSuXI3",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -1123,7 +1123,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "a6a5fmTHzNDmbMVOx11d2LU",
+    "_componentId": "3d980PhNVhPZ7NxPuxSuXI3",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -1336,7 +1336,7 @@
     "_id": ""
   },
   {
-    "__type__": "a6a5fmTHzNDmbMVOx11d2LU",
+    "__type__": "3d980PhNVhPZ7NxPuxSuXI3",
     "_name": "",
     "_objFlags": 0,
     "node": {

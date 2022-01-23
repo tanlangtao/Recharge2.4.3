@@ -332,7 +332,7 @@
   {
     "__type__": "cc.Node",
     "_name": "Content",
-    "_objFlags": 512,
+    "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
@@ -839,7 +839,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f6f45ptSFIvJ91j8trSycd",
+    "_componentId": "4558asLADdO8ZM3mxy1V6P4",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -3903,7 +3903,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f6f45ptSFIvJ91j8trSycd",
+    "_componentId": "4558asLADdO8ZM3mxy1V6P4",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -4237,7 +4237,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f6f45ptSFIvJ91j8trSycd",
+    "_componentId": "4558asLADdO8ZM3mxy1V6P4",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -4571,7 +4571,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f6f45ptSFIvJ91j8trSycd",
+    "_componentId": "4558asLADdO8ZM3mxy1V6P4",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -4905,7 +4905,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f6f45ptSFIvJ91j8trSycd",
+    "_componentId": "4558asLADdO8ZM3mxy1V6P4",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -5173,9 +5173,7 @@
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 0.9,
-    "clickEvents": [
-      null
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 3,
@@ -5741,7 +5739,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f6f45ptSFIvJ91j8trSycd",
+    "_componentId": "4558asLADdO8ZM3mxy1V6P4",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -6264,7 +6262,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f6f45ptSFIvJ91j8trSycd",
+    "_componentId": "4558asLADdO8ZM3mxy1V6P4",
     "handler": "quxiaoClick",
     "customEventData": ""
   },
@@ -6567,7 +6565,7 @@
     "asset": {
       "__uuid__": "05cefb7f-3261-49e5-8c67-869f1a1895dd"
     },
-    "fileId": "c6pIBJHqtD1JTl0Djrq0LN",
+    "fileId": "beIFni9ENFdqWEThU1WzUQ",
     "sync": false
   },
   {
@@ -6676,7 +6674,7 @@
     "asset": {
       "__uuid__": "05cefb7f-3261-49e5-8c67-869f1a1895dd"
     },
-    "fileId": "b5oinftAdC0JkE+egABE/6",
+    "fileId": "7aRHGlCOJLw7xnpUzr+j2+",
     "sync": false
   },
   {
@@ -6785,7 +6783,7 @@
     "asset": {
       "__uuid__": "05cefb7f-3261-49e5-8c67-869f1a1895dd"
     },
-    "fileId": "c7xFJXMwNNuLW0HenOop+P",
+    "fileId": "c5Z+myVU5DQrJXkl9aohCJ",
     "sync": false
   },
   {
@@ -7348,7 +7346,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "4f6f45ptSFIvJ91j8trSycd",
+    "_componentId": "4558asLADdO8ZM3mxy1V6P4",
     "handler": "quxiaoClick",
     "customEventData": ""
   },
@@ -7493,13 +7491,16 @@
     "_id": ""
   },
   {
-    "__type__": "4f6f45ptSFIvJ91j8trSycd",
+    "__type__": "4558asLADdO8ZM3mxy1V6P4",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
+    "popWindowBG": {
+      "__id__": 8
+    },
     "bank_nameLabel": {
       "__id__": 36
     },
@@ -7514,15 +7515,6 @@
     },
     "nickNameLabel": {
       "__id__": 23
-    },
-    "remarkLabel": {
-      "__id__": 52
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "popWindowBG": {
-      "__id__": 8
     },
     "btn": {
       "__id__": 150

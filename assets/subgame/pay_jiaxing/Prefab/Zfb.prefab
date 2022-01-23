@@ -2467,7 +2467,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "8d527/V7FhJAIf2V2OXdV2L",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2660,7 +2660,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "8d527/V7FhJAIf2V2OXdV2L",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -3258,7 +3258,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "8d527/V7FhJAIf2V2OXdV2L",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3452,7 +3452,37 @@
     "_id": ""
   },
   {
-    "__type__": "dea7bRsy3FKj6PdF7ILWgOg",
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": null,
+    "_type": 1,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "8d527/V7FhJAIf2V2OXdV2L",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -3488,7 +3518,7 @@
       "__id__": 12
     },
     "blinkNode": {
-      "__id__": 35
+      "__id__": 27
     },
     "BindBankAccountTipAlert": {
       "__uuid__": "49a2b015-78cd-480c-99bd-93a29bd30212"
@@ -3501,36 +3531,6 @@
     },
     "cyjeItem": null,
     "app": null,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": null,
-    "_type": 1,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
     "_id": ""
   },
   {
