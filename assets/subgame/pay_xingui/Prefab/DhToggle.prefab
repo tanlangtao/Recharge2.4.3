@@ -1143,39 +1143,17 @@
       "__id__": 1
     },
     "_enabled": true,
-    "Dh": {
-      "__uuid__": "221b4073-5525-4174-81fa-23cf01452324"
-    },
-    "BankDh": {
-      "__uuid__": "60f7e4e3-1e65-44e6-a7c9-eec38c03f40a"
-    },
-    "RgDh": {
-      "__uuid__": "54cc5c53-e99a-44c1-b406-dd01e37c25d6"
-    },
-    "DhHistory": {
-      "__uuid__": "4b572c78-91cd-47f2-b285-15dd059a3d12"
-    },
     "normalIcon": {
       "__id__": 2
     },
     "currentIcon": {
       "__id__": 10
     },
-    "UsdtDh": {
-      "__uuid__": "c6d5894b-ebdc-4604-9f7d-50b17278b8a1"
-    },
     "tishi": {
       "__id__": 16
     },
     "tishiLabel": {
       "__id__": 18
-    },
-    "BankCardManage": null,
-    "JisuDh": {
-      "__uuid__": "dfc675d0-bb06-40f2-81df-6c56815e2d38"
-    },
-    "JisuDh2": {
-      "__uuid__": "96470b68-dbba-40cb-848a-ec5f963de550"
     },
     "app": null,
     "_id": ""

@@ -892,35 +892,17 @@
       "__id__": 1
     },
     "_enabled": true,
-    "Dh": null,
-    "BankDh": {
-      "__uuid__": "ee4557b3-d1b2-4dce-bc91-d4b57a7cb896"
-    },
-    "RgDh": null,
-    "DhHistory": {
-      "__uuid__": "f001b7f7-1a91-487b-b770-646f994327db"
-    },
     "normalIcon": {
       "__id__": 3
     },
     "currentIcon": {
       "__id__": 9
     },
-    "UsdtDh": {
-      "__uuid__": "5521a31a-0627-4fe8-93d8-14cf8f99fc5c"
-    },
     "tishi": {
       "__id__": 15
     },
     "tishiLabel": {
       "__id__": 17
-    },
-    "BankCardManage": null,
-    "JisuDh": {
-      "__uuid__": "bf9eb684-946b-46b1-a440-7daf88b5f508"
-    },
-    "JisuDh2": {
-      "__uuid__": "a57d609e-31a5-4849-aa9c-c182c600e662"
     },
     "app": null,
     "_id": ""

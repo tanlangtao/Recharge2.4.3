@@ -49,8 +49,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1090,
-      "height": 580
+      "width": 1020,
+      "height": 620
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -142,7 +142,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        20.346,
         0,
         0,
         0,
@@ -199,7 +199,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1020,
+      "width": 1000,
       "height": 460
     },
     "_anchorPoint": {
@@ -212,7 +212,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        5.586000000000013,
+        3.7930000000000064,
         0,
         0,
         0,
@@ -276,7 +276,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 1020,
+      "width": 1000,
       "height": 460
     },
     "_resize": 0,
@@ -309,9 +309,9 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 41,
-    "_left": 0,
-    "_right": 0,
-    "_top": 54.413999999999994,
+    "_left": 10,
+    "_right": 10,
+    "_top": 56.206999999999994,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -382,7 +382,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1020,
+      "width": 1000,
       "height": 54
     },
     "_anchorPoint": {
@@ -395,7 +395,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        262.877,
+        260.191,
         0,
         0,
         0,
@@ -894,7 +894,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1020,
+      "width": 1000,
       "height": 54
     },
     "_anchorPoint": {
@@ -973,7 +973,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -510.302,
+        -499.348,
         0,
         0,
         0,
@@ -1014,7 +1014,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "78edbaff-abec-4514-9a59-7b2e0207fb36"
+      "__uuid__": "59d48c1d-48b6-4080-8901-9b7bb0d67647"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1151,7 +1151,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "78edbaff-abec-4514-9a59-7b2e0207fb36"
+      "__uuid__": "59d48c1d-48b6-4080-8901-9b7bb0d67647"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1288,7 +1288,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "78edbaff-abec-4514-9a59-7b2e0207fb36"
+      "__uuid__": "59d48c1d-48b6-4080-8901-9b7bb0d67647"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1425,7 +1425,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "78edbaff-abec-4514-9a59-7b2e0207fb36"
+      "__uuid__": "59d48c1d-48b6-4080-8901-9b7bb0d67647"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1521,7 +1521,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        511,
+        500.057,
         0,
         0,
         0,
@@ -1562,7 +1562,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "78edbaff-abec-4514-9a59-7b2e0207fb36"
+      "__uuid__": "59d48c1d-48b6-4080-8901-9b7bb0d67647"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1697,9 +1697,9 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 41,
-    "_left": 0,
-    "_right": 0,
-    "_top": 0.12300000000000466,
+    "_left": 10,
+    "_right": 10,
+    "_top": 2.8090000000000117,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -1767,7 +1767,7 @@
       "ctor": "Float64Array",
       "array": [
         -70,
-        -257.685,
+        -251.082,
         0,
         0,
         0,
@@ -1959,7 +1959,7 @@
       "ctor": "Float64Array",
       "array": [
         60,
-        -257.685,
+        -251.082,
         0,
         0,
         0,
@@ -2148,7 +2148,7 @@
       "ctor": "Float64Array",
       "array": [
         -6,
-        -255.685,
+        -249.082,
         0,
         0,
         0,
@@ -2300,10 +2300,10 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 45,
-    "_left": 122,
-    "_right": 122,
-    "_top": 85,
-    "_bottom": 85,
+    "_left": 157,
+    "_right": 157,
+    "_top": 65,
+    "_bottom": 65,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,

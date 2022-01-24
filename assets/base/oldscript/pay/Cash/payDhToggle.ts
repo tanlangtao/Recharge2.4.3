@@ -1,30 +1,14 @@
 //兑换导航
 const {ccclass, property} = cc._decorator;
-import { Language_pay } from "./../language/payLanguage";
+import { Language_pay } from "../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
 
-
-    @property(cc.Prefab)
-    Dh : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    BankDh : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    RgDh : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    DhHistory : cc.Prefab = null;
-    
     @property(cc.Node)
     normalIcon : cc.Node = null;
 
     @property(cc.Node)
     currentIcon : cc.Node = null;
-
-    @property(cc.Prefab)
-    UsdtDh : cc.Prefab = null;
 
     @property(cc.Node)
     tishi : cc.Node = null;
@@ -32,26 +16,9 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     tishiLabel : cc.Label =null;
 
-    @property(cc.Prefab)
-    BankCardManage :cc.Prefab = null;
-
-    @property(cc.Prefab)
-    JisuDh : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    JisuDh2 : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    GiveDh : cc.Prefab = null;
-
-    @property(cc.Prefab)
-    GiveDhHistory : cc.Prefab = null;
-    
-
     @property
     app= null;
     text = null;
-
     public init(data){
         let src = Language_pay.Lg.getLgSrc()
         this.text=data.text;
@@ -79,7 +46,9 @@ export default class NewClass extends cc.Component {
                 }else if(this.text == '匹配兑换'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
                 }else if(this.text == '赠送'){
-                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "账户内互转");
+                }else if(this.text == '赠送记录'){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账记录");
                 }
             }
         }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18|| this.app.UrlData.package_id == 20 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 22){
@@ -106,11 +75,11 @@ export default class NewClass extends cc.Component {
                 this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "匹配兑换");
             }else if(this.text == '赠送'){
-                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送");
-                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送");
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "账户内互转");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "账户内互转");
             }else if(this.text == '赠送记录'){
-                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送记录");
-                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送记录");
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账记录");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账记录");
             }
         }else if(this.app.UrlData.package_id == 16){
             if(this.text == '银行卡兑换'){
@@ -149,19 +118,12 @@ export default class NewClass extends cc.Component {
                 this.app.loadIcon(`${src}/menu/menu_pipei2`,normalIcon,44,44);
                 this.app.loadIcon(`${src}/menu/menu_pipei1`,currentIcon,44,44);
             }else if(this.text == '赠送'){
-                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送");
-                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送");
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "账户内互转");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "账户内互转");
                 let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
                 let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
-                this.app.loadIcon(`${src}/menu/menu_pipei2`,normalIcon,44,44);
-                this.app.loadIcon(`${src}/menu/menu_pipei1`,currentIcon,44,44);
-            }else if(this.text == '赠送记录'){
-                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送记录");
-                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "赠送记录");
-                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
-                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
-                this.app.loadIcon(`${src}/menu/menu_pipei2`,normalIcon,44,44);
-                this.app.loadIcon(`${src}/menu/menu_pipei1`,currentIcon,44,44);
+                this.app.loadIcon(`${src}/menu/zhnhz2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/zhnhz1`,currentIcon,44,44);
             }else{
                 this.node.removeFromParent()
             }
@@ -188,11 +150,11 @@ export default class NewClass extends cc.Component {
                 this.app.loadIcon(`${src}/menu/menu_pipeidh1`,this.normalIcon,242,86)
                 this.app.loadIcon(`${src}/menu/menu_pipeidh2`,this.currentIcon,249,86)
             }else if(this.text == '赠送'){
-                this.app.loadIcon(`${src}/menu/menu_pipeidh1`,this.normalIcon,242,86)
-                this.app.loadIcon(`${src}/menu/menu_pipeidh2`,this.currentIcon,249,86)
+                this.app.loadIcon(`${src}/menu/menu_zhnhz_1`,this.normalIcon,242,86)
+                this.app.loadIcon(`${src}/menu/menu_zhnhz_2`,this.currentIcon,249,86)
             }else if(this.text == '赠送记录'){
-                this.app.loadIcon(`${src}/menu/menu_pipeidh1`,this.normalIcon,242,86)
-                this.app.loadIcon(`${src}/menu/menu_pipeidh2`,this.currentIcon,249,86)
+                this.app.loadIcon(`${src}/menu/menu_zzjl_1`,this.normalIcon,242,86)
+                this.app.loadIcon(`${src}/menu/menu_zzjl_2`,this.currentIcon,249,86)
             }
         }
     }
@@ -210,6 +172,7 @@ export default class NewClass extends cc.Component {
         this.app = cc.find('Canvas/Main').getComponent('payMain');
         this.showAnimate()
     }
+    
     showAnimate(){
         if(this.app.UrlData.package_id == 16){
             this.node.parent.children.forEach(e=>{
@@ -238,59 +201,41 @@ export default class NewClass extends cc.Component {
         }else if(this.text == '兑换记录'){
             this.addContent('DhHistory');
         }else if(this.text == 'USDT兑换'){
-            this.addContent('USDT');
-        }else if(this.text == "银行卡管理"){
-            this.addContent("BankCardManage")
+            this.addContent('UsdtDh');
         }else if(this.text == "极速兑换"){
-            this.addContent("极速兑换")
+            this.addContent("JisuDh")
         }else if(this.text == "极速兑换2"){
-            this.addContent("极速兑换2")
+            this.addContent("JisuDh","极速兑换2")
         }else if(this.text == "匹配兑换"){
-            this.addContent("匹配兑换")
+            this.addContent("JisuDh2")
         }else if(this.text == "赠送"){
-            this.addContent("赠送")
+            this.addContent("GiveDh")
         }else if(this.text == "赠送记录"){
-            this.addContent("赠送记录")
+            this.addContent("GiveDhHistory")
         }
     }
-
-    addContent(data){
+    addContent(data,jisu = ""){
         var content = cc.find('Canvas/Cash/Content');
-        if(data == 'Dh'){
-            var node = cc.instantiate(this.Dh);
-        }else if(data == 'BankDh'){
-            var node = cc.instantiate(this.BankDh);
-        }else if(data == 'RgDh'){
-            var node = cc.instantiate(this.RgDh);
-        }else if(data == 'DhHistory'){
-            var node = cc.instantiate(this.DhHistory);
-        }else if(data == 'USDT'){
-            var node = cc.instantiate(this.UsdtDh);
-        }else if(data == 'BankCardManage'){
-            var node = cc.instantiate(this.BankCardManage);
-        }else if(data == '极速兑换'){
-            var node = cc.instantiate(this.JisuDh);
-            if(this.app.UrlData.package_id == 16){
-                node.getComponent("payJisuDh16").init("极速兑换")
-            }else{
-                node.getComponent("payJisuDh").init("极速兑换")
+        this.app.loadBundlePrefab(`Prefab/${data}`,(Prefab)=>{
+            if(Prefab){ 
+                var node = cc.instantiate(Prefab);
+                if(this.app.UrlData.package_id == 16){
+                    if(jisu == "极速兑换2"){
+                        node.getComponent("payJisuDh16").init("极速兑换2")
+                    }else if(data == "JisuDh"){
+                        node.getComponent("payJisuDh16").init("极速兑换")
+                    }
+                }else{
+                    if(jisu == "极速兑换2"){
+                        node.getComponent("payJisuDh").init("极速兑换2")
+                    }else if(data == "JisuDh"){
+                        node.getComponent("payJisuDh").init("极速兑换")
+                    }
+                }
+                content.removeAllChildren();
+                content.addChild(node);
             }
-        }else if(data == '极速兑换2'){
-            var node = cc.instantiate(this.JisuDh);
-            if(this.app.UrlData.package_id == 16){
-                node.getComponent("payJisuDh16").init("极速兑换2")
-            }else{
-                node.getComponent("payJisuDh").init("极速兑换2")
-            }
-        }else if(data == '匹配兑换'){
-            var node = cc.instantiate(this.JisuDh2);
-        }else if(data == '赠送'){
-            var node = cc.instantiate(this.GiveDh);
-        }else if(data == '赠送记录'){
-            var node = cc.instantiate(this.GiveDhHistory);
-        }
-        content.removeAllChildren();
-        content.addChild(node);
+        })
     }
     // update (dt) {}
 }

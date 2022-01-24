@@ -284,14 +284,23 @@ export default class NewClass extends cc.Component {
         }else if(this.writeAmount){
             let amount = Number(this.amountLabel.string)
             let index = 0
+            let min = 100
+            let max = 0
             this.amount_rule.forEach((e,i)=>{
                 if(amount>=Number(e.min) && amount<= Number(e.max)){
                     index = i
-                    console.log(index)
+                }
+                if(Number(e.min)<min){
+                    min = Number(e.min)
+                }
+                if(Number(e.max)>max){
+                    max = Number(e.max)
                 }
             })
             let range = this.amount_rule[index].range
-            if(amount%range == 0){
+            if(amount>max || amount<min){
+                this.app.showAlert(`不符合充值范围(${min}-${max})`)
+            }else if(amount%range == 0){
                 this.fetchOrder();
             }else{
                 this.app.showAlert(`充值金额必须是${range}的倍数`)

@@ -429,8 +429,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 102,
-      "height": 115
+      "width": 126,
+      "height": 107
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -482,7 +482,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": null,
-    "_type": 0,
+    "_type": 1,
     "_sizeMode": 1,
     "_fillType": 0,
     "_fillCenter": {
@@ -507,10 +507,10 @@
     "alignMode": 1,
     "_target": null,
     "_alignFlags": 45,
-    "_left": 25.5,
-    "_right": 25.5,
-    "_top": -3.5,
-    "_bottom": -3.5,
+    "_left": 13.5,
+    "_right": 13.5,
+    "_top": 0.5,
+    "_bottom": 0.5,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,
@@ -700,36 +700,14 @@
       "__id__": 1
     },
     "_enabled": true,
-    "Dh": {
-      "__uuid__": "4179a0c3-d647-4f20-bf8e-2930b24ccf5b"
-    },
-    "BankDh": {
-      "__uuid__": "b6e27691-1361-4918-9a31-e216990b2d4a"
-    },
-    "RgDh": {
-      "__uuid__": "db4372ba-7fee-4013-9f5c-cc884901094e"
-    },
-    "DhHistory": {
-      "__uuid__": "8d4dc26b-7b58-4622-8608-f34d27b6eec4"
-    },
     "normalIcon": {
       "__id__": 2
     },
     "currentIcon": {
       "__id__": 10
     },
-    "UsdtDh": {
-      "__uuid__": "375963be-3b09-4e98-9adc-8de02ab3bd91"
-    },
     "tishi": null,
     "tishiLabel": null,
-    "BankCardManage": null,
-    "JisuDh": {
-      "__uuid__": "cf9c0845-36b7-4ee0-a591-5661a904030a"
-    },
-    "JisuDh2": {
-      "__uuid__": "15cc073d-ad26-4b30-9873-dcc768538e84"
-    },
     "app": null,
     "_id": ""
   },

@@ -19,12 +19,6 @@ export default class NewClass extends cc.Component {
     @property
     app= null;
     text = null;
-    // LoadNodes(){
-    //     this.normalIcon = this.node.getChildByName("Background").getChildByName("font")
-    //     this.currentIcon = this.node.getChildByName("checkmark").getChildByName("font")
-    //     this.tishi = this.node.getChildByName("tishi")
-    //     this.tishiLabel = this.tishi.children[0].getComponent(cc.Label)
-    // }
     public init(data){
         let src = Language_pay.Lg.getLgSrc()
         this.text=data.text;

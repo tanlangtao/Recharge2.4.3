@@ -1,10 +1,10 @@
 
 const {ccclass, property} = cc._decorator;
-import { Language_pay } from "./../language/payLanguage";
+import { Language_pay } from "../language/payLanguage";
 @ccclass
 export default class NewClass extends cc.Component {
-    @property(cc.Prefab)
-    publicAlert : cc.Prefab = null;
+    @property(cc.Label)
+    goldLabel: cc.Label = null;
 
     @property(cc.Label)
     amountLabel: cc.Label = null;
@@ -12,14 +12,14 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     idLabel: cc.Label = null;
 
-    @property(cc.Label)
-    goldLabel: cc.Label = null;
-
     @property(cc.Prefab)
     GiveUserAlert: cc.Prefab = null;
 
     @property(cc.Node)
     DhBtn: cc.Node = null;
+    
+    @property(cc.Prefab)
+    GiveDhHistory:cc.Prefab = null;
 
     @property
     public data : any = {};
@@ -59,11 +59,11 @@ export default class NewClass extends cc.Component {
         this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
         this.app.setInputColor('',this.amountLabel);
     }
-     deleteId(){
+    deleteId(){
           //按键音效
         this.app.loadMusic(1);
-        this.amountLabel.string = Language_pay.Lg.ChangeByText('点击输入');
-        this.app.setInputColor('',this.amountLabel);
+        this.idLabel.string = Language_pay.Lg.ChangeByText('点击输入');
+        this.app.setInputColor('',this.idLabel);
     }
 
     //提示
@@ -106,7 +106,7 @@ export default class NewClass extends cc.Component {
                 self.fetchIndex();
             }else{
                 if(response.msg == "game user is not found"){
-                    self.app.showAlert("赠送玩家ID错误")
+                    self.app.showAlert("收款ID不存在")
                 }else{
                     self.app.showAlert(response.msg)
                 }
@@ -121,13 +121,18 @@ export default class NewClass extends cc.Component {
         this.app.loadMusic(1);
         var amount = Number(this.amountLabel.string);
         if(this.amountLabel.string == Language_pay.Lg.ChangeByText('点击输入')){
-            this.app.showAlert(Language_pay.Lg.ChangeByText('赠送金额不能为空'))
+            this.app.showAlert(Language_pay.Lg.ChangeByText('转账金额不能为空'))
         }else if(this.idLabel.string == Language_pay.Lg.ChangeByText('点击输入')){
-            this.app.showAlert(Language_pay.Lg.ChangeByText('受赠人ID不能为空'))
+            this.app.showAlert(Language_pay.Lg.ChangeByText('转账ID不能为空'))
         }else if(amount >Number(this.goldLabel.string)){
             this.app.showAlert(Language_pay.Lg.ChangeByText('余额不足'))
         }else{
             this.showGiveUserAlert();
         }
+    }
+    //16
+    historyClick(){
+        var node = cc.instantiate(this.GiveDhHistory)
+        cc.find("Canvas").addChild(node)
     }
 }

@@ -135,12 +135,14 @@ export default class NewClass extends cc.Component {
                             text:"赠送"
                             
                         })
-                        var node = cc.instantiate(this.NavToggle);
-                        this.ToggleContainer.addChild(node);
-                        node.getComponent('payDhToggle').init({
-                            text:"赠送记录"
-                            
-                        })
+                        if(this.app.UrlData.package_id != 16){
+                            var node = cc.instantiate(this.NavToggle);
+                            this.ToggleContainer.addChild(node);
+                            node.getComponent('payDhToggle').init({
+                                text:"赠送记录"
+                                
+                            })
+                        }
                     }
                 })
             }else{

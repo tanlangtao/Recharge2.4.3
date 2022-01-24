@@ -6,9 +6,6 @@ export default class NewClass extends cc.Component {
     @property(cc.Prefab)
     ListItem : cc.Prefab = null;
 
-    @property(cc.Prefab)
-    publicAlert : cc.Prefab = null;
-
     @property(cc.Node)
     List : cc.Node = null;
 
@@ -58,18 +55,7 @@ export default class NewClass extends cc.Component {
                     var data = listArr[i];
                     var node = cc.instantiate(self.ListItem);
                     self.List.addChild(node);
-                    node.getComponent('payGiveDhHistoryListItem').init({
-                        type : data.type,
-                        amount : data.amount,
-                        handling_fee:data.handling_fee,
-                        replace_handling_fee:data.replace_handling_fee,
-                        arrival_amount:data.arrival_amount,
-                        status : data.status,
-                        created_at : data.created_at,
-                        arrival_at : data.arrival_at,
-                        user_remark:data.user_remark,
-                        results:data
-                    })
+                    node.getComponent('payGiveDhHistoryListItem').init(data)
                 }
 
             }else{
