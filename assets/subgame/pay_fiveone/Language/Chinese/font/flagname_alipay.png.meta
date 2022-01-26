@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.5",
+  "uuid": "a3e67021-fc99-4cd4-9044-051282f9a12b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 125,
+  "height": 43,
+  "platformSettings": {},
+  "subMetas": {
+    "flagname_alipay": {
+      "ver": "1.0.4",
+      "uuid": "975bdb25-366c-4a22-85cd-8fbac9de9738",
+      "rawTextureUuid": "a3e67021-fc99-4cd4-9044-051282f9a12b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 125,
+      "height": 43,
+      "rawWidth": 125,
+      "rawHeight": 43,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

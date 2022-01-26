@@ -175,7 +175,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "2978f136-d431-4df5-9377-bad293c3b06a"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -729,7 +729,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -2857,7 +2857,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -3055,7 +3055,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -3253,7 +3253,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -3451,7 +3451,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -4236,13 +4236,16 @@
     "_id": ""
   },
   {
-    "__type__": "bb7f8nT0zNNcofA/PLysT9o",
+    "__type__": "24139BTFCZJbKH2Bugz2Mys",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
+    "popWindowBG": {
+      "__id__": 8
+    },
     "bank_nameLabel": {
       "__id__": 45
     },
@@ -4250,25 +4253,13 @@
       "__id__": 48
     },
     "card_nameLabel": {
-      "__id__": 51
+      "__id__": 48
     },
     "amountLabel": {
       "__id__": 54
     },
     "nickNameLabel": {
       "__id__": 67
-    },
-    "remarkLabel": {
-      "__id__": 57
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "popWindowBG": {
-      "__id__": 8
-    },
-    "btn": {
-      "__id__": 102
     },
     "attention": {
       "__id__": 98

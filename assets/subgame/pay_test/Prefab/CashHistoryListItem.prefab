@@ -969,41 +969,6 @@
     "sync": false
   },
   {
-    "__type__": "28eac81JWpH34BVL0m7fEAj",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "typeLabel": {
-      "__id__": 3
-    },
-    "amountLabel": {
-      "__id__": 6
-    },
-    "exchangeLabel": {
-      "__id__": 9
-    },
-    "arrival_amountLabel": {
-      "__id__": 12
-    },
-    "statusLabel": {
-      "__id__": 15
-    },
-    "created_atLabel": {
-      "__id__": 18
-    },
-    "arrival_atLabel": {
-      "__id__": 21
-    },
-    "admin_remarkLabel": {
-      "__id__": 24
-    },
-    "results": {},
-    "_id": ""
-  },
-  {
     "__type__": "cc.Layout",
     "_name": "",
     "_objFlags": 0,
@@ -1065,6 +1030,41 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "a37b4IgJlNANYSuu42zRJx1",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "typeLabel": {
+      "__id__": 3
+    },
+    "amountLabel": {
+      "__id__": 6
+    },
+    "exchangeLabel": {
+      "__id__": 9
+    },
+    "arrival_amountLabel": {
+      "__id__": 12
+    },
+    "statusLabel": {
+      "__id__": 15
+    },
+    "created_atLabel": {
+      "__id__": 18
+    },
+    "arrival_atLabel": {
+      "__id__": 21
+    },
+    "admin_remarkLabel": {
+      "__id__": 24
+    },
+    "results": {},
     "_id": ""
   },
   {
