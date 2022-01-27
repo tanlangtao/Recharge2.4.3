@@ -572,8 +572,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 290,
-      "height": 63
+      "width": 288,
+      "height": 61
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -585,7 +585,7 @@
       "ctor": "Float64Array",
       "array": [
         -1.834,
-        321.202,
+        322.202,
         0,
         0,
         0,
@@ -886,7 +886,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "3e1b6+cVbxN5YGYd7n4GhdK",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -1291,7 +1291,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "3e1b6+cVbxN5YGYd7n4GhdK",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -4294,7 +4294,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "3e1b6+cVbxN5YGYd7n4GhdK",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -4417,7 +4417,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "3e1b6+cVbxN5YGYd7n4GhdK",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -4791,7 +4791,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "3e1b6+cVbxN5YGYd7n4GhdK",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -4914,7 +4914,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "3e1b6+cVbxN5YGYd7n4GhdK",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -5288,7 +5288,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "3e1b6+cVbxN5YGYd7n4GhdK",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -5411,7 +5411,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "3e1b6+cVbxN5YGYd7n4GhdK",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -7730,30 +7730,21 @@
     "_id": ""
   },
   {
-    "__type__": "d376d7LVBBMi76fa1ZoLNun",
+    "__type__": "3e1b6+cVbxN5YGYd7n4GhdK",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
-    },
     "BankSelectItem": {
       "__uuid__": "34489a02-5d47-4dc7-bca7-bd1ee8d966e7"
     },
-    "titleIcon": {
-      "__id__": 13
+    "accountInput": {
+      "__id__": 85
     },
     "nameInput": {
       "__id__": 100
-    },
-    "accountInput": {
-      "__id__": 85
     },
     "bankNameInput": {
       "__id__": 154
@@ -7761,17 +7752,17 @@
     "selectProvinceLabel": {
       "__id__": 106
     },
-    "selectProvinceContent": {
-      "__id__": 170
-    },
     "selectCityLabel": {
       "__id__": 119
     },
-    "selectCityContent": {
-      "__id__": 182
-    },
     "selectBankLabel": {
       "__id__": 132
+    },
+    "selectProvinceContent": {
+      "__id__": 170
+    },
+    "selectCityContent": {
+      "__id__": 182
     },
     "selectBankContent": {
       "__id__": 193

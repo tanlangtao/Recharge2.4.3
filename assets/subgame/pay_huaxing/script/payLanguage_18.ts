@@ -1,4 +1,4 @@
-import gHandler = require("../../../../base/common/gHandler");
+import gHandler = require("../../../base/common/gHandler");
 export namespace Language_pay {
     class Class_Language_pay {
         public Language = 'Chinese'
