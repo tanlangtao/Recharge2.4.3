@@ -196,7 +196,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 700,
+      "width": 702,
       "height": 81
     },
     "_anchorPoint": {
@@ -701,7 +701,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d6d322lQJlP1reo4H6W2uDD",
+    "_componentId": "24511MtlIxAtJPe8l7kfr2F",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -2129,7 +2129,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d6d322lQJlP1reo4H6W2uDD",
+    "_componentId": "24511MtlIxAtJPe8l7kfr2F",
     "handler": "pageUp",
     "customEventData": ""
   },
@@ -2321,7 +2321,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d6d322lQJlP1reo4H6W2uDD",
+    "_componentId": "24511MtlIxAtJPe8l7kfr2F",
     "handler": "pageDown",
     "customEventData": ""
   },
@@ -3137,32 +3137,6 @@
     "_id": ""
   },
   {
-    "__type__": "d6d322lQJlP1reo4H6W2uDD",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "NavToggle": {
-      "__uuid__": "3835356f-f93e-4730-9dc4-62cb53ee0692"
-    },
-    "ToggleContainer": {
-      "__id__": 71
-    },
-    "ListItem": {
-      "__uuid__": "12622a1c-5507-4805-ab6f-88e16b59fd5e"
-    },
-    "List": {
-      "__id__": 22
-    },
-    "pageLabel": {
-      "__id__": 63
-    },
-    "results": {},
-    "_id": ""
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -3228,6 +3202,32 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": null,
+    "_id": ""
+  },
+  {
+    "__type__": "24511MtlIxAtJPe8l7kfr2F",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "NavToggle": {
+      "__uuid__": "3835356f-f93e-4730-9dc4-62cb53ee0692"
+    },
+    "ToggleContainer": {
+      "__id__": 71
+    },
+    "ListItem": {
+      "__uuid__": "12622a1c-5507-4805-ab6f-88e16b59fd5e"
+    },
+    "List": {
+      "__id__": 22
+    },
+    "pageLabel": {
+      "__id__": 63
+    },
+    "results": {},
     "_id": ""
   },
   {

@@ -1536,7 +1536,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "393ebdzZ7RKY5iKgory0NH2",
+    "_componentId": "b25c49P7S9MMJdrPrMS8D7G",
     "handler": "pageUp",
     "customEventData": ""
   },
@@ -1728,7 +1728,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "393ebdzZ7RKY5iKgory0NH2",
+    "_componentId": "b25c49P7S9MMJdrPrMS8D7G",
     "handler": "pageDown",
     "customEventData": ""
   },
@@ -1923,33 +1923,6 @@
     "_id": ""
   },
   {
-    "__type__": "393ebdzZ7RKY5iKgory0NH2",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "NavToggle": {
-      "__uuid__": "44620be8-bdb9-4564-8e87-fbda6cf2eaa8"
-    },
-    "ToggleContainer": null,
-    "ListItem": {
-      "__uuid__": "82ed535b-caeb-407c-aca8-6fbfcc105f19"
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "List": {
-      "__id__": 3
-    },
-    "pageLabel": {
-      "__id__": 47
-    },
-    "app": null,
-    "_id": ""
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -2015,6 +1988,26 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": null,
+    "_id": ""
+  },
+  {
+    "__type__": "b25c49P7S9MMJdrPrMS8D7G",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "ListItem": {
+      "__uuid__": "82ed535b-caeb-407c-aca8-6fbfcc105f19"
+    },
+    "List": {
+      "__id__": 3
+    },
+    "pageLabel": {
+      "__id__": 47
+    },
+    "app": null,
     "_id": ""
   },
   {
