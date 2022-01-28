@@ -61,7 +61,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "0b4b9e80-b091-4399-a3e4-cd3f30617bfd"
+    "_id": "cfbbfb2a-feb4-4599-9be4-3029fc8ef2e2"
   },
   {
     "__type__": "cc.Node",
@@ -362,7 +362,7 @@
     "_id": "c3xrKSep5MSK03uZS5kKH2"
   },
   {
-    "__type__": "b9343iXf85KM6w54Atp3tMD",
+    "__type__": "37d52ZXsDpC7KNwUxZg/s2H",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -370,7 +370,9 @@
     },
     "_enabled": true,
     "Loading": null,
-    "publicAlert": null,
+    "publicAlert": {
+      "__uuid__": "56683cfd-25e1-41a9-96b8-9d253ff6e7e3"
+    },
     "keyBoardAlert": null,
     "PublicOrderAlert": null,
     "AlipayAccountAlert": null,
@@ -381,7 +383,7 @@
     "BeforePayOrderAlert": null,
     "ZfbWxAlert": null,
     "UrlData": [],
-    "_id": "94m08+qh5CAI4OuT7sLlAQ"
+    "_id": "c6audj6VFDrKBgVkbt5nQ2"
   },
   {
     "__type__": "cc.Node",
@@ -940,7 +942,7 @@
       "__id__": 9
     },
     "component": "",
-    "_componentId": "11589FmbNNJM5nZj827AnOd",
+    "_componentId": "27ebcTCbopF6rdXU9F8yI3K",
     "handler": "exitBtnClick",
     "customEventData": ""
   },
@@ -1146,7 +1148,7 @@
       "__id__": 9
     },
     "component": "",
-    "_componentId": "11589FmbNNJM5nZj827AnOd",
+    "_componentId": "27ebcTCbopF6rdXU9F8yI3K",
     "handler": "webLinkJinDingClick",
     "customEventData": ""
   },
@@ -1328,7 +1330,7 @@
       "__id__": 9
     },
     "component": "",
-    "_componentId": "11589FmbNNJM5nZj827AnOd",
+    "_componentId": "27ebcTCbopF6rdXU9F8yI3K",
     "handler": "webLinkClick",
     "customEventData": ""
   },
@@ -2132,7 +2134,7 @@
       "__id__": 9
     },
     "component": "",
-    "_componentId": "11589FmbNNJM5nZj827AnOd",
+    "_componentId": "27ebcTCbopF6rdXU9F8yI3K",
     "handler": "historyBtnClick",
     "customEventData": ""
   },
@@ -2323,7 +2325,7 @@
     "_id": "6caMOS0sxOyoE2c65KBN3g"
   },
   {
-    "__type__": "11589FmbNNJM5nZj827AnOd",
+    "__type__": "27ebcTCbopF6rdXU9F8yI3K",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -2343,7 +2345,7 @@
       "__id__": 31
     },
     "zfbResults": {},
-    "_id": "a8GhHYGgFAfaqEHX9oiDLP"
+    "_id": "22vt98vnlE1r30IPilGT8M"
   },
   {
     "__type__": "cc.Canvas",

@@ -599,7 +599,7 @@
     "asset": {
       "__uuid__": "be297ffc-97f6-4919-83da-2b5a08f35dde"
     },
-    "fileId": "75wYuSnDlKNapRJLAre/rB",
+    "fileId": "72KQ5Kr3lLVYV7r3EFTE/N",
     "sync": false
   },
   {
@@ -911,7 +911,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "b55c977rvFDXpn1CqWn95DT",
+    "_componentId": "871abuF7hRPDaY22gmTgx62",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -1215,7 +1215,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "b55c977rvFDXpn1CqWn95DT",
+    "_componentId": "871abuF7hRPDaY22gmTgx62",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -1476,7 +1476,7 @@
     "_id": ""
   },
   {
-    "__type__": "b55c977rvFDXpn1CqWn95DT",
+    "__type__": "871abuF7hRPDaY22gmTgx62",
     "_name": "",
     "_objFlags": 0,
     "node": {

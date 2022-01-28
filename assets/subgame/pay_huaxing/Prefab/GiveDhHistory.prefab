@@ -31,13 +31,10 @@
       },
       {
         "__id__": 64
-      },
-      {
-        "__id__": 65
       }
     ],
     "_prefab": {
-      "__id__": 66
+      "__id__": 65
     },
     "_opacity": 255,
     "_color": {
@@ -50,7 +47,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1090,
-      "height": 580
+      "height": 620
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -61,8 +58,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        667,
-        375,
+        0,
+        0,
         0,
         0,
         0,
@@ -142,7 +139,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        20,
         0,
         0,
         0,
@@ -2290,33 +2287,6 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Widget",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "alignMode": 1,
-    "_target": null,
-    "_alignFlags": 45,
-    "_left": 122,
-    "_right": 122,
-    "_top": 85,
-    "_bottom": 85,
-    "_verticalCenter": 0,
-    "_horizontalCenter": 0,
-    "_isAbsLeft": true,
-    "_isAbsRight": true,
-    "_isAbsTop": true,
-    "_isAbsBottom": true,
-    "_isAbsHorizontalCenter": true,
-    "_isAbsVerticalCenter": true,
-    "_originalWidth": 1136,
-    "_originalHeight": 640,
-    "_id": ""
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -2385,7 +2355,7 @@
     "_id": ""
   },
   {
-    "__type__": "28054DXPThFUIo4rc0X7NAA",
+    "__type__": "3357eO46OBDjoEHZuV3MfhO",
     "_name": "",
     "_objFlags": 0,
     "node": {

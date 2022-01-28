@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        258.9821906723496,
+        258.9415957315472,
         0,
         0,
         0,
@@ -362,7 +362,7 @@
     "_id": "c3xrKSep5MSK03uZS5kKH2"
   },
   {
-    "__type__": "3a759NBxlhLEId1dYYb692g",
+    "__type__": "866d94VSwNNgIUeK3vh1Vzl",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -370,7 +370,9 @@
     },
     "_enabled": true,
     "Loading": null,
-    "publicAlert": null,
+    "publicAlert": {
+      "__uuid__": "1ca6d451-6c2d-498d-8c2b-8d107fd9e338"
+    },
     "keyBoardAlert": null,
     "PublicOrderAlert": null,
     "AlipayAccountAlert": null,
@@ -381,7 +383,7 @@
     "BeforePayOrderAlert": null,
     "ZfbWxAlert": null,
     "UrlData": [],
-    "_id": "88DyH7P49EbaHgno3WMJ7W"
+    "_id": "0eg7RYLxxO1qKeodwFnSjs"
   },
   {
     "__type__": "cc.Node",
@@ -808,7 +810,7 @@
       "__id__": 9
     },
     "component": "",
-    "_componentId": "8dc3b2QYLpHe6xlsXzafg8p",
+    "_componentId": "13e07avSORFqaB59vhfnS1x",
     "handler": "exitBtnClick",
     "customEventData": ""
   },
@@ -1659,7 +1661,7 @@
     "_id": "4eGdZbZfpLEbsuLRYq+gv8"
   },
   {
-    "__type__": "8dc3b2QYLpHe6xlsXzafg8p",
+    "__type__": "13e07avSORFqaB59vhfnS1x",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1675,12 +1677,8 @@
     "Content": {
       "__id__": 20
     },
-    "CashHistory": {
-      "__uuid__": "ba46868e-b04e-481a-9e9b-35f7a40a6d0c"
-    },
-    "Sxxq": null,
     "results": {},
-    "_id": "2ddaPp2Q1Pd7TMT+UQM6hM"
+    "_id": "aef5r/QSlCLqDjKCP9MnCC"
   },
   {
     "__type__": "cc.Canvas",

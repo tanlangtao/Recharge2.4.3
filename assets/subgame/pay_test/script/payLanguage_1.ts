@@ -439,30 +439,7 @@ export namespace Language_pay {
             return this.Language
         }
         getBundleName(){
-            let bundleName = ''
-            if(gHandler.gameGlobal.pay.package_id == 8){
-                bundleName = `pay_xinsheng`
-            }else if(gHandler.gameGlobal.pay.package_id == 9){
-                bundleName = `pay_xingui`
-            }else if(gHandler.gameGlobal.pay.package_id == 10){
-                bundleName = `pay_fuxin`
-            }else if(gHandler.gameGlobal.pay.package_id == 15 || gHandler.gameGlobal.pay.package_id == 12){
-                bundleName = `pay_juding`
-            }else if(gHandler.gameGlobal.pay.package_id == 16){
-                bundleName = `pay_ninetwo`
-            }else if(gHandler.gameGlobal.pay.package_id == 18){
-                bundleName = `pay_huaxing`
-            }else if(gHandler.gameGlobal.pay.package_id == 20){
-                bundleName = `pay_wansheng`
-            }else if(gHandler.gameGlobal.pay.package_id == 21){
-                bundleName = `pay_tianqi`
-            }else if(gHandler.gameGlobal.pay.package_id == 22){
-                bundleName = `pay_jiaxing`
-            }else if(gHandler.gameGlobal.pay.package_id == 2){
-                bundleName = `pay_jincheng`
-            }else{
-                bundleName = `pay_test`
-            }
+            let bundleName = "pay_test"
             return bundleName
         }
     }

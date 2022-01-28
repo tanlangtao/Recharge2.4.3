@@ -701,7 +701,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "24511MtlIxAtJPe8l7kfr2F",
+    "_componentId": "5b3b6BsVStOlqKEiWSy/d67",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -913,7 +913,7 @@
       "ctor": "Float64Array",
       "array": [
         15,
-        -341,
+        -299.077,
         0,
         0,
         0,
@@ -1012,7 +1012,7 @@
     "_alignFlags": 41,
     "_left": 95,
     "_right": 65,
-    "_top": 111,
+    "_top": 69.077,
     "_bottom": 0,
     "_verticalCenter": 38.915,
     "_horizontalCenter": 0,
@@ -1102,7 +1102,7 @@
       "ctor": "Float64Array",
       "array": [
         15,
-        -84,
+        -42.077,
         0,
         0,
         0,
@@ -1927,7 +1927,7 @@
     "_alignFlags": 41,
     "_left": 95,
     "_right": 65,
-    "_top": 57,
+    "_top": 15.076999999999998,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -1995,7 +1995,7 @@
       "ctor": "Float64Array",
       "array": [
         -70,
-        -590.687,
+        -548.764,
         0,
         0,
         0,
@@ -2129,7 +2129,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "24511MtlIxAtJPe8l7kfr2F",
+    "_componentId": "5b3b6BsVStOlqKEiWSy/d67",
     "handler": "pageUp",
     "customEventData": ""
   },
@@ -2187,7 +2187,7 @@
       "ctor": "Float64Array",
       "array": [
         60,
-        -590.687,
+        -548.764,
         0,
         0,
         0,
@@ -2321,7 +2321,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "24511MtlIxAtJPe8l7kfr2F",
+    "_componentId": "5b3b6BsVStOlqKEiWSy/d67",
     "handler": "pageDown",
     "customEventData": ""
   },
@@ -2376,7 +2376,7 @@
       "ctor": "Float64Array",
       "array": [
         -6,
-        -585.887,
+        -543.964,
         0,
         0,
         0,
@@ -3205,7 +3205,7 @@
     "_id": ""
   },
   {
-    "__type__": "24511MtlIxAtJPe8l7kfr2F",
+    "__type__": "5b3b6BsVStOlqKEiWSy/d67",
     "_name": "",
     "_objFlags": 0,
     "node": {

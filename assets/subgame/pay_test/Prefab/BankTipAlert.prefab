@@ -630,7 +630,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "849c37DzxtERKtQZqXquPjs",
+    "_componentId": "eac8egNJK9GMq+JxN5XZV6b",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -933,7 +933,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "849c37DzxtERKtQZqXquPjs",
+    "_componentId": "eac8egNJK9GMq+JxN5XZV6b",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -1173,7 +1173,7 @@
     "_id": ""
   },
   {
-    "__type__": "849c37DzxtERKtQZqXquPjs",
+    "__type__": "eac8egNJK9GMq+JxN5XZV6b",
     "_name": "",
     "_objFlags": 0,
     "node": {

@@ -729,7 +729,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
+    "_componentId": "ba75cml2CNMO5rzKckcHBFu",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -2857,7 +2857,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
+    "_componentId": "ba75cml2CNMO5rzKckcHBFu",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -3055,7 +3055,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
+    "_componentId": "ba75cml2CNMO5rzKckcHBFu",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -3253,7 +3253,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
+    "_componentId": "ba75cml2CNMO5rzKckcHBFu",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -3451,7 +3451,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "24139BTFCZJbKH2Bugz2Mys",
+    "_componentId": "ba75cml2CNMO5rzKckcHBFu",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -4236,7 +4236,7 @@
     "_id": ""
   },
   {
-    "__type__": "24139BTFCZJbKH2Bugz2Mys",
+    "__type__": "ba75cml2CNMO5rzKckcHBFu",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -4253,7 +4253,7 @@
       "__id__": 48
     },
     "card_nameLabel": {
-      "__id__": 48
+      "__id__": 51
     },
     "amountLabel": {
       "__id__": 54

@@ -2469,7 +2469,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "c0488ouDZND/7geNsAQUgbX",
+    "_componentId": "c25e5Qv1MBPs676r5mYN+fR",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2662,7 +2662,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "c0488ouDZND/7geNsAQUgbX",
+    "_componentId": "c25e5Qv1MBPs676r5mYN+fR",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -3260,7 +3260,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "c0488ouDZND/7geNsAQUgbX",
+    "_componentId": "c25e5Qv1MBPs676r5mYN+fR",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3482,42 +3482,31 @@
     "_id": ""
   },
   {
-    "__type__": "c0488ouDZND/7geNsAQUgbX",
+    "__type__": "c25e5Qv1MBPs676r5mYN+fR",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "huodongLabel": {
-      "__id__": 90
-    },
-    "SelectItem": {
-      "__uuid__": "1115cf9b-fe25-4b1a-b64b-34251bda5429"
-    },
     "selectContent": {
       "__id__": 43
     },
-    "czArea": {
-      "__id__": 49
-    },
-    "wxtsLabel": {
-      "__id__": 33
-    },
-    "showSelect": false,
     "amountLabel": {
       "__id__": 66
-    },
-    "BindBankAccountTipAlert": {
-      "__uuid__": "712375b4-4e3a-4842-8e95-b878608d33a1"
     },
     "neikuagn": {
       "__id__": 76
     },
+    "SelectItem": {
+      "__uuid__": "1115cf9b-fe25-4b1a-b64b-34251bda5429"
+    },
+    "BindBankAccountTipAlert": {
+      "__uuid__": "712375b4-4e3a-4842-8e95-b878608d33a1"
+    },
     "btnNum": {
       "__uuid__": "75f37bbd-8c3e-4c8e-8fe5-f659d6f2b2f2"
     },
-    "cyjeItem": null,
     "JisuOrderAlert": {
       "__uuid__": "73def5e7-3c7e-4453-a4b9-19882cded56b"
     },

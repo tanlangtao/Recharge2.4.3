@@ -2161,7 +2161,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "5daddgH7bVDY5OxU7DNVyw5",
+    "_componentId": "8fd21zCnx1Cp4BiHtt18eHW",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2354,7 +2354,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "5daddgH7bVDY5OxU7DNVyw5",
+    "_componentId": "8fd21zCnx1Cp4BiHtt18eHW",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2952,7 +2952,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "5daddgH7bVDY5OxU7DNVyw5",
+    "_componentId": "8fd21zCnx1Cp4BiHtt18eHW",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3282,7 +3282,7 @@
     "_id": ""
   },
   {
-    "__type__": "5daddgH7bVDY5OxU7DNVyw5",
+    "__type__": "8fd21zCnx1Cp4BiHtt18eHW",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -3305,7 +3305,7 @@
       "__uuid__": "919e18bd-e589-416c-a902-9ec1f64bee55"
     },
     "btnNum": {
-      "__uuid__": "f0dfea6d-25a1-4cd0-9d63-7d956a5612cd"
+      "__uuid__": "6a51a452-a098-4cdd-b2ea-1f9799c357cf"
     },
     "JisuOrderAlert": {
       "__uuid__": "82b320ac-18d5-49b2-bd00-84106c5a838c"

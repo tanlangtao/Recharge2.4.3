@@ -879,7 +879,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "12d274qIh1GU6LJnaiva+VN",
+    "_componentId": "d7b02/DDgNO6rwGecf0XxTJ",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -1128,7 +1128,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "12d274qIh1GU6LJnaiva+VN",
+    "_componentId": "d7b02/DDgNO6rwGecf0XxTJ",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -1282,7 +1282,7 @@
     "_id": ""
   },
   {
-    "__type__": "12d274qIh1GU6LJnaiva+VN",
+    "__type__": "d7b02/DDgNO6rwGecf0XxTJ",
     "_name": "",
     "_objFlags": 0,
     "node": {

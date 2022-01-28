@@ -816,7 +816,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
+        -35.055,
         -4,
         0,
         0,
@@ -2161,7 +2161,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "aa98aHufUdDkqX02nLdWcP1",
+    "_componentId": "c868abwvsJPIrH3uUmr5ryb",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2354,7 +2354,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "aa98aHufUdDkqX02nLdWcP1",
+    "_componentId": "c868abwvsJPIrH3uUmr5ryb",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2952,7 +2952,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "aa98aHufUdDkqX02nLdWcP1",
+    "_componentId": "c868abwvsJPIrH3uUmr5ryb",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3282,7 +3282,7 @@
     "_id": ""
   },
   {
-    "__type__": "aa98aHufUdDkqX02nLdWcP1",
+    "__type__": "c868abwvsJPIrH3uUmr5ryb",
     "_name": "",
     "_objFlags": 0,
     "node": {

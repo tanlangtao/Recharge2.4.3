@@ -732,7 +732,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d429eF7iShNko2g4svWOsdI",
+    "_componentId": "a7c4ca+tfNC8oKO0FHdrxTw",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -2860,7 +2860,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d429eF7iShNko2g4svWOsdI",
+    "_componentId": "a7c4ca+tfNC8oKO0FHdrxTw",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -3058,7 +3058,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d429eF7iShNko2g4svWOsdI",
+    "_componentId": "a7c4ca+tfNC8oKO0FHdrxTw",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -3256,7 +3256,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d429eF7iShNko2g4svWOsdI",
+    "_componentId": "a7c4ca+tfNC8oKO0FHdrxTw",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -3454,7 +3454,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d429eF7iShNko2g4svWOsdI",
+    "_componentId": "a7c4ca+tfNC8oKO0FHdrxTw",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -4040,7 +4040,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d429eF7iShNko2g4svWOsdI",
+    "_componentId": "a7c4ca+tfNC8oKO0FHdrxTw",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -4563,7 +4563,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d429eF7iShNko2g4svWOsdI",
+    "_componentId": "a7c4ca+tfNC8oKO0FHdrxTw",
     "handler": "quxiaoClick",
     "customEventData": ""
   },
@@ -4866,7 +4866,7 @@
     "asset": {
       "__uuid__": "535e9ea4-ad3f-4b9d-8a50-f4edfee49e46"
     },
-    "fileId": "58zNUdix1Mkq7EUpm8ZeQk",
+    "fileId": "2ayUHCb/ZHapkjL0QcGW41",
     "sync": false
   },
   {
@@ -4975,7 +4975,7 @@
     "asset": {
       "__uuid__": "535e9ea4-ad3f-4b9d-8a50-f4edfee49e46"
     },
-    "fileId": "cafBN0gGZDGY2MVpuQ4ZHD",
+    "fileId": "6bxHoqHxxACr2T2s/PBozr",
     "sync": false
   },
   {
@@ -5084,7 +5084,7 @@
     "asset": {
       "__uuid__": "535e9ea4-ad3f-4b9d-8a50-f4edfee49e46"
     },
-    "fileId": "81NqSb1yxFDbjAGP2OzVei",
+    "fileId": "5bF23O8UFGSrNWDb78/bBY",
     "sync": false
   },
   {
@@ -5647,7 +5647,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d429eF7iShNko2g4svWOsdI",
+    "_componentId": "a7c4ca+tfNC8oKO0FHdrxTw",
     "handler": "quxiaoClick",
     "customEventData": ""
   },
@@ -5860,7 +5860,7 @@
     "_id": ""
   },
   {
-    "__type__": "d429eF7iShNko2g4svWOsdI",
+    "__type__": "a7c4ca+tfNC8oKO0FHdrxTw",
     "_name": "",
     "_objFlags": 0,
     "node": {

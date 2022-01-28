@@ -172,7 +172,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "989d7342-c313-4a92-b4fb-49d901445503"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -836,7 +836,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "b7a4cGEsolKYbLzI95b0kn+",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -3900,7 +3900,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "b7a4cGEsolKYbLzI95b0kn+",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -4234,7 +4234,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "b7a4cGEsolKYbLzI95b0kn+",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -4568,7 +4568,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "b7a4cGEsolKYbLzI95b0kn+",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -4902,7 +4902,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "b7a4cGEsolKYbLzI95b0kn+",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -5883,13 +5883,16 @@
     "_id": ""
   },
   {
-    "__type__": "bb7f8nT0zNNcofA/PLysT9o",
+    "__type__": "b7a4cGEsolKYbLzI95b0kn+",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
+    "popWindowBG": {
+      "__id__": 8
+    },
     "bank_nameLabel": {
       "__id__": 36
     },
@@ -5904,18 +5907,6 @@
     },
     "nickNameLabel": {
       "__id__": 23
-    },
-    "remarkLabel": {
-      "__id__": 88
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "popWindowBG": {
-      "__id__": 8
-    },
-    "btn": {
-      "__id__": 150
     },
     "attention": {
       "__id__": 143

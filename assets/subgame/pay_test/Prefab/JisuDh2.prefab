@@ -1031,7 +1031,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -1224,7 +1224,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2502,7 +2502,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "btn1Click",
     "customEventData": ""
   },
@@ -2737,7 +2737,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3215,7 +3215,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "closeJsQrAlert",
     "customEventData": ""
   },
@@ -3434,7 +3434,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "qrdzClick",
     "customEventData": ""
   },
@@ -4139,7 +4139,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "closeJsTimeOutAlert",
     "customEventData": ""
   },
@@ -4442,7 +4442,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "closeJsTimeOutAlert",
     "customEventData": ""
   },
@@ -5066,7 +5066,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "closeJsWaitAlert",
     "customEventData": ""
   },
@@ -5285,7 +5285,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "66d9aHx+LpHGrT+gTEeH4W1",
+    "_componentId": "3b4d4snihhH7osdNzTsAfbV",
     "handler": "closeJsWaitAlert",
     "customEventData": ""
   },
@@ -5626,7 +5626,7 @@
     "_id": ""
   },
   {
-    "__type__": "66d9aHx+LpHGrT+gTEeH4W1",
+    "__type__": "3b4d4snihhH7osdNzTsAfbV",
     "_name": "",
     "_objFlags": 0,
     "node": {

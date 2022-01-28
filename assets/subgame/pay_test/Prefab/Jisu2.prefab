@@ -1928,7 +1928,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "e065fvlbxdIsZBXQhHZqUTZ",
+    "_componentId": "07c15joFTtPz4SL/nIrG4om",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2121,7 +2121,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "e065fvlbxdIsZBXQhHZqUTZ",
+    "_componentId": "07c15joFTtPz4SL/nIrG4om",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2607,7 +2607,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "e065fvlbxdIsZBXQhHZqUTZ",
+    "_componentId": "07c15joFTtPz4SL/nIrG4om",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -2799,7 +2799,7 @@
     "_id": ""
   },
   {
-    "__type__": "e065fvlbxdIsZBXQhHZqUTZ",
+    "__type__": "07c15joFTtPz4SL/nIrG4om",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -2822,10 +2822,10 @@
       "__uuid__": "e547581f-3c42-41ba-809c-1328bd08559f"
     },
     "btnNum": {
-      "__uuid__": "4b8d1af5-1d35-43dc-ae5b-ac9761a1fba7"
+      "__uuid__": "f9160b52-fdc5-44e3-a0dc-b4d1a80ac898"
     },
     "JisuOrderAlert": {
-      "__uuid__": "64210696-5ec8-43f8-830d-1b726c8bca79"
+      "__uuid__": "535e9ea4-ad3f-4b9d-8a50-f4edfee49e46"
     },
     "BeforePayOrderAlert": {
       "__uuid__": "edbf73ef-af80-4128-aed9-0574b8548e8b"

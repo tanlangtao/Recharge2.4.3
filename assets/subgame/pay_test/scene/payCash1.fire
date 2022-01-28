@@ -61,7 +61,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "0228fed8-0e7b-486a-9b42-94e4c4635f80"
+    "_id": "8724af82-d280-4d9f-8ebe-474d5b4b3ac3"
   },
   {
     "__type__": "cc.Node",
@@ -362,7 +362,7 @@
     "_id": "c3xrKSep5MSK03uZS5kKH2"
   },
   {
-    "__type__": "b9343iXf85KM6w54Atp3tMD",
+    "__type__": "37d52ZXsDpC7KNwUxZg/s2H",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -370,7 +370,9 @@
     },
     "_enabled": true,
     "Loading": null,
-    "publicAlert": null,
+    "publicAlert": {
+      "__uuid__": "56683cfd-25e1-41a9-96b8-9d253ff6e7e3"
+    },
     "keyBoardAlert": null,
     "PublicOrderAlert": null,
     "AlipayAccountAlert": null,
@@ -381,7 +383,7 @@
     "BeforePayOrderAlert": null,
     "ZfbWxAlert": null,
     "UrlData": [],
-    "_id": "59NV2CeL5AC43+hcIjn+6+"
+    "_id": "c2OYe8OH9LyZqDqX2dDHcO"
   },
   {
     "__type__": "cc.Node",
@@ -931,7 +933,7 @@
       "__id__": 9
     },
     "component": "",
-    "_componentId": "919aciSF3xJwYzAJghQ08HH",
+    "_componentId": "81a92MBdPZGMZVbgm/Wm6x/",
     "handler": "exitBtnClick",
     "customEventData": ""
   },
@@ -1752,7 +1754,7 @@
     "_id": "15ZpoAXlBEx6K4+dLtqIyF"
   },
   {
-    "__type__": "919aciSF3xJwYzAJghQ08HH",
+    "__type__": "81a92MBdPZGMZVbgm/Wm6x/",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1760,7 +1762,7 @@
     },
     "_enabled": true,
     "NavToggle": {
-      "__uuid__": "c83019c6-5600-4abf-a181-1ee05d37f136"
+      "__uuid__": "108172f9-5c64-44c3-a37e-2ff41fa059f9"
     },
     "ToggleContainer": {
       "__id__": 29
@@ -1769,7 +1771,7 @@
       "__id__": 22
     },
     "results": {},
-    "_id": "5bl/D9lthAi7ed7fTigX1w"
+    "_id": "75/HbbbhlCp6hNsBYf3mdK"
   },
   {
     "__type__": "cc.Canvas",

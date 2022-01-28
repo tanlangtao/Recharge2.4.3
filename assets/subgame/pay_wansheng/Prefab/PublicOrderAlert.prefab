@@ -738,7 +738,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "822c8fDYq1FEadTNYVrJMAl",
+    "_componentId": "94e0aXGjydPrbisXOIhG1iv",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -3687,7 +3687,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "822c8fDYq1FEadTNYVrJMAl",
+    "_componentId": "94e0aXGjydPrbisXOIhG1iv",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -4021,7 +4021,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "822c8fDYq1FEadTNYVrJMAl",
+    "_componentId": "94e0aXGjydPrbisXOIhG1iv",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -4355,7 +4355,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "822c8fDYq1FEadTNYVrJMAl",
+    "_componentId": "94e0aXGjydPrbisXOIhG1iv",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -4689,7 +4689,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "822c8fDYq1FEadTNYVrJMAl",
+    "_componentId": "94e0aXGjydPrbisXOIhG1iv",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -5525,7 +5525,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "822c8fDYq1FEadTNYVrJMAl",
+    "_componentId": "94e0aXGjydPrbisXOIhG1iv",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -5738,7 +5738,7 @@
     "_id": ""
   },
   {
-    "__type__": "822c8fDYq1FEadTNYVrJMAl",
+    "__type__": "94e0aXGjydPrbisXOIhG1iv",
     "_name": "",
     "_objFlags": 0,
     "node": {
