@@ -1024,7 +1024,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "92daeoMphdOQbB+HiduKgec",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -1217,7 +1217,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "92daeoMphdOQbB+HiduKgec",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -1710,7 +1710,7 @@
     "asset": {
       "__uuid__": "4eafc14c-b97c-4c35-ad64-cc7e758e1248"
     },
-    "fileId": "17H7oymo1Hu4USloQNw0dz",
+    "fileId": "cfCJCpMMFJubqHAYY5YNp5",
     "sync": false
   },
   {
@@ -2184,7 +2184,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "92daeoMphdOQbB+HiduKgec",
     "handler": "allGoldClick",
     "customEventData": ""
   },
@@ -3309,7 +3309,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "92daeoMphdOQbB+HiduKgec",
     "handler": "btn1Click",
     "customEventData": ""
   },
@@ -3544,7 +3544,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
+    "_componentId": "92daeoMphdOQbB+HiduKgec",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3655,21 +3655,21 @@
     "_id": ""
   },
   {
-    "__type__": "8e34ehc7PND9pYrjRo9oO0p",
+    "__type__": "92daeoMphdOQbB+HiduKgec",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
     "SelectItem": {
       "__uuid__": "fb1a7b41-0ca3-418a-bb1d-da7bdb1a1415"
+    },
+    "CashAlert": {
+      "__uuid__": "7526c94a-c69a-4a78-b4a9-bfe15a02482d"
+    },
+    "goldLabel": {
+      "__id__": 12
     },
     "amountLabel": {
       "__id__": 26
@@ -3677,29 +3677,23 @@
     "czArea": {
       "__id__": 33
     },
+    "slider": {
+      "__id__": 46
+    },
+    "progressBar": {
+      "__id__": 48
+    },
+    "selectContent": {
+      "__id__": 62
+    },
     "accountLabel": {
       "__id__": 78
     },
     "accountBtn": {
       "__id__": 84
     },
-    "selectContent": {
-      "__id__": 62
-    },
-    "goldLabel": {
-      "__id__": 12
-    },
-    "CashAlert": {
-      "__uuid__": "7526c94a-c69a-4a78-b4a9-bfe15a02482d"
-    },
     "DhBtn": {
       "__id__": 91
-    },
-    "slider": {
-      "__id__": 46
-    },
-    "progressBar": {
-      "__id__": 48
     },
     "data": {},
     "_id": ""

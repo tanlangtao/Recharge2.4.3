@@ -51,7 +51,7 @@ export default class NewClass extends cc.Component {
     EffectState = 0;//音效
     onLoad () {
         this.config = new Config();
-        this.UrlData =  {
+        this.UrlData ={
             user_id:gHandler.gameGlobal.pay.user_id,
             // user_id:"889839393", // 奇趣 10
             // user_id:"738059019", // 河内 10

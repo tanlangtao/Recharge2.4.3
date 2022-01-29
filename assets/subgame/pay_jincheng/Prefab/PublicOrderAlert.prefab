@@ -175,7 +175,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "751f2b11-9c3d-469d-8581-b0b057f5f18d"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -738,7 +738,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "ef762TkLSBD75EHdQeBcX5c",
+    "_componentId": "83c2e4bKbdNVbsH2CVUNvYT",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -2858,7 +2858,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "ef762TkLSBD75EHdQeBcX5c",
+    "_componentId": "83c2e4bKbdNVbsH2CVUNvYT",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -3050,7 +3050,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "ef762TkLSBD75EHdQeBcX5c",
+    "_componentId": "83c2e4bKbdNVbsH2CVUNvYT",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -3242,7 +3242,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "ef762TkLSBD75EHdQeBcX5c",
+    "_componentId": "83c2e4bKbdNVbsH2CVUNvYT",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -3434,7 +3434,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "ef762TkLSBD75EHdQeBcX5c",
+    "_componentId": "83c2e4bKbdNVbsH2CVUNvYT",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -4392,7 +4392,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "ef762TkLSBD75EHdQeBcX5c",
+    "_componentId": "83c2e4bKbdNVbsH2CVUNvYT",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -4578,44 +4578,6 @@
     "_id": ""
   },
   {
-    "__type__": "ef762TkLSBD75EHdQeBcX5c",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "helpAlert": {
-      "__uuid__": "4e375252-7258-47d8-b12b-886329283dee"
-    },
-    "bank_nameLabel": {
-      "__id__": 45
-    },
-    "card_numLabel": {
-      "__id__": 48
-    },
-    "card_nameLabel": {
-      "__id__": 51
-    },
-    "amountLabel": {
-      "__id__": 54
-    },
-    "nickNameLabel": {
-      "__id__": 67
-    },
-    "remarkLabel": {
-      "__id__": 57
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "popWindowBG": {
-      "__id__": 8
-    },
-    "results": {},
-    "_id": ""
-  },
-  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -4640,6 +4602,38 @@
     "_isAbsVerticalCenter": true,
     "_originalWidth": 1136,
     "_originalHeight": 640,
+    "_id": ""
+  },
+  {
+    "__type__": "83c2e4bKbdNVbsH2CVUNvYT",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "popWindowBG": {
+      "__id__": 8
+    },
+    "helpAlert": {
+      "__uuid__": "4e375252-7258-47d8-b12b-886329283dee"
+    },
+    "bank_nameLabel": {
+      "__id__": 45
+    },
+    "card_numLabel": {
+      "__id__": 48
+    },
+    "card_nameLabel": {
+      "__id__": 51
+    },
+    "amountLabel": {
+      "__id__": 54
+    },
+    "nickNameLabel": {
+      "__id__": 67
+    },
+    "results": {},
     "_id": ""
   },
   {

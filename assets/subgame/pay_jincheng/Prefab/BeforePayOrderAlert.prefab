@@ -175,7 +175,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "751f2b11-9c3d-469d-8581-b0b057f5f18d"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -1254,7 +1254,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "47e8cQzoz9KqqWwy/Gr4GH7",
+    "_componentId": "86de1aRzgpCwLr1PaG3TS7i",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -1542,7 +1542,7 @@
     "_id": ""
   },
   {
-    "__type__": "47e8cQzoz9KqqWwy/Gr4GH7",
+    "__type__": "86de1aRzgpCwLr1PaG3TS7i",
     "_name": "",
     "_objFlags": 0,
     "node": {

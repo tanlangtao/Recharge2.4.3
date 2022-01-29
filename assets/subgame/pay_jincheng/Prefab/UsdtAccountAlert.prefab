@@ -175,7 +175,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "751f2b11-9c3d-469d-8581-b0b057f5f18d"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -776,7 +776,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "605cdawEthEMIJtsblcdguW",
+    "_componentId": "4b4f9Pa38FIe4ndxND2bWS+",
     "handler": "removeSlef",
     "customEventData": ""
   },
@@ -1999,7 +1999,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "605cdawEthEMIJtsblcdguW",
+    "_componentId": "4b4f9Pa38FIe4ndxND2bWS+",
     "handler": "selectClick",
     "customEventData": ""
   },
@@ -2294,7 +2294,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "605cdawEthEMIJtsblcdguW",
+    "_componentId": "4b4f9Pa38FIe4ndxND2bWS+",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -2949,7 +2949,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "605cdawEthEMIJtsblcdguW",
+    "_componentId": "4b4f9Pa38FIe4ndxND2bWS+",
     "handler": "selectItemClick",
     "customEventData": ""
   },
@@ -3253,7 +3253,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "605cdawEthEMIJtsblcdguW",
+    "_componentId": "4b4f9Pa38FIe4ndxND2bWS+",
     "handler": "selectItemClick",
     "customEventData": ""
   },
@@ -3664,7 +3664,7 @@
     "_id": ""
   },
   {
-    "__type__": "605cdawEthEMIJtsblcdguW",
+    "__type__": "4b4f9Pa38FIe4ndxND2bWS+",
     "_name": "",
     "_objFlags": 0,
     "node": {
