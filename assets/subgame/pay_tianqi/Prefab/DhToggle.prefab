@@ -519,44 +519,26 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "37ff3BhVtJHLq1DSJAObebY",
+    "_componentId": "e79b5H3VGlOba7oahunIDMj",
     "handler": "onClick",
     "customEventData": ""
   },
   {
-    "__type__": "37ff3BhVtJHLq1DSJAObebY",
+    "__type__": "e79b5H3VGlOba7oahunIDMj",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "Dh": null,
-    "BankDh": {
-      "__uuid__": "9a5ac69a-f669-40f2-ab69-24390da64b0d"
-    },
-    "RgDh": null,
-    "DhHistory": {
-      "__uuid__": "cd17b38f-16d3-4927-aa89-3ae66cfda290"
-    },
     "normalIcon": {
       "__id__": 6
     },
     "currentIcon": {
       "__id__": 9
     },
-    "UsdtDh": {
-      "__uuid__": "79f26b4e-fdb5-4806-acd9-45918a359095"
-    },
     "tishi": null,
     "tishiLabel": null,
-    "BankCardManage": null,
-    "JisuDh": {
-      "__uuid__": "423a9a5d-e4ca-4aa2-8332-973778e87826"
-    },
-    "JisuDh2": {
-      "__uuid__": "11471ae1-bebc-4fdd-b2fb-851e0e73ac49"
-    },
     "app": null,
     "_id": ""
   },

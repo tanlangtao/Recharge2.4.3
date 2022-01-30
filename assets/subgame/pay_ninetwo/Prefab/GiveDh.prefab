@@ -1108,7 +1108,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "1768dz0FwdILLTAF9f+ilel",
+    "_componentId": "9770dUjsuVLR7TrjjYsKAfV",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -1343,7 +1343,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "1768dz0FwdILLTAF9f+ilel",
+    "_componentId": "9770dUjsuVLR7TrjjYsKAfV",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2370,7 +2370,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "1768dz0FwdILLTAF9f+ilel",
+    "_componentId": "9770dUjsuVLR7TrjjYsKAfV",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -2777,7 +2777,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "1768dz0FwdILLTAF9f+ilel",
+    "_componentId": "9770dUjsuVLR7TrjjYsKAfV",
     "handler": "setID",
     "customEventData": ""
   },
@@ -3307,7 +3307,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "1768dz0FwdILLTAF9f+ilel",
+    "_componentId": "9770dUjsuVLR7TrjjYsKAfV",
     "handler": "deleteId",
     "customEventData": ""
   },
@@ -3721,7 +3721,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "1768dz0FwdILLTAF9f+ilel",
+    "_componentId": "9770dUjsuVLR7TrjjYsKAfV",
     "handler": "historyClick",
     "customEventData": ""
   },
@@ -3902,7 +3902,7 @@
     "_id": ""
   },
   {
-    "__type__": "1768dz0FwdILLTAF9f+ilel",
+    "__type__": "9770dUjsuVLR7TrjjYsKAfV",
     "_name": "",
     "_objFlags": 0,
     "node": {

@@ -1573,7 +1573,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -1808,7 +1808,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -3235,7 +3235,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "6e753Aj7H1BPb8ZrK6r/XOB",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "changeBankAccount",
     "customEventData": ""
   },
@@ -3699,7 +3699,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "btn1Click",
     "customEventData": ""
   },
@@ -4121,7 +4121,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -4522,7 +4522,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "setAqm",
     "customEventData": ""
   },
@@ -5515,7 +5515,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "shangyibu",
     "customEventData": ""
   },
@@ -5819,7 +5819,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -8385,7 +8385,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -8880,7 +8880,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -9375,7 +9375,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -10839,7 +10839,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "setAqm",
     "customEventData": ""
   },
@@ -11836,7 +11836,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        115,
+        175,
         0,
         0,
         0,
@@ -12216,7 +12216,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        105,
+        175,
         0,
         0,
         0,
@@ -12838,7 +12838,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "closeJsQrAlert",
     "customEventData": ""
   },
@@ -13057,7 +13057,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "qrdzClick",
     "customEventData": ""
   },
@@ -14643,7 +14643,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "closeJsTimeOutAlert",
     "customEventData": ""
   },
@@ -14946,7 +14946,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "26cf7fjKWBMHowV/qlGZL9x",
+    "_componentId": "393dfEmvqxL0qCRwq89Mno2",
     "handler": "closeJsTimeOutAlert",
     "customEventData": ""
   },
@@ -15373,16 +15373,63 @@
     "_id": ""
   },
   {
-    "__type__": "26cf7fjKWBMHowV/qlGZL9x",
+    "__type__": "2081e0sXk9BX6Y0pjiGocV0",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "801f69f7-746d-4fae-8f15-6438426ae984"
+    "BankSelectItem": {
+      "__uuid__": "fca45316-e9ed-474d-b21e-2e944f63ae21"
     },
+    "accountInput": {
+      "__id__": 279
+    },
+    "nameInput": {
+      "__id__": 210
+    },
+    "bankNameInput": {
+      "__id__": 264
+    },
+    "selectBankLabel": {
+      "__id__": 216
+    },
+    "selectProvinceLabel": {
+      "__id__": 229
+    },
+    "selectCityLabel": {
+      "__id__": 242
+    },
+    "selectBankContent": {
+      "__id__": 303
+    },
+    "selectProvinceContent": {
+      "__id__": 314
+    },
+    "selectCityContent": {
+      "__id__": 325
+    },
+    "accountMask": {
+      "__id__": 291
+    },
+    "bankMask": {
+      "__id__": 294
+    },
+    "AqmLabel": {
+      "__id__": 285
+    },
+    "action": "add",
+    "_id": ""
+  },
+  {
+    "__type__": "393dfEmvqxL0qCRwq89Mno2",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
     "SelectItem": {
       "__uuid__": "0b2b9c59-2134-45bb-8908-cb4e06426642"
     },
@@ -15444,61 +15491,6 @@
       "__uuid__": "8e70ce0d-616f-4361-a1b6-7edbd7be5941"
     },
     "data": {},
-    "_id": ""
-  },
-  {
-    "__type__": "d376d7LVBBMi76fa1ZoLNun",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "801f69f7-746d-4fae-8f15-6438426ae984"
-    },
-    "PublicInputAlert": null,
-    "BankSelectItem": {
-      "__uuid__": "fca45316-e9ed-474d-b21e-2e944f63ae21"
-    },
-    "titleIcon": null,
-    "nameInput": {
-      "__id__": 210
-    },
-    "accountInput": {
-      "__id__": 279
-    },
-    "bankNameInput": {
-      "__id__": 264
-    },
-    "selectProvinceLabel": {
-      "__id__": 229
-    },
-    "selectProvinceContent": {
-      "__id__": 314
-    },
-    "selectCityLabel": {
-      "__id__": 242
-    },
-    "selectCityContent": {
-      "__id__": 325
-    },
-    "selectBankLabel": {
-      "__id__": 216
-    },
-    "selectBankContent": {
-      "__id__": 303
-    },
-    "accountMask": {
-      "__id__": 291
-    },
-    "bankMask": {
-      "__id__": 294
-    },
-    "AqmLabel": {
-      "__id__": 285
-    },
-    "action": "add",
     "_id": ""
   },
   {

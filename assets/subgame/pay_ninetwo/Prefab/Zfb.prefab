@@ -163,7 +163,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        10.986,
+        25.986,
         0,
         0,
         0,
@@ -694,7 +694,7 @@
       "ctor": "Float64Array",
       "array": [
         -1.2789999999999964,
-        184.35700000000003,
+        199.35700000000003,
         0,
         0,
         0,
@@ -2934,7 +2934,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "72b7859YzZAYJoAzp15iDzf",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -3071,7 +3071,7 @@
     "_alignFlags": 41,
     "_left": -2.5579999999999927,
     "_right": 0,
-    "_top": 5.642999999999972,
+    "_top": -9.357000000000028,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -3142,7 +3142,7 @@
       "ctor": "Float64Array",
       "array": [
         17.349000000000046,
-        73.923,
+        88.923,
         0,
         0,
         0,
@@ -3313,7 +3313,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -254.735,
+        -239.735,
         0,
         0,
         0,
@@ -3617,7 +3617,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -254.735,
+        -239.735,
         0,
         0,
         0,
@@ -3827,7 +3827,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "72b7859YzZAYJoAzp15iDzf",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3927,7 +3927,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        15,
         0,
         0,
         0,
@@ -4302,7 +4302,7 @@
       "ctor": "Float64Array",
       "array": [
         70,
-        -38.166,
+        -23.165999999999997,
         0,
         0,
         0,
@@ -4452,7 +4452,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        48,
+        63,
         0,
         0,
         0,
@@ -4872,7 +4872,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "shangyibu",
     "customEventData": ""
   },
@@ -5176,7 +5176,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -7742,7 +7742,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -8237,7 +8237,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -8732,7 +8732,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -9419,6 +9419,9 @@
     "_children": [
       {
         "__id__": 255
+      },
+      {
+        "__id__": 264
       }
     ],
     "_active": true,
@@ -9490,15 +9493,12 @@
       },
       {
         "__id__": 259
-      },
-      {
-        "__id__": 262
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 265
+        "__id__": 262
       }
     ],
     "_prefab": {
@@ -9553,7 +9553,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "BACKGROUND_SPRITE",
+    "_name": "PLACEHOLDER_LABEL",
     "_objFlags": 0,
     "_parent": {
       "__id__": 255
@@ -9571,27 +9571,27 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 120,
+      "g": 119,
+      "b": 117,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 400,
+      "width": 398,
       "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0,
+      "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        -198,
+        30,
         0,
         0,
         0,
@@ -9616,7 +9616,7 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Sprite",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -9630,19 +9630,22 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": null,
-    "_type": 1,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
+    "_string": "请输入银行卡号",
+    "_N$string": "请输入银行卡号",
+    "_fontSize": 30,
+    "_lineHeight": 60,
+    "_enableWrapText": false,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 1,
+    "_N$cacheMode": 0,
     "_id": ""
   },
   {
@@ -9653,7 +9656,7 @@
     "asset": {
       "__uuid__": "7b0b21eb-6ed5-42e3-8995-f60af9f02269"
     },
-    "fileId": "e0xWYARk9N9q03iKOKr7Bv",
+    "fileId": "405lSmq01FbbmAOzr8kqr7",
     "sync": false
   },
   {
@@ -9761,11 +9764,71 @@
     "sync": false
   },
   {
+    "__type__": "cc.EditBox",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 255
+    },
+    "_enabled": true,
+    "_string": "",
+    "returnType": 1,
+    "maxLength": 25,
+    "_tabIndex": 0,
+    "editingDidBegan": [],
+    "textChanged": [],
+    "editingDidEnded": [],
+    "editingReturn": [],
+    "_N$textLabel": {
+      "__id__": 260
+    },
+    "_N$placeholderLabel": {
+      "__id__": 257
+    },
+    "_N$background": {
+      "__id__": 263
+    },
+    "_N$inputFlag": 5,
+    "_N$inputMode": 2,
+    "_N$stayOnTop": false,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 264
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": null,
+    "_type": 1,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": ""
+  },
+  {
     "__type__": "cc.Node",
-    "_name": "PLACEHOLDER_LABEL",
+    "_name": "BACKGROUND_SPRITE",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 255
+      "__id__": 254
     },
     "_children": [],
     "_active": true,
@@ -9775,32 +9838,32 @@
       }
     ],
     "_prefab": {
-      "__id__": 264
+      "__id__": 265
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 120,
-      "g": 119,
-      "b": 117,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 398,
+      "width": 400,
       "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 1
+      "x": 0.5,
+      "y": 0.5
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -198,
-        30,
+        -25.04,
+        0,
         0,
         0,
         0,
@@ -9825,39 +9888,6 @@
     "_id": ""
   },
   {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 262
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_string": "请输入银行卡号",
-    "_N$string": "请输入银行卡号",
-    "_fontSize": 30,
-    "_lineHeight": 60,
-    "_enableWrapText": false,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 1,
-    "_N$cacheMode": 0,
-    "_id": ""
-  },
-  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -9865,38 +9895,8 @@
     "asset": {
       "__uuid__": "7b0b21eb-6ed5-42e3-8995-f60af9f02269"
     },
-    "fileId": "405lSmq01FbbmAOzr8kqr7",
+    "fileId": "75Q+Vqw51OWLsIRrjLkBoO",
     "sync": false
-  },
-  {
-    "__type__": "cc.EditBox",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 255
-    },
-    "_enabled": true,
-    "_string": "",
-    "returnType": 1,
-    "maxLength": 25,
-    "_tabIndex": 0,
-    "editingDidBegan": [],
-    "textChanged": [],
-    "editingDidEnded": [],
-    "editingReturn": [],
-    "_N$textLabel": {
-      "__id__": 260
-    },
-    "_N$placeholderLabel": {
-      "__id__": 263
-    },
-    "_N$background": {
-      "__id__": 257
-    },
-    "_N$inputFlag": 5,
-    "_N$inputMode": 2,
-    "_N$stayOnTop": false,
-    "_id": ""
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -10196,7 +10196,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "setAqm",
     "customEventData": ""
   },
@@ -11193,7 +11193,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        115,
+        174.944,
         0,
         0,
         0,
@@ -11573,7 +11573,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        105,
+        174.008,
         0,
         0,
         0,
@@ -11930,60 +11930,6 @@
     "_id": ""
   },
   {
-    "__type__": "dea7bRsy3FKj6PdF7ILWgOg",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "huodongLabel": {
-      "__id__": 109
-    },
-    "SelectItem": {
-      "__uuid__": "0b2b9c59-2134-45bb-8908-cb4e06426642"
-    },
-    "selectContent": {
-      "__id__": 51
-    },
-    "czArea": {
-      "__id__": 47
-    },
-    "icon": {
-      "__id__": 23
-    },
-    "iconFont": {
-      "__id__": 26
-    },
-    "wxtsLabel": {
-      "__id__": 36
-    },
-    "showSelect": false,
-    "amountLabel": {
-      "__id__": 75
-    },
-    "shuiyin": {
-      "__id__": 18
-    },
-    "blinkNode": {
-      "__id__": 112
-    },
-    "BindBankAccountTipAlert": {
-      "__uuid__": "bd4dd142-8374-41e8-a7c4-a8b318d03d0b"
-    },
-    "neikuagn": {
-      "__id__": 86
-    },
-    "btnNum": {
-      "__uuid__": "29d476f7-148e-43eb-a37f-c09700c02607"
-    },
-    "cyjeItem": {
-      "__uuid__": "81d5631a-79d3-463e-92d2-d6eebe44942e"
-    },
-    "app": null,
-    "_id": ""
-  },
-  {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
@@ -12041,49 +11987,96 @@
     "_id": ""
   },
   {
-    "__type__": "d376d7LVBBMi76fa1ZoLNun",
+    "__type__": "72b7859YzZAYJoAzp15iDzf",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
+    "huodongLabel": {
+      "__id__": 109
     },
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
+    "SelectItem": {
+      "__uuid__": "0b2b9c59-2134-45bb-8908-cb4e06426642"
     },
+    "selectContent": {
+      "__id__": 51
+    },
+    "czArea": {
+      "__id__": 47
+    },
+    "icon": {
+      "__id__": 23
+    },
+    "iconFont": {
+      "__id__": 26
+    },
+    "wxtsLabel": {
+      "__id__": 36
+    },
+    "showSelect": false,
+    "amountLabel": {
+      "__id__": 75
+    },
+    "shuiyin": {
+      "__id__": 18
+    },
+    "blinkNode": {
+      "__id__": 30
+    },
+    "BindBankAccountTipAlert": {
+      "__uuid__": "bd4dd142-8374-41e8-a7c4-a8b318d03d0b"
+    },
+    "neikuagn": {
+      "__id__": 86
+    },
+    "btnNum": {
+      "__uuid__": "29d476f7-148e-43eb-a37f-c09700c02607"
+    },
+    "cyjeItem": {
+      "__uuid__": "81d5631a-79d3-463e-92d2-d6eebe44942e"
+    },
+    "app": null,
+    "_id": ""
+  },
+  {
+    "__type__": "2081e0sXk9BX6Y0pjiGocV0",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
     "BankSelectItem": {
       "__uuid__": "fca45316-e9ed-474d-b21e-2e944f63ae21"
     },
-    "titleIcon": null,
+    "accountInput": {
+      "__id__": 262
+    },
     "nameInput": {
       "__id__": 196
-    },
-    "accountInput": {
-      "__id__": 265
     },
     "bankNameInput": {
       "__id__": 250
     },
+    "selectBankLabel": {
+      "__id__": 202
+    },
     "selectProvinceLabel": {
       "__id__": 215
-    },
-    "selectProvinceContent": {
-      "__id__": 300
     },
     "selectCityLabel": {
       "__id__": 228
     },
-    "selectCityContent": {
-      "__id__": 311
-    },
-    "selectBankLabel": {
-      "__id__": 202
-    },
     "selectBankContent": {
       "__id__": 289
+    },
+    "selectProvinceContent": {
+      "__id__": 300
+    },
+    "selectCityContent": {
+      "__id__": 311
     },
     "accountMask": {
       "__id__": 277

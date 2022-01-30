@@ -163,7 +163,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        10.986,
+        24.986,
         0,
         0,
         0,
@@ -694,7 +694,7 @@
       "ctor": "Float64Array",
       "array": [
         -1.2789999999999964,
-        184.35700000000003,
+        198.35700000000003,
         0,
         0,
         0,
@@ -2934,7 +2934,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "c0488ouDZND/7geNsAQUgbX",
+    "_componentId": "5a7ccKNm4pHP60N7cXLZou8",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -3071,7 +3071,7 @@
     "_alignFlags": 41,
     "_left": -2.5579999999999927,
     "_right": 0,
-    "_top": 5.642999999999972,
+    "_top": -8.357000000000028,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -3142,7 +3142,7 @@
       "ctor": "Float64Array",
       "array": [
         1.9629999999999654,
-        73.923,
+        87.923,
         0,
         0,
         0,
@@ -3313,7 +3313,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -254.735,
+        -240.735,
         0,
         0,
         0,
@@ -3617,7 +3617,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -254.735,
+        -240.735,
         0,
         0,
         0,
@@ -3827,7 +3827,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "c0488ouDZND/7geNsAQUgbX",
+    "_componentId": "5a7ccKNm4pHP60N7cXLZou8",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3927,7 +3927,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        14,
         0,
         0,
         0,
@@ -4302,7 +4302,7 @@
       "ctor": "Float64Array",
       "array": [
         70,
-        -38.166,
+        -24.165999999999997,
         0,
         0,
         0,
@@ -4452,7 +4452,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        48,
+        62,
         0,
         0,
         0,
@@ -4872,7 +4872,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "shangyibu",
     "customEventData": ""
   },
@@ -5176,7 +5176,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -7742,7 +7742,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -8237,7 +8237,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -8732,7 +8732,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -10196,7 +10196,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "setAqm",
     "customEventData": ""
   },
@@ -11193,7 +11193,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        115,
+        175,
         0,
         0,
         0,
@@ -11573,7 +11573,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        105,
+        175,
         0,
         0,
         0,
@@ -11987,49 +11987,42 @@
     "_id": ""
   },
   {
-    "__type__": "d376d7LVBBMi76fa1ZoLNun",
+    "__type__": "2081e0sXk9BX6Y0pjiGocV0",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "801f69f7-746d-4fae-8f15-6438426ae984"
-    },
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
-    },
     "BankSelectItem": {
       "__uuid__": "fca45316-e9ed-474d-b21e-2e944f63ae21"
-    },
-    "titleIcon": null,
-    "nameInput": {
-      "__id__": 196
     },
     "accountInput": {
       "__id__": 265
     },
+    "nameInput": {
+      "__id__": 196
+    },
     "bankNameInput": {
       "__id__": 250
-    },
-    "selectProvinceLabel": {
-      "__id__": 215
-    },
-    "selectProvinceContent": {
-      "__id__": 300
-    },
-    "selectCityLabel": {
-      "__id__": 228
-    },
-    "selectCityContent": {
-      "__id__": 311
     },
     "selectBankLabel": {
       "__id__": 202
     },
+    "selectProvinceLabel": {
+      "__id__": 215
+    },
+    "selectCityLabel": {
+      "__id__": 228
+    },
     "selectBankContent": {
       "__id__": 289
+    },
+    "selectProvinceContent": {
+      "__id__": 300
+    },
+    "selectCityContent": {
+      "__id__": 311
     },
     "accountMask": {
       "__id__": 277
@@ -12044,42 +12037,31 @@
     "_id": ""
   },
   {
-    "__type__": "c0488ouDZND/7geNsAQUgbX",
+    "__type__": "5a7ccKNm4pHP60N7cXLZou8",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "huodongLabel": {
-      "__id__": 109
-    },
-    "SelectItem": {
-      "__uuid__": "0b2b9c59-2134-45bb-8908-cb4e06426642"
-    },
     "selectContent": {
       "__id__": 51
     },
-    "czArea": {
-      "__id__": 47
-    },
-    "wxtsLabel": {
-      "__id__": 36
-    },
-    "showSelect": false,
     "amountLabel": {
       "__id__": 75
-    },
-    "BindBankAccountTipAlert": {
-      "__uuid__": "bd4dd142-8374-41e8-a7c4-a8b318d03d0b"
     },
     "neikuagn": {
       "__id__": 86
     },
+    "SelectItem": {
+      "__uuid__": "0b2b9c59-2134-45bb-8908-cb4e06426642"
+    },
+    "BindBankAccountTipAlert": {
+      "__uuid__": "bd4dd142-8374-41e8-a7c4-a8b318d03d0b"
+    },
     "btnNum": {
       "__uuid__": "29d476f7-148e-43eb-a37f-c09700c02607"
     },
-    "cyjeItem": null,
     "JisuOrderAlert": {
       "__uuid__": "34ee38f3-3520-4c66-9768-effb73d98571"
     },

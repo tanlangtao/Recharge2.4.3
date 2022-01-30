@@ -1561,7 +1561,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "6e753Aj7H1BPb8ZrK6r/XOB",
+    "_componentId": "96cb5t1LkJFop4mVkoW1ZfI",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -1796,7 +1796,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "6e753Aj7H1BPb8ZrK6r/XOB",
+    "_componentId": "96cb5t1LkJFop4mVkoW1ZfI",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -3223,7 +3223,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "6e753Aj7H1BPb8ZrK6r/XOB",
+    "_componentId": "96cb5t1LkJFop4mVkoW1ZfI",
     "handler": "changeBankAccount",
     "customEventData": ""
   },
@@ -3687,7 +3687,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "6e753Aj7H1BPb8ZrK6r/XOB",
+    "_componentId": "96cb5t1LkJFop4mVkoW1ZfI",
     "handler": "btn1Click",
     "customEventData": ""
   },
@@ -4109,7 +4109,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "6e753Aj7H1BPb8ZrK6r/XOB",
+    "_componentId": "96cb5t1LkJFop4mVkoW1ZfI",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -4510,7 +4510,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "6e753Aj7H1BPb8ZrK6r/XOB",
+    "_componentId": "96cb5t1LkJFop4mVkoW1ZfI",
     "handler": "setAqm",
     "customEventData": ""
   },
@@ -5227,7 +5227,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "shangyibu",
     "customEventData": ""
   },
@@ -5531,7 +5531,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -8097,7 +8097,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -8592,7 +8592,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -9087,7 +9087,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -10551,7 +10551,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "2081e0sXk9BX6Y0pjiGocV0",
     "handler": "setAqm",
     "customEventData": ""
   },
@@ -11548,7 +11548,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        115,
+        175,
         0,
         0,
         0,
@@ -11928,7 +11928,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        105,
+        175,
         0,
         0,
         0,
@@ -12317,19 +12317,40 @@
     "_id": ""
   },
   {
-    "__type__": "6e753Aj7H1BPb8ZrK6r/XOB",
+    "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 41,
+    "_left": 20,
+    "_right": 20,
+    "_top": 40,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 1016,
+    "_originalHeight": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "96cb5t1LkJFop4mVkoW1ZfI",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
     },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
+    "_enabled": true,
     "SelectItem": {
       "__uuid__": "0b2b9c59-2134-45bb-8908-cb4e06426642"
     },
@@ -12373,49 +12394,42 @@
     "_id": ""
   },
   {
-    "__type__": "d376d7LVBBMi76fa1ZoLNun",
+    "__type__": "2081e0sXk9BX6Y0pjiGocV0",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
-    },
     "BankSelectItem": {
       "__uuid__": "fca45316-e9ed-474d-b21e-2e944f63ae21"
-    },
-    "titleIcon": null,
-    "nameInput": {
-      "__id__": 202
     },
     "accountInput": {
       "__id__": 271
     },
+    "nameInput": {
+      "__id__": 202
+    },
     "bankNameInput": {
       "__id__": 256
-    },
-    "selectProvinceLabel": {
-      "__id__": 221
-    },
-    "selectProvinceContent": {
-      "__id__": 306
-    },
-    "selectCityLabel": {
-      "__id__": 234
-    },
-    "selectCityContent": {
-      "__id__": 317
     },
     "selectBankLabel": {
       "__id__": 208
     },
+    "selectProvinceLabel": {
+      "__id__": 221
+    },
+    "selectCityLabel": {
+      "__id__": 234
+    },
     "selectBankContent": {
       "__id__": 295
+    },
+    "selectProvinceContent": {
+      "__id__": 306
+    },
+    "selectCityContent": {
+      "__id__": 317
     },
     "accountMask": {
       "__id__": 283
@@ -12427,33 +12441,6 @@
       "__id__": 277
     },
     "action": "add",
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Widget",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "alignMode": 1,
-    "_target": null,
-    "_alignFlags": 41,
-    "_left": 20,
-    "_right": 20,
-    "_top": 40,
-    "_bottom": 0,
-    "_verticalCenter": 0,
-    "_horizontalCenter": 0,
-    "_isAbsLeft": true,
-    "_isAbsRight": true,
-    "_isAbsTop": true,
-    "_isAbsBottom": true,
-    "_isAbsHorizontalCenter": true,
-    "_isAbsVerticalCenter": true,
-    "_originalWidth": 1016,
-    "_originalHeight": 0,
     "_id": ""
   },
   {

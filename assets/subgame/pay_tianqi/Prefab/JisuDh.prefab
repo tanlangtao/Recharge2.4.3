@@ -1031,7 +1031,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "94f9aAtHJVNa5WQMo0BXLb5",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -1224,7 +1224,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "94f9aAtHJVNa5WQMo0BXLb5",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2504,7 +2504,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "94f9aAtHJVNa5WQMo0BXLb5",
     "handler": "btn1Click",
     "customEventData": ""
   },
@@ -2739,7 +2739,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "94f9aAtHJVNa5WQMo0BXLb5",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3331,7 +3331,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "94f9aAtHJVNa5WQMo0BXLb5",
     "handler": "closeJsQrAlert",
     "customEventData": ""
   },
@@ -3480,7 +3480,9 @@
       "__id__": 89
     },
     "_enabled": true,
-    "_normalMaterial": null,
+    "_normalMaterial": {
+      "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+    },
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 0.9,
@@ -3550,7 +3552,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "94f9aAtHJVNa5WQMo0BXLb5",
     "handler": "qrdzClick",
     "customEventData": ""
   },
@@ -5136,7 +5138,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "94f9aAtHJVNa5WQMo0BXLb5",
     "handler": "closeJsTimeOutAlert",
     "customEventData": ""
   },
@@ -5439,7 +5441,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "94f9aAtHJVNa5WQMo0BXLb5",
     "handler": "closeJsTimeOutAlert",
     "customEventData": ""
   },
@@ -5807,39 +5809,36 @@
     "_id": ""
   },
   {
-    "__type__": "3985dRLiwFHPYAFGYxDMTCq",
+    "__type__": "94f9aAtHJVNa5WQMo0BXLb5",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
     "SelectItem": {
       "__uuid__": "d1b37cc9-f414-49f6-9bbb-87dd67e610ac"
+    },
+    "CashAlert": {
+      "__uuid__": "9b7a38e4-65fc-47f1-bf9f-4910b4f5c557"
+    },
+    "JisuCyjeAlert": {
+      "__uuid__": "ec7ca70b-b8fd-4985-8fa8-0f34c0d2c1eb"
+    },
+    "goldLabel": {
+      "__id__": 12
     },
     "amountLabel": {
       "__id__": 26
     },
-    "czArea": {
-      "__id__": 33
+    "selectContent": {
+      "__id__": 40
     },
     "accountLabel": {
       "__id__": 56
     },
     "accountBtn": {
       "__id__": 62
-    },
-    "selectContent": {
-      "__id__": 40
-    },
-    "goldLabel": {
-      "__id__": 12
-    },
-    "CashAlert": {
-      "__uuid__": "9b7a38e4-65fc-47f1-bf9f-4910b4f5c557"
     },
     "DhBtn": {
       "__id__": 69
@@ -5861,9 +5860,6 @@
     },
     "boundsLabel": {
       "__id__": 79
-    },
-    "JisuCyjeAlert": {
-      "__uuid__": "ec7ca70b-b8fd-4985-8fa8-0f34c0d2c1eb"
     },
     "data": {},
     "_id": ""

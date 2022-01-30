@@ -728,7 +728,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d6d322lQJlP1reo4H6W2uDD",
+    "_componentId": "2ff49kDTfVC16S+wSxhuD5p",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -1316,7 +1316,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "57762160-bd27-4eeb-9b75-06584a19e468"
+      "__uuid__": "0a7199a3-7c70-4690-8a0b-a47eb1955d5d"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1410,7 +1410,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d6d322lQJlP1reo4H6W2uDD",
+    "_componentId": "2ff49kDTfVC16S+wSxhuD5p",
     "handler": "pageUp",
     "customEventData": ""
   },
@@ -1508,7 +1508,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "2591cf75-5246-40b6-ae12-515ce975afca"
+      "__uuid__": "7254634d-590f-4533-994c-fd49c3f03e88"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1602,7 +1602,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d6d322lQJlP1reo4H6W2uDD",
+    "_componentId": "2ff49kDTfVC16S+wSxhuD5p",
     "handler": "pageDown",
     "customEventData": ""
   },
@@ -2146,32 +2146,6 @@
     "_id": ""
   },
   {
-    "__type__": "d6d322lQJlP1reo4H6W2uDD",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "NavToggle": {
-      "__uuid__": "bcd073e0-36f6-444f-bdfa-dfcbc1e1849b"
-    },
-    "ToggleContainer": {
-      "__id__": 50
-    },
-    "ListItem": {
-      "__uuid__": "121e05f2-af58-4618-beed-1d541e4be88e"
-    },
-    "List": {
-      "__id__": 23
-    },
-    "pageLabel": {
-      "__id__": 44
-    },
-    "results": {},
-    "_id": ""
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -2237,6 +2211,32 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": null,
+    "_id": ""
+  },
+  {
+    "__type__": "2ff49kDTfVC16S+wSxhuD5p",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "NavToggle": {
+      "__uuid__": "bcd073e0-36f6-444f-bdfa-dfcbc1e1849b"
+    },
+    "ToggleContainer": {
+      "__id__": 50
+    },
+    "ListItem": {
+      "__uuid__": "121e05f2-af58-4618-beed-1d541e4be88e"
+    },
+    "List": {
+      "__id__": 23
+    },
+    "pageLabel": {
+      "__id__": 44
+    },
+    "results": {},
     "_id": ""
   },
   {

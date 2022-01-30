@@ -30,7 +30,7 @@
         "__id__": 8
       },
       {
-        "__id__": 9
+        "__id__": 10
       },
       {
         "__id__": 11
@@ -300,19 +300,6 @@
     "sync": false
   },
   {
-    "__type__": "27cddJKiKBMT4XpOIMM6YWD",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "label": {
-      "__id__": 6
-    },
-    "_id": ""
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -326,7 +313,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 10
+        "__id__": 9
       }
     ],
     "_N$interactable": true,
@@ -390,7 +377,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "27cddJKiKBMT4XpOIMM6YWD",
+    "_componentId": "e9230ID9e1HNpTMYlydGSDu",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -424,6 +411,19 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "e9230ID9e1HNpTMYlydGSDu",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "label": {
+      "__id__": 6
+    },
     "_id": ""
   },
   {

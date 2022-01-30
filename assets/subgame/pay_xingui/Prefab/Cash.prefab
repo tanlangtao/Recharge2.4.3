@@ -635,7 +635,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "8dc3b2QYLpHe6xlsXzafg8p",
+    "_componentId": "b4ecaaPAc1ILbIRpzzgsSiw",
     "handler": "exitBtnClick",
     "customEventData": ""
   },
@@ -1606,7 +1606,7 @@
     "_id": ""
   },
   {
-    "__type__": "8dc3b2QYLpHe6xlsXzafg8p",
+    "__type__": "b4ecaaPAc1ILbIRpzzgsSiw",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1622,8 +1622,6 @@
     "Content": {
       "__id__": 20
     },
-    "CashHistory": null,
-    "Sxxq": null,
     "results": {},
     "_id": ""
   },

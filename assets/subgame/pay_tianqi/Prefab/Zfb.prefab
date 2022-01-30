@@ -934,7 +934,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        173.828,
+        313.407,
         -4,
         0,
         0,
@@ -1928,7 +1928,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "ba2c3msBetMR65e8KjzADrA",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2121,7 +2121,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "ba2c3msBetMR65e8KjzADrA",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2607,7 +2607,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "ba2c3msBetMR65e8KjzADrA",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -2799,7 +2799,7 @@
     "_id": ""
   },
   {
-    "__type__": "dea7bRsy3FKj6PdF7ILWgOg",
+    "__type__": "ba2c3msBetMR65e8KjzADrA",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -2835,7 +2835,7 @@
       "__id__": 3
     },
     "blinkNode": {
-      "__id__": 14
+      "__id__": 22
     },
     "BindBankAccountTipAlert": {
       "__uuid__": "659f8ae0-e937-4d69-b367-560483ecb980"
