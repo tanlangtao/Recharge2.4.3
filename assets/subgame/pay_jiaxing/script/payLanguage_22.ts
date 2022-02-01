@@ -439,6 +439,7 @@ export namespace Language_pay {
             return this.Language
         }
         getBundleName(){
+            gHandler.gameGlobal.pay.package_id=22
             let bundleName = ''
             if(gHandler.gameGlobal.pay.package_id == 8){
                 bundleName = `pay_xinsheng`

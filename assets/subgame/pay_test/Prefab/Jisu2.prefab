@@ -2306,7 +2306,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        74.821,
+        78.336,
         0,
         0,
         0,
@@ -2650,7 +2650,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 900,
-      "height": 81.5
+      "height": 93.72
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2701,10 +2701,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "温馨提示：\n请在10分钟内支付完毕，，逾期支付平台不予上分。\n单个玩家只能存在一笔未完成的匹配充值订单。",
-    "_N$string": "温馨提示：\n请在10分钟内支付完毕，，逾期支付平台不予上分。\n单个玩家只能存在一笔未完成的匹配充值订单。",
-    "_fontSize": 25,
-    "_lineHeight": 25,
+    "_string": "温馨提示:\n请在10分钟内支付完毕，逾期支付平台不予上分。\n成功支付5分钟内没有到账，请提供支付凭证和视频资料进线客服确认。\n单个玩家只能存在一笔未完成的匹配充值订单。",
+    "_N$string": "温馨提示:\n请在10分钟内支付完毕，逾期支付平台不予上分。\n成功支付5分钟内没有到账，请提供支付凭证和视频资料进线客服确认。\n单个玩家只能存在一笔未完成的匹配充值订单。",
+    "_fontSize": 20,
+    "_lineHeight": 22,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -2825,7 +2825,7 @@
       "__uuid__": "f9160b52-fdc5-44e3-a0dc-b4d1a80ac898"
     },
     "JisuOrderAlert": {
-      "__uuid__": "535e9ea4-ad3f-4b9d-8a50-f4edfee49e46"
+      "__uuid__": "64210696-5ec8-43f8-830d-1b726c8bca79"
     },
     "BeforePayOrderAlert": {
       "__uuid__": "edbf73ef-af80-4128-aed9-0574b8548e8b"

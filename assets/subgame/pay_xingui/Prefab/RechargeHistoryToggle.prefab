@@ -822,7 +822,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "53277AXl69DkKo5U6BJVjE2",
+    "_componentId": "63833rBoaRP4LF9soXnryFE",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -854,7 +854,7 @@
     "_id": ""
   },
   {
-    "__type__": "53277AXl69DkKo5U6BJVjE2",
+    "__type__": "63833rBoaRP4LF9soXnryFE",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -862,7 +862,7 @@
     },
     "_enabled": true,
     "normalIcon": {
-      "__id__": 2
+      "__id__": 6
     },
     "currentIcon": {
       "__id__": 9

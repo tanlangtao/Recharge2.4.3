@@ -1146,7 +1146,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "62fcaHplipG/aH3vCkrn3XK",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -1339,7 +1339,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "62fcaHplipG/aH3vCkrn3XK",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2731,7 +2731,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "62fcaHplipG/aH3vCkrn3XK",
     "handler": "btn1Click",
     "customEventData": ""
   },
@@ -3077,7 +3077,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "62fcaHplipG/aH3vCkrn3XK",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3669,7 +3669,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "62fcaHplipG/aH3vCkrn3XK",
     "handler": "closeJsQrAlert",
     "customEventData": ""
   },
@@ -3888,7 +3888,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "62fcaHplipG/aH3vCkrn3XK",
     "handler": "qrdzClick",
     "customEventData": ""
   },
@@ -5474,7 +5474,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "62fcaHplipG/aH3vCkrn3XK",
     "handler": "closeJsTimeOutAlert",
     "customEventData": ""
   },
@@ -5777,7 +5777,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "3985dRLiwFHPYAFGYxDMTCq",
+    "_componentId": "62fcaHplipG/aH3vCkrn3XK",
     "handler": "closeJsTimeOutAlert",
     "customEventData": ""
   },
@@ -6175,39 +6175,36 @@
     "_id": ""
   },
   {
-    "__type__": "3985dRLiwFHPYAFGYxDMTCq",
+    "__type__": "62fcaHplipG/aH3vCkrn3XK",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
     "SelectItem": {
       "__uuid__": "d89a250d-9a12-4d36-8445-caadafb2ddd7"
+    },
+    "CashAlert": {
+      "__uuid__": "f22190a4-a7c3-47cd-8006-31870c098d3b"
+    },
+    "JisuCyjeAlert": {
+      "__uuid__": "147ee260-12f6-4680-bf2e-8a14994edc2c"
+    },
+    "goldLabel": {
+      "__id__": 12
     },
     "amountLabel": {
       "__id__": 29
     },
-    "czArea": {
-      "__id__": 36
+    "selectContent": {
+      "__id__": 43
     },
     "accountLabel": {
       "__id__": 59
     },
     "accountBtn": {
       "__id__": 65
-    },
-    "selectContent": {
-      "__id__": 43
-    },
-    "goldLabel": {
-      "__id__": 12
-    },
-    "CashAlert": {
-      "__uuid__": "f22190a4-a7c3-47cd-8006-31870c098d3b"
     },
     "DhBtn": {
       "__id__": 75
@@ -6229,9 +6226,6 @@
     },
     "boundsLabel": {
       "__id__": 88
-    },
-    "JisuCyjeAlert": {
-      "__uuid__": "147ee260-12f6-4680-bf2e-8a14994edc2c"
     },
     "data": {},
     "_id": ""

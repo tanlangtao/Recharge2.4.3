@@ -1104,7 +1104,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "37ff3BhVtJHLq1DSJAObebY",
+    "_componentId": "5c618RTv0hOBLR7vl19/3M1",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -1136,7 +1136,7 @@
     "_id": ""
   },
   {
-    "__type__": "37ff3BhVtJHLq1DSJAObebY",
+    "__type__": "5c618RTv0hOBLR7vl19/3M1",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1144,7 +1144,7 @@
     },
     "_enabled": true,
     "normalIcon": {
-      "__id__": 2
+      "__id__": 7
     },
     "currentIcon": {
       "__id__": 10

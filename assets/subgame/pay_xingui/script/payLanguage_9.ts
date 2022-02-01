@@ -439,7 +439,7 @@ export namespace Language_pay {
             return this.Language
         }
         getBundleName(){
-            let bundleName = "pay_wansheng"
+            let bundleName = "pay_xingui"
             return bundleName
         }
     }

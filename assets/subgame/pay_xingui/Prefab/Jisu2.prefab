@@ -2135,7 +2135,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d9fb58qychAv5THe5TdWlmm",
+    "_componentId": "63ed8hgsuJNN5bK0mOn0+Dx",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2328,7 +2328,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d9fb58qychAv5THe5TdWlmm",
+    "_componentId": "63ed8hgsuJNN5bK0mOn0+Dx",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2511,7 +2511,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        46.862,
+        58.664,
         0,
         0,
         0,
@@ -2923,7 +2923,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d9fb58qychAv5THe5TdWlmm",
+    "_componentId": "63ed8hgsuJNN5bK0mOn0+Dx",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -2966,7 +2966,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 950,
-      "height": 91.28
+      "height": 106.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2978,7 +2978,7 @@
       "ctor": "Float64Array",
       "array": [
         -468,
-        -137.203,
+        -142.196,
         0,
         0,
         0,
@@ -3017,10 +3017,10 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "温馨提示：\n请在10分钟内支付完毕，，逾期支付平台不予上分。\n单个玩家只能存在一笔未完成的匹配充值订单。",
-    "_N$string": "温馨提示：\n请在10分钟内支付完毕，，逾期支付平台不予上分。\n单个玩家只能存在一笔未完成的匹配充值订单。",
+    "_string": "温馨提示:\n请在10分钟内支付完毕，逾期支付平台不予上分。\n成功支付5分钟内没有到账，请提供支付凭证和视频资料进线客服确认。\n单个玩家只能存在一笔未完成的匹配充值订单。",
+    "_N$string": "温馨提示:\n请在10分钟内支付完毕，逾期支付平台不予上分。\n成功支付5分钟内没有到账，请提供支付凭证和视频资料进线客服确认。\n单个玩家只能存在一笔未完成的匹配充值订单。",
     "_fontSize": 25,
-    "_lineHeight": 28,
+    "_lineHeight": 25,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -3145,37 +3145,27 @@
     "_id": ""
   },
   {
-    "__type__": "d9fb58qychAv5THe5TdWlmm",
+    "__type__": "63ed8hgsuJNN5bK0mOn0+Dx",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "huodongLabel": {
-      "__id__": 81
+    "selectContent": {
+      "__id__": 34
+    },
+    "amountLabel": {
+      "__id__": 57
+    },
+    "neikuagn": {
+      "__id__": 67
     },
     "SelectItem": {
       "__uuid__": "d89a250d-9a12-4d36-8445-caadafb2ddd7"
     },
-    "selectContent": {
-      "__id__": 34
-    },
-    "czArea": {
-      "__id__": 40
-    },
-    "wxtsLabel": {
-      "__id__": 24
-    },
-    "showSelect": false,
-    "amountLabel": {
-      "__id__": 57
-    },
     "BindBankAccountTipAlert": {
       "__uuid__": "0e18de5a-f9f0-4a05-8821-7fa7d4e5b489"
-    },
-    "neikuagn": {
-      "__id__": 67
     },
     "btnNum": {
       "__uuid__": "7f0860fb-32de-47e1-a717-2f1859ba9c31"

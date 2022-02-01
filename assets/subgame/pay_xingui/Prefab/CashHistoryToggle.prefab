@@ -287,7 +287,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 231,
-      "height": 146
+      "height": 145
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -598,12 +598,12 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "e0ee7OPT9ZP1o4B4HhzOLfM",
+    "_componentId": "c6d0021OIRPaYKQJ2FJhEjh",
     "handler": "onClick",
     "customEventData": ""
   },
   {
-    "__type__": "e0ee7OPT9ZP1o4B4HhzOLfM",
+    "__type__": "c6d0021OIRPaYKQJ2FJhEjh",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -611,10 +611,10 @@
     },
     "_enabled": true,
     "normalIcon": {
-      "__id__": 2
+      "__id__": 6
     },
     "currentIcon": {
-      "__id__": 9
+      "__id__": 6
     },
     "app": null,
     "_id": ""
