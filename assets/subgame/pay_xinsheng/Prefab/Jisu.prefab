@@ -390,7 +390,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "f786c88b-4763-43f5-941b-bf07c5f65434"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -2156,7 +2156,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "c0488ouDZND/7geNsAQUgbX",
+    "_componentId": "3ec69+nrz9EUJHcli57KI9U",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2349,7 +2349,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "c0488ouDZND/7geNsAQUgbX",
+    "_componentId": "3ec69+nrz9EUJHcli57KI9U",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2944,7 +2944,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "c0488ouDZND/7geNsAQUgbX",
+    "_componentId": "3ec69+nrz9EUJHcli57KI9U",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3168,42 +3168,31 @@
     "_id": ""
   },
   {
-    "__type__": "c0488ouDZND/7geNsAQUgbX",
+    "__type__": "3ec69+nrz9EUJHcli57KI9U",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "huodongLabel": {
-      "__id__": 82
-    },
-    "SelectItem": {
-      "__uuid__": "ef96aa27-2fde-47c3-b81d-befd27618ebd"
-    },
     "selectContent": {
       "__id__": 35
     },
-    "czArea": {
-      "__id__": 41
-    },
-    "wxtsLabel": {
-      "__id__": 24
-    },
-    "showSelect": false,
     "amountLabel": {
       "__id__": 58
-    },
-    "BindBankAccountTipAlert": {
-      "__uuid__": "ee08f36d-444e-4212-9039-76af1acdee1d"
     },
     "neikuagn": {
       "__id__": 68
     },
+    "SelectItem": {
+      "__uuid__": "ef96aa27-2fde-47c3-b81d-befd27618ebd"
+    },
+    "BindBankAccountTipAlert": {
+      "__uuid__": "ee08f36d-444e-4212-9039-76af1acdee1d"
+    },
     "btnNum": {
       "__uuid__": "91bb684b-2ef8-4213-a089-28245725639e"
     },
-    "cyjeItem": null,
     "JisuOrderAlert": {
       "__uuid__": "24bff361-21f7-409b-aaea-96796f9570bf"
     },

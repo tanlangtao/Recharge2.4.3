@@ -390,7 +390,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "f786c88b-4763-43f5-941b-bf07c5f65434"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -815,7 +815,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        230,
+        292.71,
         -4,
         0,
         0,
@@ -2156,7 +2156,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "186348C40pBmaRQ94CYS935",
     "handler": "deleteAmount",
     "customEventData": ""
   },
@@ -2349,7 +2349,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "186348C40pBmaRQ94CYS935",
     "handler": "setAmount",
     "customEventData": ""
   },
@@ -2944,7 +2944,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "dea7bRsy3FKj6PdF7ILWgOg",
+    "_componentId": "186348C40pBmaRQ94CYS935",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -3136,7 +3136,39 @@
     "_id": ""
   },
   {
-    "__type__": "dea7bRsy3FKj6PdF7ILWgOg",
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "3c434608-7327-429c-aa7b-e266ee24de35"
+    },
+    "_type": 1,
+    "_sizeMode": 0,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": ""
+  },
+  {
+    "__type__": "186348C40pBmaRQ94CYS935",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -3172,7 +3204,7 @@
       "__id__": 3
     },
     "blinkNode": {
-      "__id__": 26
+      "__id__": 18
     },
     "BindBankAccountTipAlert": {
       "__uuid__": "ee08f36d-444e-4212-9039-76af1acdee1d"
@@ -3185,38 +3217,6 @@
     },
     "cyjeItem": null,
     "app": null,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "3c434608-7327-429c-aa7b-e266ee24de35"
-    },
-    "_type": 1,
-    "_sizeMode": 0,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
     "_id": ""
   },
   {

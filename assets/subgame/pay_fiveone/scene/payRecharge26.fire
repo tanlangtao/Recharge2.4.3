@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        258.0755703277627,
+        258.9821906723496,
         0,
         0,
         0,
@@ -377,7 +377,6 @@
       "__uuid__": "bbc52ac5-cabf-44b5-b1ac-4e8a5e21b75b"
     },
     "PublicOrderAlert": null,
-    "AlipayAccountAlert": null,
     "BankAccountAlert": null,
     "BankTipAlert": null,
     "TipAlert": null,

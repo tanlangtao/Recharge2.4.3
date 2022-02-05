@@ -175,7 +175,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "f786c88b-4763-43f5-941b-bf07c5f65434"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -779,7 +779,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "4febbmJMiBGy4eMyRYQ10yQ",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -3780,7 +3780,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e928110e-55cb-4fc2-8bf4-0a9c317eecae"
+      "__uuid__": "4324b364-9823-48cc-bd91-b04113ba779a"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -3874,7 +3874,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "4febbmJMiBGy4eMyRYQ10yQ",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -3997,7 +3997,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "4febbmJMiBGy4eMyRYQ10yQ",
     "handler": "selectProvinceClick",
     "customEventData": ""
   },
@@ -4277,7 +4277,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e928110e-55cb-4fc2-8bf4-0a9c317eecae"
+      "__uuid__": "4324b364-9823-48cc-bd91-b04113ba779a"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -4371,7 +4371,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "4febbmJMiBGy4eMyRYQ10yQ",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -4494,7 +4494,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "4febbmJMiBGy4eMyRYQ10yQ",
     "handler": "selectCityClick",
     "customEventData": ""
   },
@@ -4774,7 +4774,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e928110e-55cb-4fc2-8bf4-0a9c317eecae"
+      "__uuid__": "4324b364-9823-48cc-bd91-b04113ba779a"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -4868,7 +4868,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "4febbmJMiBGy4eMyRYQ10yQ",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -4991,7 +4991,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "4febbmJMiBGy4eMyRYQ10yQ",
     "handler": "selectBankClick",
     "customEventData": ""
   },
@@ -6224,7 +6224,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "d376d7LVBBMi76fa1ZoLNun",
+    "_componentId": "4febbmJMiBGy4eMyRYQ10yQ",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -7643,30 +7643,21 @@
     "_id": ""
   },
   {
-    "__type__": "d376d7LVBBMi76fa1ZoLNun",
+    "__type__": "4febbmJMiBGy4eMyRYQ10yQ",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "PublicInputAlert": {
-      "__uuid__": "794458ba-a01d-418e-9647-2fc5bc81e674"
-    },
     "BankSelectItem": {
       "__uuid__": "61ccd827-24eb-42a1-a71b-41414e25298b"
     },
-    "titleIcon": {
-      "__id__": 10
+    "accountInput": {
+      "__id__": 74
     },
     "nameInput": {
       "__id__": 89
-    },
-    "accountInput": {
-      "__id__": 74
     },
     "bankNameInput": {
       "__id__": 143
@@ -7674,17 +7665,17 @@
     "selectProvinceLabel": {
       "__id__": 95
     },
-    "selectProvinceContent": {
-      "__id__": 168
-    },
     "selectCityLabel": {
       "__id__": 108
     },
-    "selectCityContent": {
-      "__id__": 180
-    },
     "selectBankLabel": {
       "__id__": 121
+    },
+    "selectProvinceContent": {
+      "__id__": 168
+    },
+    "selectCityContent": {
+      "__id__": 180
     },
     "selectBankContent": {
       "__id__": 191

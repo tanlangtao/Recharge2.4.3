@@ -175,7 +175,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "f786c88b-4763-43f5-941b-bf07c5f65434"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -729,7 +729,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "8e581g/DNFKoYYG/CeO1S0G",
     "handler": "removeSelf",
     "customEventData": ""
   },
@@ -3021,7 +3021,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "8e581g/DNFKoYYG/CeO1S0G",
     "handler": "copyBankName",
     "customEventData": ""
   },
@@ -3355,7 +3355,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "8e581g/DNFKoYYG/CeO1S0G",
     "handler": "copyCard_num",
     "customEventData": ""
   },
@@ -3689,7 +3689,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "8e581g/DNFKoYYG/CeO1S0G",
     "handler": "copyCard_name",
     "customEventData": ""
   },
@@ -4023,7 +4023,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "bb7f8nT0zNNcofA/PLysT9o",
+    "_componentId": "8e581g/DNFKoYYG/CeO1S0G",
     "handler": "copyAmount",
     "customEventData": ""
   },
@@ -4486,7 +4486,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 750,
-      "height": 127.8
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4942,13 +4942,16 @@
     "_id": ""
   },
   {
-    "__type__": "bb7f8nT0zNNcofA/PLysT9o",
+    "__type__": "8e581g/DNFKoYYG/CeO1S0G",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
+    "popWindowBG": {
+      "__id__": 8
+    },
     "bank_nameLabel": {
       "__id__": 45
     },
@@ -4963,18 +4966,6 @@
     },
     "nickNameLabel": {
       "__id__": 68
-    },
-    "remarkLabel": {
-      "__id__": 61
-    },
-    "publicAlert": {
-      "__uuid__": "70c716e1-340b-4207-a04e-f11d431ff72a"
-    },
-    "popWindowBG": {
-      "__id__": 8
-    },
-    "btn": {
-      "__id__": 123
     },
     "attention": {
       "__id__": 119

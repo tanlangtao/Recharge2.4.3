@@ -1949,7 +1949,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "989d7342-c313-4a92-b4fb-49d901445503"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2086,7 +2086,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "989d7342-c313-4a92-b4fb-49d901445503"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2223,7 +2223,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "989d7342-c313-4a92-b4fb-49d901445503"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2360,7 +2360,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "989d7342-c313-4a92-b4fb-49d901445503"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2497,7 +2497,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "989d7342-c313-4a92-b4fb-49d901445503"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2634,7 +2634,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "989d7342-c313-4a92-b4fb-49d901445503"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2771,7 +2771,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
+      "__uuid__": "989d7342-c313-4a92-b4fb-49d901445503"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -2851,9 +2851,7 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "4059034f-57e7-4555-b2fb-ae8d25c5f119"
-    },
+    "_spriteFrame": null,
     "_type": 1,
     "_sizeMode": 0,
     "_fillType": 0,

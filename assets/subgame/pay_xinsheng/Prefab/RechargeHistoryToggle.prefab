@@ -290,7 +290,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 231,
-      "height": 146
+      "height": 145
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -601,7 +601,7 @@
       "__id__": 1
     },
     "component": "",
-    "_componentId": "53277AXl69DkKo5U6BJVjE2",
+    "_componentId": "f37bdezrVBNhoQ9EdsenHr7",
     "handler": "onClick",
     "customEventData": ""
   },
@@ -633,7 +633,7 @@
     "_id": ""
   },
   {
-    "__type__": "53277AXl69DkKo5U6BJVjE2",
+    "__type__": "f37bdezrVBNhoQ9EdsenHr7",
     "_name": "",
     "_objFlags": 0,
     "node": {
