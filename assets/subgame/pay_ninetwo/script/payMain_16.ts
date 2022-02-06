@@ -91,6 +91,9 @@ export default class NewClass extends cc.Component {
         this.loadBundlePrefab("Prefab/BeforePayOrderAlert",(Prefab)=>{
             if(Prefab){ this.BeforePayOrderAlert = Prefab }
         })
+        this.loadBundlePrefab("Prefab/ZfbWxAlert",(Prefab)=>{
+            if(Prefab){ this.ZfbWxAlert = Prefab }
+        })
     }
     /**
      * 全局提示框
