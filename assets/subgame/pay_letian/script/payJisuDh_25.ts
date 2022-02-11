@@ -195,6 +195,7 @@ export default class NewClass extends cc.Component {
         }
         let dataStr=`user_id=${this.app.UrlData.user_id}`
         let self = this;
+        self.app.showLoading()
         this.app.ajax('POST',url,dataStr,(response)=>{
             if(response.status == 0){
                 if(response.data.order.length > 0){
@@ -217,7 +218,9 @@ export default class NewClass extends cc.Component {
             }else{
                 self.app.showAlert(response.msg)
             }
+            self.app.hideLoading()
         },(errstatus)=>{
+            self.app.hideLoading()
             self.app.showAlert(`${Language_pay.Lg.ChangeByText('网络错误')}${errstatus}`)
         })
     }
