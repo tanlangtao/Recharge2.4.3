@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        258.9821906723496,
+        292.7165864791403,
         0,
         0,
         0,
@@ -1638,7 +1638,7 @@
   {
     "__type__": "cc.Node",
     "_name": "ToggleContainer",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 34
     },
@@ -2581,7 +2581,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "78b354eb-d32a-480c-b1f6-cb7a9da7acad"
+      "__uuid__": "b0ecee90-9d16-49de-85b5-d8d9a03dbffd"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -2685,7 +2685,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "78b354eb-d32a-480c-b1f6-cb7a9da7acad"
+      "__uuid__": "b0ecee90-9d16-49de-85b5-d8d9a03dbffd"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -2789,7 +2789,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "78b354eb-d32a-480c-b1f6-cb7a9da7acad"
+      "__uuid__": "b0ecee90-9d16-49de-85b5-d8d9a03dbffd"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
@@ -2893,7 +2893,7 @@
     "_playTimes": 0,
     "_isAniComplete": true,
     "_N$skeletonData": {
-      "__uuid__": "78b354eb-d32a-480c-b1f6-cb7a9da7acad"
+      "__uuid__": "b0ecee90-9d16-49de-85b5-d8d9a03dbffd"
     },
     "_N$_defaultCacheMode": 0,
     "_N$debugSlots": false,
