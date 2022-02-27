@@ -21,26 +21,26 @@
         "__id__": 2
       },
       {
-        "__id__": 66
+        "__id__": 65
       },
       {
-        "__id__": 69
+        "__id__": 68
       }
     ],
     "_active": true,
     "_components": [
       {
+        "__id__": 77
+      },
+      {
         "__id__": 78
       },
       {
         "__id__": 79
-      },
-      {
-        "__id__": 80
       }
     ],
     "_prefab": {
-      "__id__": 81
+      "__id__": 80
     },
     "_opacity": 255,
     "_color": {
@@ -113,14 +113,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 63
+        "__id__": 62
       },
       {
-        "__id__": 64
+        "__id__": 63
       }
     ],
     "_prefab": {
-      "__id__": 65
+      "__id__": 64
     },
     "_opacity": 255,
     "_color": {
@@ -1519,11 +1519,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 61
+        "__id__": 60
       }
     ],
     "_prefab": {
-      "__id__": 62
+      "__id__": 61
     },
     "_opacity": 255,
     "_color": {
@@ -1814,7 +1814,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 60
+      "__id__": 59
     },
     "_opacity": 255,
     "_color": {
@@ -2292,11 +2292,7 @@
     "_grayMaterial": null,
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [
-      {
-        "__id__": 59
-      }
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 0,
@@ -2351,16 +2347,6 @@
     "_N$disabledSprite": null,
     "_N$target": null,
     "_id": ""
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 1
-    },
-    "component": "",
-    "_componentId": "8e34ehc7PND9pYrjRo9oO0p",
-    "handler": "selectBankClick",
-    "customEventData": ""
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2492,11 +2478,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 67
+        "__id__": 66
       }
     ],
     "_prefab": {
-      "__id__": 68
+      "__id__": 67
     },
     "_opacity": 255,
     "_color": {
@@ -2550,7 +2536,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 66
+      "__id__": 65
     },
     "_enabled": true,
     "_materials": [
@@ -2598,23 +2584,23 @@
     },
     "_children": [
       {
-        "__id__": 70
+        "__id__": 69
       }
     ],
     "_active": true,
     "_components": [
       {
+        "__id__": 72
+      },
+      {
         "__id__": 73
       },
       {
-        "__id__": 74
-      },
-      {
-        "__id__": 76
+        "__id__": 75
       }
     ],
     "_prefab": {
-      "__id__": 77
+      "__id__": 76
     },
     "_opacity": 255,
     "_color": {
@@ -2668,17 +2654,17 @@
     "_name": "jiesuan",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 69
+      "__id__": 68
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 71
+        "__id__": 70
       }
     ],
     "_prefab": {
-      "__id__": 72
+      "__id__": 71
     },
     "_opacity": 255,
     "_color": {
@@ -2732,7 +2718,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 70
+      "__id__": 69
     },
     "_enabled": true,
     "_materials": [
@@ -2775,7 +2761,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 69
+      "__id__": 68
     },
     "_enabled": true,
     "_materials": [
@@ -2807,7 +2793,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 69
+      "__id__": 68
     },
     "_enabled": true,
     "_normalMaterial": {
@@ -2818,7 +2804,7 @@
     "zoomScale": 0.9,
     "clickEvents": [
       {
-        "__id__": 75
+        "__id__": 74
       }
     ],
     "_N$interactable": true,
@@ -2891,7 +2877,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 69
+      "__id__": 68
     },
     "_enabled": true,
     "alignMode": 1,
@@ -3045,7 +3031,7 @@
       "__uuid__": "66f67645-874b-4035-882b-b909257e7193"
     },
     "DhBtn": {
-      "__id__": 69
+      "__id__": 68
     },
     "data": {},
     "_id": ""
