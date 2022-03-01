@@ -47,31 +47,6 @@ export default class NewClass extends cc.Component {
                 this.node.getChildByName("tip1").active = true
             }
         }
-        if(this.channel == 'alipay' ){
-            this.app.loadIcon('recharge/icon_alipay2',this.normalIcon,30,30)
-            this.app.loadIcon('recharge/icon_alipay1',this.currentIcon,30,30)
-        }else if(this.channel == 'union_pay'){
-            this.app.loadIcon('recharge/icon_unionpay2',this.normalIcon,30,30)
-            this.app.loadIcon('recharge/icon_unionpay1',this.currentIcon,30,30)
-        }else if(this.channel == 'wechat_pay'){
-            this.app.loadIcon('recharge/icon_wxpay2',this.normalIcon,30,30)
-            this.app.loadIcon('recharge/icon_wxpay1',this.currentIcon,30,30)
-        }else if(this.channel == 'bankcard_transfer'){
-            this.app.loadIcon('recharge/icon_unionpay2',this.normalIcon,30,30)
-            this.app.loadIcon('recharge/icon_unionpay1',this.currentIcon,30,30)
-        }else if(this.channel == 'quick_pay'){
-            this.app.loadIcon('recharge/icon_unionpay2',this.normalIcon,30,30)
-            this.app.loadIcon('recharge/icon_unionpay1',this.currentIcon,30,30)
-        }else if(this.channel == 'bank_pay'){
-            this.app.loadIcon('recharge/icon_unionpay2',this.normalIcon,30,30)
-            this.app.loadIcon('recharge/icon_unionpay1',this.currentIcon,30,30)
-        }else if(this.channel =='im_pay'){
-            this.app.loadIcon('recharge/icon_im2',this.normalIcon,30,30)
-            this.app.loadIcon('recharge/icon_im1',this.currentIcon,30,30)
-        }else if(this.channel =='digiccy'){
-            this.app.loadIcon('recharge/icon_usdt2',this.normalIcon,30,30)
-            this.app.loadIcon('recharge/icon_usdt1',this.currentIcon,30,30)
-        }
     }
     onLoad () {
         this.app = cc.find('Canvas/Main').getComponent('payMain_29');
