@@ -387,15 +387,13 @@ export default class NewClass extends cc.Component {
                         node.getComponent("payBtnNum_29").init(e,this.addGold.bind(this))
                         this.neikuagn.addChild(node)
                     })
-                    //渠道16常用金额添加
-                    if(this.app.UrlData.package_id  == 16){
-                        this.node.getChildByName("cyje").removeAllChildren()
-                        arr.forEach((e)=>{
-                            var node = cc.instantiate(this.cyjeItem)
-                            node.getComponent("payCyjeItem_29").init(e,this.addGold.bind(this))
-                            this.node.getChildByName("cyje").addChild(node)
-                        })
-                    }
+                    //常用金额添加
+                    this.node.getChildByName("cyje").removeAllChildren()
+                    arr.forEach((e)=>{
+                        var node = cc.instantiate(this.cyjeItem)
+                        node.getComponent("payCyjeItem_29").init(e,this.addGold.bind(this))
+                        this.node.getChildByName("cyje").addChild(node)
+                    })
                 }else{
                     arr = []
                     if(is_first == 1){
@@ -411,15 +409,13 @@ export default class NewClass extends cc.Component {
                             node.getComponent("payBtnNum_29").init(e,this.addGold.bind(this))
                             this.neikuagn.addChild(node)
                         })
-                        //渠道16常用金额添加
-                        if(this.app.UrlData.package_id  == 16){
-                            this.node.getChildByName("cyje").removeAllChildren()
-                            arr.forEach((e)=>{
-                                var node = cc.instantiate(this.cyjeItem)
-                                node.getComponent("payCyjeItem_29").init(e,this.addGold.bind(this))
-                                this.node.getChildByName("cyje").addChild(node)
-                            })
-                        }
+                        //常用金额添加
+                        this.node.getChildByName("cyje").removeAllChildren()
+                        arr.forEach((e)=>{
+                            var node = cc.instantiate(this.cyjeItem)
+                            node.getComponent("payCyjeItem_29").init(e,this.addGold.bind(this))
+                            this.node.getChildByName("cyje").addChild(node)
+                        })
                     }else if(is_first == 0){
                         span_amount.forEach((e)=>{
                             if(Number(e)>= this.second_min && arr.indexOf(e)=== -1){
@@ -433,15 +429,13 @@ export default class NewClass extends cc.Component {
                             node.getComponent("payBtnNum_29").init(e,this.addGold.bind(this))
                             this.neikuagn.addChild(node)
                         })
-                        //渠道16常用金额添加
-                        if(this.app.UrlData.package_id  == 16){
-                            this.node.getChildByName("cyje").removeAllChildren()
-                            arr.forEach((e)=>{
-                                var node = cc.instantiate(this.cyjeItem)
-                                node.getComponent("payCyjeItem_29").init(e,this.addGold.bind(this))
-                                this.node.getChildByName("cyje").addChild(node)
-                            })
-                        }
+                        //常用金额添加
+                        this.node.getChildByName("cyje").removeAllChildren()
+                        arr.forEach((e)=>{
+                            var node = cc.instantiate(this.cyjeItem)
+                            node.getComponent("payCyjeItem_29").init(e,this.addGold.bind(this))
+                            this.node.getChildByName("cyje").addChild(node)
+                        })
                     }
                 }
             }
@@ -454,14 +448,12 @@ export default class NewClass extends cc.Component {
                 node.getComponent("payBtnNum_29").init(e,this.addGold.bind(this))
                 this.neikuagn.addChild(node)
             })
-            //渠道16常用金额添加
-            if(this.app.UrlData.package_id  == 16){
-                arr.forEach((e)=>{
-                    var node = cc.instantiate(this.cyjeItem)
-                    node.getComponent("payCyjeItem_29").init(e,this.addGold.bind(this))
-                    this.node.getChildByName("cyje").addChild(node)
-                })
-            }
+            //常用金额添加
+            arr.forEach((e)=>{
+                var node = cc.instantiate(this.cyjeItem)
+                node.getComponent("payCyjeItem_29").init(e,this.addGold.bind(this))
+                this.node.getChildByName("cyje").addChild(node)
+            })
             if(this.channel != 'bankcard_transfer' && this.channel != 'bank_pay'){
                 this.blinkNode.active = false
                 this.iconFont.children[1].active = false
