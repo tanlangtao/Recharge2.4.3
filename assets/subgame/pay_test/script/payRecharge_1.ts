@@ -61,18 +61,6 @@ export default class NewClass extends cc.Component {
         if(!this.canExit) return
         //按键音效
         this.app.loadMusic(1)
-        // let scree = this.app.gHandler.gameGlobal.pay.from_scene;
-        // this.app.gHandler.gameGlobal.pay.from_scene = "";
-        // if (scree == ""){
-        //     scree = "hall"
-        // }
-        // if(this.app.gHandler.subGameList['hbsl']&&this.app.gHandler.subGameList['zrsx1']&&this.app.gHandler.subGameList['zrsx1']){
-        //     if (scree == this.app.gHandler.subGameList['hbsl'].lanchscene
-        //         || scree == this.app.gHandler.subGameList['zrsx1'].lanchscene
-        //         || scree == this.app.gHandler.subGameList['pccp'].lanchscene) { //  真人视讯 红包扫雷 派彩 竖屏
-        //         this.app.gHandler.reflect && this.app.gHandler.reflect.setOrientation("portrait")
-        //     }
-        // }
         this.app.gHandler.eventMgr.dispatch(this.app.gHandler.eventMgr.showJumpScene,"hall")
     }
     //充值历史
@@ -85,6 +73,7 @@ export default class NewClass extends cc.Component {
         //检测是否已存在弹窗，避免重复显示
         if(!cc.find("Canvas/Recharge/RechargeHistory")){
             Recharge.addChild(node);
+            cc.systemEvent.emit("openRechargeHistory");
         }
     }
 
@@ -141,7 +130,8 @@ export default class NewClass extends cc.Component {
                 wechat_pay: 7,
                 union_pay: 8,
                 digiccy :9,
-                jisu_recharge:10
+                jisu_recharge:10,
+                jisu_rechargeIframe:15
             }
         }
         var sortArr = []
@@ -381,8 +371,27 @@ export default class NewClass extends cc.Component {
                     }
                     break
                 }
+                case "jisu_rechargeIframe":{
+                    if ( this.zfbResults.data.pq_payIframe.length > 0  ) {
+                        //先看大渠道是否显示
+                        let show = false
+                        this.zfbResults.data.pq_payIframe.forEach(e=>{
+                            let package_ids = e.package_ids.split(",")
+                            package_ids.forEach(e=>{
+                                if(Number(e) == this.app.UrlData.package_id){
+                                    show = true
+                                }
+                            })
+                        })
+                        if(show){
+                            arr.push('极速充值iframe')
+                        }
+                    }
+                    break
+                }
             }   
         });
+        
         for (let i: number = 0; i < arr.length; i++) {
             var node = cc.instantiate(this.NavToggle);
             this.ToggleContainer.addChild(node);
@@ -418,6 +427,8 @@ export default class NewClass extends cc.Component {
             node.getComponent('payNavToggle_1').addJisu()
         }else if(arr[0]=='匹配充值' && this.zfbResults.data.pipei_pay.length > 0  ){
             node.getComponent('payNavToggle_1').addJisu2()
+        }else if(arr[0]=='极速充值iframe' && this.zfbResults.data.pq_payIframe.length > 0  ){
+            node.getComponent('payNavToggle_1').addContent2("JisuIframe")
         }
     }
     //银商

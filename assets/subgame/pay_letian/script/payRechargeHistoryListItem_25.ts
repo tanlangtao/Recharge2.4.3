@@ -87,7 +87,9 @@ export default class NewClass extends cc.Component {
                                                     (data.type == 24?`TRC20`:
                                                         (data.type == 26?`极速充值`: 
                                                             (data.type == 27?`匹配充值`: 
-                                                                (data.type == 28?`极速充值2`: "")
+                                                                (data.type == 28?`极速充值2`: 
+                                                                    (data.type == 29?`极速充值I`: "")
+                                                                )
                                                             )
                                                         )
                                                     )

@@ -49,9 +49,11 @@ export default class NewClass extends cc.Component {
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "账户内互转");
                 }else if(this.text == '赠送记录'){
                     zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账记录");
+                }else if(this.text == '极速兑换Iframe'){
+                    zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "极速兑换");
                 }
             }
-        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18|| this.app.UrlData.package_id == 20 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 22){
+        }else if(this.app.UrlData.package_id == 15 || this.app.UrlData.package_id == 18|| this.app.UrlData.package_id == 20 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 22 || this.app.UrlData.package_id == 25){
             if(this.text == '支付宝兑换'){
                 this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "支付宝");
@@ -80,8 +82,11 @@ export default class NewClass extends cc.Component {
             }else if(this.text == '赠送记录'){
                 this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账记录");
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "转账记录");
+            }else if(this.text == '极速兑换Iframe'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "极速兑换");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "极速兑换");
             }
-        }else if(this.app.UrlData.package_id == 16){
+        }else if(this.app.UrlData.package_id == 16 || this.app.UrlData.package_id == 29){
             if(this.text == '银行卡兑换'){
                 this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡");
                 this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "银行卡");
@@ -131,6 +136,13 @@ export default class NewClass extends cc.Component {
                 let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
                 this.app.loadIcon(`${src}/menu/menu_zzjl_2`,normalIcon,44,44);
                 this.app.loadIcon(`${src}/menu/menu_zzjl_1`,currentIcon,44,44);
+            }else if(this.text == '极速兑换Iframe'){
+                this.normalIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "极速兑换");
+                this.currentIcon.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "极速兑换");
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/jisu2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/jisu1`,currentIcon,44,44);
             }else{
                 this.node.removeFromParent()
             }
@@ -162,6 +174,9 @@ export default class NewClass extends cc.Component {
             }else if(this.text == '赠送记录'){
                 this.app.loadIcon(`${src}/menu/menu_zzjl_1`,this.normalIcon,242,86)
                 this.app.loadIcon(`${src}/menu/menu_zzjl_2`,this.currentIcon,249,86)
+            }else if(this.text == '极速兑换Iframe'){
+                this.app.loadIcon(`${src}/menu/menu_jsdh_1`,this.normalIcon,242,86)
+                this.app.loadIcon(`${src}/menu/menu_jsdh_2`,this.currentIcon,249,86)
             }
         }
     }
@@ -181,7 +196,7 @@ export default class NewClass extends cc.Component {
     }
     
     showAnimate(){
-        if(this.app.UrlData.package_id == 16){
+        if(this.app.UrlData.package_id == 16 || this.app.UrlData.package_id == 29){
             this.node.parent.children.forEach(e=>{
                 let isChecked = e.getComponent(cc.Toggle).isChecked
                 if (isChecked){
@@ -219,6 +234,8 @@ export default class NewClass extends cc.Component {
             this.addContent("GiveDh")
         }else if(this.text == "赠送记录"){
             this.addContent("GiveDhHistory")
+        }else if(this.text == "极速兑换Iframe"){
+            this.addContent("JisuDhIframe")
         }
     }
     addContent(data,jisu = ""){

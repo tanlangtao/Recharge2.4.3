@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        258.9821906723496,
+        293.5826118829247,
         0,
         0,
         0,
@@ -376,7 +376,9 @@
     "keyBoardAlert": null,
     "PublicOrderAlert": null,
     "AlipayAccountAlert": null,
-    "BankAccountAlert": null,
+    "BankAccountAlert": {
+      "__uuid__": "05ab3e30-c134-4435-b4f2-71e07dcb5777"
+    },
     "BankTipAlert": null,
     "TipAlert": null,
     "UsdtAccountAlert": null,

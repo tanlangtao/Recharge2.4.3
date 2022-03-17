@@ -145,7 +145,35 @@ export default class NewClass extends cc.Component {
                 }
             });
             this.setTishiLabel(percent)
-        } 
+        } else if(this.text == "极速充值iframe"){
+            let percent = 0
+            if(this.app.UrlData.package_id == 9){
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "极速充值");  
+            }else if(this.app.UrlData.package_id == 15||this.app.UrlData.package_id == 20 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 22 || this.app.UrlData.package_id == 25){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "极速充值");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "极速充值");  
+            }else if(this.app.UrlData.package_id == 18){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "极速充值");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "极速充值"); 
+            }else if(this.app.UrlData.package_id == 16 || this.app.UrlData.package_id == 29){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "极速充值");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "极速充值"); 
+                let normalIcon = this.node.getChildByName("Background").getChildByName("icon")
+                let currentIcon = this.node.getChildByName("checkmark").getChildByName("icon")
+                this.app.loadIcon(`${src}/menu/jisu2`,normalIcon,44,44);
+                this.app.loadIcon(`${src}/menu/jisu1`,currentIcon,44,44);
+            }else
+            {
+                this.app.loadIcon(`${src}/menu/menu_jscz_1`,this.normalIcon,207,39);
+                this.app.loadIcon(`${src}/menu/menu_jscz_2`,this.currentIcon,249,86);
+            }
+            discount_rate.usdt.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
+            this.setTishiLabel(percent)
+        }
     }
     setTishiLabel(percent) {
         this.tishiLabel.string = `${percent * 100} %`;
@@ -205,9 +233,20 @@ export default class NewClass extends cc.Component {
             this.addJisu("极速充值2")
         }else if(this.text == '匹配充值'){
             this.addJisu2()
+        }else if(this.text == "极速充值iframe"){
+            this.addContent2("JisuIframe")
         }
     }
-
+    addContent2(data){
+        var content = cc.find('Canvas/Recharge/Content');
+        this.app.loadBundlePrefab(`Prefab/${data}`,(Prefab)=>{
+            if(Prefab){ 
+                var node = cc.instantiate(Prefab);
+                content.removeAllChildren();
+                content.addChild(node);
+            }
+        })
+    }
     addContent(data){
         var content = cc.find('Canvas/Recharge/Content');
         var node = cc.instantiate(this.Zfb);

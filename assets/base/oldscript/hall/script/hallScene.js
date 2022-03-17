@@ -2647,7 +2647,7 @@ cc.Class({
             if(hqq.app.pinpai === "xinlong"){
                 payStr = "pay_xinsheng";
             }
-            payStr = "pay_ninethree"
+            payStr = "pay_xinsheng"
             cc.assetManager.loadBundle(payStr, (err)=> {
                 if (err) {
                     return cc.log('load subpackage script fail.', payStr + "_" + hqq.app.pinpai);

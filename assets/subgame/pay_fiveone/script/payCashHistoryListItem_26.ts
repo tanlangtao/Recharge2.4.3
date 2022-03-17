@@ -45,7 +45,9 @@ export default class NewClass extends cc.Component {
                             :( data.type == 6 ?"USDT兑换":
                                 ( data.type == 8 ?"极速兑换":
                                     ( data.type == 9 ?"匹配兑换":
-                                        ( data.type == 10 ?"极速兑换":''
+                                        ( data.type == 10 ?"极速兑换":
+                                            ( data.type == 11 ?"极速兑换I":''
+                                        )
                                     )
                                 ) ))))));
         this.amountLabel.string = this.app.config.toDecimal(data.amount);

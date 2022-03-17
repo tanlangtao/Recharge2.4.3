@@ -178,6 +178,18 @@ export default class payCash extends cc.Component {
                 })
             }
         }
+        if(this.results.data.withDraw_info.jisu_withdraw_iframe){
+            if(this.results.data.withDraw_info.jisu_withdraw_iframe.is_close > 0){
+                //分渠道开关
+                let package_ids = this.results.data.withDraw_info.jisu_withdraw2.package_ids
+                let package_idsArr = package_ids.split(",")
+                package_idsArr.forEach(e=>{
+                   if( Number(e) == this.app.UrlData.package_id){
+                    arr.push('极速兑换Iframe')
+                   }
+                })
+            }
+        }
         if(arr.length>0){
             //有兑换渠道时才显示兑换记录
             arr.push('兑换记录')
@@ -204,6 +216,10 @@ export default class payCash extends cc.Component {
             this.ToggleContainer.children[0].getComponent('payDhToggle_1').addContent('JisuDh')
         }else if(arr[0] == "匹配兑换"){
             this.ToggleContainer.children[0].getComponent('payDhToggle_1').addContent('PipeiDh')
+        }else if(arr[0] == "极速兑换Iframe"){
+            this.ToggleContainer.children[0].getComponent('payDhToggle_1').addContent('JisuDhIframe')
+        }else if(arr[0] == "极速兑换Iframe"){
+            this.ToggleContainer.children[0].getComponent('payDhToggle_1').addContent('JisuDhIframe')
         }
     }
     onDestroy(){
