@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        293.5826118829247,
+        292.7165864791403,
         0,
         0,
         0,
@@ -1107,8 +1107,8 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 33,
-    "_left": 0,
+    "_alignFlags": 1,
+    "_left": 253,
     "_right": 21,
     "_top": 85,
     "_bottom": 0,
@@ -1120,7 +1120,7 @@
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
-    "_originalWidth": 0,
+    "_originalWidth": 1060,
     "_originalHeight": 0,
     "_id": "a45Zf3xyZP97tWW5/9gOX7"
   },

@@ -53,6 +53,13 @@ export default class NewClass extends cc.Component {
                     }
                 }
                 var listArr = response.data.list;
+                // 测试数据
+                // for (let index = 0; index < 8; index++) {
+                //     listArr.push({
+                //         type:1,amount:20,handling_fee:1,replace_handling_fee:2,arrival_amount:200,status:2,
+                //         created_at:"11",arrival_at:"22",user_remark:"ee"
+                //     })
+                // }
                 for(var i = 0; i < listArr.length; i++){
                     var data = listArr[i];
                     var node = cc.instantiate(self.ListItem);

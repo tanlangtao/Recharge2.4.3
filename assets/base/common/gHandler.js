@@ -1458,7 +1458,7 @@ let gHandler = {
         "cash": {
             zhname: "提现", // 中文名
             enname: "cash", // 英文名 （子游戏文件路径，更新子路径）
-            lanchscene: "payCash8", // 跳转场景名
+            lanchscene: "payCash25", // 跳转场景名
         },
         "im": {
             zhname: "聊天", // 中文名
