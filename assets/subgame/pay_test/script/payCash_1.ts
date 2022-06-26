@@ -190,6 +190,7 @@ export default class payCash extends cc.Component {
                 })
             }
         }
+        
         if(arr.length>0){
             //有兑换渠道时才显示兑换记录
             arr.push('兑换记录')

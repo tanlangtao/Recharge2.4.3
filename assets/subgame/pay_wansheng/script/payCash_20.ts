@@ -190,6 +190,30 @@ export default class payCash extends cc.Component {
                 })
             }
         }
+        if(this.results.data.withDraw_info.dai_withdraw_alipay){
+            if(this.results.data.withDraw_info.dai_withdraw_alipay.is_close > 0){
+                //分渠道开关
+                let package_ids = this.results.data.withDraw_info.dai_withdraw_alipay.package_ids
+                let package_idsArr = package_ids.split(",")
+                package_idsArr.forEach(e=>{
+                   if( Number(e) == this.app.UrlData.package_id){
+                    arr.push('代付支付宝兑换')
+                   }
+                })
+            }
+        }
+        if(this.results.data.withDraw_info.dai_withdraw_bankcard){
+            if(this.results.data.withDraw_info.dai_withdraw_bankcard.is_close > 0){
+                //分渠道开关
+                let package_ids = this.results.data.withDraw_info.dai_withdraw_bankcard.package_ids
+                let package_idsArr = package_ids.split(",")
+                package_idsArr.forEach(e=>{
+                   if( Number(e) == this.app.UrlData.package_id){
+                    arr.push('代付银行卡兑换')
+                   }
+                })
+            }
+        }
         if(arr.length>0){
             //有兑换渠道时才显示兑换记录
             arr.push('兑换记录')
@@ -218,6 +242,10 @@ export default class payCash extends cc.Component {
             this.ToggleContainer.children[0].getComponent('payDhToggle_20').addContent('PipeiDh')
         }else if(arr[0] == "极速兑换Iframe"){
             this.ToggleContainer.children[0].getComponent('payDhToggle_20').addContent('JisuDhIframe')
+        }else if(arr[0] == "代付支付宝兑换"){
+            this.ToggleContainer.children[0].getComponent('payDhToggle_20').addContent('AlipayDh')
+        }else if(arr[0] == "代付银行卡兑换"){
+            this.ToggleContainer.children[0].getComponent('payDhToggle_20').addContent('BankDhDaiFu')
         }
     }
     onDestroy(){

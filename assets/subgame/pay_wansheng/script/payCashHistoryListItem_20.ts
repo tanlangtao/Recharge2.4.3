@@ -46,7 +46,11 @@ export default class NewClass extends cc.Component {
                                 ( data.type == 8 ?"极速兑换":
                                     ( data.type == 9 ?"匹配兑换":
                                         ( data.type == 10 ?"极速兑换":
-                                            ( data.type == 11 ?"极速兑换I":''
+                                            ( data.type == 11 ?"极速兑换I":
+                                                ( data.type == 12 && data.results.order_type == 16 ?"支付宝":
+                                                    ( data.type == 12 && data.results.order_type == 17 ?"银行卡":''
+                                                )
+                                            )
                                         )
                                     )
                                 ) ))))));
@@ -72,12 +76,8 @@ export default class NewClass extends cc.Component {
             this.statusLabel.string  = '已成功'
         }else if(data.status == 5){
             this.statusLabel.string  = '已失败'
-        }else if(data.status == 3){
-            this.statusLabel.string  = '等待匹配'
-        }else if(data.status == 7){
-            this.statusLabel.string  = '匹配成功'
         }else{
-            this.statusLabel.string  = '审核中'
+            this.statusLabel.string  = '待审核'
         }
         this.created_atLabel.string = this.app.config.getTime(data.created_at);
         this.arrival_atLabel.string = data.arrival_at == 0 ? '无' : this.app.config.getTime(data.arrival_at);

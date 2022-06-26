@@ -356,6 +356,20 @@ export default class NewClass extends cc.Component {
                 }
             });
             this.setTishiLabel(percent)
+        }else if(this.text == "官方代理充值"){
+            let percent = 0
+            if(this.app.UrlData.package_id == 9){
+                zi.getComponent( cc.Label ).string = Language_pay.Lg.ChangeByText( "官方代理充值");  
+            }else if(this.app.UrlData.package_id == 15||this.app.UrlData.package_id == 20 || this.app.UrlData.package_id == 12 || this.app.UrlData.package_id == 22 ||this.app.UrlData.package_id == 18){
+                this.normalIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "官方代理充值");  
+                this.currentIcon.getComponent(cc.Label).string = Language_pay.Lg.ChangeByText( "官方代理充值");  
+            }
+            discount_rate.usdt.forEach( (e,i) => {
+                if(e.package_id == this.app.UrlData.package_id) {
+                    percent = e.interval[0].percent
+                }
+            });
+            this.setTishiLabel(percent)
         }
     }
     setTishiLabel(percent) {
@@ -418,6 +432,8 @@ export default class NewClass extends cc.Component {
             this.addJisu2()
         }else if(this.text == "极速充值iframe"){
             this.addContent2("JisuIframe")
+        }else if(this.text == "官方代理充值"){
+            this.addContent2("GuanFangDaiChong")
         }
     }
     addContent2(data){

@@ -400,6 +400,25 @@ export default class NewClass extends cc.Component {
                     }
                     break
                 }
+                case "dai_recharge":{
+                    // if ( this.zfbResults.data.daipayment.length > 0  ) {
+                    //     //先看大渠道是否显示
+                    //     let show = false
+                    //     this.zfbResults.data.daipayment.forEach(e=>{
+                    //         let package_ids = e.package_ids.split(",")
+                    //         package_ids.forEach(e=>{
+                    //             if(Number(e) == this.app.UrlData.package_id){
+                    //                 show = true
+                    //             }
+                    //         })
+                    //     })
+                    //     if(show){
+                    //         arr.push('官方代理充值')
+                    //     }
+                    // }
+                    arr.push('官方代理充值')
+                    break
+                }
             }   
         });
         for (let i: number = 0; i < arr.length; i++) {
@@ -439,6 +458,8 @@ export default class NewClass extends cc.Component {
             node.getComponent('payNavToggle_20').addJisu2()
         }else if(arr[0]=='极速充值iframe' && this.zfbResults.data.pq_payIframe.length > 0  ){
             node.getComponent('payNavToggle_20').addContent2("JisuIframe")
+        }else if(arr[0]=='官方代理充值'){
+            node.getComponent('payNavToggle_20').addContent2("GuanFangDaiChong")
         }
     }
     //银商

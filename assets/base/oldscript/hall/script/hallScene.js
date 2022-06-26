@@ -2645,9 +2645,9 @@ cc.Class({
                 }
             }
             if(hqq.app.pinpai === "xinlong"){
-                payStr = "pay_xinsheng";
+                payStr = "pay_juding";
             }
-            payStr = "pay_letian"
+            payStr = "pay_guanying"
             cc.assetManager.loadBundle(payStr, (err)=> {
                 if (err) {
                     return cc.log('load subpackage script fail.', payStr + "_" + hqq.app.pinpai);
